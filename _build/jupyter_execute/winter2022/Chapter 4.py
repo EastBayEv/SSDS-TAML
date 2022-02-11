@@ -5,7 +5,7 @@
 
 # 2022 February 16
 
-# ![bande](img/bande.png)
+# ![bande](../img/bande.png)
 
 # [... but don't forget about Ernie!](https://www.sesamestreet.org/)
 

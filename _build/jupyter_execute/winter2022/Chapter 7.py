@@ -5,7 +5,7 @@
 # 
 # Attend the below CIDR workshops and learn to put the basics together in more efficient and processual ways that will supercharge your text analysis and machine learning!
 
-# ![robot](img/robot.png)
+# ![robot](../img/robot.png)
 
 # [Raúl Arrabales Moreno - Conscious-Robots Reloaded!](https://www.conscious-robots.com/2016/01/05/conscious-robots-reloaded/)
 

@@ -41,7 +41,7 @@ warnings.filterwarnings("ignore", category = DeprecationWarning)
 #     * Numeric values indicate that a particular feature is found in a document that number of times.
 #     * A 0 indicates that the feature is _not_ found in that document. 
 # 
-# ![dtm](img/dtm.png)
+# ![dtm](../img/dtm.png)
 # 
 # [modified from "The Effects of Feature Scaling: From Bag-of-Words to Tf-Idf"](https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/ch04.html)
 
@@ -51,21 +51,21 @@ warnings.filterwarnings("ignore", category = DeprecationWarning)
 # * A value closer to 1 indicate that a feature is more relevant to a particular document.
 # * A value closer to 0 indicates that that feature is less/not relevant to that document.
 # 
-# ![tf1](img/tf1.png)
+# ![tf1](../img/tf1.png)
 # 
 # [Wikipedia](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
 # 
-# ![tf2](img/tf2.png)
+# ![tf2](../img/tf2.png)
 # 
 # [towardsdatascience](https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558)
 
 # * **Topic modeling:** 
 # 
-# ![topic](img/topic.png)
+# ![topic](../img/topic.png)
 # 
 # [Wikipedia](https://en.wikipedia.org/wiki/Topic_model)
 
-# ![unhrc](img/unhrc.jpg)
+# ![unhrc](../img/unhrc.jpg)
 # 
 # ## Corpus definition: United Nations Human Rights Council Documentation
 # 
@@ -351,7 +351,7 @@ country.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 # ## Topic modeling
 # 
-# ![tsvd](img/tsvd.png)
+# ![tsvd](../img/tsvd.png)
 # 
 # [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2021/06/part-16-step-by-step-guide-to-master-nlp-topic-modelling-using-lsa/)
 
@@ -409,7 +409,7 @@ topics(tsvd, tf_features, 20)
 # 
 # Sentiment analysis is the contextual mining of text data that elicits abstract information in source materials to determine if data are positive, negative, or neutral. 
 
-# ![sa](img/sa.jpg)
+# ![sa](../img/sa.jpg)
 # 
 # [Repustate](https://www.repustate.com/blog/sentiment-analysis-challenges-with-solutions/)
 
@@ -562,6 +562,14 @@ my_review = 'I hated this movie, even though my friend loved it'
 my_features = tfidf.transform([my_review])
 model.predict(my_features)
 
+
+# ### Going further: Anchored topic modeling
+# 
+# "Correlation Explanation (CorEx) is a topic model that yields rich topics that are maximally informative about a set of documents. The advantage of using CorEx versus other topic models is that it can be easily run as an unsupervised, semi-supervised, or hierarchical topic model depending on a user's needs. For semi-supervision, CorEx allows a user to integrate their domain knowledge via "anchor words." This integration is flexible and allows the user to guide the topic model in the direction of those words. This allows for creative strategies that promote topic representation, separability, and aspects. More generally, this implementation of CorEx is good for clustering any sparse binary data."
+# 
+# Visit the GitHub repo: https://github.com/gregversteeg/corex_topic
+# 
+# Read the paper: Gallagher, R. J., Reing, K., Kale, D., and Ver Steeg, G. ["Anchored Correlation Explanation: Topic Modeling with Minimal Domain Knowledge."](https://transacl.org/ojs/index.php/tacl/article/view/1244) Transactions of the Association for Computational Linguistics (TACL), 2017.
 
 # ## Quiz - 20 newsgroups dataset
 # 

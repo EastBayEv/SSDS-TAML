@@ -468,6 +468,11 @@
      Top 25 features for positive and negative reviews
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#going-further-anchored-topic-modeling">
+     Going further: Anchored topic modeling
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -531,7 +536,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="dtm" src="winter2022/img/dtm.png" /></p>
+<p><img alt="dtm" src="../_images/dtm.png" /></p>
 <p><a class="reference external" href="https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/ch04.html">modified from “The Effects of Feature Scaling: From Bag-of-Words to Tf-Idf”</a></p>
 <ul class="simple">
 <li><p><strong>TF-IDF:</strong> Term frequency–inverse document frequency; a weighted numerical statistic that indicates the uniqueness of a word is in a given document or corpus.</p></li>
@@ -541,16 +546,16 @@
 <li><p>A value closer to 1 indicate that a feature is more relevant to a particular document.</p></li>
 <li><p>A value closer to 0 indicates that that feature is less/not relevant to that document.</p></li>
 </ul>
-<p><img alt="tf1" src="winter2022/img/tf1.png" /></p>
+<p><img alt="tf1" src="../_images/tf1.png" /></p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">Wikipedia</a></p>
-<p><img alt="tf2" src="winter2022/img/tf2.png" /></p>
+<p><img alt="tf2" src="../_images/tf2.png" /></p>
 <p><a class="reference external" href="https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558">towardsdatascience</a></p>
 <ul class="simple">
 <li><p><strong>Topic modeling:</strong></p></li>
 </ul>
-<p><img alt="topic" src="winter2022/img/topic.png" /></p>
+<p><img alt="topic" src="../_images/topic.png" /></p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Topic_model">Wikipedia</a></p>
-<p><img alt="unhrc" src="winter2022/img/unhrc.jpg" /></p>
+<p><img alt="unhrc" src="../_images/unhrc.jpg" /></p>
 </div>
 <div class="section" id="corpus-definition-united-nations-human-rights-council-documentation">
 <h2>Corpus definition: United Nations Human Rights Council Documentation<a class="headerlink" href="#corpus-definition-united-nations-human-rights-council-documentation" title="Permalink to this headline">¶</a></h2>
@@ -2076,7 +2081,7 @@ dtype: float64
 </div>
 <div class="section" id="topic-modeling">
 <h2>Topic modeling<a class="headerlink" href="#topic-modeling" title="Permalink to this headline">¶</a></h2>
-<p><img alt="tsvd" src="winter2022/img/tsvd.png" /></p>
+<p><img alt="tsvd" src="../_images/tsvd.png" /></p>
 <p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2021/06/part-16-step-by-step-guide-to-master-nlp-topic-modelling-using-lsa/">Analytics Vidhya</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2167,7 +2172,7 @@ monaco jordan tuvalu jordanian press publications publications monegasque syrian
 <div class="section" id="sentiment-analysis">
 <h2>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">¶</a></h2>
 <p>Sentiment analysis is the contextual mining of text data that elicits abstract information in source materials to determine if data are positive, negative, or neutral.</p>
-<p><img alt="sa" src="winter2022/img/sa.jpg" /></p>
+<p><img alt="sa" src="../_images/sa.jpg" /></p>
 <p><a class="reference external" href="https://www.repustate.com/blog/sentiment-analysis-challenges-with-solutions/">Repustate</a></p>
 <div class="section" id="download-the-nltk-built-in-movie-reviews-dataset">
 <h3>Download the nltk built-in movie reviews dataset<a class="headerlink" href="#download-the-nltk-built-in-movie-reviews-dataset" title="Permalink to this headline">¶</a></h3>
@@ -2447,6 +2452,12 @@ Top features for negative reviews:
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="going-further-anchored-topic-modeling">
+<h3>Going further: Anchored topic modeling<a class="headerlink" href="#going-further-anchored-topic-modeling" title="Permalink to this headline">¶</a></h3>
+<p>“Correlation Explanation (CorEx) is a topic model that yields rich topics that are maximally informative about a set of documents. The advantage of using CorEx versus other topic models is that it can be easily run as an unsupervised, semi-supervised, or hierarchical topic model depending on a user’s needs. For semi-supervision, CorEx allows a user to integrate their domain knowledge via “anchor words.” This integration is flexible and allows the user to guide the topic model in the direction of those words. This allows for creative strategies that promote topic representation, separability, and aspects. More generally, this implementation of CorEx is good for clustering any sparse binary data.”</p>
+<p>Visit the GitHub repo: <a class="reference external" href="https://github.com/gregversteeg/corex_topic">https://github.com/gregversteeg/corex_topic</a></p>
+<p>Read the paper: Gallagher, R. J., Reing, K., Kale, D., and Ver Steeg, G. <a class="reference external" href="https://transacl.org/ojs/index.php/tacl/article/view/1244">“Anchored Correlation Explanation: Topic Modeling with Minimal Domain Knowledge.”</a> Transactions of the Association for Computational Linguistics (TACL), 2017.</p>
 </div>
 </div>
 <div class="section" id="quiz-20-newsgroups-dataset">
