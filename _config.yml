@@ -2,8 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Text Analysis and Machine Learning (TAML) Group
-author: Stanford Libraries Software and Services for Data Science
-copyright: 2021-2022
+author: Stanford Libraries Software and Services for Data Science (SSDS)
+copyright: "2021-2022"
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
