@@ -1,0 +1,1453 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v. Visualization essentials &#8212; Text Analysis and Machine Learning (TAML) Group</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 1 - English text preprocessing basics" href="../winter2022/Chapter%201.html" />
+    <link rel="prev" title="iv. Numeric data wrangling" href="wrangle.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Text Analysis and Machine Learning (TAML) Group</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to TAML!
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="how_to.html">
+   i. How to use this book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start.html">
+   ii. Start coding!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boiler.html">
+   iii. Boilerplate code review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="wrangle.html">
+   iv. Numeric data wrangling
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   v. Visualization essentials
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Winter Quarter 2022
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../winter2022/Chapter%201.html">
+   Chapter 1 - English text preprocessing basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../winter2022/Chapter%202.html">
+   Chapter 2 - Core machine learning concepts; building text vocabularies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../winter2022/Chapter%203.html">
+   Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../winter2022/Chapter%204.html">
+   Chapter 4 - The BERT algorithm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../winter2022/Chapter%205.html">
+   Chapter 5 - Ensemble machine learning, deep learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../winter2022/Chapter%206.html">
+   Chapter 6 - Writing about numeric data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../winter2022/Chapter%207.html">
+   Chapter 7 - Combine the basics in powerful ways!
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/front/viz.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/EastBayEv/SSDS-TAML"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Ffront/viz.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/front/viz.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-with-seaborn">
+   Plotting with seaborn
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#first-a-note-about-matplotlib">
+     First, a note about matplotlib
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualization-best-practices">
+   Visualization best practices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-statistics-pandas-review">
+   Summary statistics - pandas review
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#all-columns">
+     All columns
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-column">
+     One column
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiple-columns">
+     Multiple columns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-plots">
+   Basic plots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#histogram">
+   Histogram
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boxplot">
+   Boxplot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scatterplot">
+   Scatterplot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quiz-penguins-dataset">
+   Quiz - Penguins dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#map-of-antarctica">
+     Map of Antarctica
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quiz-gapminder-dataset">
+   Quiz - Gapminder dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#things-you-are-probably-wrong-about">
+     Things you are probably wrong about!
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="v-visualization-essentials">
+<h1>v. Visualization essentials<a class="headerlink" href="#v-visualization-essentials" title="Permalink to this headline">¶</a></h1>
+<p><img alt="viz" src="front/img/viz.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># make sure plots show in the notebook</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>After importing data, you should examine it closely.</p>
+<ol class="simple">
+<li><p>Look at the raw data ans perform rough checks of your assumptions</p></li>
+<li><p>Compute summary statistics</p></li>
+<li><p>Produce visualizations to illustrate obvious - or not so obvious - trends in the data</p></li>
+</ol>
+<div class="section" id="plotting-with-seaborn">
+<h2>Plotting with seaborn<a class="headerlink" href="#plotting-with-seaborn" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="first-a-note-about-matplotlib">
+<h3>First, a note about matplotlib<a class="headerlink" href="#first-a-note-about-matplotlib" title="Permalink to this headline">¶</a></h3>
+<p>There are many different ways to visualize data in Python but they virtually all rely on matplotlib. You should take some time to read through the tutorial: <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html">https://matplotlib.org/stable/tutorials/introductory/pyplot.html</a>.</p>
+<p>Because many other libraries depend on matplotlib under the hood, you should familiarize yourself with the basics. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;some numbers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x-axis label&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/viz_5_0.png" src="../_images/viz_5_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualization-best-practices">
+<h2>Visualization best practices<a class="headerlink" href="#visualization-best-practices" title="Permalink to this headline">¶</a></h2>
+<p>Consult Wilke’s <em>Fundamentals of Data Visualization</em> <a class="reference external" href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a> for discussions of theory and best practices.</p>
+<p>The <strong>goal of data visualization</strong> is to accurately communicate <em>something</em> about the data. This could be an amount, a distribution, relationship, predictions, or the results of sorted data.</p>
+<p>Utilize characteristics of different data types to manipulate the aesthetics of plot axes and coordinate systems, color scales and gradients, and formatting and arrangements to impress your audience!</p>
+<p><img alt="wilke" src="front/img/wilke.png" /></p>
+<p><img alt="wilke12" src="front/img/wilke12.png" /></p>
+</div>
+<div class="section" id="summary-statistics-pandas-review">
+<h2>Summary statistics - pandas review<a class="headerlink" href="#summary-statistics-pandas-review" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the Gapminder dataset</span>
+<span class="n">gap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/gapminder-FiveYearData.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># load the Gapminder dataset</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">gap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/gapminder-FiveYearData.csv&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py:610,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">605</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">606</span>     <span class="n">dialect</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">610</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py:462,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">461</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">462</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">465</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py:819,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">816</span> <span class="k">if</span> <span class="s2">&quot;has_index_names&quot;</span> <span class="ow">in</span> <span class="n">kwds</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">817</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">819</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py:1050,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1046</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1047</span>         <span class="sa">f</span><span class="s2">&quot;Unknown engine: </span><span class="si">{</span><span class="n">engine</span><span class="si">}</span><span class="s2"> (valid options are </span><span class="si">{</span><span class="n">mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span> <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1050</span> <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py:1867,</span> in <span class="ni">CParserWrapper.__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1864</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">   </span><span class="mi">1866</span> <span class="c1"># open handles</span>
+<span class="ne">-&gt; </span><span class="mi">1867</span> <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1868</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1869</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="s2">&quot;compression&quot;</span><span class="p">):</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py:1362,</span> in <span class="ni">ParserBase._open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1358</span> <span class="k">def</span> <span class="nf">_open_handles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span> <span class="n">FilePathOrBuffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1359</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1360</span><span class="sd">     Let the readers open IOHanldes after they are done with their potential raises.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1361</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1362</span>     <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1363</span>         <span class="n">src</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1364</span>         <span class="s2">&quot;r&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1365</span>         <span class="n">encoding</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1366</span>         <span class="n">compression</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1367</span>         <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1368</span>         <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1369</span>     <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/common.py:642,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span>         <span class="n">errors</span> <span class="o">=</span> <span class="s2">&quot;replace&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">641</span>     <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">642</span>     <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span>         <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span>         <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span>         <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">646</span>         <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">647</span>         <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span>     <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span>     <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;data/gapminder-FiveYearData.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view column names of Gapminder data</span>
+<span class="n">gap</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;country&#39;, &#39;year&#39;, &#39;pop&#39;, &#39;continent&#39;, &#39;lifeExp&#39;, &#39;gdpPercap&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="all-columns">
+<h3>All columns<a class="headerlink" href="#all-columns" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean of all variables except country</span>
+<span class="n">gap</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;continent&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>pop</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+    <tr>
+      <th>continent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>1979.5</td>
+      <td>9.916003e+06</td>
+      <td>48.865330</td>
+      <td>2193.754578</td>
+    </tr>
+    <tr>
+      <th>Americas</th>
+      <td>1979.5</td>
+      <td>2.450479e+07</td>
+      <td>64.658737</td>
+      <td>7136.110356</td>
+    </tr>
+    <tr>
+      <th>Asia</th>
+      <td>1979.5</td>
+      <td>7.703872e+07</td>
+      <td>60.064903</td>
+      <td>7902.150428</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>1979.5</td>
+      <td>1.716976e+07</td>
+      <td>71.903686</td>
+      <td>14469.475533</td>
+    </tr>
+    <tr>
+      <th>Oceania</th>
+      <td>1979.5</td>
+      <td>8.874672e+06</td>
+      <td>74.326208</td>
+      <td>18621.609223</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="one-column">
+<h3>One column<a class="headerlink" href="#one-column" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mean life expectancy for each continent</span>
+<span class="n">gap</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;continent&#39;</span><span class="p">)[</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>continent
+Africa      48.865330
+Americas    64.658737
+Asia        60.064903
+Europe      71.903686
+Oceania     74.326208
+Name: lifeExp, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="multiple-columns">
+<h3>Multiple columns<a class="headerlink" href="#multiple-columns" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mean lifeExp and gdpPercap for each continent</span>
+<span class="n">le_table</span> <span class="o">=</span> <span class="n">gap</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;continent&#39;</span><span class="p">)[[</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span> <span class="s2">&quot;gdpPercap&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">le_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+    <tr>
+      <th>continent</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>48.865330</td>
+      <td>2193.754578</td>
+    </tr>
+    <tr>
+      <th>Americas</th>
+      <td>64.658737</td>
+      <td>7136.110356</td>
+    </tr>
+    <tr>
+      <th>Asia</th>
+      <td>60.064903</td>
+      <td>7902.150428</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>71.903686</td>
+      <td>14469.475533</td>
+    </tr>
+    <tr>
+      <th>Oceania</th>
+      <td>74.326208</td>
+      <td>18621.609223</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="basic-plots">
+<h2>Basic plots<a class="headerlink" href="#basic-plots" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Histogram: visualize distribution of one continuous (i.e., integer or float) variable.</p></li>
+<li><p>Boxplot: visualize the distribution of one continuous variable.</p></li>
+<li><p>Scatterplot: visualize the relationship between two continuous variables.</p></li>
+</ol>
+</div>
+<div class="section" id="histogram">
+<h2>Histogram<a class="headerlink" href="#histogram" title="Permalink to this headline">¶</a></h2>
+<p>Use a histogram to plot the distribution of one continuous (i.e., integer or float) variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># all data</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gap</span><span class="p">,</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;lifeExp&#39;</span><span class="p">);</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/viz_19_0.png" src="../_images/viz_19_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># by continent</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gap</span><span class="p">,</span> 
+            <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;lifeExp&#39;</span><span class="p">,</span> 
+            <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;continent&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/viz_20_0.png" src="../_images/viz_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="boxplot">
+<h2>Boxplot<a class="headerlink" href="#boxplot" title="Permalink to this headline">¶</a></h2>
+<p>Boxplots can be used to visualize one distribution as well, and illustrate different aspects of the table of summary statistics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># summary statistics</span>
+<span class="n">gap</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>pop</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1704.00000</td>
+      <td>1.704000e+03</td>
+      <td>1704.000000</td>
+      <td>1704.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1979.50000</td>
+      <td>2.960121e+07</td>
+      <td>59.474439</td>
+      <td>7215.327081</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>17.26533</td>
+      <td>1.061579e+08</td>
+      <td>12.917107</td>
+      <td>9857.454543</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1952.00000</td>
+      <td>6.001100e+04</td>
+      <td>23.599000</td>
+      <td>241.165876</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1965.75000</td>
+      <td>2.793664e+06</td>
+      <td>48.198000</td>
+      <td>1202.060309</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1979.50000</td>
+      <td>7.023596e+06</td>
+      <td>60.712500</td>
+      <td>3531.846988</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1993.25000</td>
+      <td>1.958522e+07</td>
+      <td>70.845500</td>
+      <td>9325.462346</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2007.00000</td>
+      <td>1.318683e+09</td>
+      <td>82.603000</td>
+      <td>113523.132900</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># all data</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gap</span><span class="p">,</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;lifeExp&#39;</span><span class="p">,</span> 
+            <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;lifeExp&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/viz_23_1.png" src="../_images/viz_23_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gap</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;continent&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+    <tr>
+      <th>continent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>624</td>
+      <td>624</td>
+      <td>624</td>
+      <td>624</td>
+      <td>624</td>
+    </tr>
+    <tr>
+      <th>Americas</th>
+      <td>300</td>
+      <td>300</td>
+      <td>300</td>
+      <td>300</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <th>Asia</th>
+      <td>396</td>
+      <td>396</td>
+      <td>396</td>
+      <td>396</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>360</td>
+      <td>360</td>
+      <td>360</td>
+      <td>360</td>
+      <td>360</td>
+    </tr>
+    <tr>
+      <th>Oceania</th>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># by continent</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gap</span><span class="p">,</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;continent&#39;</span><span class="p">,</span> 
+            <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;lifeExp&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Boxplots&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/viz_25_0.png" src="../_images/viz_25_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># custom colors</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gap</span><span class="p">,</span> 
+            <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;continent&#39;</span><span class="p">,</span> 
+            <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;lifeExp&#39;</span><span class="p">,</span> 
+            <span class="n">palette</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="s1">&#39;#8C1515&#39;</span><span class="p">,</span> <span class="s1">&#39;#D2C295&#39;</span><span class="p">,</span> <span class="s1">&#39;#00505C&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Boxplots&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/viz_26_0.png" src="../_images/viz_26_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="scatterplot">
+<h2>Scatterplot<a class="headerlink" href="#scatterplot" title="Permalink to this headline">¶</a></h2>
+<p>Scatterplots are useful to illustrate the relationship between two continuous variables. Below are several options for you to try.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### change figure size</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">)})</span>
+
+<span class="c1">### change background</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+
+<span class="c1"># commented code</span>
+<span class="n">ex1</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    
+    <span class="c1"># dataset</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">gap</span><span class="p">,</span>
+    
+    <span class="c1"># x-axis variable to plot</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;lifeExp&#39;</span><span class="p">,</span> 
+    
+    <span class="c1"># y-axis variable to plot</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;gdpPercap&#39;</span><span class="p">,</span> 
+    
+    <span class="c1"># color points by categorical variable</span>
+    <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;continent&#39;</span><span class="p">,</span> 
+    
+    <span class="c1"># point transparency</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">### log scale y-axis</span>
+<span class="n">ex1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">yscale</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+
+<span class="c1">### set axis labels</span>
+<span class="n">ex1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Life expectancy (Years)&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ex1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;GDP per cap (US$)&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">);</span>
+
+<span class="c1">### unhashtag to save </span>
+<span class="c1">### NOTE: this might only work on local Python installation and not JupyterLab - try it!</span>
+
+<span class="c1"># plt.savefig(&#39;img/scatter_gap.pdf&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/viz_28_0.png" src="../_images/viz_28_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="quiz-penguins-dataset">
+<h2>Quiz - Penguins dataset<a class="headerlink" href="#quiz-penguins-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Learn more about the biological and spatial characteristics of penguins!</p>
+<p><img alt="penguins" src="front/img/penguins.png" /></p>
+<ol class="simple">
+<li><p>Use seaborn to make one of each of the plots in the image below. Check out the seaborn tutorial for more examples and formatting options: <a class="reference external" href="https://seaborn.pydata.org/tutorial/function_overview.html">https://seaborn.pydata.org/tutorial/function_overview.html</a></p></li>
+<li><p>What might you conclude about the species of penguins from this dataset?</p></li>
+</ol>
+<p><img alt="sns" src="front/img/sea.png" /></p>
+<div class="section" id="map-of-antarctica">
+<h3>Map of Antarctica<a class="headerlink" href="#map-of-antarctica" title="Permalink to this headline">¶</a></h3>
+<p>Below is a map of Antarctica past the southernmost tip of the South American continent.</p>
+<p>The distance from the Biscoe Islands (Renaud) to the Torgersen and Dream Islands is about 140 km.</p>
+<p><img alt="antarctica" src="front/img/antarctica.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get help with the question mark</span>
+<span class="c1"># sns.scatterplot?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load penguins data</span>
+<span class="n">penguins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/penguins.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hint: </span>
+<span class="n">penguins</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;island&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+    <tr>
+      <th>island</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Biscoe</th>
+      <td>168</td>
+      <td>167</td>
+      <td>167</td>
+      <td>167</td>
+      <td>167</td>
+      <td>163</td>
+    </tr>
+    <tr>
+      <th>Dream</th>
+      <td>124</td>
+      <td>124</td>
+      <td>124</td>
+      <td>124</td>
+      <td>124</td>
+      <td>123</td>
+    </tr>
+    <tr>
+      <th>Torgersen</th>
+      <td>52</td>
+      <td>51</td>
+      <td>51</td>
+      <td>51</td>
+      <td>51</td>
+      <td>47</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hint:</span>
+<span class="n">penguins</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;island&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+    </tr>
+    <tr>
+      <th>island</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Biscoe</th>
+      <td>45.257485</td>
+      <td>15.874850</td>
+      <td>209.706587</td>
+      <td>4716.017964</td>
+    </tr>
+    <tr>
+      <th>Dream</th>
+      <td>44.167742</td>
+      <td>18.344355</td>
+      <td>193.072581</td>
+      <td>3712.903226</td>
+    </tr>
+    <tr>
+      <th>Torgersen</th>
+      <td>38.950980</td>
+      <td>18.429412</td>
+      <td>191.196078</td>
+      <td>3706.372549</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. relational - scatterplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. relational - lineplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. distributions - histplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4. distributions - kdeplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5. distributions - ecdfplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6. distributions - rugplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 7. categorical - stripplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 8. categorical - swarmplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 9. categorical - boxplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 10. categorical - violinplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 11. categorical - pointplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 12. categorical - barplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="quiz-gapminder-dataset">
+<h2>Quiz - Gapminder dataset<a class="headerlink" href="#quiz-gapminder-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Make the twelve plots using the Gapminder dataset.</p>
+<p>What can you conclude about income and life expectancy?</p>
+<p>Visit <a class="reference external" href="https://www.gapminder.org/">https://www.gapminder.org/</a> to learn more!</p>
+<div class="section" id="things-you-are-probably-wrong-about">
+<h3>Things you are probably wrong about!<a class="headerlink" href="#things-you-are-probably-wrong-about" title="Permalink to this headline">¶</a></h3>
+<p><img alt="gapm" src="front/img/gapm.png" /></p>
+<p>See the survey and correct response rate of the <a class="reference external" href="https://www.gapminder.org/ignorance/studies/sdg2020/">Sustainable Development Misconception Study 2020</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. relational - scatterplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. relational - lineplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. distributions - histplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4. distributions - kdeplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5. distributions - ecdfplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6. distributions - rugplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 7. categorical - stripplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 8. categorical - swarmplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 9. categorical - boxplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 10. categorical - violinplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 11. categorical - pointplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 12. categorical - barplot</span>
+<span class="c1"># your answer here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "EastBayEv/SSDS-TAML",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./front"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="wrangle.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">iv. Numeric data wrangling</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../winter2022/Chapter%201.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Chapter 1 - English text preprocessing basics</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Stanford Libraries Software and Services for Data Science<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

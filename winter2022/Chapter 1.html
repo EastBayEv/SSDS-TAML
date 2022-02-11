@@ -1,0 +1,1031 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 1 - English text preprocessing basics &#8212; Text Analysis and Machine Learning (TAML) Group</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 2 - Core machine learning concepts; building text vocabularies" href="Chapter%202.html" />
+    <link rel="prev" title="v. Visualization essentials" href="../front/viz.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Text Analysis and Machine Learning (TAML) Group</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to TAML!
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front/how_to.html">
+   i. How to use this book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front/start.html">
+   ii. Start coding!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front/boiler.html">
+   iii. Boilerplate code review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front/wrangle.html">
+   iv. Numeric data wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front/viz.html">
+   v. Visualization essentials
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Winter Quarter 2022
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 1 - English text preprocessing basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%202.html">
+   Chapter 2 - Core machine learning concepts; building text vocabularies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%203.html">
+   Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%204.html">
+   Chapter 4 - The BERT algorithm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%205.html">
+   Chapter 5 - Ensemble machine learning, deep learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%206.html">
+   Chapter 6 - Writing about numeric data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%207.html">
+   Chapter 7 - Combine the basics in powerful ways!
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/winter2022/Chapter 1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/EastBayEv/SSDS-TAML"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fwinter2022/Chapter 1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/winter2022/Chapter 1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-punctuation">
+   Remove punctuation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tokenize-the-text">
+     Tokenize the text
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-stop-words">
+     Remove stop words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lemmatize">
+     Lemmatize
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-of-speech-tags">
+     Part of speech tags
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-to-dataframe">
+     Convert to dataframe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualize-the-20-most-frequent-words">
+     Visualize the 20 most frequent words
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quiz-redwood-webscraping">
+   Quiz: Redwood webscraping
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#three-variables-will-get-you-started">
+     Three variables will get you started
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-the-text">
+     Get the text
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regular-expressions">
+     Regular expressions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#going-further">
+   Going further
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-1-english-text-preprocessing-basics">
+<h1>Chapter 1 - English text preprocessing basics<a class="headerlink" href="#chapter-1-english-text-preprocessing-basics" title="Permalink to this headline">¶</a></h1>
+<p>2022 January 19</p>
+<p><img alt="text" src="winter2022/img/text.png" /></p>
+<p>Unstructured text - text you find in the wild in books and websites - is generally not amenable to analysis. Before it can be analyzed, the text needs to be standardized to a format so that Python can recognize each unit of meaning (called a “token”) as unique, no matter how many times it occurs and how it is stylized.</p>
+<ul class="simple">
+<li><p>Remove punctuation and special characters/symbols</p></li>
+<li><p>Remove stop words</p></li>
+<li><p>Stem or lemmatize: convert all non-base words to their base form</p></li>
+</ul>
+<p>Stemming/lemmatization and stop words (and some punctuation) are language-specific. NLTK works for English out-of-the-box, but you’ll need different code to work with other languages. Some languages (e.g. Chinese) also require <em>segmentation</em>: artificially inserting spaces between words. If you want to do text pre-processing for other languages, please let us know and we can put together a notebook for you.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">punctuation</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span> <span class="nn">regex</span> <span class="k">as</span> <span class="nn">re</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ensure you have the proper nltk modules</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;words&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;wordnet&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;averaged_perceptron_tagger&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;maxent_ne_chunker&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package words to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package words is already up-to-date!
+[nltk_data] Downloading package stopwords to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger is already up-to-
+[nltk_data]       date!
+[nltk_data] Downloading package maxent_ne_chunker to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package maxent_ne_chunker is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/dracula.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># print just the first 100 characters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/dracula.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># print just the first 100 characters</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;data/dracula.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="remove-punctuation">
+<h2>Remove punctuation<a class="headerlink" href="#remove-punctuation" title="Permalink to this headline">¶</a></h2>
+<p>Remember that Python methods can be chained together.</p>
+<p>Below, a standard for loop loops through the <code class="docutils literal notranslate"><span class="pre">punctuation</span></code> module to replace any of these characters with nothing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">punctuation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>!&quot;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">punctuation</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the project gutenberg ebook of dracula by bram stoker
+
+this ebook is for the use of anyone anywhere 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tokenize-the-text">
+<h3>Tokenize the text<a class="headerlink" href="#tokenize-the-text" title="Permalink to this headline">¶</a></h3>
+<p>Split each word on spaces.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokens</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;the&#39;, &#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;of&#39;, &#39;dracula&#39;, &#39;by&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;this&#39;, &#39;ebook&#39;, &#39;is&#39;, &#39;for&#39;, &#39;the&#39;, &#39;use&#39;, &#39;of&#39;, &#39;anyone&#39;, &#39;anywhere&#39;, &#39;in&#39;, &#39;the&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="remove-stop-words">
+<h3>Remove stop words<a class="headerlink" href="#remove-stop-words" title="Permalink to this headline">¶</a></h3>
+<p>Below is a list comprehension (a sort of shortcut for loop) that can accomplish this task for us.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show only the first 100 words</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered_text</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;dracula&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;ebook&#39;, &#39;use&#39;, &#39;anyone&#39;, &#39;anywhere&#39;, &#39;united&#39;, &#39;states&#39;, &#39;parts&#39;, &#39;world&#39;, &#39;cost&#39;, &#39;almost&#39;, &#39;restrictions&#39;, &#39;whatsoever&#39;, &#39;may&#39;, &#39;copy&#39;, &#39;give&#39;, &#39;away&#39;, &#39;reuse&#39;, &#39;terms&#39;, &#39;project&#39;, &#39;gutenberg&#39;, &#39;license&#39;, &#39;included&#39;, &#39;ebook&#39;, &#39;online&#39;, &#39;wwwgutenbergorg&#39;, &#39;located&#39;, &#39;united&#39;, &#39;states&#39;, &#39;check&#39;, &#39;laws&#39;, &#39;country&#39;, &#39;located&#39;, &#39;using&#39;, &#39;ebook&#39;, &#39;title&#39;, &#39;dracula&#39;, &#39;author&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;release&#39;, &#39;date&#39;, &#39;october&#39;, &#39;1995&#39;, &#39;ebook&#39;, &#39;345&#39;, &#39;recently&#39;, &#39;updated&#39;, &#39;march&#39;, &#39;12&#39;, &#39;2021&#39;, &#39;language&#39;, &#39;english&#39;, &#39;character&#39;, &#39;set&#39;, &#39;encoding&#39;, &#39;utf8&#39;, &#39;produced&#39;, &#39;chuck&#39;, &#39;greif&#39;, &#39;online&#39;, &#39;distributed&#39;, &#39;proofreading&#39;, &#39;team&#39;, &#39;start&#39;, &#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;dracula&#39;, &#39;dracula&#39;, &#39;dracula&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;illustration&#39;, &#39;colophon&#39;, &#39;new&#39;, &#39;york&#39;, &#39;grosset&#39;, &#39;dunlap&#39;, &#39;publishers&#39;, &#39;copyright&#39;, &#39;1897&#39;, &#39;united&#39;, &#39;states&#39;, &#39;america&#39;, &#39;according&#39;, &#39;act&#39;, &#39;congress&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;rights&#39;, &#39;reserved&#39;, &#39;printed&#39;, &#39;united&#39;, &#39;states&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lemmatize">
+<h3>Lemmatize<a class="headerlink" href="#lemmatize" title="Permalink to this headline">¶</a></h3>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>Plural to singular (corpora to corpus)</p></li>
+<li><p>Condition (better to good)</p></li>
+<li><p>Gerund (running to run)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lmtzr</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">WordNetLemmatizer</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">token_lemma</span> <span class="o">=</span> <span class="p">[</span> <span class="n">lmtzr</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">filtered_text</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-of-speech-tags">
+<h3>Part of speech tags<a class="headerlink" href="#part-of-speech-tags" title="Permalink to this headline">¶</a></h3>
+<p>Part of speech tags are labels given to each word in a text such as verbs, adverbs, nouns, pronouns, adjectives, conjunctions, and their various derivations and subcategories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tagged</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">token_lemma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chunked</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">chunk</span><span class="o">.</span><span class="n">ne_chunk</span><span class="p">(</span><span class="n">tagged</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="convert-to-dataframe">
+<h3>Convert to dataframe<a class="headerlink" href="#convert-to-dataframe" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">chunked</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>word</th>
+      <th>pos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>project</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>gutenberg</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ebook</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>dracula</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>bram</td>
+      <td>NN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(73556, 2)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualize-the-20-most-frequent-words">
+<h3>Visualize the 20 most frequent words<a class="headerlink" href="#visualize-the-20-most-frequent-words" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">count_words</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">top</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">])</span>
+<span class="n">count_words</span><span class="o">.</span><span class="n">most_common</span><span class="p">()[:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;said&#39;, 569),
+ (&#39;one&#39;, 509),
+ (&#39;could&#39;, 493),
+ (&#39;u&#39;, 463),
+ (&#39;must&#39;, 451),
+ (&#39;would&#39;, 428),
+ (&#39;shall&#39;, 427),
+ (&#39;time&#39;, 425),
+ (&#39;know&#39;, 420),
+ (&#39;may&#39;, 416),
+ (&#39;see&#39;, 398),
+ (&#39;come&#39;, 377),
+ (&#39;van&#39;, 322),
+ (&#39;hand&#39;, 310),
+ (&#39;came&#39;, 307),
+ (&#39;helsing&#39;, 300),
+ (&#39;went&#39;, 298),
+ (&#39;lucy&#39;, 296),
+ (&#39;go&#39;, 296),
+ (&#39;like&#39;, 278)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">count_words</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>word</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>209</th>
+      <td>said</td>
+      <td>569</td>
+    </tr>
+    <tr>
+      <th>256</th>
+      <td>one</td>
+      <td>509</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>could</td>
+      <td>493</td>
+    </tr>
+    <tr>
+      <th>180</th>
+      <td>u</td>
+      <td>463</td>
+    </tr>
+    <tr>
+      <th>319</th>
+      <td>must</td>
+      <td>451</td>
+    </tr>
+    <tr>
+      <th>162</th>
+      <td>would</td>
+      <td>428</td>
+    </tr>
+    <tr>
+      <th>278</th>
+      <td>shall</td>
+      <td>427</td>
+    </tr>
+    <tr>
+      <th>165</th>
+      <td>time</td>
+      <td>425</td>
+    </tr>
+    <tr>
+      <th>224</th>
+      <td>know</td>
+      <td>420</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>may</td>
+      <td>416</td>
+    </tr>
+    <tr>
+      <th>382</th>
+      <td>see</td>
+      <td>398</td>
+    </tr>
+    <tr>
+      <th>683</th>
+      <td>come</td>
+      <td>377</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>van</td>
+      <td>322</td>
+    </tr>
+    <tr>
+      <th>1169</th>
+      <td>hand</td>
+      <td>310</td>
+    </tr>
+    <tr>
+      <th>188</th>
+      <td>came</td>
+      <td>307</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>helsing</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <th>545</th>
+      <td>went</td>
+      <td>298</td>
+    </tr>
+    <tr>
+      <th>159</th>
+      <td>go</td>
+      <td>296</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>lucy</td>
+      <td>296</td>
+    </tr>
+    <tr>
+      <th>407</th>
+      <td>like</td>
+      <td>278</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;word&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">top_plot</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">top_plot</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">40</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Chapter 1_31_0.png" src="../_images/Chapter 1_31_0.png" />
+</div>
+</div>
+<p><img alt="redwood" src="winter2022/img/redwood.png" /></p>
+</div>
+</div>
+<div class="section" id="quiz-redwood-webscraping">
+<h2>Quiz: Redwood webscraping<a class="headerlink" href="#quiz-redwood-webscraping" title="Permalink to this headline">¶</a></h2>
+<p>This also works with data scraped from the web. Below is very brief BeautifulSoup example to save the contents of the Sequoioideae (redwood trees) Wikipedia page to a variable named <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
+<ol class="simple">
+<li><p>Read through the code below</p></li>
+<li><p>Practice by repeating for a webpage of your choice</p></li>
+<li><p>Combine methods on this page to produce a ready-to-be analyzed copy of “Frankenstein.txt”. This file is located in the <code class="docutils literal notranslate"><span class="pre">/data</span></code> folder</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary libraries</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">regex</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="three-variables-will-get-you-started">
+<h3>Three variables will get you started<a class="headerlink" href="#three-variables-will-get-you-started" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code> - define the URL to be scraped</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response</span></code> - perform the get request on the URL</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">soup</span></code> - create the soup object so we can parse the html</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://en.wikipedia.org/wiki/Sequoioideae&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-the-text">
+<h3>Get the text<a class="headerlink" href="#get-the-text" title="Permalink to this headline">¶</a></h3>
+<p>HTML (hypertext markup language) is used to structure a webpage and the content it contains, including text.</p>
+<p>Below is a handy for loop that finds all everything within paragraph <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> tags.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save in an empty string</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">+=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">c019956e8c51</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">text</span> <span class="o">+=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span>
+
+<span class="ne">NameError</span>: name &#39;soup&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sequoioideae, popularly known as redwoods, is a subfamily of coniferous trees within the family Cupressaceae. It includes the largest and tallest trees in the world.
+The three redwood subfamily genera are Sequoia from coastal California and Oregon, Sequoiadendron from California&#39;s Sierra Nevada, and Metasequoia in China. The redwood species contains the largest and tallest trees in the world. These trees can live for thousands of years. Threats include: logging, fire suppression,[2] climate change, illegal marijuana cultivation, and burl poaching.[3][4][5]
+Only two of the genera, Sequoia and Sequoiadendron, are known for massive trees. Trees of Metasequoia, from the single living species Metasequoia glyptostroboides, are much smaller.
+Multiple studies of both morphological and molecular characters have strongly supported the assertion that the Sequoioideae are monophyletic.[6][7][8][9]
+Most modern phylogenies place Sequoia as sister to Sequoiadendron and Metasequoia as the out-group.[7][9][10] However, Yang et al. went on to investigate the origin of a peculiar genetic artifact of the Sequoioideae—the polyploidy of Sequoia—and generated a notable exception that calls into question the specifics of this relative consensus.[9]
+A 2006 paper based on non-molecular evidence suggested the following relationship among extant species:[11]
+
+M. glyptostroboides (dawn redwood)
+S. sempervirens (coast redwood)
+S. giganteum (giant sequoia)
+Taxodioideae
+A 2021 study using molecular evidence found the same relationships among Sequoioideae species, but found Sequoioideae to be the sister group to the Athrotaxidoideae (a superfamily presently known only from Tasmania) rather than to Taxodioideae. Sequoioideae and Athrotaxidoideae are thought to have diverged from each other during the Jurassic.[12]
+Reticulate evolution refers to origination of a taxon through merging of ancestor lineages.
+Polyploidy has come to be understood as quite common in plants—with estimates ranging from 47% to 100% of flowering plants and extant ferns having derived from ancient polyploidy.[13] Within the gymnosperms however it is quite rare. Sequoia sempervirens is hexaploid (2n= 6x= 66). To investigate the origins of this polyploidy Yang et al. used two single copy nuclear genes, LFY and NLY, to generate phylogenetic trees. Other researchers have had success with these genes in similar studies on different taxa.[9]
+Several hypotheses have been proposed to explain the origin of Sequoia&#39;s polyploidy: allopolyploidy by hybridization between Metasequoia and some probably extinct taxodiaceous plant; Metasequoia and Sequoiadendron, or ancestors of the two genera, as the parental species of Sequoia; and autohexaploidy, autoallohexaploidy, or segmental allohexaploidy.
+Yang et al. found that Sequoia was clustered with Metasequoia in the tree generated using the LFY gene, but with Sequoiadendron in the tree generated with the NLY gene. Further analysis strongly supported the hypothesis that Sequoia was the result of a hybridization event involving Metasequoia and Sequoiadendron. Thus, Yang et al. hypothesize that the inconsistent relationships among Metasequoia, Sequoia, and Sequoiadendron could be a sign of reticulate evolution (in which two species hybridize and give rise to a third) among the three genera. However, the long evolutionary history of the three genera (the earliest fossil remains being from the Jurassic) make resolving the specifics of when and how Sequoia originated once and for all a difficult matter—especially since it in part depends on an incomplete fossil record.[10]
+Sequoioideae is an ancient taxon, with the oldest described Sequoioideae species, Sequoia jeholensis, recovered from Jurassic deposits.[14]  A genus Medulloprotaxodioxylon, reported from the late Triassic of China supports the idea of a Norian origin.[1]
+The fossil record shows a massive expansion of range in the Cretaceous and dominance of the Arcto-Tertiary Geoflora, especially in northern latitudes. Genera of Sequoioideae were found in the Arctic Circle, Europe, North America, and throughout Asia and Japan.[15] A general cooling trend beginning in the late Eocene and Oligocene reduced the northern ranges of the Sequoioideae, as did subsequent ice ages.[16] Evolutionary adaptations to ancient environments persist in all three species despite changing climate, distribution, and associated flora, especially the specific demands of their reproduction ecology that ultimately forced each of the species into refugial ranges where they could survive.
+The entire subfamily is endangered.  The IUCN Red List Category &amp; Criteria assesses Sequoia sempervirens as Endangered (A2acd), Sequoiadendron giganteum as Endangered (B2ab) and Metasequoia glyptostroboides as Endangered (B1ab).
+The two California redwood species, since the early 19th century, and the Chinese redwood species since 1948, have been cultivated horticulturally far beyond their native habitats. They are found in botanical gardens, public parks, and private landscapes in many similar climates worldwide. Plantings outside their native ranges particularly are found in California, the coastal Northwestern and Eastern United States, areas of China, Ireland,[17] Germany, the United Kingdom, Australia and near Rotorua New Zealand.[18] They are also used in educational projects recreating the look of the megaflora of the Pleistocene landscape.
+New World Species:
+New World Species:
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="regular-expressions">
+<h3>Regular expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h3>
+<p>Remember how we did preprocessing the long way above? You might find that using egular expressions are easier. <a class="reference external" href="https://docs.python.org/3/library/re.html">Check out the tutorial</a> and <a class="reference external" href="https://www.dataquest.io/blog/regex-cheatsheet/">cheatsheet</a> to find out what the below symbols mean and write your own code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\[[0-9]*\]&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="going-further">
+<h2>Going further<a class="headerlink" href="#going-further" title="Permalink to this headline">¶</a></h2>
+<p>We have used indivual words in this example, but what about <a class="reference external" href="https://en.wikipedia.org/wiki/N-gram">n-grams?</a> Also read through this <a class="reference external" href="https://www.kaggle.com/alvations/n-gram-language-model-with-nltk">n-gram language model with nltk</a>.</p>
+<p>There are also more optimal ways to preprocess your text. Cehck out the <a class="reference external" href="https://spacy.io/usage/spacy-101">spaCy 101</a> guide to try it out yourself and attend the CIDR Python Introduction to Text Analysis workshop on February 8, 2022. <a class="reference external" href="https://appointments.library.stanford.edu/calendar/ssds/cidr-python-text">Register here</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "EastBayEv/SSDS-TAML",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./winter2022"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../front/viz.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">v. Visualization essentials</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="Chapter%202.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Chapter 2 - Core machine learning concepts; building text vocabularies</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Stanford Libraries Software and Services for Data Science<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
