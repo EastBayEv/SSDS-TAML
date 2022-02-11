@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ii. Start coding! &#8212; Text Analysis and Machine Learning (TAML) Group</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="iii. Boilerplate code review" href="boiler.html" />
+    <link rel="prev" title="i. How to use this book" href="how_to.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Text Analysis and Machine Learning (TAML) Group</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to TAML!
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="how_to.html">
+   i. How to use this book
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   ii. Start coding!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boiler.html">
+   iii. Boilerplate code review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="wrangle.html">
+   iv. Numeric data wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="viz.html">
+   v. Visualization essentials
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Winter Quarter 2022
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%201.html">
+   Chapter 1 - English text preprocessing basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%202.html">
+   Chapter 2 - Core machine learning concepts; building text vocabularies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%203.html">
+   Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%204.html">
+   Chapter 4 - The BERT algorithm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%205.html">
+   Chapter 5 - Ensemble machine learning, deep learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%206.html">
+   Chapter 6 - Writing about numeric data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%207.html">
+   Chapter 7 - Combine the basics in powerful ways!
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Launch JupyterLab in Binder
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Guest_Speakers.html">
+   Guest Speakers
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/start.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/EastBayEv/SSDS-TAML"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fstart.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/start.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   ii. Start coding!
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#right-click-the-launch-binder-button-below-and-open-it-in-a-new-browser-tab">
+     Right click the “Launch Binder” button below and open it in a new browser tab.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#click-python-3-ipykernel">
+     Click “Python 3 (ipykernel)”
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cells-are-code-by-default">
+   Cells are code by default
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-the-code">
+     Run the code
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#insert-new-cells">
+     Insert new cells
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#switch-between-code-and-text-cells">
+     Switch between code and text cells
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#editing-a-markdown-cell">
+     Editing a markdown cell
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#save-your-work">
+     Save your work
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#close-and-halt">
+     Close and halt
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-these-materials-on-your-local-computer">
+     Run these materials on your local computer
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-clone">
+     git clone
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-external-libraries">
+     Install external libraries
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dead-kernel">
+     Dead kernel?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-you-accidentally-delete-a-jupyter-notebook">
+     If you accidentally delete a Jupyter Notebook …
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="ii-start-coding">
+<h1>ii. Start coding!<a class="headerlink" href="#ii-start-coding" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="right-click-the-launch-binder-button-below-and-open-it-in-a-new-browser-tab">
+<h2>Right click the “Launch Binder” button below and open it in a new browser tab.<a class="headerlink" href="#right-click-the-launch-binder-button-below-and-open-it-in-a-new-browser-tab" title="Permalink to this headline">¶</a></h2>
+<p>Follow these instructions in JupyterLab to start a kernel, type and run a line of code, save and export your work, and end your session. The content in JupyterLab and the JupyterBook is identical.</p>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/HEAD"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</div>
+<div class="section" id="click-python-3-ipykernel">
+<h2>Click “Python 3 (ipykernel)”<a class="headerlink" href="#click-python-3-ipykernel" title="Permalink to this headline">¶</a></h2>
+<p>Click “Python 3 (ipykernel) under the “Notebook” header to launch a blank notebook.
+<img alt="setkernel" src="_images/kernel.png" /></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cells-are-code-by-default">
+<h1>Cells are code by default<a class="headerlink" href="#cells-are-code-by-default" title="Permalink to this headline">¶</a></h1>
+<p>In the first cell, type:</p>
+<blockquote>
+<div><p>print(“Your Name Here”)</p>
+</div></blockquote>
+<div class="section" id="run-the-code">
+<h2>Run the code<a class="headerlink" href="#run-the-code" title="Permalink to this headline">¶</a></h2>
+<p>Press <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">enter</span></code> in JupyterLab or your local Python Anaconda installation to execute the code.</p>
+</div>
+<div class="section" id="insert-new-cells">
+<h2>Insert new cells<a class="headerlink" href="#insert-new-cells" title="Permalink to this headline">¶</a></h2>
+<p>Click the “plus” button to insert a new cell. It can be found between the “save disk” and “scissors” icons.
+<img alt="addcell" src="_images/addcell.png" /></p>
+</div>
+<div class="section" id="switch-between-code-and-text-cells">
+<h2>Switch between code and text cells<a class="headerlink" href="#switch-between-code-and-text-cells" title="Permalink to this headline">¶</a></h2>
+<p>Switch between code and text cells by clicking the dropdown menu.
+<img alt="switch" src="_images/switch.png" /></p>
+</div>
+<div class="section" id="editing-a-markdown-cell">
+<h2>Editing a markdown cell<a class="headerlink" href="#editing-a-markdown-cell" title="Permalink to this headline">¶</a></h2>
+<p>Double-click a markdown cell to edit it. Press <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">enter</span></code> to render the text.</p>
+<p>Go through the cells on this page and check out <a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a> to explore formatting rules and shortcuts.</p>
+<p><img alt="toc" src="_images/toc.png" /></p>
+</div>
+<div class="section" id="save-your-work">
+<h2>Save your work<a class="headerlink" href="#save-your-work" title="Permalink to this headline">¶</a></h2>
+<p>Click the “disk” icon to save your work. Right-click the tab to give your notebook a name:</p>
+<p><img alt="rename" src="_images/rename.png" /></p>
+<ul class="simple">
+<li><p>Click “File” –&gt; “Download” to save your Jupyter Notebook (extension <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) before exiting a Jupyter Lab session.</p></li>
+<li><p>There are many other options, take some time to explore the top menu and buttons.</p></li>
+</ul>
+<p><img alt="download" src="_images/dl.png" /></p>
+</div>
+<div class="section" id="close-and-halt">
+<h2>Close and halt<a class="headerlink" href="#close-and-halt" title="Permalink to this headline">¶</a></h2>
+<p>Safely close the notebook by clicking “File” –&gt; “Close and Halt” before closing your browser.</p>
+<p><img alt="closehalt" src="_images/close.png" /></p>
+<p>Local Python installation</p>
+<p>Despite the many cloud-based Python Jupyter Notebook solutions, it is always good to have a local installation on your own computer. Point your web browswer here to install Python Anaconda distribution 3.9 (as of January 2022): <a class="reference external" href="https://www.anaconda.com/products/individual">https://www.anaconda.com/products/individual</a></p>
+<ul class="simple">
+<li><p>Download the installation file for your operating system, open it, and follow the instructions to install.</p></li>
+<li><p>Once installation completes, open the application named “Anaconda Navigator”. It looks like this:</p></li>
+</ul>
+<p><img alt="navigator" src="_images/navigator.png" /></p>
+<ul class="simple">
+<li><p>Click the “Launch” button under either Jupyter Notebook or Jupyter Lab.</p></li>
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> notebook you just downloaded from JupyterLab in your local installation and repeat the steps above.</p></li>
+</ul>
+</div>
+<div class="section" id="run-these-materials-on-your-local-computer">
+<h2>Run these materials on your local computer<a class="headerlink" href="#run-these-materials-on-your-local-computer" title="Permalink to this headline">¶</a></h2>
+<p>Copy these materials for use on your local installation.</p>
+<ol class="simple">
+<li><p>Visit: <a class="reference external" href="https://github.com/EastBayEv/SSDS-TAML">https://github.com/EastBayEv/SSDS-TAML</a></p></li>
+<li><p>Click the green “Code” button
+<img alt="code" src="_images/code.png" /></p></li>
+<li><p>Click “Download ZIP”
+<img alt="zip" src="_images/zip.png" /></p></li>
+<li><p>Extract this folder someplace familiar such as your Desktop.</p></li>
+<li><p>Open Anaconda Navigator, launch JupyterLab, and navigate your directories to launch these notebooks.</p></li>
+</ol>
+</div>
+<div class="section" id="git-clone">
+<h2>git clone<a class="headerlink" href="#git-clone" title="Permalink to this headline">¶</a></h2>
+<p>Git users type: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/EastBayEv/SSDS-TAML.git</span></code></p>
+</div>
+<div class="section" id="install-external-libraries">
+<h2>Install external libraries<a class="headerlink" href="#install-external-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Install user-defined software libraries to enhance Python’s functionality. In a new notebook cell type <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">&lt;library</span> <span class="pre">name&gt;</span></code>, e.g.:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">pandas</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">seaborn</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="dead-kernel">
+<h2>Dead kernel?<a class="headerlink" href="#dead-kernel" title="Permalink to this headline">¶</a></h2>
+<p>The notebook kernel will fail from time to time, which is normal. Simply click “Kernel” from the File menu and one of the “Restart” options.</p>
+<p><img alt="restart" src="_images/restart.png" /></p>
+<blockquote>
+<div><p>NOTE: about the terminal, you will see it run processes in the background like this:</p>
+</div></blockquote>
+<p><img alt="terminal" src="_images/terminal.png" /></p>
+</div>
+<div class="section" id="if-you-accidentally-delete-a-jupyter-notebook">
+<h2>If you accidentally delete a Jupyter Notebook …<a class="headerlink" href="#if-you-accidentally-delete-a-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
+<p>Check your operating system’s Recycle Bin!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "EastBayEv/SSDS-TAML",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="how_to.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">i. How to use this book</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="boiler.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">iii. Boilerplate code review</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Stanford Libraries Software and Services for Data Science<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

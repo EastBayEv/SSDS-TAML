@@ -1,0 +1,9 @@
+jupyter-book
+matplotlib
+numpy
+pandas
+seaborn
+bs4
+nltk
+requests
+regex

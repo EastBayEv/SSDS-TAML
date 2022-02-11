@@ -1,0 +1,27 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: Python Basics
+  chapters:
+  - file: front/how_to
+  - file: front/start
+  - file: front/boiler
+  - file: front/wrangle
+  - file: front/viz
+- caption: Winter Quarter 2022
+  chapters:
+  - file: winter2022/Chapter 1
+  - file: winter2022/Chapter 2
+  - file: winter2022/Chapter 3
+  - file: winter2022/Chapter 4
+  - file: winter2022/Chapter 5
+  - file: winter2022/Chapter 6
+  - file: winter2022/Chapter 7
+- caption: Miscellaneous
+  chapters:
+  - file: misc/resources.md
+  - file: misc/README.md
+  - file: misc/Guest_Speakers
