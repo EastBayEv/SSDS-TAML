@@ -4,10 +4,9 @@
 format: jb-book
 root: intro
 parts:
-  chapters: 
-  - file: winter2022/how_to
 - caption: Python Basics
   chapters:
+  - file: winter2022/how_to
   - file: winter2022/start
   - file: winter2022/boiler
   - file: winter2022/wrangle
