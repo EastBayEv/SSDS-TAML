@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 6 - Writing about numeric data" href="Chapter%206.html" />
-    <link rel="prev" title="Chapter 4 - The BERT algorithm" href="Chapter%204.html" />
+    <link rel="next" title="Chapter 6 - Writing about numeric data" href="Chapter6.html" />
+    <link rel="prev" title="Chapter 4 - The BERT algorithm" href="Chapter4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -71,6 +71,11 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Text Analysis and Machine Learning (TAML) Group</h1>
@@ -95,27 +100,27 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../how_to.html">
+  <a class="reference internal" href="how_to.html">
    i. How to use this book
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../start.html">
+  <a class="reference internal" href="start.html">
    ii. Start coding!
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../boiler.html">
+  <a class="reference internal" href="boiler.html">
    iii. Boilerplate code review
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../wrangle.html">
+  <a class="reference internal" href="wrangle.html">
    iv. Numeric data wrangling
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../viz.html">
+  <a class="reference internal" href="viz.html">
    v. Visualization essentials
   </a>
  </li>
@@ -127,22 +132,22 @@
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Chapter%201.html">
+  <a class="reference internal" href="Chapter1.html">
    Chapter 1 - English text preprocessing basics
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Chapter%202.html">
+  <a class="reference internal" href="Chapter2.html">
    Chapter 2 - Core machine learning concepts; building text vocabularies
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Chapter%203.html">
+  <a class="reference internal" href="Chapter3.html">
    Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Chapter%204.html">
+  <a class="reference internal" href="Chapter4.html">
    Chapter 4 - The BERT algorithm
   </a>
  </li>
@@ -152,12 +157,12 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Chapter%206.html">
+  <a class="reference internal" href="Chapter6.html">
    Chapter 6 - Writing about numeric data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Chapter%207.html">
+  <a class="reference internal" href="Chapter7.html">
    Chapter 7 - Combine the basics in powerful ways!
   </a>
  </li>
@@ -169,17 +174,17 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../resources.html">
+  <a class="reference internal" href="resources.html">
    Resources
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
+  <a class="reference internal" href="README.html">
    Launch JupyterLab in Binder
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Guest_Speakers.html">
+  <a class="reference internal" href="Guest_Speakers.html">
    Guest Speakers
   </a>
  </li>
@@ -224,7 +229,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/winter2022/Chapter 5.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/winter2022/Chapter5.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -244,7 +249,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fwinter2022/Chapter 5.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fwinter2022/Chapter5.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -265,7 +270,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/winter2022/Chapter 5.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/winter2022/Chapter5.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -335,7 +340,7 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="Chapter%204.html" title="previous page">
+        <a class="left-prev" href="Chapter4.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
@@ -344,7 +349,7 @@
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="Chapter%206.html" title="next page">
+        <a class="right-next" href="Chapter6.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
                 <p class="prevnext-title">Chapter 6 - Writing about numeric data</p>

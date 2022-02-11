@@ -9,7 +9,7 @@ This is the Jupyter Book for the Text Analysis and Machine Learning (TAML) Group
 Visit https://ssds.stanford.edu/ to learn more about Software and Services for Data Science, schedule a consultation, or RSVP for a workshop. 
 
 **Winter Quarter 2021 Schedule**
-* Jan 12: Kickoff, [guest speaker Dr. Qingkai Kong "Smartphones and Twitter for Earthquakes"](Guest_Speakers.md)  
+* Jan 12: Kickoff, [guest speaker Dr. Qingkai Kong "Smartphones and Twitter for Earthquakes"](winter2022/Guest_Speakers.md)  
 * Jan 19: Working with text data - preprocessing basics  
 * Jan 26: Core machine learning concepts; building text vocabularies (Bag of Words)  
 * Feb 02: Document encoding (TF-IDF), sentiment analysis, building text classifiers  
