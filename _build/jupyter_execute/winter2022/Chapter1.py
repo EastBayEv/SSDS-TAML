@@ -101,7 +101,7 @@ print(tokens[:20])
 filtered_text = [word for word in tokens if word not in stopwords.words('english')]
 
 
-# In[9]:
+# In[10]:
 
 
 # show only the first 100 words
@@ -115,13 +115,13 @@ print(filtered_text[:100])
 # * Condition (better to good)
 # * Gerund (running to run)
 
-# In[10]:
+# In[11]:
 
 
 lmtzr = nltk.WordNetLemmatizer()
 
 
-# In[11]:
+# In[12]:
 
 
 token_lemma = [ lmtzr.lemmatize(token) for token in filtered_text ]
@@ -131,13 +131,13 @@ token_lemma = [ lmtzr.lemmatize(token) for token in filtered_text ]
 # 
 # Part of speech tags are labels given to each word in a text such as verbs, adverbs, nouns, pronouns, adjectives, conjunctions, and their various derivations and subcategories. 
 
-# In[12]:
+# In[13]:
 
 
 tagged = nltk.pos_tag(token_lemma)
 
 
-# In[13]:
+# In[14]:
 
 
 chunked = nltk.chunk.ne_chunk(tagged)
@@ -145,19 +145,19 @@ chunked = nltk.chunk.ne_chunk(tagged)
 
 # ### Convert to dataframe
 
-# In[14]:
+# In[15]:
 
 
 df = pd.DataFrame(chunked, columns=['word', 'pos'])
 
 
-# In[15]:
+# In[16]:
 
 
 df.head()
 
 
-# In[16]:
+# In[17]:
 
 
 df.shape
@@ -233,7 +233,7 @@ soup = BeautifulSoup(response.text, 'html')
 # 
 # Below is a handy for loop that finds all everything within paragraph `<p>` tags. 
 
-# In[2]:
+# In[24]:
 
 
 # save in an empty string
@@ -263,7 +263,7 @@ text = re.sub(r'[^\w\s]','',text)
 text = text.lower()
 
 
-# In[1]:
+# In[27]:
 
 
 print(text)

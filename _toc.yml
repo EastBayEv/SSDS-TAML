@@ -23,5 +23,5 @@ parts:
 - caption: Miscellaneous
   chapters:
   - file: winter2022/resources.md
-  - file: winter2022/README.md
+  - file: README.md
   - file: winter2022/Guest_Speakers
