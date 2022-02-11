@@ -6,11 +6,11 @@ root: intro
 parts:
 - caption: Python Basics
   chapters:
-  - file: how_to
-  - file: start
-  - file: boiler
-  - file: wrangle
-  - file: viz
+  - file: winter2022/how_to
+  - file: winter2022/start
+  - file: winter2022/boiler
+  - file: winter2022/wrangle
+  - file: winter2022/viz
 - caption: Winter Quarter 2022
   chapters:
   - file: winter2022/Chapter 1
@@ -22,6 +22,6 @@ parts:
   - file: winter2022/Chapter 7
 - caption: Miscellaneous
   chapters:
-  - file: resources.md
-  - file: README.md
-  - file: Guest_Speakers
+  - file: winter2022/resources.md
+  - file: winter2022/README.md
+  - file: winter2022/Guest_Speakers

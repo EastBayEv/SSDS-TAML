@@ -5,7 +5,7 @@
 
 # 2022 January 19
 
-# ![text](../img/text.png)
+# ![text](img/text.png)
 
 # Unstructured text - text you find in the wild in books and websites - is generally not amenable to analysis. Before it can be analyzed, the text needs to be standardized to a format so that Python can recognize each unit of meaning (called a "token") as unique, no matter how many times it occurs and how it is stylized. 
 # 
@@ -193,7 +193,7 @@ top_plot = sns.barplot(x = 'word', y = 'count', data = words_df[:20])
 top_plot.set_xticklabels(top_plot.get_xticklabels(),rotation = 40);
 
 
-# ![redwood](../img/redwood.png)
+# ![redwood](img/redwood.png)
 
 # ## Quiz: Redwood webscraping
 # 

@@ -5,7 +5,7 @@
 
 # 2022 January 26
 
-# ![ml](../img/ml.png)
+# ![ml](img/ml.png)
 # 
 # [towardsdatascience.com - figure above and quotes below](https://towardsdatascience.com/artificial-intelligence-vs-machine-learning-vs-deep-learning-2210ba8cc4ac) 
 
@@ -76,7 +76,7 @@ import scipy.sparse
 # 
 # * **Cross-validation** is the best way to split your data, because it repeats the train/test data splitting process $k$ number of times and rotates the test set each time so that every observation is included in a test set at least once. Performance results are then averaged to compute predictive performance. 
 
-# ![cv_wiki](../img/cv_wiki.png)
+# ![cv_wiki](img/cv_wiki.png)
 
 # ### Model evaluation
 # 
@@ -115,7 +115,7 @@ import scipy.sparse
 
 # View scikit-learn's interactive documentation for estimator (algorithm) selection: https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
 # 
-# ![skest](../img/skest.png)
+# ![skest](img/skest.png)
 
 # * **Unsupervised machine learning:** algorithms are used to sort unlabeled datasets, without attempting to predict anything. 
 # 
@@ -134,7 +134,7 @@ import scipy.sparse
 
 # * **Bias in research**
 # 
-# ![bias_res](../img/bias_res.png)
+# ![bias_res](img/bias_res.png)
 
 # * **Ethical considerations:** 
 # 
@@ -253,7 +253,7 @@ print(y_hat)
 
 # ### Visualize the error for each observation
 # 
-# ![ls_err](../img/ls_err.png)
+# ![ls_err](img/ls_err.png)
 
 # ### Evaluate the performance using RMSE
 # 
