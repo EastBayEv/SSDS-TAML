@@ -64,7 +64,7 @@ plt.show()
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[5]:
+# In[4]:
 
 
 # view column names of Gapminder data
@@ -82,7 +82,7 @@ gap.groupby('continent').mean()
 
 # ### One column
 
-# In[7]:
+# In[6]:
 
 
 # Mean life expectancy for each continent
@@ -91,7 +91,7 @@ gap.groupby('continent')["lifeExp"].mean()
 
 # ### Multiple columns
 
-# In[8]:
+# In[7]:
 
 
 # Mean lifeExp and gdpPercap for each continent
@@ -111,7 +111,7 @@ le_table
 # 
 # Use a histogram to plot the distribution of one continuous (i.e., integer or float) variable. 
 
-# In[22]:
+# In[8]:
 
 
 # all data
@@ -119,7 +119,7 @@ sns.histplot(data = gap,
             x = 'lifeExp'); 
 
 
-# In[13]:
+# In[9]:
 
 
 # by continent
@@ -139,7 +139,7 @@ sns.histplot(data = gap,
 gap.describe()
 
 
-# In[14]:
+# In[11]:
 
 
 # all data
@@ -148,13 +148,13 @@ sns.boxplot(data = gap,
             color = 'gray')
 
 
-# In[16]:
+# In[12]:
 
 
 gap.groupby('continent').count()
 
 
-# In[20]:
+# In[13]:
 
 
 # by continent
@@ -163,7 +163,7 @@ sns.boxplot(data = gap,
             y = 'lifeExp').set_title('Boxplots');
 
 
-# In[34]:
+# In[14]:
 
 
 # custom colors
@@ -177,7 +177,7 @@ sns.boxplot(data = gap,
 # 
 # Scatterplots are useful to illustrate the relationship between two continuous variables. Below are several options for you to try.
 
-# In[28]:
+# In[15]:
 
 
 ### change figure size
@@ -236,112 +236,112 @@ ex1.set_ylabel("GDP per cap (US$)", fontsize = 20);
 # 
 # ![antarctica](img/antarctica.png)
 
-# In[30]:
+# In[16]:
 
 
 # get help with the question mark
 # sns.scatterplot?
 
 
-# In[31]:
+# In[17]:
 
 
 # load penguins data
 penguins = pd.read_csv('data/penguins.csv')
 
 
-# In[32]:
+# In[18]:
 
 
 # hint: 
 penguins.groupby('island').count()
 
 
-# In[33]:
+# In[19]:
 
 
 # hint:
 penguins.groupby('island').mean()
 
 
-# In[19]:
+# In[20]:
 
 
 # 1. relational - scatterplot
 # your answer here:
 
 
-# In[20]:
+# In[21]:
 
 
 # 2. relational - lineplot
 # your answer here:
 
 
-# In[21]:
+# In[22]:
 
 
 # 3. distributions - histplot
 # your answer here:
 
 
-# In[22]:
+# In[23]:
 
 
 # 4. distributions - kdeplot
 # your answer here:
 
 
-# In[23]:
+# In[24]:
 
 
 # 5. distributions - ecdfplot
 # your answer here:
 
 
-# In[24]:
+# In[25]:
 
 
 # 6. distributions - rugplot
 # your answer here:
 
 
-# In[25]:
+# In[26]:
 
 
 # 7. categorical - stripplot
 # your answer here:
 
 
-# In[26]:
+# In[27]:
 
 
 # 8. categorical - swarmplot
 # your answer here:
 
 
-# In[27]:
+# In[28]:
 
 
 # 9. categorical - boxplot
 # your answer here:
 
 
-# In[28]:
+# In[29]:
 
 
 # 10. categorical - violinplot
 # your answer here:
 
 
-# In[29]:
+# In[30]:
 
 
 # 11. categorical - pointplot
 # your answer here:
 
 
-# In[30]:
+# In[31]:
 
 
 # 12. categorical - barplot
@@ -362,84 +362,84 @@ penguins.groupby('island').mean()
 # 
 # See the survey and correct response rate of the [Sustainable Development Misconception Study 2020](https://www.gapminder.org/ignorance/studies/sdg2020/)
 
-# In[31]:
+# In[32]:
 
 
 # 1. relational - scatterplot
 # your answer here:
 
 
-# In[32]:
+# In[33]:
 
 
 # 2. relational - lineplot
 # your answer here:
 
 
-# In[33]:
+# In[34]:
 
 
 # 3. distributions - histplot
 # your answer here:
 
 
-# In[34]:
+# In[35]:
 
 
 # 4. distributions - kdeplot
 # your answer here:
 
 
-# In[35]:
+# In[36]:
 
 
 # 5. distributions - ecdfplot
 # your answer here:
 
 
-# In[36]:
+# In[37]:
 
 
 # 6. distributions - rugplot
 # your answer here:
 
 
-# In[37]:
+# In[38]:
 
 
 # 7. categorical - stripplot
 # your answer here:
 
 
-# In[38]:
+# In[39]:
 
 
 # 8. categorical - swarmplot
 # your answer here:
 
 
-# In[39]:
+# In[40]:
 
 
 # 9. categorical - boxplot
 # your answer here:
 
 
-# In[40]:
+# In[41]:
 
 
 # 10. categorical - violinplot
 # your answer here:
 
 
-# In[41]:
+# In[42]:
 
 
 # 11. categorical - pointplot
 # your answer here:
 
 
-# In[42]:
+# In[43]:
 
 
 # 12. categorical - barplot

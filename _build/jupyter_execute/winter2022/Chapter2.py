@@ -547,7 +547,7 @@ plt.title(all_sample_title, size = 15);
 
 # ### Define a corpus 
 
-# In[56]:
+# In[42]:
 
 
 corpus = [
@@ -563,7 +563,7 @@ corpus
 # 
 # A bag of words model removes punctuation and casefolds the text to lowercase before counting the words. 
 
-# In[57]:
+# In[43]:
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -586,7 +586,7 @@ vectorizer.vocabulary_
 # * The second number is the word from the vocabulary
 # * The third number is the number of times that word occurs
 
-# In[58]:
+# In[44]:
 
 
 vector = vectorizer.transform(corpus)
@@ -595,7 +595,7 @@ print(vector)
 
 # ### Present the sparse matrix
 
-# In[59]:
+# In[45]:
 
 
 # each row is a document, each column is a word from the vocabulary! 
@@ -603,14 +603,14 @@ print(vector)
 print(vector.toarray())
 
 
-# In[60]:
+# In[46]:
 
 
 # get the column names (alphabetical sort)
 vectorizer.get_feature_names()
 
 
-# In[61]:
+# In[47]:
 
 
 # What does this tell us? 
@@ -626,7 +626,7 @@ vectorizer.transform(['document']).toarray()
 # * trigrams   `ngram_range = (1, 3)`
 # * etc.
 
-# In[62]:
+# In[48]:
 
 
 bigram_vectorizer = CountVectorizer(ngram_range = (1,2),
@@ -637,7 +637,7 @@ bigram_vectorizer
 
 # Since we specify bigrams, both unigrams _and_ bigrams are returned!
 
-# In[63]:
+# In[49]:
 
 
 from sklearn.feature_extraction import DictVectorizer
@@ -647,13 +647,13 @@ bigram_analyzer('Welcome to Stanford Libraries!')
 
 # ### Apply n-grams to our above corpus
 
-# In[64]:
+# In[50]:
 
 
 corpus
 
 
-# In[65]:
+# In[51]:
 
 
 # perform the transformation
@@ -661,7 +661,7 @@ x = bigram_vectorizer.fit_transform(corpus).toarray()
 print(x)
 
 
-# In[66]:
+# In[52]:
 
 
 # get the feature (column) names
@@ -669,7 +669,7 @@ print(x)
 bigram_vectorizer.get_feature_names()
 
 
-# In[67]:
+# In[53]:
 
 
 # search for vocabulary words across the documents
@@ -681,7 +681,7 @@ x[:, feature_index]
 # 
 # Our vocabulary consists of 29 unigrams and bigrams across the four documents.
 
-# In[68]:
+# In[54]:
 
 
 # redefine x as sparse matrix (not array)
@@ -689,7 +689,7 @@ x = bigram_vectorizer.fit_transform(corpus)
 print(x)
 
 
-# In[69]:
+# In[55]:
 
 
 import scipy.sparse
@@ -697,7 +697,7 @@ corpus_df = pd.DataFrame(x.todense(), columns = bigram_vectorizer.get_feature_na
 corpus_df
 
 
-# In[70]:
+# In[56]:
 
 
 # The features (columns) are the vocabulary from the bigram version of our corpus variable above! 

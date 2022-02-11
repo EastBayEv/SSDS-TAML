@@ -121,7 +121,7 @@ human_rights
 
 # ### View the text of the first document
 
-# In[6]:
+# In[5]:
 
 
 # first thousand characters
@@ -147,19 +147,19 @@ print(human_rights['document_text'][0][:1000])
 
 # ### Remove non-alphanumeric characters/punctuation
 
-# In[7]:
+# In[6]:
 
 
 human_rights['clean_text'] = human_rights['document_text'].str.replace(r'[^\w\s]', ' ', regex = True)
 
 
-# In[8]:
+# In[7]:
 
 
 print(human_rights['clean_text'][0][:1000])
 
 
-# In[9]:
+# In[8]:
 
 
 # view third column
@@ -168,13 +168,13 @@ human_rights
 
 # ### Remove digits
 
-# In[12]:
+# In[9]:
 
 
 human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\d', ' ', regex = True)
 
 
-# In[13]:
+# In[10]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -182,13 +182,13 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Remove unicode characters such as Ð and ð
 
-# In[14]:
+# In[11]:
 
 
 human_rights['clean_text'] = human_rights['clean_text'].str.encode('ascii', 'ignore').str.decode('ascii')
 
 
-# In[15]:
+# In[12]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -196,14 +196,14 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Remove extra spaces
 
-# In[18]:
+# In[13]:
 
 
 import regex as re
 human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\s+', ' ', regex = True)
 
 
-# In[19]:
+# In[14]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -211,13 +211,13 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Convert to lowercase
 
-# In[20]:
+# In[15]:
 
 
 human_rights['clean_text'] = human_rights['clean_text'].str.lower()
 
 
-# In[21]:
+# In[16]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -225,27 +225,27 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Lemmatize
 
-# In[22]:
+# In[17]:
 
 
 # import spacy
 
 
-# In[23]:
+# In[18]:
 
 
 # !python -m spacy download en_core_web_sm
 # !python -m spacy download en_core_web_lg
 
 
-# In[24]:
+# In[19]:
 
 
 # nlp = spacy.load('en_core_web_lg')
 # human_rights['clean_text'] = human_rights['clean_text'].apply(lambda row: ' '.join([w.lemma_ for w in nlp(row)]))
 
 
-# In[25]:
+# In[20]:
 
 
 # print(human_rights['clean_text'][0])
@@ -253,7 +253,7 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### View the updated data frame
 
-# In[26]:
+# In[21]:
 
 
 human_rights
@@ -267,7 +267,7 @@ human_rights
 # 
 # This will be the input for [Truncated Singular Value Decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition) instead of LDA. 
 
-# In[27]:
+# In[22]:
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -279,13 +279,13 @@ tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3),
 tf_sparse = tf_vectorizer.fit_transform(human_rights['clean_text'])
 
 
-# In[28]:
+# In[23]:
 
 
 tf_sparse.shape
 
 
-# In[29]:
+# In[24]:
 
 
 print(tf_sparse)
@@ -293,7 +293,7 @@ print(tf_sparse)
 
 # ### Convert the tfidf sparse matrix to data frame
 
-# In[30]:
+# In[25]:
 
 
 tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names())
@@ -302,7 +302,7 @@ tfidf_df
 
 # ### View 20 highest weighted words
 
-# In[32]:
+# In[26]:
 
 
 tfidf_df.max().sort_values(ascending = False).head(n = 20)
@@ -310,7 +310,7 @@ tfidf_df.max().sort_values(ascending = False).head(n = 20)
 
 # ### Add country name to `tfidf_df`
 
-# In[33]:
+# In[27]:
 
 
 # wrangle the country names from the human_rights data frame
@@ -319,13 +319,13 @@ countries = list(countries)
 countries
 
 
-# In[34]:
+# In[28]:
 
 
 tfidf_df['COUNTRY'] = countries
 
 
-# In[35]:
+# In[29]:
 
 
 tfidf_df
@@ -335,14 +335,14 @@ tfidf_df
 # 
 # Change the country names to view their highest rated terms.
 
-# In[40]:
+# In[30]:
 
 
 country = tfidf_df[tfidf_df['COUNTRY'] == 'jordan']
 country.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 
-# In[38]:
+# In[31]:
 
 
 country = tfidf_df[tfidf_df['COUNTRY'] == 'jordan']
@@ -355,7 +355,7 @@ country.max(numeric_only = True).sort_values(ascending = False).head(20)
 # 
 # [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2021/06/part-16-step-by-step-guide-to-master-nlp-topic-modelling-using-lsa/)
 
-# In[41]:
+# In[32]:
 
 
 from sklearn.decomposition import TruncatedSVD
@@ -366,19 +366,19 @@ tsvd = TruncatedSVD(n_components = 5,
 tsvd.fit(tf_sparse)
 
 
-# In[42]:
+# In[33]:
 
 
 print(tsvd.explained_variance_ratio_)
 
 
-# In[43]:
+# In[34]:
 
 
 print(tsvd.singular_values_)
 
 
-# In[44]:
+# In[35]:
 
 
 def topics(model, feature_names, n_top_words):
@@ -388,7 +388,7 @@ def topics(model, feature_names, n_top_words):
                         for i in topic.argsort()[:-n_top_words - 1:-1]]))
 
 
-# In[45]:
+# In[36]:
 
 
 tf_features = tf_vectorizer.get_feature_names()
@@ -415,7 +415,7 @@ topics(tsvd, tf_features, 20)
 
 # ### Download the nltk built-in movie reviews dataset
 
-# In[46]:
+# In[37]:
 
 
 import nltk
@@ -425,7 +425,7 @@ nltk.download("movie_reviews")
 
 # ### Define x (reviews) and y (judgements) variables
 
-# In[47]:
+# In[38]:
 
 
 # Extract our x (reviews) and y (judgements) variables
@@ -433,7 +433,7 @@ reviews = [movie_reviews.raw(fileid) for fileid in movie_reviews.fileids()]
 judgements = [movie_reviews.categories(fileid)[0] for fileid in movie_reviews.fileids()]
 
 
-# In[48]:
+# In[39]:
 
 
 # Save in a dataframe
@@ -442,7 +442,7 @@ movies = pd.DataFrame({"Reviews" : reviews,
 movies.head()
 
 
-# In[49]:
+# In[40]:
 
 
 movies.shape
@@ -450,7 +450,7 @@ movies.shape
 
 # ### Shuffle the reviews
 
-# In[50]:
+# In[41]:
 
 
 import numpy as np
@@ -458,7 +458,7 @@ from sklearn.utils import shuffle
 x, y = shuffle(np.array(movies.Reviews), np.array(movies.Judgements), random_state = 1)
 
 
-# In[55]:
+# In[42]:
 
 
 # change x[0] and y[0] to see different reviews
@@ -471,7 +471,7 @@ x[0], print("Human review was:", y[0])
 
 # ### The "standard" way
 
-# In[56]:
+# In[43]:
 
 
 # standard training/test split (no cross validation)
@@ -491,7 +491,7 @@ logit_class = LogisticRegression(solver = 'liblinear',
 model = logit_class.fit(x_train, y_train)
 
 
-# In[57]:
+# In[44]:
 
 
 # test set accuracy
@@ -500,7 +500,7 @@ model.score(x_test, y_test)
 
 # ### $k$-fold cross-validated model
 
-# In[58]:
+# In[45]:
 
 
 # Cross-validated model!
@@ -521,7 +521,7 @@ print(scores, np.mean(scores))
 
 # ### Top 25 features for positive and negative reviews
 
-# In[59]:
+# In[46]:
 
 
 feature_names = tfidf.get_feature_names()
@@ -534,7 +534,7 @@ top25neg = np.argsort(model.coef_[0])[:25]
 print(list(feature_names[j] for j in top25neg))
 
 
-# In[51]:
+# In[47]:
 
 
 new_bad_review = "This was the most awful worst super bad movie ever!"
@@ -544,7 +544,7 @@ features = tfidf.transform([new_bad_review])
 model.predict(features)
 
 
-# In[60]:
+# In[48]:
 
 
 new_good_review = 'WHAT A WONDERFUL, FANTASTIC MOVIE!!!'
@@ -554,7 +554,7 @@ features = tfidf.transform([new_good_review])
 model.predict(features)
 
 
-# In[82]:
+# In[49]:
 
 
 # type another review here
