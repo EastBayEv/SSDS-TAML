@@ -5,53 +5,54 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to TAML! &#8212; Text Analysis and Machine Learning (TAML) Group</title>
+    <title>Chapter 5 - Ensemble machine learning, deep learning &#8212; Text Analysis and Machine Learning (TAML) Group</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="i. How to use this book" href="winter2022/how_to.html" />
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 6 - Writing about numeric data" href="Chapter6.html" />
+    <link rel="prev" title="Chapter 4 - The BERT algorithm" href="Chapter4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -68,26 +69,26 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+    <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
-      <img src="_static/logo.png" class="logo" alt="logo">
+      <img src="../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Text Analysis and Machine Learning (TAML) Group</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
    Welcome to TAML!
   </a>
  </li>
@@ -99,27 +100,27 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/how_to.html">
+  <a class="reference internal" href="how_to.html">
    i. How to use this book
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/start.html">
+  <a class="reference internal" href="start.html">
    ii. Start coding!
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/boiler.html">
+  <a class="reference internal" href="boiler.html">
    iii. Boilerplate code review
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/wrangle.html">
+  <a class="reference internal" href="wrangle.html">
    iv. Numeric data wrangling
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/viz.html">
+  <a class="reference internal" href="viz.html">
    v. Visualization essentials
   </a>
  </li>
@@ -129,39 +130,39 @@
   Winter Quarter 2022
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/Chapter1.html">
+  <a class="reference internal" href="Chapter1.html">
    Chapter 1 - English text preprocessing basics
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/Chapter2.html">
+  <a class="reference internal" href="Chapter2.html">
    Chapter 2 - Core machine learning concepts; building text vocabularies
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/Chapter3.html">
+  <a class="reference internal" href="Chapter3.html">
    Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/Chapter4.html">
+  <a class="reference internal" href="Chapter4.html">
    Chapter 4 - The BERT algorithm
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/Chapter5.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Chapter 5 - Ensemble machine learning, deep learning
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/Chapter6.html">
+  <a class="reference internal" href="Chapter6.html">
    Chapter 6 - Writing about numeric data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/Chapter7.html">
+  <a class="reference internal" href="Chapter7.html">
    Chapter 7 - Combine the basics in powerful ways!
   </a>
  </li>
@@ -173,17 +174,17 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/resources.html">
+  <a class="reference internal" href="resources.html">
    Resources
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/README.html">
+  <a class="reference internal" href="README.html">
    Launch JupyterLab in Binder
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="winter2022/Guest_Speakers.html">
+  <a class="reference internal" href="Guest_Speakers.html">
    Guest Speakers
   </a>
  </li>
@@ -228,9 +229,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/winter2022/Chapter5.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -248,7 +249,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fwinter2022/Chapter5.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -264,6 +265,26 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/winter2022/Chapter5.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -277,32 +298,15 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="welcome-to-taml">
-<h1>Welcome to TAML!<a class="headerlink" href="#welcome-to-taml" title="Permalink to this headline">¶</a></h1>
-<p>This is the Jupyter Book for the Text Analysis and Machine Learning (TAML) Group at Stanford Libraries.</p>
-<ul class="simple">
-<li><p>It explains key terms and links to the JupyterLab computational environment.</p></li>
-<li><p>Click “How to use this book” in the left sidebar to see how the book is organized.</p></li>
-<li><p>Click “Start Coding!” to view instructions to launch JupyterLab.</p></li>
-</ul>
-<p>Visit <a class="reference external" href="https://ssds.stanford.edu/">https://ssds.stanford.edu/</a> to learn more about Software and Services for Data Science, schedule a consultation, or RSVP for a workshop.</p>
-<p><strong>Winter Quarter 2021 Schedule</strong></p>
-<ul class="simple">
-<li><p>Jan 12: Kickoff, <span class="xref myst">guest speaker Dr. Qingkai Kong “Smartphones and Twitter for Earthquakes”</span></p></li>
-<li><p>Jan 19: Working with text data - preprocessing basics</p></li>
-<li><p>Jan 26: Core machine learning concepts; building text vocabularies (Bag of Words)</p></li>
-<li><p>Feb 02: Document encoding (TF-IDF), sentiment analysis, building text classifiers</p></li>
-<li><p>Feb 09: Lightning talks <strong>(postponed; no session this week)</strong></p></li>
-<li><p>Feb 16: The BERT algorithm</p></li>
-<li><p>Feb 23: Ensemble machine learning, deep learning</p></li>
-<li><p>Mar 02: Writing about numeric data</p></li>
-<li><p>Mar 09: Presentations</p></li>
-</ul>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-5-ensemble-machine-learning-deep-learning">
+<h1>Chapter 5 - Ensemble machine learning, deep learning<a class="headerlink" href="#chapter-5-ensemble-machine-learning-deep-learning" title="Permalink to this headline">¶</a></h1>
+<p>2022 February 23</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># forthcoming</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
 </div>
-<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -319,7 +323,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./."
+            path: "./winter2022"
         },
         predefinedOutput: true
     }
@@ -335,11 +339,20 @@
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="Chapter4.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Chapter 4 - The BERT algorithm</p>
+            </div>
+        </a>
+    </div>
      <div id="next">
-        <a class="right-next" href="winter2022/how_to.html" title="next page">
+        <a class="right-next" href="Chapter6.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">i. How to use this book</p>
+                <p class="prevnext-title">Chapter 6 - Writing about numeric data</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
@@ -365,7 +378,7 @@
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
   
   </body>
