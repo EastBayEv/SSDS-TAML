@@ -51,8 +51,6 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Chapter 5 - Ensemble machine learning, deep learning" href="Chapter%205.html" />
-    <link rel="prev" title="Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers" href="Chapter%203.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -93,103 +91,6 @@
   </a>
  </li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Python Basics
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="how_to.html">
-   i. How to use this book
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="start.html">
-   ii. Start coding!
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="boiler.html">
-   iii. Boilerplate code review
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="wrangle.html">
-   iv. Numeric data wrangling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="viz.html">
-   v. Visualization essentials
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Winter Quarter 2022
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Chapter%201.html">
-   Chapter 1 - English text preprocessing basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Chapter%202.html">
-   Chapter 2 - Core machine learning concepts; building text vocabularies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Chapter%203.html">
-   Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Chapter 4 - The BERT algorithm
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Chapter%205.html">
-   Chapter 5 - Ensemble machine learning, deep learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Chapter%206.html">
-   Chapter 6 - Writing about numeric data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Chapter%207.html">
-   Chapter 7 - Combine the basics in powerful ways!
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Miscellaneous
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="resources.html">
-   Resources
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="README.html">
-   Launch JupyterLab in Binder
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Guest_Speakers.html">
-   Guest Speakers
-  </a>
- </li>
-</ul>
-
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -290,6 +191,66 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensorflow">
+   Tensorflow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-and-software-library-installation-instructions">
+   Setup and software library installation instructions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-tensorflow">
+     Install tensorflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-dependency-of-the-preprocessing-for-bert-inputs">
+     A dependency of the preprocessing for BERT inputs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adamw-optimizer">
+     AdamW optimizer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-pydot-and-graphviz">
+     Install pydot and graphviz
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-tensorflow">
+     What is tensorflow?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#word-embeddings-tutorial-key-terms">
+   Word embeddings tutorial key terms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#word2vec-key-terms">
+   word2vec key terms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bert-bidirectional-encoder-representations-from-transformers-key-terms">
+   BERT (Bidirectional Encoder Representations from Transformers) key terms
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -301,12 +262,95 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-4-the-bert-algorithm">
 <h1>Chapter 4 - The BERT algorithm<a class="headerlink" href="#chapter-4-the-bert-algorithm" title="Permalink to this headline">¶</a></h1>
 <p>2022 February 16</p>
+<p><img alt="bande" src="_images/bande.png" /></p>
+<p><a class="reference external" href="https://www.sesamestreet.org/">… but don’t forget about Ernie!</a></p>
+<div class="section" id="tensorflow">
+<h2>Tensorflow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h2>
+<p>We will walkthrough three tensorflow tutorials for this session:</p>
+<ol class="simple">
+<li><p>word embeddings: <a class="reference external" href="https://www.tensorflow.org/text/guide/word_embeddings">https://www.tensorflow.org/text/guide/word_embeddings</a></p></li>
+<li><p>word2vec: <a class="reference external" href="https://www.tensorflow.org/tutorials/text/word2vec">https://www.tensorflow.org/tutorials/text/word2vec</a></p></li>
+<li><p>BERT: <a class="reference external" href="https://www.tensorflow.org/text/tutorials/classify_text_with_bert">https://www.tensorflow.org/text/tutorials/classify_text_with_bert</a></p></li>
+</ol>
+<h1 style="font-size: 4rem; color: #8C1515">Access the notebooks</h1>
+<p><strong>It is strongly recommeneded that you download the notebooks (or setup your Colab environment) in advance of our meeting session.</strong></p>
+<p>At the top of each tutorial page, click the appropriate button to access the notebooks.</p>
+<p><img alt="tfdl" src="_images/tfdl.png" /></p>
+<h1 style="font-size: 4rem; color: #00505C">Run all code</h1>
+<p><strong>Also be sure to run all code in advance.</strong></p>
+<p>The models will likely take 1-2 hours to fit and we will not have time to do so during the walkthrough.</p>
+<h1 style="font-size: 4rem; color: #2ecc71">Need help?</h1>
+<p>Contact muzzall {at} stanford {dot} edu</p>
+</div>
+<div class="section" id="setup-and-software-library-installation-instructions">
+<h2>Setup and software library installation instructions<a class="headerlink" href="#setup-and-software-library-installation-instructions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-tensorflow">
+<h3>Install tensorflow<a class="headerlink" href="#install-tensorflow" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># forthcoming</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install tensorflow</span>
 </pre></div>
 </div>
 </div>
+</div>
+<p>Or, setup a virtual environment (you might find this more complicated, but it is worth it in the long run).</p>
+<p>View the instructions: <a class="reference external" href="https://www.tensorflow.org/install/pip">https://www.tensorflow.org/install/pip</a></p>
+</div>
+<div class="section" id="a-dependency-of-the-preprocessing-for-bert-inputs">
+<h3>A dependency of the preprocessing for BERT inputs<a class="headerlink" href="#a-dependency-of-the-preprocessing-for-bert-inputs" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install -q -U tensorflow-text==2.7.3</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="adamw-optimizer">
+<h3>AdamW optimizer<a class="headerlink" href="#adamw-optimizer" title="Permalink to this headline">¶</a></h3>
+<p>Use the AdamW optimizer from tensorflow/models: <a class="reference external" href="https://github.com/tensorflow/models">https://github.com/tensorflow/models</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install -q -U tensorflow-text==2.7.3</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="install-pydot-and-graphviz">
+<h3>Install pydot and graphviz<a class="headerlink" href="#install-pydot-and-graphviz" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install pydot</span>
+<span class="c1"># !pip install pydot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>graphviz installation instructions: <a class="reference external" href="https://graphviz.org/download/">https://graphviz.org/download/</a></p>
+</div>
+<div class="section" id="what-is-tensorflow">
+<h3>What is tensorflow?<a class="headerlink" href="#what-is-tensorflow" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="word-embeddings-tutorial-key-terms">
+<h2>Word embeddings tutorial key terms<a class="headerlink" href="#word-embeddings-tutorial-key-terms" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+</div>
+<div class="section" id="word2vec-key-terms">
+<h2>word2vec key terms<a class="headerlink" href="#word2vec-key-terms" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+</div>
+<div class="section" id="bert-bidirectional-encoder-representations-from-transformers-key-terms">
+<h2>BERT (Bidirectional Encoder Representations from Transformers) key terms<a class="headerlink" href="#bert-bidirectional-encoder-representations-from-transformers-key-terms" title="Permalink to this headline">¶</a></h2>
+<p>What is a transformer?</p>
+<ul class="simple">
+<li></li>
+</ul>
 </div>
 </div>
 
@@ -339,24 +383,6 @@
 
 <div class='prev-next-bottom'>
     
-    <div id="prev">
-        <a class="left-prev" href="Chapter%203.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="Chapter%205.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Chapter 5 - Ensemble machine learning, deep learning</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
