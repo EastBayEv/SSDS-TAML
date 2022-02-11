@@ -76,19 +76,3 @@
 
 
 # graphviz installation instructions: https://graphviz.org/download/
-
-# ### What is tensorflow?
-
-# ## Word embeddings tutorial key terms
-# 
-# * 
-
-# ## word2vec key terms
-# 
-# * 
-
-# ## BERT (Bidirectional Encoder Representations from Transformers) key terms
-# 
-# What is a transformer? 
-# 
-# * 
