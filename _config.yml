@@ -3,7 +3,7 @@
 
 title: Text Analysis and Machine Learning (TAML) Group
 author: Stanford Libraries Software and Services for Data Science
-logo: img/logo.png
+logo: logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
