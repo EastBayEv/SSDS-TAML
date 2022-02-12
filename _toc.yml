@@ -6,7 +6,7 @@ root: intro
 parts:
 - caption: Python Basics
   chapters:
-  - file: winter2022/how_to
+  - file: _winter2022/how_to_
   - file: winter2022/start
   - file: winter2022/boiler
   - file: winter2022/wrangle
