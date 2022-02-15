@@ -11,10 +11,12 @@
 
 # ## Tensorflow
 # 
-# We will walkthrough three tensorflow tutorials for this session: 
-# 1. word embeddings: https://www.tensorflow.org/text/guide/word_embeddings
-# 2. word2vec: https://www.tensorflow.org/tutorials/text/word2vec
-# 3. BERT: https://www.tensorflow.org/text/tutorials/classify_text_with_bert
+# We will walkthrough the tensorflow "Classisfy Text with BERT" tutorial for this session: https://www.tensorflow.org/text/tutorials/classify_text_with_bert
+# 
+# Be sure to go through the below tutorials at some point, since they will help you better contextualize what is happening in the BERT tutorial:
+# 1. basic text classification: https://www.tensorflow.org/tutorials/keras/text_classification
+# 2. word embeddings: https://www.tensorflow.org/text/guide/word_embeddings
+# 3. word2vec: https://www.tensorflow.org/tutorials/text/word2vec
 # 
 # <h1 style="font-size: 4rem; color: #8C1515">Access the notebooks</h1>
 # 
