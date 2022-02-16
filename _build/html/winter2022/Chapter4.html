@@ -327,6 +327,23 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizations">
+   Visualizations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#semantic-similarity">
+   Semantic similarity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#find-pairs-of-sentences-with-highest-cosine-similarity-scores">
+     Find pairs of sentences with highest cosine similarity scores
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -408,6 +425,105 @@
 </div>
 </div>
 <p>graphviz installation instructions: <a class="reference external" href="https://graphviz.org/download/">https://graphviz.org/download/</a></p>
+</div>
+</div>
+<div class="section" id="visualizations">
+<h2>Visualizations<a class="headerlink" href="#visualizations" title="Permalink to this headline">¶</a></h2>
+<p><img alt="accloss" src="../_images/accloss.png" /></p>
+<p><img alt="weboard" src="../_images/weboard.png" /></p>
+</div>
+<div class="section" id="semantic-similarity">
+<h2>Semantic similarity<a class="headerlink" href="#semantic-similarity" title="Permalink to this headline">¶</a></h2>
+<p>See “Application Examples” section here: <a class="reference external" href="https://github.com/UKPLab/sentence-transformers">https://github.com/UKPLab/sentence-transformers</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">util</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;all-MiniLM-L6-v2&#39;</span><span class="p">)</span>
+
+<span class="c1"># Two lists of sentences</span>
+<span class="n">sentences1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;The cat sits outside&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;A man is playing guitar&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;The new movie is awesome&#39;</span><span class="p">]</span>
+
+<span class="n">sentences2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;The dog plays in the garden&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;A woman watches TV&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;The new movie is so great&#39;</span><span class="p">]</span>
+
+<span class="c1">#Compute embedding for both lists</span>
+<span class="n">embeddings1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">sentences1</span><span class="p">,</span> <span class="n">convert_to_tensor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">embeddings2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">sentences2</span><span class="p">,</span> <span class="n">convert_to_tensor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">#Compute cosine-similarits</span>
+<span class="n">cosine_scores</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">cos_sim</span><span class="p">(</span><span class="n">embeddings1</span><span class="p">,</span> <span class="n">embeddings2</span><span class="p">)</span>
+
+<span class="c1">#Output the pairs with their score</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences1</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="se">\t\t</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="se">\t\t</span><span class="s2"> Score: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sentences1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sentences2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cosine_scores</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cat sits outside 		 The dog plays in the garden 		 Score: 0.2838
+A man is playing guitar 		 A woman watches TV 		 Score: -0.0327
+The new movie is awesome 		 The new movie is so great 		 Score: 0.8939
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="find-pairs-of-sentences-with-highest-cosine-similarity-scores">
+<h3>Find pairs of sentences with highest cosine similarity scores<a class="headerlink" href="#find-pairs-of-sentences-with-highest-cosine-similarity-scores" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">util</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;all-MiniLM-L6-v2&#39;</span><span class="p">)</span>
+
+<span class="c1"># Single list of sentences</span>
+<span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;The cat sits outside&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;A man is playing guitar&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;I love pasta&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;The new movie is awesome&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;The cat plays in the garden&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;A woman watches TV&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;The new movie is so great&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Do you like pizza?&#39;</span><span class="p">]</span>
+
+<span class="c1">#Compute embeddings</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">convert_to_tensor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">#Compute cosine-similarities for each sentence with each other sentence</span>
+<span class="n">cosine_scores</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">cos_sim</span><span class="p">(</span><span class="n">embeddings</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">)</span>
+
+<span class="c1">#Find the pairs with the highest cosine similarity scores</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cosine_scores</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cosine_scores</span><span class="p">)):</span>
+        <span class="n">pairs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="n">cosine_scores</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]})</span>
+
+<span class="c1">#Sort scores in decreasing order</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="se">\t\t</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="se">\t\t</span><span class="s2"> Score: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sentences</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sentences</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">pair</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The new movie is awesome 		 The new movie is so great 		 Score: 0.8939
+The cat sits outside 		 The cat plays in the garden 		 Score: 0.6788
+I love pasta 		 Do you like pizza? 		 Score: 0.5096
+I love pasta 		 The new movie is so great 		 Score: 0.2560
+I love pasta 		 The new movie is awesome 		 Score: 0.2440
+A man is playing guitar 		 The cat plays in the garden 		 Score: 0.2105
+The new movie is awesome 		 Do you like pizza? 		 Score: 0.1969
+The new movie is so great 		 Do you like pizza? 		 Score: 0.1692
+The cat sits outside 		 A woman watches TV 		 Score: 0.1310
+The cat plays in the garden 		 Do you like pizza? 		 Score: 0.0900
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
