@@ -39,6 +39,8 @@
 # ## Setup and software library installation instructions
 
 # ### Install tensorflow
+# 
+# If the instructions in the tensorflow "Classify Text with Bert" notebook do not work, try the cell below: 
 
 # In[1]:
 
