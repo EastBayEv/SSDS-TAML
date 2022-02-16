@@ -145,19 +145,19 @@ chunked = nltk.chunk.ne_chunk(tagged)
 
 # ### Convert to dataframe
 
-# In[14]:
+# In[15]:
 
 
 df = pd.DataFrame(chunked, columns=['word', 'pos'])
 
 
-# In[15]:
+# In[16]:
 
 
 df.head()
 
 
-# In[16]:
+# In[17]:
 
 
 df.shape
@@ -233,7 +233,7 @@ soup = BeautifulSoup(response.text, 'html')
 # 
 # Below is a handy for loop that finds all everything within paragraph `<p>` tags. 
 
-# In[2]:
+# In[24]:
 
 
 # save in an empty string
@@ -263,7 +263,7 @@ text = re.sub(r'[^\w\s]','',text)
 text = text.lower()
 
 
-# In[1]:
+# In[27]:
 
 
 print(text)

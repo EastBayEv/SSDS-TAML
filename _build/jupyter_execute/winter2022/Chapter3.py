@@ -521,7 +521,7 @@ print(scores, np.mean(scores))
 
 # ### Top 25 features for positive and negative reviews
 
-# In[59]:
+# In[46]:
 
 
 feature_names = tfidf.get_feature_names()
@@ -534,7 +534,7 @@ top25neg = np.argsort(model.coef_[0])[:25]
 print(list(feature_names[j] for j in top25neg))
 
 
-# In[51]:
+# In[47]:
 
 
 new_bad_review = "This was the most awful worst super bad movie ever!"
@@ -544,7 +544,7 @@ features = tfidf.transform([new_bad_review])
 model.predict(features)
 
 
-# In[60]:
+# In[48]:
 
 
 new_good_review = 'WHAT A WONDERFUL, FANTASTIC MOVIE!!!'
@@ -554,7 +554,7 @@ features = tfidf.transform([new_good_review])
 model.predict(features)
 
 
-# In[82]:
+# In[49]:
 
 
 # type another review here
