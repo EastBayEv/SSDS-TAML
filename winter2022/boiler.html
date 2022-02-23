@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>iii. Boilerplate code review &#8212; Text Analysis and Machine Learning (TAML) Group</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,17 +34,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -93,7 +94,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Python Basics
  </span>
@@ -125,7 +126,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Winter Quarter 2022
  </span>
@@ -167,7 +168,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Miscellaneous
  </span>
@@ -403,11 +404,11 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="iii-boilerplate-code-review">
+  <section class="tex2jax_ignore mathjax_ignore" id="iii-boilerplate-code-review">
 <h1>iii. Boilerplate code review<a class="headerlink" href="#iii-boilerplate-code-review" title="Permalink to this headline">¶</a></h1>
 <p><img alt="boiler" src="../_images/boiler.jpg" /></p>
 <p>Below are just a few examples of basic Python programming to accomplish data saving and importing tasks.</p>
-<div class="section" id="variable-assignment">
+<section id="variable-assignment">
 <h2>Variable assignment<a class="headerlink" href="#variable-assignment" title="Permalink to this headline">¶</a></h2>
 <p>In Python, data are saved in variables.</p>
 <p>Variable names should be simple and descriptive.</p>
@@ -431,8 +432,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="use-print-to-show-it-on-the-screen">
+</section>
+<section id="use-print-to-show-it-on-the-screen">
 <h2>Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to show it on the screen<a class="headerlink" href="#use-print-to-show-it-on-the-screen" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -459,8 +460,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="functions-arguments-and-methods">
+</section>
+<section id="functions-arguments-and-methods">
 <h2>Functions, arguments, and methods<a class="headerlink" href="#functions-arguments-and-methods" title="Permalink to this headline">¶</a></h2>
 <p>Functions, arguments, and methods form the core user framework for Python programming.</p>
 <ul class="simple">
@@ -476,8 +477,8 @@
 <blockquote>
 <div><p>For example, you could type <code class="docutils literal notranslate"><span class="pre">gap</span> <span class="pre">=</span> <span class="pre">pd.read_csv('data/gapminder-FiveYearData.csv')</span></code> to use the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> method from the pandas library (imported as the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>) to load the Gapminder data.</p>
 </div></blockquote>
-</div>
-<div class="section" id="data-types">
+</section>
+<section id="data-types">
 <h2>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
 <p>Everything in Python has a type which determines how we can manipulate that piece of data. Be careful, it is easy to get confused when trying to complete multiple tasks that use lots of different variables!</p>
 <div class="cell docutils container">
@@ -541,7 +542,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="addition-examples-with-strings-versus-numbers">
+<section id="addition-examples-with-strings-versus-numbers">
 <h3>Addition examples with strings versus numbers<a class="headerlink" href="#addition-examples-with-strings-versus-numbers" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -569,16 +570,16 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="data-structures">
+</section>
+</section>
+<section id="data-structures">
 <h2>Data structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
 <p>Data can be stored in a variety of ways.</p>
-<div class="section" id="indexing">
+<section id="indexing">
 <h3>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h3>
 <p>Python is a zero-indexed programming language and means that you start counting from zero. Thus, the first element in a collection is referenced by 0 instead of 1.</p>
-</div>
-<div class="section" id="list">
+</section>
+<section id="list">
 <h3>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
 <p>Lists are ordered groups of data that are both created and indexed (positionally referenced) with square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
 <div class="cell docutils container">
@@ -609,8 +610,8 @@ cat
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="dictionary">
+</section>
+<section id="dictionary">
 <h3>Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this headline">¶</a></h3>
 <p>Dictionaries are <em>unordered</em> groups of “key:value” pairs. Use the key to access the value.</p>
 <div class="cell docutils container">
@@ -647,8 +648,8 @@ cat
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="import-text-data-as-a-character-string">
+</section>
+<section id="import-text-data-as-a-character-string">
 <h3>Import text data as a character string<a class="headerlink" href="#import-text-data-as-a-character-string" title="Permalink to this headline">¶</a></h3>
 <p>Import text using the <code class="docutils literal notranslate"><span class="pre">open().read()</span></code> Python convention to import text as a single string.</p>
 <div class="cell docutils container">
@@ -698,8 +699,8 @@ or, the Modern Prom
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="import-data-frames-with-the-pandas-library">
+</section>
+<section id="import-data-frames-with-the-pandas-library">
 <h3>Import data frames with the pandas library<a class="headerlink" href="#import-data-frames-with-the-pandas-library" title="Permalink to this headline">¶</a></h3>
 <p>Data frames are programming speak for tabular spreadsheets organized into rows and columns and often stored in .csv format.</p>
 <div class="cell docutils container">
@@ -882,9 +883,9 @@ or, the Modern Prom
 <p>1704 rows × 6 columns</p>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="challenge">
+</section>
+</section>
+<section id="challenge">
 <h2>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h2>
 <p>Open JupyterLab. Try to import a:</p>
 <ol class="simple">
@@ -892,20 +893,20 @@ or, the Modern Prom
 <li><p>different .csv file</p></li>
 </ol>
 <p>If you encounter error messages, which ones?</p>
-</div>
-<div class="section" id="error-messages">
+</section>
+<section id="error-messages">
 <h2>Error messages<a class="headerlink" href="#error-messages" title="Permalink to this headline">¶</a></h2>
 <p>Python’s learning curve can feel creative and beyond frustrating at the same time. Just remember that everyone encounters errors - lots of them. When you do, start debugging by investigating the type of error message you receive.</p>
 <p>Scroll to the end of the error message and read the last line to find the type of error.</p>
-</div>
-<div class="section" id="id1">
+</section>
+<section id="id1">
 <h2>Challenge<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>In JupyterLab, unhashtag the line of code for each error message below</p></li>
 <li><p>Run each one</p></li>
 <li><p>Inspect the error messages</p></li>
 </ol>
-<div class="section" id="syntax-errors">
+<section id="syntax-errors">
 <h3>Syntax errors<a class="headerlink" href="#syntax-errors" title="Permalink to this headline">¶</a></h3>
 <p><strong>Invalid syntax</strong></p>
 <p>You have entered something python does not understand.</p>
@@ -929,8 +930,8 @@ or, the Modern Prom
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="runtime-errors">
+</section>
+<section id="runtime-errors">
 <h3>Runtime errors<a class="headerlink" href="#runtime-errors" title="Permalink to this headline">¶</a></h3>
 <p><strong>Name</strong></p>
 <p>You try to call a variable you have not yet assigned</p>
@@ -968,8 +969,8 @@ or, the Modern Prom
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="file-errors">
+</section>
+<section id="file-errors">
 <h3>File errors<a class="headerlink" href="#file-errors" title="Permalink to this headline">¶</a></h3>
 <p><strong>File not found</strong></p>
 <p>You try to import something that does not exist</p>
@@ -980,9 +981,9 @@ or, the Modern Prom
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>v. Visualization essentials &#8212; Text Analysis and Machine Learning (TAML) Group</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,17 +34,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -93,7 +94,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Python Basics
  </span>
@@ -125,7 +126,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Winter Quarter 2022
  </span>
@@ -167,7 +168,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Miscellaneous
  </span>
@@ -389,7 +390,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="v-visualization-essentials">
+  <section class="tex2jax_ignore mathjax_ignore" id="v-visualization-essentials">
 <h1>v. Visualization essentials<a class="headerlink" href="#v-visualization-essentials" title="Permalink to this headline">¶</a></h1>
 <p><img alt="viz" src="../_images/viz.png" /></p>
 <div class="cell docutils container">
@@ -411,9 +412,9 @@
 <li><p>Compute summary statistics</p></li>
 <li><p>Produce visualizations to illustrate obvious - or not so obvious - trends in the data</p></li>
 </ol>
-<div class="section" id="plotting-with-seaborn">
+<section id="plotting-with-seaborn">
 <h2>Plotting with seaborn<a class="headerlink" href="#plotting-with-seaborn" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="first-a-note-about-matplotlib">
+<section id="first-a-note-about-matplotlib">
 <h3>First, a note about matplotlib<a class="headerlink" href="#first-a-note-about-matplotlib" title="Permalink to this headline">¶</a></h3>
 <p>There are many different ways to visualize data in Python but they virtually all rely on matplotlib. You should take some time to read through the tutorial: <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html">https://matplotlib.org/stable/tutorials/introductory/pyplot.html</a>.</p>
 <p>Because many other libraries depend on matplotlib under the hood, you should familiarize yourself with the basics. For example:</p>
@@ -434,17 +435,17 @@
 <img alt="../_images/viz_5_0.png" src="../_images/viz_5_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="visualization-best-practices">
+</section>
+</section>
+<section id="visualization-best-practices">
 <h2>Visualization best practices<a class="headerlink" href="#visualization-best-practices" title="Permalink to this headline">¶</a></h2>
 <p>Consult Wilke’s <em>Fundamentals of Data Visualization</em> <a class="reference external" href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a> for discussions of theory and best practices.</p>
 <p>The <strong>goal of data visualization</strong> is to accurately communicate <em>something</em> about the data. This could be an amount, a distribution, relationship, predictions, or the results of sorted data.</p>
 <p>Utilize characteristics of different data types to manipulate the aesthetics of plot axes and coordinate systems, color scales and gradients, and formatting and arrangements to impress your audience!</p>
 <p><img alt="wilke" src="../_images/wilke.png" /></p>
 <p><img alt="wilke12" src="../_images/wilke12.png" /></p>
-</div>
-<div class="section" id="summary-statistics-pandas-review">
+</section>
+<section id="summary-statistics-pandas-review">
 <h2>Summary statistics - pandas review<a class="headerlink" href="#summary-statistics-pandas-review" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -467,7 +468,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="all-columns">
+<section id="all-columns">
 <h3>All columns<a class="headerlink" href="#all-columns" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -548,8 +549,8 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="one-column">
+</section>
+<section id="one-column">
 <h3>One column<a class="headerlink" href="#one-column" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -570,8 +571,8 @@ Name: lifeExp, dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="multiple-columns">
+</section>
+<section id="multiple-columns">
 <h3>Multiple columns<a class="headerlink" href="#multiple-columns" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -639,17 +640,17 @@ Name: lifeExp, dtype: float64
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="basic-plots">
+</section>
+</section>
+<section id="basic-plots">
 <h2>Basic plots<a class="headerlink" href="#basic-plots" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Histogram: visualize distribution of one continuous (i.e., integer or float) variable.</p></li>
 <li><p>Boxplot: visualize the distribution of one continuous variable.</p></li>
 <li><p>Scatterplot: visualize the relationship between two continuous variables.</p></li>
 </ol>
-</div>
-<div class="section" id="histogram">
+</section>
+<section id="histogram">
 <h2>Histogram<a class="headerlink" href="#histogram" title="Permalink to this headline">¶</a></h2>
 <p>Use a histogram to plot the distribution of one continuous (i.e., integer or float) variable.</p>
 <div class="cell docutils container">
@@ -677,8 +678,8 @@ Name: lifeExp, dtype: float64
 <img alt="../_images/viz_20_0.png" src="../_images/viz_20_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="boxplot">
+</section>
+<section id="boxplot">
 <h2>Boxplot<a class="headerlink" href="#boxplot" title="Permalink to this headline">¶</a></h2>
 <p>Boxplots can be used to visualize one distribution as well, and illustrate different aspects of the table of summary statistics.</p>
 <div class="cell docutils container">
@@ -902,8 +903,8 @@ Name: lifeExp, dtype: float64
 <img alt="../_images/viz_26_0.png" src="../_images/viz_26_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="scatterplot">
+</section>
+<section id="scatterplot">
 <h2>Scatterplot<a class="headerlink" href="#scatterplot" title="Permalink to this headline">¶</a></h2>
 <p>Scatterplots are useful to illustrate the relationship between two continuous variables. Below are several options for you to try.</p>
 <div class="cell docutils container">
@@ -950,8 +951,8 @@ Name: lifeExp, dtype: float64
 <img alt="../_images/viz_28_0.png" src="../_images/viz_28_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="quiz-penguins-dataset">
+</section>
+<section id="quiz-penguins-dataset">
 <h2>Quiz - Penguins dataset<a class="headerlink" href="#quiz-penguins-dataset" title="Permalink to this headline">¶</a></h2>
 <p>Learn more about the biological and spatial characteristics of penguins!</p>
 <p><img alt="penguins" src="../_images/penguins.png" /></p>
@@ -960,7 +961,7 @@ Name: lifeExp, dtype: float64
 <li><p>What might you conclude about the species of penguins from this dataset?</p></li>
 </ol>
 <p><img alt="sns" src="../_images/sea.png" /></p>
-<div class="section" id="map-of-antarctica">
+<section id="map-of-antarctica">
 <h3>Map of Antarctica<a class="headerlink" href="#map-of-antarctica" title="Permalink to this headline">¶</a></h3>
 <p>Below is a map of Antarctica past the southernmost tip of the South American continent.</p>
 <p>The distance from the Biscoe Islands (Renaud) to the Torgersen and Dream Islands is about 140 km.</p>
@@ -1217,14 +1218,14 @@ Name: lifeExp, dtype: float64
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="quiz-gapminder-dataset">
+</section>
+</section>
+<section id="quiz-gapminder-dataset">
 <h2>Quiz - Gapminder dataset<a class="headerlink" href="#quiz-gapminder-dataset" title="Permalink to this headline">¶</a></h2>
 <p>Make the twelve plots using the Gapminder dataset.</p>
 <p>What can you conclude about income and life expectancy?</p>
 <p>Visit <a class="reference external" href="https://www.gapminder.org/">https://www.gapminder.org/</a> to learn more!</p>
-<div class="section" id="things-you-are-probably-wrong-about">
+<section id="things-you-are-probably-wrong-about">
 <h3>Things you are probably wrong about!<a class="headerlink" href="#things-you-are-probably-wrong-about" title="Permalink to this headline">¶</a></h3>
 <p><img alt="gapm" src="../_images/gapm.png" /></p>
 <p>See the survey and correct response rate of the <a class="reference external" href="https://www.gapminder.org/ignorance/studies/sdg2020/">Sustainable Development Misconception Study 2020</a></p>
@@ -1324,9 +1325,9 @@ Name: lifeExp, dtype: float64
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Chapter 1 - English text preprocessing basics &#8212; Text Analysis and Machine Learning (TAML) Group</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,17 +34,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -93,7 +94,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Python Basics
  </span>
@@ -125,7 +126,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Winter Quarter 2022
  </span>
@@ -167,7 +168,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Miscellaneous
  </span>
@@ -370,7 +371,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-1-english-text-preprocessing-basics">
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-1-english-text-preprocessing-basics">
 <h1>Chapter 1 - English text preprocessing basics<a class="headerlink" href="#chapter-1-english-text-preprocessing-basics" title="Permalink to this headline">¶</a></h1>
 <p>2022 January 19</p>
 <p><img alt="text" src="../_images/text.png" /></p>
@@ -403,6 +404,7 @@
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;wordnet&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;averaged_perceptron_tagger&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;maxent_ne_chunker&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;omw-1.4&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -423,6 +425,11 @@
 [nltk_data] Downloading package maxent_ne_chunker to
 [nltk_data]     /Users/evanmuzzall/nltk_data...
 [nltk_data]   Package maxent_ne_chunker is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]   Unzipping corpora/omw-1.4.zip.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -447,7 +454,7 @@ This eBook is for the use of anyone anywhere
 </div>
 </div>
 </div>
-<div class="section" id="remove-punctuation">
+<section id="remove-punctuation">
 <h2>Remove punctuation<a class="headerlink" href="#remove-punctuation" title="Permalink to this headline">¶</a></h2>
 <p>Remember that Python methods can be chained together.</p>
 <p>Below, a standard for loop loops through the <code class="docutils literal notranslate"><span class="pre">punctuation</span></code> module to replace any of these characters with nothing.</p>
@@ -485,7 +492,7 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 </div>
-<div class="section" id="tokenize-the-text">
+<section id="tokenize-the-text">
 <h3>Tokenize the text<a class="headerlink" href="#tokenize-the-text" title="Permalink to this headline">¶</a></h3>
 <p>Split each word on spaces.</p>
 <div class="cell docutils container">
@@ -507,8 +514,8 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="remove-stop-words">
+</section>
+<section id="remove-stop-words">
 <h3>Remove stop words<a class="headerlink" href="#remove-stop-words" title="Permalink to this headline">¶</a></h3>
 <p>Below is a list comprehension (a sort of shortcut for loop) that can accomplish this task for us.</p>
 <div class="cell docutils container">
@@ -531,8 +538,8 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="lemmatize">
+</section>
+<section id="lemmatize">
 <h3>Lemmatize<a class="headerlink" href="#lemmatize" title="Permalink to this headline">¶</a></h3>
 <p>Examples include:</p>
 <ul class="simple">
@@ -554,8 +561,8 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="part-of-speech-tags">
+</section>
+<section id="part-of-speech-tags">
 <h3>Part of speech tags<a class="headerlink" href="#part-of-speech-tags" title="Permalink to this headline">¶</a></h3>
 <p>Part of speech tags are labels given to each word in a text such as verbs, adverbs, nouns, pronouns, adjectives, conjunctions, and their various derivations and subcategories.</p>
 <div class="cell docutils container">
@@ -572,8 +579,8 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="convert-to-dataframe">
+</section>
+<section id="convert-to-dataframe">
 <h3>Convert to dataframe<a class="headerlink" href="#convert-to-dataframe" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -653,8 +660,8 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="visualize-the-20-most-frequent-words">
+</section>
+<section id="visualize-the-20-most-frequent-words">
 <h3>Visualize the 20 most frequent words<a class="headerlink" href="#visualize-the-20-most-frequent-words" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -843,9 +850,9 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 <p><img alt="redwood" src="../_images/redwood.png" /></p>
-</div>
-</div>
-<div class="section" id="quiz-redwood-webscraping">
+</section>
+</section>
+<section id="quiz-redwood-webscraping">
 <h2>Quiz: Redwood webscraping<a class="headerlink" href="#quiz-redwood-webscraping" title="Permalink to this headline">¶</a></h2>
 <p>This also works with data scraped from the web. Below is very brief BeautifulSoup example to save the contents of the Sequoioideae (redwood trees) Wikipedia page to a variable named <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
 <ol class="simple">
@@ -864,7 +871,7 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 </div>
-<div class="section" id="three-variables-will-get-you-started">
+<section id="three-variables-will-get-you-started">
 <h3>Three variables will get you started<a class="headerlink" href="#three-variables-will-get-you-started" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">url</span></code> - define the URL to be scraped</p></li>
@@ -880,8 +887,8 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="get-the-text">
+</section>
+<section id="get-the-text">
 <h3>Get the text<a class="headerlink" href="#get-the-text" title="Permalink to this headline">¶</a></h3>
 <p>HTML (hypertext markup language) is used to structure a webpage and the content it contains, including text.</p>
 <p>Below is a handy for loop that finds all everything within paragraph <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> tags.</p>
@@ -929,8 +936,8 @@ New World Species:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="regular-expressions">
+</section>
+<section id="regular-expressions">
 <h3>Regular expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h3>
 <p>Remember how we did preprocessing the long way above? You might find that using egular expressions are easier. <a class="reference external" href="https://docs.python.org/3/library/re.html">Check out the tutorial</a> and <a class="reference external" href="https://www.dataquest.io/blog/regex-cheatsheet/">cheatsheet</a> to find out what the below symbols mean and write your own code.</p>
 <div class="cell docutils container">
@@ -956,14 +963,14 @@ New World Species:
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="going-further-n-grams">
+</section>
+</section>
+<section id="going-further-n-grams">
 <h2>Going further: n-grams<a class="headerlink" href="#going-further-n-grams" title="Permalink to this headline">¶</a></h2>
 <p>We have used indivual words in this example, but what about <a class="reference external" href="https://en.wikipedia.org/wiki/N-gram">n-grams?</a> Also read through this <a class="reference external" href="https://www.kaggle.com/alvations/n-gram-language-model-with-nltk">n-gram language model with nltk</a>.</p>
 <p>There are also more optimal ways to preprocess your text. Cehck out the <a class="reference external" href="https://spacy.io/usage/spacy-101">spaCy 101</a> guide to try it out yourself and attend the CIDR Python Introduction to Text Analysis workshop on February 8, 2022. <a class="reference external" href="https://appointments.library.stanford.edu/calendar/ssds/cidr-python-text">Register here</a>.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

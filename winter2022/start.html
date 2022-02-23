@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>ii. Start coding! &#8212; Text Analysis and Machine Learning (TAML) Group</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,17 +34,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -93,7 +94,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Python Basics
  </span>
@@ -125,7 +126,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Winter Quarter 2022
  </span>
@@ -167,7 +168,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Miscellaneous
  </span>
@@ -385,46 +386,46 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="ii-start-coding">
+  <section class="tex2jax_ignore mathjax_ignore" id="ii-start-coding">
 <h1>ii. Start coding!<a class="headerlink" href="#ii-start-coding" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="right-click-the-launch-binder-button-below-and-open-it-in-a-new-browser-tab">
+<section id="right-click-the-launch-binder-button-below-and-open-it-in-a-new-browser-tab">
 <h2>Right click the “Launch Binder” button below and open it in a new browser tab.<a class="headerlink" href="#right-click-the-launch-binder-button-below-and-open-it-in-a-new-browser-tab" title="Permalink to this headline">¶</a></h2>
 <p>Follow these instructions in JupyterLab to start a kernel, type and run a line of code, save and export your work, and end your session. The content in JupyterLab and the JupyterBook is identical.</p>
 <p><a class="reference external" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/HEAD"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
-</div>
-<div class="section" id="click-python-3-ipykernel">
+</section>
+<section id="click-python-3-ipykernel">
 <h2>Click “Python 3 (ipykernel)”<a class="headerlink" href="#click-python-3-ipykernel" title="Permalink to this headline">¶</a></h2>
 <p>Click “Python 3 (ipykernel) under the “Notebook” header to launch a blank notebook.
 <img alt="setkernel" src="../_images/kernel.png" /></p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="cells-are-code-by-default">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cells-are-code-by-default">
 <h1>Cells are code by default<a class="headerlink" href="#cells-are-code-by-default" title="Permalink to this headline">¶</a></h1>
 <p>In the first cell, type:</p>
 <blockquote>
 <div><p>print(“Your Name Here”)</p>
 </div></blockquote>
-<div class="section" id="run-the-code">
+<section id="run-the-code">
 <h2>Run the code<a class="headerlink" href="#run-the-code" title="Permalink to this headline">¶</a></h2>
 <p>Press <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">enter</span></code> in JupyterLab or your local Python Anaconda installation to execute the code.</p>
-</div>
-<div class="section" id="insert-new-cells">
+</section>
+<section id="insert-new-cells">
 <h2>Insert new cells<a class="headerlink" href="#insert-new-cells" title="Permalink to this headline">¶</a></h2>
 <p>Click the “plus” button to insert a new cell. It can be found between the “save disk” and “scissors” icons.
 <img alt="addcell" src="../_images/addcell.png" /></p>
-</div>
-<div class="section" id="switch-between-code-and-text-cells">
+</section>
+<section id="switch-between-code-and-text-cells">
 <h2>Switch between code and text cells<a class="headerlink" href="#switch-between-code-and-text-cells" title="Permalink to this headline">¶</a></h2>
 <p>Switch between code and text cells by clicking the dropdown menu.
 <img alt="switch" src="../_images/switch.png" /></p>
-</div>
-<div class="section" id="editing-a-markdown-cell">
+</section>
+<section id="editing-a-markdown-cell">
 <h2>Editing a markdown cell<a class="headerlink" href="#editing-a-markdown-cell" title="Permalink to this headline">¶</a></h2>
 <p>Double-click a markdown cell to edit it. Press <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">enter</span></code> to render the text.</p>
 <p>Go through the cells on this page and check out <a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a> to explore formatting rules and shortcuts.</p>
 <p><img alt="toc" src="../_images/toc.png" /></p>
-</div>
-<div class="section" id="save-your-work">
+</section>
+<section id="save-your-work">
 <h2>Save your work<a class="headerlink" href="#save-your-work" title="Permalink to this headline">¶</a></h2>
 <p>Click the “disk” icon to save your work. Right-click the tab to give your notebook a name:</p>
 <p><img alt="rename" src="../_images/rename.png" /></p>
@@ -433,8 +434,8 @@
 <li><p>There are many other options, take some time to explore the top menu and buttons.</p></li>
 </ul>
 <p><img alt="download" src="../_images/dl.png" /></p>
-</div>
-<div class="section" id="close-and-halt">
+</section>
+<section id="close-and-halt">
 <h2>Close and halt<a class="headerlink" href="#close-and-halt" title="Permalink to this headline">¶</a></h2>
 <p>Safely close the notebook by clicking “File” –&gt; “Close and Halt” before closing your browser.</p>
 <p><img alt="closehalt" src="../_images/close.png" /></p>
@@ -449,8 +450,8 @@
 <li><p>Click the “Launch” button under either Jupyter Notebook or Jupyter Lab.</p></li>
 <li><p>Open the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> notebook you just downloaded from JupyterLab in your local installation and repeat the steps above.</p></li>
 </ul>
-</div>
-<div class="section" id="run-these-materials-on-your-local-computer">
+</section>
+<section id="run-these-materials-on-your-local-computer">
 <h2>Run these materials on your local computer<a class="headerlink" href="#run-these-materials-on-your-local-computer" title="Permalink to this headline">¶</a></h2>
 <p>Copy these materials for use on your local installation.</p>
 <ol class="simple">
@@ -462,20 +463,20 @@
 <li><p>Extract this folder someplace familiar such as your Desktop.</p></li>
 <li><p>Open Anaconda Navigator, launch JupyterLab, and navigate your directories to launch these notebooks.</p></li>
 </ol>
-</div>
-<div class="section" id="git-clone">
+</section>
+<section id="git-clone">
 <h2>git clone<a class="headerlink" href="#git-clone" title="Permalink to this headline">¶</a></h2>
 <p>Git users type: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/EastBayEv/SSDS-TAML.git</span></code></p>
-</div>
-<div class="section" id="install-external-libraries">
+</section>
+<section id="install-external-libraries">
 <h2>Install external libraries<a class="headerlink" href="#install-external-libraries" title="Permalink to this headline">¶</a></h2>
 <p>Install user-defined software libraries to enhance Python’s functionality. In a new notebook cell type <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">&lt;library</span> <span class="pre">name&gt;</span></code>, e.g.:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">pandas</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">seaborn</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="dead-kernel">
+</section>
+<section id="dead-kernel">
 <h2>Dead kernel?<a class="headerlink" href="#dead-kernel" title="Permalink to this headline">¶</a></h2>
 <p>The notebook kernel will fail from time to time, which is normal. Simply click “Kernel” from the File menu and one of the “Restart” options.</p>
 <p><img alt="restart" src="../_images/restart.png" /></p>
@@ -483,12 +484,12 @@
 <div><p>NOTE: about the terminal, you will see it run processes in the background like this:</p>
 </div></blockquote>
 <p><img alt="terminal" src="../_images/terminal.png" /></p>
-</div>
-<div class="section" id="if-you-accidentally-delete-a-jupyter-notebook">
+</section>
+<section id="if-you-accidentally-delete-a-jupyter-notebook">
 <h2>If you accidentally delete a Jupyter Notebook …<a class="headerlink" href="#if-you-accidentally-delete-a-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
 <p>Check your operating system’s Recycle Bin!</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

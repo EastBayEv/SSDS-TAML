@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Chapter 4 - The BERT algorithm &#8212; Text Analysis and Machine Learning (TAML) Group</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,17 +34,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -93,7 +94,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Python Basics
  </span>
@@ -125,7 +126,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Winter Quarter 2022
  </span>
@@ -167,7 +168,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Miscellaneous
  </span>
@@ -355,12 +356,12 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-4-the-bert-algorithm">
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-4-the-bert-algorithm">
 <h1>Chapter 4 - The BERT algorithm<a class="headerlink" href="#chapter-4-the-bert-algorithm" title="Permalink to this headline">¶</a></h1>
 <p>2022 February 16</p>
 <p><img alt="bande" src="../_images/bande.png" /></p>
 <p><a class="reference external" href="https://www.sesamestreet.org/">… but don’t forget about Ernie!</a></p>
-<div class="section" id="tensorflow">
+<section id="tensorflow">
 <h2>Tensorflow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h2>
 <p>We will walkthrough the tensorflow “Classisfy Text with BERT” tutorial for this session: <a class="reference external" href="https://www.tensorflow.org/text/tutorials/classify_text_with_bert">https://www.tensorflow.org/text/tutorials/classify_text_with_bert</a></p>
 <p>Be sure to go through the below tutorials at some point, since they will help you better contextualize what is happening in the BERT tutorial:</p>
@@ -381,10 +382,10 @@
 <p>The models will likely take 1-2 hours to fit and we will not have time to do so during the walkthrough.</p>
 <h1 style="font-size: 4rem; color: #2ecc71">Need help?</h1>
 <p>Contact muzzall {at} stanford {dot} edu</p>
-</div>
-<div class="section" id="setup-and-software-library-installation-instructions">
+</section>
+<section id="setup-and-software-library-installation-instructions">
 <h2>Setup and software library installation instructions<a class="headerlink" href="#setup-and-software-library-installation-instructions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="install-tensorflow">
+<section id="install-tensorflow">
 <h3>Install tensorflow<a class="headerlink" href="#install-tensorflow" title="Permalink to this headline">¶</a></h3>
 <p>If the instructions in the tensorflow “Classify Text with Bert” notebook do not work, try the cell below:</p>
 <div class="cell docutils container">
@@ -396,8 +397,8 @@
 </div>
 <p>Or, setup a virtual environment (you might find this more complicated, but it is worth it in the long run).</p>
 <p>View the instructions: <a class="reference external" href="https://www.tensorflow.org/install/pip">https://www.tensorflow.org/install/pip</a></p>
-</div>
-<div class="section" id="a-dependency-of-the-preprocessing-for-bert-inputs">
+</section>
+<section id="a-dependency-of-the-preprocessing-for-bert-inputs">
 <h3>A dependency of the preprocessing for BERT inputs<a class="headerlink" href="#a-dependency-of-the-preprocessing-for-bert-inputs" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -406,8 +407,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="adamw-optimizer">
+</section>
+<section id="adamw-optimizer">
 <h3>AdamW optimizer<a class="headerlink" href="#adamw-optimizer" title="Permalink to this headline">¶</a></h3>
 <p>Use the AdamW optimizer from tensorflow/models: <a class="reference external" href="https://github.com/tensorflow/models">https://github.com/tensorflow/models</a></p>
 <div class="cell docutils container">
@@ -417,8 +418,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="install-pydot-and-graphviz">
+</section>
+<section id="install-pydot-and-graphviz">
 <h3>Install pydot and graphviz<a class="headerlink" href="#install-pydot-and-graphviz" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -429,14 +430,14 @@
 </div>
 </div>
 <p>graphviz installation instructions: <a class="reference external" href="https://graphviz.org/download/">https://graphviz.org/download/</a></p>
-</div>
-</div>
-<div class="section" id="visualizations">
+</section>
+</section>
+<section id="visualizations">
 <h2>Visualizations<a class="headerlink" href="#visualizations" title="Permalink to this headline">¶</a></h2>
 <p><img alt="accloss" src="../_images/accloss.png" /></p>
 <p><img alt="weboard" src="../_images/weboard.png" /></p>
-</div>
-<div class="section" id="semantic-similarity">
+</section>
+<section id="semantic-similarity">
 <h2>Semantic similarity<a class="headerlink" href="#semantic-similarity" title="Permalink to this headline">¶</a></h2>
 <p>See “Application Examples” section here: <a class="reference external" href="https://github.com/UKPLab/sentence-transformers">https://github.com/UKPLab/sentence-transformers</a></p>
 <div class="cell docutils container">
@@ -474,7 +475,7 @@ The new movie is awesome 		 The new movie is so great 		 Score: 0.8939
 </div>
 </div>
 </div>
-<div class="section" id="find-pairs-of-sentences-with-highest-cosine-similarity-scores">
+<section id="find-pairs-of-sentences-with-highest-cosine-similarity-scores">
 <h3>Find pairs of sentences with highest cosine similarity scores<a class="headerlink" href="#find-pairs-of-sentences-with-highest-cosine-similarity-scores" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -528,9 +529,9 @@ The cat plays in the garden 		 Do you like pizza? 		 Score: 0.0900
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
