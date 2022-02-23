@@ -62,9 +62,7 @@ h2o.init()
 # In[3]:
 
 
-# Import a sample binary outcome train/test set into H2O
-train = h2o.import_file("https://s3.amazonaws.com/erin-data/higgs/higgs_train_10k.csv")
-test = h2o.import_file("https://s3.amazonaws.com/erin-data/higgs/higgs_test_5k.csv")
+get_ipython().run_cell_magic('capture', '', '# Import a sample binary outcome train/test set into H2O\n# Learn about subset of Higgs Boson dataset: https://www.kaggle.com/c/higgs-boson\ntrain = h2o.import_file("https://s3.amazonaws.com/erin-data/higgs/higgs_train_10k.csv")\ntest = h2o.import_file("https://s3.amazonaws.com/erin-data/higgs/higgs_test_5k.csv")')
 
 
 # In[4]:
@@ -107,116 +105,43 @@ nfolds = 5
 # In[9]:
 
 
-# There are a few ways to assemble a list of models to stack together:
-# 1. Train individual models and put them in a list
-# 2. Train a grid of models
-# 3. Train several grids of models
-# Note: All base models must have the same cross-validation folds and
-# the cross-validated predicted values must be kept.
-
-
-# 1. Generate a 2-model ensemble (GBM + RF)
-
-# Train and cross-validate a GBM
-my_gbm = H2OGradientBoostingEstimator(distribution="bernoulli",
-                                      ntrees=10,
-                                      max_depth=3,
-                                      min_rows=2,
-                                      learn_rate=0.2,
-                                      nfolds=nfolds,
-                                      fold_assignment="Modulo",
-                                      keep_cross_validation_predictions=True,
-                                      seed=1)
-my_gbm.train(x=x, y=y, training_frame=train)
+get_ipython().run_cell_magic('capture', '', '# There are a few ways to assemble a list of models to stack together:\n# 1. Train individual models and put them in a list\n# 2. Train a grid of models\n# 3. Train several grids of models\n# Note: All base models must have the same cross-validation folds and\n# the cross-validated predicted values must be kept.\n\n\n# 1. Generate a 2-model ensemble (GBM + RF)\n\n# Train and cross-validate a GBM\nmy_gbm = H2OGradientBoostingEstimator(distribution="bernoulli",\n                                      ntrees=10,\n                                      max_depth=3,\n                                      min_rows=2,\n                                      learn_rate=0.2,\n                                      nfolds=nfolds,\n                                      fold_assignment="Modulo",\n                                      keep_cross_validation_predictions=True,\n                                      seed=1)\nmy_gbm.train(x=x, y=y, training_frame=train)')
 
 
 # In[10]:
 
 
-# Train and cross-validate a RF
-my_rf = H2ORandomForestEstimator(ntrees=50,
-                                 nfolds=nfolds,
-                                 fold_assignment="Modulo",
-                                 keep_cross_validation_predictions=True,
-                                 seed=1)
-my_rf.train(x=x, y=y, training_frame=train)
+get_ipython().run_cell_magic('capture', '', '# Train and cross-validate a RF\nmy_rf = H2ORandomForestEstimator(ntrees=50,\n                                 nfolds=nfolds,\n                                 fold_assignment="Modulo",\n                                 keep_cross_validation_predictions=True,\n                                 seed=1)\nmy_rf.train(x=x, y=y, training_frame=train)')
 
 
 # In[11]:
 
 
-# Train a stacked ensemble using the GBM and GLM above
-ensemble = H2OStackedEnsembleEstimator(model_id="my_ensemble_binomial",
-                                       base_models=[my_gbm, my_rf])
-ensemble.train(x=x, y=y, training_frame=train)
-
-# Eval ensemble performance on the test data
-perf_stack_test = ensemble.model_performance(test)
+get_ipython().run_cell_magic('capture', '', '# Train a stacked ensemble using the GBM and GLM above\nensemble = H2OStackedEnsembleEstimator(model_id="my_ensemble_binomial",\n                                       base_models=[my_gbm, my_rf])\nensemble.train(x=x, y=y, training_frame=train)\n\n# Eval ensemble performance on the test data\nperf_stack_test = ensemble.model_performance(test)')
 
 
 # In[12]:
 
 
-# Compare to base learner performance on the test set
-perf_gbm_test = my_gbm.model_performance(test)
-perf_rf_test = my_rf.model_performance(test)
-baselearner_best_auc_test = max(perf_gbm_test.auc(), perf_rf_test.auc())
-stack_auc_test = perf_stack_test.auc()
-print("Best Base-learner Test AUC:  {0}".format(baselearner_best_auc_test))
-print("Ensemble Test AUC:  {0}".format(stack_auc_test))
+get_ipython().run_cell_magic('capture', '', '# Compare to base learner performance on the test set\nperf_gbm_test = my_gbm.model_performance(test)\nperf_rf_test = my_rf.model_performance(test)\nbaselearner_best_auc_test = max(perf_gbm_test.auc(), perf_rf_test.auc())\nstack_auc_test = perf_stack_test.auc()\nprint("Best Base-learner Test AUC:  {0}".format(baselearner_best_auc_test))\nprint("Ensemble Test AUC:  {0}".format(stack_auc_test))')
 
 
 # In[13]:
 
 
-# Generate predictions on a test set (if neccessary)
-pred = ensemble.predict(test)
-
-
-# 2. Generate a random grid of models and stack them together
-
-# Specify GBM hyperparameters for the grid
-hyper_params = {"learn_rate": [0.01, 0.03],
-                "max_depth": [3, 4, 5, 6, 9],
-                "sample_rate": [0.7, 0.8, 0.9, 1.0],
-                "col_sample_rate": [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]}
-search_criteria = {"strategy": "RandomDiscrete", "max_models": 3, "seed": 1}
+get_ipython().run_cell_magic('capture', '', '# Generate predictions on a test set (if neccessary)\npred = ensemble.predict(test)\n\n\n# 2. Generate a random grid of models and stack them together\n\n# Specify GBM hyperparameters for the grid\nhyper_params = {"learn_rate": [0.01, 0.03],\n                "max_depth": [3, 4, 5, 6, 9],\n                "sample_rate": [0.7, 0.8, 0.9, 1.0],\n                "col_sample_rate": [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]}\nsearch_criteria = {"strategy": "RandomDiscrete", "max_models": 3, "seed": 1}')
 
 
 # In[14]:
 
 
-# Train the grid
-grid = H2OGridSearch(model=H2OGradientBoostingEstimator(ntrees=10,
-                                                        seed=1,
-                                                        nfolds=nfolds,
-                                                        fold_assignment="Modulo",
-                                                        keep_cross_validation_predictions=True),
-                     hyper_params=hyper_params,
-                     search_criteria=search_criteria,
-                     grid_id="gbm_grid_binomial")
-grid.train(x=x, y=y, training_frame=train)
+get_ipython().run_cell_magic('capture', '', '# Train the grid\ngrid = H2OGridSearch(model=H2OGradientBoostingEstimator(ntrees=10,\n                                                        seed=1,\n                                                        nfolds=nfolds,\n                                                        fold_assignment="Modulo",\n                                                        keep_cross_validation_predictions=True),\n                     hyper_params=hyper_params,\n                     search_criteria=search_criteria,\n                     grid_id="gbm_grid_binomial")\ngrid.train(x=x, y=y, training_frame=train)')
 
 
 # In[15]:
 
 
-# Train a stacked ensemble using the GBM grid
-ensemble = H2OStackedEnsembleEstimator(model_id="my_ensemble_gbm_grid_binomial",
-                                       base_models=grid.model_ids)
-ensemble.train(x=x, y=y, training_frame=train)
-
-# Eval ensemble performance on the test data
-perf_stack_test = ensemble.model_performance(test)
-
-# Compare to base learner performance on the test set
-baselearner_best_auc_test = max([h2o.get_model(model).model_performance(test_data=test).auc() for model in grid.model_ids])
-stack_auc_test = perf_stack_test.auc()
-print("Best Base-learner Test AUC:  {0}".format(baselearner_best_auc_test))
-print("Ensemble Test AUC:  {0}".format(stack_auc_test))
-
-# Generate predictions on a test set (if neccessary)
-pred = ensemble.predict(test)
+get_ipython().run_cell_magic('capture', '', '# Train a stacked ensemble using the GBM grid\nensemble = H2OStackedEnsembleEstimator(model_id="my_ensemble_gbm_grid_binomial",\n                                       base_models=grid.model_ids)\nensemble.train(x=x, y=y, training_frame=train)\n\n# Eval ensemble performance on the test data\nperf_stack_test = ensemble.model_performance(test)\n\n# Compare to base learner performance on the test set\nbaselearner_best_auc_test = max([h2o.get_model(model).model_performance(test_data=test).auc() for model in grid.model_ids])\nstack_auc_test = perf_stack_test.auc()\nprint("Best Base-learner Test AUC:  {0}".format(baselearner_best_auc_test))\nprint("Ensemble Test AUC:  {0}".format(stack_auc_test))\n\n# Generate predictions on a test set (if neccessary)\npred = ensemble.predict(test)')
 
 
 # ## Deep learning basics
