@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Chapter 2 - Core machine learning concepts; building text vocabularies &#8212; Text Analysis and Machine Learning (TAML) Group</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,19 +34,19 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -95,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Python Basics
  </span>
@@ -127,7 +128,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Winter Quarter 2022
  </span>
@@ -169,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Miscellaneous
  </span>
@@ -524,7 +525,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-2-core-machine-learning-concepts-building-text-vocabularies">
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-2-core-machine-learning-concepts-building-text-vocabularies">
 <h1>Chapter 2 - Core machine learning concepts; building text vocabularies<a class="headerlink" href="#chapter-2-core-machine-learning-concepts-building-text-vocabularies" title="Permalink to this headline">¶</a></h1>
 <p>2022 January 26</p>
 <p><img alt="ml" src="../_images/ml.png" /></p>
@@ -548,7 +549,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="what-is-machine-learning">
+<section id="what-is-machine-learning">
 <h2>What is machine learning?<a class="headerlink" href="#what-is-machine-learning" title="Permalink to this headline">¶</a></h2>
 <p>Machine learning is a toolbox for modeling, investigating, and understanding data. To understand machine learning, a handful of key terms need to be defined.</p>
 <p><a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a> provides the foundation for this introductory machine learning session.</p>
@@ -557,22 +558,22 @@
 <li><p>scikit-learn tutorials: <a class="reference external" href="https://scikit-learn.org/stable/tutorial/index.html">https://scikit-learn.org/stable/tutorial/index.html</a></p></li>
 <li><p>scikit-learn user guide: <a class="reference external" href="https://scikit-learn.org/stable/user_guide.html">https://scikit-learn.org/stable/user_guide.html</a></p></li>
 </ul>
-</div>
-<div class="section" id="key-terms">
+</section>
+<section id="key-terms">
 <h2>Key terms<a class="headerlink" href="#key-terms" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Artificial intelligence:</strong> “A program that can sense, reason, act, and adapt.”</p></li>
 <li><p><strong>Machine learning:</strong> “Algorithims whose performance improve as they are exposed to more data over time.”</p></li>
 <li><p><strong>Deep learning:</strong> “Subset of machine learning in which multilayered neural networks learn from vast amounts of data.”</p></li>
 </ul>
-<div class="section" id="x-and-y-variables">
+<section id="x-and-y-variables">
 <h3><em>x</em> and <em>y</em> variables<a class="headerlink" href="#x-and-y-variables" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><strong><em>x</em></strong> variables are the independent variables. You will also see these referred to in a variety of contexts as features, covariates, predictors, input, or explanatory variables.</p></li>
 <li><p>The <strong><em>y</em></strong> variable is the dependent variable. This is also referred to as the response, outcome, and target variable.</p></li>
 </ul>
-</div>
-<div class="section" id="types-of-machine-learning">
+</section>
+<section id="types-of-machine-learning">
 <h3>Types of machine learning:<a class="headerlink" href="#types-of-machine-learning" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><strong>Supervised machine learning:</strong> algorithms train models that (best) learn the relationships between the <strong><em>x</em></strong> and <strong><em>y</em></strong> variables on a labeled dataset (called the <strong>training set</strong>, where the ground truth <strong><em>y</em></strong> variable is known). The performance of the trained model is then evaluated after it predicts the outcome on new data that the model has never seen before (called the <strong>test set</strong>) where where ground truth <strong><em>y</em></strong> label is unknown.</p></li>
@@ -582,8 +583,8 @@
 <li><p><span class="math notranslate nohighlight">\(f\)</span> is the unknown function that relates <strong><em>x</em></strong> to <strong><em>y</em></strong> and is estimated</p></li>
 <li><p><span class="math notranslate nohighlight">\(ϵ\)</span> is random error independent of x and averages to zero</p></li>
 </ul>
-</div>
-<div class="section" id="data-splitting-training-and-test-performance">
+</section>
+<section id="data-splitting-training-and-test-performance">
 <h3>Data splitting: Training and test performance<a class="headerlink" href="#data-splitting-training-and-test-performance" title="Permalink to this headline">¶</a></h3>
 <p>Preparation for supervised methods requires a split of the dataset into training and test sets.</p>
 <ul class="simple">
@@ -601,8 +602,8 @@
 <li><p><strong>Cross-validation</strong> is the best way to split your data, because it repeats the train/test data splitting process <span class="math notranslate nohighlight">\(k\)</span> number of times and rotates the test set each time so that every observation is included in a test set at least once. Performance results are then averaged to compute predictive performance.</p></li>
 </ul>
 <p><img alt="cv_wiki" src="../_images/cv_wiki.png" /></p>
-</div>
-<div class="section" id="model-evaluation">
+</section>
+<section id="model-evaluation">
 <h3>Model evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">¶</a></h3>
 <p><img alt="bv" src="../_images/bv.png" /></p>
 <ul class="simple">
@@ -613,8 +614,8 @@
 <li><p><strong>Variance</strong> refers to changes in the model predictive accuracy due to fluctuations in the training set or when using different training datasets, and how much the model can adjust to each. High variance could be due to model complexity, noise in the dataset, and overfitting.</p></li>
 <li><p>The <strong>tradeoff</strong> means that models with high bias will have low variance, and vice-versa. The goal is to find the optimal combination of these two factors for your problem.</p></li>
 </ul>
-</div>
-<div class="section" id="classification-versus-regression">
+</section>
+<section id="classification-versus-regression">
 <h3>Classification versus regression<a class="headerlink" href="#classification-versus-regression" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><strong>Supervised classification:</strong> models probability that <strong><em>y</em></strong> is 1 given the covariates <strong><em>x</em></strong> and is performed when <strong><em>y</em></strong> is categorical (either binary yes/no or multinomial): <span class="math notranslate nohighlight">\(Pr(y=1|x)\)</span></p></li>
@@ -668,12 +669,12 @@
 <li><p><a class="reference external" href="https://aisel.aisnet.org/hicss-51/os/topics_in_os/6/">Yapo and Weiss, 2018. Ethical implications of bias in machine learning</a></p></li>
 <li><p><a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/3457607?casa_token=HkkFHCUfRh0AAAAA%3Az5PprDD4p2VDEyZD7KeJzl67tlpTTA48RsIlqcqDYLROEfyJMTzHRjdYYN8SheqDRkvt_H1XXojANQ">Mehrabi et al, 2021. A survey on bias and fairness in machine learning</a></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="ols-example-by-hand">
+</section>
+</section>
+<section id="ols-example-by-hand">
 <h2>OLS example - by “hand”<a class="headerlink" href="#ols-example-by-hand" title="Permalink to this headline">¶</a></h2>
 <p>Ordinary least squares regression provides a great example of the machine learning process and some of the key terms defined above.</p>
-<div class="section" id="generate-toy-data">
+<section id="generate-toy-data">
 <h3>Generate toy data<a class="headerlink" href="#generate-toy-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -737,8 +738,8 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="calculate-means-of-x-and-y">
+</section>
+<section id="calculate-means-of-x-and-y">
 <h3>Calculate means of x and y<a class="headerlink" href="#calculate-means-of-x-and-y" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -756,8 +757,8 @@ mean of y: 8.0
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="visualize-the-data-training-data">
+</section>
+<section id="visualize-the-data-training-data">
 <h3>Visualize the data (training data)<a class="headerlink" href="#visualize-the-data-training-data" title="Permalink to this headline">¶</a></h3>
 <p>Plot the known relationships between x and y.</p>
 <div class="cell docutils container">
@@ -770,8 +771,8 @@ mean of y: 8.0
 <img alt="../_images/Chapter2_28_0.png" src="../_images/Chapter2_28_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="calculate-error-for-each-observation">
+</section>
+<section id="calculate-error-for-each-observation">
 <h3>Calculate error for each observation<a class="headerlink" href="#calculate-error-for-each-observation" title="Permalink to this headline">¶</a></h3>
 <p>Error (least squares method) is the difference between each observation and the mean. Below this will be represented visually by the distance between each point and the line of best fit.</p>
 <div class="cell docutils container">
@@ -836,8 +837,8 @@ Name: y, dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="compute-beta-coefficients">
+</section>
+<section id="compute-beta-coefficients">
 <h3>Compute beta coefficients<a class="headerlink" href="#compute-beta-coefficients" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -858,8 +859,8 @@ intercept (B0) is:  -4.0
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="plot-best-fit-line">
+</section>
+<section id="plot-best-fit-line">
 <h3>Plot best fit line<a class="headerlink" href="#plot-best-fit-line" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -877,8 +878,8 @@ intercept (B0) is:  -4.0
 <img alt="../_images/Chapter2_36_0.png" src="../_images/Chapter2_36_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="generate-the-predictions-test-set">
+</section>
+<section id="generate-the-predictions-test-set">
 <h3>Generate the predictions (test set)<a class="headerlink" href="#generate-the-predictions-test-set" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -911,12 +912,12 @@ Name: x, dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="visualize-the-error-for-each-observation">
+</section>
+<section id="visualize-the-error-for-each-observation">
 <h3>Visualize the error for each observation<a class="headerlink" href="#visualize-the-error-for-each-observation" title="Permalink to this headline">¶</a></h3>
 <p><img alt="ls_err" src="../_images/ls_err.png" /></p>
-</div>
-<div class="section" id="evaluate-the-performance-using-rmse">
+</section>
+<section id="evaluate-the-performance-using-rmse">
 <h3>Evaluate the performance using RMSE<a class="headerlink" href="#evaluate-the-performance-using-rmse" title="Permalink to this headline">¶</a></h3>
 <p>Root mean squared error is a handy performance metric because it has the same units of whatever is plotted on the y-axis.</p>
 <p>In our toy example here, we are off an average of 2.82843 units on the y-axis of a given data point from the line of best fit.</p>
@@ -968,8 +969,8 @@ Name: y, dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="compare-our-by-hand-results-to-the-scikit-learn-version">
+</section>
+<section id="compare-our-by-hand-results-to-the-scikit-learn-version">
 <h3>Compare our by “hand” results to the scikit-learn version!<a class="headerlink" href="#compare-our-by-hand-results-to-the-scikit-learn-version" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1046,9 +1047,9 @@ True
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="supervised-machine-learning-logistic-regression">
+</section>
+</section>
+<section id="supervised-machine-learning-logistic-regression">
 <h2>Supervised machine learning - logistic regression<a class="headerlink" href="#supervised-machine-learning-logistic-regression" title="Permalink to this headline">¶</a></h2>
 <p>Fortunately, you do not have to do any of this by hand thanks to scikit-learn!</p>
 <p>Here is a short workflow to fit a logistic regression model. Logistic regression is similar to linear regression <span class="math notranslate nohighlight">\(y \sim\ x\)</span> but regresses for the probability of a categorical outcome.</p>
@@ -1150,7 +1151,7 @@ True
 </table>
 </div></div></div>
 </div>
-<div class="section" id="preprocess-the-data-remove-rows-with-nan-missing-values">
+<section id="preprocess-the-data-remove-rows-with-nan-missing-values">
 <h3>Preprocess the data - remove rows with NaN (missing) values<a class="headerlink" href="#preprocess-the-data-remove-rows-with-nan-missing-values" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1186,8 +1187,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="preprocess-the-data-convert-categorical-variables-to-indicators">
+</section>
+<section id="preprocess-the-data-convert-categorical-variables-to-indicators">
 <h3>Preprocess the data - convert categorical variables to indicators<a class="headerlink" href="#preprocess-the-data-convert-categorical-variables-to-indicators" title="Permalink to this headline">¶</a></h3>
 <p>Check out this great tutorial on <a class="reference external" href="https://stackabuse.com/one-hot-encoding-in-python-with-pandas-and-scikit-learn/">one-hot encoding</a> to learn more.</p>
 <div class="cell docutils container">
@@ -1324,8 +1325,8 @@ True
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="preprocess-the-data-remove-the-island-and-species-variables-from-p-complete">
+</section>
+<section id="preprocess-the-data-remove-the-island-and-species-variables-from-p-complete">
 <h3>Preprocess the data - remove the island and species variables from p_complete<a class="headerlink" href="#preprocess-the-data-remove-the-island-and-species-variables-from-p-complete" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1414,8 +1415,8 @@ True
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="recombine-the-numeric-indicators-with-the-other-variables">
+</section>
+<section id="recombine-the-numeric-indicators-with-the-other-variables">
 <h3>Recombine the numeric indicators with the other variables<a class="headerlink" href="#recombine-the-numeric-indicators-with-the-other-variables" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1531,8 +1532,8 @@ True
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="recode-male-as-1-and-female-as-0">
+</section>
+<section id="recode-male-as-1-and-female-as-0">
 <h3>Recode MALE as 1 and FEMALE as 0<a class="headerlink" href="#recode-male-as-1-and-female-as-0" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1654,8 +1655,8 @@ True
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="define-your-logistic-regression-object">
+</section>
+<section id="define-your-logistic-regression-object">
 <h3>Define your logistic regression object<a class="headerlink" href="#define-your-logistic-regression-object" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1669,8 +1670,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="split-the-clean-penguins-dataset-into-training-and-test-sets">
+</section>
+<section id="split-the-clean-penguins-dataset-into-training-and-test-sets">
 <h3>Split the <code class="docutils literal notranslate"><span class="pre">clean_penguins</span></code> dataset into training and test sets<a class="headerlink" href="#split-the-clean-penguins-dataset-into-training-and-test-sets" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1735,8 +1736,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="fit-the-model-to-the-training-data-0-84-accuracy">
+</section>
+<section id="fit-the-model-to-the-training-data-0-84-accuracy">
 <h3>Fit the model to the training data (0.84 accuracy)<a class="headerlink" href="#fit-the-model-to-the-training-data-0-84-accuracy" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1763,8 +1764,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="generate-predicted-values-on-the-test-data">
+</section>
+<section id="generate-predicted-values-on-the-test-data">
 <h3>Generate predicted values on the test data<a class="headerlink" href="#generate-predicted-values-on-the-test-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1784,8 +1785,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="calculate-test-set-accuracy-0-81-accuracy">
+</section>
+<section id="calculate-test-set-accuracy-0-81-accuracy">
 <h3>Calculate test set accuracy (0.81 accuracy)<a class="headerlink" href="#calculate-test-set-accuracy-0-81-accuracy" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1834,12 +1835,12 @@ True
 <img alt="../_images/Chapter2_83_0.png" src="../_images/Chapter2_83_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="building-text-vocabularies">
+</section>
+</section>
+<section id="building-text-vocabularies">
 <h2>Building text vocabularies<a class="headerlink" href="#building-text-vocabularies" title="Permalink to this headline">¶</a></h2>
 <p>What about how text is predicted? If we have text as data, we also need to convert the <em>representation</em> of text into a format that machine learning algorithms can understand.</p>
-<div class="section" id="define-a-corpus">
+<section id="define-a-corpus">
 <h3>Define a corpus<a class="headerlink" href="#define-a-corpus" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1862,8 +1863,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="bag-of-words-model-with-countvectorizer">
+</section>
+<section id="bag-of-words-model-with-countvectorizer">
 <h3>Bag of words model with <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code><a class="headerlink" href="#bag-of-words-model-with-countvectorizer" title="Permalink to this headline">¶</a></h3>
 <p>A bag of words model removes punctuation and casefolds the text to lowercase before counting the words.</p>
 <div class="cell docutils container">
@@ -1901,8 +1902,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="document-term-matrix">
+</section>
+<section id="document-term-matrix">
 <h3>Document term matrix<a class="headerlink" href="#document-term-matrix" title="Permalink to this headline">¶</a></h3>
 <p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Document-term_matrix">document term matrix</a> displays term frequencies in sparse format across a collection of docuemnts. The <code class="docutils literal notranslate"><span class="pre">.transform</span></code> method will help us here!</p>
 <ul class="simple">
@@ -1943,8 +1944,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="present-the-sparse-matrix">
+</section>
+<section id="present-the-sparse-matrix">
 <h3>Present the sparse matrix<a class="headerlink" href="#present-the-sparse-matrix" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1971,6 +1972,10 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;as&#39;,
  &#39;document&#39;,
  &#39;first&#39;,
@@ -2003,8 +2008,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="n-grams">
+</section>
+<section id="n-grams">
 <h3>N-grams<a class="headerlink" href="#n-grams" title="Permalink to this headline">¶</a></h3>
 <p>While we have focused on single words above, we can apply this approach to multi-word phrases in order to try to predict linguistic instances and potentially better understand context of a corpus of documents.</p>
 <p>Use the below token patterns:</p>
@@ -2049,8 +2054,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="apply-n-grams-to-our-above-corpus">
+</section>
+<section id="apply-n-grams-to-our-above-corpus">
 <h3>Apply n-grams to our above corpus<a class="headerlink" href="#apply-n-grams-to-our-above-corpus" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2141,8 +2146,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="data-frame-vocabulary-across-documents">
+</section>
+<section id="data-frame-vocabulary-across-documents">
 <h3>Data frame vocabulary across documents<a class="headerlink" href="#data-frame-vocabulary-across-documents" title="Permalink to this headline">¶</a></h3>
 <p>Our vocabulary consists of 29 unigrams and bigrams across the four documents.</p>
 <div class="cell docutils container">
@@ -2367,15 +2372,15 @@ True
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="quiz-classic-horror-novel-vocabulary">
+</section>
+</section>
+<section id="quiz-classic-horror-novel-vocabulary">
 <h2>Quiz - Classic horror novel vocabulary<a class="headerlink" href="#quiz-classic-horror-novel-vocabulary" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Create a single sparse data frame that contains the vocabulary for <em>Frankenstein</em> and <em>Dracula</em>. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts.</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>iv. Numeric data wrangling &#8212; Text Analysis and Machine Learning (TAML) Group</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,17 +34,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -93,7 +94,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Python Basics
  </span>
@@ -125,7 +126,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Winter Quarter 2022
  </span>
@@ -167,7 +168,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Miscellaneous
  </span>
@@ -438,13 +439,13 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="iv-numeric-data-wrangling">
+  <section class="tex2jax_ignore mathjax_ignore" id="iv-numeric-data-wrangling">
 <h1>iv. Numeric data wrangling<a class="headerlink" href="#iv-numeric-data-wrangling" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div><p>For text preprocessing, see the January 19 notebook.</p>
 </div></blockquote>
 <p><img alt="wrangle" src="../_images/wrangle.png" /></p>
-<div class="section" id="the-pandas-library">
+<section id="the-pandas-library">
 <h2>The pandas library<a class="headerlink" href="#the-pandas-library" title="Permalink to this headline">¶</a></h2>
 <p>Import the pandas library with the alias pd.</p>
 <p>Use “dot notation” to apply its methods to the dataset, which is stored in a tabular .csv file.</p>
@@ -477,8 +478,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="pandas-methods">
+</section>
+<section id="pandas-methods">
 <h2>Pandas methods<a class="headerlink" href="#pandas-methods" title="Permalink to this headline">¶</a></h2>
 <p>Just a small handful of pandas methods will help you accomplish several key data wrangling tasks. See the examplea code below.</p>
 <ul class="simple">
@@ -500,11 +501,11 @@
 <li><p>Row and column subset</p></li>
 <li><p>Subset by logical condition(s)</p></li>
 </ul>
-</div>
-<div class="section" id="first-look-at-the-data">
+</section>
+<section id="first-look-at-the-data">
 <h2>First, look at the data<a class="headerlink" href="#first-look-at-the-data" title="Permalink to this headline">¶</a></h2>
 <p>Use pandas methods to learn about the data!</p>
-<div class="section" id="head">
+<section id="head">
 <h3><code class="docutils literal notranslate"><span class="pre">.head()</span></code><a class="headerlink" href="#head" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -590,8 +591,8 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="columns">
+</section>
+<section id="columns">
 <h3><code class="docutils literal notranslate"><span class="pre">.columns</span></code><a class="headerlink" href="#columns" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -607,8 +608,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="shape">
+</section>
+<section id="shape">
 <h3><code class="docutils literal notranslate"><span class="pre">.shape</span></code><a class="headerlink" href="#shape" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -624,16 +625,16 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="summary-statistics">
+</section>
+</section>
+<section id="summary-statistics">
 <h2>Summary statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h2>
 <p>Produce summary statistics, including:</p>
 <ul class="simple">
 <li><p>Count, mean, sd, quartiles, min/max</p></li>
 <li><p>Tabulate frequencies</p></li>
 </ul>
-<div class="section" id="describe">
+<section id="describe">
 <h3><code class="docutils literal notranslate"><span class="pre">.describe()</span></code><a class="headerlink" href="#describe" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -728,8 +729,8 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="mean-and-std">
+</section>
+<section id="mean-and-std">
 <h3><code class="docutils literal notranslate"><span class="pre">.mean()</span></code> and <code class="docutils literal notranslate"><span class="pre">.std()</span></code><a class="headerlink" href="#mean-and-std" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -748,8 +749,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="groupby-and-count">
+</section>
+<section id="groupby-and-count">
 <h3><code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> and <code class="docutils literal notranslate"><span class="pre">.count()</span></code><a class="headerlink" href="#groupby-and-count" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -770,9 +771,9 @@ Name: country, dtype: int64
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="subset-rows-or-columns">
+</section>
+</section>
+<section id="subset-rows-or-columns">
 <h2>Subset rows or columns<a class="headerlink" href="#subset-rows-or-columns" title="Permalink to this headline">¶</a></h2>
 <p>Sampling data is necessary for many reasons, including quick sanity checks.</p>
 <p>Slice a data frame by using bracket notation to specify start and end points <code class="docutils literal notranslate"><span class="pre">[start</span> <span class="pre">:</span> <span class="pre">end]</span></code></p>
@@ -781,7 +782,7 @@ Name: country, dtype: int64
 <div><p>Remember that Python is a zero-indexed language, or starts counting from zero, not one.</p>
 </div></blockquote>
 <p>Leave the start or end values blank to start from the beginning, or go to the end of a collection.</p>
-<div class="section" id="row-subset-slice-just-the-first-row">
+<section id="row-subset-slice-just-the-first-row">
 <h3>Row subset: slice just the first row<a class="headerlink" href="#row-subset-slice-just-the-first-row" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -830,8 +831,8 @@ Name: country, dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="row-subset-slice-first-three-rows">
+</section>
+<section id="row-subset-slice-first-three-rows">
 <h3>Row subset: slice first three rows<a class="headerlink" href="#row-subset-slice-first-three-rows" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -898,8 +899,8 @@ Name: country, dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="row-subset-slice-rows-10-thru-14">
+</section>
+<section id="row-subset-slice-rows-10-thru-14">
 <h3>Row subset: slice rows 10 thru 14<a class="headerlink" href="#row-subset-slice-rows-10-thru-14" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -985,8 +986,8 @@ Name: country, dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="column-subset-one-column">
+</section>
+<section id="column-subset-one-column">
 <h3>Column subset: one column<a class="headerlink" href="#column-subset-one-column" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1012,8 +1013,8 @@ Name: lifeExp, Length: 1704, dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="column-subset-multiple-columns">
+</section>
+<section id="column-subset-multiple-columns">
 <h3>Column subset: multiple columns<a class="headerlink" href="#column-subset-multiple-columns" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1119,8 +1120,8 @@ Name: lifeExp, Length: 1704, dtype: float64
 <p>1704 rows × 3 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="row-and-column-subset">
+</section>
+<section id="row-and-column-subset">
 <h3>Row and column subset<a class="headerlink" href="#row-and-column-subset" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1195,8 +1196,8 @@ Name: lifeExp, Length: 1704, dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="subset-by-logical-condition-s">
+</section>
+<section id="subset-by-logical-condition-s">
 <h3>Subset by logical condition(s)<a class="headerlink" href="#subset-by-logical-condition-s" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1522,9 +1523,9 @@ Name: lifeExp, Length: 1704, dtype: float64
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

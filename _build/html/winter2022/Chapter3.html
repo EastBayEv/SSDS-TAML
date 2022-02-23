@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers &#8212; Text Analysis and Machine Learning (TAML) Group</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,19 +34,19 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -95,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Python Basics
  </span>
@@ -127,7 +128,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Winter Quarter 2022
  </span>
@@ -169,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Miscellaneous
  </span>
@@ -491,7 +492,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-3-document-encoding-tf-idf-topic-modeling-sentiment-analysis-building-text-classifiers">
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-3-document-encoding-tf-idf-topic-modeling-sentiment-analysis-building-text-classifiers">
 <h1>Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers<a class="headerlink" href="#chapter-3-document-encoding-tf-idf-topic-modeling-sentiment-analysis-building-text-classifiers" title="Permalink to this headline">¶</a></h1>
 <p>2022 February 2</p>
 <div class="cell docutils container">
@@ -515,12 +516,12 @@
 </div>
 </div>
 </div>
-<div class="section" id="document-encoding-for-machine-learning">
+<section id="document-encoding-for-machine-learning">
 <h2>Document encoding for machine learning<a class="headerlink" href="#document-encoding-for-machine-learning" title="Permalink to this headline">¶</a></h2>
 <p>In the last chapter you saw that we do not change text to numbers, but instead changed the <em>representation</em> of the text to the numbers in sparse matrix format.</p>
 <p>In this format, each row represents a document and each column represents a token from the shared text vocabulary called a <strong>feature</strong>.</p>
-</div>
-<div class="section" id="key-terms">
+</section>
+<section id="key-terms">
 <h2>Key terms<a class="headerlink" href="#key-terms" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Document term matrix:</strong> contains the frequencies (or TF-IDF scores) of vocabulary terms in a collection of documents in sparse format.</p>
@@ -556,13 +557,13 @@
 <p><img alt="topic" src="../_images/topic.png" /></p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Topic_model">Wikipedia</a></p>
 <p><img alt="unhrc" src="../_images/unhrc.jpg" /></p>
-</div>
-<div class="section" id="corpus-definition-united-nations-human-rights-council-documentation">
+</section>
+<section id="corpus-definition-united-nations-human-rights-council-documentation">
 <h2>Corpus definition: United Nations Human Rights Council Documentation<a class="headerlink" href="#corpus-definition-united-nations-human-rights-council-documentation" title="Permalink to this headline">¶</a></h2>
 <p>We will select eleven .txt files from the UN HRC as our corpus, stored within the subfolder “human_rights” folder inside the main “data” directory.</p>
 <p>These documents contain information about human rights recommendations made by member nations towards countries deemed to be in violation of the HRC.</p>
 <p><a class="reference external" href="https://www.ohchr.org/en/hrbodies/hrc/pages/home.aspx">Learn more about the UN HRC by clicking here.</a></p>
-<div class="section" id="define-the-corpus-directory">
+<section id="define-the-corpus-directory">
 <h3>Define the corpus directory<a class="headerlink" href="#define-the-corpus-directory" title="Permalink to this headline">¶</a></h3>
 <p>Set the directory’s file path and print the files it contains.</p>
 <div class="cell docutils container">
@@ -591,8 +592,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="store-these-documents-in-a-data-frame">
+</section>
+<section id="store-these-documents-in-a-data-frame">
 <h3>Store these documents in a data frame<a class="headerlink" href="#store-these-documents-in-a-data-frame" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -615,8 +616,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="view-the-data-frame">
+</section>
+<section id="view-the-data-frame">
 <h3>View the data frame<a class="headerlink" href="#view-the-data-frame" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -707,8 +708,8 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="view-the-text-of-the-first-document">
+</section>
+<section id="view-the-text-of-the-first-document">
 <h3>View the text of the first document<a class="headerlink" href="#view-the-text-of-the-first-document" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -752,9 +753,9 @@ Contents
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="english-text-preprocessing">
+</section>
+</section>
+<section id="english-text-preprocessing">
 <h2>English text preprocessing<a class="headerlink" href="#english-text-preprocessing" title="Permalink to this headline">¶</a></h2>
 <p>Create a new column named “clean_text” to store the text as it is preprocessed.</p>
 <ul class="simple">
@@ -770,7 +771,7 @@ Contents
 <blockquote>
 <div><p>NOTE: Remember, this is just a bare bones, basic process. Furthermore, it will not likely work for many other languages.</p>
 </div></blockquote>
-<div class="section" id="remove-non-alphanumeric-characters-punctuation">
+<section id="remove-non-alphanumeric-characters-punctuation">
 <h3>Remove non-alphanumeric characters/punctuation<a class="headerlink" href="#remove-non-alphanumeric-characters-punctuation" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -922,8 +923,8 @@ Contents
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="remove-digits">
+</section>
+<section id="remove-digits">
 <h3>Remove digits<a class="headerlink" href="#remove-digits" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -973,8 +974,8 @@ Contents
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="remove-unicode-characters-such-as-and">
+</section>
+<section id="remove-unicode-characters-such-as-and">
 <h3>Remove unicode characters such as Ð and ð<a class="headerlink" href="#remove-unicode-characters-such-as-and" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1024,8 +1025,8 @@ Contents
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="remove-extra-spaces">
+</section>
+<section id="remove-extra-spaces">
 <h3>Remove extra spaces<a class="headerlink" href="#remove-extra-spaces" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1047,8 +1048,8 @@ Contents
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="convert-to-lowercase">
+</section>
+<section id="convert-to-lowercase">
 <h3>Convert to lowercase<a class="headerlink" href="#convert-to-lowercase" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1069,8 +1070,8 @@ Contents
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="lemmatize">
+</section>
+<section id="lemmatize">
 <h3>Lemmatize<a class="headerlink" href="#lemmatize" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1102,8 +1103,8 @@ Contents
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="view-the-updated-data-frame">
+</section>
+<section id="view-the-updated-data-frame">
 <h3>View the updated data frame<a class="headerlink" href="#view-the-updated-data-frame" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1206,9 +1207,9 @@ Contents
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="unsupervised-learning-with-tfidfvectorizer">
+</section>
+</section>
+<section id="unsupervised-learning-with-tfidfvectorizer">
 <h2>Unsupervised learning with <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer()</span></code><a class="headerlink" href="#unsupervised-learning-with-tfidfvectorizer" title="Permalink to this headline">¶</a></h2>
 <p>Remember <code class="docutils literal notranslate"><span class="pre">CountVectorizer()</span></code> for creating Bag of Word models? Bag of Words models are inputs for <a class="reference external" href="https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">Latent Dirichlet allocation</a>.</p>
 <p>However, let’s extend this idea to <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer()</span></code>. Each row will still be a colunm in our matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies.</p>
@@ -1300,7 +1301,7 @@ Contents
 </div>
 </div>
 </div>
-<div class="section" id="convert-the-tfidf-sparse-matrix-to-data-frame">
+<section id="convert-the-tfidf-sparse-matrix-to-data-frame">
 <h3>Convert the tfidf sparse matrix to data frame<a class="headerlink" href="#convert-the-tfidf-sparse-matrix-to-data-frame" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1310,6 +1311,10 @@ Contents
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1621,8 +1626,8 @@ Contents
 <p>11 rows × 88194 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="view-20-highest-weighted-words">
+</section>
+<section id="view-20-highest-weighted-words">
 <h3>View 20 highest weighted words<a class="headerlink" href="#view-20-highest-weighted-words" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1656,8 +1661,8 @@ dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="add-country-name-to-tfidf-df">
+</section>
+<section id="add-country-name-to-tfidf-df">
 <h3>Add country name to <code class="docutils literal notranslate"><span class="pre">tfidf_df</span></code><a class="headerlink" href="#add-country-name-to-tfidf-df" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2009,9 +2014,9 @@ dtype: float64
 <p>11 rows × 88195 columns</p>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="examine-unique-words-by-each-document-country">
+</section>
+</section>
+<section id="examine-unique-words-by-each-document-country">
 <h2>Examine unique words by each document/country<a class="headerlink" href="#examine-unique-words-by-each-document-country" title="Permalink to this headline">¶</a></h2>
 <p>Change the country names to view their highest rated terms.</p>
 <div class="cell docutils container">
@@ -2080,8 +2085,8 @@ dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="topic-modeling">
+</section>
+<section id="topic-modeling">
 <h2>Topic modeling<a class="headerlink" href="#topic-modeling" title="Permalink to this headline">¶</a></h2>
 <p><img alt="tsvd" src="../_images/tsvd.png" /></p>
 <p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2021/06/part-16-step-by-step-guide-to-master-nlp-topic-modelling-using-lsa/">Analytics Vidhya</a></p>
@@ -2145,6 +2150,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic #0:
 turkmenistan kazakhstan jordan fiji tuvalu divoire te divoire monaco te reconciliation bangladeshs san elimination violence elimination violence women kazakhstans fgm djiboutis marino san marino violence women law
 
@@ -2163,20 +2172,20 @@ monaco jordan tuvalu jordanian press publications publications monegasque syrian
 </div>
 </div>
 </div>
-<div class="section" id="un-hrc-text-analysis-what-next">
+<section id="un-hrc-text-analysis-what-next">
 <h3>UN HRC text analysis - what next?<a class="headerlink" href="#un-hrc-text-analysis-what-next" title="Permalink to this headline">¶</a></h3>
 <p>Keep in mind that we have not even begun to consider named entities and parts of speech. How might country names be swamping the five topics produced?</p>
 <p><a class="reference external" href="https://stats.stackexchange.com/questions/302965/some-topics-with-all-equal-weights-when-using-latentdirichletallocation-from-sci">Read this stack overflow post to learn about the possibility of having too few documents in your corpus</a></p>
 <p><a class="reference external" href="https://www.machinelearningplus.com/nlp/topic-modeling-python-sklearn-examples/">Also, read this post about how to grid search for the best topic models</a></p>
 <p>TODO: visualize, named entity recognition, part of speech tagging, hyphenated words, contractions, context, importance of stopwords, etc.</p>
-</div>
-</div>
-<div class="section" id="sentiment-analysis">
+</section>
+</section>
+<section id="sentiment-analysis">
 <h2>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">¶</a></h2>
 <p>Sentiment analysis is the contextual mining of text data that elicits abstract information in source materials to determine if data are positive, negative, or neutral.</p>
 <p><img alt="sa" src="../_images/sa.jpg" /></p>
 <p><a class="reference external" href="https://www.repustate.com/blog/sentiment-analysis-challenges-with-solutions/">Repustate</a></p>
-<div class="section" id="download-the-nltk-built-in-movie-reviews-dataset">
+<section id="download-the-nltk-built-in-movie-reviews-dataset">
 <h3>Download the nltk built-in movie reviews dataset<a class="headerlink" href="#download-the-nltk-built-in-movie-reviews-dataset" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2197,8 +2206,8 @@ monaco jordan tuvalu jordanian press publications publications monegasque syrian
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="define-x-reviews-and-y-judgements-variables">
+</section>
+<section id="define-x-reviews-and-y-judgements-variables">
 <h3>Define x (reviews) and y (judgements) variables<a class="headerlink" href="#define-x-reviews-and-y-judgements-variables" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2283,8 +2292,8 @@ monaco jordan tuvalu jordanian press publications publications monegasque syrian
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="shuffle-the-reviews">
+</section>
+<section id="shuffle-the-reviews">
 <h3>Shuffle the reviews<a class="headerlink" href="#shuffle-the-reviews" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2312,12 +2321,12 @@ monaco jordan tuvalu jordanian press publications publications monegasque syrian
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="pipelines">
+</section>
+<section id="pipelines">
 <h3>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this headline">¶</a></h3>
 <p>scikit-learn offers hand ways to build machine learning pipelines: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html</a></p>
-</div>
-<div class="section" id="the-standard-way">
+</section>
+<section id="the-standard-way">
 <h3>The “standard” way<a class="headerlink" href="#the-standard-way" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2353,8 +2362,8 @@ monaco jordan tuvalu jordanian press publications publications monegasque syrian
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="k-fold-cross-validated-model">
+</section>
+<section id="k-fold-cross-validated-model">
 <h3><span class="math notranslate nohighlight">\(k\)</span>-fold cross-validated model<a class="headerlink" href="#k-fold-cross-validated-model" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2381,8 +2390,8 @@ monaco jordan tuvalu jordanian press publications publications monegasque syrian
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="top-25-features-for-positive-and-negative-reviews">
+</section>
+<section id="top-25-features-for-positive-and-negative-reviews">
 <h3>Top 25 features for positive and negative reviews<a class="headerlink" href="#top-25-features-for-positive-and-negative-reviews" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2403,6 +2412,10 @@ monaco jordan tuvalu jordanian press publications publications monegasque syrian
 
 Top features for negative reviews:
 [&#39;bad&#39;, &#39;only&#39;, &#39;plot&#39;, &#39;worst&#39;, &#39;there&#39;, &#39;boring&#39;, &#39;script&#39;, &#39;why&#39;, &#39;have&#39;, &#39;unfortunately&#39;, &#39;dull&#39;, &#39;poor&#39;, &#39;any&#39;, &#39;waste&#39;, &#39;nothing&#39;, &#39;looks&#39;, &#39;ridiculous&#39;, &#39;supposed&#39;, &#39;no&#39;, &#39;even&#39;, &#39;harry&#39;, &#39;awful&#39;, &#39;then&#39;, &#39;reason&#39;, &#39;wasted&#39;]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
 </pre></div>
 </div>
 </div>
@@ -2454,20 +2467,20 @@ Top features for negative reviews:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="going-further-anchored-topic-modeling">
+</section>
+<section id="going-further-anchored-topic-modeling">
 <h3>Going further: Anchored topic modeling<a class="headerlink" href="#going-further-anchored-topic-modeling" title="Permalink to this headline">¶</a></h3>
 <p>“Correlation Explanation (CorEx) is a topic model that yields rich topics that are maximally informative about a set of documents. The advantage of using CorEx versus other topic models is that it can be easily run as an unsupervised, semi-supervised, or hierarchical topic model depending on a user’s needs. For semi-supervision, CorEx allows a user to integrate their domain knowledge via “anchor words.” This integration is flexible and allows the user to guide the topic model in the direction of those words. This allows for creative strategies that promote topic representation, separability, and aspects. More generally, this implementation of CorEx is good for clustering any sparse binary data.”</p>
 <p>Visit the GitHub repo: <a class="reference external" href="https://github.com/gregversteeg/corex_topic">https://github.com/gregversteeg/corex_topic</a></p>
 <p>Read the paper: Gallagher, R. J., Reing, K., Kale, D., and Ver Steeg, G. <a class="reference external" href="https://transacl.org/ojs/index.php/tacl/article/view/1244">“Anchored Correlation Explanation: Topic Modeling with Minimal Domain Knowledge.”</a> Transactions of the Association for Computational Linguistics (TACL), 2017.</p>
-</div>
-</div>
-<div class="section" id="quiz-20-newsgroups-dataset">
+</section>
+</section>
+<section id="quiz-20-newsgroups-dataset">
 <h2>Quiz - 20 newsgroups dataset<a class="headerlink" href="#quiz-20-newsgroups-dataset" title="Permalink to this headline">¶</a></h2>
 <p>Go through the 20 newsgroups text dataset to get familiar with newspaper data: <a class="reference external" href="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html">https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html</a></p>
 <p>“The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date.”</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

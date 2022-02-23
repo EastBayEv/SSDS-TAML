@@ -1,37 +1,177 @@
 Traceback (most recent call last):
-  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 622, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 85, in ensure_async
-    result = await obj
-  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/jupyter_client/asynchronous/channels.py", line 48, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
-  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 1112, in execute
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
   File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
     return future.result()
-  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 841, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 646, in _async_poll_for_reply
-    await self._async_handle_timeout(timeout, cell)
-  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 696, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-chunked = nltk.chunk.ne_chunk(tagged)
--------------------
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+token_lemma = [ lmtzr.lemmatize(token) for token in filtered_text ]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mLookupError[0m                               Traceback (most recent call last)
+[0;32m~/opt/anaconda3/lib/python3.8/site-packages/nltk/corpus/util.py[0m in [0;36m__load[0;34m(self)[0m
+[1;32m     83[0m                 [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 84[0;31m                     [0mroot[0m [0;34m=[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34mf"{self.subdir}/{zip_name}"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     85[0m                 [0;32mexcept[0m [0mLookupError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.8/site-packages/nltk/data.py[0m in [0;36mfind[0;34m(resource_name, paths)[0m
+[1;32m    582[0m     [0mresource_not_found[0m [0;34m=[0m [0;34mf"\n{sep}\n{msg}\n{sep}\n"[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 583[0;31m     [0;32mraise[0m [0mLookupError[0m[0;34m([0m[0mresource_not_found[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    584[0m [0;34m[0m[0m
+
+[0;31mLookupError[0m: 
+**********************************************************************
+  Resource [93momw-1.4[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('omw-1.4')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mcorpora/omw-1.4.zip/omw-1.4/[0m
+
+  Searched in:
+    - '/Users/evanmuzzall/nltk_data'
+    - '/Users/evanmuzzall/opt/anaconda3/nltk_data'
+    - '/Users/evanmuzzall/opt/anaconda3/share/nltk_data'
+    - '/Users/evanmuzzall/opt/anaconda3/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+
+During handling of the above exception, another exception occurred:
+
+[0;31mLookupError[0m                               Traceback (most recent call last)
+[0;32m/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_59259/2631324419.py[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mtoken_lemma[0m [0;34m=[0m [0;34m[[0m [0mlmtzr[0m[0;34m.[0m[0mlemmatize[0m[0;34m([0m[0mtoken[0m[0;34m)[0m [0;32mfor[0m [0mtoken[0m [0;32min[0m [0mfiltered_text[0m [0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_59259/2631324419.py[0m in [0;36m<listcomp>[0;34m(.0)[0m
+[0;32m----> 1[0;31m [0mtoken_lemma[0m [0;34m=[0m [0;34m[[0m [0mlmtzr[0m[0;34m.[0m[0mlemmatize[0m[0;34m([0m[0mtoken[0m[0;34m)[0m [0;32mfor[0m [0mtoken[0m [0;32min[0m [0mfiltered_text[0m [0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/opt/anaconda3/lib/python3.8/site-packages/nltk/stem/wordnet.py[0m in [0;36mlemmatize[0;34m(self, word, pos)[0m
+[1;32m     43[0m         [0;34m:[0m[0;32mreturn[0m[0;34m:[0m [0mThe[0m [0mlemma[0m [0mof[0m[0;31m [0m[0;31m`[0m[0mword[0m[0;31m`[0m[0;34m,[0m [0;32mfor[0m [0mthe[0m [0mgiven[0m[0;31m [0m[0;31m`[0m[0mpos[0m[0;31m`[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     44[0m         """
+[0;32m---> 45[0;31m         [0mlemmas[0m [0;34m=[0m [0mwn[0m[0;34m.[0m[0m_morphy[0m[0;34m([0m[0mword[0m[0;34m,[0m [0mpos[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     46[0m         [0;32mreturn[0m [0mmin[0m[0;34m([0m[0mlemmas[0m[0;34m,[0m [0mkey[0m[0;34m=[0m[0mlen[0m[0;34m)[0m [0;32mif[0m [0mlemmas[0m [0;32melse[0m [0mword[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     47[0m [0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.8/site-packages/nltk/corpus/util.py[0m in [0;36m__getattr__[0;34m(self, attr)[0m
+[1;32m    119[0m             [0;32mraise[0m [0mAttributeError[0m[0;34m([0m[0;34m"LazyCorpusLoader object has no attribute '__bases__'"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    120[0m [0;34m[0m[0m
+[0;32m--> 121[0;31m         [0mself[0m[0;34m.[0m[0m__load[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    122[0m         [0;31m# This looks circular, but its not, since __load() changes our[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    123[0m         [0;31m# __class__ to something new:[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.8/site-packages/nltk/corpus/util.py[0m in [0;36m__load[0;34m(self)[0m
+[1;32m     87[0m [0;34m[0m[0m
+[1;32m     88[0m         [0;31m# Load the corpus.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 89[0;31m         [0mcorpus[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m__reader_cls[0m[0;34m([0m[0mroot[0m[0;34m,[0m [0;34m*[0m[0mself[0m[0;34m.[0m[0m__args[0m[0;34m,[0m [0;34m**[0m[0mself[0m[0;34m.[0m[0m__kwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     90[0m [0;34m[0m[0m
+[1;32m     91[0m         [0;31m# This is where the magic happens!  Transform ourselves into[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.8/site-packages/nltk/corpus/reader/wordnet.py[0m in [0;36m__init__[0;34m(self, root, omw_reader)[0m
+[1;32m   1174[0m             )
+[1;32m   1175[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1176[0;31m             [0mself[0m[0;34m.[0m[0mprovenances[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0momw_prov[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1177[0m [0;34m[0m[0m
+[1;32m   1178[0m         [0;31m# A cache to store the wordnet data of multiple languages[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.8/site-packages/nltk/corpus/reader/wordnet.py[0m in [0;36momw_prov[0;34m(self)[0m
+[1;32m   1283[0m         [0mprovdict[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1284[0m         [0mprovdict[0m[0;34m[[0m[0;34m"eng"[0m[0;34m][0m [0;34m=[0m [0;34m""[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1285[0;31m         [0mfileids[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_omw_reader[0m[0;34m.[0m[0mfileids[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1286[0m         [0;32mfor[0m [0mfileid[0m [0;32min[0m [0mfileids[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1287[0m             [0mprov[0m[0;34m,[0m [0mlangfile[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0mfileid[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.8/site-packages/nltk/corpus/util.py[0m in [0;36m__getattr__[0;34m(self, attr)[0m
+[1;32m    119[0m             [0;32mraise[0m [0mAttributeError[0m[0;34m([0m[0;34m"LazyCorpusLoader object has no attribute '__bases__'"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    120[0m [0;34m[0m[0m
+[0;32m--> 121[0;31m         [0mself[0m[0;34m.[0m[0m__load[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    122[0m         [0;31m# This looks circular, but its not, since __load() changes our[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    123[0m         [0;31m# __class__ to something new:[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.8/site-packages/nltk/corpus/util.py[0m in [0;36m__load[0;34m(self)[0m
+[1;32m     84[0m                     [0mroot[0m [0;34m=[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34mf"{self.subdir}/{zip_name}"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     85[0m                 [0;32mexcept[0m [0mLookupError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 86[0;31m                     [0;32mraise[0m [0me[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     87[0m [0;34m[0m[0m
+[1;32m     88[0m         [0;31m# Load the corpus.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.8/site-packages/nltk/corpus/util.py[0m in [0;36m__load[0;34m(self)[0m
+[1;32m     79[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     80[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 81[0;31m                 [0mroot[0m [0;34m=[0m [0mnltk[0m[0;34m.[0m[0mdata[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34mf"{self.subdir}/{self.__name}"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     82[0m             [0;32mexcept[0m [0mLookupError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     83[0m                 [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.8/site-packages/nltk/data.py[0m in [0;36mfind[0;34m(resource_name, paths)[0m
+[1;32m    581[0m     [0msep[0m [0;34m=[0m [0;34m"*"[0m [0;34m*[0m [0;36m70[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    582[0m     [0mresource_not_found[0m [0;34m=[0m [0;34mf"\n{sep}\n{msg}\n{sep}\n"[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 583[0;31m     [0;32mraise[0m [0mLookupError[0m[0;34m([0m[0mresource_not_found[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    584[0m [0;34m[0m[0m
+[1;32m    585[0m [0;34m[0m[0m
+
+[0;31mLookupError[0m: 
+**********************************************************************
+  Resource [93momw-1.4[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('omw-1.4')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mcorpora/omw-1.4[0m
+
+  Searched in:
+    - '/Users/evanmuzzall/nltk_data'
+    - '/Users/evanmuzzall/opt/anaconda3/nltk_data'
+    - '/Users/evanmuzzall/opt/anaconda3/share/nltk_data'
+    - '/Users/evanmuzzall/opt/anaconda3/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+LookupError: 
+**********************************************************************
+  Resource [93momw-1.4[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('omw-1.4')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mcorpora/omw-1.4[0m
+
+  Searched in:
+    - '/Users/evanmuzzall/nltk_data'
+    - '/Users/evanmuzzall/opt/anaconda3/nltk_data'
+    - '/Users/evanmuzzall/opt/anaconda3/share/nltk_data'
+    - '/Users/evanmuzzall/opt/anaconda3/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
 

@@ -131,13 +131,13 @@ token_lemma = [ lmtzr.lemmatize(token) for token in filtered_text ]
 # 
 # Part of speech tags are labels given to each word in a text such as verbs, adverbs, nouns, pronouns, adjectives, conjunctions, and their various derivations and subcategories. 
 
-# In[13]:
+# In[12]:
 
 
 tagged = nltk.pos_tag(token_lemma)
 
 
-# In[14]:
+# In[13]:
 
 
 chunked = nltk.chunk.ne_chunk(tagged)
@@ -145,19 +145,19 @@ chunked = nltk.chunk.ne_chunk(tagged)
 
 # ### Convert to dataframe
 
-# In[15]:
+# In[14]:
 
 
 df = pd.DataFrame(chunked, columns=['word', 'pos'])
 
 
-# In[16]:
+# In[15]:
 
 
 df.head()
 
 
-# In[17]:
+# In[16]:
 
 
 df.shape
@@ -233,7 +233,7 @@ soup = BeautifulSoup(response.text, 'html')
 # 
 # Below is a handy for loop that finds all everything within paragraph `<p>` tags. 
 
-# In[24]:
+# In[2]:
 
 
 # save in an empty string
@@ -263,7 +263,7 @@ text = re.sub(r'[^\w\s]','',text)
 text = text.lower()
 
 
-# In[27]:
+# In[1]:
 
 
 print(text)
