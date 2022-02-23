@@ -111,7 +111,13 @@ get_ipython().run_cell_magic('capture', '', '# There are a few ways to assemble 
 # In[10]:
 
 
-get_ipython().run_cell_magic('capture', '', '# Train and cross-validate a RF\nmy_rf = H2ORandomForestEstimator(ntrees=50,\n                                 nfolds=nfolds,\n                                 fold_assignment="Modulo",\n                                 keep_cross_validation_predictions=True,\n                                 seed=1)\nmy_rf.train(x=x, y=y, training_frame=train)')
+# Train and cross-validate a RF
+my_rf = H2ORandomForestEstimator(ntrees=50,
+                                 nfolds=nfolds,
+                                 fold_assignment="Modulo",
+                                 keep_cross_validation_predictions=True,
+                                 seed=1)
+my_rf.train(x=x, y=y, training_frame=train)
 
 
 # In[11]:
