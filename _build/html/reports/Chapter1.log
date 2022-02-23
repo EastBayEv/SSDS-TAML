@@ -59,10 +59,10 @@ token_lemma = [ lmtzr.lemmatize(token) for token in filtered_text ]
 During handling of the above exception, another exception occurred:
 
 [0;31mLookupError[0m                               Traceback (most recent call last)
-[0;32m/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_59259/2631324419.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_59456/2631324419.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mtoken_lemma[0m [0;34m=[0m [0;34m[[0m [0mlmtzr[0m[0;34m.[0m[0mlemmatize[0m[0;34m([0m[0mtoken[0m[0;34m)[0m [0;32mfor[0m [0mtoken[0m [0;32min[0m [0mfiltered_text[0m [0;34m][0m[0;34m[0m[0;34m[0m[0m
 [0m
-[0;32m/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_59259/2631324419.py[0m in [0;36m<listcomp>[0;34m(.0)[0m
+[0;32m/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_59456/2631324419.py[0m in [0;36m<listcomp>[0;34m(.0)[0m
 [0;32m----> 1[0;31m [0mtoken_lemma[0m [0;34m=[0m [0;34m[[0m [0mlmtzr[0m[0;34m.[0m[0mlemmatize[0m[0;34m([0m[0mtoken[0m[0;34m)[0m [0;32mfor[0m [0mtoken[0m [0;32min[0m [0mfiltered_text[0m [0;34m][0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;32m~/opt/anaconda3/lib/python3.8/site-packages/nltk/stem/wordnet.py[0m in [0;36mlemmatize[0;34m(self, word, pos)[0m

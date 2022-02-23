@@ -230,6 +230,8 @@ pred = ensemble.predict(test)
 # In[16]:
 
 
+import pandas as pd
+
 # generate toy dataset
 example = {'x1': [1, 0, 1, 1, 0], 
            'x2': [1, 1, 1, 1, 0], 
