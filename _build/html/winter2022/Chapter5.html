@@ -392,12 +392,37 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking whether there is an H2O instance running at http://localhost:54321 .
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> connected.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> not found.
+Attempting to start a local H2O server...
+  Java Version: java version &quot;1.8.0_321&quot;; Java(TM) SE Runtime Environment (build 1.8.0_321-b07); Java HotSpot(TM) 64-Bit Server VM (build 25.321-b07, mixed mode)
+  Starting server from /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/bin/h2o.jar
+  Ice root: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpc7mr34y9
+  JVM stdout: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpc7mr34y9/h2o_evanmuzzall_started_from_python.out
+  JVM stderr: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpc7mr34y9/h2o_evanmuzzall_started_from_python.err
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Server is running at http://127.0.0.1:54321
+Connecting to H2O server at http://127.0.0.1:54321 ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> successful.
 Warning: Your H2O cluster version is too old (5 months and 8 days)!Please download and install the latest version from http://h2o.ai/download/
 </pre></div>
 </div>
 <div class="output text_html"><div style="overflow:auto"><table style="width:50%"><tr><td>H2O_cluster_uptime:</td>
-<td>17 mins 55 secs</td></tr>
+<td>04 secs</td></tr>
 <tr><td>H2O_cluster_timezone:</td>
 <td>America/Los_Angeles</td></tr>
 <tr><td>H2O_data_parsing_timezone:</td>
@@ -407,11 +432,11 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 <tr><td>H2O_cluster_version_age:</td>
 <td>5 months and 8 days !!!</td></tr>
 <tr><td>H2O_cluster_name:</td>
-<td>H2O_from_python_evanmuzzall_3e9b6s</td></tr>
+<td>H2O_from_python_evanmuzzall_8gvsue</td></tr>
 <tr><td>H2O_cluster_total_nodes:</td>
 <td>1</td></tr>
 <tr><td>H2O_cluster_free_memory:</td>
-<td>2.910 Gb</td></tr>
+<td>3.556 Gb</td></tr>
 <tr><td>H2O_cluster_total_cores:</td>
 <td>16</td></tr>
 <tr><td>H2O_cluster_allowed_cores:</td>
@@ -419,7 +444,7 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 <tr><td>H2O_cluster_status:</td>
 <td>locked, healthy</td></tr>
 <tr><td>H2O_connection_url:</td>
-<td>http://localhost:54321</td></tr>
+<td>http://127.0.0.1:54321</td></tr>
 <tr><td>H2O_connection_proxy:</td>
 <td>{"http": null, "https": null}</td></tr>
 <tr><td>H2O_internal_security:</td>
@@ -431,11 +456,369 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="c1"># Import a sample binary outcome train/test set into H2O</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import a sample binary outcome train/test set into H2O</span>
 <span class="c1"># Learn about subset of Higgs Boson dataset: https://www.kaggle.com/c/higgs-boson</span>
 <span class="n">train</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s2">&quot;https://s3.amazonaws.com/erin-data/higgs/higgs_train_10k.csv&quot;</span><span class="p">)</span>
 <span class="n">test</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s2">&quot;https://s3.amazonaws.com/erin-data/higgs/higgs_test_5k.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parse progress: |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█████| (done) 100%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parse progress: |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>████████| (done) 100%
 </pre></div>
 </div>
 </div>
@@ -511,8 +894,7 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="c1"># There are a few ways to assemble a list of models to stack together:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># There are a few ways to assemble a list of models to stack together:</span>
 <span class="c1"># 1. Train individual models and put them in a list</span>
 <span class="c1"># 2. Train a grid of models</span>
 <span class="c1"># 3. Train several grids of models</span>
@@ -533,6 +915,1807 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
                                       <span class="n">keep_cross_validation_predictions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                       <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">my_gbm</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">training_frame</span><span class="o">=</span><span class="n">train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gbm Model Build progress: |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>████████████████████████████| (done) 100%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
+=============
+H2OGradientBoostingEstimator :  Gradient Boosting Machine
+Model Key:  GBM_model_python_1645649293300_1
+
+
+Model Summary: 
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>number_of_trees</th>
+      <th>number_of_internal_trees</th>
+      <th>model_size_in_bytes</th>
+      <th>min_depth</th>
+      <th>max_depth</th>
+      <th>mean_depth</th>
+      <th>min_leaves</th>
+      <th>max_leaves</th>
+      <th>mean_leaves</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td></td>
+      <td>10.0</td>
+      <td>10.0</td>
+      <td>1579.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ModelMetricsBinomial: gbm
+** Reported on train data. **
+
+MSE: 0.20052170746266884
+RMSE: 0.44779650228945383
+LogLoss: 0.5879177464092424
+Mean Per-Class Error: 0.29613223631461116
+AUC: 0.7735466157694937
+AUCPR: 0.7909110775032231
+Gini: 0.5470932315389874
+
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4424199442800167: 
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>Error</th>
+      <th>Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2433.0</td>
+      <td>2272.0</td>
+      <td>0.4829</td>
+      <td>(2272.0/4705.0)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>818.0</td>
+      <td>4477.0</td>
+      <td>0.1545</td>
+      <td>(818.0/5295.0)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Total</td>
+      <td>3251.0</td>
+      <td>6749.0</td>
+      <td>0.309</td>
+      <td>(3090.0/10000.0)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum Metrics: Maximum metrics at their respective thresholds
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>metric</th>
+      <th>threshold</th>
+      <th>value</th>
+      <th>idx</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>max f1</td>
+      <td>0.442420</td>
+      <td>0.743441</td>
+      <td>244.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>max f2</td>
+      <td>0.335831</td>
+      <td>0.858813</td>
+      <td>324.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>max f0point5</td>
+      <td>0.542377</td>
+      <td>0.726119</td>
+      <td>166.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>max accuracy</td>
+      <td>0.507400</td>
+      <td>0.704200</td>
+      <td>192.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>max precision</td>
+      <td>0.790473</td>
+      <td>0.973684</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>max recall</td>
+      <td>0.158255</td>
+      <td>1.000000</td>
+      <td>394.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>max specificity</td>
+      <td>0.803933</td>
+      <td>0.999575</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>max absolute_mcc</td>
+      <td>0.519330</td>
+      <td>0.407039</td>
+      <td>183.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>max min_per_class_accuracy</td>
+      <td>0.513347</td>
+      <td>0.703507</td>
+      <td>187.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>max mean_per_class_accuracy</td>
+      <td>0.519330</td>
+      <td>0.703868</td>
+      <td>183.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>max tns</td>
+      <td>0.803933</td>
+      <td>4703.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>max fns</td>
+      <td>0.803933</td>
+      <td>5245.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>max fps</td>
+      <td>0.116664</td>
+      <td>4705.000000</td>
+      <td>399.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>max tps</td>
+      <td>0.158255</td>
+      <td>5295.000000</td>
+      <td>394.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>max tnr</td>
+      <td>0.803933</td>
+      <td>0.999575</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>max fnr</td>
+      <td>0.803933</td>
+      <td>0.990557</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>max fpr</td>
+      <td>0.116664</td>
+      <td>1.000000</td>
+      <td>399.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>max tpr</td>
+      <td>0.158255</td>
+      <td>1.000000</td>
+      <td>394.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 52.95 %, avg score: 52.93 %
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>group</th>
+      <th>cumulative_data_fraction</th>
+      <th>lower_threshold</th>
+      <th>lift</th>
+      <th>cumulative_lift</th>
+      <th>response_rate</th>
+      <th>score</th>
+      <th>cumulative_response_rate</th>
+      <th>cumulative_score</th>
+      <th>capture_rate</th>
+      <th>cumulative_capture_rate</th>
+      <th>gain</th>
+      <th>cumulative_gain</th>
+      <th>kolmogorov_smirnov</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.0165</td>
+      <td>0.788097</td>
+      <td>1.831345</td>
+      <td>1.831345</td>
+      <td>0.969697</td>
+      <td>0.794128</td>
+      <td>0.969697</td>
+      <td>0.794128</td>
+      <td>0.030217</td>
+      <td>0.030217</td>
+      <td>83.134461</td>
+      <td>83.134461</td>
+      <td>0.029154</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0.0309</td>
+      <td>0.779039</td>
+      <td>1.770538</td>
+      <td>1.803008</td>
+      <td>0.937500</td>
+      <td>0.780161</td>
+      <td>0.954693</td>
+      <td>0.787619</td>
+      <td>0.025496</td>
+      <td>0.055713</td>
+      <td>77.053824</td>
+      <td>80.300766</td>
+      <td>0.052737</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0.0403</td>
+      <td>0.769898</td>
+      <td>1.727844</td>
+      <td>1.785476</td>
+      <td>0.914894</td>
+      <td>0.776514</td>
+      <td>0.945409</td>
+      <td>0.785029</td>
+      <td>0.016242</td>
+      <td>0.071955</td>
+      <td>72.784441</td>
+      <td>78.547579</td>
+      <td>0.067279</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0.0520</td>
+      <td>0.766379</td>
+      <td>1.662591</td>
+      <td>1.757827</td>
+      <td>0.880342</td>
+      <td>0.767629</td>
+      <td>0.930769</td>
+      <td>0.781114</td>
+      <td>0.019452</td>
+      <td>0.091407</td>
+      <td>66.259090</td>
+      <td>75.782669</td>
+      <td>0.083756</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0.1019</td>
+      <td>0.733553</td>
+      <td>1.680415</td>
+      <td>1.719918</td>
+      <td>0.889780</td>
+      <td>0.746516</td>
+      <td>0.910697</td>
+      <td>0.764171</td>
+      <td>0.083853</td>
+      <td>0.175260</td>
+      <td>68.041465</td>
+      <td>71.991834</td>
+      <td>0.155919</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>0.1501</td>
+      <td>0.703064</td>
+      <td>1.586872</td>
+      <td>1.677195</td>
+      <td>0.840249</td>
+      <td>0.720131</td>
+      <td>0.888075</td>
+      <td>0.750029</td>
+      <td>0.076487</td>
+      <td>0.251747</td>
+      <td>58.687245</td>
+      <td>67.719474</td>
+      <td>0.216040</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>0.2100</td>
+      <td>0.672701</td>
+      <td>1.475547</td>
+      <td>1.619677</td>
+      <td>0.781302</td>
+      <td>0.681960</td>
+      <td>0.857619</td>
+      <td>0.730613</td>
+      <td>0.088385</td>
+      <td>0.340132</td>
+      <td>47.554706</td>
+      <td>61.967714</td>
+      <td>0.276583</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>0.3003</td>
+      <td>0.631813</td>
+      <td>1.294604</td>
+      <td>1.521928</td>
+      <td>0.685493</td>
+      <td>0.653431</td>
+      <td>0.805861</td>
+      <td>0.707405</td>
+      <td>0.116903</td>
+      <td>0.457035</td>
+      <td>29.460397</td>
+      <td>52.192787</td>
+      <td>0.333124</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>0.4003</td>
+      <td>0.582373</td>
+      <td>1.242682</td>
+      <td>1.452169</td>
+      <td>0.658000</td>
+      <td>0.607055</td>
+      <td>0.768923</td>
+      <td>0.682336</td>
+      <td>0.124268</td>
+      <td>0.581303</td>
+      <td>24.268178</td>
+      <td>45.216866</td>
+      <td>0.384704</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>0.5000</td>
+      <td>0.519662</td>
+      <td>1.102458</td>
+      <td>1.382436</td>
+      <td>0.583751</td>
+      <td>0.552458</td>
+      <td>0.732000</td>
+      <td>0.656438</td>
+      <td>0.109915</td>
+      <td>0.691218</td>
+      <td>10.245751</td>
+      <td>38.243626</td>
+      <td>0.406415</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>0.6000</td>
+      <td>0.470374</td>
+      <td>0.906516</td>
+      <td>1.303116</td>
+      <td>0.480000</td>
+      <td>0.494559</td>
+      <td>0.690000</td>
+      <td>0.629458</td>
+      <td>0.090652</td>
+      <td>0.781870</td>
+      <td>-9.348442</td>
+      <td>30.311615</td>
+      <td>0.386546</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>0.7004</td>
+      <td>0.436366</td>
+      <td>0.795684</td>
+      <td>1.230377</td>
+      <td>0.421315</td>
+      <td>0.451070</td>
+      <td>0.651485</td>
+      <td>0.603887</td>
+      <td>0.079887</td>
+      <td>0.861756</td>
+      <td>-20.431588</td>
+      <td>23.037746</td>
+      <td>0.342947</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>0.8000</td>
+      <td>0.408689</td>
+      <td>0.584017</td>
+      <td>1.149906</td>
+      <td>0.309237</td>
+      <td>0.422132</td>
+      <td>0.608875</td>
+      <td>0.581258</td>
+      <td>0.058168</td>
+      <td>0.919924</td>
+      <td>-41.598310</td>
+      <td>14.990557</td>
+      <td>0.254887</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>0.9009</td>
+      <td>0.350489</td>
+      <td>0.580236</td>
+      <td>1.086103</td>
+      <td>0.307235</td>
+      <td>0.385621</td>
+      <td>0.575092</td>
+      <td>0.559347</td>
+      <td>0.058546</td>
+      <td>0.978470</td>
+      <td>-41.976414</td>
+      <td>8.610307</td>
+      <td>0.164868</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>1.0000</td>
+      <td>0.116664</td>
+      <td>0.217253</td>
+      <td>1.000000</td>
+      <td>0.115035</td>
+      <td>0.256620</td>
+      <td>0.529500</td>
+      <td>0.529347</td>
+      <td>0.021530</td>
+      <td>1.000000</td>
+      <td>-78.274728</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ModelMetricsBinomial: gbm
+** Reported on cross-validation data. **
+
+MSE: 0.20591759601729728
+RMSE: 0.4537814408030559
+LogLoss: 0.5996635025616064
+Mean Per-Class Error: 0.3109957762972908
+AUC: 0.752800639024444
+AUCPR: 0.7705701530928649
+Gini: 0.5056012780488881
+
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996: 
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>Error</th>
+      <th>Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1696.0</td>
+      <td>3009.0</td>
+      <td>0.6395</td>
+      <td>(3009.0/4705.0)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>538.0</td>
+      <td>4757.0</td>
+      <td>0.1016</td>
+      <td>(538.0/5295.0)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Total</td>
+      <td>2234.0</td>
+      <td>7766.0</td>
+      <td>0.3547</td>
+      <td>(3547.0/10000.0)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum Metrics: Maximum metrics at their respective thresholds
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>metric</th>
+      <th>threshold</th>
+      <th>value</th>
+      <th>idx</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>max f1</td>
+      <td>0.415939</td>
+      <td>0.728428</td>
+      <td>268.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>max f2</td>
+      <td>0.279109</td>
+      <td>0.855982</td>
+      <td>346.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>max f0point5</td>
+      <td>0.561962</td>
+      <td>0.711702</td>
+      <td>154.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>max accuracy</td>
+      <td>0.517902</td>
+      <td>0.688800</td>
+      <td>186.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>max precision</td>
+      <td>0.835804</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>max recall</td>
+      <td>0.158348</td>
+      <td>1.000000</td>
+      <td>392.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>max specificity</td>
+      <td>0.835804</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>max absolute_mcc</td>
+      <td>0.517902</td>
+      <td>0.377372</td>
+      <td>186.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>max min_per_class_accuracy</td>
+      <td>0.515693</td>
+      <td>0.687354</td>
+      <td>188.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>max mean_per_class_accuracy</td>
+      <td>0.519427</td>
+      <td>0.689004</td>
+      <td>185.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>max tns</td>
+      <td>0.835804</td>
+      <td>4705.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>max fns</td>
+      <td>0.835804</td>
+      <td>5287.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>max fps</td>
+      <td>0.098410</td>
+      <td>4705.000000</td>
+      <td>399.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>max tps</td>
+      <td>0.158348</td>
+      <td>5295.000000</td>
+      <td>392.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>max tnr</td>
+      <td>0.835804</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>max fnr</td>
+      <td>0.835804</td>
+      <td>0.998489</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>max fpr</td>
+      <td>0.098410</td>
+      <td>1.000000</td>
+      <td>399.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>max tpr</td>
+      <td>0.158348</td>
+      <td>1.000000</td>
+      <td>392.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 52.95 %, avg score: 52.91 %
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>group</th>
+      <th>cumulative_data_fraction</th>
+      <th>lower_threshold</th>
+      <th>lift</th>
+      <th>cumulative_lift</th>
+      <th>response_rate</th>
+      <th>score</th>
+      <th>cumulative_response_rate</th>
+      <th>cumulative_score</th>
+      <th>capture_rate</th>
+      <th>cumulative_capture_rate</th>
+      <th>gain</th>
+      <th>cumulative_gain</th>
+      <th>kolmogorov_smirnov</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.0101</td>
+      <td>0.789519</td>
+      <td>1.776382</td>
+      <td>1.776382</td>
+      <td>0.940594</td>
+      <td>0.800149</td>
+      <td>0.940594</td>
+      <td>0.800149</td>
+      <td>0.017941</td>
+      <td>0.017941</td>
+      <td>77.638160</td>
+      <td>77.638160</td>
+      <td>0.016666</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0.0204</td>
+      <td>0.781367</td>
+      <td>1.815231</td>
+      <td>1.795997</td>
+      <td>0.961165</td>
+      <td>0.785390</td>
+      <td>0.950980</td>
+      <td>0.792698</td>
+      <td>0.018697</td>
+      <td>0.036638</td>
+      <td>81.523144</td>
+      <td>79.599696</td>
+      <td>0.034513</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0.0335</td>
+      <td>0.778060</td>
+      <td>1.715575</td>
+      <td>1.764548</td>
+      <td>0.908397</td>
+      <td>0.779096</td>
+      <td>0.934328</td>
+      <td>0.787379</td>
+      <td>0.022474</td>
+      <td>0.059112</td>
+      <td>71.557497</td>
+      <td>76.454836</td>
+      <td>0.054436</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0.0407</td>
+      <td>0.771218</td>
+      <td>1.678733</td>
+      <td>1.749367</td>
+      <td>0.888889</td>
+      <td>0.774200</td>
+      <td>0.926290</td>
+      <td>0.785047</td>
+      <td>0.012087</td>
+      <td>0.071199</td>
+      <td>67.873256</td>
+      <td>74.936719</td>
+      <td>0.064823</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0.0523</td>
+      <td>0.764063</td>
+      <td>1.693204</td>
+      <td>1.736910</td>
+      <td>0.896552</td>
+      <td>0.766315</td>
+      <td>0.919694</td>
+      <td>0.780893</td>
+      <td>0.019641</td>
+      <td>0.090840</td>
+      <td>69.320439</td>
+      <td>73.691043</td>
+      <td>0.081914</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>0.1010</td>
+      <td>0.729840</td>
+      <td>1.609360</td>
+      <td>1.675408</td>
+      <td>0.852156</td>
+      <td>0.745647</td>
+      <td>0.887129</td>
+      <td>0.763898</td>
+      <td>0.078376</td>
+      <td>0.169216</td>
+      <td>60.935988</td>
+      <td>67.540833</td>
+      <td>0.144987</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>0.1501</td>
+      <td>0.699633</td>
+      <td>1.565478</td>
+      <td>1.639448</td>
+      <td>0.828921</td>
+      <td>0.716835</td>
+      <td>0.868088</td>
+      <td>0.748503</td>
+      <td>0.076865</td>
+      <td>0.246081</td>
+      <td>56.547794</td>
+      <td>63.944843</td>
+      <td>0.203998</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>0.2000</td>
+      <td>0.675508</td>
+      <td>1.426839</td>
+      <td>1.586402</td>
+      <td>0.755511</td>
+      <td>0.686070</td>
+      <td>0.840000</td>
+      <td>0.732926</td>
+      <td>0.071199</td>
+      <td>0.317280</td>
+      <td>42.683857</td>
+      <td>58.640227</td>
+      <td>0.249268</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>0.3000</td>
+      <td>0.628903</td>
+      <td>1.318225</td>
+      <td>1.497010</td>
+      <td>0.698000</td>
+      <td>0.649476</td>
+      <td>0.792667</td>
+      <td>0.705109</td>
+      <td>0.131822</td>
+      <td>0.449103</td>
+      <td>31.822474</td>
+      <td>49.700976</td>
+      <td>0.316903</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>0.4000</td>
+      <td>0.579228</td>
+      <td>1.218130</td>
+      <td>1.427290</td>
+      <td>0.645000</td>
+      <td>0.605317</td>
+      <td>0.755750</td>
+      <td>0.680161</td>
+      <td>0.121813</td>
+      <td>0.570916</td>
+      <td>21.813031</td>
+      <td>42.728990</td>
+      <td>0.363265</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>0.5000</td>
+      <td>0.520964</td>
+      <td>1.059490</td>
+      <td>1.353730</td>
+      <td>0.561000</td>
+      <td>0.550914</td>
+      <td>0.716800</td>
+      <td>0.654312</td>
+      <td>0.105949</td>
+      <td>0.676865</td>
+      <td>5.949008</td>
+      <td>35.372993</td>
+      <td>0.375909</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>0.6000</td>
+      <td>0.470755</td>
+      <td>0.900850</td>
+      <td>1.278250</td>
+      <td>0.477000</td>
+      <td>0.494393</td>
+      <td>0.676833</td>
+      <td>0.627659</td>
+      <td>0.090085</td>
+      <td>0.766950</td>
+      <td>-9.915014</td>
+      <td>27.824992</td>
+      <td>0.354835</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>0.7009</td>
+      <td>0.438080</td>
+      <td>0.758050</td>
+      <td>1.203363</td>
+      <td>0.401388</td>
+      <td>0.452376</td>
+      <td>0.637181</td>
+      <td>0.602425</td>
+      <td>0.076487</td>
+      <td>0.843437</td>
+      <td>-24.194993</td>
+      <td>20.336311</td>
+      <td>0.302948</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>0.8003</td>
+      <td>0.407245</td>
+      <td>0.714390</td>
+      <td>1.142631</td>
+      <td>0.378270</td>
+      <td>0.423648</td>
+      <td>0.605023</td>
+      <td>0.580221</td>
+      <td>0.071010</td>
+      <td>0.914448</td>
+      <td>-28.560979</td>
+      <td>14.263100</td>
+      <td>0.242609</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>0.9001</td>
+      <td>0.350168</td>
+      <td>0.580954</td>
+      <td>1.080354</td>
+      <td>0.307615</td>
+      <td>0.382479</td>
+      <td>0.572048</td>
+      <td>0.558296</td>
+      <td>0.057979</td>
+      <td>0.972427</td>
+      <td>-41.904583</td>
+      <td>8.035420</td>
+      <td>0.153723</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>1.0000</td>
+      <td>0.098410</td>
+      <td>0.276008</td>
+      <td>1.000000</td>
+      <td>0.146146</td>
+      <td>0.265874</td>
+      <td>0.529500</td>
+      <td>0.529083</td>
+      <td>0.027573</td>
+      <td>1.000000</td>
+      <td>-72.399217</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cross-Validation Metrics Summary: 
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>cv_1_valid</th>
+      <th>cv_2_valid</th>
+      <th>cv_3_valid</th>
+      <th>cv_4_valid</th>
+      <th>cv_5_valid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>accuracy</td>
+      <td>0.662000</td>
+      <td>0.011028</td>
+      <td>0.660500</td>
+      <td>0.659000</td>
+      <td>0.647500</td>
+      <td>0.665000</td>
+      <td>0.678000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>auc</td>
+      <td>0.753708</td>
+      <td>0.008455</td>
+      <td>0.767336</td>
+      <td>0.754202</td>
+      <td>0.749615</td>
+      <td>0.744636</td>
+      <td>0.752753</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>err</td>
+      <td>0.338000</td>
+      <td>0.011028</td>
+      <td>0.339500</td>
+      <td>0.341000</td>
+      <td>0.352500</td>
+      <td>0.335000</td>
+      <td>0.322000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>err_count</td>
+      <td>676.000000</td>
+      <td>22.056746</td>
+      <td>679.000000</td>
+      <td>682.000000</td>
+      <td>705.000000</td>
+      <td>670.000000</td>
+      <td>644.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>f0point5</td>
+      <td>0.667733</td>
+      <td>0.006292</td>
+      <td>0.664405</td>
+      <td>0.665501</td>
+      <td>0.660570</td>
+      <td>0.676335</td>
+      <td>0.671854</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>f1</td>
+      <td>0.732593</td>
+      <td>0.011290</td>
+      <td>0.734662</td>
+      <td>0.743802</td>
+      <td>0.733056</td>
+      <td>0.737666</td>
+      <td>0.713778</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>f2</td>
+      <td>0.812088</td>
+      <td>0.030635</td>
+      <td>0.821535</td>
+      <td>0.842984</td>
+      <td>0.823409</td>
+      <td>0.811230</td>
+      <td>0.761282</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>lift_top_group</td>
+      <td>1.770414</td>
+      <td>0.119520</td>
+      <td>1.897533</td>
+      <td>1.715529</td>
+      <td>1.677038</td>
+      <td>1.660517</td>
+      <td>1.901455</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>logloss</td>
+      <td>0.599664</td>
+      <td>0.005876</td>
+      <td>0.590319</td>
+      <td>0.597491</td>
+      <td>0.603376</td>
+      <td>0.604522</td>
+      <td>0.602610</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>max_per_class_error</td>
+      <td>0.581695</td>
+      <td>0.083577</td>
+      <td>0.597252</td>
+      <td>0.647312</td>
+      <td>0.644951</td>
+      <td>0.576419</td>
+      <td>0.442540</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>mcc</td>
+      <td>0.336792</td>
+      <td>0.022258</td>
+      <td>0.340809</td>
+      <td>0.343997</td>
+      <td>0.303925</td>
+      <td>0.330306</td>
+      <td>0.364922</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>mean_per_class_accuracy</td>
+      <td>0.647136</td>
+      <td>0.018742</td>
+      <td>0.647294</td>
+      <td>0.638961</td>
+      <td>0.626088</td>
+      <td>0.646292</td>
+      <td>0.677043</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>mean_per_class_error</td>
+      <td>0.352864</td>
+      <td>0.018742</td>
+      <td>0.352705</td>
+      <td>0.361039</td>
+      <td>0.373912</td>
+      <td>0.353708</td>
+      <td>0.322957</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>mse</td>
+      <td>0.205918</td>
+      <td>0.002593</td>
+      <td>0.201783</td>
+      <td>0.204980</td>
+      <td>0.207443</td>
+      <td>0.208073</td>
+      <td>0.207309</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>pr_auc</td>
+      <td>0.771801</td>
+      <td>0.013353</td>
+      <td>0.792843</td>
+      <td>0.772931</td>
+      <td>0.772372</td>
+      <td>0.762701</td>
+      <td>0.758159</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>precision</td>
+      <td>0.630703</td>
+      <td>0.012138</td>
+      <td>0.624585</td>
+      <td>0.621859</td>
+      <td>0.619718</td>
+      <td>0.640816</td>
+      <td>0.646538</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>r2</td>
+      <td>0.172814</td>
+      <td>0.011294</td>
+      <td>0.190509</td>
+      <td>0.176042</td>
+      <td>0.165018</td>
+      <td>0.161792</td>
+      <td>0.170710</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>recall</td>
+      <td>0.875966</td>
+      <td>0.048658</td>
+      <td>0.891841</td>
+      <td>0.925234</td>
+      <td>0.897127</td>
+      <td>0.869004</td>
+      <td>0.796627</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>rmse</td>
+      <td>0.453774</td>
+      <td>0.002864</td>
+      <td>0.449202</td>
+      <td>0.452747</td>
+      <td>0.455459</td>
+      <td>0.456151</td>
+      <td>0.455312</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>specificity</td>
+      <td>0.418305</td>
+      <td>0.083577</td>
+      <td>0.402748</td>
+      <td>0.352688</td>
+      <td>0.355049</td>
+      <td>0.423581</td>
+      <td>0.557460</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scoring History: 
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>timestamp</th>
+      <th>duration</th>
+      <th>number_of_trees</th>
+      <th>training_rmse</th>
+      <th>training_logloss</th>
+      <th>training_auc</th>
+      <th>training_pr_auc</th>
+      <th>training_lift</th>
+      <th>training_classification_error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td></td>
+      <td>2022-02-23 12:48:33</td>
+      <td>3.605 sec</td>
+      <td>0.0</td>
+      <td>0.499129</td>
+      <td>0.691406</td>
+      <td>0.500000</td>
+      <td>0.529500</td>
+      <td>1.000000</td>
+      <td>0.4705</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td></td>
+      <td>2022-02-23 12:48:33</td>
+      <td>3.677 sec</td>
+      <td>1.0</td>
+      <td>0.488236</td>
+      <td>0.669779</td>
+      <td>0.689191</td>
+      <td>0.674970</td>
+      <td>1.340835</td>
+      <td>0.3927</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td></td>
+      <td>2022-02-23 12:48:33</td>
+      <td>3.744 sec</td>
+      <td>2.0</td>
+      <td>0.479807</td>
+      <td>0.653146</td>
+      <td>0.719111</td>
+      <td>0.725388</td>
+      <td>1.545030</td>
+      <td>0.3958</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td></td>
+      <td>2022-02-23 12:48:33</td>
+      <td>3.762 sec</td>
+      <td>3.0</td>
+      <td>0.473698</td>
+      <td>0.641037</td>
+      <td>0.724650</td>
+      <td>0.731284</td>
+      <td>1.569032</td>
+      <td>0.3933</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td></td>
+      <td>2022-02-23 12:48:33</td>
+      <td>3.782 sec</td>
+      <td>4.0</td>
+      <td>0.467046</td>
+      <td>0.627816</td>
+      <td>0.746638</td>
+      <td>0.760063</td>
+      <td>1.683844</td>
+      <td>0.3692</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td></td>
+      <td>2022-02-23 12:48:33</td>
+      <td>3.801 sec</td>
+      <td>5.0</td>
+      <td>0.462994</td>
+      <td>0.619629</td>
+      <td>0.750899</td>
+      <td>0.766012</td>
+      <td>1.696473</td>
+      <td>0.3404</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td></td>
+      <td>2022-02-23 12:48:33</td>
+      <td>3.820 sec</td>
+      <td>6.0</td>
+      <td>0.458301</td>
+      <td>0.609973</td>
+      <td>0.756603</td>
+      <td>0.772386</td>
+      <td>1.733566</td>
+      <td>0.3515</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td></td>
+      <td>2022-02-23 12:48:33</td>
+      <td>3.843 sec</td>
+      <td>7.0</td>
+      <td>0.455569</td>
+      <td>0.604192</td>
+      <td>0.758101</td>
+      <td>0.773795</td>
+      <td>1.748075</td>
+      <td>0.3512</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td></td>
+      <td>2022-02-23 12:48:33</td>
+      <td>3.864 sec</td>
+      <td>8.0</td>
+      <td>0.452777</td>
+      <td>0.598335</td>
+      <td>0.763715</td>
+      <td>0.778986</td>
+      <td>1.754413</td>
+      <td>0.3180</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td></td>
+      <td>2022-02-23 12:48:33</td>
+      <td>3.887 sec</td>
+      <td>9.0</td>
+      <td>0.449743</td>
+      <td>0.591929</td>
+      <td>0.768491</td>
+      <td>0.784821</td>
+      <td>1.776659</td>
+      <td>0.3207</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td></td>
+      <td>2022-02-23 12:48:33</td>
+      <td>3.909 sec</td>
+      <td>10.0</td>
+      <td>0.447797</td>
+      <td>0.587918</td>
+      <td>0.773547</td>
+      <td>0.790911</td>
+      <td>1.831345</td>
+      <td>0.3090</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable Importances: 
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>relative_importance</th>
+      <th>scaled_importance</th>
+      <th>percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>x26</td>
+      <td>565.332336</td>
+      <td>1.000000</td>
+      <td>0.410859</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>x28</td>
+      <td>204.503998</td>
+      <td>0.361741</td>
+      <td>0.148625</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>x27</td>
+      <td>189.230789</td>
+      <td>0.334725</td>
+      <td>0.137525</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>x23</td>
+      <td>124.527618</td>
+      <td>0.220273</td>
+      <td>0.090501</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>x6</td>
+      <td>121.551117</td>
+      <td>0.215008</td>
+      <td>0.088338</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>x25</td>
+      <td>99.598267</td>
+      <td>0.176176</td>
+      <td>0.072384</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>x4</td>
+      <td>44.359753</td>
+      <td>0.078467</td>
+      <td>0.032239</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>x10</td>
+      <td>18.008587</td>
+      <td>0.031855</td>
+      <td>0.013088</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>x22</td>
+      <td>3.660778</td>
+      <td>0.006475</td>
+      <td>0.002660</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>x18</td>
+      <td>3.097153</td>
+      <td>0.005478</td>
+      <td>0.002251</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>x5</td>
+      <td>2.104541</td>
+      <td>0.003723</td>
+      <td>0.001529</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>x1</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>x2</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>x3</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>x7</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>x8</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>x9</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>x11</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>x12</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>x13</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>See the whole table with table.as_data_frame()
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -710,10 +2893,12 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>██| (done) 100%
-Model Details
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
 =============
 H2ORandomForestEstimator :  Distributed Random Forest
-Model Key:  DRF_model_python_1645647896050_2301
+Model Key:  DRF_model_python_1645649293300_129
 
 
 Model Summary: 
@@ -755,7 +2940,7 @@ Model Summary:
       <td></td>
       <td>50.0</td>
       <td>50.0</td>
-      <td>943584.0</td>
+      <td>943585.0</td>
       <td>20.0</td>
       <td>20.0</td>
       <td>20.0</td>
@@ -2124,8 +4309,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>0</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>8.883 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>9.770 sec</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2137,8 +4322,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>1</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>8.906 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>9.801 sec</td>
       <td>1.0</td>
       <td>0.642818</td>
       <td>14.048395</td>
@@ -2150,8 +4335,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>2</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>8.929 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>9.833 sec</td>
       <td>2.0</td>
       <td>0.615404</td>
       <td>11.895281</td>
@@ -2163,8 +4348,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>3</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>8.952 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>9.864 sec</td>
       <td>3.0</td>
       <td>0.596109</td>
       <td>10.322973</td>
@@ -2176,8 +4361,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>4</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>8.976 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>9.895 sec</td>
       <td>4.0</td>
       <td>0.578952</td>
       <td>8.963477</td>
@@ -2189,8 +4374,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>5</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>8.999 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>9.925 sec</td>
       <td>5.0</td>
       <td>0.566757</td>
       <td>7.823122</td>
@@ -2202,8 +4387,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>6</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>9.025 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>9.956 sec</td>
       <td>6.0</td>
       <td>0.555494</td>
       <td>6.782681</td>
@@ -2215,8 +4400,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>7</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>9.049 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>9.987 sec</td>
       <td>7.0</td>
       <td>0.542668</td>
       <td>5.762143</td>
@@ -2228,8 +4413,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>8</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>9.072 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>10.012 sec</td>
       <td>8.0</td>
       <td>0.534223</td>
       <td>5.001247</td>
@@ -2241,8 +4426,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>9</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>9.097 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>10.044 sec</td>
       <td>9.0</td>
       <td>0.525930</td>
       <td>4.327270</td>
@@ -2254,8 +4439,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>10</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>9.124 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>10.074 sec</td>
       <td>10.0</td>
       <td>0.516709</td>
       <td>3.691988</td>
@@ -2267,8 +4452,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>11</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>9.157 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>10.100 sec</td>
       <td>11.0</td>
       <td>0.510283</td>
       <td>3.222738</td>
@@ -2280,8 +4465,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>12</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>9.183 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>10.125 sec</td>
       <td>12.0</td>
       <td>0.501990</td>
       <td>2.723957</td>
@@ -2293,8 +4478,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>13</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>9.210 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>10.152 sec</td>
       <td>13.0</td>
       <td>0.496251</td>
       <td>2.349060</td>
@@ -2306,8 +4491,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>14</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>9.237 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>10.181 sec</td>
       <td>14.0</td>
       <td>0.492259</td>
       <td>2.050819</td>
@@ -2319,8 +4504,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>15</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>9.264 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>10.209 sec</td>
       <td>15.0</td>
       <td>0.487936</td>
       <td>1.795128</td>
@@ -2332,8 +4517,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>16</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>9.291 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>10.237 sec</td>
       <td>16.0</td>
       <td>0.484170</td>
       <td>1.579896</td>
@@ -2345,8 +4530,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>17</th>
       <td></td>
-      <td>2022-02-23 12:43:10</td>
-      <td>9.319 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>10.265 sec</td>
       <td>17.0</td>
       <td>0.480754</td>
       <td>1.424860</td>
@@ -2358,8 +4543,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>18</th>
       <td></td>
-      <td>2022-02-23 12:43:11</td>
-      <td>9.347 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>10.293 sec</td>
       <td>18.0</td>
       <td>0.477989</td>
       <td>1.318464</td>
@@ -2371,8 +4556,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>19</th>
       <td></td>
-      <td>2022-02-23 12:43:11</td>
-      <td>9.376 sec</td>
+      <td>2022-02-23 12:48:44</td>
+      <td>10.323 sec</td>
       <td>19.0</td>
       <td>0.475932</td>
       <td>1.215350</td>
@@ -2565,8 +4750,7 @@ Variable Importances:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="c1"># Train a stacked ensemble using the GBM and GLM above</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train a stacked ensemble using the GBM and GLM above</span>
 <span class="n">ensemble</span> <span class="o">=</span> <span class="n">H2OStackedEnsembleEstimator</span><span class="p">(</span><span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;my_ensemble_binomial&quot;</span><span class="p">,</span>
                                        <span class="n">base_models</span><span class="o">=</span><span class="p">[</span><span class="n">my_gbm</span><span class="p">,</span> <span class="n">my_rf</span><span class="p">])</span>
 <span class="n">ensemble</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">training_frame</span><span class="o">=</span><span class="n">train</span><span class="p">)</span>
@@ -2576,11 +4760,18 @@ Variable Importances:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stackedensemble Model Build progress: |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>██████████████████████████████████████████| (done) 100%
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="c1"># Compare to base learner performance on the test set</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare to base learner performance on the test set</span>
 <span class="n">perf_gbm_test</span> <span class="o">=</span> <span class="n">my_gbm</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
 <span class="n">perf_rf_test</span> <span class="o">=</span> <span class="n">my_rf</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
 <span class="n">baselearner_best_auc_test</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">perf_gbm_test</span><span class="o">.</span><span class="n">auc</span><span class="p">(),</span> <span class="n">perf_rf_test</span><span class="o">.</span><span class="n">auc</span><span class="p">())</span>
@@ -2590,11 +4781,16 @@ Variable Importances:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best Base-learner Test AUC:  0.769204725074508
+Ensemble Test AUC:  0.7731183158978566
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="c1"># Generate predictions on a test set (if neccessary)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate predictions on a test set (if neccessary)</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
 
 
@@ -2609,11 +4805,18 @@ Variable Importances:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stackedensemble prediction progress: |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>███████████████████████████████████████████| (done) 100%
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="c1"># Train the grid</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the grid</span>
 <span class="n">grid</span> <span class="o">=</span> <span class="n">H2OGridSearch</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">H2OGradientBoostingEstimator</span><span class="p">(</span><span class="n">ntrees</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                                                         <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                                                         <span class="n">nfolds</span><span class="o">=</span><span class="n">nfolds</span><span class="p">,</span>
@@ -2626,11 +4829,176 @@ Variable Importances:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gbm Grid Build progress: |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>███████| (done) 100%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    col_sample_rate learn_rate max_depth sample_rate  \
+0               0.4       0.03         3         0.7   
+1               0.2       0.03         4         0.8   
+2               0.7       0.01         5         0.9   
+
+                   model_ids             logloss  
+0  gbm_grid_binomial_model_3   0.667209869083727  
+1  gbm_grid_binomial_model_2  0.6742791229554091  
+2  gbm_grid_binomial_model_1  0.6770690446978346  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="c1"># Train a stacked ensemble using the GBM grid</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train a stacked ensemble using the GBM grid</span>
 <span class="n">ensemble</span> <span class="o">=</span> <span class="n">H2OStackedEnsembleEstimator</span><span class="p">(</span><span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;my_ensemble_gbm_grid_binomial&quot;</span><span class="p">,</span>
                                        <span class="n">base_models</span><span class="o">=</span><span class="n">grid</span><span class="o">.</span><span class="n">model_ids</span><span class="p">)</span>
 <span class="n">ensemble</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">training_frame</span><span class="o">=</span><span class="n">train</span><span class="p">)</span>
@@ -2646,6 +5014,22 @@ Variable Importances:
 
 <span class="c1"># Generate predictions on a test set (if neccessary)</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stackedensemble Model Build progress: |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>██████████████████████████████████████████| (done) 100%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best Base-learner Test AUC:  0.748146530400473
+Ensemble Test AUC:  0.7510921003414699
+stackedensemble prediction progress: |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>███████████████████████████████████████████| (done) 100%
 </pre></div>
 </div>
 </div>
