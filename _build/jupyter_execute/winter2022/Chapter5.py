@@ -38,6 +38,17 @@
 
 # ## H2O SuperLearner ensemble
 
+# Use machine learning ensembles to detect whether or not (simulated) particle collisions produce the Higgs Boson particle or not. Learn more about the data: https://www.kaggle.com/c/higgs/overview
+# 
+# ## What is the Higgs Boson?
+# 
+# "The Higgs boson is the fundamental particle associated with the Higgs field, a field that gives mass to other fundamental particles such as electrons and quarks. A particle’s mass determines how much it resists changing its speed or position when it encounters a force. Not all fundamental particles have mass. The photon, which is the particle of light and carries the electromagnetic force, has no mass at all." (https://www.energy.gov/science/doe-explainsthe-higgs-boson)
+# 
+# 
+# ![hb](img/hb.png)
+
+# ### Install h2o and Java
+
 # In[1]:
 
 
@@ -46,6 +57,8 @@
 # Requires install of Java
 # https://www.java.com/en/download/help/mac_install.html
 
+
+# ### Initialize an h2o cluster
 
 # In[2]:
 
@@ -59,11 +72,11 @@ from __future__ import print_function
 h2o.init()
 
 
+# ### Import a sample binary outcome train/test set into H2O
+
 # In[3]:
 
 
-# Import a sample binary outcome train/test set into H2O
-# Learn about subset of Higgs Boson dataset: https://www.kaggle.com/c/higgs-boson/data
 train = h2o.import_file("https://s3.amazonaws.com/erin-data/higgs/higgs_train_10k.csv")
 test = h2o.import_file("https://s3.amazonaws.com/erin-data/higgs/higgs_test_5k.csv")
 
@@ -81,44 +94,49 @@ print(train.shape)
 print(test.shape)
 
 
+# ### Identify predictors and response
+
 # In[6]:
 
 
-# Identify predictors and response
 x = train.columns
 y = "response"
 x.remove(y)
 
 
+# ### For binary classification, response should be a factor
+
 # In[7]:
 
 
-# For binary classification, response should be a factor
 train[y] = train[y].asfactor()
 test[y] = test[y].asfactor()
 
 
+# ### Number of CV folds (to generate level-one data for stacking)
+
 # In[8]:
 
 
-# Number of CV folds (to generate level-one data for stacking)
 nfolds = 5
 
 
-# In[9]:
-
-
+# ### How to stack
+# 
 # There are a few ways to assemble a list of models to stack together:
 # 1. Train individual models and put them in a list
 # 2. Train a grid of models
 # 3. Train several grids of models
-# Note: All base models must have the same cross-validation folds and
-# the cross-validated predicted values must be kept.
+# 
+# >Note: All base models must have the same cross-validation folds and the cross-validated predicted values must be kept.
+
+# ## 1. Generate a 2-model ensemble (GBM + RF)
+
+# ### Train and cross-validate a GBM (gradient boosted machine)
+
+# In[9]:
 
 
-# 1. Generate a 2-model ensemble (GBM + RF)
-
-# Train and cross-validate a GBM
 my_gbm = H2OGradientBoostingEstimator(distribution="bernoulli",
                                       ntrees=10,
                                       max_depth=3,
@@ -131,10 +149,11 @@ my_gbm = H2OGradientBoostingEstimator(distribution="bernoulli",
 my_gbm.train(x=x, y=y, training_frame=train)
 
 
+# ### Train and cross-validate a RF (random forest)
+
 # In[10]:
 
 
-# Train and cross-validate a RF
 my_rf = H2ORandomForestEstimator(ntrees=50,
                                  nfolds=nfolds,
                                  fold_assignment="Modulo",
@@ -143,10 +162,11 @@ my_rf = H2ORandomForestEstimator(ntrees=50,
 my_rf.train(x=x, y=y, training_frame=train)
 
 
+# ## 3. Train a stacked ensemble using the GBM and RF above
+
 # In[11]:
 
 
-# Train a stacked ensemble using the GBM and GLM above
 ensemble = H2OStackedEnsembleEstimator(model_id="my_ensemble_binomial",
                                        base_models=[my_gbm, my_rf])
 ensemble.train(x=x, y=y, training_frame=train)
@@ -158,7 +178,14 @@ perf_stack_test = ensemble.model_performance(test)
 # In[12]:
 
 
-# Compare to base learner performance on the test set
+perf_stack_test
+
+
+# ### Compare to base learner performance on the test set
+
+# In[13]:
+
+
 perf_gbm_test = my_gbm.model_performance(test)
 perf_rf_test = my_rf.model_performance(test)
 baselearner_best_auc_test = max(perf_gbm_test.auc(), perf_rf_test.auc())
@@ -167,16 +194,22 @@ print("Best Base-learner Test AUC:  {0}".format(baselearner_best_auc_test))
 print("Ensemble Test AUC:  {0}".format(stack_auc_test))
 
 
-# In[13]:
+# ### Generate predictions on a test set (if neccessary)
+
+# In[14]:
 
 
-# Generate predictions on a test set (if neccessary)
 pred = ensemble.predict(test)
+pred
 
 
-# 2. Generate a random grid of models and stack them together
+# ## 4. Generate a random grid of models and stack them together
 
-# Specify GBM hyperparameters for the grid
+# ### Specify GBM hyperparameters for the grid
+
+# In[15]:
+
+
 hyper_params = {"learn_rate": [0.01, 0.03],
                 "max_depth": [3, 4, 5, 6, 9],
                 "sample_rate": [0.7, 0.8, 0.9, 1.0],
@@ -184,7 +217,7 @@ hyper_params = {"learn_rate": [0.01, 0.03],
 search_criteria = {"strategy": "RandomDiscrete", "max_models": 3, "seed": 1}
 
 
-# In[14]:
+# In[16]:
 
 
 # Train the grid
@@ -199,25 +232,43 @@ grid = H2OGridSearch(model=H2OGradientBoostingEstimator(ntrees=10,
 grid.train(x=x, y=y, training_frame=train)
 
 
-# In[15]:
+# ## 5. Train a stacked ensemble using the GBM grid
+
+# In[17]:
 
 
-# Train a stacked ensemble using the GBM grid
 ensemble = H2OStackedEnsembleEstimator(model_id="my_ensemble_gbm_grid_binomial",
                                        base_models=grid.model_ids)
 ensemble.train(x=x, y=y, training_frame=train)
 
-# Eval ensemble performance on the test data
-perf_stack_test = ensemble.model_performance(test)
 
-# Compare to base learner performance on the test set
+# ### Eval ensemble performance on the test data
+
+# In[18]:
+
+
+perf_stack_test = ensemble.model_performance(test)
+perf_stack_test
+
+
+# ## 6. Compare to base learner performance on the test set
+
+# In[19]:
+
+
 baselearner_best_auc_test = max([h2o.get_model(model).model_performance(test_data=test).auc() for model in grid.model_ids])
 stack_auc_test = perf_stack_test.auc()
 print("Best Base-learner Test AUC:  {0}".format(baselearner_best_auc_test))
 print("Ensemble Test AUC:  {0}".format(stack_auc_test))
 
-# Generate predictions on a test set (if neccessary)
-pred = ensemble.predict(test)
+
+# ### Generate predictions on a test set (if neccessary)
+
+# In[20]:
+
+
+pred2 = ensemble.predict(test)
+pred2
 
 
 # ## Deep learning basics
@@ -228,7 +279,7 @@ pred = ensemble.predict(test)
 # 
 # Read Goodfellow et al's Deep Learning Book to learn more: https://www.deeplearningbook.org/
 
-# In[16]:
+# In[21]:
 
 
 import pandas as pd
