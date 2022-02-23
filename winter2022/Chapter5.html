@@ -307,6 +307,118 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-higgs-boson">
+   What is the Higgs Boson?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-h2o-and-java">
+     Install h2o and Java
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initialize-an-h2o-cluster">
+     Initialize an h2o cluster
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-a-sample-binary-outcome-train-test-set-into-h2o">
+     Import a sample binary outcome train/test set into H2O
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#identify-predictors-and-response">
+     Identify predictors and response
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-binary-classification-response-should-be-a-factor">
+     For binary classification, response should be a factor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#number-of-cv-folds-to-generate-level-one-data-for-stacking">
+     Number of CV folds (to generate level-one data for stacking)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-stack">
+     How to stack
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generate-a-2-model-ensemble-gbm-rf">
+   1. Generate a 2-model ensemble (GBM + RF)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-and-cross-validate-a-gbm-gradient-boosted-machine">
+     Train and cross-validate a GBM (gradient boosted machine)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-and-cross-validate-a-rf-random-forest">
+     Train and cross-validate a RF (random forest)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-a-stacked-ensemble-using-the-gbm-and-rf-above">
+   3. Train a stacked ensemble using the GBM and RF above
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-to-base-learner-performance-on-the-test-set">
+     Compare to base learner performance on the test set
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generate-predictions-on-a-test-set-if-neccessary">
+     Generate predictions on a test set (if neccessary)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generate-a-random-grid-of-models-and-stack-them-together">
+   4. Generate a random grid of models and stack them together
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-gbm-hyperparameters-for-the-grid">
+     Specify GBM hyperparameters for the grid
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-a-stacked-ensemble-using-the-gbm-grid">
+   5. Train a stacked ensemble using the GBM grid
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eval-ensemble-performance-on-the-test-data">
+     Eval ensemble performance on the test data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   6. Compare to base learner performance on the test set
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Generate predictions on a test set (if neccessary)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#deep-learning-basics">
    Deep learning basics
   </a>
@@ -366,6 +478,14 @@
 </section>
 <section id="h2o-superlearner-ensemble">
 <h2>H2O SuperLearner ensemble<a class="headerlink" href="#h2o-superlearner-ensemble" title="Permalink to this headline">¶</a></h2>
+<p>Use machine learning ensembles to detect whether or not (simulated) particle collisions produce the Higgs Boson particle or not. Learn more about the data: <a class="reference external" href="https://www.kaggle.com/c/higgs/overview">https://www.kaggle.com/c/higgs/overview</a></p>
+</section>
+<section id="what-is-the-higgs-boson">
+<h2>What is the Higgs Boson?<a class="headerlink" href="#what-is-the-higgs-boson" title="Permalink to this headline">¶</a></h2>
+<p>“The Higgs boson is the fundamental particle associated with the Higgs field, a field that gives mass to other fundamental particles such as electrons and quarks. A particle’s mass determines how much it resists changing its speed or position when it encounters a force. Not all fundamental particles have mass. The photon, which is the particle of light and carries the electromagnetic force, has no mass at all.” (<a class="reference external" href="https://www.energy.gov/science/doe-explainsthe-higgs-boson">https://www.energy.gov/science/doe-explainsthe-higgs-boson</a>)</p>
+<p><img alt="hb" src="../_images/hb.png" /></p>
+<section id="install-h2o-and-java">
+<h3>Install h2o and Java<a class="headerlink" href="#install-h2o-and-java" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install h2o</span>
@@ -376,6 +496,9 @@
 </div>
 </div>
 </div>
+</section>
+<section id="initialize-an-h2o-cluster">
+<h3>Initialize an h2o cluster<a class="headerlink" href="#initialize-an-h2o-cluster" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">h2o</span>
@@ -408,9 +531,9 @@
 Attempting to start a local H2O server...
   Java Version: java version &quot;1.8.0_321&quot;; Java(TM) SE Runtime Environment (build 1.8.0_321-b07); Java HotSpot(TM) 64-Bit Server VM (build 25.321-b07, mixed mode)
   Starting server from /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/bin/h2o.jar
-  Ice root: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpw_hckadw
-  JVM stdout: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpw_hckadw/h2o_evanmuzzall_started_from_python.out
-  JVM stderr: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpw_hckadw/h2o_evanmuzzall_started_from_python.err
+  Ice root: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmp6h_ymzir
+  JVM stdout: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmp6h_ymzir/h2o_evanmuzzall_started_from_python.out
+  JVM stderr: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmp6h_ymzir/h2o_evanmuzzall_started_from_python.err
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Server is running at http://127.0.0.1:54321
@@ -422,7 +545,7 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 </pre></div>
 </div>
 <div class="output text_html"><div style="overflow:auto"><table style="width:50%"><tr><td>H2O_cluster_uptime:</td>
-<td>05 secs</td></tr>
+<td>04 secs</td></tr>
 <tr><td>H2O_cluster_timezone:</td>
 <td>America/Los_Angeles</td></tr>
 <tr><td>H2O_data_parsing_timezone:</td>
@@ -432,7 +555,7 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 <tr><td>H2O_cluster_version_age:</td>
 <td>5 months and 8 days !!!</td></tr>
 <tr><td>H2O_cluster_name:</td>
-<td>H2O_from_python_evanmuzzall_nlt3xn</td></tr>
+<td>H2O_from_python_evanmuzzall_1qdebm</td></tr>
 <tr><td>H2O_cluster_total_nodes:</td>
 <td>1</td></tr>
 <tr><td>H2O_cluster_free_memory:</td>
@@ -454,11 +577,12 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 <tr><td>Python_version:</td>
 <td>3.8.8 final</td></tr></table></div></div></div>
 </div>
+</section>
+<section id="import-a-sample-binary-outcome-train-test-set-into-h2o">
+<h3>Import a sample binary outcome train/test set into H2O<a class="headerlink" href="#import-a-sample-binary-outcome-train-test-set-into-h2o" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import a sample binary outcome train/test set into H2O</span>
-<span class="c1"># Learn about subset of Higgs Boson dataset: https://www.kaggle.com/c/higgs-boson/data</span>
-<span class="n">train</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s2">&quot;https://s3.amazonaws.com/erin-data/higgs/higgs_train_10k.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s2">&quot;https://s3.amazonaws.com/erin-data/higgs/higgs_train_10k.csv&quot;</span><span class="p">)</span>
 <span class="n">test</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s2">&quot;https://s3.amazonaws.com/erin-data/higgs/higgs_test_5k.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -641,7 +765,10 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>██████| (done) 100%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█████| (done) 100%
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parse progress: |
@@ -797,7 +924,19 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>██████████████| (done) 100%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>██████████| (done) 100%
 </pre></div>
 </div>
 </div>
@@ -844,47 +983,60 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 </div>
 </div>
 </div>
+</section>
+<section id="identify-predictors-and-response">
+<h3>Identify predictors and response<a class="headerlink" href="#identify-predictors-and-response" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify predictors and response</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">columns</span>
 <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;response&quot;</span>
 <span class="n">x</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="for-binary-classification-response-should-be-a-factor">
+<h3>For binary classification, response should be a factor<a class="headerlink" href="#for-binary-classification-response-should-be-a-factor" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For binary classification, response should be a factor</span>
-<span class="n">train</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">asfactor</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">asfactor</span><span class="p">()</span>
 <span class="n">test</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">asfactor</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="number-of-cv-folds-to-generate-level-one-data-for-stacking">
+<h3>Number of CV folds (to generate level-one data for stacking)<a class="headerlink" href="#number-of-cv-folds-to-generate-level-one-data-for-stacking" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of CV folds (to generate level-one data for stacking)</span>
-<span class="n">nfolds</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nfolds</span> <span class="o">=</span> <span class="mi">5</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="how-to-stack">
+<h3>How to stack<a class="headerlink" href="#how-to-stack" title="Permalink to this headline">¶</a></h3>
+<p>There are a few ways to assemble a list of models to stack together:</p>
+<ol class="simple">
+<li><p>Train individual models and put them in a list</p></li>
+<li><p>Train a grid of models</p></li>
+<li><p>Train several grids of models</p></li>
+</ol>
+<blockquote>
+<div><p>Note: All base models must have the same cross-validation folds and the cross-validated predicted values must be kept.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="generate-a-2-model-ensemble-gbm-rf">
+<h2>1. Generate a 2-model ensemble (GBM + RF)<a class="headerlink" href="#generate-a-2-model-ensemble-gbm-rf" title="Permalink to this headline">¶</a></h2>
+<section id="train-and-cross-validate-a-gbm-gradient-boosted-machine">
+<h3>Train and cross-validate a GBM (gradient boosted machine)<a class="headerlink" href="#train-and-cross-validate-a-gbm-gradient-boosted-machine" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># There are a few ways to assemble a list of models to stack together:</span>
-<span class="c1"># 1. Train individual models and put them in a list</span>
-<span class="c1"># 2. Train a grid of models</span>
-<span class="c1"># 3. Train several grids of models</span>
-<span class="c1"># Note: All base models must have the same cross-validation folds and</span>
-<span class="c1"># the cross-validated predicted values must be kept.</span>
-
-
-<span class="c1"># 1. Generate a 2-model ensemble (GBM + RF)</span>
-
-<span class="c1"># Train and cross-validate a GBM</span>
-<span class="n">my_gbm</span> <span class="o">=</span> <span class="n">H2OGradientBoostingEstimator</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;bernoulli&quot;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_gbm</span> <span class="o">=</span> <span class="n">H2OGradientBoostingEstimator</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;bernoulli&quot;</span><span class="p">,</span>
                                       <span class="n">ntrees</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                                       <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
                                       <span class="n">min_rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -976,13 +1128,37 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█████████████████████████████| (done) 100%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█████████████████████| (done) 100%
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
 =============
 H2OGradientBoostingEstimator :  Gradient Boosting Machine
-Model Key:  GBM_model_python_1645651226446_1
+Model Key:  GBM_model_python_1645652986234_1
 
 
 Model Summary: 
@@ -2376,8 +2552,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>0</th>
       <td></td>
-      <td>2022-02-23 13:20:46</td>
-      <td>3.657 sec</td>
+      <td>2022-02-23 13:50:06</td>
+      <td>1.541 sec</td>
       <td>0.0</td>
       <td>0.499129</td>
       <td>0.691406</td>
@@ -2389,8 +2565,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>1</th>
       <td></td>
-      <td>2022-02-23 13:20:46</td>
-      <td>3.744 sec</td>
+      <td>2022-02-23 13:50:06</td>
+      <td>1.603 sec</td>
       <td>1.0</td>
       <td>0.488236</td>
       <td>0.669779</td>
@@ -2402,8 +2578,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>2</th>
       <td></td>
-      <td>2022-02-23 13:20:47</td>
-      <td>3.777 sec</td>
+      <td>2022-02-23 13:50:06</td>
+      <td>1.623 sec</td>
       <td>2.0</td>
       <td>0.479807</td>
       <td>0.653146</td>
@@ -2415,8 +2591,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>3</th>
       <td></td>
-      <td>2022-02-23 13:20:47</td>
-      <td>3.796 sec</td>
+      <td>2022-02-23 13:50:06</td>
+      <td>1.643 sec</td>
       <td>3.0</td>
       <td>0.473698</td>
       <td>0.641037</td>
@@ -2428,8 +2604,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>4</th>
       <td></td>
-      <td>2022-02-23 13:20:47</td>
-      <td>3.814 sec</td>
+      <td>2022-02-23 13:50:06</td>
+      <td>1.661 sec</td>
       <td>4.0</td>
       <td>0.467046</td>
       <td>0.627816</td>
@@ -2441,8 +2617,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>5</th>
       <td></td>
-      <td>2022-02-23 13:20:47</td>
-      <td>3.833 sec</td>
+      <td>2022-02-23 13:50:06</td>
+      <td>1.682 sec</td>
       <td>5.0</td>
       <td>0.462994</td>
       <td>0.619629</td>
@@ -2454,8 +2630,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>6</th>
       <td></td>
-      <td>2022-02-23 13:20:47</td>
-      <td>3.854 sec</td>
+      <td>2022-02-23 13:50:06</td>
+      <td>1.703 sec</td>
       <td>6.0</td>
       <td>0.458301</td>
       <td>0.609973</td>
@@ -2467,8 +2643,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>7</th>
       <td></td>
-      <td>2022-02-23 13:20:47</td>
-      <td>3.877 sec</td>
+      <td>2022-02-23 13:50:06</td>
+      <td>1.726 sec</td>
       <td>7.0</td>
       <td>0.455569</td>
       <td>0.604192</td>
@@ -2480,8 +2656,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>8</th>
       <td></td>
-      <td>2022-02-23 13:20:47</td>
-      <td>3.900 sec</td>
+      <td>2022-02-23 13:50:06</td>
+      <td>1.748 sec</td>
       <td>8.0</td>
       <td>0.452777</td>
       <td>0.598335</td>
@@ -2493,8 +2669,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>9</th>
       <td></td>
-      <td>2022-02-23 13:20:47</td>
-      <td>3.923 sec</td>
+      <td>2022-02-23 13:50:06</td>
+      <td>1.772 sec</td>
       <td>9.0</td>
       <td>0.449743</td>
       <td>0.591929</td>
@@ -2506,8 +2682,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>10</th>
       <td></td>
-      <td>2022-02-23 13:20:47</td>
-      <td>3.947 sec</td>
+      <td>2022-02-23 13:50:06</td>
+      <td>1.795 sec</td>
       <td>10.0</td>
       <td>0.447797</td>
       <td>0.587918</td>
@@ -2696,10 +2872,12 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
 </div>
 </div>
 </div>
+</section>
+<section id="train-and-cross-validate-a-rf-random-forest">
+<h3>Train and cross-validate a RF (random forest)<a class="headerlink" href="#train-and-cross-validate-a-rf-random-forest" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train and cross-validate a RF</span>
-<span class="n">my_rf</span> <span class="o">=</span> <span class="n">H2ORandomForestEstimator</span><span class="p">(</span><span class="n">ntrees</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_rf</span> <span class="o">=</span> <span class="n">H2ORandomForestEstimator</span><span class="p">(</span><span class="n">ntrees</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
                                  <span class="n">nfolds</span><span class="o">=</span><span class="n">nfolds</span><span class="p">,</span>
                                  <span class="n">fold_assignment</span><span class="o">=</span><span class="s2">&quot;Modulo&quot;</span><span class="p">,</span>
                                  <span class="n">keep_cross_validation_predictions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -2868,13 +3046,14 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>██| (done) 100%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█| (done) 100%
+Model Details
 =============
 H2ORandomForestEstimator :  Distributed Random Forest
-Model Key:  DRF_model_python_1645651226446_129
+Model Key:  DRF_model_python_1645652986234_129
 
 
 Model Summary: 
@@ -2916,7 +3095,7 @@ Model Summary:
       <td></td>
       <td>50.0</td>
       <td>50.0</td>
-      <td>943586.0</td>
+      <td>943587.0</td>
       <td>20.0</td>
       <td>20.0</td>
       <td>20.0</td>
@@ -4285,8 +4464,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>0</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>9.770 sec</td>
+      <td>2022-02-23 13:50:17</td>
+      <td>10.020 sec</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -4298,8 +4477,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>1</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>9.801 sec</td>
+      <td>2022-02-23 13:50:17</td>
+      <td>10.050 sec</td>
       <td>1.0</td>
       <td>0.642818</td>
       <td>14.048395</td>
@@ -4311,8 +4490,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>2</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>9.830 sec</td>
+      <td>2022-02-23 13:50:17</td>
+      <td>10.093 sec</td>
       <td>2.0</td>
       <td>0.615404</td>
       <td>11.895281</td>
@@ -4324,8 +4503,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>3</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>9.861 sec</td>
+      <td>2022-02-23 13:50:17</td>
+      <td>10.123 sec</td>
       <td>3.0</td>
       <td>0.596109</td>
       <td>10.322973</td>
@@ -4337,8 +4516,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>4</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>9.894 sec</td>
+      <td>2022-02-23 13:50:17</td>
+      <td>10.156 sec</td>
       <td>4.0</td>
       <td>0.578952</td>
       <td>8.963477</td>
@@ -4350,8 +4529,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>5</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>9.927 sec</td>
+      <td>2022-02-23 13:50:17</td>
+      <td>10.185 sec</td>
       <td>5.0</td>
       <td>0.566757</td>
       <td>7.823122</td>
@@ -4363,8 +4542,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>6</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>9.961 sec</td>
+      <td>2022-02-23 13:50:17</td>
+      <td>10.216 sec</td>
       <td>6.0</td>
       <td>0.555494</td>
       <td>6.782681</td>
@@ -4376,8 +4555,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>7</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>9.996 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.247 sec</td>
       <td>7.0</td>
       <td>0.542668</td>
       <td>5.762143</td>
@@ -4389,8 +4568,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>8</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>10.027 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.272 sec</td>
       <td>8.0</td>
       <td>0.534223</td>
       <td>5.001247</td>
@@ -4402,8 +4581,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>9</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>10.060 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.299 sec</td>
       <td>9.0</td>
       <td>0.525930</td>
       <td>4.327270</td>
@@ -4415,8 +4594,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>10</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>10.093 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.326 sec</td>
       <td>10.0</td>
       <td>0.516709</td>
       <td>3.691988</td>
@@ -4428,8 +4607,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>11</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>10.123 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.352 sec</td>
       <td>11.0</td>
       <td>0.510283</td>
       <td>3.222738</td>
@@ -4441,8 +4620,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>12</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>10.156 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.377 sec</td>
       <td>12.0</td>
       <td>0.501990</td>
       <td>2.723957</td>
@@ -4454,8 +4633,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>13</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>10.186 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.404 sec</td>
       <td>13.0</td>
       <td>0.496251</td>
       <td>2.349060</td>
@@ -4467,8 +4646,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>14</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>10.216 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.432 sec</td>
       <td>14.0</td>
       <td>0.492259</td>
       <td>2.050819</td>
@@ -4480,8 +4659,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>15</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>10.245 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.473 sec</td>
       <td>15.0</td>
       <td>0.487936</td>
       <td>1.795128</td>
@@ -4493,8 +4672,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>16</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>10.273 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.501 sec</td>
       <td>16.0</td>
       <td>0.484170</td>
       <td>1.579896</td>
@@ -4506,8 +4685,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>17</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>10.302 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.530 sec</td>
       <td>17.0</td>
       <td>0.480754</td>
       <td>1.424860</td>
@@ -4519,8 +4698,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>18</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>10.329 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.558 sec</td>
       <td>18.0</td>
       <td>0.477989</td>
       <td>1.318464</td>
@@ -4532,8 +4711,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>19</th>
       <td></td>
-      <td>2022-02-23 13:20:58</td>
-      <td>10.359 sec</td>
+      <td>2022-02-23 13:50:18</td>
+      <td>10.589 sec</td>
       <td>19.0</td>
       <td>0.475932</td>
       <td>1.215350</td>
@@ -4724,10 +4903,13 @@ Variable Importances:
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="train-a-stacked-ensemble-using-the-gbm-and-rf-above">
+<h2>3. Train a stacked ensemble using the GBM and RF above<a class="headerlink" href="#train-a-stacked-ensemble-using-the-gbm-and-rf-above" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train a stacked ensemble using the GBM and GLM above</span>
-<span class="n">ensemble</span> <span class="o">=</span> <span class="n">H2OStackedEnsembleEstimator</span><span class="p">(</span><span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;my_ensemble_binomial&quot;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensemble</span> <span class="o">=</span> <span class="n">H2OStackedEnsembleEstimator</span><span class="p">(</span><span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;my_ensemble_binomial&quot;</span><span class="p">,</span>
                                        <span class="n">base_models</span><span class="o">=</span><span class="p">[</span><span class="n">my_gbm</span><span class="p">,</span> <span class="n">my_rf</span><span class="p">])</span>
 <span class="n">ensemble</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">training_frame</span><span class="o">=</span><span class="n">train</span><span class="p">)</span>
 
@@ -4747,8 +4929,562 @@ Variable Importances:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare to base learner performance on the test set</span>
-<span class="n">perf_gbm_test</span> <span class="o">=</span> <span class="n">my_gbm</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perf_stack_test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ModelMetricsBinomialGLM: stackedensemble
+** Reported on test data. **
+
+MSE: 0.1932868368863351
+RMSE: 0.4396439887981355
+LogLoss: 0.5674809693487913
+Null degrees of freedom: 4999
+Residual degrees of freedom: 4997
+Null deviance: 6905.196403260959
+Residual deviance: 5674.809693487913
+AIC: 5680.809693487913
+AUC: 0.7731183158978566
+AUCPR: 0.7966798593659676
+Gini: 0.5462366317957132
+
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3707883484856917: 
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>Error</th>
+      <th>Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1146.0</td>
+      <td>1169.0</td>
+      <td>0.505</td>
+      <td>(1169.0/2315.0)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>404.0</td>
+      <td>2281.0</td>
+      <td>0.1505</td>
+      <td>(404.0/2685.0)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Total</td>
+      <td>1550.0</td>
+      <td>3450.0</td>
+      <td>0.3146</td>
+      <td>(1573.0/5000.0)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum Metrics: Maximum metrics at their respective thresholds
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>metric</th>
+      <th>threshold</th>
+      <th>value</th>
+      <th>idx</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>max f1</td>
+      <td>0.370788</td>
+      <td>0.743602</td>
+      <td>261.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>max f2</td>
+      <td>0.131756</td>
+      <td>0.859561</td>
+      <td>372.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>max f0point5</td>
+      <td>0.544918</td>
+      <td>0.734231</td>
+      <td>178.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>max accuracy</td>
+      <td>0.526492</td>
+      <td>0.703600</td>
+      <td>187.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>max precision</td>
+      <td>0.931644</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>max recall</td>
+      <td>0.076821</td>
+      <td>1.000000</td>
+      <td>391.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>max specificity</td>
+      <td>0.931644</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>max absolute_mcc</td>
+      <td>0.544918</td>
+      <td>0.411627</td>
+      <td>178.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>max min_per_class_accuracy</td>
+      <td>0.504318</td>
+      <td>0.701512</td>
+      <td>198.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>max mean_per_class_accuracy</td>
+      <td>0.544918</td>
+      <td>0.705940</td>
+      <td>178.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>max tns</td>
+      <td>0.931644</td>
+      <td>2315.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>max fns</td>
+      <td>0.931644</td>
+      <td>2681.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>max fps</td>
+      <td>0.047085</td>
+      <td>2315.000000</td>
+      <td>399.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>max tps</td>
+      <td>0.076821</td>
+      <td>2685.000000</td>
+      <td>391.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>max tnr</td>
+      <td>0.931644</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>max fnr</td>
+      <td>0.931644</td>
+      <td>0.998510</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>max fpr</td>
+      <td>0.047085</td>
+      <td>1.000000</td>
+      <td>399.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>max tpr</td>
+      <td>0.076821</td>
+      <td>1.000000</td>
+      <td>391.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 53.70 %, avg score: 52.19 %
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>group</th>
+      <th>cumulative_data_fraction</th>
+      <th>lower_threshold</th>
+      <th>lift</th>
+      <th>cumulative_lift</th>
+      <th>response_rate</th>
+      <th>score</th>
+      <th>cumulative_response_rate</th>
+      <th>cumulative_score</th>
+      <th>capture_rate</th>
+      <th>cumulative_capture_rate</th>
+      <th>gain</th>
+      <th>cumulative_gain</th>
+      <th>kolmogorov_smirnov</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.01</td>
+      <td>0.913103</td>
+      <td>1.750466</td>
+      <td>1.750466</td>
+      <td>0.940</td>
+      <td>0.921090</td>
+      <td>0.940000</td>
+      <td>0.921090</td>
+      <td>0.017505</td>
+      <td>0.017505</td>
+      <td>75.046555</td>
+      <td>75.046555</td>
+      <td>0.016209</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0.02</td>
+      <td>0.904534</td>
+      <td>1.750466</td>
+      <td>1.750466</td>
+      <td>0.940</td>
+      <td>0.908694</td>
+      <td>0.940000</td>
+      <td>0.914892</td>
+      <td>0.017505</td>
+      <td>0.035009</td>
+      <td>75.046555</td>
+      <td>75.046555</td>
+      <td>0.032418</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0.03</td>
+      <td>0.894250</td>
+      <td>1.824953</td>
+      <td>1.775295</td>
+      <td>0.980</td>
+      <td>0.899221</td>
+      <td>0.953333</td>
+      <td>0.909668</td>
+      <td>0.018250</td>
+      <td>0.053259</td>
+      <td>82.495345</td>
+      <td>77.529485</td>
+      <td>0.050235</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0.04</td>
+      <td>0.886522</td>
+      <td>1.750466</td>
+      <td>1.769088</td>
+      <td>0.940</td>
+      <td>0.889978</td>
+      <td>0.950000</td>
+      <td>0.904746</td>
+      <td>0.017505</td>
+      <td>0.070764</td>
+      <td>75.046555</td>
+      <td>76.908752</td>
+      <td>0.066444</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0.05</td>
+      <td>0.879316</td>
+      <td>1.750466</td>
+      <td>1.765363</td>
+      <td>0.940</td>
+      <td>0.883096</td>
+      <td>0.948000</td>
+      <td>0.900416</td>
+      <td>0.017505</td>
+      <td>0.088268</td>
+      <td>75.046555</td>
+      <td>76.536313</td>
+      <td>0.082653</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>0.10</td>
+      <td>0.839038</td>
+      <td>1.653631</td>
+      <td>1.709497</td>
+      <td>0.888</td>
+      <td>0.858654</td>
+      <td>0.918000</td>
+      <td>0.879535</td>
+      <td>0.082682</td>
+      <td>0.170950</td>
+      <td>65.363128</td>
+      <td>70.949721</td>
+      <td>0.153239</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>0.15</td>
+      <td>0.802126</td>
+      <td>1.594041</td>
+      <td>1.671012</td>
+      <td>0.856</td>
+      <td>0.820933</td>
+      <td>0.897333</td>
+      <td>0.860001</td>
+      <td>0.079702</td>
+      <td>0.250652</td>
+      <td>59.404097</td>
+      <td>67.101179</td>
+      <td>0.217390</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>0.20</td>
+      <td>0.767669</td>
+      <td>1.489758</td>
+      <td>1.625698</td>
+      <td>0.800</td>
+      <td>0.784587</td>
+      <td>0.873000</td>
+      <td>0.841147</td>
+      <td>0.074488</td>
+      <td>0.325140</td>
+      <td>48.975791</td>
+      <td>62.569832</td>
+      <td>0.270280</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>0.30</td>
+      <td>0.689229</td>
+      <td>1.299814</td>
+      <td>1.517070</td>
+      <td>0.698</td>
+      <td>0.728718</td>
+      <td>0.814667</td>
+      <td>0.803671</td>
+      <td>0.129981</td>
+      <td>0.455121</td>
+      <td>29.981378</td>
+      <td>51.707014</td>
+      <td>0.335035</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>0.40</td>
+      <td>0.604424</td>
+      <td>1.273743</td>
+      <td>1.456238</td>
+      <td>0.684</td>
+      <td>0.646657</td>
+      <td>0.782000</td>
+      <td>0.764417</td>
+      <td>0.127374</td>
+      <td>0.582495</td>
+      <td>27.374302</td>
+      <td>45.623836</td>
+      <td>0.394158</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>0.50</td>
+      <td>0.517226</td>
+      <td>1.057728</td>
+      <td>1.376536</td>
+      <td>0.568</td>
+      <td>0.559508</td>
+      <td>0.739200</td>
+      <td>0.723436</td>
+      <td>0.105773</td>
+      <td>0.688268</td>
+      <td>5.772812</td>
+      <td>37.653631</td>
+      <td>0.406627</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>0.60</td>
+      <td>0.435499</td>
+      <td>0.919926</td>
+      <td>1.300435</td>
+      <td>0.494</td>
+      <td>0.475466</td>
+      <td>0.698333</td>
+      <td>0.682107</td>
+      <td>0.091993</td>
+      <td>0.780261</td>
+      <td>-8.007449</td>
+      <td>30.043451</td>
+      <td>0.389332</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>0.70</td>
+      <td>0.363703</td>
+      <td>0.752328</td>
+      <td>1.222134</td>
+      <td>0.404</td>
+      <td>0.398057</td>
+      <td>0.656286</td>
+      <td>0.641529</td>
+      <td>0.075233</td>
+      <td>0.855493</td>
+      <td>-24.767225</td>
+      <td>22.213355</td>
+      <td>0.335839</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>0.80</td>
+      <td>0.297212</td>
+      <td>0.640596</td>
+      <td>1.149441</td>
+      <td>0.344</td>
+      <td>0.330642</td>
+      <td>0.617250</td>
+      <td>0.602668</td>
+      <td>0.064060</td>
+      <td>0.919553</td>
+      <td>-35.940410</td>
+      <td>14.944134</td>
+      <td>0.258214</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>0.90</td>
+      <td>0.212573</td>
+      <td>0.536313</td>
+      <td>1.081316</td>
+      <td>0.288</td>
+      <td>0.256306</td>
+      <td>0.580667</td>
+      <td>0.564183</td>
+      <td>0.053631</td>
+      <td>0.973184</td>
+      <td>-46.368715</td>
+      <td>8.131595</td>
+      <td>0.158066</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>1.00</td>
+      <td>0.047085</td>
+      <td>0.268156</td>
+      <td>1.000000</td>
+      <td>0.144</td>
+      <td>0.141303</td>
+      <td>0.537000</td>
+      <td>0.521895</td>
+      <td>0.026816</td>
+      <td>1.000000</td>
+      <td>-73.184358</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="compare-to-base-learner-performance-on-the-test-set">
+<h3>Compare to base learner performance on the test set<a class="headerlink" href="#compare-to-base-learner-performance-on-the-test-set" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perf_gbm_test</span> <span class="o">=</span> <span class="n">my_gbm</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
 <span class="n">perf_rf_test</span> <span class="o">=</span> <span class="n">my_rf</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
 <span class="n">baselearner_best_auc_test</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">perf_gbm_test</span><span class="o">.</span><span class="n">auc</span><span class="p">(),</span> <span class="n">perf_rf_test</span><span class="o">.</span><span class="n">auc</span><span class="p">())</span>
 <span class="n">stack_auc_test</span> <span class="o">=</span> <span class="n">perf_stack_test</span><span class="o">.</span><span class="n">auc</span><span class="p">()</span>
@@ -4764,20 +5500,13 @@ Ensemble Test AUC:  0.7731183158978566
 </div>
 </div>
 </div>
+</section>
+<section id="generate-predictions-on-a-test-set-if-neccessary">
+<h3>Generate predictions on a test set (if neccessary)<a class="headerlink" href="#generate-predictions-on-a-test-set-if-neccessary" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate predictions on a test set (if neccessary)</span>
-<span class="n">pred</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-
-
-<span class="c1"># 2. Generate a random grid of models and stack them together</span>
-
-<span class="c1"># Specify GBM hyperparameters for the grid</span>
-<span class="n">hyper_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;learn_rate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">],</span>
-                <span class="s2">&quot;max_depth&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
-                <span class="s2">&quot;sample_rate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-                <span class="s2">&quot;col_sample_rate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]}</span>
-<span class="n">search_criteria</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;strategy&quot;</span><span class="p">:</span> <span class="s2">&quot;RandomDiscrete&quot;</span><span class="p">,</span> <span class="s2">&quot;max_models&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="n">pred</span>
 </pre></div>
 </div>
 </div>
@@ -4786,6 +5515,42 @@ Ensemble Test AUC:  0.7731183158978566
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>███████████████████████████████████████████| (done) 100%
+</pre></div>
+</div>
+<div class="output text_html"><table>
+<thead>
+<tr><th style="text-align: right;">  predict</th><th style="text-align: right;">      p0</th><th style="text-align: right;">      p1</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.682488</td><td style="text-align: right;">0.317512</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.583152</td><td style="text-align: right;">0.416848</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.587194</td><td style="text-align: right;">0.412806</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.197872</td><td style="text-align: right;">0.802128</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.453409</td><td style="text-align: right;">0.546591</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.332559</td><td style="text-align: right;">0.667441</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.298105</td><td style="text-align: right;">0.701895</td></tr>
+<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.662237</td><td style="text-align: right;">0.337763</td></tr>
+<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.679343</td><td style="text-align: right;">0.320657</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.60274 </td><td style="text-align: right;">0.39726 </td></tr>
+</tbody>
+</table></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="generate-a-random-grid-of-models-and-stack-them-together">
+<h2>4. Generate a random grid of models and stack them together<a class="headerlink" href="#generate-a-random-grid-of-models-and-stack-them-together" title="Permalink to this headline">¶</a></h2>
+<section id="specify-gbm-hyperparameters-for-the-grid">
+<h3>Specify GBM hyperparameters for the grid<a class="headerlink" href="#specify-gbm-hyperparameters-for-the-grid" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hyper_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;learn_rate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">],</span>
+                <span class="s2">&quot;max_depth&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+                <span class="s2">&quot;sample_rate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+                <span class="s2">&quot;col_sample_rate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]}</span>
+<span class="n">search_criteria</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;strategy&quot;</span><span class="p">:</span> <span class="s2">&quot;RandomDiscrete&quot;</span><span class="p">,</span> <span class="s2">&quot;max_models&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -4950,7 +5715,10 @@ Ensemble Test AUC:  0.7731183158978566
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>████████| (done) 100%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>███████| (done) 100%
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    col_sample_rate learn_rate max_depth sample_rate  \
@@ -4969,24 +5737,15 @@ Ensemble Test AUC:  0.7731183158978566
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="train-a-stacked-ensemble-using-the-gbm-grid">
+<h2>5. Train a stacked ensemble using the GBM grid<a class="headerlink" href="#train-a-stacked-ensemble-using-the-gbm-grid" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train a stacked ensemble using the GBM grid</span>
-<span class="n">ensemble</span> <span class="o">=</span> <span class="n">H2OStackedEnsembleEstimator</span><span class="p">(</span><span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;my_ensemble_gbm_grid_binomial&quot;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensemble</span> <span class="o">=</span> <span class="n">H2OStackedEnsembleEstimator</span><span class="p">(</span><span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;my_ensemble_gbm_grid_binomial&quot;</span><span class="p">,</span>
                                        <span class="n">base_models</span><span class="o">=</span><span class="n">grid</span><span class="o">.</span><span class="n">model_ids</span><span class="p">)</span>
 <span class="n">ensemble</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">training_frame</span><span class="o">=</span><span class="n">train</span><span class="p">)</span>
-
-<span class="c1"># Eval ensemble performance on the test data</span>
-<span class="n">perf_stack_test</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-
-<span class="c1"># Compare to base learner performance on the test set</span>
-<span class="n">baselearner_best_auc_test</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">h2o</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test_data</span><span class="o">=</span><span class="n">test</span><span class="p">)</span><span class="o">.</span><span class="n">auc</span><span class="p">()</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">grid</span><span class="o">.</span><span class="n">model_ids</span><span class="p">])</span>
-<span class="n">stack_auc_test</span> <span class="o">=</span> <span class="n">perf_stack_test</span><span class="o">.</span><span class="n">auc</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best Base-learner Test AUC:  </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">baselearner_best_auc_test</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ensemble Test AUC:  </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stack_auc_test</span><span class="p">))</span>
-
-<span class="c1"># Generate predictions on a test set (if neccessary)</span>
-<span class="n">pred</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4995,15 +5754,1173 @@ Ensemble Test AUC:  0.7731183158978566
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>██████████████████████████████████████████| (done) 100%
+Model Details
+=============
+H2OStackedEnsembleEstimator :  Stacked Ensemble
+Model Key:  my_ensemble_gbm_grid_binomial
+
+No model summary for this model
+
+ModelMetricsBinomialGLM: stackedensemble
+** Reported on train data. **
+
+MSE: 0.19235393111915325
+RMSE: 0.4385817268413645
+LogLoss: 0.566906125269228
+Null degrees of freedom: 9999
+Residual degrees of freedom: 9996
+Null deviance: 13828.113387424342
+Residual deviance: 11338.12250538456
+AIC: 11346.12250538456
+AUC: 0.7781793021507869
+AUCPR: 0.7937981618684642
+Gini: 0.5563586043015738
+
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.38265405547294595: 
 </pre></div>
 </div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>Error</th>
+      <th>Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2269.0</td>
+      <td>2436.0</td>
+      <td>0.5177</td>
+      <td>(2436.0/4705.0)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>725.0</td>
+      <td>4570.0</td>
+      <td>0.1369</td>
+      <td>(725.0/5295.0)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Total</td>
+      <td>2994.0</td>
+      <td>7006.0</td>
+      <td>0.3161</td>
+      <td>(3161.0/10000.0)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum Metrics: Maximum metrics at their respective thresholds
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>metric</th>
+      <th>threshold</th>
+      <th>value</th>
+      <th>idx</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>max f1</td>
+      <td>0.382654</td>
+      <td>0.743029</td>
+      <td>263.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>max f2</td>
+      <td>0.193768</td>
+      <td>0.858850</td>
+      <td>355.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>max f0point5</td>
+      <td>0.588193</td>
+      <td>0.735427</td>
+      <td>161.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>max accuracy</td>
+      <td>0.530331</td>
+      <td>0.712400</td>
+      <td>191.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>max precision</td>
+      <td>0.886215</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>max recall</td>
+      <td>0.123697</td>
+      <td>1.000000</td>
+      <td>383.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>max specificity</td>
+      <td>0.886215</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>max absolute_mcc</td>
+      <td>0.538381</td>
+      <td>0.423632</td>
+      <td>187.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>max min_per_class_accuracy</td>
+      <td>0.536585</td>
+      <td>0.711371</td>
+      <td>188.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>max mean_per_class_accuracy</td>
+      <td>0.538381</td>
+      <td>0.712143</td>
+      <td>187.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>max tns</td>
+      <td>0.886215</td>
+      <td>4705.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>max fns</td>
+      <td>0.886215</td>
+      <td>5294.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>max fps</td>
+      <td>0.063859</td>
+      <td>4705.000000</td>
+      <td>399.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>max tps</td>
+      <td>0.123697</td>
+      <td>5295.000000</td>
+      <td>383.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>max tnr</td>
+      <td>0.886215</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>max fnr</td>
+      <td>0.886215</td>
+      <td>0.999811</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>max fpr</td>
+      <td>0.063859</td>
+      <td>1.000000</td>
+      <td>399.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>max tpr</td>
+      <td>0.123697</td>
+      <td>1.000000</td>
+      <td>383.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 52.95 %, avg score: 52.92 %
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>group</th>
+      <th>cumulative_data_fraction</th>
+      <th>lower_threshold</th>
+      <th>lift</th>
+      <th>cumulative_lift</th>
+      <th>response_rate</th>
+      <th>score</th>
+      <th>cumulative_response_rate</th>
+      <th>cumulative_score</th>
+      <th>capture_rate</th>
+      <th>cumulative_capture_rate</th>
+      <th>gain</th>
+      <th>cumulative_gain</th>
+      <th>kolmogorov_smirnov</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.0100</td>
+      <td>0.867266</td>
+      <td>1.850803</td>
+      <td>1.850803</td>
+      <td>0.980000</td>
+      <td>0.873974</td>
+      <td>0.980000</td>
+      <td>0.873974</td>
+      <td>0.018508</td>
+      <td>0.018508</td>
+      <td>85.080264</td>
+      <td>85.080264</td>
+      <td>0.018083</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0.0200</td>
+      <td>0.858026</td>
+      <td>1.794145</td>
+      <td>1.822474</td>
+      <td>0.950000</td>
+      <td>0.862233</td>
+      <td>0.965000</td>
+      <td>0.868104</td>
+      <td>0.017941</td>
+      <td>0.036449</td>
+      <td>79.414542</td>
+      <td>82.247403</td>
+      <td>0.034962</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0.0300</td>
+      <td>0.849444</td>
+      <td>1.794145</td>
+      <td>1.813031</td>
+      <td>0.950000</td>
+      <td>0.853421</td>
+      <td>0.960000</td>
+      <td>0.863209</td>
+      <td>0.017941</td>
+      <td>0.054391</td>
+      <td>79.414542</td>
+      <td>81.303116</td>
+      <td>0.051840</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0.0401</td>
+      <td>0.841605</td>
+      <td>1.701587</td>
+      <td>1.784962</td>
+      <td>0.900990</td>
+      <td>0.845138</td>
+      <td>0.945137</td>
+      <td>0.858658</td>
+      <td>0.017186</td>
+      <td>0.071577</td>
+      <td>70.158659</td>
+      <td>78.496158</td>
+      <td>0.066901</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0.0505</td>
+      <td>0.834129</td>
+      <td>1.743299</td>
+      <td>1.776382</td>
+      <td>0.923077</td>
+      <td>0.837521</td>
+      <td>0.940594</td>
+      <td>0.854305</td>
+      <td>0.018130</td>
+      <td>0.089707</td>
+      <td>74.329919</td>
+      <td>77.638160</td>
+      <td>0.083331</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>0.1000</td>
+      <td>0.805316</td>
+      <td>1.667287</td>
+      <td>1.722380</td>
+      <td>0.882828</td>
+      <td>0.820696</td>
+      <td>0.912000</td>
+      <td>0.837668</td>
+      <td>0.082531</td>
+      <td>0.172238</td>
+      <td>66.728665</td>
+      <td>72.237960</td>
+      <td>0.153534</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>0.1500</td>
+      <td>0.763989</td>
+      <td>1.533522</td>
+      <td>1.659427</td>
+      <td>0.812000</td>
+      <td>0.784913</td>
+      <td>0.878667</td>
+      <td>0.820083</td>
+      <td>0.076676</td>
+      <td>0.248914</td>
+      <td>53.352219</td>
+      <td>65.942713</td>
+      <td>0.210232</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>0.2000</td>
+      <td>0.732983</td>
+      <td>1.480642</td>
+      <td>1.614731</td>
+      <td>0.784000</td>
+      <td>0.747745</td>
+      <td>0.855000</td>
+      <td>0.801999</td>
+      <td>0.074032</td>
+      <td>0.322946</td>
+      <td>48.064212</td>
+      <td>61.473088</td>
+      <td>0.261310</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>0.3000</td>
+      <td>0.682520</td>
+      <td>1.437205</td>
+      <td>1.555556</td>
+      <td>0.761000</td>
+      <td>0.708209</td>
+      <td>0.823667</td>
+      <td>0.770736</td>
+      <td>0.143720</td>
+      <td>0.466667</td>
+      <td>43.720491</td>
+      <td>55.555556</td>
+      <td>0.354233</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>0.4000</td>
+      <td>0.620167</td>
+      <td>1.203022</td>
+      <td>1.467422</td>
+      <td>0.637000</td>
+      <td>0.652295</td>
+      <td>0.777000</td>
+      <td>0.741125</td>
+      <td>0.120302</td>
+      <td>0.586969</td>
+      <td>20.302172</td>
+      <td>46.742210</td>
+      <td>0.397383</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>0.5000</td>
+      <td>0.545603</td>
+      <td>1.114259</td>
+      <td>1.396789</td>
+      <td>0.590000</td>
+      <td>0.584704</td>
+      <td>0.739600</td>
+      <td>0.709841</td>
+      <td>0.111426</td>
+      <td>0.698395</td>
+      <td>11.425873</td>
+      <td>39.678942</td>
+      <td>0.421668</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>0.6000</td>
+      <td>0.462558</td>
+      <td>0.855524</td>
+      <td>1.306579</td>
+      <td>0.453000</td>
+      <td>0.503648</td>
+      <td>0.691833</td>
+      <td>0.675476</td>
+      <td>0.085552</td>
+      <td>0.783947</td>
+      <td>-14.447592</td>
+      <td>30.657853</td>
+      <td>0.390961</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>0.7000</td>
+      <td>0.382531</td>
+      <td>0.785647</td>
+      <td>1.232160</td>
+      <td>0.416000</td>
+      <td>0.419159</td>
+      <td>0.652429</td>
+      <td>0.638859</td>
+      <td>0.078565</td>
+      <td>0.862512</td>
+      <td>-21.435316</td>
+      <td>23.215972</td>
+      <td>0.345402</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>0.8000</td>
+      <td>0.328519</td>
+      <td>0.632672</td>
+      <td>1.157224</td>
+      <td>0.335000</td>
+      <td>0.354636</td>
+      <td>0.612750</td>
+      <td>0.603331</td>
+      <td>0.063267</td>
+      <td>0.925779</td>
+      <td>-36.732767</td>
+      <td>15.722380</td>
+      <td>0.267331</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>0.9000</td>
+      <td>0.245337</td>
+      <td>0.494806</td>
+      <td>1.083622</td>
+      <td>0.262000</td>
+      <td>0.295334</td>
+      <td>0.573778</td>
+      <td>0.569109</td>
+      <td>0.049481</td>
+      <td>0.975260</td>
+      <td>-50.519358</td>
+      <td>8.362187</td>
+      <td>0.159957</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>1.0000</td>
+      <td>0.061745</td>
+      <td>0.247403</td>
+      <td>1.000000</td>
+      <td>0.131000</td>
+      <td>0.170200</td>
+      <td>0.529500</td>
+      <td>0.529218</td>
+      <td>0.024740</td>
+      <td>1.000000</td>
+      <td>-75.259679</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="eval-ensemble-performance-on-the-test-data">
+<h3>Eval ensemble performance on the test data<a class="headerlink" href="#eval-ensemble-performance-on-the-test-data" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perf_stack_test</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="n">perf_stack_test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ModelMetricsBinomialGLM: stackedensemble
+** Reported on test data. **
+
+MSE: 0.20205156813940772
+RMSE: 0.4495014662260933
+LogLoss: 0.5891094320771726
+Null degrees of freedom: 4999
+Residual degrees of freedom: 4996
+Null deviance: 6905.196403260959
+Residual deviance: 5891.094320771726
+AIC: 5899.094320771726
+AUC: 0.7510921003414699
+AUCPR: 0.775997170380247
+Gini: 0.5021842006829398
+
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3485170648671775: 
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>Error</th>
+      <th>Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>904.0</td>
+      <td>1411.0</td>
+      <td>0.6095</td>
+      <td>(1411.0/2315.0)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>320.0</td>
+      <td>2365.0</td>
+      <td>0.1192</td>
+      <td>(320.0/2685.0)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Total</td>
+      <td>1224.0</td>
+      <td>3776.0</td>
+      <td>0.3462</td>
+      <td>(1731.0/5000.0)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum Metrics: Maximum metrics at their respective thresholds
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>metric</th>
+      <th>threshold</th>
+      <th>value</th>
+      <th>idx</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>max f1</td>
+      <td>0.348517</td>
+      <td>0.732085</td>
+      <td>282.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>max f2</td>
+      <td>0.164218</td>
+      <td>0.858917</td>
+      <td>367.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>max f0point5</td>
+      <td>0.569651</td>
+      <td>0.720829</td>
+      <td>166.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>max accuracy</td>
+      <td>0.524022</td>
+      <td>0.688800</td>
+      <td>190.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>max precision</td>
+      <td>0.888041</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>max recall</td>
+      <td>0.100613</td>
+      <td>1.000000</td>
+      <td>392.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>max specificity</td>
+      <td>0.888041</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>max absolute_mcc</td>
+      <td>0.565863</td>
+      <td>0.384287</td>
+      <td>168.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>max min_per_class_accuracy</td>
+      <td>0.521289</td>
+      <td>0.686406</td>
+      <td>191.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>max mean_per_class_accuracy</td>
+      <td>0.565863</td>
+      <td>0.691855</td>
+      <td>168.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>max tns</td>
+      <td>0.888041</td>
+      <td>2315.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>max fns</td>
+      <td>0.888041</td>
+      <td>2683.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>max fps</td>
+      <td>0.058500</td>
+      <td>2315.000000</td>
+      <td>399.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>max tps</td>
+      <td>0.100613</td>
+      <td>2685.000000</td>
+      <td>392.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>max tnr</td>
+      <td>0.888041</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>max fnr</td>
+      <td>0.888041</td>
+      <td>0.999255</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>max fpr</td>
+      <td>0.058500</td>
+      <td>1.000000</td>
+      <td>399.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>max tpr</td>
+      <td>0.100613</td>
+      <td>1.000000</td>
+      <td>392.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 53.70 %, avg score: 52.24 %
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>group</th>
+      <th>cumulative_data_fraction</th>
+      <th>lower_threshold</th>
+      <th>lift</th>
+      <th>cumulative_lift</th>
+      <th>response_rate</th>
+      <th>score</th>
+      <th>cumulative_response_rate</th>
+      <th>cumulative_score</th>
+      <th>capture_rate</th>
+      <th>cumulative_capture_rate</th>
+      <th>gain</th>
+      <th>cumulative_gain</th>
+      <th>kolmogorov_smirnov</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.0100</td>
+      <td>0.868215</td>
+      <td>1.787709</td>
+      <td>1.787709</td>
+      <td>0.960000</td>
+      <td>0.874154</td>
+      <td>0.960000</td>
+      <td>0.874154</td>
+      <td>0.017877</td>
+      <td>0.017877</td>
+      <td>78.770950</td>
+      <td>78.770950</td>
+      <td>0.017013</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0.0200</td>
+      <td>0.856356</td>
+      <td>1.824953</td>
+      <td>1.806331</td>
+      <td>0.980000</td>
+      <td>0.862743</td>
+      <td>0.970000</td>
+      <td>0.868449</td>
+      <td>0.018250</td>
+      <td>0.036127</td>
+      <td>82.495345</td>
+      <td>80.633147</td>
+      <td>0.034831</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0.0300</td>
+      <td>0.848506</td>
+      <td>1.675978</td>
+      <td>1.762880</td>
+      <td>0.900000</td>
+      <td>0.852175</td>
+      <td>0.946667</td>
+      <td>0.863024</td>
+      <td>0.016760</td>
+      <td>0.052886</td>
+      <td>67.597765</td>
+      <td>76.288020</td>
+      <td>0.049431</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0.0400</td>
+      <td>0.839802</td>
+      <td>1.787709</td>
+      <td>1.769088</td>
+      <td>0.960000</td>
+      <td>0.843784</td>
+      <td>0.950000</td>
+      <td>0.858214</td>
+      <td>0.017877</td>
+      <td>0.070764</td>
+      <td>78.770950</td>
+      <td>76.908752</td>
+      <td>0.066444</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0.0502</td>
+      <td>0.832449</td>
+      <td>1.460547</td>
+      <td>1.706396</td>
+      <td>0.784314</td>
+      <td>0.835766</td>
+      <td>0.916335</td>
+      <td>0.853653</td>
+      <td>0.014898</td>
+      <td>0.085661</td>
+      <td>46.054697</td>
+      <td>70.639602</td>
+      <td>0.076590</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>0.1000</td>
+      <td>0.798715</td>
+      <td>1.630358</td>
+      <td>1.668529</td>
+      <td>0.875502</td>
+      <td>0.816565</td>
+      <td>0.896000</td>
+      <td>0.835183</td>
+      <td>0.081192</td>
+      <td>0.166853</td>
+      <td>63.035756</td>
+      <td>66.852886</td>
+      <td>0.144391</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>0.1500</td>
+      <td>0.757454</td>
+      <td>1.497207</td>
+      <td>1.611421</td>
+      <td>0.804000</td>
+      <td>0.778515</td>
+      <td>0.865333</td>
+      <td>0.816294</td>
+      <td>0.074860</td>
+      <td>0.241713</td>
+      <td>49.720670</td>
+      <td>61.142148</td>
+      <td>0.198085</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>0.2000</td>
+      <td>0.729096</td>
+      <td>1.355680</td>
+      <td>1.547486</td>
+      <td>0.728000</td>
+      <td>0.742125</td>
+      <td>0.831000</td>
+      <td>0.797752</td>
+      <td>0.067784</td>
+      <td>0.309497</td>
+      <td>35.567970</td>
+      <td>54.748603</td>
+      <td>0.236495</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>0.3000</td>
+      <td>0.671698</td>
+      <td>1.433892</td>
+      <td>1.509621</td>
+      <td>0.770000</td>
+      <td>0.701643</td>
+      <td>0.810667</td>
+      <td>0.765716</td>
+      <td>0.143389</td>
+      <td>0.452886</td>
+      <td>43.389199</td>
+      <td>50.962135</td>
+      <td>0.330208</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>0.4000</td>
+      <td>0.604610</td>
+      <td>1.173184</td>
+      <td>1.425512</td>
+      <td>0.630000</td>
+      <td>0.639232</td>
+      <td>0.765500</td>
+      <td>0.734095</td>
+      <td>0.117318</td>
+      <td>0.570205</td>
+      <td>17.318436</td>
+      <td>42.551210</td>
+      <td>0.367613</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>0.5000</td>
+      <td>0.530857</td>
+      <td>1.046555</td>
+      <td>1.349721</td>
+      <td>0.562000</td>
+      <td>0.568082</td>
+      <td>0.724800</td>
+      <td>0.700892</td>
+      <td>0.104655</td>
+      <td>0.674860</td>
+      <td>4.655493</td>
+      <td>34.972067</td>
+      <td>0.377668</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>0.6000</td>
+      <td>0.449450</td>
+      <td>0.837989</td>
+      <td>1.264432</td>
+      <td>0.450000</td>
+      <td>0.490389</td>
+      <td>0.679000</td>
+      <td>0.665808</td>
+      <td>0.083799</td>
+      <td>0.758659</td>
+      <td>-16.201117</td>
+      <td>26.443203</td>
+      <td>0.342676</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>0.7000</td>
+      <td>0.378770</td>
+      <td>0.785847</td>
+      <td>1.196063</td>
+      <td>0.422000</td>
+      <td>0.412178</td>
+      <td>0.642286</td>
+      <td>0.629575</td>
+      <td>0.078585</td>
+      <td>0.837244</td>
+      <td>-21.415270</td>
+      <td>19.606278</td>
+      <td>0.296423</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>0.8000</td>
+      <td>0.325622</td>
+      <td>0.711359</td>
+      <td>1.135475</td>
+      <td>0.382000</td>
+      <td>0.351151</td>
+      <td>0.609750</td>
+      <td>0.594772</td>
+      <td>0.071136</td>
+      <td>0.908380</td>
+      <td>-28.864060</td>
+      <td>13.547486</td>
+      <td>0.234082</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>0.9000</td>
+      <td>0.241220</td>
+      <td>0.540037</td>
+      <td>1.069315</td>
+      <td>0.290000</td>
+      <td>0.294488</td>
+      <td>0.574222</td>
+      <td>0.561407</td>
+      <td>0.054004</td>
+      <td>0.962384</td>
+      <td>-45.996276</td>
+      <td>6.931513</td>
+      <td>0.134738</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>1.0000</td>
+      <td>0.058500</td>
+      <td>0.376164</td>
+      <td>1.000000</td>
+      <td>0.202000</td>
+      <td>0.171342</td>
+      <td>0.537000</td>
+      <td>0.522401</td>
+      <td>0.037616</td>
+      <td>1.000000</td>
+      <td>-62.383613</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id1">
+<h2>6. Compare to base learner performance on the test set<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baselearner_best_auc_test</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">h2o</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test_data</span><span class="o">=</span><span class="n">test</span><span class="p">)</span><span class="o">.</span><span class="n">auc</span><span class="p">()</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">grid</span><span class="o">.</span><span class="n">model_ids</span><span class="p">])</span>
+<span class="n">stack_auc_test</span> <span class="o">=</span> <span class="n">perf_stack_test</span><span class="o">.</span><span class="n">auc</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best Base-learner Test AUC:  </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">baselearner_best_auc_test</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ensemble Test AUC:  </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stack_auc_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best Base-learner Test AUC:  0.748146530400473
 Ensemble Test AUC:  0.7510921003414699
-stackedensemble prediction progress: |███████████████████████████████████████████| (done) 100%
 </pre></div>
 </div>
 </div>
 </div>
+<section id="id2">
+<h3>Generate predictions on a test set (if neccessary)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred2</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="n">pred2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stackedensemble prediction progress: |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>███████████████████████████████████████████| (done) 100%
+</pre></div>
+</div>
+<div class="output text_html"><table>
+<thead>
+<tr><th style="text-align: right;">  predict</th><th style="text-align: right;">      p0</th><th style="text-align: right;">      p1</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.708696</td><td style="text-align: right;">0.291304</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.61752 </td><td style="text-align: right;">0.38248 </td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.500311</td><td style="text-align: right;">0.499689</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.269351</td><td style="text-align: right;">0.730649</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.375811</td><td style="text-align: right;">0.624189</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.511523</td><td style="text-align: right;">0.488477</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.28058 </td><td style="text-align: right;">0.71942 </td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.589601</td><td style="text-align: right;">0.410399</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.459104</td><td style="text-align: right;">0.540896</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.451463</td><td style="text-align: right;">0.548537</td></tr>
+</tbody>
+</table></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="deep-learning-basics">
 <h2>Deep learning basics<a class="headerlink" href="#deep-learning-basics" title="Permalink to this headline">¶</a></h2>
