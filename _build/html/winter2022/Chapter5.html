@@ -339,9 +339,9 @@
 <ul class="simple">
 <li><p>elucidate issues of algorithmic bias and variance</p></li>
 <li><p>circumvent bias introduced by selecting single models</p></li>
-<li><p>offer a means to optimize prediction through the stacking/blending of weaker models</p></li>
+<li><p>offer a means to optimize prediction through hyperparameter optimization</p></li>
 <li><p>allow for comparison of multiple algorithms, and/or comparison of the same model but tuned in many different ways</p></li>
-<li><p>utilize a second-level algorithm that produces an ideal weighted prediction that is suitable for data of virtually all distributions and uses cross-validation to prevent overfitting</p></li>
+<li><p>utilize a second-level algorithm that produces an ideal weighted prediction that is suitable for data of virtually all distributions and uses external cross-validation to prevent overfitting</p></li>
 </ul>
 <p>The below example utilizes the h2o package, and requires Java to be installed on your machine.</p>
 <ul class="simple">
@@ -408,9 +408,9 @@
 Attempting to start a local H2O server...
   Java Version: java version &quot;1.8.0_321&quot;; Java(TM) SE Runtime Environment (build 1.8.0_321-b07); Java HotSpot(TM) 64-Bit Server VM (build 25.321-b07, mixed mode)
   Starting server from /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/bin/h2o.jar
-  Ice root: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpc7mr34y9
-  JVM stdout: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpc7mr34y9/h2o_evanmuzzall_started_from_python.out
-  JVM stderr: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpc7mr34y9/h2o_evanmuzzall_started_from_python.err
+  Ice root: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpia1gfv3z
+  JVM stdout: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpia1gfv3z/h2o_evanmuzzall_started_from_python.out
+  JVM stderr: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpia1gfv3z/h2o_evanmuzzall_started_from_python.err
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Server is running at http://127.0.0.1:54321
@@ -432,7 +432,7 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 <tr><td>H2O_cluster_version_age:</td>
 <td>5 months and 8 days !!!</td></tr>
 <tr><td>H2O_cluster_name:</td>
-<td>H2O_from_python_evanmuzzall_8gvsue</td></tr>
+<td>H2O_from_python_evanmuzzall_inx3mv</td></tr>
 <tr><td>H2O_cluster_total_nodes:</td>
 <td>1</td></tr>
 <tr><td>H2O_cluster_free_memory:</td>
@@ -584,67 +584,7 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█████| (done) 100%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█████████████████████████| (done) 100%
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parse progress: |
@@ -770,55 +710,7 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>████████| (done) 100%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>████████████████████████| (done) 100%
 </pre></div>
 </div>
 </div>
@@ -1000,13 +892,62 @@ Warning: Your H2O cluster version is too old (5 months and 8 days)!Please downlo
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>████████████████████████████| (done) 100%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>███████
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█████| (done) 100%
+Model Details
 =============
 H2OGradientBoostingEstimator :  Gradient Boosting Machine
-Model Key:  GBM_model_python_1645649293300_1
+Model Key:  GBM_model_python_1645649472827_1
 
 
 Model Summary: 
@@ -1048,7 +989,7 @@ Model Summary:
       <td></td>
       <td>10.0</td>
       <td>10.0</td>
-      <td>1579.0</td>
+      <td>1580.0</td>
       <td>3.0</td>
       <td>3.0</td>
       <td>3.0</td>
@@ -2400,8 +2341,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>0</th>
       <td></td>
-      <td>2022-02-23 12:48:33</td>
-      <td>3.605 sec</td>
+      <td>2022-02-23 12:51:31</td>
+      <td>3.878 sec</td>
       <td>0.0</td>
       <td>0.499129</td>
       <td>0.691406</td>
@@ -2413,8 +2354,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>1</th>
       <td></td>
-      <td>2022-02-23 12:48:33</td>
-      <td>3.677 sec</td>
+      <td>2022-02-23 12:51:31</td>
+      <td>3.966 sec</td>
       <td>1.0</td>
       <td>0.488236</td>
       <td>0.669779</td>
@@ -2426,8 +2367,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>2</th>
       <td></td>
-      <td>2022-02-23 12:48:33</td>
-      <td>3.744 sec</td>
+      <td>2022-02-23 12:51:31</td>
+      <td>4.021 sec</td>
       <td>2.0</td>
       <td>0.479807</td>
       <td>0.653146</td>
@@ -2439,8 +2380,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>3</th>
       <td></td>
-      <td>2022-02-23 12:48:33</td>
-      <td>3.762 sec</td>
+      <td>2022-02-23 12:51:31</td>
+      <td>4.040 sec</td>
       <td>3.0</td>
       <td>0.473698</td>
       <td>0.641037</td>
@@ -2452,8 +2393,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>4</th>
       <td></td>
-      <td>2022-02-23 12:48:33</td>
-      <td>3.782 sec</td>
+      <td>2022-02-23 12:51:31</td>
+      <td>4.057 sec</td>
       <td>4.0</td>
       <td>0.467046</td>
       <td>0.627816</td>
@@ -2465,8 +2406,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>5</th>
       <td></td>
-      <td>2022-02-23 12:48:33</td>
-      <td>3.801 sec</td>
+      <td>2022-02-23 12:51:31</td>
+      <td>4.075 sec</td>
       <td>5.0</td>
       <td>0.462994</td>
       <td>0.619629</td>
@@ -2478,8 +2419,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>6</th>
       <td></td>
-      <td>2022-02-23 12:48:33</td>
-      <td>3.820 sec</td>
+      <td>2022-02-23 12:51:31</td>
+      <td>4.097 sec</td>
       <td>6.0</td>
       <td>0.458301</td>
       <td>0.609973</td>
@@ -2491,8 +2432,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>7</th>
       <td></td>
-      <td>2022-02-23 12:48:33</td>
-      <td>3.843 sec</td>
+      <td>2022-02-23 12:51:31</td>
+      <td>4.121 sec</td>
       <td>7.0</td>
       <td>0.455569</td>
       <td>0.604192</td>
@@ -2504,8 +2445,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>8</th>
       <td></td>
-      <td>2022-02-23 12:48:33</td>
-      <td>3.864 sec</td>
+      <td>2022-02-23 12:51:31</td>
+      <td>4.141 sec</td>
       <td>8.0</td>
       <td>0.452777</td>
       <td>0.598335</td>
@@ -2517,8 +2458,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>9</th>
       <td></td>
-      <td>2022-02-23 12:48:33</td>
-      <td>3.887 sec</td>
+      <td>2022-02-23 12:51:31</td>
+      <td>4.162 sec</td>
       <td>9.0</td>
       <td>0.449743</td>
       <td>0.591929</td>
@@ -2530,8 +2471,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>10</th>
       <td></td>
-      <td>2022-02-23 12:48:33</td>
-      <td>3.909 sec</td>
+      <td>2022-02-23 12:51:31</td>
+      <td>4.187 sec</td>
       <td>10.0</td>
       <td>0.447797</td>
       <td>0.587918</td>
@@ -2898,7 +2839,7 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
 =============
 H2ORandomForestEstimator :  Distributed Random Forest
-Model Key:  DRF_model_python_1645649293300_129
+Model Key:  DRF_model_python_1645649472827_129
 
 
 Model Summary: 
@@ -2940,7 +2881,7 @@ Model Summary:
       <td></td>
       <td>50.0</td>
       <td>50.0</td>
-      <td>943585.0</td>
+      <td>943584.0</td>
       <td>20.0</td>
       <td>20.0</td>
       <td>20.0</td>
@@ -4309,8 +4250,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>0</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>9.770 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>9.743 sec</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -4322,8 +4263,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>1</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>9.801 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>9.771 sec</td>
       <td>1.0</td>
       <td>0.642818</td>
       <td>14.048395</td>
@@ -4335,8 +4276,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>2</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>9.833 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>9.800 sec</td>
       <td>2.0</td>
       <td>0.615404</td>
       <td>11.895281</td>
@@ -4348,8 +4289,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>3</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>9.864 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>9.827 sec</td>
       <td>3.0</td>
       <td>0.596109</td>
       <td>10.322973</td>
@@ -4361,8 +4302,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>4</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>9.895 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>9.862 sec</td>
       <td>4.0</td>
       <td>0.578952</td>
       <td>8.963477</td>
@@ -4374,8 +4315,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>5</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>9.925 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>9.889 sec</td>
       <td>5.0</td>
       <td>0.566757</td>
       <td>7.823122</td>
@@ -4387,8 +4328,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>6</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>9.956 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>9.916 sec</td>
       <td>6.0</td>
       <td>0.555494</td>
       <td>6.782681</td>
@@ -4400,8 +4341,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>7</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>9.987 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>9.944 sec</td>
       <td>7.0</td>
       <td>0.542668</td>
       <td>5.762143</td>
@@ -4413,8 +4354,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>8</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>10.012 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>9.971 sec</td>
       <td>8.0</td>
       <td>0.534223</td>
       <td>5.001247</td>
@@ -4426,8 +4367,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>9</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>10.044 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>10.002 sec</td>
       <td>9.0</td>
       <td>0.525930</td>
       <td>4.327270</td>
@@ -4439,8 +4380,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>10</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>10.074 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>10.033 sec</td>
       <td>10.0</td>
       <td>0.516709</td>
       <td>3.691988</td>
@@ -4452,8 +4393,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>11</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>10.100 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>10.059 sec</td>
       <td>11.0</td>
       <td>0.510283</td>
       <td>3.222738</td>
@@ -4465,8 +4406,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>12</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>10.125 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>10.086 sec</td>
       <td>12.0</td>
       <td>0.501990</td>
       <td>2.723957</td>
@@ -4478,8 +4419,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>13</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>10.152 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>10.113 sec</td>
       <td>13.0</td>
       <td>0.496251</td>
       <td>2.349060</td>
@@ -4491,8 +4432,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>14</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>10.181 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>10.141 sec</td>
       <td>14.0</td>
       <td>0.492259</td>
       <td>2.050819</td>
@@ -4504,8 +4445,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>15</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>10.209 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>10.168 sec</td>
       <td>15.0</td>
       <td>0.487936</td>
       <td>1.795128</td>
@@ -4517,8 +4458,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>16</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>10.237 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>10.197 sec</td>
       <td>16.0</td>
       <td>0.484170</td>
       <td>1.579896</td>
@@ -4530,8 +4471,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>17</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>10.265 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>10.225 sec</td>
       <td>17.0</td>
       <td>0.480754</td>
       <td>1.424860</td>
@@ -4543,8 +4484,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>18</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>10.293 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>10.253 sec</td>
       <td>18.0</td>
       <td>0.477989</td>
       <td>1.318464</td>
@@ -4556,8 +4497,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.382028770186007:
     <tr>
       <th>19</th>
       <td></td>
-      <td>2022-02-23 12:48:44</td>
-      <td>10.323 sec</td>
+      <td>2022-02-23 12:51:42</td>
+      <td>10.289 sec</td>
       <td>19.0</td>
       <td>0.475932</td>
       <td>1.215350</td>
@@ -4977,7 +4918,10 @@ Ensemble Test AUC:  0.7731183158978566
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>███████| (done) 100%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>█
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>██████| (done) 100%
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    col_sample_rate learn_rate max_depth sample_rate  \
