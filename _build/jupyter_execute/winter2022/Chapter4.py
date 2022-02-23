@@ -22,6 +22,8 @@
 # 
 # **It is strongly recommeneded that you download the notebooks (or setup your Colab environment) in advance of our meeting session.** 
 # 
+# > NOTE: the datasets used in these notebooks are too large to host on GitHub, thus you need to download them separately.
+# 
 # At the top of each tutorial page, click the appropriate button to access the notebooks.
 # 
 # ![tfdl](img/tfdl.png)
