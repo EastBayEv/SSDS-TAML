@@ -26,10 +26,9 @@
 
 # <h1 style="font-size: 3rem; color: #8c1515">Principles (Rules 1-4)</h1>
 # 
-# 
 # "Writing is communication. Thus, the reader’s experience is of primary importance, and all writing serves this goal. When you write, you should constantly have your reader in mind. These four rules help you to avoid losing your reader."
 
-# ### 1. Focus your paper on a central contribution, which you communicate in the title.
+# ## 1. Focus your paper on a central contribution, which you communicate in the title.
 # 
 # - Focus on a single message. 
 # 
@@ -39,7 +38,7 @@
 # 
 # > It often makes the most sense to write the title (and abstract) last since the arc of your research project will likely evolve and through time. 
 # 
-# ### 2. Write for flesh-and-blood human beings who do not know your work.
+# ## 2. Write for flesh-and-blood human beings who do not know your work.
 # 
 # - "Because you are the world’s leading expert at exactly what you are doing, you are also the world’s least qualified person to judge your writing from the perspective of the naïve reader... Try to think through the paper like a naïve reader who must first be made to care about the problem you are addressing (see Rule 6) and then will want to understand your answer with minimal effort."
 # 
@@ -47,7 +46,7 @@
 # 
 # > Try to write is more simply than you understand it. 
 # 
-# ### 3. Stick to the context-content-conclusion (C-C-C) scheme.
+# ## 3. Stick to the context-content-conclusion (C-C-C) scheme.
 # 
 # - All scientific writing should have a beginning, middle, and end - even if that end is uncertain.
 # 
@@ -61,7 +60,7 @@
 # 
 # - "They [the readres] do not care about the chronological path by which you reached a result; they just care about the ultimate claim and the logic supporting it (see Rule 7)."
 # 
-# ### 4. Optimize your logical flow by avoiding zig-zag and using parallelism. 
+# ## 4. Optimize your logical flow by avoiding zig-zag and using parallelism. 
 # 
 # - "**Avoiding zig-zag.** Only the central idea of the paper should be touched upon multiple times. Otherwise, each subject should be covered in only one place in order to minimize the number of subject changes. Related sentences or paragraphs should be strung together rather than interrupted by unrelated material. Ideas that are similar, such as two reasons why we should believe something, should come one immediately after the other."
 # 
@@ -76,7 +75,7 @@
 # their objectives. We will discuss these specialized structures in this section and summarize
 # them in Fig 1."
 
-# ### 5. Tell a complete story in the abstract.
+# ## 5. Tell a complete story in the abstract.
 # 
 # - "The abstract is, for most readers, the only part of the paper that will be read. This means that the abstract must convey the entire message of the paper effectively. To serve this purpose, the abstract’s structure is highly conserved. Each of the C-C-C elements is detailed below."
 # 
@@ -88,7 +87,7 @@
 # 
 # - "This structure helps you avoid the most common mistake with the abstract, which is to talk about results before the reader is ready to understand them."
 # 
-# ### 6. Communicate why the paper matters in the introduction.
+# ## 6. Communicate why the paper matters in the introduction.
 # 
 # - "The introduction highlights the gap that exists in current knowledge or methods and why it is important. This is usually done by a set of progressively more specific paragraphs that culminate in a clear exposition of what is lacking in the literature, followed by a paragraph summarizing what the paper does to fill that gap."
 # 
@@ -106,7 +105,7 @@
 # 5. Results: what were the results?
 # 6. Discussion: what are the impacts of the research? Limitations? 
 # 
-# ### 7. Deliver the results as a sequence of statements, supported by figures, that connect logically to support the central contribution.
+# ## 7. Deliver the results as a sequence of statements, supported by figures, that connect logically to support the central contribution.
 # 
 # - "The results section needs to convince the reader that the central claim is supported by data and logic. Every scientific argument has its own particular logical structure, which dictates the sequence in which its elements should be presented."
 # 
@@ -114,7 +113,7 @@
 # 
 # > REMEMBER! Do _not_ include interpretation of your results here (this is what the Discussion section is for). It is okay to make this section descriptive and dry, as you are just presenting results here. 
 # 
-# ### 8. Discuss how the gap was filled, the limitations of the interpretation, and the relevance to the field.
+# ## 8. Discuss how the gap was filled, the limitations of the interpretation, and the relevance to the field.
 # 
 # - "The discussion section explains how the results have filled the gap that was identified in the introduction, provides caveats to the interpretation, and describes how the paper advances the field by providing new opportunities. This is typically done by recapitulating the results, discussing the limitations, and then revealing how the central contribution may catalyze future progress. The first discussion paragraph is special in that it generally summarizes the important findings from the results section. Some readers skip over substantial parts of the results, so this paragraph at least gives them the gist of that section."
 # 
@@ -130,7 +129,7 @@
 # colleagues allows authors to improve the story at all levels to produce a powerful manuscript.
 # Choosing the right process makes writing papers easier and more effective."
 
-# ### 9. Allocate time where it matters: Title, abstract, figures, and outlining.
+# ## 9. Allocate time where it matters: Title, abstract, figures, and outlining.
 # 
 # - "The central logic that underlies a scientific claim is paramount. It is also the bridge that connects the experimental phase of a research effort with the paper-writing phase. Thus, it is useful to formalize the logic of ongoing experimental efforts (e.g., during lab meetings) into an evolving document of some sort that will ultimately steer the outline of the paper."
 # 
@@ -149,7 +148,7 @@
 # 
 # > _Everything_ takes a long time.
 # 
-# ### 10. Get feedback to reduce, reuse, and recycle the story
+# ## 10. Get feedback to reduce, reuse, and recycle the story
 # 
 # - "Writing can be considered an optimization problem in which you simultaneously improve the story, the outline, and all the component sentences. In this context, it is important not to get too attached to one’s writing. In many cases, trashing entire paragraphs and rewriting is a faster way to produce good text than incremental editing... There are multiple signs that further work is necessary on a manuscript (see Table 1)."
 # 
