@@ -14,10 +14,12 @@
 # "Ensemble machine learning methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms." [H2O.ai ensemble example](https://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/stacked-ensembles.html)
 # 
 # In this manner, stacking/SuperLearner ensembles are powerful tools because they: 
-# * eliminate bias by selecting a single algorithm for a research problem
-# * help improve prediction through hyperparameter optimization
-# * allow for comparison of multiple algorithms, and/or comparison of the same model but tuned in many different ways
-# * utilize a second-level algorithm that produces an ideal weighted prediction that is suitable for data of virtually all distributions and uses external cross-validation to prevent overfitting
+# 
+# 1. Eliminates bias of single algorithm selection for framing a research problem.
+# 
+# 2. Allows for comparison of multiple algorithms, and/or comparison of the same model but tuned in many different ways.
+# 
+# 3. Utilizes a second-level algorithm that produces an ideal weighted prediction that is suitable for data of virtually all distributions and uses external cross-validation to prevent overfitting.
 # 
 # The below example utilizes the h2o package, and requires Java to be installed on your machine.
 # * install Java: https://www.java.com/en/download/help/mac_install.html
