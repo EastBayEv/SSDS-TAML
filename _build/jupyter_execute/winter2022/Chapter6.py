@@ -163,8 +163,6 @@
 # (Context, Content, and Conclusion), thus comprising all three colors.**
 
 # ****
-# 
-# ****
 
 # **Table 1. A summary of the ten rules and how to tell if they are being violated.**
 # 
