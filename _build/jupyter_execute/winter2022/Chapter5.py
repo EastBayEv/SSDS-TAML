@@ -70,6 +70,9 @@ from h2o.estimators.stackedensemble import H2OStackedEnsembleEstimator
 from h2o.grid.grid_search import H2OGridSearch
 from __future__ import print_function
 
+# turn off progress bars
+h2o.no_progress()
+
 
 # ### Initialize an h2o cluster
 
@@ -79,29 +82,22 @@ from __future__ import print_function
 h2o.init(nthreads=-1, max_mem_size='2G')
 
 
-# In[4]:
-
-
-# turn off progress bars
-h2o.no_progress()
-
-
 # ### Import a sample binary outcome train/test set into H2O
 
-# In[5]:
+# In[4]:
 
 
 train = h2o.import_file("https://s3.amazonaws.com/erin-data/higgs/higgs_train_10k.csv")
 test = h2o.import_file("https://s3.amazonaws.com/erin-data/higgs/higgs_test_5k.csv")
 
 
-# In[6]:
+# In[5]:
 
 
 train
 
 
-# In[7]:
+# In[6]:
 
 
 print(train.shape)
@@ -110,7 +106,7 @@ print(test.shape)
 
 # ### Identify predictors and response
 
-# In[8]:
+# In[7]:
 
 
 x = train.columns
@@ -120,7 +116,7 @@ x.remove(y)
 
 # ### For binary classification, response should be a factor
 
-# In[9]:
+# In[8]:
 
 
 train[y] = train[y].asfactor()
@@ -129,7 +125,7 @@ test[y] = test[y].asfactor()
 
 # ### Number of CV folds (to generate level-one data for stacking)
 
-# In[10]:
+# In[9]:
 
 
 nfolds = 5
@@ -157,7 +153,7 @@ nfolds = 5
 
 # ### Train and cross-validate a random forest
 
-# In[11]:
+# In[10]:
 
 
 rf = H2ORandomForestEstimator(ntrees = 100,
@@ -170,7 +166,7 @@ rf.train(x = x, y = y, training_frame = train)
 
 # ### Random forest test set performance
 
-# In[12]:
+# In[11]:
 
 
 rf.model_performance(test)
@@ -178,7 +174,7 @@ rf.model_performance(test)
 
 # ### Train and cross-validate a gradient boosted machine
 
-# In[13]:
+# In[12]:
 
 
 gbm = H2OGradientBoostingEstimator(distribution = "bernoulli",
@@ -195,7 +191,7 @@ gbm.train(x = x, y = y, training_frame = train)
 
 # ### Gradient boosted machine test set performance
 
-# In[14]:
+# In[13]:
 
 
 gbm.model_performance(test)
@@ -205,7 +201,7 @@ gbm.model_performance(test)
 # 
 # What's going on here - anything suspicious?
 
-# In[15]:
+# In[14]:
 
 
 ensemble = H2OStackedEnsembleEstimator(model_id = "my_ensemble_binomial",
@@ -215,7 +211,7 @@ ensemble.train(x = x, y = y, training_frame = train)
 
 # ### Ensemble performance on test set
 
-# In[16]:
+# In[15]:
 
 
 perf_stack_test = ensemble.model_performance(test)
@@ -226,7 +222,7 @@ perf_stack_test
 # 
 # The ensemble is a little better, but it is still pretty close...
 
-# In[17]:
+# In[16]:
 
 
 perf_gbm_test = gbm.model_performance(test)
@@ -239,7 +235,7 @@ print("Ensemble Test AUC:  {0}".format(stack_auc_test))
 
 # ### Generate predictions on a test set (if neccessary)
 
-# In[18]:
+# In[17]:
 
 
 predictions = ensemble.predict(test)
@@ -254,7 +250,7 @@ predictions
 # 
 # Also, exponential and logarithmic scales are probably preferred to linear ones.
 
-# In[19]:
+# In[18]:
 
 
 hyper_params = {"learn_rate": [0.01, 0.03, 0.05, 0.2, 0.3, 0.4, 0.7, 0.8],
@@ -264,7 +260,7 @@ hyper_params = {"learn_rate": [0.01, 0.03, 0.05, 0.2, 0.3, 0.4, 0.7, 0.8],
 search_criteria = {"strategy": "RandomDiscrete", "max_models": 3, "seed": 1}
 
 
-# In[20]:
+# In[19]:
 
 
 # Train the grid
@@ -281,7 +277,7 @@ grid.train(x=x, y=y, training_frame=train)
 
 # ## 5. Train a stacked ensemble using the GBM grid
 
-# In[21]:
+# In[20]:
 
 
 ensemble = H2OStackedEnsembleEstimator(model_id = "my_ensemble_gbm_grid_binomial",
@@ -291,7 +287,7 @@ ensemble.train(x = x, y = y, training_frame = train)
 
 # ### Eval ensemble performance on the test data
 
-# In[22]:
+# In[21]:
 
 
 perf_stack_test = ensemble.model_performance(test)
@@ -300,7 +296,7 @@ perf_stack_test
 
 # ## 6. Compare to base learner performance on the test set
 
-# In[23]:
+# In[22]:
 
 
 baselearner_best_auc_test = max([h2o.get_model(model).model_performance(test_data=test).auc() for model in grid.model_ids])
@@ -311,7 +307,7 @@ print("Ensemble Test AUC:  {0}".format(stack_auc_test))
 
 # ### Generate predictions on a test set (if neccessary)
 
-# In[24]:
+# In[23]:
 
 
 predictions2 = ensemble.predict(test)
@@ -359,7 +355,7 @@ predictions2
 # 
 # Read Goodfellow et al's Deep Learning Book to learn more: https://www.deeplearningbook.org/
 
-# In[25]:
+# In[24]:
 
 
 import pandas as pd
