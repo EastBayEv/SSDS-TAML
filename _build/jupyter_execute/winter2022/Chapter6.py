@@ -21,6 +21,12 @@
 # 
 # 1. What resonates with you from this article? 
 # 2. What do you disagree with and what might you suggest to improve it? 
+# 
+# ## Not covered:
+# 
+# 1. The creative process
+# 2. Formatting
+# 3. Submission guidelines
 
 # ![](img/rules_intro.png)
 
