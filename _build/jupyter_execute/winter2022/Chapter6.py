@@ -54,17 +54,19 @@
 # 
 # ## 3. Stick to the context-content-conclusion (C-C-C) scheme.
 # 
+# ### Context, content, conclusion
+# 
 # - All scientific writing should have a beginning, middle, and end - even if that end is uncertain.
 # 
 # - Ask yourself "So what?" and "Why should anyone care?" to help elaborate on the points you need to make. 
 # 
 # - Unless you are writing a one-page article for a popular journal/magazine, write for the patient reader. 
 # 
-# - "The C-C-C scheme defines the structure of the paper on multiple scales. At the whole-paper scale, the introduction sets the context, the results are the content, and the discussion brings home the conclusion. Applying C-C-C at the paragraph scale, the first sentence defines the topic or context, the body hosts the novel content put forth for the reader’s consideration, and the last sentence provides the conclusion to be remembered."
+# - "The C-C-C scheme defines the structure of the paper on multiple scales. At the whole-paper scale, the introduction sets the **context**, the results are the **content**, and the discussion brings home the **conclusion**. Applying C-C-C at the paragraph scale, the first sentence defines the topic or **context**, the body hosts the novel **content** put forth for the reader’s consideration, and the last sentence provides the **conclusion** to be remembered."
 # 
 # - "Deviating from the C-C-C structure often leads to papers that are hard to read..."
 # 
-# - "They [the readres] do not care about the chronological path by which you reached a result; they just care about the ultimate claim and the logic supporting it (see Rule 7)."
+# - "They (the readers) do not care about the chronological path by which you reached a result; they just care about the ultimate claim and the logic supporting it (see Rule 7)."
 # 
 # ## 4. Optimize your logical flow by avoiding zig-zag and using parallelism. 
 # 
@@ -111,6 +113,8 @@
 # 5. Results: what were the results?
 # 6. Discussion: what are the impacts of the research? Limitations? 
 # 
+# > And/or [get started with Zotero by clicking here!](https://www.zotero.org/support/quick_start_guide)
+# 
 # ## 7. Deliver the results as a sequence of statements, supported by figures, that connect logically to support the central contribution.
 # 
 # - "The results section needs to convince the reader that the central claim is supported by data and logic. Every scientific argument has its own particular logical structure, which dictates the sequence in which its elements should be presented."
@@ -139,7 +143,7 @@
 # 
 # - "The central logic that underlies a scientific claim is paramount. It is also the bridge that connects the experimental phase of a research effort with the paper-writing phase. Thus, it is useful to formalize the logic of ongoing experimental efforts (e.g., during lab meetings) into an evolving document of some sort that will ultimately steer the outline of the paper."
 # 
-# - Make an outline and update it as the project evolves (see Fig. 1 below)
+# - Make an outline and update it as the project evolves **(see Fig. 1 below)**
 # 
 # Text is color-coded as follows:
 # 
@@ -156,7 +160,7 @@
 # 
 # ## 10. Get feedback to reduce, reuse, and recycle the story
 # 
-# - "Writing can be considered an optimization problem in which you simultaneously improve the story, the outline, and all the component sentences. In this context, it is important not to get too attached to one’s writing. In many cases, trashing entire paragraphs and rewriting is a faster way to produce good text than incremental editing... There are multiple signs that further work is necessary on a manuscript (see Table 1)."
+# - "Writing can be considered an optimization problem in which you simultaneously improve the story, the outline, and all the component sentences. In this context, it is important not to get too attached to one’s writing. In many cases, trashing entire paragraphs and rewriting is a faster way to produce good text than incremental editing... There are multiple signs that further work is necessary on a manuscript **(see Table 1)**."
 # 
 # - #Successfully writing a paper typically requires input from multiple people. Test readers are necessary to make sure that the overall story works. They can also give valuable input on where the story appears to move too quickly or too slowly. They can clarify when it is best to go back to the drawing board and retell the entire story. Reviewers are also extremely useful."
 # 
@@ -173,3 +177,9 @@
 # **Table 1. A summary of the ten rules and how to tell if they are being violated.**
 # 
 # ![](img/rules_tab1.png)
+
+# ## Quiz
+
+# 1. Select two papers from your field of study: one that inspires you and one you have not yet read. Apply the principles from Table 1 above to see how well the authors follow the ten rules and if they have been violated. 
+# 
+# 2. Read du Prel et al's (2009) paper [Confidence interval or p-value?](https://www.ncbi.nlm.nih.gov/labs/pmc/articles/PMC2689604/). What are the strengths and weaknesses of how we evaluate data in the literature in your field? 
