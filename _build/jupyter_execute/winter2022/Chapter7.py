@@ -11,6 +11,8 @@
 
 # ## CIDR Workshops
 # 
+# View the workshop schedule: https://library.stanford.edu/research/cidr/workshops
+# 
 # ### Text Analysis with Python
 # Learn methodical text analysis approaches to single documents and corpora with the [spaCy](https://spacy.io/usage/spacy-101) and [textacy](https://textacy.readthedocs.io/en/stable/api_reference/root.html) libraries. 
 # 

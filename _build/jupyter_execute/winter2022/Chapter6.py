@@ -182,4 +182,4 @@
 
 # 1. Select two papers from your field of study: one that inspires you and one you have not yet read. Apply the principles from Table 1 above to see how well the authors follow the ten rules and if they have been violated. 
 # 
-# 2. Read du Prel et al's (2009) paper [Confidence interval or p-value?](https://www.ncbi.nlm.nih.gov/labs/pmc/articles/PMC2689604/). What are the strengths and weaknesses of how we evaluate data in the literature in your field? 
+# 2. Read du Prel et al's (2009) paper [Confidence interval or p-value?](https://www.ncbi.nlm.nih.gov/labs/pmc/articles/PMC2689604/). What are the strengths and weaknesses of how scientific articles are evaluated in your field of study? 
