@@ -17,4 +17,4 @@ Visit https://ssds.stanford.edu/ to learn more about Software and Services for D
 * Feb 16: The BERT algorithm  
 * Feb 23: Ensemble machine learning, deep learning  
 * Mar 02: Writing about numeric data  
-* Mar 09: Presentations (no meeting)  
+* Mar 09: Presentations **(no meeting, check your email for feedback survey)**  
