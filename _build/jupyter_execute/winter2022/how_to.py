@@ -41,6 +41,7 @@ print("\nYour lucky card for " + today + " " + date + " is: " + select_value + "
 # > * Click "Live Code" underneath the rocketship icon way up top. 
 # > * Scroll to the "card trick" Python code above. 
 # > * Click "run" to draw your lucky card. 
+# > ![](img/joker.png)
 
 # * Click the square icon to enter fullscreen mode. Press the escape key to exit. 
 # * Move your mouse over the Octocat icon. Click "Repository" to visit the GitHub site. Or, click "Open Issue" to contribute to this book. 
