@@ -31,7 +31,7 @@ import pandas as pd
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[3]:
+# In[4]:
 
 
 print(type(gap))
@@ -59,7 +59,7 @@ print(type(gap))
 
 # ### `.head()`
 
-# In[4]:
+# In[5]:
 
 
 # look at first five rows by default
@@ -68,7 +68,7 @@ gap.head()
 
 # ### `.columns`
 
-# In[5]:
+# In[6]:
 
 
 # View column names
@@ -78,7 +78,7 @@ gap.columns
 
 # ### `.shape`
 
-# In[6]:
+# In[7]:
 
 
 # Show  number of rows by columns
@@ -94,7 +94,7 @@ gap.shape
 
 # ### `.describe()`
 
-# In[7]:
+# In[8]:
 
 
 # produce summary statistics for numeric data
@@ -103,7 +103,7 @@ gap.describe()
 
 # ### `.mean()` and `.std()`
 
-# In[8]:
+# In[53]:
 
 
 # calculate mean and standard deviation of lifeExp
@@ -136,7 +136,7 @@ gap.groupby("continent").count()["country"]
 
 # ### Row subset: slice just the first row
 
-# In[10]:
+# In[85]:
 
 
 gap[:1]
@@ -144,7 +144,7 @@ gap[:1]
 
 # ### Row subset: slice first three rows
 
-# In[11]:
+# In[86]:
 
 
 gap[:3]
@@ -152,7 +152,7 @@ gap[:3]
 
 # ### Row subset: slice rows 10 thru 14
 
-# In[12]:
+# In[87]:
 
 
 subset1 = gap[10:15]
@@ -161,7 +161,7 @@ subset1
 
 # ### Column subset: one column
 
-# In[13]:
+# In[88]:
 
 
 # type the column name as a string in square brackets
@@ -170,7 +170,7 @@ gap['lifeExp']
 
 # ### Column subset: multiple columns
 
-# In[14]:
+# In[89]:
 
 
 # note the double sets of brackets
@@ -180,7 +180,7 @@ subset2
 
 # ### Row and column subset
 
-# In[15]:
+# In[95]:
 
 
 # subset more than one column and rows 855 thru 858
@@ -188,7 +188,7 @@ subset3 = gap[['continent', 'lifeExp', 'gdpPercap']][855:859]
 subset3
 
 
-# In[16]:
+# In[19]:
 
 
 type(gap["lifeExp"])
@@ -196,7 +196,7 @@ type(gap["lifeExp"])
 
 # ### Subset by logical condition(s)
 
-# In[17]:
+# In[104]:
 
 
 # lifeExp is greater than 80
@@ -204,7 +204,7 @@ le2 = gap[gap['lifeExp'] > 81]
 le2
 
 
-# In[18]:
+# In[109]:
 
 
 # logical AND (all conditions must be satisfied to be included)
@@ -215,7 +215,7 @@ year2002 = gap[(gap["lifeExp"] > 81) & (gap["pop"] < 500000)]
 year2002
 
 
-# In[19]:
+# In[129]:
 
 
 # logical OR (one of multiple conditions must be satisfied to be included)

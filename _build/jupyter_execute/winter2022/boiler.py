@@ -197,14 +197,14 @@ import pandas as pd
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[18]:
+# In[7]:
 
 
 # Step 3. view the data
 print(gap)
 
 
-# In[19]:
+# In[8]:
 
 
 gap
@@ -237,7 +237,7 @@ gap
 # 
 # You have entered something python does not understand.
 
-# In[20]:
+# In[3]:
 
 
 # x 89 5
@@ -247,7 +247,7 @@ gap
 # 
 # Your indentation does not conform to the rules
 
-# In[21]:
+# In[5]:
 
 
 ### indentation
@@ -263,7 +263,7 @@ gap
 # 
 # You try to call a variable you have not yet assigned
 
-# In[22]:
+# In[10]:
 
 
 # x
@@ -271,7 +271,7 @@ gap
 
 # Or, you try to call a function from a library that you have not yet imported
 
-# In[23]:
+# In[8]:
 
 
 # example()
@@ -281,7 +281,7 @@ gap
 # 
 # You write code with incompatible types
 
-# In[24]:
+# In[11]:
 
 
 # "5" + 5
@@ -291,7 +291,7 @@ gap
 # 
 # You try to reference something that is out of range
 
-# In[25]:
+# In[12]:
 
 
 my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
@@ -304,7 +304,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # You try to import something that does not exist
 
-# In[26]:
+# In[13]:
 
 
 # document = open('fakedocument.txt').read()
