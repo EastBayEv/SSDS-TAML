@@ -8,7 +8,7 @@ This is the Jupyter Book for the Text Analysis and Machine Learning (TAML) Group
 
 Visit https://ssds.stanford.edu/ to learn more about Software and Services for Data Science, schedule a consultation, or RSVP for a workshop. 
 
-## Thank you to everyone who participated in TAML's pilot iteration in Winter Quarter 2021!
+## Thank you to everyone who participated in TAML's pilot iteration in Winter Quarter 2022!
 
 ## Stay tuned for the next iteration of TAML coming soon in 2022.
 
