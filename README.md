@@ -1,6 +1,5 @@
 ![](winter2022/img/const.png)
-### Under maintenance! 
-This Jupyter Book is undergoing maintenance in Fall 2022 and might not function properly. Please file an issue if you notice a bug! 
+This Jupyter Book is undergoing maintenance in August 2022 and might not function properly for a couple weeks. You are encouraged to file an issue if you notice a bug! 
 
 # Launch JupyterLab in Binder
 
