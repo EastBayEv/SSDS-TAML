@@ -8,3 +8,4 @@ nltk
 requests
 regex
 tensorflow
+pycontractions
