@@ -33,7 +33,7 @@ print(list(ct.expand_texts([example_sentence])))
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_27119/1793476377.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_30707/1793476377.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0;32mfrom[0m [0mpycontractions[0m [0;32mimport[0m [0mContractions[0m [0;32mas[0m [0mct[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      2[0m [0;34m[0m[0m
 [1;32m      3[0m [0;31m# load contractions from a vector model - many models accepted![0m[0;34m[0m[0;34m[0m[0;34m[0m[0m

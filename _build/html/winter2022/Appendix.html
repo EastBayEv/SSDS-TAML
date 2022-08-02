@@ -151,6 +151,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="Chapter4_add.html">
+   Chapter 4.5 - New Developments: Topic Modeling with BERTopic!
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="Chapter5.html">
    Chapter 5 - Ensemble machine learning, deep learning
   </a>
@@ -470,62 +475,48 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pycontractions
+  Using cached pycontractions-2.0.1-py3-none-any.whl (9.6 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pycontractions-2.0.1-py3-none-any.whl (9.6 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pyemd&gt;=0.4.4
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pyemd-0.5.1.tar.gz (91 kB)
-?25l
-     |███▋                            | 10 kB 6.6 MB/s eta 0:00:01
-     |███████▏                        | 20 kB 4.2 MB/s eta 0:00:01
-     |██████████▊                     | 30 kB 4.3 MB/s eta 0:00:01
-     |██████████████▎                 | 40 kB 3.4 MB/s eta 0:00:01
-     |██████████████████              | 51 kB 2.7 MB/s eta 0:00:01
-     |█████████████████████▌          | 61 kB 3.2 MB/s eta 0:00:01
-     |█████████████████████████       | 71 kB 3.3 MB/s eta 0:00:01
-     |████████████████████████████▋   | 81 kB 3.7 MB/s eta 0:00:01
-     |████████████████████████████████| 91 kB 3.9 MB/s 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hCollecting language-check&gt;=1.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading language-check-1.1.tar.gz (33 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting language-check&gt;=1.0
+  Using cached language-check-1.1.tar.gz (33 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: gensim&gt;=2.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pycontractions) (4.1.2)
+Requirement already satisfied: pyemd&gt;=0.4.4 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pycontractions) (0.5.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: smart-open&gt;=1.8.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from gensim&gt;=2.0-&gt;pycontractions) (5.2.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scipy&gt;=0.18.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from gensim&gt;=2.0-&gt;pycontractions) (1.7.3)
 Requirement already satisfied: numpy&gt;=1.17.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from gensim&gt;=2.0-&gt;pycontractions) (1.20.3)
-Requirement already satisfied: scipy&gt;=0.18.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from gensim&gt;=2.0-&gt;pycontractions) (1.7.3)
-Building wheels for collected packages: language-check, pyemd
+Requirement already satisfied: smart-open&gt;=1.8.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from gensim&gt;=2.0-&gt;pycontractions) (5.2.1)
+Building wheels for collected packages: language-check
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for language-check (setup.py) ... ?25l- error
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for language-check (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> error
 <span class=" -Color -Color-Red">  ERROR: Command errored out with exit status 1:</span>
-<span class=" -Color -Color-Red">   command: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; bdist_wheel -d /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-wheel-uwe3_ufs</span>
-<span class=" -Color -Color-Red">       cwd: /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/</span>
+<span class=" -Color -Color-Red">   command: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; bdist_wheel -d /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-wheel-5knedxbi</span>
+<span class=" -Color -Color-Red">       cwd: /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/</span>
 <span class=" -Color -Color-Red">  Complete output (35 lines):</span>
 <span class=" -Color -Color-Red">  Traceback (most recent call last):</span>
 <span class=" -Color -Color-Red">    File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</span>
-<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&quot;, line 595, in &lt;module&gt;</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&quot;, line 595, in &lt;module&gt;</span>
 <span class=" -Color -Color-Red">      sys.exit(main())</span>
-<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&quot;, line 590, in main</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&quot;, line 590, in main</span>
 <span class=" -Color -Color-Red">      run_setup_hooks(config)</span>
-<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&quot;, line 561, in run_setup_hooks</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&quot;, line 561, in run_setup_hooks</span>
 <span class=" -Color -Color-Red">      language_tool_hook(config)</span>
-<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&quot;, line 584, in language_tool_hook</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&quot;, line 584, in language_tool_hook</span>
 <span class=" -Color -Color-Red">      download_lt()</span>
-<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/download_lt.py&quot;, line 128, in download_lt</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/download_lt.py&quot;, line 128, in download_lt</span>
 <span class=" -Color -Color-Red">      with closing(urlopen(url)) as u:</span>
 <span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 222, in urlopen</span>
 <span class=" -Color -Color-Red">      return opener.open(url, data, timeout)</span>
@@ -551,59 +542,35 @@ Building wheels for collected packages: language-check, pyemd
 <span class=" -Color -Color-Red">      raise HTTPError(req.full_url, code, msg, hdrs, fp)</span>
 <span class=" -Color -Color-Red">  urllib.error.HTTPError: HTTP Error 403: Forbidden</span>
 <span class=" -Color -Color-Red">  ----------------------------------------</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">  ERROR: Failed building wheel for language-check</span>
+<span class=" -Color -Color-Red">  ERROR: Failed building wheel for language-check</span>
 ?25h  Running setup.py clean for language-check
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for pyemd (setup.py) ... ?25l-
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to build language-check
+<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for pyemd: filename=pyemd-0.5.1-cp38-cp38-macosx_10_9_x86_64.whl size=75788 sha256=1d1bd23d35c27b27fe7b393ca95091c0b2b1f4b3baeb38389aff7eb93069744d
-  Stored in directory: /Users/evanmuzzall/Library/Caches/pip/wheels/a2/a5/34/f960a47ca5c06b0e91b6f48117a79a66f53a879f8fac9529bf
-Successfully built pyemd
-Failed to build language-check
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pyemd, language-check, pycontractions
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: language-check, pycontractions
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Running setup.py install for language-check ... ?25l- error
-<span class=" -Color -Color-Red">    ERROR: Command errored out with exit status 1:</span>
-<span class=" -Color -Color-Red">     command: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; install --record /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-record-fxjuzn6j/install-record.txt --single-version-externally-managed --compile --install-headers /Users/evanmuzzall/opt/anaconda3/include/python3.8/language-check</span>
-<span class=" -Color -Color-Red">         cwd: /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">    ERROR: Command errored out with exit status 1:</span>
+<span class=" -Color -Color-Red">     command: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; install --record /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-record-8jkgeyr3/install-record.txt --single-version-externally-managed --compile --install-headers /Users/evanmuzzall/opt/anaconda3/include/python3.8/language-check</span>
+<span class=" -Color -Color-Red">         cwd: /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/</span>
 <span class=" -Color -Color-Red">    Complete output (35 lines):</span>
 <span class=" -Color -Color-Red">    Traceback (most recent call last):</span>
 <span class=" -Color -Color-Red">      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</span>
-<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&quot;, line 595, in &lt;module&gt;</span>
+<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&quot;, line 595, in &lt;module&gt;</span>
 <span class=" -Color -Color-Red">        sys.exit(main())</span>
-<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&quot;, line 590, in main</span>
+<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&quot;, line 590, in main</span>
 <span class=" -Color -Color-Red">        run_setup_hooks(config)</span>
-<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&quot;, line 561, in run_setup_hooks</span>
+<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&quot;, line 561, in run_setup_hooks</span>
 <span class=" -Color -Color-Red">        language_tool_hook(config)</span>
-<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&quot;, line 584, in language_tool_hook</span>
+<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&quot;, line 584, in language_tool_hook</span>
 <span class=" -Color -Color-Red">        download_lt()</span>
-<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/download_lt.py&quot;, line 128, in download_lt</span>
+<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/download_lt.py&quot;, line 128, in download_lt</span>
 <span class=" -Color -Color-Red">        with closing(urlopen(url)) as u:</span>
 <span class=" -Color -Color-Red">      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 222, in urlopen</span>
 <span class=" -Color -Color-Red">        return opener.open(url, data, timeout)</span>
@@ -629,12 +596,10 @@ Failed to build language-check
 <span class=" -Color -Color-Red">        raise HTTPError(req.full_url, code, msg, hdrs, fp)</span>
 <span class=" -Color -Color-Red">    urllib.error.HTTPError: HTTP Error 403: Forbidden</span>
 <span class=" -Color -Color-Red">    ----------------------------------------</span>
-<span class=" -Color -Color-Red">ERROR: Command errored out with exit status 1: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-oa6nn_uz/language-check_cdd54a84432d441c89fdf0bd57358c53/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; install --record /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-record-fxjuzn6j/install-record.txt --single-version-externally-managed --compile --install-headers /Users/evanmuzzall/opt/anaconda3/include/python3.8/language-check Check the logs for full command output.</span>
+<span class=" -Color -Color-Red">ERROR: Command errored out with exit status 1: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-cdjj1odb/language-check_af8897890ea541e5a1bfd1a0f25b376f/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; install --record /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-record-8jkgeyr3/install-record.txt --single-version-externally-managed --compile --install-headers /Users/evanmuzzall/opt/anaconda3/include/python3.8/language-check Check the logs for full command output.</span>
 <span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 <span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 ?25h
 </pre></div>
 </div>
@@ -660,7 +625,7 @@ Failed to build language-check
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">9</span><span class="n">g</span><span class="o">/</span><span class="n">fhnd1v790cj5ccxlv4rcvsy40000gq</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_27067</span><span class="o">/</span><span class="mf">1793476377.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">9</span><span class="n">g</span><span class="o">/</span><span class="n">fhnd1v790cj5ccxlv4rcvsy40000gq</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_30674</span><span class="o">/</span><span class="mf">1793476377.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">pycontractions</span> <span class="kn">import</span> <span class="n">Contractions</span> <span class="k">as</span> <span class="n">ct</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># load contractions from a vector model - many models accepted!</span>

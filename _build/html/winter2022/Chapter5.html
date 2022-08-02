@@ -53,7 +53,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chapter 6 - Writing about numeric data" href="Chapter6.html" />
-    <link rel="prev" title="Chapter 4 - The BERT algorithm" href="Chapter4.html" />
+    <link rel="prev" title="Chapter 4.5 - New Developments: Topic Modeling with BERTopic!" href="Chapter4_add.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -150,6 +150,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Chapter4.html">
    Chapter 4 - The BERT algorithm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter4_add.html">
+   Chapter 4.5 - New Developments: Topic Modeling with BERTopic!
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -573,67 +578,97 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking whether there is an H2O instance running at http://localhost:54321 .
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bad pipe message: %s [b&#39;t: H2O Python client/3.8.8 (default, Apr 13 2021, 12:59:45) [Clang 10.0.0 ]\r\nAccept-Encoding: gzip, &#39;]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bad pipe message: %s [b&#39;t: H2O Python client/3.8.8 (default, Apr 13 2021, 12:59:45) [Clang 10.0.0 ]\r\nAccept-Encoding: gzip, &#39;]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bad pipe message: %s [b&#39;t: H2O Python client/3.8.8 (default, Apr 13 2021, 12:59:45) [Clang 10.0.0 ]\r\nAccept-Encoding: gzip, &#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bad pipe message: %s [b&#39;t: H2O Python client/3.8.8 (default, Apr 13 2021, 12:59:45) [Clang 10.0.0 ]\r\nAccept-Encoding: gzip, &#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bad pipe message: %s [b&#39;t: H2O Python client/3.8.8 (default, Apr 13 2021, 12:59:45) [Clang 10.0.0 ]\r\nAccept-Encoding: gzip, &#39;]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> not found.
 Attempting to start a local H2O server...
   Java Version: java version &quot;1.8.0_333&quot;; Java(TM) SE Runtime Environment (build 1.8.0_333-b02); Java HotSpot(TM) 64-Bit Server VM (build 25.333-b02, mixed mode)
   Starting server from /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/bin/h2o.jar
-  Ice root: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpfehuitno
-  JVM stdout: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpfehuitno/h2o_evanmuzzall_started_from_python.out
-  JVM stderr: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpfehuitno/h2o_evanmuzzall_started_from_python.err
+  Ice root: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpajo0cbrx
+  JVM stdout: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpajo0cbrx/h2o_evanmuzzall_started_from_python.out
+  JVM stderr: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpajo0cbrx/h2o_evanmuzzall_started_from_python.err
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Server is running at http://127.0.0.1:54321
-Connecting to H2O server at http://127.0.0.1:54321 ...
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">H2OConnectionError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/h2o/h2o.py</span> in <span class="ni">init</span><span class="nt">(url, ip, port, name, https, cacert, insecure, username, password, cookies, proxy, start_h2o, nthreads, ice_root, log_dir, log_level, max_log_file_size, enable_assertions, max_mem_size, min_mem_size, strict_version_check, ignore_config, extra_classpath, jvm_custom_args, bind_to_localhost, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">250</span>         <span class="n">h2oconn</span> <span class="o">=</span> <span class="n">H2OConnection</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">https</span><span class="o">=</span><span class="n">https</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>                                      <span class="n">verify_ssl_certificates</span><span class="o">=</span><span class="n">verify_ssl_certificates</span><span class="p">,</span> <span class="n">cacert</span><span class="o">=</span><span class="n">cacert</span><span class="p">,</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/connection.py</span> in <span class="ni">open</span><span class="nt">(server, url, ip, port, name, https, auth, verify_ssl_certificates, cacert, proxy, cookies, verbose, msgs, strict_version_check)</span>
+<span class="g g-Whitespace">    </span><span class="mi">384</span>             <span class="n">conn</span><span class="o">.</span><span class="n">_timeout</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="ne">--&gt; </span><span class="mi">385</span>             <span class="n">conn</span><span class="o">.</span><span class="n">_cluster</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">_test_connection</span><span class="p">(</span><span class="n">retries</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">msgs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">386</span>             <span class="c1"># If a server is unable to respond within 1s, it should be considered a bug. However we disable this</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/connection.py</span> in <span class="ni">_test_connection</span><span class="nt">(self, max_retries, messages)</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">681</span>             <span class="k">raise</span> <span class="n">H2OConnectionError</span><span class="p">(</span><span class="s2">&quot;Could not establish link to the H2O cloud </span><span class="si">%s</span><span class="s2"> after </span><span class="si">%d</span><span class="s2"> retries</span><span class="se">\n</span><span class="si">%s</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span>                                      <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_base_url</span><span class="p">,</span> <span class="n">max_retries</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">errors</span><span class="p">)))</span>
+
+<span class="ne">H2OConnectionError</span>: Could not establish link to the H2O cloud http://localhost:54321 after 5 retries
+<span class="p">[</span><span class="mi">42</span><span class="p">:</span><span class="mf">45.74</span><span class="p">]</span> <span class="n">H2OConnectionError</span><span class="p">:</span> <span class="n">Timeout</span> <span class="n">after</span> <span class="mf">3.009</span><span class="n">s</span>
+<span class="p">[</span><span class="mi">42</span><span class="p">:</span><span class="mf">48.95</span><span class="p">]</span> <span class="n">H2OConnectionError</span><span class="p">:</span> <span class="n">Timeout</span> <span class="n">after</span> <span class="mf">3.004</span><span class="n">s</span>
+<span class="p">[</span><span class="mi">42</span><span class="p">:</span><span class="mf">52.15</span><span class="p">]</span> <span class="n">H2OConnectionError</span><span class="p">:</span> <span class="n">Timeout</span> <span class="n">after</span> <span class="mf">3.005</span><span class="n">s</span>
+<span class="p">[</span><span class="mi">42</span><span class="p">:</span><span class="mf">55.36</span><span class="p">]</span> <span class="n">H2OConnectionError</span><span class="p">:</span> <span class="n">Timeout</span> <span class="n">after</span> <span class="mf">3.007</span><span class="n">s</span>
+<span class="p">[</span><span class="mi">42</span><span class="p">:</span><span class="mf">58.57</span><span class="p">]</span> <span class="n">H2OConnectionError</span><span class="p">:</span> <span class="n">Timeout</span> <span class="n">after</span> <span class="mf">3.003</span><span class="n">s</span>
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">9</span><span class="n">g</span><span class="o">/</span><span class="n">fhnd1v790cj5ccxlv4rcvsy40000gq</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_30744</span><span class="o">/</span><span class="mf">1198281118.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">h2o</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">nthreads</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_mem_size</span><span class="o">=</span><span class="s1">&#39;2G&#39;</span><span class="p">)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/h2o/h2o.py</span> in <span class="ni">init</span><span class="nt">(url, ip, port, name, https, cacert, insecure, username, password, cookies, proxy, start_h2o, nthreads, ice_root, log_dir, log_level, max_log_file_size, enable_assertions, max_mem_size, min_mem_size, strict_version_check, ignore_config, extra_classpath, jvm_custom_args, bind_to_localhost, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span>                                      <span class="s1">&#39; instance of H2O with https manually &#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span>                                      <span class="s1">&#39;(https://docs.h2o.ai/h2o/latest-stable/h2o-docs/welcome.html#new-user-quick-start).&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">267</span>         <span class="n">hs</span> <span class="o">=</span> <span class="n">H2OLocalServer</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">nthreads</span><span class="o">=</span><span class="n">nthreads</span><span class="p">,</span> <span class="n">enable_assertions</span><span class="o">=</span><span class="n">enable_assertions</span><span class="p">,</span> <span class="n">max_mem_size</span><span class="o">=</span><span class="n">mmax</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span>                                   <span class="n">min_mem_size</span><span class="o">=</span><span class="n">mmin</span><span class="p">,</span> <span class="n">ice_root</span><span class="o">=</span><span class="n">ice_root</span><span class="p">,</span> <span class="n">log_dir</span><span class="o">=</span><span class="n">log_dir</span><span class="p">,</span> <span class="n">log_level</span><span class="o">=</span><span class="n">log_level</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span>                                   <span class="n">max_log_file_size</span><span class="o">=</span><span class="n">max_log_file_size</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/server.py</span> in <span class="ni">start</span><span class="nt">(jar_path, nthreads, enable_assertions, max_mem_size, min_mem_size, ice_root, log_dir, log_level, max_log_file_size, port, name, extra_classpath, verbose, jvm_custom_args, bind_to_localhost)</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span> 
+<span class="g g-Whitespace">    </span><span class="mi">139</span>         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Attempting to start a local H2O server...&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">140</span>         <span class="n">hs</span><span class="o">.</span><span class="n">_launch_server</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">baseport</span><span class="o">=</span><span class="n">baseport</span><span class="p">,</span> <span class="n">nthreads</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">nthreads</span><span class="p">),</span> <span class="n">ea</span><span class="o">=</span><span class="n">enable_assertions</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span>                           <span class="n">mmax</span><span class="o">=</span><span class="n">max_mem_size</span><span class="p">,</span> <span class="n">mmin</span><span class="o">=</span><span class="n">min_mem_size</span><span class="p">,</span> <span class="n">jvm_custom_args</span><span class="o">=</span><span class="n">jvm_custom_args</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span>                           <span class="n">bind_to_localhost</span><span class="o">=</span><span class="n">bind_to_localhost</span><span class="p">,</span> <span class="n">log_dir</span><span class="o">=</span><span class="n">log_dir</span><span class="p">,</span> <span class="n">log_level</span><span class="o">=</span><span class="n">log_level</span><span class="p">,</span> <span class="n">max_log_file_size</span><span class="o">=</span><span class="n">max_log_file_size</span><span class="p">)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/server.py</span> in <span class="ni">_launch_server</span><span class="nt">(self, port, baseport, mmax, mmin, ea, nthreads, jvm_custom_args, bind_to_localhost, log_dir, log_level, max_log_file_size)</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span>                 <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="n">giveup_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TIME_TO_START</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span>                 <span class="k">raise</span> <span class="n">H2OServerError</span><span class="p">(</span><span class="s2">&quot;Server wasn&#39;t able to start in </span><span class="si">%f</span><span class="s2"> seconds.&quot;</span> <span class="o">%</span> <span class="n">elapsed_time</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">374</span>             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span> 
+<span class="g g-Whitespace">    </span><span class="mi">376</span>     <span class="nd">@staticmethod</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> successful.
-Warning: Your H2O cluster version is too old (10 months and 18 days)!Please download and install the latest version from http://h2o.ai/download/
-</pre></div>
 </div>
-<div class="output text_html"><div style="overflow:auto"><table style="width:50%"><tr><td>H2O_cluster_uptime:</td>
-<td>13 secs</td></tr>
-<tr><td>H2O_cluster_timezone:</td>
-<td>America/Los_Angeles</td></tr>
-<tr><td>H2O_data_parsing_timezone:</td>
-<td>UTC</td></tr>
-<tr><td>H2O_cluster_version:</td>
-<td>3.34.0.1</td></tr>
-<tr><td>H2O_cluster_version_age:</td>
-<td>10 months and 18 days !!!</td></tr>
-<tr><td>H2O_cluster_name:</td>
-<td>H2O_from_python_evanmuzzall_fltcq1</td></tr>
-<tr><td>H2O_cluster_total_nodes:</td>
-<td>1</td></tr>
-<tr><td>H2O_cluster_free_memory:</td>
-<td>1.778 Gb</td></tr>
-<tr><td>H2O_cluster_total_cores:</td>
-<td>0</td></tr>
-<tr><td>H2O_cluster_allowed_cores:</td>
-<td>0</td></tr>
-<tr><td>H2O_cluster_status:</td>
-<td>locked, healthy</td></tr>
-<tr><td>H2O_connection_url:</td>
-<td>http://127.0.0.1:54321</td></tr>
-<tr><td>H2O_connection_proxy:</td>
-<td>{"http": null, "https": null}</td></tr>
-<tr><td>H2O_internal_security:</td>
-<td>False</td></tr>
-<tr><td>H2O_API_Extensions:</td>
-<td>Amazon S3, XGBoost, Algos, AutoML, Core V3, TargetEncoder, Core V4</td></tr>
-<tr><td>Python_version:</td>
-<td>3.8.8 final</td></tr></table></div></div></div>
 </div>
 </section>
 <section id="import-a-sample-binary-outcome-train-test-set-into-h2o">
@@ -762,7 +797,7 @@ Warning: Your H2O cluster version is too old (10 months and 18 days)!Please down
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
 =============
 H2ORandomForestEstimator :  Distributed Random Forest
-Model Key:  DRF_model_python_1659477809857_1
+Model Key:  DRF_model_python_1645748177867_1
 
 
 Model Summary: 
@@ -804,7 +839,7 @@ Model Summary:
       <td></td>
       <td>100.0</td>
       <td>100.0</td>
-      <td>1893917.0</td>
+      <td>1893916.0</td>
       <td>20.0</td>
       <td>20.0</td>
       <td>20.0</td>
@@ -2173,8 +2208,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>0</th>
       <td></td>
-      <td>2022-08-02 15:04:26</td>
-      <td>22.064 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.602 sec</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2186,8 +2221,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>1</th>
       <td></td>
-      <td>2022-08-02 15:04:26</td>
-      <td>22.134 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.673 sec</td>
       <td>1.0</td>
       <td>0.642818</td>
       <td>14.048395</td>
@@ -2199,8 +2234,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>2</th>
       <td></td>
-      <td>2022-08-02 15:04:26</td>
-      <td>22.178 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.709 sec</td>
       <td>2.0</td>
       <td>0.615404</td>
       <td>11.895281</td>
@@ -2212,8 +2247,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>3</th>
       <td></td>
-      <td>2022-08-02 15:04:26</td>
-      <td>22.215 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.744 sec</td>
       <td>3.0</td>
       <td>0.596109</td>
       <td>10.322973</td>
@@ -2225,8 +2260,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>4</th>
       <td></td>
-      <td>2022-08-02 15:04:26</td>
-      <td>22.249 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.776 sec</td>
       <td>4.0</td>
       <td>0.578952</td>
       <td>8.963477</td>
@@ -2238,8 +2273,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>5</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.288 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.810 sec</td>
       <td>5.0</td>
       <td>0.566757</td>
       <td>7.823122</td>
@@ -2251,8 +2286,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>6</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.326 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.842 sec</td>
       <td>6.0</td>
       <td>0.555494</td>
       <td>6.782681</td>
@@ -2264,8 +2299,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>7</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.372 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.881 sec</td>
       <td>7.0</td>
       <td>0.542668</td>
       <td>5.762143</td>
@@ -2277,8 +2312,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>8</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.418 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.919 sec</td>
       <td>8.0</td>
       <td>0.534223</td>
       <td>5.001247</td>
@@ -2290,8 +2325,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>9</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.455 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.954 sec</td>
       <td>9.0</td>
       <td>0.525930</td>
       <td>4.327270</td>
@@ -2303,8 +2338,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>10</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.491 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.986 sec</td>
       <td>10.0</td>
       <td>0.516709</td>
       <td>3.691988</td>
@@ -2316,8 +2351,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>11</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.528 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>21.019 sec</td>
       <td>11.0</td>
       <td>0.510283</td>
       <td>3.222738</td>
@@ -2329,8 +2364,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>12</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.560 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>21.052 sec</td>
       <td>12.0</td>
       <td>0.501990</td>
       <td>2.723957</td>
@@ -2342,8 +2377,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>13</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.596 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>21.081 sec</td>
       <td>13.0</td>
       <td>0.496251</td>
       <td>2.349060</td>
@@ -2355,8 +2390,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>14</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.645 sec</td>
+      <td>2022-02-24 16:17:22</td>
+      <td>21.114 sec</td>
       <td>14.0</td>
       <td>0.492259</td>
       <td>2.050819</td>
@@ -2368,8 +2403,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>15</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.686 sec</td>
+      <td>2022-02-24 16:17:22</td>
+      <td>21.144 sec</td>
       <td>15.0</td>
       <td>0.487936</td>
       <td>1.795128</td>
@@ -2381,8 +2416,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>16</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.721 sec</td>
+      <td>2022-02-24 16:17:22</td>
+      <td>21.175 sec</td>
       <td>16.0</td>
       <td>0.484170</td>
       <td>1.579896</td>
@@ -2394,8 +2429,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>17</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.756 sec</td>
+      <td>2022-02-24 16:17:22</td>
+      <td>21.209 sec</td>
       <td>17.0</td>
       <td>0.480754</td>
       <td>1.424860</td>
@@ -2407,8 +2442,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>18</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.789 sec</td>
+      <td>2022-02-24 16:17:22</td>
+      <td>21.241 sec</td>
       <td>18.0</td>
       <td>0.477989</td>
       <td>1.318464</td>
@@ -2420,8 +2455,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>19</th>
       <td></td>
-      <td>2022-08-02 15:04:27</td>
-      <td>22.822 sec</td>
+      <td>2022-02-24 16:17:22</td>
+      <td>21.275 sec</td>
       <td>19.0</td>
       <td>0.475932</td>
       <td>1.215350</td>
@@ -3186,7 +3221,7 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3900028567254543:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
 =============
 H2OGradientBoostingEstimator :  Gradient Boosting Machine
-Model Key:  GBM_model_python_1659477809857_986
+Model Key:  GBM_model_python_1645663571276_2785
 
 
 Model Summary: 
@@ -3228,7 +3263,7 @@ Model Summary:
       <td></td>
       <td>10.0</td>
       <td>10.0</td>
-      <td>1580.0</td>
+      <td>1579.0</td>
       <td>3.0</td>
       <td>3.0</td>
       <td>3.0</td>
@@ -4580,8 +4615,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>0</th>
       <td></td>
-      <td>2022-08-02 15:04:33</td>
-      <td>1.100 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>0.998 sec</td>
       <td>0.0</td>
       <td>0.499129</td>
       <td>0.691406</td>
@@ -4593,8 +4628,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>1</th>
       <td></td>
-      <td>2022-08-02 15:04:33</td>
-      <td>1.114 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.023 sec</td>
       <td>1.0</td>
       <td>0.488236</td>
       <td>0.669779</td>
@@ -4606,8 +4641,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>2</th>
       <td></td>
-      <td>2022-08-02 15:04:33</td>
-      <td>1.131 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.037 sec</td>
       <td>2.0</td>
       <td>0.479807</td>
       <td>0.653146</td>
@@ -4619,8 +4654,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>3</th>
       <td></td>
-      <td>2022-08-02 15:04:33</td>
-      <td>1.146 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.051 sec</td>
       <td>3.0</td>
       <td>0.473698</td>
       <td>0.641037</td>
@@ -4632,8 +4667,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>4</th>
       <td></td>
-      <td>2022-08-02 15:04:33</td>
-      <td>1.160 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.066 sec</td>
       <td>4.0</td>
       <td>0.467046</td>
       <td>0.627816</td>
@@ -4645,8 +4680,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>5</th>
       <td></td>
-      <td>2022-08-02 15:04:33</td>
-      <td>1.175 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.080 sec</td>
       <td>5.0</td>
       <td>0.462994</td>
       <td>0.619629</td>
@@ -4658,8 +4693,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>6</th>
       <td></td>
-      <td>2022-08-02 15:04:33</td>
-      <td>1.191 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.096 sec</td>
       <td>6.0</td>
       <td>0.458301</td>
       <td>0.609973</td>
@@ -4671,8 +4706,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>7</th>
       <td></td>
-      <td>2022-08-02 15:04:33</td>
-      <td>1.207 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.118 sec</td>
       <td>7.0</td>
       <td>0.455569</td>
       <td>0.604192</td>
@@ -4684,8 +4719,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>8</th>
       <td></td>
-      <td>2022-08-02 15:04:33</td>
-      <td>1.228 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.136 sec</td>
       <td>8.0</td>
       <td>0.452777</td>
       <td>0.598335</td>
@@ -4697,8 +4732,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>9</th>
       <td></td>
-      <td>2022-08-02 15:04:33</td>
-      <td>1.248 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.154 sec</td>
       <td>9.0</td>
       <td>0.449743</td>
       <td>0.591929</td>
@@ -4710,8 +4745,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>10</th>
       <td></td>
-      <td>2022-08-02 15:04:33</td>
-      <td>1.264 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.173 sec</td>
       <td>10.0</td>
       <td>0.447797</td>
       <td>0.587918</td>
@@ -8030,11 +8065,11 @@ Ensemble Test AUC:  0.7658850264045916
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="Chapter4.html" title="previous page">
+        <a class="left-prev" href="Chapter4_add.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Chapter 4 - The BERT algorithm</p>
+                <p class="prevnext-title">Chapter 4.5 - New Developments: Topic Modeling with BERTopic!</p>
             </div>
         </a>
     </div>

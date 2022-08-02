@@ -168,7 +168,7 @@ rf.train(x = x, y = y, training_frame = train)
 
 # ### Random forest test set performance
 
-# In[11]:
+# In[18]:
 
 
 rf.model_performance(test)
@@ -176,7 +176,7 @@ rf.model_performance(test)
 
 # ### Train and cross-validate a gradient boosted machine
 
-# In[12]:
+# In[14]:
 
 
 gbm = H2OGradientBoostingEstimator(distribution = "bernoulli",
@@ -193,7 +193,7 @@ gbm.train(x = x, y = y, training_frame = train)
 
 # ### Gradient boosted machine test set performance
 
-# In[13]:
+# In[19]:
 
 
 gbm.model_performance(test)
@@ -203,7 +203,7 @@ gbm.model_performance(test)
 # 
 # What's going on here - anything suspicious?
 
-# In[14]:
+# In[29]:
 
 
 ensemble = H2OStackedEnsembleEstimator(model_id = "my_ensemble_binomial",
@@ -213,7 +213,7 @@ ensemble.train(x = x, y = y, training_frame = train)
 
 # ### Ensemble performance on test set
 
-# In[15]:
+# In[27]:
 
 
 perf_stack_test = ensemble.model_performance(test)
@@ -224,7 +224,7 @@ perf_stack_test
 # 
 # The ensemble is a little better, but it is still pretty close...
 
-# In[16]:
+# In[32]:
 
 
 perf_gbm_test = gbm.model_performance(test)
@@ -237,7 +237,7 @@ print("Ensemble Test AUC:  {0}".format(stack_auc_test))
 
 # ### Generate predictions on a test set (if neccessary)
 
-# In[17]:
+# In[34]:
 
 
 predictions = ensemble.predict(test)
@@ -252,7 +252,7 @@ predictions
 # 
 # Also, exponential and logarithmic scales are probably preferred to linear ones.
 
-# In[18]:
+# In[35]:
 
 
 hyper_params = {"learn_rate": [0.01, 0.03, 0.05, 0.2, 0.3, 0.4, 0.7, 0.8],
@@ -262,7 +262,7 @@ hyper_params = {"learn_rate": [0.01, 0.03, 0.05, 0.2, 0.3, 0.4, 0.7, 0.8],
 search_criteria = {"strategy": "RandomDiscrete", "max_models": 3, "seed": 1}
 
 
-# In[19]:
+# In[36]:
 
 
 # Train the grid
@@ -279,7 +279,7 @@ grid.train(x=x, y=y, training_frame=train)
 
 # ## 5. Train a stacked ensemble using the GBM grid
 
-# In[20]:
+# In[37]:
 
 
 ensemble = H2OStackedEnsembleEstimator(model_id = "my_ensemble_gbm_grid_binomial",
@@ -289,7 +289,7 @@ ensemble.train(x = x, y = y, training_frame = train)
 
 # ### Eval ensemble performance on the test data
 
-# In[21]:
+# In[38]:
 
 
 perf_stack_test = ensemble.model_performance(test)
@@ -298,7 +298,7 @@ perf_stack_test
 
 # ## 6. Compare to base learner performance on the test set
 
-# In[22]:
+# In[39]:
 
 
 baselearner_best_auc_test = max([h2o.get_model(model).model_performance(test_data=test).auc() for model in grid.model_ids])
@@ -309,7 +309,7 @@ print("Ensemble Test AUC:  {0}".format(stack_auc_test))
 
 # ### Generate predictions on a test set (if neccessary)
 
-# In[23]:
+# In[40]:
 
 
 predictions2 = ensemble.predict(test)
@@ -357,7 +357,7 @@ predictions2
 # 
 # Read Goodfellow et al's Deep Learning Book to learn more: https://www.deeplearningbook.org/
 
-# In[24]:
+# In[41]:
 
 
 import pandas as pd
