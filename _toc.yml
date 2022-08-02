@@ -16,8 +16,8 @@ parts:
   - file: winter2022/Chapter1
   - file: winter2022/Chapter2
   - file: winter2022/Chapter3
-  - file: winter2022/Chapter4_add
   - file: winter2022/Chapter4
+  - file: winter2022/Chapter4_add
   - file: winter2022/Chapter5
   - file: winter2022/Chapter6
   - file: winter2022/Chapter7
