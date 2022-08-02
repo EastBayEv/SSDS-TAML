@@ -51,11 +51,12 @@ x / y * z
 # ## Functions, arguments, and methods
 # 
 # Functions, arguments, and methods form the core user framework for Python programming. 
-# * Functions: Perform actions on a thing
+# * Functions: Perform self-contained actions on a thing.
 # 
 # * Argument:  The "things" (text, values, expressions, datasets, etc.)
 # 
-# > Note "parameters" are the variables during function definition. Arguments are the values we pass into these placeholders while calling the function. 
+# > Note "parameters" are the variables as notated during function definition. Arguments are the values we pass into these placeholders while calling the function.  
+# ![params](img/params_vs_args.png)
 # 
 # * Methods:   Type-specific functions (i.e., can only use a specific type of data and not other types). Use "dot" notation to utilize methods on a variable or other object. 
 # 
@@ -69,13 +70,24 @@ x / y * z
 # In[5]:
 
 
+# Use the type() function to get the type of any variable if you're unsure: 
+x1 = "Boolean"
+print(type(x1))
+
+x2 = True
+print(type(x2))
+
+
+# In[6]:
+
+
 # float (decimals)
 # use a decimal to create floats
 pi = 3.14
 print(type(pi))
 
 
-# In[6]:
+# In[7]:
 
 
 # integer (whole numbers)
@@ -84,7 +96,7 @@ amount = 4
 print(type(amount))
 
 
-# In[7]:
+# In[8]:
 
 
 # string (text)
@@ -93,7 +105,7 @@ welcome = "Welcome to Stanford Libraries"
 print(type(welcome))
 
 
-# In[8]:
+# In[9]:
 
 
 # boolean (logical)
@@ -104,14 +116,14 @@ print(False - True)
 
 # ### Addition examples with strings versus numbers
 
-# In[9]:
+# In[10]:
 
 
 # character strings
 '1' + '1'
 
 
-# In[10]:
+# In[11]:
 
 
 # integers
@@ -130,26 +142,39 @@ print(False - True)
 # 
 # Lists are ordered groups of data that are both created and indexed (positionally referenced) with square brackets `[]`.
 
-# In[11]:
+# In[12]:
 
 
 animals = ['shark', 'dolphin']
 animals[0]
 
 
-# In[12]:
+# Lists can contain elements of almost any data type, including other lists! 
+
+# In[13]:
 
 
+# To get an element from a list within a list, double-index the original list!
 animals = ['shark', 'dolphin', ['dog', 'cat'], ['tree', 'cactus']]
 print(animals[3][0])
 print(animals[2][1])
+
+
+# Lists can also contain elements of different types simultaneously! 
+
+# In[14]:
+
+
+chimera = ['lion', 0.5, 'griffin', 0.5]
+print(type(chimera[0]))
+print(type(chimera[1]))
 
 
 # ### Dictionary
 # 
 # Dictionaries are _unordered_ groups of "key:value" pairs. Use the key to access the value. 
 
-# In[13]:
+# In[15]:
 
 
 apple = {'name': 'apple', 'color': ['red', 'green'], 'recipes': ['pie', 'salad', 'sauce']}
@@ -160,7 +185,7 @@ fruits = {'fruits': [apple, orange]}
 fruits
 
 
-# In[14]:
+# In[16]:
 
 
 fruits['fruits'][1]['recipes'][0]
@@ -170,7 +195,7 @@ fruits['fruits'][1]['recipes'][0]
 # 
 # Import text using the `open().read()` Python convention to import text as a single string.
 
-# In[15]:
+# In[17]:
 
 
 frank = open('data/frankenstein.txt').read()
@@ -183,28 +208,28 @@ print(frank[:1000])
 # 
 # Data frames are programming speak for tabular spreadsheets organized into rows and columns and often stored in .csv format. 
 
-# In[16]:
+# In[18]:
 
 
 # Step 1. link the pandas library to our current notebook
 import pandas as pd
 
 
-# In[17]:
+# In[19]:
 
 
 # Step 2. enter the file path in pandas's read_csv() function  
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[18]:
+# In[20]:
 
 
 # Step 3. view the data
 print(gap)
 
 
-# In[19]:
+# In[21]:
 
 
 gap
@@ -224,6 +249,13 @@ gap
 # 
 # Scroll to the end of the error message and read the last line to find the type of error.  
 # 
+# *Helpful debugging tools/strategies:*
+# 1. Googling the error text, and referring to a forum like StackOverflow  
+# 2. (IDE-dependent) Placing breakpoints in your program and using the debugger tool to step through the program  
+# 3. Strategically place print() statements to know where your program is reaching/failing to reach  
+# 4. Ask a friend! A fresh set of eyes goes a long way when you're working on code.
+# 5. Restart your IDE and/or your machine.  
+# 
 # 
 # ## Challenge
 # 
@@ -237,7 +269,7 @@ gap
 # 
 # You have entered something python does not understand.
 
-# In[20]:
+# In[22]:
 
 
 # x 89 5
@@ -247,7 +279,7 @@ gap
 # 
 # Your indentation does not conform to the rules
 
-# In[21]:
+# In[23]:
 
 
 ### indentation
@@ -263,7 +295,7 @@ gap
 # 
 # You try to call a variable you have not yet assigned
 
-# In[22]:
+# In[24]:
 
 
 # x
@@ -271,7 +303,7 @@ gap
 
 # Or, you try to call a function from a library that you have not yet imported
 
-# In[23]:
+# In[25]:
 
 
 # example()
@@ -281,7 +313,7 @@ gap
 # 
 # You write code with incompatible types
 
-# In[24]:
+# In[26]:
 
 
 # "5" + 5
@@ -291,7 +323,7 @@ gap
 # 
 # You try to reference something that is out of range
 
-# In[25]:
+# In[27]:
 
 
 my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
@@ -304,7 +336,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # You try to import something that does not exist
 
-# In[26]:
+# In[28]:
 
 
 # document = open('fakedocument.txt').read()

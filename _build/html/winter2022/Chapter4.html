@@ -181,7 +181,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   Launch JupyterLab in Binder
+   Open the Jupyter Book
   </a>
  </li>
  <li class="toctree-l1">
@@ -381,7 +381,7 @@
 <p><strong>Also be sure to run all code in advance.</strong></p>
 <p>The models will likely take 1-2 hours to fit and we will not have time to do so during the walkthrough.</p>
 <h1 style="font-size: 4rem; color: #2ecc71">Need help?</h1>
-<p>Contact muzzall {at} stanford {dot} edu</p>
+<p>Contact <a class="reference external" href="mailto:muzzall&#37;&#52;&#48;stanford&#46;edu">muzzall<span>&#64;</span>stanford<span>&#46;</span>edu</a></p>
 </section>
 <section id="setup-and-software-library-installation-instructions">
 <h2>Setup and software library installation instructions<a class="headerlink" href="#setup-and-software-library-installation-instructions" title="Permalink to this headline">¶</a></h2>
@@ -396,7 +396,7 @@
 </div>
 </div>
 <p>Or, setup a virtual environment (you might find this more complicated, but it is worth it in the long run).</p>
-<p>View the instructions: <a class="reference external" href="https://www.tensorflow.org/install/pip">https://www.tensorflow.org/install/pip</a></p>
+<p>View the instructions here: <a class="reference external" href="https://www.tensorflow.org/install/pip">https://www.tensorflow.org/install/pip</a> or <a class="reference external" href="/SSDS-TAML/winter2022/Appendix.ipynb#appendix-a-virutal-environments-in-python">check out this appendix</a>.</p>
 </section>
 <section id="a-dependency-of-the-preprocessing-for-bert-inputs">
 <h3>A dependency of the preprocessing for BERT inputs<a class="headerlink" href="#a-dependency-of-the-preprocessing-for-bert-inputs" title="Permalink to this headline">¶</a></h3>
@@ -458,7 +458,7 @@
 <span class="n">embeddings1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">sentences1</span><span class="p">,</span> <span class="n">convert_to_tensor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">embeddings2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">sentences2</span><span class="p">,</span> <span class="n">convert_to_tensor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1">#Compute cosine-similarits</span>
+<span class="c1">#Compute cosine-similarities</span>
 <span class="n">cosine_scores</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">cos_sim</span><span class="p">(</span><span class="n">embeddings1</span><span class="p">,</span> <span class="n">embeddings2</span><span class="p">)</span>
 
 <span class="c1">#Output the pairs with their score</span>

@@ -183,7 +183,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   Launch JupyterLab in Binder
+   Open the Jupyter Book
   </a>
  </li>
  <li class="toctree-l1">
@@ -565,6 +565,7 @@
 <li><p><strong>Artificial intelligence:</strong> “A program that can sense, reason, act, and adapt.”</p></li>
 <li><p><strong>Machine learning:</strong> “Algorithims whose performance improve as they are exposed to more data over time.”</p></li>
 <li><p><strong>Deep learning:</strong> “Subset of machine learning in which multilayered neural networks learn from vast amounts of data.”</p></li>
+<li><p><strong>Neural network:</strong> A type of algorithm modeled after the human brain, consisting of multiple layers of nodes/neurons.</p></li>
 </ul>
 <section id="x-and-y-variables">
 <h3><em>x</em> and <em>y</em> variables<a class="headerlink" href="#x-and-y-variables" title="Permalink to this headline">¶</a></h3>
@@ -607,7 +608,7 @@
 <h3>Model evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">¶</a></h3>
 <p><img alt="bv" src="../_images/bv.png" /></p>
 <ul class="simple">
-<li><p><strong>Underfit:</strong> A model is underfit if it performs poorly on the training data because it could not discern the relationship(s) between the <strong><em>x</em></strong> and **_y_variables.</p></li>
+<li><p><strong>Underfit:</strong> A model is underfit if it performs poorly on the training data because it could not discern the relationship(s) between the <strong><em>x</em></strong> and <strong><em>y</em></strong> variables.</p></li>
 <li><p><strong>Overfit:</strong> A model is overfit if it performs well on the training dataset but poorly on the test set.</p></li>
 <li><p><strong>Bias/variance tradeoff:</strong></p></li>
 <li><p><strong>Bias</strong> refers to the systematic error due to incorrect assumptions about the machine learning process or the framing of the problem itself. High bias models generally underfit and/or contain large amounts of error.</p></li>
@@ -618,56 +619,68 @@
 <section id="classification-versus-regression">
 <h3>Classification versus regression<a class="headerlink" href="#classification-versus-regression" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><strong>Supervised classification:</strong> models probability that <strong><em>y</em></strong> is 1 given the covariates <strong><em>x</em></strong> and is performed when <strong><em>y</em></strong> is categorical (either binary yes/no or multinomial): <span class="math notranslate nohighlight">\(Pr(y=1|x)\)</span></p></li>
+<li><p><strong>Supervised classification:</strong> models probability that <strong><em>y</em></strong> is 1 given the covariates <strong><em>x</em></strong> and is performed when <strong><em>y</em></strong> is categorical (either binary yes/no or multinomial): <span class="math notranslate nohighlight">\(Pr(y=1|x)\)</span></p>
+<ul>
 <li><p>Medical diagnosis</p></li>
 <li><p>Image classification</p></li>
 <li><p>Fraud detection</p></li>
 <li><p>Sentiment analysis</p></li>
 </ul>
+</li>
+</ul>
 <ul class="simple">
-<li><p><strong>Supervised regression:</strong> models the conditional mean probability <span class="math notranslate nohighlight">\(E(y|x)\)</span> and is performed when <strong><em>y</em></strong> is continuous (i.e., integer or float).</p></li>
+<li><p><strong>Supervised regression:</strong> models the conditional mean probability <span class="math notranslate nohighlight">\(E(y|x)\)</span> and is performed when <strong><em>y</em></strong> is continuous (i.e., integer or float).</p>
+<ul>
 <li><p>Life expectancy</p></li>
 <li><p>Population growth</p></li>
 <li><p>Weather forecasting</p></li>
 <li><p>Stock market prediction</p></li>
 </ul>
+</li>
+</ul>
 <ul class="simple">
-<li><p><strong>Supervised algorithms</strong> include:</p></li>
+<li><p><strong>Supervised algorithms</strong> include:</p>
+<ul>
 <li><p>Regressions: ordinary least squares, generalized linear model, lasso</p></li>
 <li><p>Tree-based methods: decision tree, random forest, boosted trees</p></li>
 <li><p>Kernel-based methods: various; transform non-linear to linear space</p></li>
 </ul>
+</li>
+</ul>
 <p>View scikit-learn’s interactive documentation for estimator (algorithm) selection: <a class="reference external" href="https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html">https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html</a></p>
 <p><img alt="skest" src="../_images/skest.png" /></p>
 <ul class="simple">
-<li><p><strong>Unsupervised machine learning:</strong> algorithms are used to sort unlabeled datasets, without attempting to predict anything.</p></li>
-</ul>
-<p>The equation could simply look like:</p>
-<p><span class="math notranslate nohighlight">\(\sim\ x\)</span></p>
-<p>Algorithms include:</p>
-<ul class="simple">
+<li><p><strong>Unsupervised machine learning:</strong> algorithms are used to sort unlabeled datasets, without attempting to predict anything.</p>
+<ul>
+<li><p>The equation could simply look like: <span class="math notranslate nohighlight">\(\sim\ x\)</span></p></li>
+<li><p>Algorithms include:</p>
+<ul>
 <li><p>Clustering: hierarchical agglomerative, k-means, centroid, density-based, DBSCAN, GLRM</p></li>
 <li><p>Dimension reduction: PCA, t-SNE, UMAP</p></li>
-</ul>
-<ul class="simple">
 <li><p><strong>Reinforcement:</strong> algorithims are used to make real-time decisions and skill acquisition in fields such as game-theory and robotics.</p></li>
-</ul>
-<ul class="simple">
 <li><p><strong>Other:</strong> semi-supervised, etc.</p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <ul class="simple">
 <li><p><strong>Bias in research</strong></p></li>
 </ul>
 <p><img alt="bias_res" src="../_images/bias_res.png" /></p>
 <ul class="simple">
-<li><p><strong>Ethical considerations:</strong></p></li>
-</ul>
-<p>Begin to familiarize yourself with the many ethnical points to consider along with their real-world implications.</p>
-<ul class="simple">
+<li><p><strong>Ethical considerations:</strong></p>
+<ul>
+<li><p>Begin to familiarize yourself with the many ethnical points to consider along with their real-world implications:</p>
+<ul>
 <li><p><a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/8025197?casa_token=xyJcglvpeyUAAAAA:_tpPmFLycMFQuTd4UC52Y2C5yxXignXv7OE1rgv01YwzOs2o9j_bMvIQPwD8IW2NT5awRJcl4g">Howard et al, 2017. Addressing bias in machine learning algorithms: A pilot study on emotion recognition for intelligent systems</a></p></li>
 <li><p><a class="reference external" href="https://nyupress.org/9781479837243/algorithms-of-oppression/">Noble, 2018. Algorithms of oppression: How search engines reinforce racism</a></p></li>
 <li><p><a class="reference external" href="https://aisel.aisnet.org/hicss-51/os/topics_in_os/6/">Yapo and Weiss, 2018. Ethical implications of bias in machine learning</a></p></li>
 <li><p><a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/3457607?casa_token=HkkFHCUfRh0AAAAA%3Az5PprDD4p2VDEyZD7KeJzl67tlpTTA48RsIlqcqDYLROEfyJMTzHRjdYYN8SheqDRkvt_H1XXojANQ">Mehrabi et al, 2021. A survey on bias and fairness in machine learning</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </section>
 </section>
@@ -768,7 +781,7 @@ mean of y: 8.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Chapter2_28_0.png" src="../_images/Chapter2_28_0.png" />
+<img alt="../_images/Chapter2_26_0.png" src="../_images/Chapter2_26_0.png" />
 </div>
 </div>
 </section>
@@ -875,7 +888,7 @@ intercept (B0) is:  -4.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Chapter2_36_0.png" src="../_images/Chapter2_36_0.png" />
+<img alt="../_images/Chapter2_34_0.png" src="../_images/Chapter2_34_0.png" />
 </div>
 </div>
 </section>
@@ -1832,7 +1845,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Chapter2_83_0.png" src="../_images/Chapter2_83_0.png" />
+<img alt="../_images/Chapter2_81_0.png" src="../_images/Chapter2_81_0.png" />
 </div>
 </div>
 </section>
@@ -1866,7 +1879,7 @@ True
 </section>
 <section id="bag-of-words-model-with-countvectorizer">
 <h3>Bag of words model with <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code><a class="headerlink" href="#bag-of-words-model-with-countvectorizer" title="Permalink to this headline">¶</a></h3>
-<p>A bag of words model removes punctuation and casefolds the text to lowercase before counting the words.</p>
+<p>The bag of words models represents text as a bag of its word, ignoring syntactical elements like grammar and word order while only preserving the multiplicy/frequency of unique tokens. Typically, a bag of words model removes punctuation and casefolds the text to lowercase before counting the words (i.e. ‘Apple’ and ‘apple’ will both count toward instances of the word, ‘apple’).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
@@ -1998,12 +2011,27 @@ True
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What does this tell us? </span>
-<span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s1">&#39;document&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s1">&#39;document&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &#39;document&#39; is present in our bag of words, and in the sparse matrix, occupies the second column!</span>
+
+<span class="c1"># What if we try to transform a token that isn&#39;t in our bag of words? </span>
+<span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s1">&#39;abracadabra&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]])
 </pre></div>
 </div>
 </div>
@@ -2020,8 +2048,13 @@ True
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bigram_vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
-                                    <span class="n">token_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\b\w+\b&#39;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># token pattern is written using regular expressions (regex for short): </span>
+ <span class="c1">#      &#39;\b&#39; signifies the empty string (&quot;&quot;) at the beginning or end of a word, </span>
+ <span class="c1">#      &#39;\w&#39; is any character, </span>
+ <span class="c1">#      &#39;+&#39; signifies that the regex can match one or more instances of the prior character (in this case, &#39;\w&#39;)</span>
+ <span class="c1"># question: what does &#39;\b\w+\b&#39; mean then? </span>
+<span class="n">bigram_vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+                                    <span class="n">token_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\b\w+\b&#39;</span><span class="p">,</span>
                                     <span class="n">min_df</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">bigram_vectorizer</span>
 </pre></div>

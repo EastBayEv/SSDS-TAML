@@ -183,7 +183,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   Launch JupyterLab in Binder
+   Open the Jupyter Book
   </a>
  </li>
  <li class="toctree-l1">
@@ -480,6 +480,16 @@
   <a class="reference internal nav-link" href="#quiz-20-newsgroups-dataset">
    Quiz - 20 newsgroups dataset
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#appendix-more-on-text-preprocessing">
+     Appendix:
+     <em>
+      More on text preprocessing
+     </em>
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -767,7 +777,7 @@ Contents
 <li><p>Lemmatize (optional for now)</p></li>
 </ul>
 <p>Take a look at the first document after each step to see if you can notice what changed.</p>
-<p>How else could you improve this process?</p>
+<p><a class="reference external" href="/SSDS-TAML/winter2022/Appendix.ipynb#appendix-b-more-on-text-preprocessing">How else could you improve this process?</a></p>
 <blockquote>
 <div><p>NOTE: Remember, this is just a bare bones, basic process. Furthermore, it will not likely work for many other languages.</p>
 </div></blockquote>
@@ -979,7 +989,8 @@ Contents
 <h3>Remove unicode characters such as Ð and ð<a class="headerlink" href="#remove-unicode-characters-such-as-and" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="s1">&#39;ignore&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for more on text encodings: https://www.w3.org/International/questions/qa-what-is-encoding</span>
+<span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="s1">&#39;ignore&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2052,44 +2063,14 @@ dtype: float64
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="p">[</span><span class="n">tfidf_df</span><span class="p">[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;jordan&#39;</span><span class="p">]</span>
-<span class="n">country</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numeric_only</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jordan                                 0.482716
-jordanian                              0.127019
-press publications                     0.112906
-publications                           0.108571
-syrian                                 0.098792
-constitutional amendments              0.096508
-publications law                       0.091736
-press publications law                 0.091736
-syrian refugees                        0.084679
-websites                               0.072381
-reservations                           0.071108
-commitment jordan                      0.063509
-reservations convention                0.060317
-news websites                          0.056453
-al                                     0.054286
-personal status                        0.054286
-news                                   0.054286
-personal                               0.053046
-reservations convention elimination    0.048254
-hosting                                0.042437
-dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="topic-modeling">
 <h2>Topic modeling<a class="headerlink" href="#topic-modeling" title="Permalink to this headline">¶</a></h2>
 <p><img alt="tsvd" src="../_images/tsvd.png" /></p>
 <p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2021/06/part-16-step-by-step-guide-to-master-nlp-topic-modelling-using-lsa/">Analytics Vidhya</a></p>
+<ul class="simple">
+<li><p>Look ahead to Chapter 4.5 for new techniques in topic modeling - <a class="reference internal" href="Chapter4_add.html"><span class="doc std std-doc">BERTopic!</span></a></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
@@ -2198,7 +2179,9 @@ monaco jordan tuvalu jordanian press publications publications monegasque syrian
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package movie_reviews to
 [nltk_data]     /Users/evanmuzzall/nltk_data...
-[nltk_data]   Package movie_reviews is already up-to-date!
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]   Package movie_reviews is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -2479,6 +2462,270 @@ Top features for negative reviews:
 <h2>Quiz - 20 newsgroups dataset<a class="headerlink" href="#quiz-20-newsgroups-dataset" title="Permalink to this headline">¶</a></h2>
 <p>Go through the 20 newsgroups text dataset to get familiar with newspaper data: <a class="reference external" href="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html">https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html</a></p>
 <p>“The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date.”</p>
+<section id="appendix-more-on-text-preprocessing">
+<h3>Appendix: <em>More on text preprocessing</em><a class="headerlink" href="#appendix-more-on-text-preprocessing" title="Permalink to this headline">¶</a></h3>
+<p>While the exact steps you elect to use for text preprocessing will ultimately depend on applications, there are some more generalizable techniques that you can usually look to apply:</p>
+<ul class="simple">
+<li><p><strong>Expand contractions</strong> - contractions like “don’t”, “they’re”, and “it’s” all count as unique tokens if punctuation is simply removed (converting them to “dont”, “theyre”, “its”, respectively). Decompose contractions into their constituent words to get more accurate counts of tokens like “is,” “they,” etc. <a class="reference external" href="https://pypi.org/project/pycontractions/">pycontractions</a> can be useful here!</p>
+<ul>
+<li><p>Let’s see an example:</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># required install: </span>
+<span class="o">!</span>pip install pycontractions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pycontractions
+  Using cached pycontractions-2.0.1-py3-none-any.whl (9.6 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting language-check&gt;=1.0
+  Using cached language-check-1.1.tar.gz (33 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyemd&gt;=0.4.4 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pycontractions) (0.5.1)
+Requirement already satisfied: gensim&gt;=2.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pycontractions) (4.1.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scipy&gt;=0.18.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from gensim&gt;=2.0-&gt;pycontractions) (1.7.3)
+Requirement already satisfied: numpy&gt;=1.17.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from gensim&gt;=2.0-&gt;pycontractions) (1.20.3)
+Requirement already satisfied: smart-open&gt;=1.8.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from gensim&gt;=2.0-&gt;pycontractions) (5.2.1)
+Building wheels for collected packages: language-check
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for language-check (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> error
+<span class=" -Color -Color-Red">  ERROR: Command errored out with exit status 1:</span>
+<span class=" -Color -Color-Red">   command: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; bdist_wheel -d /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-wheel-4abk801t</span>
+<span class=" -Color -Color-Red">       cwd: /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/</span>
+<span class=" -Color -Color-Red">  Complete output (35 lines):</span>
+<span class=" -Color -Color-Red">  Traceback (most recent call last):</span>
+<span class=" -Color -Color-Red">    File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&quot;, line 595, in &lt;module&gt;</span>
+<span class=" -Color -Color-Red">      sys.exit(main())</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&quot;, line 590, in main</span>
+<span class=" -Color -Color-Red">      run_setup_hooks(config)</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&quot;, line 561, in run_setup_hooks</span>
+<span class=" -Color -Color-Red">      language_tool_hook(config)</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&quot;, line 584, in language_tool_hook</span>
+<span class=" -Color -Color-Red">      download_lt()</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/download_lt.py&quot;, line 128, in download_lt</span>
+<span class=" -Color -Color-Red">      with closing(urlopen(url)) as u:</span>
+<span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 222, in urlopen</span>
+<span class=" -Color -Color-Red">      return opener.open(url, data, timeout)</span>
+<span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 531, in open</span>
+<span class=" -Color -Color-Red">      response = meth(req, response)</span>
+<span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 640, in http_response</span>
+<span class=" -Color -Color-Red">      response = self.parent.error(</span>
+<span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 563, in error</span>
+<span class=" -Color -Color-Red">      result = self._call_chain(*args)</span>
+<span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 502, in _call_chain</span>
+<span class=" -Color -Color-Red">      result = func(*args)</span>
+<span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 755, in http_error_302</span>
+<span class=" -Color -Color-Red">      return self.parent.open(new, timeout=req.timeout)</span>
+<span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 531, in open</span>
+<span class=" -Color -Color-Red">      response = meth(req, response)</span>
+<span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 640, in http_response</span>
+<span class=" -Color -Color-Red">      response = self.parent.error(</span>
+<span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 569, in error</span>
+<span class=" -Color -Color-Red">      return self._call_chain(*args)</span>
+<span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 502, in _call_chain</span>
+<span class=" -Color -Color-Red">      result = func(*args)</span>
+<span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 649, in http_error_default</span>
+<span class=" -Color -Color-Red">      raise HTTPError(req.full_url, code, msg, hdrs, fp)</span>
+<span class=" -Color -Color-Red">  urllib.error.HTTPError: HTTP Error 403: Forbidden</span>
+<span class=" -Color -Color-Red">  ----------------------------------------</span>
+<span class=" -Color -Color-Red">  ERROR: Failed building wheel for language-check</span>
+?25h  Running setup.py clean for language-check
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to build language-check
+<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: language-check, pycontractions
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Running setup.py install for language-check ... ?25l- error
+<span class=" -Color -Color-Red">    ERROR: Command errored out with exit status 1:</span>
+<span class=" -Color -Color-Red">     command: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; install --record /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-record-wofp4hvk/install-record.txt --single-version-externally-managed --compile --install-headers /Users/evanmuzzall/opt/anaconda3/include/python3.8/language-check</span>
+<span class=" -Color -Color-Red">         cwd: /private/var/folders/9g/fhnd1</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/
+    Complete output (35 lines):
+    Traceback (most recent call last):
+      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&quot;, line 595, in &lt;module&gt;
+        sys.exit(main())
+      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&quot;, line 590, in main
+        run_setup_hooks(config)
+      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&quot;, line 561, in run_setup_hooks
+        language_tool_hook(config)
+      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&quot;, line 584, in language_tool_hook
+        download_lt()
+      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/download_lt.py&quot;, line 128, in download_lt
+        with closing(urlopen(url)) as u:
+      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 222, in urlopen
+        return opener.open(url, data, timeout)
+      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 531, in open
+        response = meth(req, response)
+      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 640, in http_response
+        response = self.parent.error(
+      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 563, in error
+        result = self._call_chain(*args)
+      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 502, in _call_chain
+        result = func(*args)
+      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 755, in http_error_302
+        return self.parent.open(new, timeout=req.timeout)
+      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 531, in open
+        response = meth(req, response)
+      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 640, in http_response
+        response = self.parent.error(
+      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 569, in error
+        return self._call_chain(*args)
+      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 502, in _call_chain
+        result = func(*args)
+      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 649, in http_error_default
+        raise HTTPError(req.full_url, code, msg, hdrs, fp)
+    urllib.error.HTTPError: HTTP Error 403: Forbidden
+    ----------------------------------------
+<span class=" -Color -Color-Red">ERROR: Command errored out with exit status 1: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-xuyp_ylu/language-check_2f276eb9f2eb4c4fa4b47d5c0abf7bd4/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; install --record /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-record-wofp4hvk/install-record.txt --single-version-externally-managed --compile --install-headers /Users/evanmuzzall/opt/anaconda3/include/python3.8/language-check Check the logs for full command output.</span>
+<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+?25h
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycontractions</span> <span class="kn">import</span> <span class="n">Contractions</span> <span class="k">as</span> <span class="n">ct</span>
+
+<span class="c1"># load contractions from a vector model - many models accepted!</span>
+<span class="n">contractions</span> <span class="o">=</span> <span class="n">ct</span><span class="p">(</span><span class="s1">&#39;GoogleNews-vectors-negative300.bin&#39;</span><span class="p">)</span>
+
+<span class="c1"># optional: load the model before the first .expand_texts call </span>
+<span class="n">ct</span><span class="o">.</span><span class="n">load_models</span><span class="p">()</span> 
+
+<span class="n">example_sentence</span> <span class="o">=</span> <span class="s2">&quot;I&#39;d like to know how you&#39;re doing! You&#39;re her best friend, but I&#39;m your friend too, aren&#39;t I?&quot;</span>
+
+<span class="c1"># let&#39;s see the text, de-contraction-afied!</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">expand_texts</span><span class="p">([</span><span class="n">example_sentence</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">9</span><span class="n">g</span><span class="o">/</span><span class="n">fhnd1v790cj5ccxlv4rcvsy40000gq</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_27119</span><span class="o">/</span><span class="mf">1793476377.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">pycontractions</span> <span class="kn">import</span> <span class="n">Contractions</span> <span class="k">as</span> <span class="n">ct</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># load contractions from a vector model - many models accepted!</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">contractions</span> <span class="o">=</span> <span class="n">ct</span><span class="p">(</span><span class="s1">&#39;GoogleNews-vectors-negative300.bin&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pycontractions&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>Remove stopwords</strong> - stopwords are words like “a,” “from,” and “the” which are typically filtered out from text before analysis as they do not meaningfully contribute to the content of a document. Leaving in stopwords can lead to irrelevant topics in topic modeling, dilute the strength of sentiment in sentiment analysis, etc.</p>
+<ul>
+<li><p>Here’s a quick loop that can help filter out the stopwords from a string:</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span> 
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+
+<span class="n">example_sentence</span> <span class="o">=</span> <span class="s2">&quot;Hi! This is a needlessly wordy sentence with lots of stopwords. My favorite words are: a, the, with, which. You may think that is strange - and it is!&quot;</span>
+
+<span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Example stopwords include: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]))</span> <span class="c1"># if you want to see what are considered English stopwords by the NLTK package</span>
+
+<span class="n">word_tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">example_sentence</span><span class="p">)</span>
+
+<span class="n">filtered_sentence</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">word_tokens</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
+
+<span class="c1"># let&#39;s see the difference!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word_tokens</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered_sentence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Example stopwords include: [&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;]
+[&#39;Hi&#39;, &#39;!&#39;, &#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;needlessly&#39;, &#39;wordy&#39;, &#39;sentence&#39;, &#39;with&#39;, &#39;lots&#39;, &#39;of&#39;, &#39;stopwords&#39;, &#39;.&#39;, &#39;My&#39;, &#39;favorite&#39;, &#39;words&#39;, &#39;are&#39;, &#39;:&#39;, &#39;a&#39;, &#39;,&#39;, &#39;the&#39;, &#39;,&#39;, &#39;with&#39;, &#39;,&#39;, &#39;which&#39;, &#39;.&#39;, &#39;You&#39;, &#39;may&#39;, &#39;think&#39;, &#39;that&#39;, &#39;is&#39;, &#39;strange&#39;, &#39;-&#39;, &#39;and&#39;, &#39;it&#39;, &#39;is&#39;, &#39;!&#39;]
+[&#39;Hi&#39;, &#39;!&#39;, &#39;needlessly&#39;, &#39;wordy&#39;, &#39;sentence&#39;, &#39;lots&#39;, &#39;stopwords&#39;, &#39;.&#39;, &#39;favorite&#39;, &#39;words&#39;, &#39;:&#39;, &#39;,&#39;, &#39;,&#39;, &#39;,&#39;, &#39;.&#39;, &#39;may&#39;, &#39;think&#39;, &#39;strange&#39;, &#39;-&#39;, &#39;!&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Note that different packages have different lists which define stopwords, so make sure you pick a suitable one. Also, feel free to define your own custom stopwords lists!</p></li>
+<li><p><strong>Standardize phrases</strong> - oftentimes text preprocessing is carried out as a precursor to a matching exercise (e.g. using company name to merge two databases). In such cases, we may want to standardize key phrases. For example, “My Little Startup, LLC” and “my little startup” clearly refer to the same entity, but will not match currently.</p>
+<ul>
+<li><p>In such cases, we may need to write a custom script to standardize key phrases, or there may be a packages out there that already do this for us. Let’s take a look at one for our example, standardizing company names:</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># required install: </span>
+<span class="o">!</span>pip install cleanco
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cleanco</span> <span class="kn">import</span> <span class="n">basename</span>
+
+<span class="n">business_name_one</span> <span class="o">=</span> <span class="s2">&quot;My Little Startup, LLC&quot;</span>
+<span class="n">cleaned_name_one</span>  <span class="o">=</span> <span class="n">basename</span><span class="p">(</span><span class="n">business_name_one</span><span class="p">)</span> <span class="c1"># feel free to print this out! just add: &#39;print(cleaned_name_one)&#39; below. </span>
+
+<span class="n">business_name_two</span> <span class="o">=</span> <span class="s2">&quot;My Little Startup&quot;</span>
+<span class="n">cleaned_name_two</span>  <span class="o">=</span> <span class="n">basename</span><span class="p">(</span><span class="n">business_name_two</span><span class="p">)</span>
+
+<span class="c1"># sanity check - are the cleaned company names identical?  </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cleaned_name_one</span> <span class="o">==</span> <span class="n">cleaned_name_two</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>How and where you choose to standardize phrases in text will of course depend on your end goal, but there are plenty of resources/examples out there for you to model an approach after if a package doesn’t already exist!</p></li>
+<li><p><strong>Normalize text</strong> - normalization refers to the process of transforming text into a canonical (standard) form. Sometimes, people take this to mean the entire text pre-processing pipeline, but here we’re using it to refer to conversions like “2mrrw” to “tomorrow” and “b4” to “before.”</p>
+<ul>
+<li><p>This process is especially useful when using social media comments as your base text for analysis but often requires custom scripting.</p></li>
+</ul>
+</li>
+</ul>
+</section>
 </section>
 </section>
 

@@ -72,7 +72,7 @@ gap.head()
 
 
 # View column names
-# this is an attribute - note the lack of parentheses ()
+# this is an attribute instead of a method - note the lack of parentheses ()
 gap.columns
 
 
@@ -81,8 +81,8 @@ gap.columns
 # In[6]:
 
 
-# Show  number of rows by columns
-# this is an attribute - note the lack of parentheses ()
+# Show number of rows by columns
+# this is an attribute instead of a method - note the lack of parentheses ()
 gap.shape
 
 
@@ -128,9 +128,9 @@ gap.groupby("continent").count()["country"]
 # 
 # Slice a data frame by using bracket notation to specify start and end points `[start : end]`
 # 
-# The `[start ` index is _included_ and the ` end]` index is excluded. 
+# The `[start ` index is _included_ and the ` end]` index is **excluded**. 
 # 
-# > Remember that Python is a zero-indexed language, or starts counting from zero, not one.
+# > Remember that Python is a zero-indexed language, so starts counting from zero, not one.
 # 
 # Leave the start or end values blank to start from the beginning, or go to the end of a collection. 
 

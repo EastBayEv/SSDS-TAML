@@ -181,7 +181,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   Launch JupyterLab in Binder
+   Open the Jupyter Book
   </a>
  </li>
  <li class="toctree-l1">
@@ -597,7 +597,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># View column names</span>
-<span class="c1"># this is an attribute - note the lack of parentheses ()</span>
+<span class="c1"># this is an attribute instead of a method - note the lack of parentheses ()</span>
 <span class="n">gap</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
@@ -613,8 +613,8 @@
 <h3><code class="docutils literal notranslate"><span class="pre">.shape</span></code><a class="headerlink" href="#shape" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show  number of rows by columns</span>
-<span class="c1"># this is an attribute - note the lack of parentheses ()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show number of rows by columns</span>
+<span class="c1"># this is an attribute instead of a method - note the lack of parentheses ()</span>
 <span class="n">gap</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -777,9 +777,9 @@ Name: country, dtype: int64
 <h2>Subset rows or columns<a class="headerlink" href="#subset-rows-or-columns" title="Permalink to this headline">¶</a></h2>
 <p>Sampling data is necessary for many reasons, including quick sanity checks.</p>
 <p>Slice a data frame by using bracket notation to specify start and end points <code class="docutils literal notranslate"><span class="pre">[start</span> <span class="pre">:</span> <span class="pre">end]</span></code></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">[start</span> </code> index is <em>included</em> and the <code class="docutils literal notranslate"> <span class="pre">end]</span></code> index is excluded.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">[start</span> </code> index is <em>included</em> and the <code class="docutils literal notranslate"> <span class="pre">end]</span></code> index is <strong>excluded</strong>.</p>
 <blockquote>
-<div><p>Remember that Python is a zero-indexed language, or starts counting from zero, not one.</p>
+<div><p>Remember that Python is a zero-indexed language, so starts counting from zero, not one.</p>
 </div></blockquote>
 <p>Leave the start or end values blank to start from the beginning, or go to the end of a collection.</p>
 <section id="row-subset-slice-just-the-first-row">

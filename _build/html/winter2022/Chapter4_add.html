@@ -1,0 +1,958 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Chapter 4.5 - New Developments: Topic Modeling with BERTopic! &#8212; Text Analysis and Machine Learning (TAML) Group</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Text Analysis and Machine Learning (TAML) Group</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to TAML!
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="how_to.html">
+   i. How to use this book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start.html">
+   ii. Start coding!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boiler.html">
+   iii. Boilerplate code review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="wrangle.html">
+   iv. Numeric data wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="viz.html">
+   v. Visualization essentials
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Winter Quarter 2022
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter1.html">
+   Chapter 1 - English text preprocessing basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter2.html">
+   Chapter 2 - Core machine learning concepts; building text vocabularies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter3.html">
+   Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter4.html">
+   Chapter 4 - The BERT algorithm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter5.html">
+   Chapter 5 - Ensemble machine learning, deep learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter6.html">
+   Chapter 6 - Writing about numeric data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter7.html">
+   Chapter 7 - Combine the basics in powerful ways!
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Open the Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Guest_Speakers.html">
+   Guest Speakers
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/winter2022/Chapter4_add.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/EastBayEv/SSDS-TAML"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fwinter2022/Chapter4_add.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/winter2022/Chapter4_add.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-bertopic">
+   What is BERTopic?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#required-installs">
+     Required installs:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-sourcing">
+     Data sourcing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-bertopic-model">
+   Creating a BERTopic model:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-instantiation">
+     <em>
+      Example instantiation:
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-the-model">
+     Fitting the model:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-topic-modeling-results">
+     Viewing topic modeling results:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saving-loading-models">
+     Saving/loading models:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-topics">
+   Visualizing topics:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-4-5-new-developments-topic-modeling-with-bertopic">
+<h1>Chapter 4.5 - New Developments: Topic Modeling with BERTopic!<a class="headerlink" href="#chapter-4-5-new-developments-topic-modeling-with-bertopic" title="Permalink to this headline">¶</a></h1>
+<p>2022 July 30</p>
+<p><img alt="bertopic" src="../_images/bert_topic.png" /></p>
+<section id="what-is-bertopic">
+<h2>What is BERTopic?<a class="headerlink" href="#what-is-bertopic" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>As part of NLP analysis, it’s likely that at some point you will be asked, “What topics are most common in these documents?”</p>
+<ul>
+<li><p>Though related, this question is definitely distinct from a query like “What words or phrases are most common in this corpus?”</p>
+<ul>
+<li><p>For example, the sentences “I enjoy learning to code.” and “Educating myself on new computer programming techniques makes me happy!” contain wholly unique tokens, but encode a similar sentiment.</p></li>
+<li><p>If possible, we would like to extract <em>generalized topics</em> instead of specific words/phrases to get an idea of what a document is about.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>This is where BERTopic comes in! BERTopic is a cutting-edge methodology that leverages the transformers defining the base BERT technique along with other ML tools to provide a flexible and powerful topic modeling module (with great visualization support as well!)</p></li>
+<li><p>In this notebook, we’ll go through the operation of BERTopic’s key functionalities and present resources for further exploration.</p></li>
+</ul>
+<section id="required-installs">
+<h3>Required installs:<a class="headerlink" href="#required-installs" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Installs the base bertopic module:</span>
+<span class="o">!</span>pip install bertopic 
+
+<span class="c1"># If you want to use other transformers/language backends, it may require additional installs: </span>
+<span class="o">!</span>pip install bertopic<span class="o">[</span>flair<span class="o">]</span> # can substitute <span class="s1">&#39;flair&#39;</span> with <span class="s1">&#39;gensim&#39;</span>, <span class="s1">&#39;spacy&#39;</span>, <span class="s1">&#39;use&#39;</span>
+
+<span class="c1"># bertopic also comes with its own handy visualization suite: </span>
+<span class="o">!</span>pip install bertopic<span class="o">[</span>visualization<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+Requirement already satisfied: bertopic in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (0.9.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tqdm&gt;=4.41.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (4.62.3)
+Requirement already satisfied: plotly&lt;4.14.3,&gt;=4.7.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (4.14.2)
+Requirement already satisfied: hdbscan&gt;=0.8.27 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (0.8.27)
+Requirement already satisfied: pandas&gt;=1.1.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (1.4.1)
+Requirement already satisfied: pyyaml&lt;6.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (5.4.1)
+Requirement already satisfied: sentence-transformers&gt;=0.4.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (2.2.0)
+Requirement already satisfied: umap-learn&gt;=0.5.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (0.5.2)
+Requirement already satisfied: numpy&gt;=1.20.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (1.20.3)
+Requirement already satisfied: scikit-learn&gt;=0.22.2.post1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (1.0.2)
+Requirement already satisfied: joblib&gt;=1.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (1.1.0)
+Requirement already satisfied: six in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (1.16.0)
+Requirement already satisfied: cython&gt;=0.27 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (0.29.25)
+Requirement already satisfied: scipy&gt;=1.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (1.7.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dateutil&gt;=2.8.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pandas&gt;=1.1.5-&gt;bertopic) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pandas&gt;=1.1.5-&gt;bertopic) (2021.3)
+Requirement already satisfied: retrying&gt;=1.3.3 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from plotly&lt;4.14.3,&gt;=4.7.0-&gt;bertopic) (1.3.3)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from scikit-learn&gt;=0.22.2.post1-&gt;bertopic) (2.2.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: transformers&lt;5.0.0,&gt;=4.6.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (4.12.3)
+Requirement already satisfied: huggingface-hub in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.1.0)
+Requirement already satisfied: sentencepiece in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.1.96)
+Requirement already satisfied: nltk in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.7)
+Requirement already satisfied: torch&gt;=1.6.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (1.10.0)
+Requirement already satisfied: torchvision in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.11.1)
+Requirement already satisfied: typing-extensions in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from torch&gt;=1.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.10.0.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sacremoses in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.0.46)
+Requirement already satisfied: packaging&gt;=20.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (21.3)
+Requirement already satisfied: tokenizers&lt;0.11,&gt;=0.10.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.10.3)
+Requirement already satisfied: filelock in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.4.2)
+Requirement already satisfied: regex!=2019.12.17 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2021.11.2)
+Requirement already satisfied: requests in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2.27.1)
+Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from packaging&gt;=20.0-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.0.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pynndescent&gt;=0.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from umap-learn&gt;=0.5.0-&gt;bertopic) (0.5.5)
+Requirement already satisfied: numba&gt;=0.49 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from umap-learn&gt;=0.5.0-&gt;bertopic) (0.54.1)
+Requirement already satisfied: setuptools in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from numba&gt;=0.49-&gt;umap-learn&gt;=0.5.0-&gt;bertopic) (58.0.4)
+Requirement already satisfied: llvmlite&lt;0.38,&gt;=0.37.0rc1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from numba&gt;=0.49-&gt;umap-learn&gt;=0.5.0-&gt;bertopic) (0.37.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: click in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from nltk-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (8.0.3)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (1.26.8)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2021.10.8)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.3)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2.0.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pillow!=8.3.0,&gt;=5.3.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from torchvision-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (8.4.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zsh:1: no matches found: bertopic[flair]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zsh:1: no matches found: bertopic[visualization]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-sourcing">
+<h3>Data sourcing<a class="headerlink" href="#data-sourcing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>For this exercise, we’re going to use a popular data set, ‘20 Newsgroups,’ which contains ~18,000 newsgroups posts on 20 topics. This dataset is readily available to us through Scikit-Learn:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bertopic</span> <span class="kn">import</span> <span class="n">BERTopic</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_20newsgroups</span>
+
+<span class="n">documents</span> <span class="o">=</span> <span class="n">fetch_20newsgroups</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">remove</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;headers&#39;</span><span class="p">,</span> <span class="s1">&#39;footers&#39;</span><span class="p">,</span> <span class="s1">&#39;quotes&#39;</span><span class="p">))[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">documents</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Any ice hockey fans? </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I am sure some bashers of Pens fans are pretty confused about the lack
+of any kind of posts about the recent Pens massacre of the Devils. Actually,
+I am  bit puzzled too and a bit relieved. However, I am going to put an end
+to non-PIttsburghers&#39; relief with a bit of praise for the Pens. Man, they
+are killing those Devils worse than I thought. Jagr just showed you why
+he is much better than his regular season stats. He is also a lot
+fo fun to watch in the playoffs. Bowman should let JAgr have a lot of
+fun in the next couple of games since the Pens are going to beat the pulp out of Jersey anyway. I was very disappointed not to see the Islanders lose the final
+regular season game.          PENS RULE!!!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="creating-a-bertopic-model">
+<h2>Creating a BERTopic model:<a class="headerlink" href="#creating-a-bertopic-model" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Using the BERTopic module requires you to fetch an instance of the model. When doing so, you can specify multiple different parameters including:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">language</span></code> -&gt; the language of your documents</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_topic_size</span></code> -&gt; the minimum size of a topic; increasing this value will lead to a lower number of topics</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">embedding_model</span></code> -&gt; what model you want to use to conduct your word embeddings; many are supported!</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>For a full list of the parameters and their significance, please see <a class="reference external" href="https://github.com/MaartenGr/BERTopic/blob/master/bertopic/_bertopic.py">https://github.com/MaartenGr/BERTopic/blob/master/bertopic/_bertopic.py</a>.</p></li>
+<li><p>Of course, you can always use the default parameter values and instantiate your model as <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">BERTopic()</span></code>. Once you’ve done so, you’re ready to fit your model to your documents!</p></li>
+</ul>
+<section id="example-instantiation">
+<h3><em>Example instantiation:</em><a class="headerlink" href="#example-instantiation" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span> 
+
+<span class="c1"># example parameter: a custom vectorizer model can be used to remove stopwords from the documents: </span>
+<span class="n">stopwords_vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">stop_words</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">)</span> 
+
+<span class="c1"># instantiating the model: </span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">BERTopic</span><span class="p">(</span><span class="n">vectorizer_model</span> <span class="o">=</span> <span class="n">stopwords_vectorizer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fitting-the-model">
+<h3>Fitting the model:<a class="headerlink" href="#fitting-the-model" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The first step of topic modeling is to fit the model to the documents:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topics</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_27149/742668044.py in &lt;module&gt;
+----&gt; 1 topics, probs = model.fit_transform(documents)
+
+~/opt/anaconda3/lib/python3.8/site-packages/bertopic/_bertopic.py in fit_transform(self, documents, embeddings, y)
+    280             self.embedding_model = select_backend(self.embedding_model,
+    281                                                   language=self.language)
+--&gt; 282             embeddings = self._extract_embeddings(documents.Document,
+    283                                                   method=&quot;document&quot;,
+    284                                                   verbose=self.verbose)
+
+~/opt/anaconda3/lib/python3.8/site-packages/bertopic/_bertopic.py in _extract_embeddings(self, documents, method, verbose)
+   1333             embeddings = self.embedding_model.embed_words(documents, verbose)
+   1334         elif method == &quot;document&quot;:
+-&gt; 1335             embeddings = self.embedding_model.embed_documents(documents, verbose)
+   1336         else:
+   1337             raise ValueError(&quot;Wrong method for extracting document/word embeddings. &quot;
+
+~/opt/anaconda3/lib/python3.8/site-packages/bertopic/backend/_base.py in embed_documents(self, document, verbose)
+     67             that each have an embeddings size of `m`
+     68         &quot;&quot;&quot;
+---&gt; 69         return self.embed(document, verbose)
+
+~/opt/anaconda3/lib/python3.8/site-packages/bertopic/backend/_sentencetransformers.py in embed(self, documents, verbose)
+     61             that each have an embeddings size of `m`
+     62         &quot;&quot;&quot;
+---&gt; 63         embeddings = self.embedding_model.encode(documents, show_progress_bar=verbose)
+     64         return embeddings
+
+~/opt/anaconda3/lib/python3.8/site-packages/sentence_transformers/SentenceTransformer.py in encode(self, sentences, batch_size, show_progress_bar, output_value, convert_to_numpy, convert_to_tensor, device, normalize_embeddings)
+    162 
+    163             with torch.no_grad():
+--&gt; 164                 out_features = self.forward(features)
+    165 
+    166                 if output_value == &#39;token_embeddings&#39;:
+
+~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/container.py in forward(self, input)
+    139     def forward(self, input):
+    140         for module in self:
+--&gt; 141             input = module(input)
+    142         return input
+    143 
+
+~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
+   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
+   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
+-&gt; 1102             return forward_call(*input, **kwargs)
+   1103         # Do not call functions when jit is used
+   1104         full_backward_hooks, non_full_backward_hooks = [], []
+
+~/opt/anaconda3/lib/python3.8/site-packages/sentence_transformers/models/Transformer.py in forward(self, features)
+     64             trans_features[&#39;token_type_ids&#39;] = features[&#39;token_type_ids&#39;]
+     65 
+---&gt; 66         output_states = self.auto_model(**trans_features, return_dict=False)
+     67         output_tokens = output_states[0]
+     68 
+
+~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
+   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
+   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
+-&gt; 1102             return forward_call(*input, **kwargs)
+   1103         # Do not call functions when jit is used
+   1104         full_backward_hooks, non_full_backward_hooks = [], []
+
+~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, input_ids, attention_mask, token_type_ids, position_ids, head_mask, inputs_embeds, encoder_hidden_states, encoder_attention_mask, past_key_values, use_cache, output_attentions, output_hidden_states, return_dict)
+    994             past_key_values_length=past_key_values_length,
+    995         )
+--&gt; 996         encoder_outputs = self.encoder(
+    997             embedding_output,
+    998             attention_mask=extended_attention_mask,
+
+~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
+   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
+   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
+-&gt; 1102             return forward_call(*input, **kwargs)
+   1103         # Do not call functions when jit is used
+   1104         full_backward_hooks, non_full_backward_hooks = [], []
+
+~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask, past_key_values, use_cache, output_attentions, output_hidden_states, return_dict)
+    581                 )
+    582             else:
+--&gt; 583                 layer_outputs = layer_module(
+    584                     hidden_states,
+    585                     attention_mask,
+
+~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
+   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
+   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
+-&gt; 1102             return forward_call(*input, **kwargs)
+   1103         # Do not call functions when jit is used
+   1104         full_backward_hooks, non_full_backward_hooks = [], []
+
+~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask, past_key_value, output_attentions)
+    468         # decoder uni-directional self-attention cached key/values tuple is at positions 1,2
+    469         self_attn_past_key_value = past_key_value[:2] if past_key_value is not None else None
+--&gt; 470         self_attention_outputs = self.attention(
+    471             hidden_states,
+    472             attention_mask,
+
+~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
+   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
+   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
+-&gt; 1102             return forward_call(*input, **kwargs)
+   1103         # Do not call functions when jit is used
+   1104         full_backward_hooks, non_full_backward_hooks = [], []
+
+~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask, past_key_value, output_attentions)
+    398         output_attentions=False,
+    399     ):
+--&gt; 400         self_outputs = self.self(
+    401             hidden_states,
+    402             attention_mask,
+
+~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
+   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
+   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
+-&gt; 1102             return forward_call(*input, **kwargs)
+   1103         # Do not call functions when jit is used
+   1104         full_backward_hooks, non_full_backward_hooks = [], []
+
+~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask, past_key_value, output_attentions)
+    287         else:
+    288             key_layer = self.transpose_for_scores(self.key(hidden_states))
+--&gt; 289             value_layer = self.transpose_for_scores(self.value(hidden_states))
+    290 
+    291         query_layer = self.transpose_for_scores(mixed_query_layer)
+
+~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
+   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
+   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
+-&gt; 1102             return forward_call(*input, **kwargs)
+   1103         # Do not call functions when jit is used
+   1104         full_backward_hooks, non_full_backward_hooks = [], []
+
+~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/linear.py in forward(self, input)
+    101 
+    102     def forward(self, input: Tensor) -&gt; Tensor:
+--&gt; 103         return F.linear(input, self.weight, self.bias)
+    104 
+    105     def extra_repr(self) -&gt; str:
+
+~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/functional.py in linear(input, weight, bias)
+   1846     if has_torch_function_variadic(input, weight, bias):
+   1847         return handle_torch_function(linear, (input, weight, bias), input, weight, bias=bias)
+-&gt; 1848     return torch._C._nn.linear(input, weight, bias)
+   1849 
+   1850 
+
+KeyboardInterrupt: 
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.fit_transform()</span></code> returns two outputs:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">topics</span></code> contains mappings of inputs (documents) to their modeled topic (alternatively, cluster)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">probs</span></code> contains a list of probabilities that an input belongs to their assigned topic</p></li>
+</ul>
+</li>
+<li><p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">fit_transform()</span></code> can be substituted with <code class="docutils literal notranslate"><span class="pre">fit()</span></code>. <code class="docutils literal notranslate"><span class="pre">fit_transform()</span></code> allows for the prediction of new documents but demands additional computing power/time.</p></li>
+</ul>
+</section>
+<section id="viewing-topic-modeling-results">
+<h3>Viewing topic modeling results:<a class="headerlink" href="#viewing-topic-modeling-results" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The BERTopic module has many built-in methods to view and analyze your fitted model topics. Here are some basics:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view your topics: </span>
+<span class="n">topics_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_topic_info</span><span class="p">()</span>
+
+<span class="c1"># get detailed information about the top five most common topics: </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">topics_info</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Topic  Count                                       Name
+0     -1   6198                    -1_like_use_know_people
+1      0   1836                  0_game_team_games_players
+2      1    572              1_key_clipper_chip_encryption
+3      2    527  2_whatta ass_ken huh_forget ites_ites yep
+4      3    458               3_monitor_card_video_drivers
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>When examining topic information, you may see a topic with the assigned number ‘-1.’ Topic -1 refers to all input outliers which do not have a topic assigned and should typically be ignored during analysis.</p></li>
+<li><p>Forcing documents into a topic could decrease the quality of the topics generated, so it’s usually a good idea to allow the model to discard inputs into this ‘Topic -1’ bin.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># access a single topic: </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_topic</span><span class="p">(</span><span class="n">topic</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># .get_topics() accesses all topics</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;game&#39;, 0.009178662518274271), (&#39;team&#39;, 0.007968780811213744), (&#39;games&#39;, 0.006334453560836352), (&#39;players&#39;, 0.005535902899143252), (&#39;season&#39;, 0.00547486906998158), (&#39;hockey&#39;, 0.005363234415036895), (&#39;play&#39;, 0.005086475485566249), (&#39;year&#39;, 0.005000281340771309), (&#39;25&#39;, 0.004999415937511647), (&#39;league&#39;, 0.004376256337038951)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get representative documents for a specific topic: </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_representative_docs</span><span class="p">(</span><span class="n">topic</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># omit the &#39;topic&#39; parameter to get docs for all topics </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&quot;\n\n\n Hmmm...what about walks and SB? Baerga got clobbered by Alomar in OBP and\nbeat him in SLG by a lesser margin. Even putting aside any other factors,\na player with a 51 point edge in OBP is more productive than a player with\na 28 point edge in SLG. The issue has been studied before, and I doubt you\ncould come up with any convincing argument the other way.\n People see the batting average and the HR, but they don&#39;t really know  \ntheir value is worth unless they&#39;ve studied the issue closely. The fact is that\nBaerga ate up a LOT more outs than Alomar; while Baerga was making outs,\nAlomar was drawing walks and being on base for Carter, Winfield et.al.&quot;, &#39;\n\n\n\n\n\n\nIs the answer as simple as that you dislike russians???\n\n\n\n\nAnd where would canadian hockey be today without the europeans?? Dont say\nthat the european influence on the league has been all bad for the game.\nI mean, look at the way you play these days. Less fights and more hockey.\nImho, canadian hockey has had a positive curve of development since the\n70\&#39;s when the game was more brute than beauty......\n\n\nOh, look!! You don\&#39;t like Finns either....\n\nToo bad almost all of you northamericans originates from europe.....\n\nHmmm... And what kind of a name is Rauser. Doesn\&#39;t sound very &quot;canadian&quot; to\nme. ;-)&#39;, &#39;Wow, this guy seems to be out to prove something to his old team, Boston.\nWhich Sweeney you ask...well, of course Bob Sweeney, the one that Boston\nlet Buffalo get a hold of (they still have 2 Sweeneys which makes things\nslightly confusing).  Game winner in OT in game 1, and another\nBIG goal (seconds after Fuhr made 3 point blank saves -&gt; this is why\nGrant has 5 rings!!!) to put Buffalo ahead in the 3rd.  Yes, Neely countered\na minute later, but hadn\&#39;t this course of Buffalo going ahead after being\ntied and shutting down another few great scoring opportunities, I\nthink Boston would have notched their first win of the series.\n\nWell, the Sabres haven\&#39;t made it to the end of this series yet, but\nI certainly feel they\&#39;ve got Boston right were they want them...actually,\nthey\&#39;ve got them in a position that neither Buffalo nor Boston felt\nthat would come about.  One more astronomical game by Fuhr, a few more\nheroics by the rest of the team (this is a team sport afterall) and I\nthink Borque, Neely, Jouneau (sp?), and Company are gonna be swinging\na new stick (Weather is perfect for golf season) real soon.  I\&#39;m not\ngonna waiger anything on this, because I\&#39;ve seen some really strange\nthings happen in both pro and college hockey.\n\nTalking about golf...was that a hockey swing, golf swing or baseball\nswing that Hawerchuck used in the last shot of the game that Khmylev\ndeflected in for the BIG ONE?  The whole OT (all 1 minute of it!) was a\ntesiment to Buffalo\&#39;s ability to really be persistent and grind it out\nin the end (something they weren\&#39;t necessarily in the regular season).  The\nSabres pushed hard and forced Borque to blatently take down Bodger in\nthe opening seconds.  I don\&#39;t normally like penalties being called in\nsuch ultra-critical points, but this was BLATENT.  Finally, the Sabres\nwon a faceoff (they weren\&#39;t that hot in this dept the rest of the game)\nwhen LaFontaine scooped at the puck 3 times.  When Hawerchuck took his\nshot (quite a boomer, but Blue stopped this one) he took a few steps\nover to get his own rebound and slapped at it again, without setting\nit up.  I didn\&#39;t realize it went in until the announcer started screaming,\n&quot;They score, THEY SCORE!!!&quot;.  The best was seeing LaFontaine jumping\nup and down, skating a little bit, jumping some more, and then skating\nover to Brad May who he jumped on.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find topics similar to a key term/phrase: </span>
+<span class="n">topics</span><span class="p">,</span> <span class="n">similarity_scores</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">find_topics</span><span class="p">(</span><span class="s2">&quot;sports&quot;</span><span class="p">,</span> <span class="n">top_n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Most common topics:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">topics</span><span class="p">))</span> <span class="c1"># view the numbers of the top-5 most similar topics</span>
+
+<span class="c1"># print the initial contents of the most similar topics</span>
+<span class="k">for</span> <span class="n">topic_num</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Contents from topic number: &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">topic_num</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_topic</span><span class="p">(</span><span class="n">topic_num</span><span class="p">))</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Most common topics:[0, 30, 117, 7, 65]
+
+Contents from topic number: 0
+
+[(&#39;game&#39;, 0.009178662518274271), (&#39;team&#39;, 0.007968780811213744), (&#39;games&#39;, 0.006334453560836352), (&#39;players&#39;, 0.005535902899143252), (&#39;season&#39;, 0.00547486906998158), (&#39;hockey&#39;, 0.005363234415036895), (&#39;play&#39;, 0.005086475485566249), (&#39;year&#39;, 0.005000281340771309), (&#39;25&#39;, 0.004999415937511647), (&#39;league&#39;, 0.004376256337038951)]
+
+Contents from topic number: 30
+
+[(&#39;games&#39;, 0.03189057739983477), (&#39;joystick&#39;, 0.023109556177641377), (&#39;sega&#39;, 0.022254558047225093), (&#39;game&#39;, 0.015150510268174322), (&#39;cd&#39;, 0.01350687307405457), (&#39;genesis&#39;, 0.011652039222125864), (&#39;arcade&#39;, 0.011430880237284939), (&#39;525 10&#39;, 0.011084315177448975), (&#39;525&#39;, 0.01093032209397142), (&#39;super&#39;, 0.01058430464552049)]
+
+Contents from topic number: 117
+
+[(&#39;helmet&#39;, 0.13130258501553513), (&#39;liner&#39;, 0.03589565361558216), (&#39;foam&#39;, 0.028549939482073516), (&#39;cb&#39;, 0.02787288775568256), (&#39;helmets&#39;, 0.019564385096043076), (&#39;impact&#39;, 0.019275603888304765), (&#39;bike&#39;, 0.018408318218014745), (&#39;shoei&#39;, 0.017647319577022695), (&#39;head&#39;, 0.01696129848156763), (&#39;mirror&#39;, 0.01609430856704741)]
+
+Contents from topic number: 7
+
+[(&#39;bike&#39;, 0.01588738945736458), (&#39;riding&#39;, 0.012032185233341505), (&#39;car&#39;, 0.010761539949614264), (&#39;ride&#39;, 0.010499327438537967), (&#39;lane&#39;, 0.00898723039814874), (&#39;driving&#39;, 0.007689840869501699), (&#39;passenger&#39;, 0.007401980394887971), (&#39;traffic&#39;, 0.006917656206067343), (&#39;road&#39;, 0.006784420468337043), (&#39;cop&#39;, 0.006577432225108643)]
+
+Contents from topic number: 65
+
+[(&#39;religion&#39;, 0.026246107803648847), (&#39;schools&#39;, 0.017767044728977974), (&#39;moment silence&#39;, 0.01631456871311663), (&#39;public schools&#39;, 0.014647396741100374), (&#39;moment&#39;, 0.014328639074325519), (&#39;silence&#39;, 0.014009920008202965), (&#39;cult&#39;, 0.013556651905168597), (&#39;christian&#39;, 0.013547374369023344), (&#39;prayer&#39;, 0.0123850805567994), (&#39;religious&#39;, 0.012311105970830167)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="saving-loading-models">
+<h3>Saving/loading models:<a class="headerlink" href="#saving-loading-models" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>One of the most obvious drawbacks of using the BERTopic technique is the algorithm’s run-time. But, rather than re-running a script every time you want to conduct topic modeling analysis, you can simply save/load models!</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save your model: </span>
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;TAML_ex_model&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\ad2we\AppData\Roaming\Python\Python39\site-packages\scipy\sparse\_index.py:146: SparseEfficiencyWarning:
+
+Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load it later: </span>
+<span class="n">loaded_model</span> <span class="o">=</span> <span class="n">BERTopic</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;TAML_ex_model&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-topics">
+<h2>Visualizing topics:<a class="headerlink" href="#visualizing-topics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Although the prior methods can be used to manually examine the textual contents of topics, visualizations can be an excellent way to succinctly communicate the same information.</p></li>
+<li><p>Depending on the visualization, it can even reveal patterns that would be much harder/impossible to see through textual analysis - like inter-topic distance!</p></li>
+<li><p>Let’s see some examples!</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a 2D representation of your modeled topics &amp; their pairwise distances: </span>
+<span class="n">model</span><span class="o">.</span><span class="n">visualize_topics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the words and probabilities of top topics, but in bar chart form! </span>
+<span class="n">model</span><span class="o">.</span><span class="n">visualize_barchart</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Evaluate topic similarity through a heat map: </span>
+<span class="n">model</span><span class="o">.</span><span class="n">visualize_heatmap</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hopefully you’re convinced of how accessible but powerful a technique BERTopic topic modeling can be! There’s plenty more to learn about BERTopic than what we’ve covered here, but you should be ready to get started!</p></li>
+<li><p>During your adventures, you may find the following resources useful:</p>
+<ul>
+<li><p><em>Original BERTopic Github:</em> <a class="reference external" href="https://github.com/MaartenGr/BERTopic">https://github.com/MaartenGr/BERTopic</a></p></li>
+<li><p><em>BERTopic visualization guide:</em> <a class="reference external" href="https://maartengr.github.io/BERTopic/getting_started/visualization/visualization.html#visualize-terms">https://maartengr.github.io/BERTopic/getting_started/visualization/visualization.html#visualize-terms</a></p></li>
+<li><p><em>How to use BERT to make a custom topic model:</em> <a class="reference external" href="https://towardsdatascience.com/topic-modeling-with-bert-779f7db187e6">https://towardsdatascience.com/topic-modeling-with-bert-779f7db187e6</a></p></li>
+</ul>
+</li>
+<li><p>Recommended things to look into next include:</p>
+<ul>
+<li><p>how to select the best embedding model for your BERTopic model;</p></li>
+<li><p>controlling the number of topics your model generates; and</p></li>
+<li><p>other visualizations and deciding which ones are best for what kinds of documents.</p></li>
+</ul>
+</li>
+<li><p>Questions? Please reach out! Anthony Weng, SSDS consultant, is happy to help (contact: <a class="reference external" href="mailto:ad2weng&#37;&#52;&#48;stanford&#46;edu">ad2weng<span>&#64;</span>stanford<span>&#46;</span>edu</a>)</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "EastBayEv/SSDS-TAML",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./winter2022"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Software and Services for Data Science (SSDS) at Stanford Libraries<br/>
+        
+            &copy; Copyright 2021-2022.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

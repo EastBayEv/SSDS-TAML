@@ -36,7 +36,7 @@
 # 
 # <h1 style="font-size: 4rem; color: #2ecc71">Need help?</h1>
 # 
-# Contact muzzall {at} stanford {dot} edu
+# Contact muzzall@stanford.edu
 
 # ## Setup and software library installation instructions
 
@@ -52,7 +52,7 @@
 
 # Or, setup a virtual environment (you might find this more complicated, but it is worth it in the long run). 
 # 
-# View the instructions: https://www.tensorflow.org/install/pip
+# View the instructions here: https://www.tensorflow.org/install/pip or [check out this appendix](/SSDS-TAML/winter2022/Appendix.ipynb#appendix-a-virutal-environments-in-python).
 
 # ### A dependency of the preprocessing for BERT inputs
 
@@ -112,7 +112,7 @@ sentences2 = ['The dog plays in the garden',
 embeddings1 = model.encode(sentences1, convert_to_tensor=True)
 embeddings2 = model.encode(sentences2, convert_to_tensor=True)
 
-#Compute cosine-similarits
+#Compute cosine-similarities
 cosine_scores = util.cos_sim(embeddings1, embeddings2)
 
 #Output the pairs with their score

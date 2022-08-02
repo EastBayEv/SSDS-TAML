@@ -141,7 +141,7 @@ print(human_rights['document_text'][0][:1000])
 # 
 # Take a look at the first document after each step to see if you can notice what changed. 
 # 
-# How else could you improve this process? 
+# [How else could you improve this process?](/SSDS-TAML/winter2022/Appendix.ipynb#appendix-b-more-on-text-preprocessing) 
 # 
 # > NOTE: Remember, this is just a bare bones, basic process. Furthermore, it will not likely work for many other languages. 
 
@@ -185,6 +185,7 @@ print(human_rights['clean_text'][0][:1000])
 # In[11]:
 
 
+# for more on text encodings: https://www.w3.org/International/questions/qa-what-is-encoding
 human_rights['clean_text'] = human_rights['clean_text'].str.encode('ascii', 'ignore').str.decode('ascii')
 
 
@@ -342,20 +343,15 @@ country = tfidf_df[tfidf_df['COUNTRY'] == 'jordan']
 country.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 
-# In[31]:
-
-
-country = tfidf_df[tfidf_df['COUNTRY'] == 'jordan']
-country.max(numeric_only = True).sort_values(ascending = False).head(20)
-
-
-# ## Topic modeling
+# ## Topic modeling 
 # 
 # ![tsvd](img/tsvd.png)
 # 
 # [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2021/06/part-16-step-by-step-guide-to-master-nlp-topic-modelling-using-lsa/)
+# 
+# * Look ahead to Chapter 4.5 for new techniques in topic modeling - [BERTopic!](Chapter4_add.ipynb)
 
-# In[32]:
+# In[31]:
 
 
 from sklearn.decomposition import TruncatedSVD
@@ -366,19 +362,19 @@ tsvd = TruncatedSVD(n_components = 5,
 tsvd.fit(tf_sparse)
 
 
-# In[33]:
+# In[32]:
 
 
 print(tsvd.explained_variance_ratio_)
 
 
-# In[34]:
+# In[33]:
 
 
 print(tsvd.singular_values_)
 
 
-# In[35]:
+# In[34]:
 
 
 def topics(model, feature_names, n_top_words):
@@ -388,7 +384,7 @@ def topics(model, feature_names, n_top_words):
                         for i in topic.argsort()[:-n_top_words - 1:-1]]))
 
 
-# In[36]:
+# In[35]:
 
 
 tf_features = tf_vectorizer.get_feature_names()
@@ -415,7 +411,7 @@ topics(tsvd, tf_features, 20)
 
 # ### Download the nltk built-in movie reviews dataset
 
-# In[37]:
+# In[36]:
 
 
 import nltk
@@ -425,7 +421,7 @@ nltk.download("movie_reviews")
 
 # ### Define x (reviews) and y (judgements) variables
 
-# In[38]:
+# In[37]:
 
 
 # Extract our x (reviews) and y (judgements) variables
@@ -433,7 +429,7 @@ reviews = [movie_reviews.raw(fileid) for fileid in movie_reviews.fileids()]
 judgements = [movie_reviews.categories(fileid)[0] for fileid in movie_reviews.fileids()]
 
 
-# In[39]:
+# In[38]:
 
 
 # Save in a dataframe
@@ -442,7 +438,7 @@ movies = pd.DataFrame({"Reviews" : reviews,
 movies.head()
 
 
-# In[40]:
+# In[39]:
 
 
 movies.shape
@@ -450,7 +446,7 @@ movies.shape
 
 # ### Shuffle the reviews
 
-# In[41]:
+# In[40]:
 
 
 import numpy as np
@@ -458,7 +454,7 @@ from sklearn.utils import shuffle
 x, y = shuffle(np.array(movies.Reviews), np.array(movies.Judgements), random_state = 1)
 
 
-# In[42]:
+# In[41]:
 
 
 # change x[0] and y[0] to see different reviews
@@ -471,7 +467,7 @@ x[0], print("Human review was:", y[0])
 
 # ### The "standard" way
 
-# In[43]:
+# In[42]:
 
 
 # standard training/test split (no cross validation)
@@ -491,7 +487,7 @@ logit_class = LogisticRegression(solver = 'liblinear',
 model = logit_class.fit(x_train, y_train)
 
 
-# In[44]:
+# In[43]:
 
 
 # test set accuracy
@@ -500,7 +496,7 @@ model.score(x_test, y_test)
 
 # ### $k$-fold cross-validated model
 
-# In[45]:
+# In[44]:
 
 
 # Cross-validated model!
@@ -521,7 +517,7 @@ print(scores, np.mean(scores))
 
 # ### Top 25 features for positive and negative reviews
 
-# In[46]:
+# In[45]:
 
 
 feature_names = tfidf.get_feature_names()
@@ -534,7 +530,7 @@ top25neg = np.argsort(model.coef_[0])[:25]
 print(list(feature_names[j] for j in top25neg))
 
 
-# In[47]:
+# In[46]:
 
 
 new_bad_review = "This was the most awful worst super bad movie ever!"
@@ -544,7 +540,7 @@ features = tfidf.transform([new_bad_review])
 model.predict(features)
 
 
-# In[48]:
+# In[47]:
 
 
 new_good_review = 'WHAT A WONDERFUL, FANTASTIC MOVIE!!!'
@@ -554,7 +550,7 @@ features = tfidf.transform([new_good_review])
 model.predict(features)
 
 
-# In[49]:
+# In[48]:
 
 
 # type another review here
@@ -576,3 +572,97 @@ model.predict(my_features)
 # Go through the 20 newsgroups text dataset to get familiar with newspaper data: https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html
 # 
 # "The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date."
+
+# ### Appendix: *More on text preprocessing*
+# 
+# While the exact steps you elect to use for text preprocessing will ultimately depend on applications, there are some more generalizable techniques that you can usually look to apply: 
+# 
+# * **Expand contractions** - contractions like "don't", "they're", and "it's" all count as unique tokens if punctuation is simply removed (converting them to "dont", "theyre", "its", respectively). Decompose contractions into their constituent words to get more accurate counts of tokens like "is," "they," etc. [pycontractions](https://pypi.org/project/pycontractions/) can be useful here! 
+# 
+#     * Let's see an example:   
+# 
+
+# In[49]:
+
+
+# required install: 
+get_ipython().system('pip install pycontractions')
+
+
+# In[50]:
+
+
+from pycontractions import Contractions as ct
+
+# load contractions from a vector model - many models accepted!
+contractions = ct('GoogleNews-vectors-negative300.bin')
+
+# optional: load the model before the first .expand_texts call 
+ct.load_models() 
+
+example_sentence = "I'd like to know how you're doing! You're her best friend, but I'm your friend too, aren't I?"
+
+# let's see the text, de-contraction-afied!
+print(list(ct.expand_texts([example_sentence])))
+
+
+# * **Remove stopwords** - stopwords are words like "a," "from," and "the" which are typically filtered out from text before analysis as they do not meaningfully contribute to the content of a document. Leaving in stopwords can lead to irrelevant topics in topic modeling, dilute the strength of sentiment in sentiment analysis, etc. 
+# 
+#     * Here's a quick loop that can help filter out the stopwords from a string: 
+
+# In[8]:
+
+
+from nltk.corpus import stopwords 
+from nltk.tokenize import word_tokenize
+
+example_sentence = "Hi! This is a needlessly wordy sentence with lots of stopwords. My favorite words are: a, the, with, which. You may think that is strange - and it is!"
+
+stop_words = set(stopwords.words('english'))
+
+print("Example stopwords include: " + str(stopwords.words('english')[:5])) # if you want to see what are considered English stopwords by the NLTK package
+
+word_tokens = word_tokenize(example_sentence)
+
+filtered_sentence = [w for w in word_tokens if not w.lower() in stop_words]
+
+# let's see the difference!
+print(word_tokens)
+print(filtered_sentence)
+
+
+# * Note that different packages have different lists which define stopwords, so make sure you pick a suitable one. Also, feel free to define your own custom stopwords lists!  
+# 
+# * **Standardize phrases** - oftentimes text preprocessing is carried out as a precursor to a matching exercise (e.g. using company name to merge two databases). In such cases, we may want to standardize key phrases. For example, "My Little Startup, LLC" and "my little startup" clearly refer to the same entity, but will not match currently. 
+# 
+#     * In such cases, we may need to write a custom script to standardize key phrases, or there may be a packages out there that already do this for us. Let's take a look at one for our example, standardizing company names: 
+
+# In[ ]:
+
+
+# required install: 
+get_ipython().system('pip install cleanco')
+
+
+# In[16]:
+
+
+from cleanco import basename
+
+business_name_one = "My Little Startup, LLC"
+cleaned_name_one  = basename(business_name_one) # feel free to print this out! just add: 'print(cleaned_name_one)' below. 
+
+business_name_two = "My Little Startup"
+cleaned_name_two  = basename(business_name_two)
+
+# sanity check - are the cleaned company names identical?  
+print(cleaned_name_one == cleaned_name_two)
+
+
+# * How and where you choose to standardize phrases in text will of course depend on your end goal, but there are plenty of resources/examples out there for you to model an approach after if a package doesn't already exist!
+# 
+# * **Normalize text** - normalization refers to the process of transforming text into a canonical (standard) form. Sometimes, people take this to mean the entire text pre-processing pipeline, but here we're using it to refer to conversions like "2mrrw" to "tomorrow" and "b4" to "before." 
+# 
+#     * This process is especially useful when using social media comments as your base text for analysis but often requires custom scripting. 
+
+# 

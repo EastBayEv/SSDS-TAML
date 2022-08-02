@@ -181,7 +181,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   Launch JupyterLab in Binder
+   Open the Jupyter Book
   </a>
  </li>
  <li class="toctree-l1">
@@ -465,11 +465,12 @@
 <h2>Functions, arguments, and methods<a class="headerlink" href="#functions-arguments-and-methods" title="Permalink to this headline">¶</a></h2>
 <p>Functions, arguments, and methods form the core user framework for Python programming.</p>
 <ul class="simple">
-<li><p>Functions: Perform actions on a thing</p></li>
+<li><p>Functions: Perform self-contained actions on a thing.</p></li>
 <li><p>Argument:  The “things” (text, values, expressions, datasets, etc.)</p></li>
 </ul>
 <blockquote>
-<div><p>Note “parameters” are the variables during function definition. Arguments are the values we pass into these placeholders while calling the function.</p>
+<div><p>Note “parameters” are the variables as notated during function definition. Arguments are the values we pass into these placeholders while calling the function.<br />
+<img alt="params" src="../_images/params_vs_args.png" /></p>
 </div></blockquote>
 <ul class="simple">
 <li><p>Methods:   Type-specific functions (i.e., can only use a specific type of data and not other types). Use “dot” notation to utilize methods on a variable or other object.</p></li>
@@ -481,6 +482,24 @@
 <section id="data-types">
 <h2>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
 <p>Everything in Python has a type which determines how we can manipulate that piece of data. Be careful, it is easy to get confused when trying to complete multiple tasks that use lots of different variables!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the type() function to get the type of any variable if you&#39;re unsure: </span>
+<span class="n">x1</span> <span class="o">=</span> <span class="s2">&quot;Boolean&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+
+<span class="n">x2</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+&lt;class &#39;bool&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># float (decimals)</span>
@@ -595,9 +614,11 @@
 </div>
 </div>
 </div>
+<p>Lists can contain elements of almost any data type, including other lists!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;shark&#39;</span><span class="p">,</span> <span class="s1">&#39;dolphin&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="s1">&#39;cactus&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To get an element from a list within a list, double-index the original list!</span>
+<span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;shark&#39;</span><span class="p">,</span> <span class="s1">&#39;dolphin&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="s1">&#39;cactus&#39;</span><span class="p">]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
@@ -606,6 +627,22 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tree
 cat
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lists can also contain elements of different types simultaneously!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chimera</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lion&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;griffin&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">chimera</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">chimera</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+&lt;class &#39;float&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -898,6 +935,14 @@ or, the Modern Prom
 <h2>Error messages<a class="headerlink" href="#error-messages" title="Permalink to this headline">¶</a></h2>
 <p>Python’s learning curve can feel creative and beyond frustrating at the same time. Just remember that everyone encounters errors - lots of them. When you do, start debugging by investigating the type of error message you receive.</p>
 <p>Scroll to the end of the error message and read the last line to find the type of error.</p>
+<p><em>Helpful debugging tools/strategies:</em></p>
+<ol class="simple">
+<li><p>Googling the error text, and referring to a forum like StackOverflow</p></li>
+<li><p>(IDE-dependent) Placing breakpoints in your program and using the debugger tool to step through the program</p></li>
+<li><p>Strategically place print() statements to know where your program is reaching/failing to reach</p></li>
+<li><p>Ask a friend! A fresh set of eyes goes a long way when you’re working on code.</p></li>
+<li><p>Restart your IDE and/or your machine.</p></li>
+</ol>
 </section>
 <section id="id1">
 <h2>Challenge<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>

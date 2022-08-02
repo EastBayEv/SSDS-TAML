@@ -44,7 +44,9 @@ import scipy.sparse
 # 
 # * **Machine learning:** "Algorithims whose performance improve as they are exposed to more data over time."
 # 
-# * **Deep learning:** "Subset of machine learning in which multilayered neural networks learn from vast amounts of data."
+# * **Deep learning:** "Subset of machine learning in which multilayered neural networks learn from vast amounts of data." 
+# 
+# * **Neural network:** A type of algorithm modeled after the human brain, consisting of multiple layers of nodes/neurons.
 
 # ### _x_ and _y_ variables
 # 
@@ -82,7 +84,7 @@ import scipy.sparse
 # 
 # ![bv](img/bv.png)
 # 
-# * **Underfit:** A model is underfit if it performs poorly on the training data because it could not discern the relationship(s) between the **_x_** and **_y_variables.
+# * **Underfit:** A model is underfit if it performs poorly on the training data because it could not discern the relationship(s) between the **_x_** and **_y_** variables.
 # 
 # * **Overfit:** A model is overfit if it performs well on the training dataset but poorly on the test set. 
 # 
@@ -95,23 +97,21 @@ import scipy.sparse
 # ### Classification versus regression
 # 
 # * **Supervised classification:** models probability that **_y_** is 1 given the covariates **_x_** and is performed when **_y_** is categorical (either binary yes/no or multinomial): $Pr(y=1|x)$ 
-# * Medical diagnosis
-# * Image classification
-# * Fraud detection
-# * Sentiment analysis
+#     * Medical diagnosis
+#     * Image classification
+#     * Fraud detection
+#     * Sentiment analysis
 
 # * **Supervised regression:** models the conditional mean probability $E(y|x)$ and is performed when **_y_** is continuous (i.e., integer or float).
-# * Life expectancy
-# * Population growth
-# * Weather forecasting
-# * Stock market prediction
+#     * Life expectancy
+#     * Population growth
+#     * Weather forecasting
+#     * Stock market prediction
 
 # * **Supervised algorithms** include: 
-# * Regressions: ordinary least squares, generalized linear model, lasso
-# 
-# * Tree-based methods: decision tree, random forest, boosted trees
-# 
-# * Kernel-based methods: various; transform non-linear to linear space
+#     * Regressions: ordinary least squares, generalized linear model, lasso
+#     * Tree-based methods: decision tree, random forest, boosted trees
+#     * Kernel-based methods: various; transform non-linear to linear space
 
 # View scikit-learn's interactive documentation for estimator (algorithm) selection: https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
 # 
@@ -119,18 +119,16 @@ import scipy.sparse
 
 # * **Unsupervised machine learning:** algorithms are used to sort unlabeled datasets, without attempting to predict anything. 
 # 
-# The equation could simply look like: 
+#     * The equation could simply look like: $\sim\ x$
 # 
-# $\sim\ x$
+#     * Algorithms include: 
+#         * Clustering: hierarchical agglomerative, k-means, centroid, density-based, DBSCAN, GLRM  
 # 
-# Algorithms include: 
-# * Clustering: hierarchical agglomerative, k-means, centroid, density-based, DBSCAN, GLRM
+#         * Dimension reduction: PCA, t-SNE, UMAP
 # 
-# * Dimension reduction: PCA, t-SNE, UMAP
-
-# * **Reinforcement:** algorithims are used to make real-time decisions and skill acquisition in fields such as game-theory and robotics. 
-
-# * **Other:** semi-supervised, etc.
+#         * **Reinforcement:** algorithims are used to make real-time decisions and skill acquisition in fields such as game-theory and robotics. 
+# 
+#         * **Other:** semi-supervised, etc.
 
 # * **Bias in research**
 # 
@@ -138,12 +136,12 @@ import scipy.sparse
 
 # * **Ethical considerations:** 
 # 
-# Begin to familiarize yourself with the many ethnical points to consider along with their real-world implications.
-# 
-# * [Howard et al, 2017. Addressing bias in machine learning algorithms: A pilot study on emotion recognition for intelligent systems](https://ieeexplore.ieee.org/abstract/document/8025197?casa_token=xyJcglvpeyUAAAAA:_tpPmFLycMFQuTd4UC52Y2C5yxXignXv7OE1rgv01YwzOs2o9j_bMvIQPwD8IW2NT5awRJcl4g)
-# * [Noble, 2018. Algorithms of oppression: How search engines reinforce racism](https://nyupress.org/9781479837243/algorithms-of-oppression/)
-# * [Yapo and Weiss, 2018. Ethical implications of bias in machine learning](https://aisel.aisnet.org/hicss-51/os/topics_in_os/6/)
-# * [Mehrabi et al, 2021. A survey on bias and fairness in machine learning](https://dl.acm.org/doi/abs/10.1145/3457607?casa_token=HkkFHCUfRh0AAAAA%3Az5PprDD4p2VDEyZD7KeJzl67tlpTTA48RsIlqcqDYLROEfyJMTzHRjdYYN8SheqDRkvt_H1XXojANQ)
+#     * Begin to familiarize yourself with the many ethnical points to consider along with their real-world implications:
+#     
+#         * [Howard et al, 2017. Addressing bias in machine learning algorithms: A pilot study on emotion recognition for intelligent systems](https://ieeexplore.ieee.org/abstract/document/8025197?casa_token=xyJcglvpeyUAAAAA:_tpPmFLycMFQuTd4UC52Y2C5yxXignXv7OE1rgv01YwzOs2o9j_bMvIQPwD8IW2NT5awRJcl4g)
+#         * [Noble, 2018. Algorithms of oppression: How search engines reinforce racism](https://nyupress.org/9781479837243/algorithms-of-oppression/)
+#         * [Yapo and Weiss, 2018. Ethical implications of bias in machine learning](https://aisel.aisnet.org/hicss-51/os/topics_in_os/6/)
+#         * [Mehrabi et al, 2021. A survey on bias and fairness in machine learning](https://dl.acm.org/doi/abs/10.1145/3457607?casa_token=HkkFHCUfRh0AAAAA%3Az5PprDD4p2VDEyZD7KeJzl67tlpTTA48RsIlqcqDYLROEfyJMTzHRjdYYN8SheqDRkvt_H1XXojANQ)
 
 # ## OLS example - by "hand"
 # 
@@ -561,7 +559,7 @@ corpus
 
 # ### Bag of words model with `CountVectorizer`
 # 
-# A bag of words model removes punctuation and casefolds the text to lowercase before counting the words. 
+# The bag of words models represents text as a bag of its word, ignoring syntactical elements like grammar and word order while only preserving the multiplicy/frequency of unique tokens. Typically, a bag of words model removes punctuation and casefolds the text to lowercase before counting the words (i.e. 'Apple' and 'apple' will both count toward instances of the word, 'apple'). 
 
 # In[43]:
 
@@ -614,7 +612,16 @@ vectorizer.get_feature_names()
 
 
 # What does this tell us? 
-vectorizer.transform(['document']).toarray()
+vectorizer.transform(['document']).toarray() 
+
+
+# In[48]:
+
+
+# 'document' is present in our bag of words, and in the sparse matrix, occupies the second column!
+
+# What if we try to transform a token that isn't in our bag of words? 
+vectorizer.transform(['abracadabra']).toarray()
 
 
 # ### N-grams
@@ -626,18 +633,23 @@ vectorizer.transform(['document']).toarray()
 # * trigrams   `ngram_range = (1, 3)`
 # * etc.
 
-# In[48]:
+# In[49]:
 
 
+# token pattern is written using regular expressions (regex for short): 
+#      '\b' signifies the empty string ("") at the beginning or end of a word, 
+#      '\w' is any character, 
+#      '+' signifies that the regex can match one or more instances of the prior character (in this case, '\w')
+# question: what does '\b\w+\b' mean then? 
 bigram_vectorizer = CountVectorizer(ngram_range = (1,2),
-                                    token_pattern = r'\b\w+\b', 
-                                    min_df = 1)
+                                   token_pattern = r'\b\w+\b',
+                                   min_df = 1)
 bigram_vectorizer
 
 
 # Since we specify bigrams, both unigrams _and_ bigrams are returned!
 
-# In[49]:
+# In[50]:
 
 
 from sklearn.feature_extraction import DictVectorizer
@@ -647,13 +659,13 @@ bigram_analyzer('Welcome to Stanford Libraries!')
 
 # ### Apply n-grams to our above corpus
 
-# In[50]:
+# In[51]:
 
 
 corpus
 
 
-# In[51]:
+# In[52]:
 
 
 # perform the transformation
@@ -661,7 +673,7 @@ x = bigram_vectorizer.fit_transform(corpus).toarray()
 print(x)
 
 
-# In[52]:
+# In[53]:
 
 
 # get the feature (column) names
@@ -669,7 +681,7 @@ print(x)
 bigram_vectorizer.get_feature_names()
 
 
-# In[53]:
+# In[54]:
 
 
 # search for vocabulary words across the documents
@@ -681,7 +693,7 @@ x[:, feature_index]
 # 
 # Our vocabulary consists of 29 unigrams and bigrams across the four documents.
 
-# In[54]:
+# In[55]:
 
 
 # redefine x as sparse matrix (not array)
@@ -689,7 +701,7 @@ x = bigram_vectorizer.fit_transform(corpus)
 print(x)
 
 
-# In[55]:
+# In[56]:
 
 
 import scipy.sparse
@@ -697,7 +709,7 @@ corpus_df = pd.DataFrame(x.todense(), columns = bigram_vectorizer.get_feature_na
 corpus_df
 
 
-# In[56]:
+# In[57]:
 
 
 # The features (columns) are the vocabulary from the bigram version of our corpus variable above! 
