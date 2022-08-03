@@ -67,7 +67,7 @@ warnings.filterwarnings("ignore", category = DeprecationWarning)
 
 # ![unhrc](img/unhrc.jpg)
 # 
-# ## Corpus definition: United Nations Human Rights Council Documentation
+# ### Corpus definition: United Nations Human Rights Council Documentation
 # 
 # We will select eleven .txt files from the UN HRC as our corpus, stored within the subfolder "human_rights" folder inside the main "data" directory. 
 # 
@@ -332,7 +332,7 @@ tfidf_df['COUNTRY'] = countries
 tfidf_df
 
 
-# ## Examine unique words by each document/country
+# ### Examine unique words by each document/country
 # 
 # Change the country names to view their highest rated terms.
 
@@ -343,7 +343,7 @@ country = tfidf_df[tfidf_df['COUNTRY'] == 'jordan']
 country.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 
-# ## Topic modeling 
+# ### Singular value decomposition
 # 
 # ![tsvd](img/tsvd.png)
 # 
@@ -411,7 +411,7 @@ topics(tsvd, tf_features, 20)
 # 
 # [Repustate](https://www.repustate.com/blog/sentiment-analysis-challenges-with-solutions/)
 
-# ### Download the nltk built-in movie reviews dataset
+# ## Download the nltk built-in movie reviews dataset
 
 # In[36]:
 
@@ -561,13 +561,9 @@ my_features = tfidf.transform([my_review])
 model.predict(my_features)
 
 
-# ### Going further: Anchored topic modeling
+# ## Going further: Anchored topic modeling
 # 
-# "Correlation Explanation (CorEx) is a topic model that yields rich topics that are maximally informative about a set of documents. The advantage of using CorEx versus other topic models is that it can be easily run as an unsupervised, semi-supervised, or hierarchical topic model depending on a user's needs. For semi-supervision, CorEx allows a user to integrate their domain knowledge via "anchor words." This integration is flexible and allows the user to guide the topic model in the direction of those words. This allows for creative strategies that promote topic representation, separability, and aspects. More generally, this implementation of CorEx is good for clustering any sparse binary data."
-# 
-# Visit the GitHub repo: https://github.com/gregversteeg/corex_topic
-# 
-# Read the paper: Gallagher, R. J., Reing, K., Kale, D., and Ver Steeg, G. ["Anchored Correlation Explanation: Topic Modeling with Minimal Domain Knowledge."](https://transacl.org/ojs/index.php/tacl/article/view/1244) Transactions of the Association for Computational Linguistics (TACL), 2017.
+# Check out Chapter 4.5 in this book for BERTopic modeling!
 
 # ## Quiz - 20 newsgroups dataset
 # 
@@ -575,7 +571,7 @@ model.predict(my_features)
 # 
 # "The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date."
 
-# # Appendix: *More on text preprocessing*
+# ## Appendix: *More on text preprocessing*
 # 
 # While the exact steps you elect to use for text preprocessing will ultimately depend on applications, there are some more generalizable techniques that you can usually look to apply: 
 # 

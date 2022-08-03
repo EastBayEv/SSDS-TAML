@@ -303,200 +303,193 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#document-encoding-for-machine-learning">
+   Document encoding for machine learning
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#document-encoding-for-machine-learning">
-     Document encoding for machine learning
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#key-terms">
-     Key terms
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#topic-modeling">
-     Topic modeling
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-terms">
+   Key terms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topic-modeling">
+   Topic modeling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#corpus-definition-united-nations-human-rights-council-documentation">
      Corpus definition: United Nations Human Rights Council Documentation
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#define-the-corpus-directory">
-       Define the corpus directory
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#store-these-documents-in-a-data-frame">
-       Store these documents in a data frame
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#view-the-data-frame">
-       View the data frame
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#view-the-text-of-the-first-document">
-       View the text of the first document
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#english-text-preprocessing">
-     English text preprocessing
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#remove-non-alphanumeric-characters-punctuation">
-       Remove non-alphanumeric characters/punctuation
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#remove-digits">
-       Remove digits
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#remove-unicode-characters-such-as-and">
-       Remove unicode characters such as Ð and ð
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#remove-extra-spaces">
-       Remove extra spaces
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#convert-to-lowercase">
-       Convert to lowercase
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lemmatize">
-       Lemmatize
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#view-the-updated-data-frame">
-       View the updated data frame
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unsupervised-learning-with-tfidfvectorizer">
-     Unsupervised learning with
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       TfidfVectorizer()
-      </span>
-     </code>
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#convert-the-tfidf-sparse-matrix-to-data-frame">
-       Convert the tfidf sparse matrix to data frame
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#view-20-highest-weighted-words">
-       View 20 highest weighted words
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#add-country-name-to-tfidf-df">
-       Add country name to
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         tfidf_df
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#examine-unique-words-by-each-document-country">
-     Examine unique words by each document/country
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-the-corpus-directory">
+     Define the corpus directory
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Topic modeling
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#store-these-documents-in-a-data-frame">
+     Store these documents in a data frame
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#un-hrc-text-analysis-what-next">
-     UN HRC text analysis - what next?
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-data-frame">
+     View the data frame
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sentiment-analysis">
-     Sentiment analysis
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#download-the-nltk-built-in-movie-reviews-dataset">
-       Download the nltk built-in movie reviews dataset
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#define-x-reviews-and-y-judgements-variables">
-       Define x (reviews) and y (judgements) variables
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#shuffle-the-reviews">
-       Shuffle the reviews
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pipelines">
-       Pipelines
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#one-standard-way">
-       One standard way
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#k-fold-cross-validated-model">
-       <span class="math notranslate nohighlight">
-        \(k\)
-       </span>
-       -fold cross-validated model
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#top-25-features-for-positive-and-negative-reviews">
-       Top 25 features for positive and negative reviews
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#going-further-anchored-topic-modeling">
-       Going further: Anchored topic modeling
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quiz-20-newsgroups-dataset">
-     Quiz - 20 newsgroups dataset
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-text-of-the-first-document">
+     View the text of the first document
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#english-text-preprocessing">
+   English text preprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-non-alphanumeric-characters-punctuation">
+     Remove non-alphanumeric characters/punctuation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-digits">
+     Remove digits
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-unicode-characters-such-as-and">
+     Remove unicode characters such as Ð and ð
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-extra-spaces">
+     Remove extra spaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-to-lowercase">
+     Convert to lowercase
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lemmatize">
+     Lemmatize
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-updated-data-frame">
+     View the updated data frame
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning-with-tfidfvectorizer">
+   Unsupervised learning with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     TfidfVectorizer()
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-the-tfidf-sparse-matrix-to-data-frame">
+     Convert the tfidf sparse matrix to data frame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-20-highest-weighted-words">
+     View 20 highest weighted words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-country-name-to-tfidf-df">
+     Add country name to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       tfidf_df
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examine-unique-words-by-each-document-country">
+     Examine unique words by each document/country
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#singular-value-decomposition">
+     Singular value decomposition
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-hrc-text-analysis-what-next">
+   UN HRC text analysis - what next?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentiment-analysis">
+   Sentiment analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-the-nltk-built-in-movie-reviews-dataset">
+   Download the nltk built-in movie reviews dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-x-reviews-and-y-judgements-variables">
+     Define x (reviews) and y (judgements) variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shuffle-the-reviews">
+     Shuffle the reviews
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pipelines">
+     Pipelines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-standard-way">
+     One standard way
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-fold-cross-validated-model">
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     -fold cross-validated model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#top-25-features-for-positive-and-negative-reviews">
+     Top 25 features for positive and negative reviews
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#going-further-anchored-topic-modeling">
+   Going further: Anchored topic modeling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quiz-20-newsgroups-dataset">
+   Quiz - 20 newsgroups dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#appendix-more-on-text-preprocessing">
    Appendix:
    <em>
@@ -580,12 +573,12 @@
 <p><img alt="topic" src="../_images/topic.png" /></p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Topic_model">Wikipedia</a></p>
 <p><img alt="unhrc" src="../_images/unhrc.jpg" /></p>
-</section>
 <section id="corpus-definition-united-nations-human-rights-council-documentation">
-<h2>Corpus definition: United Nations Human Rights Council Documentation<a class="headerlink" href="#corpus-definition-united-nations-human-rights-council-documentation" title="Permalink to this headline">¶</a></h2>
+<h3>Corpus definition: United Nations Human Rights Council Documentation<a class="headerlink" href="#corpus-definition-united-nations-human-rights-council-documentation" title="Permalink to this headline">¶</a></h3>
 <p>We will select eleven .txt files from the UN HRC as our corpus, stored within the subfolder “human_rights” folder inside the main “data” directory.</p>
 <p>These documents contain information about human rights recommendations made by member nations towards countries deemed to be in violation of the HRC.</p>
 <p><a class="reference external" href="https://www.ohchr.org/en/hrbodies/hrc/pages/home.aspx">Learn more about the UN HRC by clicking here.</a></p>
+</section>
 <section id="define-the-corpus-directory">
 <h3>Define the corpus directory<a class="headerlink" href="#define-the-corpus-directory" title="Permalink to this headline">¶</a></h3>
 <p>Set the directory’s file path and print the files it contains.</p>
@@ -2039,9 +2032,8 @@ dtype: float64
 </div></div></div>
 </div>
 </section>
-</section>
 <section id="examine-unique-words-by-each-document-country">
-<h2>Examine unique words by each document/country<a class="headerlink" href="#examine-unique-words-by-each-document-country" title="Permalink to this headline">¶</a></h2>
+<h3>Examine unique words by each document/country<a class="headerlink" href="#examine-unique-words-by-each-document-country" title="Permalink to this headline">¶</a></h3>
 <p>Change the country names to view their highest rated terms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2077,8 +2069,8 @@ dtype: float64
 </div>
 </div>
 </section>
-<section id="id1">
-<h2>Topic modeling<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<section id="singular-value-decomposition">
+<h3>Singular value decomposition<a class="headerlink" href="#singular-value-decomposition" title="Permalink to this headline">¶</a></h3>
 <p><img alt="tsvd" src="../_images/tsvd.png" /></p>
 <p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2021/06/part-16-step-by-step-guide-to-master-nlp-topic-modelling-using-lsa/">Analytics Vidhya</a></p>
 <ul class="simple">
@@ -2144,10 +2136,6 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
-  warnings.warn(msg, category=FutureWarning)
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic #0:
 turkmenistan kazakhstan jordan fiji tuvalu divoire te divoire monaco te reconciliation bangladeshs san elimination violence elimination violence women kazakhstans fgm djiboutis marino san marino violence women law
 
@@ -2164,8 +2152,13 @@ Topic #4:
 monaco jordan tuvalu jordanian press publications publications monegasque syrian constitutional amendments bangladeshs publications law press publications law principality nationality commended monaco syrian refugees reservations des sanitation websites
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
 </div>
 </div>
+</div>
+</section>
 </section>
 <section id="un-hrc-text-analysis-what-next">
 <h2>UN HRC text analysis - what next?<a class="headerlink" href="#un-hrc-text-analysis-what-next" title="Permalink to this headline">¶</a></h2>
@@ -2180,8 +2173,9 @@ monaco jordan tuvalu jordanian press publications publications monegasque syrian
 <p>Sentiment analysis is the contextual mining of text data that elicits abstract information in source materials to determine if data are positive, negative, or neutral.</p>
 <p><img alt="sa" src="../_images/sa.jpg" /></p>
 <p><a class="reference external" href="https://www.repustate.com/blog/sentiment-analysis-challenges-with-solutions/">Repustate</a></p>
+</section>
 <section id="download-the-nltk-built-in-movie-reviews-dataset">
-<h3>Download the nltk built-in movie reviews dataset<a class="headerlink" href="#download-the-nltk-built-in-movie-reviews-dataset" title="Permalink to this headline">¶</a></h3>
+<h2>Download the nltk built-in movie reviews dataset<a class="headerlink" href="#download-the-nltk-built-in-movie-reviews-dataset" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
@@ -2201,7 +2195,6 @@ monaco jordan tuvalu jordanian press publications publications monegasque syrian
 </div>
 </div>
 </div>
-</section>
 <section id="define-x-reviews-and-y-judgements-variables">
 <h3>Define x (reviews) and y (judgements) variables<a class="headerlink" href="#define-x-reviews-and-y-judgements-variables" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
@@ -2463,21 +2456,18 @@ Top features for negative reviews:
 </div>
 </div>
 </section>
-<section id="going-further-anchored-topic-modeling">
-<h3>Going further: Anchored topic modeling<a class="headerlink" href="#going-further-anchored-topic-modeling" title="Permalink to this headline">¶</a></h3>
-<p>“Correlation Explanation (CorEx) is a topic model that yields rich topics that are maximally informative about a set of documents. The advantage of using CorEx versus other topic models is that it can be easily run as an unsupervised, semi-supervised, or hierarchical topic model depending on a user’s needs. For semi-supervision, CorEx allows a user to integrate their domain knowledge via “anchor words.” This integration is flexible and allows the user to guide the topic model in the direction of those words. This allows for creative strategies that promote topic representation, separability, and aspects. More generally, this implementation of CorEx is good for clustering any sparse binary data.”</p>
-<p>Visit the GitHub repo: <a class="reference external" href="https://github.com/gregversteeg/corex_topic">https://github.com/gregversteeg/corex_topic</a></p>
-<p>Read the paper: Gallagher, R. J., Reing, K., Kale, D., and Ver Steeg, G. <a class="reference external" href="https://transacl.org/ojs/index.php/tacl/article/view/1244">“Anchored Correlation Explanation: Topic Modeling with Minimal Domain Knowledge.”</a> Transactions of the Association for Computational Linguistics (TACL), 2017.</p>
 </section>
+<section id="going-further-anchored-topic-modeling">
+<h2>Going further: Anchored topic modeling<a class="headerlink" href="#going-further-anchored-topic-modeling" title="Permalink to this headline">¶</a></h2>
+<p>Check out Chapter 4.5 in this book for BERTopic modeling!</p>
 </section>
 <section id="quiz-20-newsgroups-dataset">
 <h2>Quiz - 20 newsgroups dataset<a class="headerlink" href="#quiz-20-newsgroups-dataset" title="Permalink to this headline">¶</a></h2>
 <p>Go through the 20 newsgroups text dataset to get familiar with newspaper data: <a class="reference external" href="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html">https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html</a></p>
 <p>“The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date.”</p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="appendix-more-on-text-preprocessing">
-<h1>Appendix: <em>More on text preprocessing</em><a class="headerlink" href="#appendix-more-on-text-preprocessing" title="Permalink to this headline">¶</a></h1>
+<section id="appendix-more-on-text-preprocessing">
+<h2>Appendix: <em>More on text preprocessing</em><a class="headerlink" href="#appendix-more-on-text-preprocessing" title="Permalink to this headline">¶</a></h2>
 <p>While the exact steps you elect to use for text preprocessing will ultimately depend on applications, there are some more generalizable techniques that you can usually look to apply:</p>
 <ul class="simple">
 <li><p><strong>Expand contractions</strong> - contractions like “don’t”, “they’re”, and “it’s” all count as unique tokens if punctuation is simply removed (converting them to “dont”, “theyre”, “its”, respectively). Decompose contractions into their constituent words to get more accurate counts of tokens like “is,” “they,” etc. <a class="reference external" href="https://pypi.org/project/pycontractions/">pycontractions</a> can be useful here!</p>
@@ -2495,43 +2485,50 @@ Top features for negative reviews:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pycontractions
-  Using cached pycontractions-2.0.1-py3-none-any.whl (9.6 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached pycontractions-2.0.1-py3-none-any.whl (9.6 kB)
+Requirement already satisfied: pyemd&gt;=0.4.4 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pycontractions) (0.5.1)
+Requirement already satisfied: gensim&gt;=2.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pycontractions) (4.1.2)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting language-check&gt;=1.0
   Using cached language-check-1.1.tar.gz (33 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: gensim&gt;=2.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pycontractions) (4.1.2)
-Requirement already satisfied: pyemd&gt;=0.4.4 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pycontractions) (0.5.1)
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: smart-open&gt;=1.8.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from gensim&gt;=2.0-&gt;pycontractions) (5.2.1)
 Requirement already satisfied: numpy&gt;=1.17.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from gensim&gt;=2.0-&gt;pycontractions) (1.20.3)
 Requirement already satisfied: scipy&gt;=0.18.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from gensim&gt;=2.0-&gt;pycontractions) (1.7.3)
-Building wheels for collected packages: language-check
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for language-check (setup.py) ... ?25l- error
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building wheels for collected packages: language-check
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for language-check (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> error
 <span class=" -Color -Color-Red">  ERROR: Command errored out with exit status 1:</span>
-<span class=" -Color -Color-Red">   command: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; bdist_wheel -d /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-wheel-fcwxe_5f</span>
-<span class=" -Color -Color-Red">       cwd: /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/</span>
+<span class=" -Color -Color-Red">   command: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; bdist_wheel -d /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-wheel-ptglwl3a</span>
+<span class=" -Color -Color-Red">       cwd: /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/</span>
 <span class=" -Color -Color-Red">  Complete output (35 lines):</span>
 <span class=" -Color -Color-Red">  Traceback (most recent call last):</span>
 <span class=" -Color -Color-Red">    File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</span>
-<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&quot;, line 595, in &lt;module&gt;</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&quot;, line 595, in &lt;module&gt;</span>
 <span class=" -Color -Color-Red">      sys.exit(main())</span>
-<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&quot;, line 590, in main</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&quot;, line 590, in main</span>
 <span class=" -Color -Color-Red">      run_setup_hooks(config)</span>
-<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&quot;, line 561, in run_setup_hooks</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&quot;, line 561, in run_setup_hooks</span>
 <span class=" -Color -Color-Red">      language_tool_hook(config)</span>
-<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&quot;, line 584, in language_tool_hook</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&quot;, line 584, in language_tool_hook</span>
 <span class=" -Color -Color-Red">      download_lt()</span>
-<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/download_lt.py&quot;, line 128, in download_lt</span>
+<span class=" -Color -Color-Red">    File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/download_lt.py&quot;, line 128, in download_lt</span>
 <span class=" -Color -Color-Red">      with closing(urlopen(url)) as u:</span>
 <span class=" -Color -Color-Red">    File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 222, in urlopen</span>
 <span class=" -Color -Color-Red">      return opener.open(url, data, timeout)</span>
@@ -2568,22 +2565,25 @@ Building wheels for collected packages: language-check
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: language-check, pycontractions
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Running setup.py install for language-check ... ?25l- error
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Running setup.py install for language-check ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> error
 <span class=" -Color -Color-Red">    ERROR: Command errored out with exit status 1:</span>
-<span class=" -Color -Color-Red">     command: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; install --record /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-record-p_0k6a34/install-record.txt --single-version-externally-managed --compile --install-headers /Users/evanmuzzall/opt/anaconda3/include/python3.8/language-check</span>
-<span class=" -Color -Color-Red">         cwd: /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/</span>
+<span class=" -Color -Color-Red">     command: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; install --record /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-record-_dfso3dr/install-record.txt --single-version-externally-managed --compile --install-headers /Users/evanmuzzall/opt/anaconda3/include/python3.8/language-check</span>
+<span class=" -Color -Color-Red">         cwd: /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/</span>
 <span class=" -Color -Color-Red">    Complete output (35 lines):</span>
 <span class=" -Color -Color-Red">    Traceback (most recent call last):</span>
 <span class=" -Color -Color-Red">      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</span>
-<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&quot;, line 595, in &lt;module&gt;</span>
+<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&quot;, line 595, in &lt;module&gt;</span>
 <span class=" -Color -Color-Red">        sys.exit(main())</span>
-<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&quot;, line 590, in main</span>
+<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&quot;, line 590, in main</span>
 <span class=" -Color -Color-Red">        run_setup_hooks(config)</span>
-<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&quot;, line 561, in run_setup_hooks</span>
+<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&quot;, line 561, in run_setup_hooks</span>
 <span class=" -Color -Color-Red">        language_tool_hook(config)</span>
-<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&quot;, line 584, in language_tool_hook</span>
+<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&quot;, line 584, in language_tool_hook</span>
 <span class=" -Color -Color-Red">        download_lt()</span>
-<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/download_lt.py&quot;, line 128, in download_lt</span>
+<span class=" -Color -Color-Red">      File &quot;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/download_lt.py&quot;, line 128, in download_lt</span>
 <span class=" -Color -Color-Red">        with closing(urlopen(url)) as u:</span>
 <span class=" -Color -Color-Red">      File &quot;/Users/evanmuzzall/opt/anaconda3/lib/python3.8/urllib/request.py&quot;, line 222, in urlopen</span>
 <span class=" -Color -Color-Red">        return opener.open(url, data, timeout)</span>
@@ -2609,13 +2609,11 @@ Building wheels for collected packages: language-check
 <span class=" -Color -Color-Red">        raise HTTPError(req.full_url, code, msg, hdrs, fp)</span>
 <span class=" -Color -Color-Red">    urllib.error.HTTPError: HTTP Error 403: Forbidden</span>
 <span class=" -Color -Color-Red">    ----------------------------------------</span>
-<span class=" -Color -Color-Red">ERROR: Command errored out with exit status 1: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-mhwmjq27/language-check_485a99dd0b31474bbde3b372b9c5d84d/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; install --record /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-record-p_0k6a34/install-record.txt --single-version-externally-managed --compile --install-headers /Users/evanmuzzall/opt/anaconda3/include/python3.8/language-check Check the logs for full command output.</span>
+<span class=" -Color -Color-Red">ERROR: Command errored out with exit status 1: /Users/evanmuzzall/opt/anaconda3/bin/python -u -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-install-iixb_st6/language-check_45fdd84eb38c47ccbaaecb1cbb737d19/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; install --record /private/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/pip-record-_dfso3dr/install-record.txt --single-version-externally-managed --compile --install-headers /Users/evanmuzzall/opt/anaconda3/include/python3.8/language-check Check the logs for full command output.</span>
 <span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 <span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 <span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h
+?25h
 </pre></div>
 </div>
 </div>
@@ -2640,7 +2638,7 @@ Building wheels for collected packages: language-check
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">9</span><span class="n">g</span><span class="o">/</span><span class="n">fhnd1v790cj5ccxlv4rcvsy40000gq</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_32322</span><span class="o">/</span><span class="mf">1793476377.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">9</span><span class="n">g</span><span class="o">/</span><span class="n">fhnd1v790cj5ccxlv4rcvsy40000gq</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_32718</span><span class="o">/</span><span class="mf">1793476377.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">pycontractions</span> <span class="kn">import</span> <span class="n">Contractions</span> <span class="k">as</span> <span class="n">ct</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># load contractions from a vector model - many models accepted!</span>
@@ -2733,6 +2731,7 @@ Building wheels for collected packages: language-check
 </ul>
 </li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
