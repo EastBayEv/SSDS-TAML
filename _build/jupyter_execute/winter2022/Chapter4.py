@@ -120,7 +120,7 @@ for i in range(len(sentences1)):
     print("{} \t\t {} \t\t Score: {:.4f}".format(sentences1[i], sentences2[i], cosine_scores[i][i]))
 
 
-# ### Find pairs of sentences with highest cosine similarity scores
+# ## Find pairs of sentences with highest cosine similarity scores
 
 # In[6]:
 

@@ -416,67 +416,69 @@
 Requirement already satisfied: bertopic in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (0.9.3)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: hdbscan&gt;=0.8.27 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (0.8.27)
-Requirement already satisfied: umap-learn&gt;=0.5.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (0.5.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyyaml&lt;6.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (5.4.1)
 Requirement already satisfied: pandas&gt;=1.1.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (1.4.1)
-Requirement already satisfied: scikit-learn&gt;=0.22.2.post1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (1.0.2)
-Requirement already satisfied: sentence-transformers&gt;=0.4.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (2.2.0)
 Requirement already satisfied: plotly&lt;4.14.3,&gt;=4.7.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (4.14.2)
+Requirement already satisfied: hdbscan&gt;=0.8.27 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (0.8.27)
+Requirement already satisfied: umap-learn&gt;=0.5.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (0.5.2)
 Requirement already satisfied: numpy&gt;=1.20.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (1.20.3)
-Requirement already satisfied: pyyaml&lt;6.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (5.4.1)
+Requirement already satisfied: sentence-transformers&gt;=0.4.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (2.2.0)
 Requirement already satisfied: tqdm&gt;=4.41.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (4.62.3)
-Requirement already satisfied: cython&gt;=0.27 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (0.29.25)
-Requirement already satisfied: joblib&gt;=1.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (1.1.0)
-Requirement already satisfied: scipy&gt;=1.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (1.7.3)
+Requirement already satisfied: scikit-learn&gt;=0.22.2.post1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (1.0.2)
 Requirement already satisfied: six in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (1.16.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dateutil&gt;=2.8.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pandas&gt;=1.1.5-&gt;bertopic) (2.8.2)
+Requirement already satisfied: cython&gt;=0.27 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (0.29.25)
+Requirement already satisfied: scipy&gt;=1.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (1.7.3)
+Requirement already satisfied: joblib&gt;=1.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (1.1.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pandas&gt;=1.1.5-&gt;bertopic) (2.8.2)
 Requirement already satisfied: pytz&gt;=2020.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pandas&gt;=1.1.5-&gt;bertopic) (2021.3)
 Requirement already satisfied: retrying&gt;=1.3.3 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from plotly&lt;4.14.3,&gt;=4.7.0-&gt;bertopic) (1.3.3)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from scikit-learn&gt;=0.22.2.post1-&gt;bertopic) (2.2.0)
-Requirement already satisfied: sentencepiece in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.1.96)
-Requirement already satisfied: nltk in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.7)
-Requirement already satisfied: transformers&lt;5.0.0,&gt;=4.6.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (4.12.3)
-Requirement already satisfied: torchvision in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.11.1)
-Requirement already satisfied: huggingface-hub in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.1.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from scikit-learn&gt;=0.22.2.post1-&gt;bertopic) (2.2.0)
 Requirement already satisfied: torch&gt;=1.6.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (1.10.0)
+Requirement already satisfied: huggingface-hub in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.1.0)
+Requirement already satisfied: transformers&lt;5.0.0,&gt;=4.6.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (4.12.3)
+Requirement already satisfied: sentencepiece in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.1.96)
+Requirement already satisfied: torchvision in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.11.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: typing-extensions in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from torch&gt;=1.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.10.0.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nltk in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.7)
+Requirement already satisfied: typing-extensions in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from torch&gt;=1.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.10.0.2)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: packaging&gt;=20.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (21.3)
-Requirement already satisfied: tokenizers&lt;0.11,&gt;=0.10.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.10.3)
-Requirement already satisfied: requests in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2.27.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: filelock in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.4.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: requests in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2.27.1)
 Requirement already satisfied: sacremoses in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.0.46)
+Requirement already satisfied: tokenizers&lt;0.11,&gt;=0.10.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.10.3)
 Requirement already satisfied: regex!=2019.12.17 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2021.11.2)
-Requirement already satisfied: filelock in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.4.2)
+Requirement already satisfied: packaging&gt;=20.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (21.3)
+Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from packaging&gt;=20.0-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.0.4)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from packaging&gt;=20.0-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.0.4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numba&gt;=0.49 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from umap-learn&gt;=0.5.0-&gt;bertopic) (0.54.1)
 Requirement already satisfied: pynndescent&gt;=0.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from umap-learn&gt;=0.5.0-&gt;bertopic) (0.5.5)
-Requirement already satisfied: numba&gt;=0.49 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from umap-learn&gt;=0.5.0-&gt;bertopic) (0.54.1)
 Requirement already satisfied: llvmlite&lt;0.38,&gt;=0.37.0rc1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from numba&gt;=0.49-&gt;umap-learn&gt;=0.5.0-&gt;bertopic) (0.37.0)
 Requirement already satisfied: setuptools in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from numba&gt;=0.49-&gt;umap-learn&gt;=0.5.0-&gt;bertopic) (58.0.4)
+Requirement already satisfied: click in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from nltk-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (8.0.3)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: click in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from nltk-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (8.0.3)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (1.26.8)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2021.10.8)
 Requirement already satisfied: charset-normalizer~=2.0.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2.0.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2021.10.8)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (1.26.8)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.3)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pillow!=8.3.0,&gt;=5.3.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from torchvision-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (8.4.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 <span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zsh:1: no matches found: bertopic[flair]
@@ -565,7 +567,7 @@ regular season game.          PENS RULE!!!
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
 KeyboardInterrupt                         Traceback (most recent call last)
-/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_31970/742668044.py in &lt;module&gt;
+/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_32413/742668044.py in &lt;module&gt;
 ----&gt; 1 topics, probs = model.fit_transform(documents)
 
 ~/opt/anaconda3/lib/python3.8/site-packages/bertopic/_bertopic.py in fit_transform(self, documents, embeddings, y)
@@ -657,11 +659,23 @@ KeyboardInterrupt                         Traceback (most recent call last)
    1104         full_backward_hooks, non_full_backward_hooks = [], []
 
 ~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask, past_key_value, output_attentions)
-    468         # decoder uni-directional self-attention cached key/values tuple is at positions 1,2
-    469         self_attn_past_key_value = past_key_value[:2] if past_key_value is not None else None
---&gt; 470         self_attention_outputs = self.attention(
-    471             hidden_states,
-    472             attention_mask,
+    509             present_key_value = present_key_value + cross_attn_present_key_value
+    510 
+--&gt; 511         layer_output = apply_chunking_to_forward(
+    512             self.feed_forward_chunk, self.chunk_size_feed_forward, self.seq_len_dim, attention_output
+    513         )
+
+~/opt/anaconda3/lib/python3.8/site-packages/transformers/modeling_utils.py in apply_chunking_to_forward(forward_fn, chunk_size, chunk_dim, *input_tensors)
+   2347         return torch.cat(output_chunks, dim=chunk_dim)
+   2348 
+-&gt; 2349     return forward_fn(*input_tensors)
+
+~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in feed_forward_chunk(self, attention_output)
+    521 
+    522     def feed_forward_chunk(self, attention_output):
+--&gt; 523         intermediate_output = self.intermediate(attention_output)
+    524         layer_output = self.output(intermediate_output, attention_output)
+    525         return layer_output
 
 ~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
    1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
@@ -670,26 +684,19 @@ KeyboardInterrupt                         Traceback (most recent call last)
    1103         # Do not call functions when jit is used
    1104         full_backward_hooks, non_full_backward_hooks = [], []
 
-~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask, past_key_value, output_attentions)
-    398         output_attentions=False,
-    399     ):
---&gt; 400         self_outputs = self.self(
-    401             hidden_states,
-    402             attention_mask,
+~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, hidden_states)
+    423     def forward(self, hidden_states):
+    424         hidden_states = self.dense(hidden_states)
+--&gt; 425         hidden_states = self.intermediate_act_fn(hidden_states)
+    426         return hidden_states
+    427 
 
-~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
-   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
-   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
--&gt; 1102             return forward_call(*input, **kwargs)
-   1103         # Do not call functions when jit is used
-   1104         full_backward_hooks, non_full_backward_hooks = [], []
-
-~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask, past_key_value, output_attentions)
-    323         if attention_mask is not None:
-    324             # Apply the attention mask is (precomputed for all layers in BertModel forward() function)
---&gt; 325             attention_scores = attention_scores + attention_mask
-    326 
-    327         # Normalize the attention scores to probabilities.
+~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/functional.py in gelu(input)
+   1554     if has_torch_function_unary(input):
+   1555         return handle_torch_function(gelu, (input,), input)
+-&gt; 1556     return torch._C._nn.gelu(input)
+   1557 
+   1558 
 
 KeyboardInterrupt: 
 </pre></div>

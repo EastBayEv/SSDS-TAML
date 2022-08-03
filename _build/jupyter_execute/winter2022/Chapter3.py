@@ -59,7 +59,7 @@ warnings.filterwarnings("ignore", category = DeprecationWarning)
 # 
 # [towardsdatascience](https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558)
 
-# * **Topic modeling:** 
+# ## Topic modeling
 # 
 # ![topic](img/topic.png)
 # 
@@ -391,13 +391,15 @@ tf_features = tf_vectorizer.get_feature_names()
 topics(tsvd, tf_features, 20)
 
 
-# ### UN HRC text analysis - what next? 
+# ## UN HRC text analysis - what next? 
 # 
 # Keep in mind that we have not even begun to consider named entities and parts of speech. How might country names be swamping the five topics produced? 
 # 
 # [Read this stack overflow post to learn about the possibility of having too few documents in your corpus](https://stats.stackexchange.com/questions/302965/some-topics-with-all-equal-weights-when-using-latentdirichletallocation-from-sci)
 # 
 # [Also, read this post about how to grid search for the best topic models](https://www.machinelearningplus.com/nlp/topic-modeling-python-sklearn-examples/)
+# 
+# Use BERTopic (see Chapter 4.5)
 # 
 # TODO: visualize, named entity recognition, part of speech tagging, hyphenated words, contractions, context, importance of stopwords, etc.
 
@@ -465,7 +467,7 @@ x[0], print("Human review was:", y[0])
 # 
 # scikit-learn offers hand ways to build machine learning pipelines: https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
 
-# ### The "standard" way
+# ### One standard way
 
 # In[42]:
 
@@ -573,7 +575,7 @@ model.predict(my_features)
 # 
 # "The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date."
 
-# ### Appendix: *More on text preprocessing*
+# # Appendix: *More on text preprocessing*
 # 
 # While the exact steps you elect to use for text preprocessing will ultimately depend on applications, there are some more generalizable techniques that you can usually look to apply: 
 # 
