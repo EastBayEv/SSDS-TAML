@@ -10,3 +10,4 @@ regex
 tensorflow
 pycontractions
 cleanco
+language_check
