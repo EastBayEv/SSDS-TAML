@@ -578,97 +578,42 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking whether there is an H2O instance running at http://localhost:54321 .
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bad pipe message: %s [b&#39;t: H2O Python client/3.8.8 (default, Apr 13 2021, 12:59:45) [Clang 10.0.0 ]\r\nAccept-Encoding: gzip, &#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> connected.
+Warning: Your H2O cluster version is too old (10 months and 18 days)!Please download and install the latest version from http://h2o.ai/download/
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bad pipe message: %s [b&#39;t: H2O Python client/3.8.8 (default, Apr 13 2021, 12:59:45) [Clang 10.0.0 ]\r\nAccept-Encoding: gzip, &#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bad pipe message: %s [b&#39;t: H2O Python client/3.8.8 (default, Apr 13 2021, 12:59:45) [Clang 10.0.0 ]\r\nAccept-Encoding: gzip, &#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bad pipe message: %s [b&#39;t: H2O Python client/3.8.8 (default, Apr 13 2021, 12:59:45) [Clang 10.0.0 ]\r\nAccept-Encoding: gzip, &#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bad pipe message: %s [b&#39;t: H2O Python client/3.8.8 (default, Apr 13 2021, 12:59:45) [Clang 10.0.0 ]\r\nAccept-Encoding: gzip, &#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> not found.
-Attempting to start a local H2O server...
-  Java Version: java version &quot;1.8.0_333&quot;; Java(TM) SE Runtime Environment (build 1.8.0_333-b02); Java HotSpot(TM) 64-Bit Server VM (build 25.333-b02, mixed mode)
-  Starting server from /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/bin/h2o.jar
-  Ice root: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpajo0cbrx
-  JVM stdout: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpajo0cbrx/h2o_evanmuzzall_started_from_python.out
-  JVM stderr: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpajo0cbrx/h2o_evanmuzzall_started_from_python.err
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">H2OConnectionError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
-<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/h2o/h2o.py</span> in <span class="ni">init</span><span class="nt">(url, ip, port, name, https, cacert, insecure, username, password, cookies, proxy, start_h2o, nthreads, ice_root, log_dir, log_level, max_log_file_size, enable_assertions, max_mem_size, min_mem_size, strict_version_check, ignore_config, extra_classpath, jvm_custom_args, bind_to_localhost, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">250</span>         <span class="n">h2oconn</span> <span class="o">=</span> <span class="n">H2OConnection</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">https</span><span class="o">=</span><span class="n">https</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">251</span>                                      <span class="n">verify_ssl_certificates</span><span class="o">=</span><span class="n">verify_ssl_certificates</span><span class="p">,</span> <span class="n">cacert</span><span class="o">=</span><span class="n">cacert</span><span class="p">,</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/connection.py</span> in <span class="ni">open</span><span class="nt">(server, url, ip, port, name, https, auth, verify_ssl_certificates, cacert, proxy, cookies, verbose, msgs, strict_version_check)</span>
-<span class="g g-Whitespace">    </span><span class="mi">384</span>             <span class="n">conn</span><span class="o">.</span><span class="n">_timeout</span> <span class="o">=</span> <span class="mf">3.0</span>
-<span class="ne">--&gt; </span><span class="mi">385</span>             <span class="n">conn</span><span class="o">.</span><span class="n">_cluster</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">_test_connection</span><span class="p">(</span><span class="n">retries</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">msgs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">386</span>             <span class="c1"># If a server is unable to respond within 1s, it should be considered a bug. However we disable this</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/connection.py</span> in <span class="ni">_test_connection</span><span class="nt">(self, max_retries, messages)</span>
-<span class="g g-Whitespace">    </span><span class="mi">680</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">681</span>             <span class="k">raise</span> <span class="n">H2OConnectionError</span><span class="p">(</span><span class="s2">&quot;Could not establish link to the H2O cloud </span><span class="si">%s</span><span class="s2"> after </span><span class="si">%d</span><span class="s2"> retries</span><span class="se">\n</span><span class="si">%s</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">682</span>                                      <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_base_url</span><span class="p">,</span> <span class="n">max_retries</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">errors</span><span class="p">)))</span>
-
-<span class="ne">H2OConnectionError</span>: Could not establish link to the H2O cloud http://localhost:54321 after 5 retries
-<span class="p">[</span><span class="mi">42</span><span class="p">:</span><span class="mf">45.74</span><span class="p">]</span> <span class="n">H2OConnectionError</span><span class="p">:</span> <span class="n">Timeout</span> <span class="n">after</span> <span class="mf">3.009</span><span class="n">s</span>
-<span class="p">[</span><span class="mi">42</span><span class="p">:</span><span class="mf">48.95</span><span class="p">]</span> <span class="n">H2OConnectionError</span><span class="p">:</span> <span class="n">Timeout</span> <span class="n">after</span> <span class="mf">3.004</span><span class="n">s</span>
-<span class="p">[</span><span class="mi">42</span><span class="p">:</span><span class="mf">52.15</span><span class="p">]</span> <span class="n">H2OConnectionError</span><span class="p">:</span> <span class="n">Timeout</span> <span class="n">after</span> <span class="mf">3.005</span><span class="n">s</span>
-<span class="p">[</span><span class="mi">42</span><span class="p">:</span><span class="mf">55.36</span><span class="p">]</span> <span class="n">H2OConnectionError</span><span class="p">:</span> <span class="n">Timeout</span> <span class="n">after</span> <span class="mf">3.007</span><span class="n">s</span>
-<span class="p">[</span><span class="mi">42</span><span class="p">:</span><span class="mf">58.57</span><span class="p">]</span> <span class="n">H2OConnectionError</span><span class="p">:</span> <span class="n">Timeout</span> <span class="n">after</span> <span class="mf">3.003</span><span class="n">s</span>
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">9</span><span class="n">g</span><span class="o">/</span><span class="n">fhnd1v790cj5ccxlv4rcvsy40000gq</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_30744</span><span class="o">/</span><span class="mf">1198281118.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">h2o</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">nthreads</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_mem_size</span><span class="o">=</span><span class="s1">&#39;2G&#39;</span><span class="p">)</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/h2o/h2o.py</span> in <span class="ni">init</span><span class="nt">(url, ip, port, name, https, cacert, insecure, username, password, cookies, proxy, start_h2o, nthreads, ice_root, log_dir, log_level, max_log_file_size, enable_assertions, max_mem_size, min_mem_size, strict_version_check, ignore_config, extra_classpath, jvm_custom_args, bind_to_localhost, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">265</span>                                      <span class="s1">&#39; instance of H2O with https manually &#39;</span>
-<span class="g g-Whitespace">    </span><span class="mi">266</span>                                      <span class="s1">&#39;(https://docs.h2o.ai/h2o/latest-stable/h2o-docs/welcome.html#new-user-quick-start).&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">267</span>         <span class="n">hs</span> <span class="o">=</span> <span class="n">H2OLocalServer</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">nthreads</span><span class="o">=</span><span class="n">nthreads</span><span class="p">,</span> <span class="n">enable_assertions</span><span class="o">=</span><span class="n">enable_assertions</span><span class="p">,</span> <span class="n">max_mem_size</span><span class="o">=</span><span class="n">mmax</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">268</span>                                   <span class="n">min_mem_size</span><span class="o">=</span><span class="n">mmin</span><span class="p">,</span> <span class="n">ice_root</span><span class="o">=</span><span class="n">ice_root</span><span class="p">,</span> <span class="n">log_dir</span><span class="o">=</span><span class="n">log_dir</span><span class="p">,</span> <span class="n">log_level</span><span class="o">=</span><span class="n">log_level</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">269</span>                                   <span class="n">max_log_file_size</span><span class="o">=</span><span class="n">max_log_file_size</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/server.py</span> in <span class="ni">start</span><span class="nt">(jar_path, nthreads, enable_assertions, max_mem_size, min_mem_size, ice_root, log_dir, log_level, max_log_file_size, port, name, extra_classpath, verbose, jvm_custom_args, bind_to_localhost)</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span> 
-<span class="g g-Whitespace">    </span><span class="mi">139</span>         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Attempting to start a local H2O server...&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">140</span>         <span class="n">hs</span><span class="o">.</span><span class="n">_launch_server</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">baseport</span><span class="o">=</span><span class="n">baseport</span><span class="p">,</span> <span class="n">nthreads</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">nthreads</span><span class="p">),</span> <span class="n">ea</span><span class="o">=</span><span class="n">enable_assertions</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span>                           <span class="n">mmax</span><span class="o">=</span><span class="n">max_mem_size</span><span class="p">,</span> <span class="n">mmin</span><span class="o">=</span><span class="n">min_mem_size</span><span class="p">,</span> <span class="n">jvm_custom_args</span><span class="o">=</span><span class="n">jvm_custom_args</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>                           <span class="n">bind_to_localhost</span><span class="o">=</span><span class="n">bind_to_localhost</span><span class="p">,</span> <span class="n">log_dir</span><span class="o">=</span><span class="n">log_dir</span><span class="p">,</span> <span class="n">log_level</span><span class="o">=</span><span class="n">log_level</span><span class="p">,</span> <span class="n">max_log_file_size</span><span class="o">=</span><span class="n">max_log_file_size</span><span class="p">)</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/server.py</span> in <span class="ni">_launch_server</span><span class="nt">(self, port, baseport, mmax, mmin, ea, nthreads, jvm_custom_args, bind_to_localhost, log_dir, log_level, max_log_file_size)</span>
-<span class="g g-Whitespace">    </span><span class="mi">372</span>                 <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="n">giveup_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TIME_TO_START</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">373</span>                 <span class="k">raise</span> <span class="n">H2OServerError</span><span class="p">(</span><span class="s2">&quot;Server wasn&#39;t able to start in </span><span class="si">%f</span><span class="s2"> seconds.&quot;</span> <span class="o">%</span> <span class="n">elapsed_time</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">374</span>             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">375</span> 
-<span class="g g-Whitespace">    </span><span class="mi">376</span>     <span class="nd">@staticmethod</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><div style="overflow:auto"><table style="width:50%"><tr><td>H2O_cluster_uptime:</td>
+<td>22 mins 40 secs</td></tr>
+<tr><td>H2O_cluster_timezone:</td>
+<td>America/Los_Angeles</td></tr>
+<tr><td>H2O_data_parsing_timezone:</td>
+<td>UTC</td></tr>
+<tr><td>H2O_cluster_version:</td>
+<td>3.34.0.1</td></tr>
+<tr><td>H2O_cluster_version_age:</td>
+<td>10 months and 18 days !!!</td></tr>
+<tr><td>H2O_cluster_name:</td>
+<td>H2O_from_python_evanmuzzall_6713ep</td></tr>
+<tr><td>H2O_cluster_total_nodes:</td>
+<td>1</td></tr>
+<tr><td>H2O_cluster_free_memory:</td>
+<td>1.633 Gb</td></tr>
+<tr><td>H2O_cluster_total_cores:</td>
+<td>16</td></tr>
+<tr><td>H2O_cluster_allowed_cores:</td>
+<td>16</td></tr>
+<tr><td>H2O_cluster_status:</td>
+<td>locked, healthy</td></tr>
+<tr><td>H2O_connection_url:</td>
+<td>http://localhost:54321</td></tr>
+<tr><td>H2O_connection_proxy:</td>
+<td>{"http": null, "https": null}</td></tr>
+<tr><td>H2O_internal_security:</td>
+<td>False</td></tr>
+<tr><td>H2O_API_Extensions:</td>
+<td>Amazon S3, XGBoost, Algos, AutoML, Core V3, TargetEncoder, Core V4</td></tr>
+<tr><td>Python_version:</td>
+<td>3.8.8 final</td></tr></table></div></div></div>
 </div>
 </section>
 <section id="import-a-sample-binary-outcome-train-test-set-into-h2o">
@@ -797,7 +742,7 @@ Attempting to start a local H2O server...
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
 =============
 H2ORandomForestEstimator :  Distributed Random Forest
-Model Key:  DRF_model_python_1645748177867_1
+Model Key:  DRF_model_python_1659483784037_1601
 
 
 Model Summary: 
@@ -839,7 +784,7 @@ Model Summary:
       <td></td>
       <td>100.0</td>
       <td>100.0</td>
-      <td>1893916.0</td>
+      <td>1893923.0</td>
       <td>20.0</td>
       <td>20.0</td>
       <td>20.0</td>
@@ -2208,8 +2153,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>0</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>20.602 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.595 sec</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2221,8 +2166,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>1</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>20.673 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.621 sec</td>
       <td>1.0</td>
       <td>0.642818</td>
       <td>14.048395</td>
@@ -2234,8 +2179,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>2</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>20.709 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.646 sec</td>
       <td>2.0</td>
       <td>0.615404</td>
       <td>11.895281</td>
@@ -2247,8 +2192,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>3</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>20.744 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.673 sec</td>
       <td>3.0</td>
       <td>0.596109</td>
       <td>10.322973</td>
@@ -2260,8 +2205,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>4</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>20.776 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.700 sec</td>
       <td>4.0</td>
       <td>0.578952</td>
       <td>8.963477</td>
@@ -2273,8 +2218,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>5</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>20.810 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.727 sec</td>
       <td>5.0</td>
       <td>0.566757</td>
       <td>7.823122</td>
@@ -2286,8 +2231,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>6</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>20.842 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.758 sec</td>
       <td>6.0</td>
       <td>0.555494</td>
       <td>6.782681</td>
@@ -2299,8 +2244,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>7</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>20.881 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.785 sec</td>
       <td>7.0</td>
       <td>0.542668</td>
       <td>5.762143</td>
@@ -2312,8 +2257,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>8</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>20.919 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.810 sec</td>
       <td>8.0</td>
       <td>0.534223</td>
       <td>5.001247</td>
@@ -2325,8 +2270,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>9</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>20.954 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.838 sec</td>
       <td>9.0</td>
       <td>0.525930</td>
       <td>4.327270</td>
@@ -2338,8 +2283,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>10</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>20.986 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.921 sec</td>
       <td>10.0</td>
       <td>0.516709</td>
       <td>3.691988</td>
@@ -2351,8 +2296,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>11</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>21.019 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.952 sec</td>
       <td>11.0</td>
       <td>0.510283</td>
       <td>3.222738</td>
@@ -2364,8 +2309,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>12</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>21.052 sec</td>
+      <td>2022-08-02 17:06:24</td>
+      <td>19.981 sec</td>
       <td>12.0</td>
       <td>0.501990</td>
       <td>2.723957</td>
@@ -2377,8 +2322,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>13</th>
       <td></td>
-      <td>2022-02-24 16:17:21</td>
-      <td>21.081 sec</td>
+      <td>2022-08-02 17:06:25</td>
+      <td>20.012 sec</td>
       <td>13.0</td>
       <td>0.496251</td>
       <td>2.349060</td>
@@ -2390,8 +2335,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>14</th>
       <td></td>
-      <td>2022-02-24 16:17:22</td>
-      <td>21.114 sec</td>
+      <td>2022-08-02 17:06:25</td>
+      <td>20.043 sec</td>
       <td>14.0</td>
       <td>0.492259</td>
       <td>2.050819</td>
@@ -2403,8 +2348,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>15</th>
       <td></td>
-      <td>2022-02-24 16:17:22</td>
-      <td>21.144 sec</td>
+      <td>2022-08-02 17:06:25</td>
+      <td>20.074 sec</td>
       <td>15.0</td>
       <td>0.487936</td>
       <td>1.795128</td>
@@ -2416,8 +2361,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>16</th>
       <td></td>
-      <td>2022-02-24 16:17:22</td>
-      <td>21.175 sec</td>
+      <td>2022-08-02 17:06:25</td>
+      <td>20.104 sec</td>
       <td>16.0</td>
       <td>0.484170</td>
       <td>1.579896</td>
@@ -2429,8 +2374,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>17</th>
       <td></td>
-      <td>2022-02-24 16:17:22</td>
-      <td>21.209 sec</td>
+      <td>2022-08-02 17:06:25</td>
+      <td>20.139 sec</td>
       <td>17.0</td>
       <td>0.480754</td>
       <td>1.424860</td>
@@ -2442,8 +2387,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>18</th>
       <td></td>
-      <td>2022-02-24 16:17:22</td>
-      <td>21.241 sec</td>
+      <td>2022-08-02 17:06:25</td>
+      <td>20.173 sec</td>
       <td>18.0</td>
       <td>0.477989</td>
       <td>1.318464</td>
@@ -2455,8 +2400,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>19</th>
       <td></td>
-      <td>2022-02-24 16:17:22</td>
-      <td>21.275 sec</td>
+      <td>2022-08-02 17:06:25</td>
+      <td>20.206 sec</td>
       <td>19.0</td>
       <td>0.475932</td>
       <td>1.215350</td>
@@ -3221,7 +3166,7 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3900028567254543:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
 =============
 H2OGradientBoostingEstimator :  Gradient Boosting Machine
-Model Key:  GBM_model_python_1645663571276_2785
+Model Key:  GBM_model_python_1659483784037_2712
 
 
 Model Summary: 
@@ -4615,8 +4560,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>0</th>
       <td></td>
-      <td>2022-02-23 16:50:42</td>
-      <td>0.998 sec</td>
+      <td>2022-08-02 17:06:29</td>
+      <td>0.601 sec</td>
       <td>0.0</td>
       <td>0.499129</td>
       <td>0.691406</td>
@@ -4628,8 +4573,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>1</th>
       <td></td>
-      <td>2022-02-23 16:50:42</td>
-      <td>1.023 sec</td>
+      <td>2022-08-02 17:06:29</td>
+      <td>0.608 sec</td>
       <td>1.0</td>
       <td>0.488236</td>
       <td>0.669779</td>
@@ -4641,8 +4586,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>2</th>
       <td></td>
-      <td>2022-02-23 16:50:42</td>
-      <td>1.037 sec</td>
+      <td>2022-08-02 17:06:29</td>
+      <td>0.614 sec</td>
       <td>2.0</td>
       <td>0.479807</td>
       <td>0.653146</td>
@@ -4654,8 +4599,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>3</th>
       <td></td>
-      <td>2022-02-23 16:50:42</td>
-      <td>1.051 sec</td>
+      <td>2022-08-02 17:06:29</td>
+      <td>0.620 sec</td>
       <td>3.0</td>
       <td>0.473698</td>
       <td>0.641037</td>
@@ -4667,8 +4612,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>4</th>
       <td></td>
-      <td>2022-02-23 16:50:42</td>
-      <td>1.066 sec</td>
+      <td>2022-08-02 17:06:29</td>
+      <td>0.626 sec</td>
       <td>4.0</td>
       <td>0.467046</td>
       <td>0.627816</td>
@@ -4680,8 +4625,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>5</th>
       <td></td>
-      <td>2022-02-23 16:50:42</td>
-      <td>1.080 sec</td>
+      <td>2022-08-02 17:06:29</td>
+      <td>0.633 sec</td>
       <td>5.0</td>
       <td>0.462994</td>
       <td>0.619629</td>
@@ -4693,8 +4638,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>6</th>
       <td></td>
-      <td>2022-02-23 16:50:42</td>
-      <td>1.096 sec</td>
+      <td>2022-08-02 17:06:29</td>
+      <td>0.641 sec</td>
       <td>6.0</td>
       <td>0.458301</td>
       <td>0.609973</td>
@@ -4706,8 +4651,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>7</th>
       <td></td>
-      <td>2022-02-23 16:50:42</td>
-      <td>1.118 sec</td>
+      <td>2022-08-02 17:06:29</td>
+      <td>0.650 sec</td>
       <td>7.0</td>
       <td>0.455569</td>
       <td>0.604192</td>
@@ -4719,8 +4664,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>8</th>
       <td></td>
-      <td>2022-02-23 16:50:42</td>
-      <td>1.136 sec</td>
+      <td>2022-08-02 17:06:29</td>
+      <td>0.660 sec</td>
       <td>8.0</td>
       <td>0.452777</td>
       <td>0.598335</td>
@@ -4732,8 +4677,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>9</th>
       <td></td>
-      <td>2022-02-23 16:50:42</td>
-      <td>1.154 sec</td>
+      <td>2022-08-02 17:06:29</td>
+      <td>0.671 sec</td>
       <td>9.0</td>
       <td>0.449743</td>
       <td>0.591929</td>
@@ -4745,8 +4690,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>10</th>
       <td></td>
-      <td>2022-02-23 16:50:42</td>
-      <td>1.173 sec</td>
+      <td>2022-08-02 17:06:29</td>
+      <td>0.683 sec</td>
       <td>10.0</td>
       <td>0.447797</td>
       <td>0.587918</td>
@@ -6684,13 +6629,19 @@ Ensemble Test AUC:  0.7787452892036794
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    col_sample_rate learn_rate max_depth sample_rate  \
 0               0.4        0.8         3         0.7   
-1               0.2        0.8         4         0.8   
-2               0.7       0.03         5         0.9   
+1               0.4        0.8         3         0.7   
+2               0.2        0.8         4         0.8   
+3               0.2        0.8         4         0.8   
+4               0.7       0.03         5         0.9   
+5               0.7       0.03         5         0.9   
 
                    model_ids             logloss  
 0  gbm_grid_binomial_model_3     0.5866851338931  
-1  gbm_grid_binomial_model_2  0.6144661087268164  
-2  gbm_grid_binomial_model_1  0.6535517466453371  
+1  gbm_grid_binomial_model_6     0.5866851338931  
+2  gbm_grid_binomial_model_2  0.6144661087268164  
+3  gbm_grid_binomial_model_5  0.6144661087268164  
+4  gbm_grid_binomial_model_1  0.6535517466453371  
+5  gbm_grid_binomial_model_4  0.6535517466453371  
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -6721,19 +6672,19 @@ No model summary for this model
 ModelMetricsBinomialGLM: stackedensemble
 ** Reported on train data. **
 
-MSE: 0.17897505903570504
-RMSE: 0.42305443980143387
-LogLoss: 0.5357403550336852
+MSE: 0.17887858019115216
+RMSE: 0.4229403979181371
+LogLoss: 0.5353615890307168
 Null degrees of freedom: 9999
-Residual degrees of freedom: 9996
+Residual degrees of freedom: 9993
 Null deviance: 13828.113387424342
-Residual deviance: 10714.807100673706
-AIC: 10722.807100673706
-AUC: 0.8093464349400262
-AUCPR: 0.8219046127206588
-Gini: 0.6186928698800525
+Residual deviance: 10707.231780614336
+AIC: 10721.231780614336
+AUC: 0.8093175945466168
+AUCPR: 0.8215043524708877
+Gini: 0.6186351890932336
 
-Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4037334009318257: 
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.39526630457210254: 
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -6765,26 +6716,26 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4037334009318257:
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>2723.0</td>
-      <td>1982.0</td>
-      <td>0.4213</td>
-      <td>(1982.0/4705.0)</td>
+      <td>2683.0</td>
+      <td>2022.0</td>
+      <td>0.4298</td>
+      <td>(2022.0/4705.0)</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>779.0</td>
-      <td>4516.0</td>
-      <td>0.1471</td>
-      <td>(779.0/5295.0)</td>
+      <td>753.0</td>
+      <td>4542.0</td>
+      <td>0.1422</td>
+      <td>(753.0/5295.0)</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Total</td>
-      <td>3502.0</td>
-      <td>6498.0</td>
-      <td>0.2761</td>
-      <td>(2761.0/10000.0)</td>
+      <td>3436.0</td>
+      <td>6564.0</td>
+      <td>0.2775</td>
+      <td>(2775.0/10000.0)</td>
     </tr>
   </tbody>
 </table>
@@ -6819,132 +6770,132 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4037334009318257:
     <tr>
       <th>0</th>
       <td>max f1</td>
-      <td>0.403733</td>
-      <td>0.765878</td>
-      <td>248.0</td>
+      <td>0.395266</td>
+      <td>0.766001</td>
+      <td>251.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>max f2</td>
-      <td>0.241819</td>
-      <td>0.864462</td>
-      <td>330.0</td>
+      <td>0.242278</td>
+      <td>0.864146</td>
+      <td>333.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>max f0point5</td>
-      <td>0.579602</td>
-      <td>0.756389</td>
-      <td>167.0</td>
+      <td>0.562240</td>
+      <td>0.756320</td>
+      <td>172.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>max accuracy</td>
-      <td>0.515885</td>
+      <td>0.504341</td>
       <td>0.734700</td>
-      <td>195.0</td>
+      <td>201.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>max precision</td>
-      <td>0.904517</td>
+      <td>0.905589</td>
       <td>1.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>5</th>
       <td>max recall</td>
-      <td>0.118691</td>
+      <td>0.117413</td>
       <td>1.000000</td>
-      <td>385.0</td>
+      <td>386.0</td>
     </tr>
     <tr>
       <th>6</th>
       <td>max specificity</td>
-      <td>0.904517</td>
+      <td>0.905589</td>
       <td>1.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>7</th>
       <td>max absolute_mcc</td>
-      <td>0.515885</td>
-      <td>0.467751</td>
-      <td>195.0</td>
+      <td>0.553347</td>
+      <td>0.467365</td>
+      <td>176.0</td>
     </tr>
     <tr>
       <th>8</th>
       <td>max min_per_class_accuracy</td>
-      <td>0.528054</td>
-      <td>0.731350</td>
-      <td>190.0</td>
+      <td>0.529438</td>
+      <td>0.731822</td>
+      <td>188.0</td>
     </tr>
     <tr>
       <th>9</th>
       <td>max mean_per_class_accuracy</td>
-      <td>0.515885</td>
-      <td>0.733957</td>
-      <td>195.0</td>
+      <td>0.553347</td>
+      <td>0.734023</td>
+      <td>176.0</td>
     </tr>
     <tr>
       <th>10</th>
       <td>max tns</td>
-      <td>0.904517</td>
+      <td>0.905589</td>
       <td>4705.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>11</th>
       <td>max fns</td>
-      <td>0.904517</td>
+      <td>0.905589</td>
       <td>5281.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>12</th>
       <td>max fps</td>
-      <td>0.077394</td>
+      <td>0.074593</td>
       <td>4705.000000</td>
       <td>399.0</td>
     </tr>
     <tr>
       <th>13</th>
       <td>max tps</td>
-      <td>0.118691</td>
+      <td>0.117413</td>
       <td>5295.000000</td>
-      <td>385.0</td>
+      <td>386.0</td>
     </tr>
     <tr>
       <th>14</th>
       <td>max tnr</td>
-      <td>0.904517</td>
+      <td>0.905589</td>
       <td>1.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>15</th>
       <td>max fnr</td>
-      <td>0.904517</td>
+      <td>0.905589</td>
       <td>0.997356</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>16</th>
       <td>max fpr</td>
-      <td>0.077394</td>
+      <td>0.074593</td>
       <td>1.000000</td>
       <td>399.0</td>
     </tr>
     <tr>
       <th>17</th>
       <td>max tpr</td>
-      <td>0.118691</td>
+      <td>0.117413</td>
       <td>1.000000</td>
-      <td>385.0</td>
+      <td>386.0</td>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 52.95 %, avg score: 52.96 %
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 52.95 %, avg score: 52.97 %
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -6986,13 +6937,13 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4037334009318257:
       <th>0</th>
       <td>1</td>
       <td>0.01</td>
-      <td>0.887257</td>
+      <td>0.889136</td>
       <td>1.869688</td>
       <td>1.869688</td>
       <td>0.990</td>
-      <td>0.893840</td>
+      <td>0.895439</td>
       <td>0.990000</td>
-      <td>0.893840</td>
+      <td>0.895439</td>
       <td>0.018697</td>
       <td>0.018697</td>
       <td>86.968839</td>
@@ -7003,118 +6954,118 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4037334009318257:
       <th>1</th>
       <td>2</td>
       <td>0.02</td>
-      <td>0.879296</td>
-      <td>1.794145</td>
-      <td>1.831917</td>
-      <td>0.950</td>
-      <td>0.883362</td>
-      <td>0.970000</td>
-      <td>0.888601</td>
-      <td>0.017941</td>
-      <td>0.036638</td>
-      <td>79.414542</td>
-      <td>83.191690</td>
-      <td>0.035363</td>
+      <td>0.881422</td>
+      <td>1.813031</td>
+      <td>1.841360</td>
+      <td>0.960</td>
+      <td>0.885503</td>
+      <td>0.975000</td>
+      <td>0.890471</td>
+      <td>0.018130</td>
+      <td>0.036827</td>
+      <td>81.303116</td>
+      <td>84.135977</td>
+      <td>0.035764</td>
     </tr>
     <tr>
       <th>2</th>
       <td>3</td>
       <td>0.03</td>
-      <td>0.872364</td>
-      <td>1.850803</td>
-      <td>1.838212</td>
-      <td>0.980</td>
-      <td>0.875594</td>
-      <td>0.973333</td>
-      <td>0.884265</td>
-      <td>0.018508</td>
-      <td>0.055146</td>
-      <td>85.080264</td>
-      <td>83.821215</td>
-      <td>0.053446</td>
+      <td>0.874071</td>
+      <td>1.813031</td>
+      <td>1.831917</td>
+      <td>0.960</td>
+      <td>0.877880</td>
+      <td>0.970000</td>
+      <td>0.886274</td>
+      <td>0.018130</td>
+      <td>0.054958</td>
+      <td>81.303116</td>
+      <td>83.191690</td>
+      <td>0.053045</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
       <td>0.04</td>
-      <td>0.866487</td>
+      <td>0.868965</td>
       <td>1.775260</td>
-      <td>1.822474</td>
+      <td>1.817753</td>
       <td>0.940</td>
-      <td>0.869257</td>
-      <td>0.965000</td>
-      <td>0.880513</td>
+      <td>0.871560</td>
+      <td>0.962500</td>
+      <td>0.882596</td>
       <td>0.017753</td>
-      <td>0.072899</td>
+      <td>0.072710</td>
       <td>77.525968</td>
-      <td>82.247403</td>
-      <td>0.069923</td>
+      <td>81.775260</td>
+      <td>0.069522</td>
     </tr>
     <tr>
       <th>4</th>
       <td>5</td>
       <td>0.05</td>
-      <td>0.860642</td>
+      <td>0.863236</td>
       <td>1.756374</td>
-      <td>1.809254</td>
+      <td>1.805477</td>
       <td>0.930</td>
-      <td>0.863476</td>
-      <td>0.958000</td>
-      <td>0.877106</td>
+      <td>0.865973</td>
+      <td>0.956000</td>
+      <td>0.879271</td>
       <td>0.017564</td>
-      <td>0.090463</td>
+      <td>0.090274</td>
       <td>75.637394</td>
-      <td>80.925401</td>
-      <td>0.085999</td>
+      <td>80.547686</td>
+      <td>0.085598</td>
     </tr>
     <tr>
       <th>5</th>
       <td>6</td>
       <td>0.10</td>
-      <td>0.834422</td>
-      <td>1.688385</td>
-      <td>1.748820</td>
-      <td>0.894</td>
-      <td>0.847602</td>
-      <td>0.926000</td>
-      <td>0.862354</td>
-      <td>0.084419</td>
-      <td>0.174882</td>
-      <td>68.838527</td>
-      <td>74.881964</td>
-      <td>0.159154</td>
+      <td>0.836785</td>
+      <td>1.699717</td>
+      <td>1.752597</td>
+      <td>0.900</td>
+      <td>0.849843</td>
+      <td>0.928000</td>
+      <td>0.864557</td>
+      <td>0.084986</td>
+      <td>0.175260</td>
+      <td>69.971671</td>
+      <td>75.259679</td>
+      <td>0.159957</td>
     </tr>
     <tr>
       <th>6</th>
       <td>7</td>
       <td>0.15</td>
-      <td>0.807362</td>
-      <td>1.650614</td>
-      <td>1.716084</td>
-      <td>0.874</td>
-      <td>0.821115</td>
-      <td>0.908667</td>
-      <td>0.848607</td>
-      <td>0.082531</td>
-      <td>0.257413</td>
-      <td>65.061379</td>
-      <td>71.608436</td>
-      <td>0.228295</td>
+      <td>0.809694</td>
+      <td>1.631728</td>
+      <td>1.712307</td>
+      <td>0.864</td>
+      <td>0.823544</td>
+      <td>0.906667</td>
+      <td>0.850886</td>
+      <td>0.081586</td>
+      <td>0.256846</td>
+      <td>63.172805</td>
+      <td>71.230721</td>
+      <td>0.227091</td>
     </tr>
     <tr>
       <th>7</th>
       <td>8</td>
       <td>0.20</td>
-      <td>0.776635</td>
-      <td>1.578848</td>
+      <td>0.779044</td>
+      <td>1.590179</td>
       <td>1.681775</td>
-      <td>0.836</td>
-      <td>0.792606</td>
+      <td>0.842</td>
+      <td>0.794869</td>
       <td>0.890500</td>
-      <td>0.834607</td>
-      <td>0.078942</td>
+      <td>0.836882</td>
+      <td>0.079509</td>
       <td>0.336355</td>
-      <td>57.884797</td>
+      <td>59.017941</td>
       <td>68.177526</td>
       <td>0.289809</td>
     </tr>
@@ -7122,84 +7073,84 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4037334009318257:
       <th>8</th>
       <td>9</td>
       <td>0.30</td>
-      <td>0.711611</td>
-      <td>1.423985</td>
-      <td>1.595845</td>
-      <td>0.754</td>
-      <td>0.744221</td>
-      <td>0.845000</td>
-      <td>0.804478</td>
-      <td>0.142398</td>
-      <td>0.478754</td>
-      <td>42.398489</td>
-      <td>59.584514</td>
-      <td>0.379923</td>
+      <td>0.712130</td>
+      <td>1.422096</td>
+      <td>1.595216</td>
+      <td>0.753</td>
+      <td>0.745598</td>
+      <td>0.844667</td>
+      <td>0.806454</td>
+      <td>0.142210</td>
+      <td>0.478565</td>
+      <td>42.209632</td>
+      <td>59.521561</td>
+      <td>0.379521</td>
     </tr>
     <tr>
       <th>9</th>
       <td>10</td>
       <td>0.40</td>
-      <td>0.629691</td>
+      <td>0.632243</td>
       <td>1.278565</td>
-      <td>1.516525</td>
+      <td>1.516053</td>
       <td>0.677</td>
-      <td>0.671084</td>
-      <td>0.803000</td>
-      <td>0.771130</td>
+      <td>0.672274</td>
+      <td>0.802750</td>
+      <td>0.772909</td>
       <td>0.127856</td>
-      <td>0.606610</td>
+      <td>0.606421</td>
       <td>27.856468</td>
-      <td>51.652502</td>
-      <td>0.439129</td>
+      <td>51.605288</td>
+      <td>0.438727</td>
     </tr>
     <tr>
       <th>10</th>
       <td>11</td>
       <td>0.50</td>
-      <td>0.541550</td>
-      <td>1.118036</td>
-      <td>1.436827</td>
-      <td>0.592</td>
-      <td>0.587137</td>
-      <td>0.760800</td>
-      <td>0.734331</td>
-      <td>0.111804</td>
-      <td>0.718414</td>
-      <td>11.803588</td>
-      <td>43.682720</td>
-      <td>0.464216</td>
+      <td>0.540089</td>
+      <td>1.129367</td>
+      <td>1.438716</td>
+      <td>0.598</td>
+      <td>0.587354</td>
+      <td>0.761800</td>
+      <td>0.735798</td>
+      <td>0.112937</td>
+      <td>0.719358</td>
+      <td>12.936733</td>
+      <td>43.871577</td>
+      <td>0.466223</td>
     </tr>
     <tr>
       <th>11</th>
       <td>12</td>
       <td>0.60</td>
-      <td>0.445375</td>
-      <td>0.942398</td>
-      <td>1.354422</td>
-      <td>0.499</td>
-      <td>0.492175</td>
-      <td>0.717167</td>
-      <td>0.693972</td>
-      <td>0.094240</td>
-      <td>0.812653</td>
-      <td>-5.760151</td>
-      <td>35.442241</td>
-      <td>0.451973</td>
+      <td>0.444032</td>
+      <td>0.931067</td>
+      <td>1.354108</td>
+      <td>0.493</td>
+      <td>0.491615</td>
+      <td>0.717000</td>
+      <td>0.695101</td>
+      <td>0.093107</td>
+      <td>0.812465</td>
+      <td>-6.893296</td>
+      <td>35.410765</td>
+      <td>0.451572</td>
     </tr>
     <tr>
       <th>12</th>
       <td>13</td>
       <td>0.70</td>
-      <td>0.357635</td>
-      <td>0.734655</td>
+      <td>0.356770</td>
+      <td>0.736544</td>
       <td>1.265884</td>
-      <td>0.389</td>
-      <td>0.402200</td>
+      <td>0.390</td>
+      <td>0.400030</td>
       <td>0.670286</td>
-      <td>0.652290</td>
-      <td>0.073466</td>
+      <td>0.652948</td>
+      <td>0.073654</td>
       <td>0.886119</td>
-      <td>-26.534466</td>
+      <td>-26.345609</td>
       <td>26.588426</td>
       <td>0.395577</td>
     </tr>
@@ -7207,50 +7158,50 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4037334009318257:
       <th>13</th>
       <td>14</td>
       <td>0.80</td>
-      <td>0.287211</td>
-      <td>0.576015</td>
-      <td>1.179651</td>
-      <td>0.305</td>
-      <td>0.323135</td>
-      <td>0.624625</td>
-      <td>0.611146</td>
-      <td>0.057602</td>
-      <td>0.943720</td>
-      <td>-42.398489</td>
-      <td>17.965061</td>
-      <td>0.305463</td>
+      <td>0.286106</td>
+      <td>0.583569</td>
+      <td>1.180595</td>
+      <td>0.309</td>
+      <td>0.321888</td>
+      <td>0.625125</td>
+      <td>0.611565</td>
+      <td>0.058357</td>
+      <td>0.944476</td>
+      <td>-41.643059</td>
+      <td>18.059490</td>
+      <td>0.307069</td>
     </tr>
     <tr>
       <th>14</th>
       <td>15</td>
       <td>0.90</td>
-      <td>0.212128</td>
-      <td>0.400378</td>
-      <td>1.093065</td>
-      <td>0.212</td>
-      <td>0.250433</td>
-      <td>0.578778</td>
-      <td>0.571067</td>
-      <td>0.040038</td>
-      <td>0.983758</td>
-      <td>-59.962229</td>
-      <td>9.306474</td>
-      <td>0.178020</td>
+      <td>0.212224</td>
+      <td>0.396601</td>
+      <td>1.093484</td>
+      <td>0.210</td>
+      <td>0.249860</td>
+      <td>0.579000</td>
+      <td>0.571376</td>
+      <td>0.039660</td>
+      <td>0.984136</td>
+      <td>-60.339943</td>
+      <td>9.348442</td>
+      <td>0.178822</td>
     </tr>
     <tr>
       <th>15</th>
       <td>16</td>
       <td>1.00</td>
-      <td>0.076684</td>
-      <td>0.162417</td>
+      <td>0.073118</td>
+      <td>0.158640</td>
       <td>1.000000</td>
-      <td>0.086</td>
-      <td>0.156392</td>
+      <td>0.084</td>
+      <td>0.154413</td>
       <td>0.529500</td>
-      <td>0.529599</td>
-      <td>0.016242</td>
+      <td>0.529680</td>
+      <td>0.015864</td>
       <td>1.000000</td>
-      <td>-83.758263</td>
+      <td>-84.135977</td>
       <td>0.000000</td>
       <td>0.000000</td>
     </tr>
@@ -7277,19 +7228,19 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4037334009318257:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ModelMetricsBinomialGLM: stackedensemble
 ** Reported on test data. **
 
-MSE: 0.19646981512542924
-RMSE: 0.44324915693707667
-LogLoss: 0.5753535672126392
+MSE: 0.19632615304541418
+RMSE: 0.4430870716297353
+LogLoss: 0.5749956851022433
 Null degrees of freedom: 4999
-Residual degrees of freedom: 4996
+Residual degrees of freedom: 4993
 Null deviance: 6905.196403260959
-Residual deviance: 5753.5356721263925
-AIC: 5761.5356721263925
-AUC: 0.7658850264045916
-AUCPR: 0.7928758222962261
-Gini: 0.5317700528091831
+Residual deviance: 5749.9568510224335
+AIC: 5763.9568510224335
+AUC: 0.7662050991227964
+AUCPR: 0.7928783705943249
+Gini: 0.5324101982455929
 
-Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.35412909231741746: 
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3541723817201044: 
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -7321,26 +7272,26 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.35412909231741746:
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>1068.0</td>
-      <td>1247.0</td>
-      <td>0.5387</td>
-      <td>(1247.0/2315.0)</td>
+      <td>1075.0</td>
+      <td>1240.0</td>
+      <td>0.5356</td>
+      <td>(1240.0/2315.0)</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>367.0</td>
-      <td>2318.0</td>
-      <td>0.1367</td>
-      <td>(367.0/2685.0)</td>
+      <td>371.0</td>
+      <td>2314.0</td>
+      <td>0.1382</td>
+      <td>(371.0/2685.0)</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Total</td>
-      <td>1435.0</td>
-      <td>3565.0</td>
-      <td>0.3228</td>
-      <td>(1614.0/5000.0)</td>
+      <td>1446.0</td>
+      <td>3554.0</td>
+      <td>0.3222</td>
+      <td>(1611.0/5000.0)</td>
     </tr>
   </tbody>
 </table>
@@ -7375,132 +7326,132 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.35412909231741746:
     <tr>
       <th>0</th>
       <td>max f1</td>
-      <td>0.354129</td>
-      <td>0.741760</td>
-      <td>275.0</td>
+      <td>0.354172</td>
+      <td>0.741786</td>
+      <td>278.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>max f2</td>
-      <td>0.178761</td>
-      <td>0.860706</td>
-      <td>362.0</td>
+      <td>0.165330</td>
+      <td>0.860420</td>
+      <td>371.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>max f0point5</td>
-      <td>0.580789</td>
-      <td>0.727106</td>
-      <td>159.0</td>
+      <td>0.629590</td>
+      <td>0.726405</td>
+      <td>142.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>max accuracy</td>
-      <td>0.520792</td>
-      <td>0.696400</td>
-      <td>190.0</td>
+      <td>0.527815</td>
+      <td>0.697000</td>
+      <td>192.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>max precision</td>
-      <td>0.897976</td>
+      <td>0.899375</td>
       <td>1.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>5</th>
       <td>max recall</td>
-      <td>0.094361</td>
+      <td>0.089595</td>
       <td>1.000000</td>
-      <td>396.0</td>
+      <td>397.0</td>
     </tr>
     <tr>
       <th>6</th>
       <td>max specificity</td>
-      <td>0.897976</td>
+      <td>0.899375</td>
       <td>1.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>7</th>
       <td>max absolute_mcc</td>
-      <td>0.580789</td>
-      <td>0.394906</td>
-      <td>159.0</td>
+      <td>0.527815</td>
+      <td>0.394790</td>
+      <td>192.0</td>
     </tr>
     <tr>
       <th>8</th>
       <td>max min_per_class_accuracy</td>
-      <td>0.519258</td>
-      <td>0.695464</td>
-      <td>191.0</td>
+      <td>0.520286</td>
+      <td>0.694972</td>
+      <td>195.0</td>
     </tr>
     <tr>
       <th>9</th>
       <td>max mean_per_class_accuracy</td>
-      <td>0.579075</td>
-      <td>0.696613</td>
-      <td>160.0</td>
+      <td>0.527815</td>
+      <td>0.697936</td>
+      <td>192.0</td>
     </tr>
     <tr>
       <th>10</th>
       <td>max tns</td>
-      <td>0.897976</td>
+      <td>0.899375</td>
       <td>2315.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>11</th>
       <td>max fns</td>
-      <td>0.897976</td>
-      <td>2680.000000</td>
+      <td>0.899375</td>
+      <td>2678.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>12</th>
       <td>max fps</td>
-      <td>0.081080</td>
+      <td>0.077098</td>
       <td>2315.000000</td>
       <td>399.0</td>
     </tr>
     <tr>
       <th>13</th>
       <td>max tps</td>
-      <td>0.094361</td>
+      <td>0.089595</td>
       <td>2685.000000</td>
-      <td>396.0</td>
+      <td>397.0</td>
     </tr>
     <tr>
       <th>14</th>
       <td>max tnr</td>
-      <td>0.897976</td>
+      <td>0.899375</td>
       <td>1.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>15</th>
       <td>max fnr</td>
-      <td>0.897976</td>
-      <td>0.998138</td>
+      <td>0.899375</td>
+      <td>0.997393</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>16</th>
       <td>max fpr</td>
-      <td>0.081080</td>
+      <td>0.077098</td>
       <td>1.000000</td>
       <td>399.0</td>
     </tr>
     <tr>
       <th>17</th>
       <td>max tpr</td>
-      <td>0.094361</td>
+      <td>0.089595</td>
       <td>1.000000</td>
-      <td>396.0</td>
+      <td>397.0</td>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 53.70 %, avg score: 52.42 %
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 53.70 %, avg score: 52.40 %
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -7542,13 +7493,13 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.35412909231741746:
       <th>0</th>
       <td>1</td>
       <td>0.01</td>
-      <td>0.887794</td>
+      <td>0.889508</td>
       <td>1.862197</td>
       <td>1.862197</td>
       <td>1.000</td>
-      <td>0.891943</td>
+      <td>0.893644</td>
       <td>1.000000</td>
-      <td>0.891943</td>
+      <td>0.893644</td>
       <td>0.018622</td>
       <td>0.018622</td>
       <td>86.219739</td>
@@ -7559,13 +7510,13 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.35412909231741746:
       <th>1</th>
       <td>2</td>
       <td>0.02</td>
-      <td>0.878222</td>
+      <td>0.880592</td>
       <td>1.787709</td>
       <td>1.824953</td>
       <td>0.960</td>
-      <td>0.883015</td>
+      <td>0.885266</td>
       <td>0.980000</td>
-      <td>0.887479</td>
+      <td>0.889455</td>
       <td>0.017877</td>
       <td>0.036499</td>
       <td>78.770950</td>
@@ -7576,13 +7527,13 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.35412909231741746:
       <th>2</th>
       <td>3</td>
       <td>0.03</td>
-      <td>0.872278</td>
+      <td>0.875146</td>
       <td>1.824953</td>
       <td>1.824953</td>
       <td>0.980</td>
-      <td>0.875645</td>
+      <td>0.877961</td>
       <td>0.980000</td>
-      <td>0.883535</td>
+      <td>0.885624</td>
       <td>0.018250</td>
       <td>0.054749</td>
       <td>82.495345</td>
@@ -7593,13 +7544,13 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.35412909231741746:
       <th>3</th>
       <td>4</td>
       <td>0.04</td>
-      <td>0.865552</td>
+      <td>0.868024</td>
       <td>1.713222</td>
       <td>1.797020</td>
       <td>0.920</td>
-      <td>0.869065</td>
+      <td>0.871715</td>
       <td>0.965000</td>
-      <td>0.879917</td>
+      <td>0.882147</td>
       <td>0.017132</td>
       <td>0.071881</td>
       <td>71.322160</td>
@@ -7610,186 +7561,186 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.35412909231741746:
       <th>4</th>
       <td>5</td>
       <td>0.05</td>
-      <td>0.858329</td>
-      <td>1.750466</td>
+      <td>0.861807</td>
       <td>1.787709</td>
-      <td>0.940</td>
-      <td>0.861865</td>
-      <td>0.960000</td>
-      <td>0.876307</td>
-      <td>0.017505</td>
-      <td>0.089385</td>
-      <td>75.046555</td>
+      <td>1.795158</td>
+      <td>0.960</td>
+      <td>0.864678</td>
+      <td>0.964000</td>
+      <td>0.878653</td>
+      <td>0.017877</td>
+      <td>0.089758</td>
       <td>78.770950</td>
-      <td>0.085066</td>
+      <td>79.515829</td>
+      <td>0.085870</td>
     </tr>
     <tr>
       <th>5</th>
       <td>6</td>
       <td>0.10</td>
-      <td>0.830711</td>
-      <td>1.564246</td>
-      <td>1.675978</td>
-      <td>0.840</td>
-      <td>0.844201</td>
-      <td>0.900000</td>
-      <td>0.860254</td>
-      <td>0.078212</td>
-      <td>0.167598</td>
-      <td>56.424581</td>
-      <td>67.597765</td>
-      <td>0.145999</td>
+      <td>0.833071</td>
+      <td>1.541899</td>
+      <td>1.668529</td>
+      <td>0.828</td>
+      <td>0.846285</td>
+      <td>0.896000</td>
+      <td>0.862469</td>
+      <td>0.077095</td>
+      <td>0.166853</td>
+      <td>54.189944</td>
+      <td>66.852886</td>
+      <td>0.144391</td>
     </tr>
     <tr>
       <th>6</th>
       <td>7</td>
       <td>0.15</td>
-      <td>0.799415</td>
-      <td>1.579143</td>
-      <td>1.643700</td>
-      <td>0.848</td>
-      <td>0.815299</td>
-      <td>0.882667</td>
-      <td>0.845269</td>
-      <td>0.078957</td>
-      <td>0.246555</td>
-      <td>57.914339</td>
-      <td>64.369957</td>
-      <td>0.208542</td>
+      <td>0.802209</td>
+      <td>1.586592</td>
+      <td>1.641217</td>
+      <td>0.852</td>
+      <td>0.817671</td>
+      <td>0.881333</td>
+      <td>0.847536</td>
+      <td>0.079330</td>
+      <td>0.246182</td>
+      <td>58.659218</td>
+      <td>64.121664</td>
+      <td>0.207738</td>
     </tr>
     <tr>
       <th>7</th>
       <td>8</td>
       <td>0.20</td>
-      <td>0.768224</td>
+      <td>0.772016</td>
       <td>1.534451</td>
-      <td>1.616387</td>
+      <td>1.614525</td>
       <td>0.824</td>
-      <td>0.785330</td>
-      <td>0.868000</td>
-      <td>0.830284</td>
+      <td>0.787480</td>
+      <td>0.867000</td>
+      <td>0.832522</td>
       <td>0.076723</td>
-      <td>0.323277</td>
+      <td>0.322905</td>
       <td>53.445065</td>
-      <td>61.638734</td>
-      <td>0.266258</td>
+      <td>61.452514</td>
+      <td>0.265454</td>
     </tr>
     <tr>
       <th>8</th>
       <td>9</td>
       <td>0.30</td>
-      <td>0.697137</td>
-      <td>1.333333</td>
-      <td>1.522036</td>
-      <td>0.716</td>
-      <td>0.733487</td>
-      <td>0.817333</td>
-      <td>0.798018</td>
-      <td>0.133333</td>
-      <td>0.456611</td>
-      <td>33.333333</td>
-      <td>52.203600</td>
-      <td>0.338252</td>
+      <td>0.696979</td>
+      <td>1.348231</td>
+      <td>1.525760</td>
+      <td>0.724</td>
+      <td>0.734457</td>
+      <td>0.819333</td>
+      <td>0.799834</td>
+      <td>0.134823</td>
+      <td>0.457728</td>
+      <td>34.823091</td>
+      <td>52.576040</td>
+      <td>0.340665</td>
     </tr>
     <tr>
       <th>9</th>
       <td>10</td>
       <td>0.40</td>
-      <td>0.614587</td>
+      <td>0.616086</td>
       <td>1.199255</td>
-      <td>1.441341</td>
+      <td>1.444134</td>
       <td>0.644</td>
-      <td>0.654905</td>
-      <td>0.774000</td>
-      <td>0.762240</td>
+      <td>0.655654</td>
+      <td>0.775500</td>
+      <td>0.763789</td>
       <td>0.119926</td>
-      <td>0.576536</td>
+      <td>0.577654</td>
       <td>19.925512</td>
-      <td>44.134078</td>
-      <td>0.381288</td>
+      <td>44.413408</td>
+      <td>0.383701</td>
     </tr>
     <tr>
       <th>10</th>
       <td>11</td>
       <td>0.50</td>
-      <td>0.529258</td>
-      <td>1.031657</td>
-      <td>1.359404</td>
-      <td>0.554</td>
-      <td>0.572284</td>
-      <td>0.730000</td>
-      <td>0.724249</td>
-      <td>0.103166</td>
-      <td>0.679702</td>
-      <td>3.165736</td>
-      <td>35.940410</td>
-      <td>0.388125</td>
+      <td>0.528949</td>
+      <td>1.046555</td>
+      <td>1.364618</td>
+      <td>0.562</td>
+      <td>0.571445</td>
+      <td>0.732800</td>
+      <td>0.725320</td>
+      <td>0.104655</td>
+      <td>0.682309</td>
+      <td>4.655493</td>
+      <td>36.461825</td>
+      <td>0.393756</td>
     </tr>
     <tr>
       <th>11</th>
       <td>12</td>
       <td>0.60</td>
-      <td>0.439839</td>
-      <td>0.890130</td>
-      <td>1.281192</td>
-      <td>0.478</td>
-      <td>0.483960</td>
-      <td>0.688000</td>
-      <td>0.684201</td>
-      <td>0.089013</td>
-      <td>0.768715</td>
-      <td>-10.986965</td>
-      <td>28.119181</td>
-      <td>0.364395</td>
+      <td>0.438611</td>
+      <td>0.860335</td>
+      <td>1.280571</td>
+      <td>0.462</td>
+      <td>0.482938</td>
+      <td>0.687667</td>
+      <td>0.684923</td>
+      <td>0.086034</td>
+      <td>0.768343</td>
+      <td>-13.966480</td>
+      <td>28.057107</td>
+      <td>0.363591</td>
     </tr>
     <tr>
       <th>12</th>
       <td>13</td>
       <td>0.70</td>
-      <td>0.362819</td>
-      <td>0.830540</td>
-      <td>1.216813</td>
-      <td>0.446</td>
-      <td>0.399804</td>
-      <td>0.653429</td>
-      <td>0.643572</td>
-      <td>0.083054</td>
-      <td>0.851769</td>
-      <td>-16.945996</td>
-      <td>21.681298</td>
-      <td>0.327795</td>
+      <td>0.360930</td>
+      <td>0.841713</td>
+      <td>1.217877</td>
+      <td>0.452</td>
+      <td>0.397505</td>
+      <td>0.654000</td>
+      <td>0.643863</td>
+      <td>0.084171</td>
+      <td>0.852514</td>
+      <td>-15.828678</td>
+      <td>21.787709</td>
+      <td>0.329404</td>
     </tr>
     <tr>
       <th>13</th>
       <td>14</td>
       <td>0.80</td>
-      <td>0.291686</td>
-      <td>0.681564</td>
-      <td>1.149907</td>
-      <td>0.366</td>
-      <td>0.326802</td>
-      <td>0.617500</td>
-      <td>0.603976</td>
-      <td>0.068156</td>
-      <td>0.919926</td>
-      <td>-31.843575</td>
-      <td>14.990689</td>
-      <td>0.259018</td>
+      <td>0.291718</td>
+      <td>0.677840</td>
+      <td>1.150372</td>
+      <td>0.364</td>
+      <td>0.325392</td>
+      <td>0.617750</td>
+      <td>0.604054</td>
+      <td>0.067784</td>
+      <td>0.920298</td>
+      <td>-32.216015</td>
+      <td>15.037244</td>
+      <td>0.259823</td>
     </tr>
     <tr>
       <th>14</th>
       <td>15</td>
       <td>0.90</td>
-      <td>0.209548</td>
-      <td>0.499069</td>
+      <td>0.209369</td>
+      <td>0.495345</td>
       <td>1.077592</td>
-      <td>0.268</td>
-      <td>0.251839</td>
+      <td>0.266</td>
+      <td>0.251296</td>
       <td>0.578667</td>
-      <td>0.564850</td>
-      <td>0.049907</td>
+      <td>0.564859</td>
+      <td>0.049534</td>
       <td>0.969832</td>
-      <td>-50.093110</td>
+      <td>-50.465549</td>
       <td>7.759156</td>
       <td>0.150826</td>
     </tr>
@@ -7797,13 +7748,13 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.35412909231741746:
       <th>15</th>
       <td>16</td>
       <td>1.00</td>
-      <td>0.081080</td>
+      <td>0.077098</td>
       <td>0.301676</td>
       <td>1.000000</td>
       <td>0.162</td>
-      <td>0.158619</td>
+      <td>0.156576</td>
       <td>0.537000</td>
-      <td>0.524227</td>
+      <td>0.524031</td>
       <td>0.030168</td>
       <td>1.000000</td>
       <td>-69.832402</td>
@@ -7835,7 +7786,7 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.35412909231741746:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best Base-learner Test AUC:  0.7535296885746348
-Ensemble Test AUC:  0.7658850264045916
+Ensemble Test AUC:  0.7662050991227964
 </pre></div>
 </div>
 </div>
@@ -7855,16 +7806,16 @@ Ensemble Test AUC:  0.7658850264045916
 <tr><th style="text-align: right;">  predict</th><th style="text-align: right;">      p0</th><th style="text-align: right;">      p1</th></tr>
 </thead>
 <tbody>
-<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.752499</td><td style="text-align: right;">0.247501</td></tr>
-<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.692124</td><td style="text-align: right;">0.307876</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.490744</td><td style="text-align: right;">0.509256</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.293398</td><td style="text-align: right;">0.706602</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.514172</td><td style="text-align: right;">0.485828</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.292388</td><td style="text-align: right;">0.707612</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.336833</td><td style="text-align: right;">0.663167</td></tr>
-<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.661777</td><td style="text-align: right;">0.338223</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.612586</td><td style="text-align: right;">0.387414</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.627887</td><td style="text-align: right;">0.372113</td></tr>
+<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.753576</td><td style="text-align: right;">0.246424</td></tr>
+<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.694141</td><td style="text-align: right;">0.305859</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.48774 </td><td style="text-align: right;">0.51226 </td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.283353</td><td style="text-align: right;">0.716647</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.514672</td><td style="text-align: right;">0.485328</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.307819</td><td style="text-align: right;">0.692181</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.324141</td><td style="text-align: right;">0.675859</td></tr>
+<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.662339</td><td style="text-align: right;">0.337661</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.609994</td><td style="text-align: right;">0.390006</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.615469</td><td style="text-align: right;">0.384531</td></tr>
 </tbody>
 </table></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>

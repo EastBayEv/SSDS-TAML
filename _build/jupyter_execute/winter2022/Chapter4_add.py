@@ -62,7 +62,7 @@ print(documents[0]) # Any ice hockey fans?
 # 
 # * Of course, you can always use the default parameter values and instantiate your model as ```model = BERTopic()```. Once you've done so, you're ready to fit your model to your documents! 
 
-# #### *Example instantiation:*
+# ### *Example instantiation:*
 
 # In[3]:
 
@@ -157,7 +157,7 @@ model.save("TAML_ex_model")
 loaded_model = BERTopic.load("TAML_ex_model")
 
 
-# ## Visualizing topics:
+# # Visualizing topics:
 # * Although the prior methods can be used to manually examine the textual contents of topics, visualizations can be an excellent way to succinctly communicate the same information. 
 # 
 # * Depending on the visualization, it can even reveal patterns that would be much harder/impossible to see through textual analysis - like inter-topic distance! 
@@ -185,7 +185,7 @@ model.visualize_barchart()
 model.visualize_heatmap()
 
 
-# ## Conclusion
+# # Conclusion
 # * Hopefully you're convinced of how accessible but powerful a technique BERTopic topic modeling can be! There's plenty more to learn about BERTopic than what we've covered here, but you should be ready to get started! 
 # 
 # * During your adventures, you may find the following resources useful: 

@@ -301,69 +301,80 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#standardize-text-casing-spacing">
-   Standardize Text casing &amp; spacing
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Chapter 1 - English text preprocessing basics
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standardize-text-casing-spacing">
+     Standardize Text casing &amp; spacing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#remove-punctuation">
+       Remove punctuation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tokenize-the-text">
+     Tokenize the text
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#remove-stop-words">
+       Remove stop words
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lemmatizing-stemming-tokens">
+     Lemmatizing/Stemming tokens
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-of-speech-tags">
+     Part of speech tags
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-to-dataframe">
+     Convert to dataframe
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualize-the-20-most-frequent-words">
+     Visualize the 20 most frequent words
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#remove-punctuation">
-   Remove punctuation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tokenize-the-text">
-   Tokenize the text
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#remove-stop-words">
-   Remove stop words
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lemmatizing-stemming-tokens">
-   Lemmatizing/Stemming tokens
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-of-speech-tags">
-   Part of speech tags
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#convert-to-dataframe">
-   Convert to dataframe
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualize-the-20-most-frequent-words">
-   Visualize the 20 most frequent words
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#quiz-redwood-webscraping">
    Quiz: Redwood webscraping
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#three-variables-will-get-you-started">
      Three variables will get you started
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#get-the-text">
      Get the text
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#regular-expressions">
      Regular expressions
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#going-further-n-grams">
    Going further: n-grams
   </a>
@@ -486,9 +497,8 @@ Hello! Welcome to TAML!
 </div>
 </div>
 </div>
-</section>
 <section id="remove-punctuation">
-<h2>Remove punctuation<a class="headerlink" href="#remove-punctuation" title="Permalink to this headline">¶</a></h2>
+<h3>Remove punctuation<a class="headerlink" href="#remove-punctuation" title="Permalink to this headline">¶</a></h3>
 <p>Remember that Python methods can be chained together.</p>
 <p>Below, a standard for loop loops through the <code class="docutils literal notranslate"><span class="pre">punctuation</span></code> module to replace any of these characters with nothing.</p>
 <div class="cell docutils container">
@@ -526,6 +536,7 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 </section>
+</section>
 <section id="tokenize-the-text">
 <h2>Tokenize the text<a class="headerlink" href="#tokenize-the-text" title="Permalink to this headline">¶</a></h2>
 <p>Split each word on spaces.</p>
@@ -549,9 +560,8 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 </div>
-</section>
 <section id="remove-stop-words">
-<h2>Remove stop words<a class="headerlink" href="#remove-stop-words" title="Permalink to this headline">¶</a></h2>
+<h3>Remove stop words<a class="headerlink" href="#remove-stop-words" title="Permalink to this headline">¶</a></h3>
 <p>Below is a list comprehension (a sort of shortcut for loop) that can accomplish this task for us.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -573,6 +583,7 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="lemmatizing-stemming-tokens">
 <h2>Lemmatizing/Stemming tokens<a class="headerlink" href="#lemmatizing-stemming-tokens" title="Permalink to this headline">¶</a></h2>
@@ -918,8 +929,9 @@ this ebook is for the use of anyone anywhere
 </div>
 <p><img alt="redwood" src="../_images/redwood.png" /></p>
 </section>
-<section id="quiz-redwood-webscraping">
-<h2>Quiz: Redwood webscraping<a class="headerlink" href="#quiz-redwood-webscraping" title="Permalink to this headline">¶</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="quiz-redwood-webscraping">
+<h1>Quiz: Redwood webscraping<a class="headerlink" href="#quiz-redwood-webscraping" title="Permalink to this headline">¶</a></h1>
 <p>This also works with data scraped from the web. Below is very brief BeautifulSoup example to save the contents of the Sequoioideae (redwood trees) Wikipedia page to a variable named <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
 <ol class="simple">
 <li><p>Read through the code below</p></li>
@@ -938,7 +950,7 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 <section id="three-variables-will-get-you-started">
-<h3>Three variables will get you started<a class="headerlink" href="#three-variables-will-get-you-started" title="Permalink to this headline">¶</a></h3>
+<h2>Three variables will get you started<a class="headerlink" href="#three-variables-will-get-you-started" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">url</span></code> - define the URL to be scraped</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">response</span></code> - perform the get request on the URL</p></li>
@@ -955,7 +967,7 @@ this ebook is for the use of anyone anywhere
 </div>
 </section>
 <section id="get-the-text">
-<h3>Get the text<a class="headerlink" href="#get-the-text" title="Permalink to this headline">¶</a></h3>
+<h2>Get the text<a class="headerlink" href="#get-the-text" title="Permalink to this headline">¶</a></h2>
 <p>HTML (hypertext markup language) is used to structure a webpage and the content it contains, including text.</p>
 <p>Below is a handy for loop that finds all everything within paragraph <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> tags.</p>
 <div class="cell docutils container">
@@ -1004,7 +1016,7 @@ New World Species:
 </div>
 </section>
 <section id="regular-expressions">
-<h3>Regular expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h3>
+<h2>Regular expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h2>
 <p>Remember how we did preprocessing the long way above? You might find that using egular expressions are easier. <a class="reference external" href="https://docs.python.org/3/library/re.html">Check out the tutorial</a> and <a class="reference external" href="https://www.dataquest.io/blog/regex-cheatsheet/">cheatsheet</a> to find out what the below symbols mean and write your own code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1031,11 +1043,10 @@ New World Species:
 </div>
 </section>
 </section>
-<section id="going-further-n-grams">
-<h2>Going further: n-grams<a class="headerlink" href="#going-further-n-grams" title="Permalink to this headline">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="going-further-n-grams">
+<h1>Going further: n-grams<a class="headerlink" href="#going-further-n-grams" title="Permalink to this headline">¶</a></h1>
 <p>We have used indivual words in this example, but what about <a class="reference external" href="https://en.wikipedia.org/wiki/N-gram">n-grams?</a> Also read through this <a class="reference external" href="https://www.kaggle.com/alvations/n-gram-language-model-with-nltk">n-gram language model with nltk</a>.</p>
 <p>There are also more optimal ways to preprocess your text. Check out the <a class="reference external" href="https://spacy.io/usage/spacy-101">spaCy 101</a> guide to try it out yourself and attend the CIDR Python Introduction to Text Analysis workshop on February 8, 2022. <a class="reference external" href="https://appointments.library.stanford.edu/calendar/ssds/cidr-python-text">Register here</a>.</p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">

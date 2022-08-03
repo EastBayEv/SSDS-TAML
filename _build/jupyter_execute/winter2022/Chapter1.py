@@ -52,7 +52,7 @@ text = open("data/dracula.txt").read()
 print(text[:100])
 
 
-# ### Standardize Text casing & spacing
+# ## Standardize Text casing & spacing
 # 
 # Oftentimes in text analysis, identifying occurences of key word(s) is a necessary step. To do so, we may want "apple," "ApPLe," and "apple      " to be treated the same; i.e., as an occurence of the token, 'apple.' To achieve this, we can standardize text casing and spacing: 
 
@@ -94,7 +94,7 @@ for char in punctuation:
 print(text[:100])
 
 
-# ### Tokenize the text
+# ## Tokenize the text
 # 
 # Split each word on spaces.
 
@@ -130,7 +130,7 @@ filtered_text = [word for word in tokens if word not in stopwords.words('english
 print(filtered_text[:100])
 
 
-# ### Lemmatizing/Stemming tokens
+# ## Lemmatizing/Stemming tokens
 # 
 # Lemmatizating and stemming are related, but different practices. Both processes aim to reduce the inflectional forms of a token to a common base/root. However, how they go about doing so is the key differentiating factor.  
 # 
@@ -166,7 +166,7 @@ print(token_stem[:10])
 print(token_lemma[:10])
 
 
-# ### Part of speech tags
+# ## Part of speech tags
 # 
 # Part of speech tags are labels given to each word in a text such as verbs, adverbs, nouns, pronouns, adjectives, conjunctions, and their various derivations and subcategories. 
 
@@ -188,7 +188,7 @@ print(nltk.pos_tag(ex_string.split()))
 chunked = nltk.chunk.ne_chunk(tagged)
 
 
-# ### Convert to dataframe
+# ## Convert to dataframe
 
 # In[16]:
 
@@ -208,7 +208,7 @@ df.head()
 df.shape
 
 
-# ### Visualize the 20 most frequent words
+# ## Visualize the 20 most frequent words
 
 # In[19]:
 
@@ -240,7 +240,7 @@ top_plot.set_xticklabels(top_plot.get_xticklabels(),rotation = 40);
 
 # ![redwood](img/redwood.png)
 
-# ## Quiz: Redwood webscraping
+# # Quiz: Redwood webscraping
 # 
 # This also works with data scraped from the web. Below is very brief BeautifulSoup example to save the contents of the Sequoioideae (redwood trees) Wikipedia page to a variable named `text`. 
 # 
@@ -258,7 +258,7 @@ import regex
 import nltk
 
 
-# ### Three variables will get you started
+# ## Three variables will get you started
 # 
 # 1. `url` - define the URL to be scraped 
 # 2. `response` - perform the get request on the URL 
@@ -272,7 +272,7 @@ response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html')
 
 
-# ### Get the text
+# ## Get the text
 # 
 # HTML (hypertext markup language) is used to structure a webpage and the content it contains, including text.
 # 
@@ -294,7 +294,7 @@ for paragraph in soup.find_all('p'):
 print(text)
 
 
-# ### Regular expressions
+# ## Regular expressions
 # 
 # Remember how we did preprocessing the long way above? You might find that using egular expressions are easier. [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code.
 
@@ -314,7 +314,7 @@ text = text.lower()
 print(text)
 
 
-# ## Going further: n-grams
+# # Going further: n-grams
 # 
 # We have used indivual words in this example, but what about [n-grams?](https://en.wikipedia.org/wiki/N-gram) Also read through this [n-gram language model with nltk](https://www.kaggle.com/alvations/n-gram-language-model-with-nltk). 
 # 
