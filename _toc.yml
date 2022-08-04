@@ -21,6 +21,7 @@ parts:
   - file: winter2022/Chapter5
   - file: winter2022/Chapter6
   - file: winter2022/Chapter7
+  - file: Appendix
 - caption: Miscellaneous
   chapters:
   - file: winter2022/resources.md
