@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+jupyter-book = "*"
+matplotlib = "*"
+numpy = "*"
+pandas = "*"
+seaborn = "*"
+bs4 = "*"
+nltk = "*"
+requests = "*"
+regex = "*"
+tensorflow = "*"
+pycontractions = "*"
+cleanco = "*"
+language-check = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
