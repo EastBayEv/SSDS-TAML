@@ -92,44 +92,59 @@
 # 
 #      * In this window, type ``` pip install [name of package] ``` for each package you want to install/weren't able to install in the 'Environments' page. 
 
+# ### Appendix A.2: *Virtual environments in Command Window*
+# 
+# If you prefer to run Python in a command window-type interface, you can still use virtual environments! For this purpose, I recommend the user-friendly [pipenv](https://pipenv.pypa.io/en/latest/) package (which utilizes the ```pip``` and ```virtualenv``` packages, but handles most of the nitty-gritty details so you don't have to).
+# 
+# Let's take a look at how to use it: 
+# 
+# **More coming soon...**
+
 # ## Appendix B: *More on text preprocessing*
 # 
 # While the exact steps you elect to use for text preprocessing will ultimately depend on applications, there are some more generalizable techniques that you can usually look to apply: 
 # 
-# * **Expand contractions** - contractions like "don't", "they're", and "it's" all count as unique tokens if punctuation is simply removed (converting them to "dont", "theyre", "its", respectively). Decompose contractions into their constituent words to get more accurate counts of tokens like "is," "they," etc. [pycontractions](https://pypi.org/project/pycontractions/) can be useful here! 
+# * **Expand contractions** - contractions like "don't", "they're", and "it's" all count as unique tokens if punctuation is simply removed (converting them to "dont", "theyre", "its", respectively). Decompose contractions into their constituent words to get more accurate counts of tokens like "is," "they," etc. (or for ensuring their removal when omitting stopwords from text -- read on for more about those!)
 # 
-#     * Let's see an example:   
+#     * The [contractions](https://github.com/kootenpv/contractions) package can be useful here! Let's see an example:   
 # 
 
 # In[1]:
 
 
 # required install: 
-get_ipython().system('pip install pycontractions')
+get_ipython().system('pip install contractions')
 
 
 # In[2]:
 
 
-from pycontractions import Contractions as ct
+import contractions 
 
-# load contractions from a vector model - many models accepted!
-contractions = ct('GoogleNews-vectors-negative300.bin')
-
-# optional: load the model before the first .expand_texts call 
-ct.load_models() 
-
-example_sentence = "I'd like to know how you're doing! You're her best friend, but I'm your friend too, aren't I?"
+contractions_sentence = "I'd like to know how you're doing! You're her best friend, but I'm your friend too, aren't I?"
 
 # let's see the text, de-contraction-afied!
-print(list(ct.expand_texts([example_sentence])))
+print(contractions.fix(contractions_sentence))
 
+# this package can also resolve some slang! an example in action: 
+slang_sentence = "Ima go sign up for an SSDS consult - yall gotta do it too!"
+
+print(contractions.fix(slang_sentence, slang=True))
+
+
+# * If you ran the previous code cell, you might notice that one of the contraction expansions in ```contractions_sentence``` isn't quite grammatically correct; "aren't I?" is coverted to "are not I?" where it should be "am I not?"
+#  
+#     * This is because the ```contractions``` package only offers *static* contraction conversions--i.e., it doesn't consider the context surrounding a contraction and always converts a specific contraction into a specific expansion. 
+# 
+#     * For a package that converts contractions with more contextual analysis, consider the [pycontractions](https://pypi.org/project/pycontractions/) package. Where multiple expansions are possible, this package evaluates which expansions are gramatically correct and then which one is most likely to be correct (by a metric called [Word Mover's Distance](https://towardsdatascience.com/word-distance-between-word-embeddings-cc3e9cf1d632)).
+# 
+#     * If you would like to use ```pycontractions```, be note that the install can be rather finnicky--the package requires another module called ```language-check``` which requires an up-to-date version of [Java](https://www.java.com/en/download/help/download_options.html). If you have issues during the install, please reach out to SSDS for help! 
 
 # * **Remove stopwords** - stopwords are words like "a," "from," and "the" which are typically filtered out from text before analysis as they do not meaningfully contribute to the content of a document. Leaving in stopwords can lead to irrelevant topics in topic modeling, dilute the strength of sentiment in sentiment analysis, etc. 
 # 
 #     * Here's a quick loop that can help filter out the stopwords from a string: 
 
-# In[ ]:
+# In[3]:
 
 
 from nltk.corpus import stopwords 
@@ -156,14 +171,14 @@ print(filtered_sentence)
 # 
 #     * In such cases, we may need to write a custom script to standardize key phrases, or there may be a packages out there that already do this for us. Let's take a look at one for our example, standardizing company names: 
 
-# In[ ]:
+# In[4]:
 
 
 # required install: 
 get_ipython().system('pip install cleanco')
 
 
-# In[ ]:
+# In[5]:
 
 
 from cleanco import basename

@@ -27,7 +27,7 @@
 
 
 # Installs the base bertopic module:
-get_ipython().system('pip install bertopic ')
+get_ipython().system('pip install bertopic')
 
 # If you want to use other transformers/language backends, it may require additional installs: 
 get_ipython().system("pip install bertopic[flair] # can substitute 'flair' with 'gensim', 'spacy', 'use'")
@@ -80,7 +80,7 @@ model = BERTopic(vectorizer_model = stopwords_vectorizer)
 # 
 # * The first step of topic modeling is to fit the model to the documents: 
 
-# In[4]:
+# In[ ]:
 
 
 topics, probs = model.fit_transform(documents)

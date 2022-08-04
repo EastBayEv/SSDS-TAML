@@ -8,8 +8,9 @@
 
     <title>Chapter 5 - Ensemble machine learning, deep learning &#8212; Text Analysis and Machine Learning (TAML) Group</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,46 +20,62 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chapter 6 - Writing about numeric data" href="Chapter6.html" />
     <link rel="prev" title="Chapter 4.5 - New Developments: Topic Modeling with BERTopic!" href="Chapter4_add.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -67,9 +84,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -87,14 +105,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Welcome to TAML!
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to TAML!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Python Basics
  </span>
@@ -126,7 +145,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Winter Quarter 2022
  </span>
@@ -173,7 +192,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Miscellaneous
  </span>
@@ -197,110 +216,227 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/winter2022/Chapter5.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/EastBayEv/SSDS-TAML"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fwinter2022/Chapter5.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/winter2022/Chapter5.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/winter2022/Chapter5.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/EastBayEv/SSDS-TAML"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fwinter2022/Chapter5.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/winter2022/Chapter5.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ensemble-machine-learning">
    Ensemble machine learning
@@ -482,22 +618,219 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Chapter 5 - Ensemble machine learning, deep learning</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ensemble-machine-learning">
+   Ensemble machine learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#h2o-superlearner-ensemble">
+   H2O SuperLearner ensemble
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-higgs-boson">
+   What is the Higgs Boson?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-h2o-and-java">
+     Install h2o and Java
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import">
+     Import
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initialize-an-h2o-cluster">
+     Initialize an h2o cluster
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-a-sample-binary-outcome-train-test-set-into-h2o">
+     Import a sample binary outcome train/test set into H2O
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#identify-predictors-and-response">
+     Identify predictors and response
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-binary-classification-response-should-be-a-factor">
+     For binary classification, response should be a factor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#number-of-cv-folds-to-generate-level-one-data-for-stacking">
+     Number of CV folds (to generate level-one data for stacking)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-stack">
+     How to stack
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generate-a-2-model-ensemble">
+   1. Generate a 2-model ensemble
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-and-cross-validate-a-random-forest">
+     Train and cross-validate a random forest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-forest-test-set-performance">
+     Random forest test set performance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-and-cross-validate-a-gradient-boosted-machine">
+     Train and cross-validate a gradient boosted machine
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gradient-boosted-machine-test-set-performance">
+     Gradient boosted machine test set performance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-a-stacked-ensemble-using-the-gbm-and-rf-above">
+   3. Train a stacked ensemble using the GBM and RF above
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ensemble-performance-on-test-set">
+     Ensemble performance on test set
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-to-base-learner-performance-on-the-test-set">
+     Compare to base learner performance on the test set
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generate-predictions-on-a-test-set-if-neccessary">
+     Generate predictions on a test set (if neccessary)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generate-a-random-grid-of-models-and-stack-them-together">
+   4. Generate a random grid of models and stack them together
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-gbm-hyperparameters-for-the-grid">
+     Specify GBM hyperparameters for the grid
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-a-stacked-ensemble-using-the-gbm-grid">
+   5. Train a stacked ensemble using the GBM grid
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eval-ensemble-performance-on-the-test-data">
+     Eval ensemble performance on the test data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   6. Compare to base learner performance on the test set
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Generate predictions on a test set (if neccessary)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deep-learning-basics">
+   Deep learning basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-human-brain-model-key-terms">
+     The human brain model key terms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#information-transfer-in-the-human-brain">
+     Information transfer in the human brain
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#are-deep-neural-networks-really-like-the-human-brain">
+   Are deep neural networks really like the human brain?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-deep-learning">
+   Why deep learning?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-makes-a-network-deep">
+   What makes a network “deep”?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classify-images-of-cats-and-dogs">
+   Classify images of cats and dogs
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-5-ensemble-machine-learning-deep-learning">
-<h1>Chapter 5 - Ensemble machine learning, deep learning<a class="headerlink" href="#chapter-5-ensemble-machine-learning-deep-learning" title="Permalink to this headline">¶</a></h1>
+<h1>Chapter 5 - Ensemble machine learning, deep learning<a class="headerlink" href="#chapter-5-ensemble-machine-learning-deep-learning" title="Permalink to this headline">#</a></h1>
 <p>2022 February 23</p>
 <p><img alt="kandc" src="../_images/kandc.jpg" /></p>
 <p><a class="reference external" href="https://www.texasmonthly.com/the-daily-post/music-monday-uncovering-the-mystery-of-the-king-carter-jazzing-orchestra/">Texas Monthly, Music Monday: Uncovering The Mystery Of The King &amp; Carter Jazzing Orchestra</a></p>
 <section id="ensemble-machine-learning">
-<h2>Ensemble machine learning<a class="headerlink" href="#ensemble-machine-learning" title="Permalink to this headline">¶</a></h2>
+<h2>Ensemble machine learning<a class="headerlink" href="#ensemble-machine-learning" title="Permalink to this headline">#</a></h2>
 <p>“Ensemble machine learning methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms.” <a class="reference external" href="https://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/stacked-ensembles.html">H2O.ai ensemble example</a></p>
 <p>In this manner, stacking/SuperLearner ensembles are powerful tools because they:</p>
 <ol class="simple">
@@ -527,15 +860,15 @@
 </ul>
 </section>
 <section id="h2o-superlearner-ensemble">
-<h2>H2O SuperLearner ensemble<a class="headerlink" href="#h2o-superlearner-ensemble" title="Permalink to this headline">¶</a></h2>
+<h2>H2O SuperLearner ensemble<a class="headerlink" href="#h2o-superlearner-ensemble" title="Permalink to this headline">#</a></h2>
 <p>Use machine learning ensembles to detect whether or not (simulated) particle collisions produce the Higgs Boson particle or not. Learn more about the data: <a class="reference external" href="https://www.kaggle.com/c/higgs/overview">https://www.kaggle.com/c/higgs/overview</a></p>
 </section>
 <section id="what-is-the-higgs-boson">
-<h2>What is the Higgs Boson?<a class="headerlink" href="#what-is-the-higgs-boson" title="Permalink to this headline">¶</a></h2>
+<h2>What is the Higgs Boson?<a class="headerlink" href="#what-is-the-higgs-boson" title="Permalink to this headline">#</a></h2>
 <p>“The Higgs boson is the fundamental particle associated with the Higgs field, a field that gives mass to other fundamental particles such as electrons and quarks. A particle’s mass determines how much it resists changing its speed or position when it encounters a force. Not all fundamental particles have mass. The photon, which is the particle of light and carries the electromagnetic force, has no mass at all.” (<a class="reference external" href="https://www.energy.gov/science/doe-explainsthe-higgs-boson">https://www.energy.gov/science/doe-explainsthe-higgs-boson</a>)</p>
 <p><img alt="hb" src="../_images/hb.png" /></p>
 <section id="install-h2o-and-java">
-<h3>Install h2o and Java<a class="headerlink" href="#install-h2o-and-java" title="Permalink to this headline">¶</a></h3>
+<h3>Install h2o and Java<a class="headerlink" href="#install-h2o-and-java" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install h2o</span>
@@ -548,7 +881,7 @@
 </div>
 </section>
 <section id="import">
-<h3>Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h3>
+<h3>Import<a class="headerlink" href="#import" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">h2o</span>
@@ -564,10 +897,22 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">h2o</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">h2o.estimators.random_forest</span> <span class="kn">import</span> <span class="n">H2ORandomForestEstimator</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">h2o.estimators.gbm</span> <span class="kn">import</span> <span class="n">H2OGradientBoostingEstimator</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;h2o&#39;
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="initialize-an-h2o-cluster">
-<h3>Initialize an h2o cluster<a class="headerlink" href="#initialize-an-h2o-cluster" title="Permalink to this headline">¶</a></h3>
+<h3>Initialize an h2o cluster<a class="headerlink" href="#initialize-an-h2o-cluster" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h2o</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">nthreads</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_mem_size</span><span class="o">=</span><span class="s1">&#39;2G&#39;</span><span class="p">)</span>
@@ -575,15 +920,20 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking whether there is an H2O instance running at http://localhost:54321 .
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> connected.
-Warning: Your H2O cluster version is too old (10 months and 18 days)!Please download and install the latest version from http://h2o.ai/download/
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking whether there is an H2O instance running at http://localhost:54321 ..... not found.
+Attempting to start a local H2O server...
+  Java Version: java version &quot;1.8.0_321&quot;; Java(TM) SE Runtime Environment (build 1.8.0_321-b07); Java HotSpot(TM) 64-Bit Server VM (build 25.321-b07, mixed mode)
+  Starting server from /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/h2o/backend/bin/h2o.jar
+  Ice root: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpjvise75o
+  JVM stdout: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpjvise75o/h2o_evanmuzzall_started_from_python.out
+  JVM stderr: /var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/tmpjvise75o/h2o_evanmuzzall_started_from_python.err
+  Server is running at http://127.0.0.1:54321
+Connecting to H2O server at http://127.0.0.1:54321 ... successful.
+Warning: Your H2O cluster version is too old (5 months and 9 days)!Please download and install the latest version from http://h2o.ai/download/
 </pre></div>
 </div>
 <div class="output text_html"><div style="overflow:auto"><table style="width:50%"><tr><td>H2O_cluster_uptime:</td>
-<td>45 mins 07 secs</td></tr>
+<td>13 secs</td></tr>
 <tr><td>H2O_cluster_timezone:</td>
 <td>America/Los_Angeles</td></tr>
 <tr><td>H2O_data_parsing_timezone:</td>
@@ -591,21 +941,21 @@ Warning: Your H2O cluster version is too old (10 months and 18 days)!Please down
 <tr><td>H2O_cluster_version:</td>
 <td>3.34.0.1</td></tr>
 <tr><td>H2O_cluster_version_age:</td>
-<td>10 months and 18 days !!!</td></tr>
+<td>5 months and 9 days !!!</td></tr>
 <tr><td>H2O_cluster_name:</td>
-<td>H2O_from_python_evanmuzzall_6713ep</td></tr>
+<td>H2O_from_python_evanmuzzall_evfy3t</td></tr>
 <tr><td>H2O_cluster_total_nodes:</td>
 <td>1</td></tr>
 <tr><td>H2O_cluster_free_memory:</td>
-<td>1.351 Gb</td></tr>
+<td>1.778 Gb</td></tr>
 <tr><td>H2O_cluster_total_cores:</td>
-<td>16</td></tr>
+<td>0</td></tr>
 <tr><td>H2O_cluster_allowed_cores:</td>
-<td>16</td></tr>
+<td>0</td></tr>
 <tr><td>H2O_cluster_status:</td>
 <td>locked, healthy</td></tr>
 <tr><td>H2O_connection_url:</td>
-<td>http://localhost:54321</td></tr>
+<td>http://127.0.0.1:54321</td></tr>
 <tr><td>H2O_connection_proxy:</td>
 <td>{"http": null, "https": null}</td></tr>
 <tr><td>H2O_internal_security:</td>
@@ -617,7 +967,7 @@ Warning: Your H2O cluster version is too old (10 months and 18 days)!Please down
 </div>
 </section>
 <section id="import-a-sample-binary-outcome-train-test-set-into-h2o">
-<h3>Import a sample binary outcome train/test set into H2O<a class="headerlink" href="#import-a-sample-binary-outcome-train-test-set-into-h2o" title="Permalink to this headline">¶</a></h3>
+<h3>Import a sample binary outcome train/test set into H2O<a class="headerlink" href="#import-a-sample-binary-outcome-train-test-set-into-h2o" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s2">&quot;https://s3.amazonaws.com/erin-data/higgs/higgs_train_10k.csv&quot;</span><span class="p">)</span>
@@ -670,7 +1020,7 @@ Warning: Your H2O cluster version is too old (10 months and 18 days)!Please down
 </div>
 </section>
 <section id="identify-predictors-and-response">
-<h3>Identify predictors and response<a class="headerlink" href="#identify-predictors-and-response" title="Permalink to this headline">¶</a></h3>
+<h3>Identify predictors and response<a class="headerlink" href="#identify-predictors-and-response" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">columns</span>
@@ -682,7 +1032,7 @@ Warning: Your H2O cluster version is too old (10 months and 18 days)!Please down
 </div>
 </section>
 <section id="for-binary-classification-response-should-be-a-factor">
-<h3>For binary classification, response should be a factor<a class="headerlink" href="#for-binary-classification-response-should-be-a-factor" title="Permalink to this headline">¶</a></h3>
+<h3>For binary classification, response should be a factor<a class="headerlink" href="#for-binary-classification-response-should-be-a-factor" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">asfactor</span><span class="p">()</span>
@@ -693,7 +1043,7 @@ Warning: Your H2O cluster version is too old (10 months and 18 days)!Please down
 </div>
 </section>
 <section id="number-of-cv-folds-to-generate-level-one-data-for-stacking">
-<h3>Number of CV folds (to generate level-one data for stacking)<a class="headerlink" href="#number-of-cv-folds-to-generate-level-one-data-for-stacking" title="Permalink to this headline">¶</a></h3>
+<h3>Number of CV folds (to generate level-one data for stacking)<a class="headerlink" href="#number-of-cv-folds-to-generate-level-one-data-for-stacking" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nfolds</span> <span class="o">=</span> <span class="mi">5</span>
@@ -703,7 +1053,7 @@ Warning: Your H2O cluster version is too old (10 months and 18 days)!Please down
 </div>
 </section>
 <section id="how-to-stack">
-<h3>How to stack<a class="headerlink" href="#how-to-stack" title="Permalink to this headline">¶</a></h3>
+<h3>How to stack<a class="headerlink" href="#how-to-stack" title="Permalink to this headline">#</a></h3>
 <p>There are a few ways to assemble a list of models to stack together:</p>
 <ol class="simple">
 <li><p>Train individual models and put them in a list</p></li>
@@ -716,7 +1066,7 @@ Warning: Your H2O cluster version is too old (10 months and 18 days)!Please down
 </section>
 </section>
 <section id="generate-a-2-model-ensemble">
-<h2>1. Generate a 2-model ensemble<a class="headerlink" href="#generate-a-2-model-ensemble" title="Permalink to this headline">¶</a></h2>
+<h2>1. Generate a 2-model ensemble<a class="headerlink" href="#generate-a-2-model-ensemble" title="Permalink to this headline">#</a></h2>
 <p>Use three algorithms:</p>
 <ol class="simple">
 <li><p>random forest</p></li>
@@ -726,7 +1076,7 @@ Warning: Your H2O cluster version is too old (10 months and 18 days)!Please down
 <p>TODO: add RF and GBM defining characteristics</p>
 <p>TODO: show how changing hyperparamters randomly can lead to overfitting (specifically # trees)</p>
 <section id="train-and-cross-validate-a-random-forest">
-<h3>Train and cross-validate a random forest<a class="headerlink" href="#train-and-cross-validate-a-random-forest" title="Permalink to this headline">¶</a></h3>
+<h3>Train and cross-validate a random forest<a class="headerlink" href="#train-and-cross-validate-a-random-forest" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf</span> <span class="o">=</span> <span class="n">H2ORandomForestEstimator</span><span class="p">(</span><span class="n">ntrees</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
@@ -742,7 +1092,7 @@ Warning: Your H2O cluster version is too old (10 months and 18 days)!Please down
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
 =============
 H2ORandomForestEstimator :  Distributed Random Forest
-Model Key:  DRF_model_python_1659483784037_6487
+Model Key:  DRF_model_python_1645748177867_1
 
 
 Model Summary: 
@@ -784,7 +1134,7 @@ Model Summary:
       <td></td>
       <td>100.0</td>
       <td>100.0</td>
-      <td>1893923.0</td>
+      <td>1893916.0</td>
       <td>20.0</td>
       <td>20.0</td>
       <td>20.0</td>
@@ -2153,8 +2503,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>0</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.153 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.602 sec</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2166,8 +2516,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>1</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.176 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.673 sec</td>
       <td>1.0</td>
       <td>0.642818</td>
       <td>14.048395</td>
@@ -2179,8 +2529,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>2</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.199 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.709 sec</td>
       <td>2.0</td>
       <td>0.615404</td>
       <td>11.895281</td>
@@ -2192,8 +2542,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>3</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.223 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.744 sec</td>
       <td>3.0</td>
       <td>0.596109</td>
       <td>10.322973</td>
@@ -2205,8 +2555,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>4</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.248 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.776 sec</td>
       <td>4.0</td>
       <td>0.578952</td>
       <td>8.963477</td>
@@ -2218,8 +2568,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>5</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.271 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.810 sec</td>
       <td>5.0</td>
       <td>0.566757</td>
       <td>7.823122</td>
@@ -2231,8 +2581,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>6</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.296 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.842 sec</td>
       <td>6.0</td>
       <td>0.555494</td>
       <td>6.782681</td>
@@ -2244,8 +2594,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>7</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.320 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.881 sec</td>
       <td>7.0</td>
       <td>0.542668</td>
       <td>5.762143</td>
@@ -2257,8 +2607,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>8</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.347 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.919 sec</td>
       <td>8.0</td>
       <td>0.534223</td>
       <td>5.001247</td>
@@ -2270,8 +2620,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>9</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.372 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.954 sec</td>
       <td>9.0</td>
       <td>0.525930</td>
       <td>4.327270</td>
@@ -2283,8 +2633,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>10</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.398 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>20.986 sec</td>
       <td>10.0</td>
       <td>0.516709</td>
       <td>3.691988</td>
@@ -2296,8 +2646,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>11</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.423 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>21.019 sec</td>
       <td>11.0</td>
       <td>0.510283</td>
       <td>3.222738</td>
@@ -2309,8 +2659,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>12</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.450 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>21.052 sec</td>
       <td>12.0</td>
       <td>0.501990</td>
       <td>2.723957</td>
@@ -2322,8 +2672,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>13</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.476 sec</td>
+      <td>2022-02-24 16:17:21</td>
+      <td>21.081 sec</td>
       <td>13.0</td>
       <td>0.496251</td>
       <td>2.349060</td>
@@ -2335,8 +2685,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>14</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.504 sec</td>
+      <td>2022-02-24 16:17:22</td>
+      <td>21.114 sec</td>
       <td>14.0</td>
       <td>0.492259</td>
       <td>2.050819</td>
@@ -2348,8 +2698,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>15</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.531 sec</td>
+      <td>2022-02-24 16:17:22</td>
+      <td>21.144 sec</td>
       <td>15.0</td>
       <td>0.487936</td>
       <td>1.795128</td>
@@ -2361,8 +2711,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>16</th>
       <td></td>
-      <td>2022-08-02 17:28:49</td>
-      <td>19.560 sec</td>
+      <td>2022-02-24 16:17:22</td>
+      <td>21.175 sec</td>
       <td>16.0</td>
       <td>0.484170</td>
       <td>1.579896</td>
@@ -2374,8 +2724,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>17</th>
       <td></td>
-      <td>2022-08-02 17:28:50</td>
-      <td>19.589 sec</td>
+      <td>2022-02-24 16:17:22</td>
+      <td>21.209 sec</td>
       <td>17.0</td>
       <td>0.480754</td>
       <td>1.424860</td>
@@ -2387,8 +2737,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>18</th>
       <td></td>
-      <td>2022-08-02 17:28:50</td>
-      <td>19.616 sec</td>
+      <td>2022-02-24 16:17:22</td>
+      <td>21.241 sec</td>
       <td>18.0</td>
       <td>0.477989</td>
       <td>1.318464</td>
@@ -2400,8 +2750,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42006199163332014:
     <tr>
       <th>19</th>
       <td></td>
-      <td>2022-08-02 17:28:50</td>
-      <td>19.645 sec</td>
+      <td>2022-02-24 16:17:22</td>
+      <td>21.275 sec</td>
       <td>19.0</td>
       <td>0.475932</td>
       <td>1.215350</td>
@@ -2594,7 +2944,7 @@ Variable Importances:
 </div>
 </section>
 <section id="random-forest-test-set-performance">
-<h3>Random forest test set performance<a class="headerlink" href="#random-forest-test-set-performance" title="Permalink to this headline">¶</a></h3>
+<h3>Random forest test set performance<a class="headerlink" href="#random-forest-test-set-performance" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
@@ -3146,7 +3496,7 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3900028567254543:
 </div>
 </section>
 <section id="train-and-cross-validate-a-gradient-boosted-machine">
-<h3>Train and cross-validate a gradient boosted machine<a class="headerlink" href="#train-and-cross-validate-a-gradient-boosted-machine" title="Permalink to this headline">¶</a></h3>
+<h3>Train and cross-validate a gradient boosted machine<a class="headerlink" href="#train-and-cross-validate-a-gradient-boosted-machine" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gbm</span> <span class="o">=</span> <span class="n">H2OGradientBoostingEstimator</span><span class="p">(</span><span class="n">distribution</span> <span class="o">=</span> <span class="s2">&quot;bernoulli&quot;</span><span class="p">,</span>
@@ -3166,7 +3516,7 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3900028567254543:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
 =============
 H2OGradientBoostingEstimator :  Gradient Boosting Machine
-Model Key:  GBM_model_python_1659483784037_7600
+Model Key:  GBM_model_python_1645663571276_2785
 
 
 Model Summary: 
@@ -3208,7 +3558,7 @@ Model Summary:
       <td></td>
       <td>10.0</td>
       <td>10.0</td>
-      <td>1580.0</td>
+      <td>1579.0</td>
       <td>3.0</td>
       <td>3.0</td>
       <td>3.0</td>
@@ -4560,8 +4910,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>0</th>
       <td></td>
-      <td>2022-08-02 17:28:54</td>
-      <td>0.540 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>0.998 sec</td>
       <td>0.0</td>
       <td>0.499129</td>
       <td>0.691406</td>
@@ -4573,8 +4923,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>1</th>
       <td></td>
-      <td>2022-08-02 17:28:54</td>
-      <td>0.546 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.023 sec</td>
       <td>1.0</td>
       <td>0.488236</td>
       <td>0.669779</td>
@@ -4586,8 +4936,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>2</th>
       <td></td>
-      <td>2022-08-02 17:28:54</td>
-      <td>0.552 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.037 sec</td>
       <td>2.0</td>
       <td>0.479807</td>
       <td>0.653146</td>
@@ -4599,8 +4949,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>3</th>
       <td></td>
-      <td>2022-08-02 17:28:54</td>
-      <td>0.557 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.051 sec</td>
       <td>3.0</td>
       <td>0.473698</td>
       <td>0.641037</td>
@@ -4612,8 +4962,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>4</th>
       <td></td>
-      <td>2022-08-02 17:28:54</td>
-      <td>0.563 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.066 sec</td>
       <td>4.0</td>
       <td>0.467046</td>
       <td>0.627816</td>
@@ -4625,8 +4975,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>5</th>
       <td></td>
-      <td>2022-08-02 17:28:54</td>
-      <td>0.569 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.080 sec</td>
       <td>5.0</td>
       <td>0.462994</td>
       <td>0.619629</td>
@@ -4638,8 +4988,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>6</th>
       <td></td>
-      <td>2022-08-02 17:28:54</td>
-      <td>0.575 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.096 sec</td>
       <td>6.0</td>
       <td>0.458301</td>
       <td>0.609973</td>
@@ -4651,8 +5001,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>7</th>
       <td></td>
-      <td>2022-08-02 17:28:54</td>
-      <td>0.583 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.118 sec</td>
       <td>7.0</td>
       <td>0.455569</td>
       <td>0.604192</td>
@@ -4664,8 +5014,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>8</th>
       <td></td>
-      <td>2022-08-02 17:28:54</td>
-      <td>0.592 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.136 sec</td>
       <td>8.0</td>
       <td>0.452777</td>
       <td>0.598335</td>
@@ -4677,8 +5027,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>9</th>
       <td></td>
-      <td>2022-08-02 17:28:54</td>
-      <td>0.602 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.154 sec</td>
       <td>9.0</td>
       <td>0.449743</td>
       <td>0.591929</td>
@@ -4690,8 +5040,8 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
     <tr>
       <th>10</th>
       <td></td>
-      <td>2022-08-02 17:28:54</td>
-      <td>0.612 sec</td>
+      <td>2022-02-23 16:50:42</td>
+      <td>1.173 sec</td>
       <td>10.0</td>
       <td>0.447797</td>
       <td>0.587918</td>
@@ -4882,7 +5232,7 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4159392211190996:
 </div>
 </section>
 <section id="gradient-boosted-machine-test-set-performance">
-<h3>Gradient boosted machine test set performance<a class="headerlink" href="#gradient-boosted-machine-test-set-performance" title="Permalink to this headline">¶</a></h3>
+<h3>Gradient boosted machine test set performance<a class="headerlink" href="#gradient-boosted-machine-test-set-performance" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gbm</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
@@ -5418,7 +5768,7 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.42008076282776335:
 </section>
 </section>
 <section id="train-a-stacked-ensemble-using-the-gbm-and-rf-above">
-<h2>3. Train a stacked ensemble using the GBM and RF above<a class="headerlink" href="#train-a-stacked-ensemble-using-the-gbm-and-rf-above" title="Permalink to this headline">¶</a></h2>
+<h2>3. Train a stacked ensemble using the GBM and RF above<a class="headerlink" href="#train-a-stacked-ensemble-using-the-gbm-and-rf-above" title="Permalink to this headline">#</a></h2>
 <p>What’s going on here - anything suspicious?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5983,7 +6333,7 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4952892042214926:
 </div>
 </div>
 <section id="ensemble-performance-on-test-set">
-<h3>Ensemble performance on test set<a class="headerlink" href="#ensemble-performance-on-test-set" title="Permalink to this headline">¶</a></h3>
+<h3>Ensemble performance on test set<a class="headerlink" href="#ensemble-performance-on-test-set" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perf_stack_test</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
@@ -6540,7 +6890,7 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3261076325075436:
 </div>
 </section>
 <section id="compare-to-base-learner-performance-on-the-test-set">
-<h3>Compare to base learner performance on the test set<a class="headerlink" href="#compare-to-base-learner-performance-on-the-test-set" title="Permalink to this headline">¶</a></h3>
+<h3>Compare to base learner performance on the test set<a class="headerlink" href="#compare-to-base-learner-performance-on-the-test-set" title="Permalink to this headline">#</a></h3>
 <p>The ensemble is a little better, but it is still pretty close…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6562,7 +6912,7 @@ Ensemble Test AUC:  0.7787452892036794
 </div>
 </section>
 <section id="generate-predictions-on-a-test-set-if-neccessary">
-<h3>Generate predictions on a test set (if neccessary)<a class="headerlink" href="#generate-predictions-on-a-test-set-if-neccessary" title="Permalink to this headline">¶</a></h3>
+<h3>Generate predictions on a test set (if neccessary)<a class="headerlink" href="#generate-predictions-on-a-test-set-if-neccessary" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
@@ -6595,9 +6945,9 @@ Ensemble Test AUC:  0.7787452892036794
 </section>
 </section>
 <section id="generate-a-random-grid-of-models-and-stack-them-together">
-<h2>4. Generate a random grid of models and stack them together<a class="headerlink" href="#generate-a-random-grid-of-models-and-stack-them-together" title="Permalink to this headline">¶</a></h2>
+<h2>4. Generate a random grid of models and stack them together<a class="headerlink" href="#generate-a-random-grid-of-models-and-stack-them-together" title="Permalink to this headline">#</a></h2>
 <section id="specify-gbm-hyperparameters-for-the-grid">
-<h3>Specify GBM hyperparameters for the grid<a class="headerlink" href="#specify-gbm-hyperparameters-for-the-grid" title="Permalink to this headline">¶</a></h3>
+<h3>Specify GBM hyperparameters for the grid<a class="headerlink" href="#specify-gbm-hyperparameters-for-the-grid" title="Permalink to this headline">#</a></h3>
 <p>Keep in mind it might be easier to define sequences of numbers for your various hyperparameter tunings.</p>
 <p>Also, exponential and logarithmic scales are probably preferred to linear ones.</p>
 <div class="cell docutils container">
@@ -6627,39 +6977,15 @@ Ensemble Test AUC:  0.7787452892036794
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     col_sample_rate learn_rate max_depth sample_rate  \
-0                0.4        0.8         3         0.7   
-1                0.4        0.8         3         0.7   
-2                0.4        0.8         3         0.7   
-3                0.4        0.8         3         0.7   
-4                0.4        0.8         3         0.7   
-5                0.2        0.8         4         0.8   
-6                0.2        0.8         4         0.8   
-7                0.2        0.8         4         0.8   
-8                0.2        0.8         4         0.8   
-9                0.2        0.8         4         0.8   
-10               0.7       0.03         5         0.9   
-11               0.7       0.03         5         0.9   
-12               0.7       0.03         5         0.9   
-13               0.7       0.03         5         0.9   
-14               0.7       0.03         5         0.9   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    col_sample_rate learn_rate max_depth sample_rate  \
+0               0.4        0.8         3         0.7   
+1               0.2        0.8         4         0.8   
+2               0.7       0.03         5         0.9   
 
-                     model_ids             logloss  
-0   gbm_grid_binomial_model_12     0.5866851338931  
-1   gbm_grid_binomial_model_15     0.5866851338931  
-2    gbm_grid_binomial_model_3     0.5866851338931  
-3    gbm_grid_binomial_model_6     0.5866851338931  
-4    gbm_grid_binomial_model_9     0.5866851338931  
-5   gbm_grid_binomial_model_11  0.6144661087268164  
-6   gbm_grid_binomial_model_14  0.6144661087268164  
-7    gbm_grid_binomial_model_2  0.6144661087268164  
-8    gbm_grid_binomial_model_5  0.6144661087268164  
-9    gbm_grid_binomial_model_8  0.6144661087268164  
-10   gbm_grid_binomial_model_1  0.6535517466453371  
-11  gbm_grid_binomial_model_10  0.6535517466453371  
-12  gbm_grid_binomial_model_13  0.6535517466453371  
-13   gbm_grid_binomial_model_4  0.6535517466453371  
-14   gbm_grid_binomial_model_7  0.6535517466453371  
+                   model_ids             logloss  
+0  gbm_grid_binomial_model_3     0.5866851338931  
+1  gbm_grid_binomial_model_2  0.6144661087268164  
+2  gbm_grid_binomial_model_1  0.6535517466453371  
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -6670,7 +6996,7 @@ Ensemble Test AUC:  0.7787452892036794
 </section>
 </section>
 <section id="train-a-stacked-ensemble-using-the-gbm-grid">
-<h2>5. Train a stacked ensemble using the GBM grid<a class="headerlink" href="#train-a-stacked-ensemble-using-the-gbm-grid" title="Permalink to this headline">¶</a></h2>
+<h2>5. Train a stacked ensemble using the GBM grid<a class="headerlink" href="#train-a-stacked-ensemble-using-the-gbm-grid" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensemble</span> <span class="o">=</span> <span class="n">H2OStackedEnsembleEstimator</span><span class="p">(</span><span class="n">model_id</span> <span class="o">=</span> <span class="s2">&quot;my_ensemble_gbm_grid_binomial&quot;</span><span class="p">,</span>
@@ -6690,19 +7016,19 @@ No model summary for this model
 ModelMetricsBinomialGLM: stackedensemble
 ** Reported on train data. **
 
-MSE: 0.17885687803755362
-RMSE: 0.42291474086103176
-LogLoss: 0.5351866529657767
+MSE: 0.17897505903570504
+RMSE: 0.42305443980143387
+LogLoss: 0.5357403550336852
 Null degrees of freedom: 9999
-Residual degrees of freedom: 9984
+Residual degrees of freedom: 9996
 Null deviance: 13828.113387424342
-Residual deviance: 10703.733059315535
-AIC: 10735.733059315535
-AUC: 0.8091948271934605
-AUCPR: 0.8212237223261662
-Gini: 0.618389654386921
+Residual deviance: 10714.807100673706
+AIC: 10722.807100673706
+AUC: 0.8093464349400262
+AUCPR: 0.8219046127206588
+Gini: 0.6186928698800525
 
-Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3965247254194803: 
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.4037334009318257: 
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -6734,24 +7060,24 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3965247254194803:
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>2704.0</td>
-      <td>2001.0</td>
-      <td>0.4253</td>
-      <td>(2001.0/4705.0)</td>
+      <td>2723.0</td>
+      <td>1982.0</td>
+      <td>0.4213</td>
+      <td>(1982.0/4705.0)</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>760.0</td>
-      <td>4535.0</td>
-      <td>0.1435</td>
-      <td>(760.0/5295.0)</td>
+      <td>779.0</td>
+      <td>4516.0</td>
+      <td>0.1471</td>
+      <td>(779.0/5295.0)</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Total</td>
-      <td>3464.0</td>
-      <td>6536.0</td>
+      <td>3502.0</td>
+      <td>6498.0</td>
       <td>0.2761</td>
       <td>(2761.0/10000.0)</td>
     </tr>
@@ -6788,132 +7114,132 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3965247254194803:
     <tr>
       <th>0</th>
       <td>max f1</td>
-      <td>0.396525</td>
-      <td>0.766630</td>
-      <td>254.0</td>
+      <td>0.403733</td>
+      <td>0.765878</td>
+      <td>248.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>max f2</td>
-      <td>0.239401</td>
-      <td>0.863999</td>
-      <td>334.0</td>
+      <td>0.241819</td>
+      <td>0.864462</td>
+      <td>330.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>max f0point5</td>
-      <td>0.568037</td>
-      <td>0.756349</td>
-      <td>172.0</td>
+      <td>0.579602</td>
+      <td>0.756389</td>
+      <td>167.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>max accuracy</td>
-      <td>0.511027</td>
-      <td>0.734200</td>
-      <td>199.0</td>
+      <td>0.515885</td>
+      <td>0.734700</td>
+      <td>195.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>max precision</td>
-      <td>0.906799</td>
+      <td>0.904517</td>
       <td>1.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>5</th>
       <td>max recall</td>
-      <td>0.114258</td>
+      <td>0.118691</td>
       <td>1.000000</td>
-      <td>386.0</td>
+      <td>385.0</td>
     </tr>
     <tr>
       <th>6</th>
       <td>max specificity</td>
-      <td>0.906799</td>
+      <td>0.904517</td>
       <td>1.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>7</th>
       <td>max absolute_mcc</td>
-      <td>0.547473</td>
-      <td>0.467168</td>
-      <td>181.0</td>
+      <td>0.515885</td>
+      <td>0.467751</td>
+      <td>195.0</td>
     </tr>
     <tr>
       <th>8</th>
       <td>max min_per_class_accuracy</td>
-      <td>0.528929</td>
-      <td>0.732011</td>
+      <td>0.528054</td>
+      <td>0.731350</td>
       <td>190.0</td>
     </tr>
     <tr>
       <th>9</th>
       <td>max mean_per_class_accuracy</td>
-      <td>0.547473</td>
-      <td>0.733974</td>
-      <td>181.0</td>
+      <td>0.515885</td>
+      <td>0.733957</td>
+      <td>195.0</td>
     </tr>
     <tr>
       <th>10</th>
       <td>max tns</td>
-      <td>0.906799</td>
+      <td>0.904517</td>
       <td>4705.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>11</th>
       <td>max fns</td>
-      <td>0.906799</td>
-      <td>5283.000000</td>
+      <td>0.904517</td>
+      <td>5281.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>12</th>
       <td>max fps</td>
-      <td>0.070965</td>
+      <td>0.077394</td>
       <td>4705.000000</td>
       <td>399.0</td>
     </tr>
     <tr>
       <th>13</th>
       <td>max tps</td>
-      <td>0.114258</td>
+      <td>0.118691</td>
       <td>5295.000000</td>
-      <td>386.0</td>
+      <td>385.0</td>
     </tr>
     <tr>
       <th>14</th>
       <td>max tnr</td>
-      <td>0.906799</td>
+      <td>0.904517</td>
       <td>1.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>15</th>
       <td>max fnr</td>
-      <td>0.906799</td>
-      <td>0.997734</td>
+      <td>0.904517</td>
+      <td>0.997356</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>16</th>
       <td>max fpr</td>
-      <td>0.070965</td>
+      <td>0.077394</td>
       <td>1.000000</td>
       <td>399.0</td>
     </tr>
     <tr>
       <th>17</th>
       <td>max tpr</td>
-      <td>0.114258</td>
+      <td>0.118691</td>
       <td>1.000000</td>
-      <td>386.0</td>
+      <td>385.0</td>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 52.95 %, avg score: 52.97 %
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 52.95 %, avg score: 52.96 %
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -6955,13 +7281,13 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3965247254194803:
       <th>0</th>
       <td>1</td>
       <td>0.01</td>
-      <td>0.890910</td>
+      <td>0.887257</td>
       <td>1.869688</td>
       <td>1.869688</td>
       <td>0.990</td>
-      <td>0.896713</td>
+      <td>0.893840</td>
       <td>0.990000</td>
-      <td>0.896713</td>
+      <td>0.893840</td>
       <td>0.018697</td>
       <td>0.018697</td>
       <td>86.968839</td>
@@ -6972,101 +7298,101 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3965247254194803:
       <th>1</th>
       <td>2</td>
       <td>0.02</td>
-      <td>0.883481</td>
-      <td>1.813031</td>
-      <td>1.841360</td>
-      <td>0.960</td>
-      <td>0.887209</td>
-      <td>0.975000</td>
-      <td>0.891961</td>
-      <td>0.018130</td>
-      <td>0.036827</td>
-      <td>81.303116</td>
-      <td>84.135977</td>
-      <td>0.035764</td>
+      <td>0.879296</td>
+      <td>1.794145</td>
+      <td>1.831917</td>
+      <td>0.950</td>
+      <td>0.883362</td>
+      <td>0.970000</td>
+      <td>0.888601</td>
+      <td>0.017941</td>
+      <td>0.036638</td>
+      <td>79.414542</td>
+      <td>83.191690</td>
+      <td>0.035363</td>
     </tr>
     <tr>
       <th>2</th>
       <td>3</td>
       <td>0.03</td>
-      <td>0.876079</td>
-      <td>1.813031</td>
-      <td>1.831917</td>
-      <td>0.960</td>
-      <td>0.879836</td>
-      <td>0.970000</td>
-      <td>0.887919</td>
-      <td>0.018130</td>
-      <td>0.054958</td>
-      <td>81.303116</td>
-      <td>83.191690</td>
-      <td>0.053045</td>
+      <td>0.872364</td>
+      <td>1.850803</td>
+      <td>1.838212</td>
+      <td>0.980</td>
+      <td>0.875594</td>
+      <td>0.973333</td>
+      <td>0.884265</td>
+      <td>0.018508</td>
+      <td>0.055146</td>
+      <td>85.080264</td>
+      <td>83.821215</td>
+      <td>0.053446</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
       <td>0.04</td>
-      <td>0.870386</td>
-      <td>1.756374</td>
-      <td>1.813031</td>
-      <td>0.930</td>
-      <td>0.873591</td>
-      <td>0.960000</td>
-      <td>0.884337</td>
-      <td>0.017564</td>
-      <td>0.072521</td>
-      <td>75.637394</td>
-      <td>81.303116</td>
-      <td>0.069121</td>
+      <td>0.866487</td>
+      <td>1.775260</td>
+      <td>1.822474</td>
+      <td>0.940</td>
+      <td>0.869257</td>
+      <td>0.965000</td>
+      <td>0.880513</td>
+      <td>0.017753</td>
+      <td>0.072899</td>
+      <td>77.525968</td>
+      <td>82.247403</td>
+      <td>0.069923</td>
     </tr>
     <tr>
       <th>4</th>
       <td>5</td>
       <td>0.05</td>
-      <td>0.864758</td>
-      <td>1.775260</td>
-      <td>1.805477</td>
-      <td>0.940</td>
-      <td>0.867860</td>
-      <td>0.956000</td>
-      <td>0.881042</td>
-      <td>0.017753</td>
-      <td>0.090274</td>
-      <td>77.525968</td>
-      <td>80.547686</td>
-      <td>0.085598</td>
+      <td>0.860642</td>
+      <td>1.756374</td>
+      <td>1.809254</td>
+      <td>0.930</td>
+      <td>0.863476</td>
+      <td>0.958000</td>
+      <td>0.877106</td>
+      <td>0.017564</td>
+      <td>0.090463</td>
+      <td>75.637394</td>
+      <td>80.925401</td>
+      <td>0.085999</td>
     </tr>
     <tr>
       <th>5</th>
       <td>6</td>
       <td>0.10</td>
-      <td>0.838360</td>
-      <td>1.707271</td>
-      <td>1.756374</td>
-      <td>0.904</td>
-      <td>0.851783</td>
-      <td>0.930000</td>
-      <td>0.866413</td>
-      <td>0.085364</td>
-      <td>0.175637</td>
-      <td>70.727101</td>
-      <td>75.637394</td>
-      <td>0.160760</td>
+      <td>0.834422</td>
+      <td>1.688385</td>
+      <td>1.748820</td>
+      <td>0.894</td>
+      <td>0.847602</td>
+      <td>0.926000</td>
+      <td>0.862354</td>
+      <td>0.084419</td>
+      <td>0.174882</td>
+      <td>68.838527</td>
+      <td>74.881964</td>
+      <td>0.159154</td>
     </tr>
     <tr>
       <th>6</th>
       <td>7</td>
       <td>0.15</td>
-      <td>0.811327</td>
-      <td>1.635505</td>
+      <td>0.807362</td>
+      <td>1.650614</td>
       <td>1.716084</td>
-      <td>0.866</td>
-      <td>0.825447</td>
+      <td>0.874</td>
+      <td>0.821115</td>
       <td>0.908667</td>
-      <td>0.852757</td>
-      <td>0.081775</td>
+      <td>0.848607</td>
+      <td>0.082531</td>
       <td>0.257413</td>
-      <td>63.550519</td>
+      <td>65.061379</td>
       <td>71.608436</td>
       <td>0.228295</td>
     </tr>
@@ -7074,152 +7400,152 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3965247254194803:
       <th>7</th>
       <td>8</td>
       <td>0.20</td>
-      <td>0.781504</td>
-      <td>1.548631</td>
-      <td>1.674221</td>
-      <td>0.820</td>
-      <td>0.796708</td>
-      <td>0.886500</td>
-      <td>0.838745</td>
-      <td>0.077432</td>
-      <td>0.334844</td>
-      <td>54.863078</td>
-      <td>67.422096</td>
-      <td>0.286598</td>
+      <td>0.776635</td>
+      <td>1.578848</td>
+      <td>1.681775</td>
+      <td>0.836</td>
+      <td>0.792606</td>
+      <td>0.890500</td>
+      <td>0.834607</td>
+      <td>0.078942</td>
+      <td>0.336355</td>
+      <td>57.884797</td>
+      <td>68.177526</td>
+      <td>0.289809</td>
     </tr>
     <tr>
       <th>8</th>
       <td>9</td>
       <td>0.30</td>
-      <td>0.712751</td>
-      <td>1.427762</td>
-      <td>1.592068</td>
-      <td>0.756</td>
-      <td>0.746772</td>
-      <td>0.843000</td>
-      <td>0.808087</td>
-      <td>0.142776</td>
-      <td>0.477620</td>
-      <td>42.776204</td>
-      <td>59.206799</td>
-      <td>0.377514</td>
+      <td>0.711611</td>
+      <td>1.423985</td>
+      <td>1.595845</td>
+      <td>0.754</td>
+      <td>0.744221</td>
+      <td>0.845000</td>
+      <td>0.804478</td>
+      <td>0.142398</td>
+      <td>0.478754</td>
+      <td>42.398489</td>
+      <td>59.584514</td>
+      <td>0.379923</td>
     </tr>
     <tr>
       <th>9</th>
       <td>10</td>
       <td>0.40</td>
-      <td>0.631887</td>
-      <td>1.286119</td>
-      <td>1.515581</td>
-      <td>0.681</td>
-      <td>0.673206</td>
-      <td>0.802500</td>
-      <td>0.774367</td>
-      <td>0.128612</td>
-      <td>0.606232</td>
-      <td>28.611898</td>
-      <td>51.558074</td>
-      <td>0.438326</td>
+      <td>0.629691</td>
+      <td>1.278565</td>
+      <td>1.516525</td>
+      <td>0.677</td>
+      <td>0.671084</td>
+      <td>0.803000</td>
+      <td>0.771130</td>
+      <td>0.127856</td>
+      <td>0.606610</td>
+      <td>27.856468</td>
+      <td>51.652502</td>
+      <td>0.439129</td>
     </tr>
     <tr>
       <th>10</th>
       <td>11</td>
       <td>0.50</td>
-      <td>0.540780</td>
-      <td>1.138810</td>
-      <td>1.440227</td>
-      <td>0.603</td>
-      <td>0.587669</td>
-      <td>0.762600</td>
-      <td>0.737027</td>
-      <td>0.113881</td>
-      <td>0.720113</td>
-      <td>13.881020</td>
-      <td>44.022663</td>
-      <td>0.467829</td>
+      <td>0.541550</td>
+      <td>1.118036</td>
+      <td>1.436827</td>
+      <td>0.592</td>
+      <td>0.587137</td>
+      <td>0.760800</td>
+      <td>0.734331</td>
+      <td>0.111804</td>
+      <td>0.718414</td>
+      <td>11.803588</td>
+      <td>43.682720</td>
+      <td>0.464216</td>
     </tr>
     <tr>
       <th>11</th>
       <td>12</td>
       <td>0.60</td>
-      <td>0.442802</td>
-      <td>0.919736</td>
-      <td>1.353478</td>
-      <td>0.487</td>
-      <td>0.491128</td>
-      <td>0.716667</td>
-      <td>0.696044</td>
-      <td>0.091974</td>
-      <td>0.812087</td>
-      <td>-8.026440</td>
-      <td>35.347812</td>
-      <td>0.450769</td>
+      <td>0.445375</td>
+      <td>0.942398</td>
+      <td>1.354422</td>
+      <td>0.499</td>
+      <td>0.492175</td>
+      <td>0.717167</td>
+      <td>0.693972</td>
+      <td>0.094240</td>
+      <td>0.812653</td>
+      <td>-5.760151</td>
+      <td>35.442241</td>
+      <td>0.451973</td>
     </tr>
     <tr>
       <th>12</th>
       <td>13</td>
       <td>0.70</td>
-      <td>0.355678</td>
-      <td>0.742210</td>
-      <td>1.266154</td>
-      <td>0.393</td>
-      <td>0.398259</td>
-      <td>0.670429</td>
-      <td>0.653503</td>
-      <td>0.074221</td>
-      <td>0.886308</td>
-      <td>-25.779037</td>
-      <td>26.615405</td>
-      <td>0.395978</td>
+      <td>0.357635</td>
+      <td>0.734655</td>
+      <td>1.265884</td>
+      <td>0.389</td>
+      <td>0.402200</td>
+      <td>0.670286</td>
+      <td>0.652290</td>
+      <td>0.073466</td>
+      <td>0.886119</td>
+      <td>-26.534466</td>
+      <td>26.588426</td>
+      <td>0.395577</td>
     </tr>
     <tr>
       <th>13</th>
       <td>14</td>
       <td>0.80</td>
-      <td>0.285102</td>
-      <td>0.589235</td>
-      <td>1.181539</td>
-      <td>0.312</td>
-      <td>0.320753</td>
-      <td>0.625625</td>
-      <td>0.611910</td>
-      <td>0.058924</td>
-      <td>0.945231</td>
-      <td>-41.076487</td>
-      <td>18.153919</td>
-      <td>0.308674</td>
+      <td>0.287211</td>
+      <td>0.576015</td>
+      <td>1.179651</td>
+      <td>0.305</td>
+      <td>0.323135</td>
+      <td>0.624625</td>
+      <td>0.611146</td>
+      <td>0.057602</td>
+      <td>0.943720</td>
+      <td>-42.398489</td>
+      <td>17.965061</td>
+      <td>0.305463</td>
     </tr>
     <tr>
       <th>14</th>
       <td>15</td>
       <td>0.90</td>
-      <td>0.212319</td>
-      <td>0.390935</td>
-      <td>1.093694</td>
-      <td>0.207</td>
-      <td>0.249365</td>
-      <td>0.579111</td>
-      <td>0.571627</td>
-      <td>0.039093</td>
-      <td>0.984325</td>
-      <td>-60.906516</td>
-      <td>9.369426</td>
-      <td>0.179224</td>
+      <td>0.212128</td>
+      <td>0.400378</td>
+      <td>1.093065</td>
+      <td>0.212</td>
+      <td>0.250433</td>
+      <td>0.578778</td>
+      <td>0.571067</td>
+      <td>0.040038</td>
+      <td>0.983758</td>
+      <td>-59.962229</td>
+      <td>9.306474</td>
+      <td>0.178020</td>
     </tr>
     <tr>
       <th>15</th>
       <td>16</td>
       <td>1.00</td>
-      <td>0.070423</td>
-      <td>0.156752</td>
+      <td>0.076684</td>
+      <td>0.162417</td>
       <td>1.000000</td>
-      <td>0.083</td>
-      <td>0.152757</td>
+      <td>0.086</td>
+      <td>0.156392</td>
       <td>0.529500</td>
-      <td>0.529740</td>
-      <td>0.015675</td>
+      <td>0.529599</td>
+      <td>0.016242</td>
       <td>1.000000</td>
-      <td>-84.324835</td>
+      <td>-83.758263</td>
       <td>0.000000</td>
       <td>0.000000</td>
     </tr>
@@ -7234,7 +7560,7 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3965247254194803:
 </div>
 </div>
 <section id="eval-ensemble-performance-on-the-test-data">
-<h3>Eval ensemble performance on the test data<a class="headerlink" href="#eval-ensemble-performance-on-the-test-data" title="Permalink to this headline">¶</a></h3>
+<h3>Eval ensemble performance on the test data<a class="headerlink" href="#eval-ensemble-performance-on-the-test-data" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perf_stack_test</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
@@ -7246,19 +7572,19 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3965247254194803:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ModelMetricsBinomialGLM: stackedensemble
 ** Reported on test data. **
 
-MSE: 0.19627212818645917
-RMSE: 0.4430261032788691
-LogLoss: 0.5748574793847921
+MSE: 0.19646981512542924
+RMSE: 0.44324915693707667
+LogLoss: 0.5753535672126392
 Null degrees of freedom: 4999
-Residual degrees of freedom: 4984
+Residual degrees of freedom: 4996
 Null deviance: 6905.196403260959
-Residual deviance: 5748.574793847922
-AIC: 5780.574793847922
-AUC: 0.7663960648511247
-AUCPR: 0.792692813136812
-Gini: 0.5327921297022493
+Residual deviance: 5753.5356721263925
+AIC: 5761.5356721263925
+AUC: 0.7658850264045916
+AUCPR: 0.7928758222962261
+Gini: 0.5317700528091831
 
-Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3232072507675783: 
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.35412909231741746: 
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -7290,26 +7616,26 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3232072507675783:
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>954.0</td>
-      <td>1361.0</td>
-      <td>0.5879</td>
-      <td>(1361.0/2315.0)</td>
+      <td>1068.0</td>
+      <td>1247.0</td>
+      <td>0.5387</td>
+      <td>(1247.0/2315.0)</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>298.0</td>
-      <td>2387.0</td>
-      <td>0.111</td>
-      <td>(298.0/2685.0)</td>
+      <td>367.0</td>
+      <td>2318.0</td>
+      <td>0.1367</td>
+      <td>(367.0/2685.0)</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Total</td>
-      <td>1252.0</td>
-      <td>3748.0</td>
-      <td>0.3318</td>
-      <td>(1659.0/5000.0)</td>
+      <td>1435.0</td>
+      <td>3565.0</td>
+      <td>0.3228</td>
+      <td>(1614.0/5000.0)</td>
     </tr>
   </tbody>
 </table>
@@ -7344,132 +7670,132 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3232072507675783:
     <tr>
       <th>0</th>
       <td>max f1</td>
-      <td>0.323207</td>
-      <td>0.742111</td>
-      <td>287.0</td>
+      <td>0.354129</td>
+      <td>0.741760</td>
+      <td>275.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>max f2</td>
-      <td>0.162912</td>
-      <td>0.860309</td>
-      <td>366.0</td>
+      <td>0.178761</td>
+      <td>0.860706</td>
+      <td>362.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>max f0point5</td>
-      <td>0.613124</td>
-      <td>0.727129</td>
-      <td>146.0</td>
+      <td>0.580789</td>
+      <td>0.727106</td>
+      <td>159.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>max accuracy</td>
-      <td>0.526830</td>
-      <td>0.698200</td>
-      <td>188.0</td>
+      <td>0.520792</td>
+      <td>0.696400</td>
+      <td>190.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>max precision</td>
-      <td>0.900660</td>
+      <td>0.897976</td>
       <td>1.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>5</th>
       <td>max recall</td>
-      <td>0.085849</td>
+      <td>0.094361</td>
       <td>1.000000</td>
-      <td>397.0</td>
+      <td>396.0</td>
     </tr>
     <tr>
       <th>6</th>
       <td>max specificity</td>
-      <td>0.900660</td>
+      <td>0.897976</td>
       <td>1.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>7</th>
       <td>max absolute_mcc</td>
-      <td>0.526830</td>
-      <td>0.397138</td>
-      <td>188.0</td>
+      <td>0.580789</td>
+      <td>0.394906</td>
+      <td>159.0</td>
     </tr>
     <tr>
       <th>8</th>
       <td>max min_per_class_accuracy</td>
-      <td>0.517649</td>
-      <td>0.695345</td>
-      <td>193.0</td>
+      <td>0.519258</td>
+      <td>0.695464</td>
+      <td>191.0</td>
     </tr>
     <tr>
       <th>9</th>
       <td>max mean_per_class_accuracy</td>
-      <td>0.526830</td>
-      <td>0.699113</td>
-      <td>188.0</td>
+      <td>0.579075</td>
+      <td>0.696613</td>
+      <td>160.0</td>
     </tr>
     <tr>
       <th>10</th>
       <td>max tns</td>
-      <td>0.900660</td>
+      <td>0.897976</td>
       <td>2315.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>11</th>
       <td>max fns</td>
-      <td>0.900660</td>
-      <td>2678.000000</td>
+      <td>0.897976</td>
+      <td>2680.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>12</th>
       <td>max fps</td>
-      <td>0.074101</td>
+      <td>0.081080</td>
       <td>2315.000000</td>
       <td>399.0</td>
     </tr>
     <tr>
       <th>13</th>
       <td>max tps</td>
-      <td>0.085849</td>
+      <td>0.094361</td>
       <td>2685.000000</td>
-      <td>397.0</td>
+      <td>396.0</td>
     </tr>
     <tr>
       <th>14</th>
       <td>max tnr</td>
-      <td>0.900660</td>
+      <td>0.897976</td>
       <td>1.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>15</th>
       <td>max fnr</td>
-      <td>0.900660</td>
-      <td>0.997393</td>
+      <td>0.897976</td>
+      <td>0.998138</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>16</th>
       <td>max fpr</td>
-      <td>0.074101</td>
+      <td>0.081080</td>
       <td>1.000000</td>
       <td>399.0</td>
     </tr>
     <tr>
       <th>17</th>
       <td>max tpr</td>
-      <td>0.085849</td>
+      <td>0.094361</td>
       <td>1.000000</td>
-      <td>397.0</td>
+      <td>396.0</td>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 53.70 %, avg score: 52.39 %
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 53.70 %, avg score: 52.42 %
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -7511,13 +7837,13 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3232072507675783:
       <th>0</th>
       <td>1</td>
       <td>0.01</td>
-      <td>0.891096</td>
+      <td>0.887794</td>
       <td>1.862197</td>
       <td>1.862197</td>
       <td>1.000</td>
-      <td>0.895027</td>
+      <td>0.891943</td>
       <td>1.000000</td>
-      <td>0.895027</td>
+      <td>0.891943</td>
       <td>0.018622</td>
       <td>0.018622</td>
       <td>86.219739</td>
@@ -7528,13 +7854,13 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3232072507675783:
       <th>1</th>
       <td>2</td>
       <td>0.02</td>
-      <td>0.882910</td>
+      <td>0.878222</td>
       <td>1.787709</td>
       <td>1.824953</td>
       <td>0.960</td>
-      <td>0.887042</td>
+      <td>0.883015</td>
       <td>0.980000</td>
-      <td>0.891035</td>
+      <td>0.887479</td>
       <td>0.017877</td>
       <td>0.036499</td>
       <td>78.770950</td>
@@ -7545,33 +7871,33 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3232072507675783:
       <th>2</th>
       <td>3</td>
       <td>0.03</td>
-      <td>0.877067</td>
-      <td>1.862197</td>
-      <td>1.837368</td>
-      <td>1.000</td>
-      <td>0.880004</td>
-      <td>0.986667</td>
-      <td>0.887358</td>
-      <td>0.018622</td>
-      <td>0.055121</td>
-      <td>86.219739</td>
-      <td>83.736809</td>
-      <td>0.054257</td>
+      <td>0.872278</td>
+      <td>1.824953</td>
+      <td>1.824953</td>
+      <td>0.980</td>
+      <td>0.875645</td>
+      <td>0.980000</td>
+      <td>0.883535</td>
+      <td>0.018250</td>
+      <td>0.054749</td>
+      <td>82.495345</td>
+      <td>82.495345</td>
+      <td>0.053453</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
       <td>0.04</td>
-      <td>0.870016</td>
-      <td>1.675978</td>
+      <td>0.865552</td>
+      <td>1.713222</td>
       <td>1.797020</td>
-      <td>0.900</td>
-      <td>0.873685</td>
+      <td>0.920</td>
+      <td>0.869065</td>
       <td>0.965000</td>
-      <td>0.883940</td>
-      <td>0.016760</td>
+      <td>0.879917</td>
+      <td>0.017132</td>
       <td>0.071881</td>
-      <td>67.597765</td>
+      <td>71.322160</td>
       <td>79.702048</td>
       <td>0.068857</td>
     </tr>
@@ -7579,50 +7905,50 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3232072507675783:
       <th>4</th>
       <td>5</td>
       <td>0.05</td>
-      <td>0.864414</td>
-      <td>1.713222</td>
-      <td>1.780261</td>
-      <td>0.920</td>
-      <td>0.867034</td>
-      <td>0.956000</td>
-      <td>0.880559</td>
-      <td>0.017132</td>
-      <td>0.089013</td>
-      <td>71.322160</td>
-      <td>78.026071</td>
-      <td>0.084261</td>
+      <td>0.858329</td>
+      <td>1.750466</td>
+      <td>1.787709</td>
+      <td>0.940</td>
+      <td>0.861865</td>
+      <td>0.960000</td>
+      <td>0.876307</td>
+      <td>0.017505</td>
+      <td>0.089385</td>
+      <td>75.046555</td>
+      <td>78.770950</td>
+      <td>0.085066</td>
     </tr>
     <tr>
       <th>5</th>
       <td>6</td>
       <td>0.10</td>
-      <td>0.834526</td>
+      <td>0.830711</td>
       <td>1.564246</td>
-      <td>1.672253</td>
+      <td>1.675978</td>
       <td>0.840</td>
-      <td>0.848119</td>
-      <td>0.898000</td>
-      <td>0.864339</td>
+      <td>0.844201</td>
+      <td>0.900000</td>
+      <td>0.860254</td>
       <td>0.078212</td>
-      <td>0.167225</td>
+      <td>0.167598</td>
       <td>56.424581</td>
-      <td>67.225326</td>
-      <td>0.145195</td>
+      <td>67.597765</td>
+      <td>0.145999</td>
     </tr>
     <tr>
       <th>6</th>
       <td>7</td>
       <td>0.15</td>
-      <td>0.804973</td>
-      <td>1.586592</td>
+      <td>0.799415</td>
+      <td>1.579143</td>
       <td>1.643700</td>
-      <td>0.852</td>
-      <td>0.819557</td>
+      <td>0.848</td>
+      <td>0.815299</td>
       <td>0.882667</td>
-      <td>0.849411</td>
-      <td>0.079330</td>
+      <td>0.845269</td>
+      <td>0.078957</td>
       <td>0.246555</td>
-      <td>58.659218</td>
+      <td>57.914339</td>
       <td>64.369957</td>
       <td>0.208542</td>
     </tr>
@@ -7630,33 +7956,33 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3232072507675783:
       <th>7</th>
       <td>8</td>
       <td>0.20</td>
-      <td>0.774042</td>
-      <td>1.519553</td>
-      <td>1.612663</td>
-      <td>0.816</td>
-      <td>0.789183</td>
-      <td>0.866000</td>
-      <td>0.834354</td>
-      <td>0.075978</td>
-      <td>0.322533</td>
-      <td>51.955307</td>
-      <td>61.266294</td>
-      <td>0.264649</td>
+      <td>0.768224</td>
+      <td>1.534451</td>
+      <td>1.616387</td>
+      <td>0.824</td>
+      <td>0.785330</td>
+      <td>0.868000</td>
+      <td>0.830284</td>
+      <td>0.076723</td>
+      <td>0.323277</td>
+      <td>53.445065</td>
+      <td>61.638734</td>
+      <td>0.266258</td>
     </tr>
     <tr>
       <th>8</th>
       <td>9</td>
       <td>0.30</td>
-      <td>0.698488</td>
-      <td>1.340782</td>
+      <td>0.697137</td>
+      <td>1.333333</td>
       <td>1.522036</td>
-      <td>0.720</td>
-      <td>0.735447</td>
+      <td>0.716</td>
+      <td>0.733487</td>
       <td>0.817333</td>
-      <td>0.801385</td>
-      <td>0.134078</td>
+      <td>0.798018</td>
+      <td>0.133333</td>
       <td>0.456611</td>
-      <td>34.078212</td>
+      <td>33.333333</td>
       <td>52.203600</td>
       <td>0.338252</td>
     </tr>
@@ -7664,101 +7990,101 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3232072507675783:
       <th>9</th>
       <td>10</td>
       <td>0.40</td>
-      <td>0.616913</td>
-      <td>1.210428</td>
-      <td>1.444134</td>
-      <td>0.650</td>
-      <td>0.656184</td>
-      <td>0.775500</td>
-      <td>0.765085</td>
-      <td>0.121043</td>
-      <td>0.577654</td>
-      <td>21.042831</td>
-      <td>44.413408</td>
-      <td>0.383701</td>
+      <td>0.614587</td>
+      <td>1.199255</td>
+      <td>1.441341</td>
+      <td>0.644</td>
+      <td>0.654905</td>
+      <td>0.774000</td>
+      <td>0.762240</td>
+      <td>0.119926</td>
+      <td>0.576536</td>
+      <td>19.925512</td>
+      <td>44.134078</td>
+      <td>0.381288</td>
     </tr>
     <tr>
       <th>10</th>
       <td>11</td>
       <td>0.50</td>
-      <td>0.527928</td>
-      <td>1.068901</td>
-      <td>1.369088</td>
-      <td>0.574</td>
-      <td>0.570974</td>
-      <td>0.735200</td>
-      <td>0.726263</td>
-      <td>0.106890</td>
-      <td>0.684544</td>
-      <td>6.890130</td>
-      <td>36.908752</td>
-      <td>0.398583</td>
+      <td>0.529258</td>
+      <td>1.031657</td>
+      <td>1.359404</td>
+      <td>0.554</td>
+      <td>0.572284</td>
+      <td>0.730000</td>
+      <td>0.724249</td>
+      <td>0.103166</td>
+      <td>0.679702</td>
+      <td>3.165736</td>
+      <td>35.940410</td>
+      <td>0.388125</td>
     </tr>
     <tr>
       <th>11</th>
       <td>12</td>
       <td>0.60</td>
-      <td>0.435763</td>
-      <td>0.849162</td>
-      <td>1.282433</td>
-      <td>0.456</td>
-      <td>0.481951</td>
-      <td>0.688667</td>
-      <td>0.685544</td>
-      <td>0.084916</td>
-      <td>0.769460</td>
-      <td>-15.083799</td>
-      <td>28.243327</td>
-      <td>0.366004</td>
+      <td>0.439839</td>
+      <td>0.890130</td>
+      <td>1.281192</td>
+      <td>0.478</td>
+      <td>0.483960</td>
+      <td>0.688000</td>
+      <td>0.684201</td>
+      <td>0.089013</td>
+      <td>0.768715</td>
+      <td>-10.986965</td>
+      <td>28.119181</td>
+      <td>0.364395</td>
     </tr>
     <tr>
       <th>12</th>
       <td>13</td>
       <td>0.70</td>
-      <td>0.360092</td>
-      <td>0.841713</td>
-      <td>1.219473</td>
-      <td>0.452</td>
-      <td>0.395599</td>
-      <td>0.654857</td>
-      <td>0.644124</td>
-      <td>0.084171</td>
-      <td>0.853631</td>
-      <td>-15.828678</td>
-      <td>21.947326</td>
-      <td>0.331817</td>
+      <td>0.362819</td>
+      <td>0.830540</td>
+      <td>1.216813</td>
+      <td>0.446</td>
+      <td>0.399804</td>
+      <td>0.653429</td>
+      <td>0.643572</td>
+      <td>0.083054</td>
+      <td>0.851769</td>
+      <td>-16.945996</td>
+      <td>21.681298</td>
+      <td>0.327795</td>
     </tr>
     <tr>
       <th>13</th>
       <td>14</td>
       <td>0.80</td>
-      <td>0.290547</td>
-      <td>0.655493</td>
-      <td>1.148976</td>
-      <td>0.352</td>
-      <td>0.324134</td>
-      <td>0.617000</td>
-      <td>0.604125</td>
-      <td>0.065549</td>
-      <td>0.919181</td>
-      <td>-34.450652</td>
-      <td>14.897579</td>
-      <td>0.257410</td>
+      <td>0.291686</td>
+      <td>0.681564</td>
+      <td>1.149907</td>
+      <td>0.366</td>
+      <td>0.326802</td>
+      <td>0.617500</td>
+      <td>0.603976</td>
+      <td>0.068156</td>
+      <td>0.919926</td>
+      <td>-31.843575</td>
+      <td>14.990689</td>
+      <td>0.259018</td>
     </tr>
     <tr>
       <th>14</th>
       <td>15</td>
       <td>0.90</td>
-      <td>0.209468</td>
-      <td>0.506518</td>
+      <td>0.209548</td>
+      <td>0.499069</td>
       <td>1.077592</td>
-      <td>0.272</td>
-      <td>0.250791</td>
+      <td>0.268</td>
+      <td>0.251839</td>
       <td>0.578667</td>
-      <td>0.564866</td>
-      <td>0.050652</td>
+      <td>0.564850</td>
+      <td>0.049907</td>
       <td>0.969832</td>
-      <td>-49.348231</td>
+      <td>-50.093110</td>
       <td>7.759156</td>
       <td>0.150826</td>
     </tr>
@@ -7766,13 +8092,13 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3232072507675783:
       <th>15</th>
       <td>16</td>
       <td>1.00</td>
-      <td>0.074101</td>
+      <td>0.081080</td>
       <td>0.301676</td>
       <td>1.000000</td>
       <td>0.162</td>
-      <td>0.154930</td>
+      <td>0.158619</td>
       <td>0.537000</td>
-      <td>0.523872</td>
+      <td>0.524227</td>
       <td>0.030168</td>
       <td>1.000000</td>
       <td>-69.832402</td>
@@ -7792,7 +8118,7 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3232072507675783:
 </section>
 </section>
 <section id="id1">
-<h2>6. Compare to base learner performance on the test set<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>6. Compare to base learner performance on the test set<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baselearner_best_auc_test</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">h2o</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">model_performance</span><span class="p">(</span><span class="n">test_data</span><span class="o">=</span><span class="n">test</span><span class="p">)</span><span class="o">.</span><span class="n">auc</span><span class="p">()</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">grid</span><span class="o">.</span><span class="n">model_ids</span><span class="p">])</span>
@@ -7804,13 +8130,13 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.3232072507675783:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best Base-learner Test AUC:  0.7535296885746348
-Ensemble Test AUC:  0.7663960648511247
+Ensemble Test AUC:  0.7658850264045916
 </pre></div>
 </div>
 </div>
 </div>
 <section id="id2">
-<h3>Generate predictions on a test set (if neccessary)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>Generate predictions on a test set (if neccessary)<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions2</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
@@ -7824,16 +8150,16 @@ Ensemble Test AUC:  0.7663960648511247
 <tr><th style="text-align: right;">  predict</th><th style="text-align: right;">      p0</th><th style="text-align: right;">      p1</th></tr>
 </thead>
 <tbody>
-<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.754448</td><td style="text-align: right;">0.245552</td></tr>
-<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.69569 </td><td style="text-align: right;">0.30431 </td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.485363</td><td style="text-align: right;">0.514637</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.275698</td><td style="text-align: right;">0.724302</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.514984</td><td style="text-align: right;">0.485016</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.320096</td><td style="text-align: right;">0.679904</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.314356</td><td style="text-align: right;">0.685644</td></tr>
-<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.662718</td><td style="text-align: right;">0.337282</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.608009</td><td style="text-align: right;">0.391991</td></tr>
-<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.60567 </td><td style="text-align: right;">0.39433 </td></tr>
+<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.752499</td><td style="text-align: right;">0.247501</td></tr>
+<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.692124</td><td style="text-align: right;">0.307876</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.490744</td><td style="text-align: right;">0.509256</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.293398</td><td style="text-align: right;">0.706602</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.514172</td><td style="text-align: right;">0.485828</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.292388</td><td style="text-align: right;">0.707612</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.336833</td><td style="text-align: right;">0.663167</td></tr>
+<tr><td style="text-align: right;">        0</td><td style="text-align: right;">0.661777</td><td style="text-align: right;">0.338223</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.612586</td><td style="text-align: right;">0.387414</td></tr>
+<tr><td style="text-align: right;">        1</td><td style="text-align: right;">0.627887</td><td style="text-align: right;">0.372113</td></tr>
 </tbody>
 </table></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -7843,10 +8169,10 @@ Ensemble Test AUC:  0.7663960648511247
 </section>
 </section>
 <section id="deep-learning-basics">
-<h2>Deep learning basics<a class="headerlink" href="#deep-learning-basics" title="Permalink to this headline">¶</a></h2>
+<h2>Deep learning basics<a class="headerlink" href="#deep-learning-basics" title="Permalink to this headline">#</a></h2>
 <p>Deep learning is a subfield of machine learning that uses a variety of multi-layered artificial neural networks to model datasets and predict outcomes.</p>
 <section id="the-human-brain-model-key-terms">
-<h3>The human brain model key terms<a class="headerlink" href="#the-human-brain-model-key-terms" title="Permalink to this headline">¶</a></h3>
+<h3>The human brain model key terms<a class="headerlink" href="#the-human-brain-model-key-terms" title="Permalink to this headline">#</a></h3>
 <p>The idea was originally modelled on the human brain, which has ~100 billion neurons.</p>
 <ul class="simple">
 <li><p>The <strong>soma</strong> (neuron body) holds the architecture for cell function and energy processing.</p></li>
@@ -7856,7 +8182,7 @@ Ensemble Test AUC:  0.7663960648511247
 </ul>
 </section>
 <section id="information-transfer-in-the-human-brain">
-<h3>Information transfer in the human brain<a class="headerlink" href="#information-transfer-in-the-human-brain" title="Permalink to this headline">¶</a></h3>
+<h3>Information transfer in the human brain<a class="headerlink" href="#information-transfer-in-the-human-brain" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>An outbound neuron produces an electrical signal called a <strong>spike</strong> that travel’s to the synapse, where chemicals called <strong>neurotransmitters</strong>.</p></li>
 <li><p>Receptors on the inbound neuron receive the neurotransmitter, to generate another electrical signal to send the original signal to the soma.</p></li>
@@ -7867,7 +8193,7 @@ Ensemble Test AUC:  0.7663960648511247
 </section>
 </section>
 <section id="are-deep-neural-networks-really-like-the-human-brain">
-<h2>Are deep neural networks really like the human brain?<a class="headerlink" href="#are-deep-neural-networks-really-like-the-human-brain" title="Permalink to this headline">¶</a></h2>
+<h2>Are deep neural networks really like the human brain?<a class="headerlink" href="#are-deep-neural-networks-really-like-the-human-brain" title="Permalink to this headline">#</a></h2>
 <p>Deep artificial networks were originally modelled on the human brain, and many argue for and against their likeness. See for yourself by reading the below posts!</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://medium.com/nerd-for-tech/neural-networks-68531432fb5">Neural Networks</a></p></li>
@@ -7879,7 +8205,7 @@ Ensemble Test AUC:  0.7663960648511247
 </ul>
 </section>
 <section id="why-deep-learning">
-<h2>Why deep learning?<a class="headerlink" href="#why-deep-learning" title="Permalink to this headline">¶</a></h2>
+<h2>Why deep learning?<a class="headerlink" href="#why-deep-learning" title="Permalink to this headline">#</a></h2>
 <p>Deep learning is ideal for all data types, but especially text, image, video, and sound because deep representative networks store these data as large matrices. Also, error is recycled (backpropagated) to update the model weights and make better predictions during the next epoch. .</p>
 <p>To understand deep networks, let’s start with a toy example of a single feed forward neural network - a perceptron.</p>
 <p>Read Goodfellow et al’s Deep Learning Book to learn more: <a class="reference external" href="https://www.deeplearningbook.org/">https://www.deeplearningbook.org/</a></p>
@@ -7981,7 +8307,7 @@ Ensemble Test AUC:  0.7663960648511247
 </ul>
 </section>
 <section id="what-makes-a-network-deep">
-<h2>What makes a network “deep”?<a class="headerlink" href="#what-makes-a-network-deep" title="Permalink to this headline">¶</a></h2>
+<h2>What makes a network “deep”?<a class="headerlink" href="#what-makes-a-network-deep" title="Permalink to this headline">#</a></h2>
 <p>A “deep” network is just network with multiple/many hidden layers for handling potential nonlinear transformations.</p>
 <ul class="simple">
 <li><p>Fully connected layer: a layer where all nodes are connected to every node in the next layer (as indicated by the purple arrows</p></li>
@@ -7993,7 +8319,7 @@ Ensemble Test AUC:  0.7663960648511247
 </div></blockquote>
 </section>
 <section id="classify-images-of-cats-and-dogs">
-<h2>Classify images of cats and dogs<a class="headerlink" href="#classify-images-of-cats-and-dogs" title="Permalink to this headline">¶</a></h2>
+<h2>Classify images of cats and dogs<a class="headerlink" href="#classify-images-of-cats-and-dogs" title="Permalink to this headline">#</a></h2>
 <p>Let’s go through François Chollet’s “Image classification from scratch” <a class="reference external" href="https://keras.io/examples/vision/image_classification_from_scratch/">tutorial</a> to examine this architecture and predict images of cats versus dogs.</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/keras-team/keras-io/blob/master/examples/vision/ipynb/image_classification_from_scratch.ipynb">Click here to open the Colab notebook</a></p>
 <blockquote>
@@ -8026,54 +8352,48 @@ Ensemble Test AUC:  0.7663960648511247
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="Chapter4_add.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Chapter 4.5 - New Developments: Topic Modeling with BERTopic!</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Chapter4_add.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chapter 4.5 - New Developments: Topic Modeling with BERTopic!</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Chapter6.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 6 - Writing about numeric data</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="Chapter6.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Chapter 6 - Writing about numeric data</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Software and Services for Data Science (SSDS) at Stanford Libraries<br/>
-        
-            &copy; Copyright 2021-2022.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Software and Services for Data Science (SSDS) at Stanford Libraries<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>
