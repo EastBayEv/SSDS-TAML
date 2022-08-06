@@ -271,11 +271,13 @@ penguins.groupby('island').mean()
 # your answer here:
 
 
+
 # In[21]:
 
 
 # 2. relational - lineplot
 # your answer here:
+
 
 
 # In[22]:
@@ -285,11 +287,13 @@ penguins.groupby('island').mean()
 # your answer here:
 
 
+
 # In[23]:
 
 
 # 4. distributions - kdeplot
 # your answer here:
+
 
 
 # In[24]:
@@ -299,11 +303,13 @@ penguins.groupby('island').mean()
 # your answer here:
 
 
+
 # In[25]:
 
 
 # 6. distributions - rugplot
 # your answer here:
+
 
 
 # In[26]:
@@ -313,11 +319,13 @@ penguins.groupby('island').mean()
 # your answer here:
 
 
+
 # In[27]:
 
 
 # 8. categorical - swarmplot
 # your answer here:
+
 
 
 # In[28]:
@@ -327,11 +335,13 @@ penguins.groupby('island').mean()
 # your answer here:
 
 
+
 # In[29]:
 
 
 # 10. categorical - violinplot
 # your answer here:
+
 
 
 # In[30]:
@@ -341,11 +351,13 @@ penguins.groupby('island').mean()
 # your answer here:
 
 
+
 # In[31]:
 
 
 # 12. categorical - barplot
 # your answer here:
+
 
 
 # ## Quiz - Gapminder dataset
@@ -369,11 +381,13 @@ penguins.groupby('island').mean()
 # your answer here:
 
 
+
 # In[33]:
 
 
 # 2. relational - lineplot
 # your answer here:
+
 
 
 # In[34]:
@@ -383,11 +397,13 @@ penguins.groupby('island').mean()
 # your answer here:
 
 
+
 # In[35]:
 
 
 # 4. distributions - kdeplot
 # your answer here:
+
 
 
 # In[36]:
@@ -397,11 +413,13 @@ penguins.groupby('island').mean()
 # your answer here:
 
 
+
 # In[37]:
 
 
 # 6. distributions - rugplot
 # your answer here:
+
 
 
 # In[38]:
@@ -411,11 +429,13 @@ penguins.groupby('island').mean()
 # your answer here:
 
 
+
 # In[39]:
 
 
 # 8. categorical - swarmplot
 # your answer here:
+
 
 
 # In[40]:
@@ -425,11 +445,13 @@ penguins.groupby('island').mean()
 # your answer here:
 
 
+
 # In[41]:
 
 
 # 10. categorical - violinplot
 # your answer here:
+
 
 
 # In[42]:
@@ -439,9 +461,11 @@ penguins.groupby('island').mean()
 # your answer here:
 
 
+
 # In[43]:
 
 
 # 12. categorical - barplot
 # your answer here:
+
 

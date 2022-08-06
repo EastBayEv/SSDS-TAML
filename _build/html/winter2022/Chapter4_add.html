@@ -8,8 +8,9 @@
 
     <title>Chapter 4.5 - New Developments: Topic Modeling with BERTopic! &#8212; Text Analysis and Machine Learning (TAML) Group</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,46 +20,62 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chapter 5 - Ensemble machine learning, deep learning" href="Chapter5.html" />
     <link rel="prev" title="Chapter 4 - The BERT algorithm" href="Chapter4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -67,9 +84,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -87,14 +105,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Welcome to TAML!
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to TAML!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Python Basics
  </span>
@@ -126,7 +145,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Winter Quarter 2022
  </span>
@@ -173,7 +192,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Miscellaneous
  </span>
@@ -197,110 +216,227 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/winter2022/Chapter4_add.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/EastBayEv/SSDS-TAML"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fwinter2022/Chapter4_add.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/winter2022/Chapter4_add.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/winter2022/Chapter4_add.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/EastBayEv/SSDS-TAML"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fwinter2022/Chapter4_add.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/winter2022/Chapter4_add.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Chapter 4.5 - New Developments: Topic Modeling with BERTopic!
@@ -366,21 +502,102 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Chapter 4.5 - New Developments: Topic Modeling with BERTopic!</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Chapter 4.5 - New Developments: Topic Modeling with BERTopic!
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-bertopic">
+     What is BERTopic?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#required-installs">
+       Required installs:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-sourcing">
+       Data sourcing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-bertopic-model">
+     Creating a BERTopic model:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-instantiation">
+       <em>
+        Example instantiation:
+       </em>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fitting-the-model">
+       Fitting the model:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#viewing-topic-modeling-results">
+       Viewing topic modeling results:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#saving-loading-models">
+       Saving/loading models:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-topics">
+   Visualizing topics:
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-4-5-new-developments-topic-modeling-with-bertopic">
-<h1>Chapter 4.5 - New Developments: Topic Modeling with BERTopic!<a class="headerlink" href="#chapter-4-5-new-developments-topic-modeling-with-bertopic" title="Permalink to this headline">¶</a></h1>
+<h1>Chapter 4.5 - New Developments: Topic Modeling with BERTopic!<a class="headerlink" href="#chapter-4-5-new-developments-topic-modeling-with-bertopic" title="Permalink to this headline">#</a></h1>
 <p>2022 July 30</p>
 <p><img alt="bertopic" src="../_images/bert_topic.png" /></p>
 <section id="what-is-bertopic">
-<h2>What is BERTopic?<a class="headerlink" href="#what-is-bertopic" title="Permalink to this headline">¶</a></h2>
+<h2>What is BERTopic?<a class="headerlink" href="#what-is-bertopic" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>As part of NLP analysis, it’s likely that at some point you will be asked, “What topics are most common in these documents?”</p>
 <ul>
@@ -396,7 +613,7 @@
 <li><p>In this notebook, we’ll go through the operation of BERTopic’s key functionalities and present resources for further exploration.</p></li>
 </ul>
 <section id="required-installs">
-<h3>Required installs:<a class="headerlink" href="#required-installs" title="Permalink to this headline">¶</a></h3>
+<h3>Required installs:<a class="headerlink" href="#required-installs" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Installs the base bertopic module:</span>
@@ -411,70 +628,218 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-Requirement already satisfied: bertopic in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (0.9.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting bertopic
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: hdbscan&gt;=0.8.27 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (0.8.27)
-Requirement already satisfied: numpy&gt;=1.20.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (1.20.3)
-Requirement already satisfied: pandas&gt;=1.1.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (1.4.1)
-Requirement already satisfied: tqdm&gt;=4.41.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (4.62.3)
-Requirement already satisfied: scikit-learn&gt;=0.22.2.post1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (1.0.2)
-Requirement already satisfied: sentence-transformers&gt;=0.4.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (2.2.0)
-Requirement already satisfied: pyyaml&lt;6.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (5.4.1)
-Requirement already satisfied: plotly&lt;4.14.3,&gt;=4.7.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (4.14.2)
-Requirement already satisfied: umap-learn&gt;=0.5.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from bertopic) (0.5.2)
-Requirement already satisfied: joblib&gt;=1.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (1.1.0)
-Requirement already satisfied: cython&gt;=0.27 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (0.29.25)
-Requirement already satisfied: six in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (1.16.0)
-Requirement already satisfied: scipy&gt;=1.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from hdbscan&gt;=0.8.27-&gt;bertopic) (1.7.3)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pandas&gt;=1.1.5-&gt;bertopic) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pandas&gt;=1.1.5-&gt;bertopic) (2021.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached bertopic-0.11.0-py2.py3-none-any.whl (76 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: retrying&gt;=1.3.3 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from plotly&lt;4.14.3,&gt;=4.7.0-&gt;bertopic) (1.3.3)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from scikit-learn&gt;=0.22.2.post1-&gt;bertopic) (2.2.0)
-Requirement already satisfied: nltk in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.7)
-Requirement already satisfied: sentencepiece in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.1.96)
-Requirement already satisfied: torchvision in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.11.1)
-Requirement already satisfied: transformers&lt;5.0.0,&gt;=4.6.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (4.12.3)
-Requirement already satisfied: torch&gt;=1.6.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (1.10.0)
-Requirement already satisfied: huggingface-hub in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.1.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting plotly&gt;=4.7.0
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: typing-extensions in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from torch&gt;=1.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.10.0.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached plotly-5.9.0-py2.py3-none-any.whl (15.2 MB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: packaging&gt;=20.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (21.3)
-Requirement already satisfied: tokenizers&lt;0.11,&gt;=0.10.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.10.3)
-Requirement already satisfied: sacremoses in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (0.0.46)
-Requirement already satisfied: requests in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2.27.1)
-Requirement already satisfied: regex!=2019.12.17 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2021.11.2)
-Requirement already satisfied: filelock in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.4.2)
-Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from packaging&gt;=20.0-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.0.4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tqdm&gt;=4.41.1 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from bertopic) (4.64.0)
+Collecting umap-learn&gt;=0.5.0
+  Using cached umap-learn-0.5.3.tar.gz (88 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numba&gt;=0.49 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from umap-learn&gt;=0.5.0-&gt;bertopic) (0.54.1)
-Requirement already satisfied: pynndescent&gt;=0.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from umap-learn&gt;=0.5.0-&gt;bertopic) (0.5.5)
-Requirement already satisfied: setuptools in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from numba&gt;=0.49-&gt;umap-learn&gt;=0.5.0-&gt;bertopic) (58.0.4)
-Requirement already satisfied: llvmlite&lt;0.38,&gt;=0.37.0rc1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from numba&gt;=0.49-&gt;umap-learn&gt;=0.5.0-&gt;bertopic) (0.37.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l-
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: click in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from nltk-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (8.0.3)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2021.10.8)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (1.26.8)
-Requirement already satisfied: charset-normalizer~=2.0.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2.0.4)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25hRequirement already satisfied: numpy&gt;=1.20.0 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from bertopic) (1.23.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pillow!=8.3.0,&gt;=5.3.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from torchvision-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (8.4.0)
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pyyaml&lt;6.0
+  Using cached PyYAML-5.4.1-cp39-cp39-macosx_10_9_x86_64.whl (259 kB)
+Requirement already satisfied: pandas&gt;=1.1.5 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from bertopic) (1.4.3)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting hdbscan&gt;=0.8.28
+  Using cached hdbscan-0.8.28.tar.gz (5.2 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Installing build dependencies ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Getting requirements to build wheel ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Preparing metadata (pyproject.toml) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hCollecting scikit-learn&gt;=0.22.2.post1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached scikit_learn-1.1.1-cp39-cp39-macosx_10_13_x86_64.whl (8.6 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting sentence-transformers&gt;=0.4.1
+  Using cached sentence-transformers-2.2.2.tar.gz (85 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25hRequirement already satisfied: joblib&gt;=1.0 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from hdbscan&gt;=0.8.28-&gt;bertopic) (1.1.0)
+Requirement already satisfied: scipy&gt;=1.0 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from hdbscan&gt;=0.8.28-&gt;bertopic) (1.9.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting cython&gt;=0.27
+  Using cached Cython-0.29.32-py2.py3-none-any.whl (986 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2020.1 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from pandas&gt;=1.1.5-&gt;bertopic) (2022.1)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from pandas&gt;=1.1.5-&gt;bertopic) (2.8.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tenacity&gt;=6.2.0
+  Using cached tenacity-8.0.1-py3-none-any.whl (24 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting threadpoolctl&gt;=2.0.0
+  Using cached threadpoolctl-3.1.0-py3-none-any.whl (14 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting transformers&lt;5.0.0,&gt;=4.6.0
+  Using cached transformers-4.21.1-py3-none-any.whl (4.7 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting torch&gt;=1.6.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached torch-1.12.0-cp39-none-macosx_10_9_x86_64.whl (133.6 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting torchvision
+  Using cached torchvision-0.13.0-cp39-cp39-macosx_10_9_x86_64.whl (1.3 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nltk in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.7)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting sentencepiece
+  Using cached sentencepiece-0.1.96-cp39-cp39-macosx_10_6_x86_64.whl (1.1 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting huggingface-hub&gt;=0.4.0
+  Using cached huggingface_hub-0.8.1-py3-none-any.whl (101 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numba&gt;=0.49
+  Using cached numba-0.56.0-cp39-cp39-macosx_10_14_x86_64.whl (2.4 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pynndescent&gt;=0.5
+  Using cached pynndescent-0.5.7.tar.gz (1.1 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hRequirement already satisfied: typing-extensions&gt;=3.7.4.3 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from huggingface-hub&gt;=0.4.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (4.3.0)
+Requirement already satisfied: packaging&gt;=20.9 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from huggingface-hub&gt;=0.4.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (21.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting filelock
+  Using cached filelock-3.7.1-py3-none-any.whl (10 kB)
+Requirement already satisfied: requests in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from huggingface-hub&gt;=0.4.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2.28.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numpy&gt;=1.20.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached numpy-1.22.4-cp39-cp39-macosx_10_15_x86_64.whl (17.7 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting llvmlite&lt;0.40,&gt;=0.39.0dev0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached llvmlite-0.39.0-cp39-cp39-macosx_10_9_x86_64.whl (25.5 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: setuptools in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from numba&gt;=0.49-&gt;umap-learn&gt;=0.5.0-&gt;bertopic) (63.4.1)
+Requirement already satisfied: six&gt;=1.5 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=1.1.5-&gt;bertopic) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: regex!=2019.12.17 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2022.7.25)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tokenizers!=0.11.3,&lt;0.13,&gt;=0.11.1
+  Using cached tokenizers-0.12.1-cp39-cp39-macosx_10_11_x86_64.whl (3.6 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: click in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from nltk-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (8.1.3)
+Requirement already satisfied: pillow!=8.3.*,&gt;=5.3.0 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from torchvision-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (9.2.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from packaging&gt;=20.9-&gt;huggingface-hub&gt;=0.4.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.0.9)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from requests-&gt;huggingface-hub&gt;=0.4.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (1.26.11)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from requests-&gt;huggingface-hub&gt;=0.4.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (3.3)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from requests-&gt;huggingface-hub&gt;=0.4.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2.1.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from requests-&gt;huggingface-hub&gt;=0.4.0-&gt;sentence-transformers&gt;=0.4.1-&gt;bertopic) (2022.6.15)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building wheels for collected packages: hdbscan, sentence-transformers, umap-learn, pynndescent
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for hdbscan (pyproject.toml) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
+?25h canceled
+<span class=" -Color -Color-Red">ERROR: Operation cancelled by user</span>
+
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zsh:1: no matches found: bertopic[flair]
@@ -487,7 +852,7 @@ Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/evanmuzzall/opt/anac
 </div>
 </section>
 <section id="data-sourcing">
-<h3>Data sourcing<a class="headerlink" href="#data-sourcing" title="Permalink to this headline">¶</a></h3>
+<h3>Data sourcing<a class="headerlink" href="#data-sourcing" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>For this exercise, we’re going to use a popular data set, ‘20 Newsgroups,’ which contains ~18,000 newsgroups posts on 20 topics. This dataset is readily available to us through Scikit-Learn:</p></li>
 </ul>
@@ -519,7 +884,7 @@ regular season game.          PENS RULE!!!
 </section>
 </section>
 <section id="creating-a-bertopic-model">
-<h2>Creating a BERTopic model:<a class="headerlink" href="#creating-a-bertopic-model" title="Permalink to this headline">¶</a></h2>
+<h2>Creating a BERTopic model:<a class="headerlink" href="#creating-a-bertopic-model" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Using the BERTopic module requires you to fetch an instance of the model. When doing so, you can specify multiple different parameters including:</p>
 <ul>
@@ -534,7 +899,7 @@ regular season game.          PENS RULE!!!
 <li><p>Of course, you can always use the default parameter values and instantiate your model as <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">BERTopic()</span></code>. Once you’ve done so, you’re ready to fit your model to your documents!</p></li>
 </ul>
 <section id="example-instantiation">
-<h3><em>Example instantiation:</em><a class="headerlink" href="#example-instantiation" title="Permalink to this headline">¶</a></h3>
+<h3><em>Example instantiation:</em><a class="headerlink" href="#example-instantiation" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span> 
@@ -550,146 +915,13 @@ regular season game.          PENS RULE!!!
 </div>
 </section>
 <section id="fitting-the-model">
-<h3>Fitting the model:<a class="headerlink" href="#fitting-the-model" title="Permalink to this headline">¶</a></h3>
+<h3>Fitting the model:<a class="headerlink" href="#fitting-the-model" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>The first step of topic modeling is to fit the model to the documents:</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topics</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
-KeyboardInterrupt                         Traceback (most recent call last)
-/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_33113/742668044.py in &lt;module&gt;
-----&gt; 1 topics, probs = model.fit_transform(documents)
-
-~/opt/anaconda3/lib/python3.8/site-packages/bertopic/_bertopic.py in fit_transform(self, documents, embeddings, y)
-    280             self.embedding_model = select_backend(self.embedding_model,
-    281                                                   language=self.language)
---&gt; 282             embeddings = self._extract_embeddings(documents.Document,
-    283                                                   method=&quot;document&quot;,
-    284                                                   verbose=self.verbose)
-
-~/opt/anaconda3/lib/python3.8/site-packages/bertopic/_bertopic.py in _extract_embeddings(self, documents, method, verbose)
-   1333             embeddings = self.embedding_model.embed_words(documents, verbose)
-   1334         elif method == &quot;document&quot;:
--&gt; 1335             embeddings = self.embedding_model.embed_documents(documents, verbose)
-   1336         else:
-   1337             raise ValueError(&quot;Wrong method for extracting document/word embeddings. &quot;
-
-~/opt/anaconda3/lib/python3.8/site-packages/bertopic/backend/_base.py in embed_documents(self, document, verbose)
-     67             that each have an embeddings size of `m`
-     68         &quot;&quot;&quot;
----&gt; 69         return self.embed(document, verbose)
-
-~/opt/anaconda3/lib/python3.8/site-packages/bertopic/backend/_sentencetransformers.py in embed(self, documents, verbose)
-     61             that each have an embeddings size of `m`
-     62         &quot;&quot;&quot;
----&gt; 63         embeddings = self.embedding_model.encode(documents, show_progress_bar=verbose)
-     64         return embeddings
-
-~/opt/anaconda3/lib/python3.8/site-packages/sentence_transformers/SentenceTransformer.py in encode(self, sentences, batch_size, show_progress_bar, output_value, convert_to_numpy, convert_to_tensor, device, normalize_embeddings)
-    162 
-    163             with torch.no_grad():
---&gt; 164                 out_features = self.forward(features)
-    165 
-    166                 if output_value == &#39;token_embeddings&#39;:
-
-~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/container.py in forward(self, input)
-    139     def forward(self, input):
-    140         for module in self:
---&gt; 141             input = module(input)
-    142         return input
-    143 
-
-~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
-   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
-   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
--&gt; 1102             return forward_call(*input, **kwargs)
-   1103         # Do not call functions when jit is used
-   1104         full_backward_hooks, non_full_backward_hooks = [], []
-
-~/opt/anaconda3/lib/python3.8/site-packages/sentence_transformers/models/Transformer.py in forward(self, features)
-     64             trans_features[&#39;token_type_ids&#39;] = features[&#39;token_type_ids&#39;]
-     65 
----&gt; 66         output_states = self.auto_model(**trans_features, return_dict=False)
-     67         output_tokens = output_states[0]
-     68 
-
-~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
-   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
-   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
--&gt; 1102             return forward_call(*input, **kwargs)
-   1103         # Do not call functions when jit is used
-   1104         full_backward_hooks, non_full_backward_hooks = [], []
-
-~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, input_ids, attention_mask, token_type_ids, position_ids, head_mask, inputs_embeds, encoder_hidden_states, encoder_attention_mask, past_key_values, use_cache, output_attentions, output_hidden_states, return_dict)
-    994             past_key_values_length=past_key_values_length,
-    995         )
---&gt; 996         encoder_outputs = self.encoder(
-    997             embedding_output,
-    998             attention_mask=extended_attention_mask,
-
-~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
-   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
-   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
--&gt; 1102             return forward_call(*input, **kwargs)
-   1103         # Do not call functions when jit is used
-   1104         full_backward_hooks, non_full_backward_hooks = [], []
-
-~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask, past_key_values, use_cache, output_attentions, output_hidden_states, return_dict)
-    581                 )
-    582             else:
---&gt; 583                 layer_outputs = layer_module(
-    584                     hidden_states,
-    585                     attention_mask,
-
-~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
-   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
-   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
--&gt; 1102             return forward_call(*input, **kwargs)
-   1103         # Do not call functions when jit is used
-   1104         full_backward_hooks, non_full_backward_hooks = [], []
-
-~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask, past_key_value, output_attentions)
-    468         # decoder uni-directional self-attention cached key/values tuple is at positions 1,2
-    469         self_attn_past_key_value = past_key_value[:2] if past_key_value is not None else None
---&gt; 470         self_attention_outputs = self.attention(
-    471             hidden_states,
-    472             attention_mask,
-
-~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
-   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
-   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
--&gt; 1102             return forward_call(*input, **kwargs)
-   1103         # Do not call functions when jit is used
-   1104         full_backward_hooks, non_full_backward_hooks = [], []
-
-~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask, past_key_value, output_attentions)
-    398         output_attentions=False,
-    399     ):
---&gt; 400         self_outputs = self.self(
-    401             hidden_states,
-    402             attention_mask,
-
-~/opt/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py in _call_impl(self, *input, **kwargs)
-   1100         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
-   1101                 or _global_forward_hooks or _global_forward_pre_hooks):
--&gt; 1102             return forward_call(*input, **kwargs)
-   1103         # Do not call functions when jit is used
-   1104         full_backward_hooks, non_full_backward_hooks = [], []
-
-~/opt/anaconda3/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py in forward(self, hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask, past_key_value, output_attentions)
-    336             attention_probs = attention_probs * head_mask
-    337 
---&gt; 338         context_layer = torch.matmul(attention_probs, value_layer)
-    339 
-    340         context_layer = context_layer.permute(0, 2, 1, 3).contiguous()
-
-KeyboardInterrupt: 
 </pre></div>
 </div>
 </div>
@@ -705,7 +937,7 @@ KeyboardInterrupt:
 </ul>
 </section>
 <section id="viewing-topic-modeling-results">
-<h3>Viewing topic modeling results:<a class="headerlink" href="#viewing-topic-modeling-results" title="Permalink to this headline">¶</a></h3>
+<h3>Viewing topic modeling results:<a class="headerlink" href="#viewing-topic-modeling-results" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>The BERTopic module has many built-in methods to view and analyze your fitted model topics. Here are some basics:</p></li>
 </ul>
@@ -802,7 +1034,7 @@ Contents from topic number: 65
 </div>
 </section>
 <section id="saving-loading-models">
-<h3>Saving/loading models:<a class="headerlink" href="#saving-loading-models" title="Permalink to this headline">¶</a></h3>
+<h3>Saving/loading models:<a class="headerlink" href="#saving-loading-models" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>One of the most obvious drawbacks of using the BERTopic technique is the algorithm’s run-time. But, rather than re-running a script every time you want to conduct topic modeling analysis, you can simply save/load models!</p></li>
 </ul>
@@ -833,7 +1065,7 @@ Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="visualizing-topics">
-<h1>Visualizing topics:<a class="headerlink" href="#visualizing-topics" title="Permalink to this headline">¶</a></h1>
+<h1>Visualizing topics:<a class="headerlink" href="#visualizing-topics" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Although the prior methods can be used to manually examine the textual contents of topics, visualizations can be an excellent way to succinctly communicate the same information.</p></li>
 <li><p>Depending on the visualization, it can even reveal patterns that would be much harder/impossible to see through textual analysis - like inter-topic distance!</p></li>
@@ -871,7 +1103,7 @@ Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="conclusion">
-<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h1>
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Hopefully you’re convinced of how accessible but powerful a technique BERTopic topic modeling can be! There’s plenty more to learn about BERTopic than what we’ve covered here, but you should be ready to get started!</p></li>
 <li><p>During your adventures, you may find the following resources useful:</p>
@@ -914,54 +1146,48 @@ Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="Chapter4.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Chapter 4 - The BERT algorithm</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Chapter4.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chapter 4 - The BERT algorithm</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Chapter5.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 5 - Ensemble machine learning, deep learning</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="Chapter5.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Chapter 5 - Ensemble machine learning, deep learning</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Software and Services for Data Science (SSDS) at Stanford Libraries<br/>
-        
-            &copy; Copyright 2021-2022.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Software and Services for Data Science (SSDS) at Stanford Libraries<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

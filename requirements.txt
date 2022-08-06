@@ -8,5 +8,4 @@ nltk
 requests
 regex
 tensorflow
-pycontractions
 cleanco

@@ -8,8 +8,9 @@
 
     <title>Chapter 2 - Core machine learning concepts; building text vocabularies &#8212; Text Analysis and Machine Learning (TAML) Group</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,48 +20,64 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers" href="Chapter3.html" />
     <link rel="prev" title="Chapter 1 - English text preprocessing basics" href="Chapter1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -69,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -89,14 +107,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Welcome to TAML!
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to TAML!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Python Basics
  </span>
@@ -128,7 +147,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Winter Quarter 2022
  </span>
@@ -175,7 +194,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Miscellaneous
  </span>
@@ -199,110 +218,227 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/winter2022/Chapter2.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/EastBayEv/SSDS-TAML"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fwinter2022/Chapter2.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/winter2022/Chapter2.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/winter2022/Chapter2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/EastBayEv/SSDS-TAML"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fwinter2022/Chapter2.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/winter2022/Chapter2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-machine-learning">
    What is machine learning?
@@ -521,17 +657,251 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Chapter 2 - Core machine learning concepts; building text vocabularies</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-machine-learning">
+   What is machine learning?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-terms">
+   Key terms
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#x-and-y-variables">
+     <em>
+      x
+     </em>
+     and
+     <em>
+      y
+     </em>
+     variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types-of-machine-learning">
+     Types of machine learning:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-splitting-training-and-test-performance">
+     Data splitting: Training and test performance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-evaluation">
+     Model evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-versus-regression">
+     Classification versus regression
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ols-example-by-hand">
+   OLS example - by “hand”
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generate-toy-data">
+     Generate toy data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-means-of-x-and-y">
+     Calculate means of x and y
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualize-the-data-training-data">
+     Visualize the data (training data)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-error-for-each-observation">
+     Calculate error for each observation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute-beta-coefficients">
+     Compute beta coefficients
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-best-fit-line">
+     Plot best fit line
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generate-the-predictions-test-set">
+     Generate the predictions (test set)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualize-the-error-for-each-observation">
+     Visualize the error for each observation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluate-the-performance-using-rmse">
+     Evaluate the performance using RMSE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-our-by-hand-results-to-the-scikit-learn-version">
+     Compare our by “hand” results to the scikit-learn version!
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supervised-machine-learning-logistic-regression">
+   Supervised machine learning - logistic regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preprocess-the-data-remove-rows-with-nan-missing-values">
+     Preprocess the data - remove rows with NaN (missing) values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preprocess-the-data-convert-categorical-variables-to-indicators">
+     Preprocess the data - convert categorical variables to indicators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preprocess-the-data-remove-the-island-and-species-variables-from-p-complete">
+     Preprocess the data - remove the island and species variables from p_complete
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recombine-the-numeric-indicators-with-the-other-variables">
+     Recombine the numeric indicators with the other variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recode-male-as-1-and-female-as-0">
+     Recode MALE as 1 and FEMALE as 0
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-your-logistic-regression-object">
+     Define your logistic regression object
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#split-the-clean-penguins-dataset-into-training-and-test-sets">
+     Split the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       clean_penguins
+      </span>
+     </code>
+     dataset into training and test sets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fit-the-model-to-the-training-data-0-84-accuracy">
+     Fit the model to the training data (0.84 accuracy)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generate-predicted-values-on-the-test-data">
+     Generate predicted values on the test data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-test-set-accuracy-0-81-accuracy">
+     Calculate test set accuracy (0.81 accuracy)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-text-vocabularies">
+   Building text vocabularies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-a-corpus">
+     Define a corpus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bag-of-words-model-with-countvectorizer">
+     Bag of words model with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CountVectorizer
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#document-term-matrix">
+     Document term matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#present-the-sparse-matrix">
+     Present the sparse matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#n-grams">
+     N-grams
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apply-n-grams-to-our-above-corpus">
+     Apply n-grams to our above corpus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-frame-vocabulary-across-documents">
+     Data frame vocabulary across documents
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quiz-classic-horror-novel-vocabulary">
+   Quiz - Classic horror novel vocabulary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-2-core-machine-learning-concepts-building-text-vocabularies">
-<h1>Chapter 2 - Core machine learning concepts; building text vocabularies<a class="headerlink" href="#chapter-2-core-machine-learning-concepts-building-text-vocabularies" title="Permalink to this headline">¶</a></h1>
+<h1>Chapter 2 - Core machine learning concepts; building text vocabularies<a class="headerlink" href="#chapter-2-core-machine-learning-concepts-building-text-vocabularies" title="Permalink to this headline">#</a></h1>
 <p>2022 January 26</p>
 <p><img alt="ml" src="../_images/ml.png" /></p>
 <p><a class="reference external" href="https://towardsdatascience.com/artificial-intelligence-vs-machine-learning-vs-deep-learning-2210ba8cc4ac">towardsdatascience.com - figure above and quotes below</a></p>
@@ -553,9 +923,23 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">math</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <section id="what-is-machine-learning">
-<h2>What is machine learning?<a class="headerlink" href="#what-is-machine-learning" title="Permalink to this headline">¶</a></h2>
+<h2>What is machine learning?<a class="headerlink" href="#what-is-machine-learning" title="Permalink to this headline">#</a></h2>
 <p>Machine learning is a toolbox for modeling, investigating, and understanding data. To understand machine learning, a handful of key terms need to be defined.</p>
 <p><a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a> provides the foundation for this introductory machine learning session.</p>
 <p>Be sure to bookmark the below resources. Try them out with data from the <code class="docutils literal notranslate"><span class="pre">data/</span></code> folder as well as your own data!</p>
@@ -565,7 +949,7 @@
 </ul>
 </section>
 <section id="key-terms">
-<h2>Key terms<a class="headerlink" href="#key-terms" title="Permalink to this headline">¶</a></h2>
+<h2>Key terms<a class="headerlink" href="#key-terms" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><strong>Artificial intelligence:</strong> “A program that can sense, reason, act, and adapt.”</p></li>
 <li><p><strong>Machine learning:</strong> “Algorithims whose performance improve as they are exposed to more data over time.”</p></li>
@@ -573,14 +957,14 @@
 <li><p><strong>Neural network:</strong> A type of algorithm modeled after the human brain, consisting of multiple layers of nodes/neurons.</p></li>
 </ul>
 <section id="x-and-y-variables">
-<h3><em>x</em> and <em>y</em> variables<a class="headerlink" href="#x-and-y-variables" title="Permalink to this headline">¶</a></h3>
+<h3><em>x</em> and <em>y</em> variables<a class="headerlink" href="#x-and-y-variables" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong><em>x</em></strong> variables are the independent variables. You will also see these referred to in a variety of contexts as features, covariates, predictors, input, or explanatory variables.</p></li>
 <li><p>The <strong><em>y</em></strong> variable is the dependent variable. This is also referred to as the response, outcome, and target variable.</p></li>
 </ul>
 </section>
 <section id="types-of-machine-learning">
-<h3>Types of machine learning:<a class="headerlink" href="#types-of-machine-learning" title="Permalink to this headline">¶</a></h3>
+<h3>Types of machine learning:<a class="headerlink" href="#types-of-machine-learning" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>Supervised machine learning:</strong> algorithms train models that (best) learn the relationships between the <strong><em>x</em></strong> and <strong><em>y</em></strong> variables on a labeled dataset (called the <strong>training set</strong>, where the ground truth <strong><em>y</em></strong> variable is known). The performance of the trained model is then evaluated after it predicts the outcome on new data that the model has never seen before (called the <strong>test set</strong>) where where ground truth <strong><em>y</em></strong> label is unknown.</p></li>
 </ul>
@@ -591,7 +975,7 @@
 </ul>
 </section>
 <section id="data-splitting-training-and-test-performance">
-<h3>Data splitting: Training and test performance<a class="headerlink" href="#data-splitting-training-and-test-performance" title="Permalink to this headline">¶</a></h3>
+<h3>Data splitting: Training and test performance<a class="headerlink" href="#data-splitting-training-and-test-performance" title="Permalink to this headline">#</a></h3>
 <p>Preparation for supervised methods requires a split of the dataset into training and test sets.</p>
 <ul class="simple">
 <li><p><strong>Training set:</strong> is comprised of the data that will be used by the model to learn the relationships between the <strong><em>x</em></strong> and <strong><em>y</em></strong> variables. This “usually” consists of a majority portion of the rows in the dataset, such as 70%.</p></li>
@@ -610,7 +994,7 @@
 <p><img alt="cv_wiki" src="../_images/cv_wiki.png" /></p>
 </section>
 <section id="model-evaluation">
-<h3>Model evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">¶</a></h3>
+<h3>Model evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">#</a></h3>
 <p><img alt="bv" src="../_images/bv.png" /></p>
 <ul class="simple">
 <li><p><strong>Underfit:</strong> A model is underfit if it performs poorly on the training data because it could not discern the relationship(s) between the <strong><em>x</em></strong> and <strong><em>y</em></strong> variables.</p></li>
@@ -622,7 +1006,7 @@
 </ul>
 </section>
 <section id="classification-versus-regression">
-<h3>Classification versus regression<a class="headerlink" href="#classification-versus-regression" title="Permalink to this headline">¶</a></h3>
+<h3>Classification versus regression<a class="headerlink" href="#classification-versus-regression" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>Supervised classification:</strong> models probability that <strong><em>y</em></strong> is 1 given the covariates <strong><em>x</em></strong> and is performed when <strong><em>y</em></strong> is categorical (either binary yes/no or multinomial): <span class="math notranslate nohighlight">\(Pr(y=1|x)\)</span></p>
 <ul>
@@ -690,10 +1074,10 @@
 </section>
 </section>
 <section id="ols-example-by-hand">
-<h2>OLS example - by “hand”<a class="headerlink" href="#ols-example-by-hand" title="Permalink to this headline">¶</a></h2>
+<h2>OLS example - by “hand”<a class="headerlink" href="#ols-example-by-hand" title="Permalink to this headline">#</a></h2>
 <p>Ordinary least squares regression provides a great example of the machine learning process and some of the key terms defined above.</p>
 <section id="generate-toy-data">
-<h3>Generate toy data<a class="headerlink" href="#generate-toy-data" title="Permalink to this headline">¶</a></h3>
+<h3>Generate toy data<a class="headerlink" href="#generate-toy-data" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -758,7 +1142,7 @@
 </div>
 </section>
 <section id="calculate-means-of-x-and-y">
-<h3>Calculate means of x and y<a class="headerlink" href="#calculate-means-of-x-and-y" title="Permalink to this headline">¶</a></h3>
+<h3>Calculate means of x and y<a class="headerlink" href="#calculate-means-of-x-and-y" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_mean</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
@@ -777,7 +1161,7 @@ mean of y: 8.0
 </div>
 </section>
 <section id="visualize-the-data-training-data">
-<h3>Visualize the data (training data)<a class="headerlink" href="#visualize-the-data-training-data" title="Permalink to this headline">¶</a></h3>
+<h3>Visualize the data (training data)<a class="headerlink" href="#visualize-the-data-training-data" title="Permalink to this headline">#</a></h3>
 <p>Plot the known relationships between x and y.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -791,7 +1175,7 @@ mean of y: 8.0
 </div>
 </section>
 <section id="calculate-error-for-each-observation">
-<h3>Calculate error for each observation<a class="headerlink" href="#calculate-error-for-each-observation" title="Permalink to this headline">¶</a></h3>
+<h3>Calculate error for each observation<a class="headerlink" href="#calculate-error-for-each-observation" title="Permalink to this headline">#</a></h3>
 <p>Error (least squares method) is the difference between each observation and the mean. Below this will be represented visually by the distance between each point and the line of best fit.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -857,7 +1241,7 @@ Name: y, dtype: float64
 </div>
 </section>
 <section id="compute-beta-coefficients">
-<h3>Compute beta coefficients<a class="headerlink" href="#compute-beta-coefficients" title="Permalink to this headline">¶</a></h3>
+<h3>Compute beta coefficients<a class="headerlink" href="#compute-beta-coefficients" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Estimate the B1 coefficient (slope)</span>
@@ -879,7 +1263,7 @@ intercept (B0) is:  -4.0
 </div>
 </section>
 <section id="plot-best-fit-line">
-<h3>Plot best fit line<a class="headerlink" href="#plot-best-fit-line" title="Permalink to this headline">¶</a></h3>
+<h3>Plot best fit line<a class="headerlink" href="#plot-best-fit-line" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -898,7 +1282,7 @@ intercept (B0) is:  -4.0
 </div>
 </section>
 <section id="generate-the-predictions-test-set">
-<h3>Generate the predictions (test set)<a class="headerlink" href="#generate-the-predictions-test-set" title="Permalink to this headline">¶</a></h3>
+<h3>Generate the predictions (test set)<a class="headerlink" href="#generate-the-predictions-test-set" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_hat</span> <span class="o">=</span> <span class="n">B0</span> <span class="o">+</span> <span class="n">B1</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">x</span>
@@ -932,11 +1316,11 @@ Name: x, dtype: float64
 </div>
 </section>
 <section id="visualize-the-error-for-each-observation">
-<h3>Visualize the error for each observation<a class="headerlink" href="#visualize-the-error-for-each-observation" title="Permalink to this headline">¶</a></h3>
+<h3>Visualize the error for each observation<a class="headerlink" href="#visualize-the-error-for-each-observation" title="Permalink to this headline">#</a></h3>
 <p><img alt="ls_err" src="../_images/ls_err.png" /></p>
 </section>
 <section id="evaluate-the-performance-using-rmse">
-<h3>Evaluate the performance using RMSE<a class="headerlink" href="#evaluate-the-performance-using-rmse" title="Permalink to this headline">¶</a></h3>
+<h3>Evaluate the performance using RMSE<a class="headerlink" href="#evaluate-the-performance-using-rmse" title="Permalink to this headline">#</a></h3>
 <p>Root mean squared error is a handy performance metric because it has the same units of whatever is plotted on the y-axis.</p>
 <p>In our toy example here, we are off an average of 2.82843 units on the y-axis of a given data point from the line of best fit.</p>
 <div class="cell docutils container">
@@ -989,7 +1373,7 @@ Name: y, dtype: float64
 </div>
 </section>
 <section id="compare-our-by-hand-results-to-the-scikit-learn-version">
-<h3>Compare our by “hand” results to the scikit-learn version!<a class="headerlink" href="#compare-our-by-hand-results-to-the-scikit-learn-version" title="Permalink to this headline">¶</a></h3>
+<h3>Compare our by “hand” results to the scikit-learn version!<a class="headerlink" href="#compare-our-by-hand-results-to-the-scikit-learn-version" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use scikit-learn to compute R-squared value</span>
@@ -1068,7 +1452,7 @@ True
 </section>
 </section>
 <section id="supervised-machine-learning-logistic-regression">
-<h2>Supervised machine learning - logistic regression<a class="headerlink" href="#supervised-machine-learning-logistic-regression" title="Permalink to this headline">¶</a></h2>
+<h2>Supervised machine learning - logistic regression<a class="headerlink" href="#supervised-machine-learning-logistic-regression" title="Permalink to this headline">#</a></h2>
 <p>Fortunately, you do not have to do any of this by hand thanks to scikit-learn!</p>
 <p>Here is a short workflow to fit a logistic regression model. Logistic regression is similar to linear regression <span class="math notranslate nohighlight">\(y \sim\ x\)</span> but regresses for the probability of a categorical outcome.</p>
 <p>Let’s calculate training and test set accuracy to predict whether a penguin is MALE or FEMALE based on thier biological and spatial characteristics.</p>
@@ -1170,7 +1554,7 @@ True
 </div></div></div>
 </div>
 <section id="preprocess-the-data-remove-rows-with-nan-missing-values">
-<h3>Preprocess the data - remove rows with NaN (missing) values<a class="headerlink" href="#preprocess-the-data-remove-rows-with-nan-missing-values" title="Permalink to this headline">¶</a></h3>
+<h3>Preprocess the data - remove rows with NaN (missing) values<a class="headerlink" href="#preprocess-the-data-remove-rows-with-nan-missing-values" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count number of rows with missing data in penguins. Eleven...</span>
@@ -1207,7 +1591,7 @@ True
 </div>
 </section>
 <section id="preprocess-the-data-convert-categorical-variables-to-indicators">
-<h3>Preprocess the data - convert categorical variables to indicators<a class="headerlink" href="#preprocess-the-data-convert-categorical-variables-to-indicators" title="Permalink to this headline">¶</a></h3>
+<h3>Preprocess the data - convert categorical variables to indicators<a class="headerlink" href="#preprocess-the-data-convert-categorical-variables-to-indicators" title="Permalink to this headline">#</a></h3>
 <p>Check out this great tutorial on <a class="reference external" href="https://stackabuse.com/one-hot-encoding-in-python-with-pandas-and-scikit-learn/">one-hot encoding</a> to learn more.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1345,7 +1729,7 @@ True
 </div>
 </section>
 <section id="preprocess-the-data-remove-the-island-and-species-variables-from-p-complete">
-<h3>Preprocess the data - remove the island and species variables from p_complete<a class="headerlink" href="#preprocess-the-data-remove-the-island-and-species-variables-from-p-complete" title="Permalink to this headline">¶</a></h3>
+<h3>Preprocess the data - remove the island and species variables from p_complete<a class="headerlink" href="#preprocess-the-data-remove-the-island-and-species-variables-from-p-complete" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view column names</span>
@@ -1435,7 +1819,7 @@ True
 </div>
 </section>
 <section id="recombine-the-numeric-indicators-with-the-other-variables">
-<h3>Recombine the numeric indicators with the other variables<a class="headerlink" href="#recombine-the-numeric-indicators-with-the-other-variables" title="Permalink to this headline">¶</a></h3>
+<h3>Recombine the numeric indicators with the other variables<a class="headerlink" href="#recombine-the-numeric-indicators-with-the-other-variables" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_penguins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">p_dummy_island</span><span class="p">,</span> <span class="n">p_dummy_species</span><span class="p">,</span> <span class="n">p_complete</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
@@ -1552,7 +1936,7 @@ True
 </div>
 </section>
 <section id="recode-male-as-1-and-female-as-0">
-<h3>Recode MALE as 1 and FEMALE as 0<a class="headerlink" href="#recode-male-as-1-and-female-as-0" title="Permalink to this headline">¶</a></h3>
+<h3>Recode MALE as 1 and FEMALE as 0<a class="headerlink" href="#recode-male-as-1-and-female-as-0" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_penguins</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clean_penguins</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;MALE&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;FEMALE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
@@ -1675,7 +2059,7 @@ True
 </div>
 </section>
 <section id="define-your-logistic-regression-object">
-<h3>Define your logistic regression object<a class="headerlink" href="#define-your-logistic-regression-object" title="Permalink to this headline">¶</a></h3>
+<h3>Define your logistic regression object<a class="headerlink" href="#define-your-logistic-regression-object" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
@@ -1690,7 +2074,7 @@ True
 </div>
 </section>
 <section id="split-the-clean-penguins-dataset-into-training-and-test-sets">
-<h3>Split the <code class="docutils literal notranslate"><span class="pre">clean_penguins</span></code> dataset into training and test sets<a class="headerlink" href="#split-the-clean-penguins-dataset-into-training-and-test-sets" title="Permalink to this headline">¶</a></h3>
+<h3>Split the <code class="docutils literal notranslate"><span class="pre">clean_penguins</span></code> dataset into training and test sets<a class="headerlink" href="#split-the-clean-penguins-dataset-into-training-and-test-sets" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define x and y for both training and test sets</span>
@@ -1756,7 +2140,7 @@ True
 </div>
 </section>
 <section id="fit-the-model-to-the-training-data-0-84-accuracy">
-<h3>Fit the model to the training data (0.84 accuracy)<a class="headerlink" href="#fit-the-model-to-the-training-data-0-84-accuracy" title="Permalink to this headline">¶</a></h3>
+<h3>Fit the model to the training data (0.84 accuracy)<a class="headerlink" href="#fit-the-model-to-the-training-data-0-84-accuracy" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -1784,7 +2168,7 @@ True
 </div>
 </section>
 <section id="generate-predicted-values-on-the-test-data">
-<h3>Generate predicted values on the test data<a class="headerlink" href="#generate-predicted-values-on-the-test-data" title="Permalink to this headline">¶</a></h3>
+<h3>Generate predicted values on the test data<a class="headerlink" href="#generate-predicted-values-on-the-test-data" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate predicted y values based on the x test set data</span>
@@ -1805,7 +2189,7 @@ True
 </div>
 </section>
 <section id="calculate-test-set-accuracy-0-81-accuracy">
-<h3>Calculate test set accuracy (0.81 accuracy)<a class="headerlink" href="#calculate-test-set-accuracy-0-81-accuracy" title="Permalink to this headline">¶</a></h3>
+<h3>Calculate test set accuracy (0.81 accuracy)<a class="headerlink" href="#calculate-test-set-accuracy-0-81-accuracy" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_score</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
@@ -1856,10 +2240,10 @@ True
 </section>
 </section>
 <section id="building-text-vocabularies">
-<h2>Building text vocabularies<a class="headerlink" href="#building-text-vocabularies" title="Permalink to this headline">¶</a></h2>
+<h2>Building text vocabularies<a class="headerlink" href="#building-text-vocabularies" title="Permalink to this headline">#</a></h2>
 <p>What about how text is predicted? If we have text as data, we also need to convert the <em>representation</em> of text into a format that machine learning algorithms can understand.</p>
 <section id="define-a-corpus">
-<h3>Define a corpus<a class="headerlink" href="#define-a-corpus" title="Permalink to this headline">¶</a></h3>
+<h3>Define a corpus<a class="headerlink" href="#define-a-corpus" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span>
@@ -1883,7 +2267,7 @@ True
 </div>
 </section>
 <section id="bag-of-words-model-with-countvectorizer">
-<h3>Bag of words model with <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code><a class="headerlink" href="#bag-of-words-model-with-countvectorizer" title="Permalink to this headline">¶</a></h3>
+<h3>Bag of words model with <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code><a class="headerlink" href="#bag-of-words-model-with-countvectorizer" title="Permalink to this headline">#</a></h3>
 <p>The bag of words models represents text as a bag of its word, ignoring syntactical elements like grammar and word order while only preserving the multiplicy/frequency of unique tokens. Typically, a bag of words model removes punctuation and casefolds the text to lowercase before counting the words (i.e. ‘Apple’ and ‘apple’ will both count toward instances of the word, ‘apple’).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1922,7 +2306,7 @@ True
 </div>
 </section>
 <section id="document-term-matrix">
-<h3>Document term matrix<a class="headerlink" href="#document-term-matrix" title="Permalink to this headline">¶</a></h3>
+<h3>Document term matrix<a class="headerlink" href="#document-term-matrix" title="Permalink to this headline">#</a></h3>
 <p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Document-term_matrix">document term matrix</a> displays term frequencies in sparse format across a collection of docuemnts. The <code class="docutils literal notranslate"><span class="pre">.transform</span></code> method will help us here!</p>
 <ul class="simple">
 <li><p>The first number is the document number</p></li>
@@ -1964,7 +2348,7 @@ True
 </div>
 </section>
 <section id="present-the-sparse-matrix">
-<h3>Present the sparse matrix<a class="headerlink" href="#present-the-sparse-matrix" title="Permalink to this headline">¶</a></h3>
+<h3>Present the sparse matrix<a class="headerlink" href="#present-the-sparse-matrix" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># each row is a document, each column is a word from the vocabulary! </span>
@@ -1990,7 +2374,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\ad2we\AppData\Roaming\Python\Python39\site-packages\sklearn\utils\deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
   warnings.warn(msg, category=FutureWarning)
 </pre></div>
 </div>
@@ -2021,7 +2405,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=int64)
 </pre></div>
 </div>
 </div>
@@ -2036,14 +2420,14 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=int64)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="n-grams">
-<h3>N-grams<a class="headerlink" href="#n-grams" title="Permalink to this headline">¶</a></h3>
+<h3>N-grams<a class="headerlink" href="#n-grams" title="Permalink to this headline">#</a></h3>
 <p>While we have focused on single words above, we can apply this approach to multi-word phrases in order to try to predict linguistic instances and potentially better understand context of a corpus of documents.</p>
 <p>Use the below token patterns:</p>
 <ul class="simple">
@@ -2066,10 +2450,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CountVectorizer(ngram_range=(1, 2), token_pattern=&#39;\\b\\w+\\b&#39;)
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>CountVectorizer(ngram_range=(1, 2), token_pattern=&#x27;\\b\\w+\\b&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">CountVectorizer</label><div class="sk-toggleable__content"><pre>CountVectorizer(ngram_range=(1, 2), token_pattern=&#x27;\\b\\w+\\b&#x27;)</pre></div></div></div></div></div></div></div>
 </div>
 <p>Since we specify bigrams, both unigrams <em>and</em> bigrams are returned!</p>
 <div class="cell docutils container">
@@ -2094,7 +2475,7 @@ True
 </div>
 </section>
 <section id="apply-n-grams-to-our-above-corpus">
-<h3>Apply n-grams to our above corpus<a class="headerlink" href="#apply-n-grams-to-our-above-corpus" title="Permalink to this headline">¶</a></h3>
+<h3>Apply n-grams to our above corpus<a class="headerlink" href="#apply-n-grams-to-our-above-corpus" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corpus</span>
@@ -2186,7 +2567,7 @@ True
 </div>
 </section>
 <section id="data-frame-vocabulary-across-documents">
-<h3>Data frame vocabulary across documents<a class="headerlink" href="#data-frame-vocabulary-across-documents" title="Permalink to this headline">¶</a></h3>
+<h3>Data frame vocabulary across documents<a class="headerlink" href="#data-frame-vocabulary-across-documents" title="Permalink to this headline">#</a></h3>
 <p>Our vocabulary consists of 29 unigrams and bigrams across the four documents.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2413,7 +2794,7 @@ True
 </section>
 </section>
 <section id="quiz-classic-horror-novel-vocabulary">
-<h2>Quiz - Classic horror novel vocabulary<a class="headerlink" href="#quiz-classic-horror-novel-vocabulary" title="Permalink to this headline">¶</a></h2>
+<h2>Quiz - Classic horror novel vocabulary<a class="headerlink" href="#quiz-classic-horror-novel-vocabulary" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Create a single sparse data frame that contains the vocabulary for <em>Frankenstein</em> and <em>Dracula</em>. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts.</p></li>
 </ol>
@@ -2442,54 +2823,48 @@ True
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="Chapter1.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Chapter 1 - English text preprocessing basics</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Chapter1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chapter 1 - English text preprocessing basics</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Chapter3.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="Chapter3.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Software and Services for Data Science (SSDS) at Stanford Libraries<br/>
-        
-            &copy; Copyright 2021-2022.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Software and Services for Data Science (SSDS) at Stanford Libraries<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

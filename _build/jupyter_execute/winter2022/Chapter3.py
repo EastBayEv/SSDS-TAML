@@ -79,7 +79,7 @@ warnings.filterwarnings("ignore", category = DeprecationWarning)
 # 
 # Set the directory's file path and print the files it contains.
 
-# In[2]:
+# In[ ]:
 
 
 import os
@@ -91,7 +91,7 @@ corpus
 
 # ### Store these documents in a data frame
 
-# In[3]:
+# In[ ]:
 
 
 import pandas as pd
@@ -113,7 +113,7 @@ human_rights = (pd.DataFrame.from_dict(empty_dictionary,
 
 # ### View the data frame
 
-# In[4]:
+# In[ ]:
 
 
 human_rights
@@ -121,7 +121,7 @@ human_rights
 
 # ### View the text of the first document
 
-# In[5]:
+# In[ ]:
 
 
 # first thousand characters
@@ -147,19 +147,19 @@ print(human_rights['document_text'][0][:1000])
 
 # ### Remove non-alphanumeric characters/punctuation
 
-# In[6]:
+# In[ ]:
 
 
 human_rights['clean_text'] = human_rights['document_text'].str.replace(r'[^\w\s]', ' ', regex = True)
 
 
-# In[7]:
+# In[ ]:
 
 
 print(human_rights['clean_text'][0][:1000])
 
 
-# In[8]:
+# In[ ]:
 
 
 # view third column
@@ -168,13 +168,13 @@ human_rights
 
 # ### Remove digits
 
-# In[9]:
+# In[ ]:
 
 
 human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\d', ' ', regex = True)
 
 
-# In[10]:
+# In[ ]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -182,14 +182,14 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Remove unicode characters such as Ð and ð
 
-# In[11]:
+# In[ ]:
 
 
 # for more on text encodings: https://www.w3.org/International/questions/qa-what-is-encoding
 human_rights['clean_text'] = human_rights['clean_text'].str.encode('ascii', 'ignore').str.decode('ascii')
 
 
-# In[12]:
+# In[ ]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -197,14 +197,14 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Remove extra spaces
 
-# In[13]:
+# In[ ]:
 
 
 import regex as re
 human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\s+', ' ', regex = True)
 
 
-# In[14]:
+# In[ ]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -212,13 +212,13 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Convert to lowercase
 
-# In[15]:
+# In[ ]:
 
 
 human_rights['clean_text'] = human_rights['clean_text'].str.lower()
 
 
-# In[16]:
+# In[ ]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -226,27 +226,27 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Lemmatize
 
-# In[17]:
+# In[ ]:
 
 
 # import spacy
 
 
-# In[18]:
+# In[ ]:
 
 
 # !python -m spacy download en_core_web_sm
 # !python -m spacy download en_core_web_lg
 
 
-# In[19]:
+# In[ ]:
 
 
 # nlp = spacy.load('en_core_web_lg')
 # human_rights['clean_text'] = human_rights['clean_text'].apply(lambda row: ' '.join([w.lemma_ for w in nlp(row)]))
 
 
-# In[20]:
+# In[ ]:
 
 
 # print(human_rights['clean_text'][0])
@@ -254,7 +254,7 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### View the updated data frame
 
-# In[21]:
+# In[ ]:
 
 
 human_rights
@@ -268,7 +268,7 @@ human_rights
 # 
 # This will be the input for [Truncated Singular Value Decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition) instead of LDA. 
 
-# In[22]:
+# In[ ]:
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -280,13 +280,13 @@ tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3),
 tf_sparse = tf_vectorizer.fit_transform(human_rights['clean_text'])
 
 
-# In[23]:
+# In[ ]:
 
 
 tf_sparse.shape
 
 
-# In[24]:
+# In[ ]:
 
 
 print(tf_sparse)
@@ -294,7 +294,7 @@ print(tf_sparse)
 
 # ### Convert the tfidf sparse matrix to data frame
 
-# In[25]:
+# In[ ]:
 
 
 tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names())
@@ -303,7 +303,7 @@ tfidf_df
 
 # ### View 20 highest weighted words
 
-# In[26]:
+# In[ ]:
 
 
 tfidf_df.max().sort_values(ascending = False).head(n = 20)
@@ -311,7 +311,7 @@ tfidf_df.max().sort_values(ascending = False).head(n = 20)
 
 # ### Add country name to `tfidf_df`
 
-# In[27]:
+# In[ ]:
 
 
 # wrangle the country names from the human_rights data frame
@@ -320,13 +320,13 @@ countries = list(countries)
 countries
 
 
-# In[28]:
+# In[ ]:
 
 
 tfidf_df['COUNTRY'] = countries
 
 
-# In[29]:
+# In[ ]:
 
 
 tfidf_df
@@ -336,7 +336,7 @@ tfidf_df
 # 
 # Change the country names to view their highest rated terms.
 
-# In[30]:
+# In[ ]:
 
 
 country = tfidf_df[tfidf_df['COUNTRY'] == 'jordan']
@@ -351,7 +351,7 @@ country.max(numeric_only = True).sort_values(ascending = False).head(20)
 # 
 # * Look ahead to Chapter 4.5 for new techniques in topic modeling - [BERTopic!](Chapter4_add.ipynb)
 
-# In[31]:
+# In[ ]:
 
 
 from sklearn.decomposition import TruncatedSVD
@@ -362,19 +362,19 @@ tsvd = TruncatedSVD(n_components = 5,
 tsvd.fit(tf_sparse)
 
 
-# In[32]:
+# In[ ]:
 
 
 print(tsvd.explained_variance_ratio_)
 
 
-# In[33]:
+# In[ ]:
 
 
 print(tsvd.singular_values_)
 
 
-# In[34]:
+# In[ ]:
 
 
 def topics(model, feature_names, n_top_words):
@@ -384,7 +384,7 @@ def topics(model, feature_names, n_top_words):
                         for i in topic.argsort()[:-n_top_words - 1:-1]]))
 
 
-# In[35]:
+# In[ ]:
 
 
 tf_features = tf_vectorizer.get_feature_names()
@@ -399,9 +399,7 @@ topics(tsvd, tf_features, 20)
 # 
 # [Also, read this post about how to grid search for the best topic models](https://www.machinelearningplus.com/nlp/topic-modeling-python-sklearn-examples/)
 # 
-# Use BERTopic (see Chapter 4.5)
-# 
-# TODO: visualize, named entity recognition, part of speech tagging, hyphenated words, contractions, context, importance of stopwords, etc.
+# Use BERTopic (see Chapter 4.5 in this book)
 
 # ## Sentiment analysis
 # 
@@ -411,9 +409,9 @@ topics(tsvd, tf_features, 20)
 # 
 # [Repustate](https://www.repustate.com/blog/sentiment-analysis-challenges-with-solutions/)
 
-# ## Download the nltk built-in movie reviews dataset
+# ### Download the nltk built-in movie reviews dataset
 
-# In[36]:
+# In[ ]:
 
 
 import nltk
@@ -423,7 +421,7 @@ nltk.download("movie_reviews")
 
 # ### Define x (reviews) and y (judgements) variables
 
-# In[37]:
+# In[ ]:
 
 
 # Extract our x (reviews) and y (judgements) variables
@@ -431,7 +429,7 @@ reviews = [movie_reviews.raw(fileid) for fileid in movie_reviews.fileids()]
 judgements = [movie_reviews.categories(fileid)[0] for fileid in movie_reviews.fileids()]
 
 
-# In[38]:
+# In[ ]:
 
 
 # Save in a dataframe
@@ -440,7 +438,7 @@ movies = pd.DataFrame({"Reviews" : reviews,
 movies.head()
 
 
-# In[39]:
+# In[ ]:
 
 
 movies.shape
@@ -448,7 +446,7 @@ movies.shape
 
 # ### Shuffle the reviews
 
-# In[40]:
+# In[ ]:
 
 
 import numpy as np
@@ -456,7 +454,7 @@ from sklearn.utils import shuffle
 x, y = shuffle(np.array(movies.Reviews), np.array(movies.Judgements), random_state = 1)
 
 
-# In[41]:
+# In[ ]:
 
 
 # change x[0] and y[0] to see different reviews
@@ -469,7 +467,7 @@ x[0], print("Human review was:", y[0])
 
 # ### One standard way
 
-# In[42]:
+# In[ ]:
 
 
 # standard training/test split (no cross validation)
@@ -489,7 +487,7 @@ logit_class = LogisticRegression(solver = 'liblinear',
 model = logit_class.fit(x_train, y_train)
 
 
-# In[43]:
+# In[ ]:
 
 
 # test set accuracy
@@ -498,7 +496,7 @@ model.score(x_test, y_test)
 
 # ### $k$-fold cross-validated model
 
-# In[44]:
+# In[ ]:
 
 
 # Cross-validated model!
@@ -519,7 +517,7 @@ print(scores, np.mean(scores))
 
 # ### Top 25 features for positive and negative reviews
 
-# In[45]:
+# In[ ]:
 
 
 feature_names = tfidf.get_feature_names()
@@ -532,7 +530,7 @@ top25neg = np.argsort(model.coef_[0])[:25]
 print(list(feature_names[j] for j in top25neg))
 
 
-# In[46]:
+# In[ ]:
 
 
 new_bad_review = "This was the most awful worst super bad movie ever!"
@@ -542,7 +540,7 @@ features = tfidf.transform([new_bad_review])
 model.predict(features)
 
 
-# In[47]:
+# In[ ]:
 
 
 new_good_review = 'WHAT A WONDERFUL, FANTASTIC MOVIE!!!'
@@ -552,7 +550,7 @@ features = tfidf.transform([new_good_review])
 model.predict(features)
 
 
-# In[48]:
+# In[ ]:
 
 
 # type another review here
@@ -560,10 +558,6 @@ my_review = 'I hated this movie, even though my friend loved it'
 my_features = tfidf.transform([my_review])
 model.predict(my_features)
 
-
-# ## Going further: Anchored topic modeling
-# 
-# Check out Chapter 4.5 in this book for BERTopic modeling!
 
 # ## Quiz - 20 newsgroups dataset
 # 
@@ -580,14 +574,14 @@ model.predict(my_features)
 #     * Let's see an example:   
 # 
 
-# In[49]:
+# In[ ]:
 
 
 # required install: 
 get_ipython().system('pip install pycontractions')
 
 
-# In[50]:
+# In[ ]:
 
 
 from pycontractions import Contractions as ct
@@ -596,7 +590,7 @@ from pycontractions import Contractions as ct
 contractions = ct('GoogleNews-vectors-negative300.bin')
 
 # optional: load the model before the first .expand_texts call 
-ct.load_models() 
+contractions.load_models() 
 
 example_sentence = "I'd like to know how you're doing! You're her best friend, but I'm your friend too, aren't I?"
 
@@ -608,7 +602,7 @@ print(list(ct.expand_texts([example_sentence])))
 # 
 #     * Here's a quick loop that can help filter out the stopwords from a string: 
 
-# In[8]:
+# In[ ]:
 
 
 from nltk.corpus import stopwords 
@@ -642,7 +636,7 @@ print(filtered_sentence)
 get_ipython().system('pip install cleanco')
 
 
-# In[16]:
+# In[ ]:
 
 
 from cleanco import basename

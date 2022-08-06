@@ -122,7 +122,7 @@ for i in range(len(sentences1)):
 
 # ## Find pairs of sentences with highest cosine similarity scores
 
-# In[6]:
+# In[5]:
 
 
 from sentence_transformers import SentenceTransformer, util
