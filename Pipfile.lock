@@ -780,13 +780,6 @@
             "markers": "python_version >= '3.7'",
             "version": "==1.4.4"
         },
-        "language-check": {
-            "hashes": [
-                "sha256:9b140fa9f0be4903ffc91e2342e77ef35596de837ebde25ac6dc066f54417fab"
-            ],
-            "index": "pypi",
-            "version": "==1.1"
-        },
         "latexcodec": {
             "hashes": [
                 "sha256:2aa2551c373261cefe2ad3a8953a6d6533e68238d180eb4bb91d7964adb3fe9a",
@@ -1341,14 +1334,6 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==1.0.2"
-        },
-        "pycontractions": {
-            "hashes": [
-                "sha256:43de2a756e3a910ef55797a7a01927f1c0c02249fa2cc087a73895e9614f2554",
-                "sha256:9b22fa71dd91d536c29923c331e866aafb907eef5386e4e838819c58e2fe1ebb"
-            ],
-            "index": "pypi",
-            "version": "==2.0.1"
         },
         "pycparser": {
             "hashes": [
