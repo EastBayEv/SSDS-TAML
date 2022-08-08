@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Winter Quarter 2022 schedule
+# # Winter Quarter 2022 schedule
 # 
 # * Jan 12: Kickoff, [guest speaker Dr. Qingkai Kong “Smartphones and Twitter for Earthquakes”](Guest_Speakers.md)
 # * Jan 19: Working with text data - preprocessing basics
