@@ -17,7 +17,7 @@
 # 
 # Stemming/lemmatization and stop words (and some punctuation) are language-specific. NLTK works for English out-of-the-box, but you'll need different code to work with other languages. Some languages (e.g. Chinese) also require *segmentation*: artificially inserting spaces between words. If you want to do text pre-processing for other languages, please let us know and we can put together a notebook for you.
 
-# In[1]:
+# In[17]:
 
 
 from nltk.corpus import stopwords
@@ -30,7 +30,7 @@ from collections import Counter
 import regex as re
 
 
-# In[2]:
+# In[18]:
 
 
 # ensure you have the proper nltk modules
@@ -43,7 +43,7 @@ nltk.download('maxent_ne_chunker')
 nltk.download('omw-1.4')
 
 
-# In[3]:
+# In[7]:
 
 
 text = open("data/dracula.txt").read()
@@ -56,7 +56,7 @@ print(text[:100])
 # 
 # Oftentimes in text analysis, identifying occurences of key word(s) is a necessary step. To do so, we may want "apple," "ApPLe," and "apple      " to be treated the same; i.e., as an occurence of the token, 'apple.' To achieve this, we can standardize text casing and spacing: 
 
-# In[4]:
+# In[5]:
 
 
 # Converting all charazcters in a string to lowercase only requires one method: 
@@ -75,20 +75,20 @@ print(single_spaces_msg)
 # 
 # Below, a standard for loop loops through the `punctuation` module to replace any of these characters with nothing.
 
-# In[5]:
+# In[3]:
 
 
 print(punctuation)
 
 
-# In[6]:
+# In[8]:
 
 
 for char in punctuation:
     text = text.lower().replace(char, "")
 
 
-# In[7]:
+# In[9]:
 
 
 print(text[:100])
@@ -98,14 +98,14 @@ print(text[:100])
 # 
 # Split each word on spaces.
 
-# In[8]:
+# In[12]:
 
 
 # .split() returns a list of the tokens in a string, separated by the specified delimiter (default: " ")
 tokens = text.split()
 
 
-# In[9]:
+# In[11]:
 
 
 print(tokens[:20])
@@ -117,13 +117,13 @@ print(tokens[:20])
 # 
 # Below is a list comprehension (a sort of shortcut for loop) that can accomplish this task for us.
 
-# In[10]:
+# In[21]:
 
 
 filtered_text = [word for word in tokens if word not in stopwords.words('english')]
 
 
-# In[11]:
+# In[9]:
 
 
 # show only the first 100 words
@@ -146,7 +146,7 @@ print(filtered_text[:100])
 # 
 # One technique is not strictly better than the other - it's a matter of project needs and proper application. 
 
-# In[12]:
+# In[23]:
 
 
 stmer = nltk.PorterStemmer()
@@ -154,7 +154,7 @@ stmer = nltk.PorterStemmer()
 lmtzr = nltk.WordNetLemmatizer()
 
 
-# In[13]:
+# In[27]:
 
 
 token_stem  = [ stmer.stem(token) for token in filtered_text]
@@ -170,7 +170,7 @@ print(token_lemma[:10])
 # 
 # Part of speech tags are labels given to each word in a text such as verbs, adverbs, nouns, pronouns, adjectives, conjunctions, and their various derivations and subcategories. 
 
-# In[14]:
+# In[33]:
 
 
 tagged = nltk.pos_tag(token_lemma)
@@ -182,7 +182,7 @@ print(nltk.pos_tag(ex_string.split()))
 
 # The output of .pos_tag is a list of tuples (pairs), where the first element is a text token and the second is a part of speech. Note that, in our example string, the token 'refuse' shows up twice - once as a verb, and once as a noun. In the output to .pos_tag, the first tuple with 'refuse' has the 'VBP' tag (present tense verb) and the second tuple has the 'NN' tag (noun). Nifty!
 
-# In[15]:
+# In[13]:
 
 
 chunked = nltk.chunk.ne_chunk(tagged)
@@ -190,19 +190,19 @@ chunked = nltk.chunk.ne_chunk(tagged)
 
 # ## Convert to dataframe
 
-# In[16]:
+# In[14]:
 
 
 df = pd.DataFrame(chunked, columns=['word', 'pos'])
 
 
-# In[17]:
+# In[15]:
 
 
 df.head()
 
 
-# In[18]:
+# In[16]:
 
 
 df.shape
@@ -210,7 +210,7 @@ df.shape
 
 # ## Visualize the 20 most frequent words
 
-# In[19]:
+# In[18]:
 
 
 top = df.copy()
@@ -219,19 +219,19 @@ count_words = Counter(top['word'])
 count_words.most_common()[:20]
 
 
-# In[20]:
+# In[19]:
 
 
 words_df = pd.DataFrame(count_words.items(), columns=['word', 'count']).sort_values(by = 'count', ascending=False)
 
 
-# In[21]:
+# In[20]:
 
 
 words_df[:20]
 
 
-# In[22]:
+# In[21]:
 
 
 top_plot = sns.barplot(x = 'word', y = 'count', data = words_df[:20])
@@ -248,7 +248,7 @@ top_plot.set_xticklabels(top_plot.get_xticklabels(),rotation = 40);
 # 2. Practice by repeating for a webpage of your choice
 # 3. Combine methods on this page to produce a ready-to-be analyzed copy of "Frankenstein.txt". This file is located in the `/data` folder
 
-# In[23]:
+# In[22]:
 
 
 # import necessary libraries
@@ -264,7 +264,7 @@ import nltk
 # 2. `response` - perform the get request on the URL 
 # 3. `soup` - create the soup object so we can parse the html 
 
-# In[24]:
+# In[23]:
 
 
 url = "https://en.wikipedia.org/wiki/Sequoioideae"
@@ -278,7 +278,7 @@ soup = BeautifulSoup(response.text, 'html')
 # 
 # Below is a handy for loop that finds all everything within paragraph `<p>` tags. 
 
-# In[25]:
+# In[2]:
 
 
 # save in an empty string
@@ -288,7 +288,7 @@ for paragraph in soup.find_all('p'):
     text += paragraph.text
 
 
-# In[26]:
+# In[25]:
 
 
 print(text)
@@ -298,7 +298,7 @@ print(text)
 # 
 # Remember how we did preprocessing the long way above? You might find that using egular expressions are easier. [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code.
 
-# In[27]:
+# In[26]:
 
 
 text = re.sub(r'\[[0-9]*\]',' ',text)
@@ -308,7 +308,7 @@ text = re.sub(r'[^\w\s]','',text)
 text = text.lower()
 
 
-# In[28]:
+# In[1]:
 
 
 print(text)

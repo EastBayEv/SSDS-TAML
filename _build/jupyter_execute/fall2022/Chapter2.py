@@ -15,7 +15,7 @@
 get_ipython().system('pip install sklearn')
 
 
-# In[2]:
+# In[1]:
 
 
 import matplotlib.pyplot as plt
@@ -156,7 +156,7 @@ import scipy.sparse
 
 # ### Generate toy data
 
-# In[3]:
+# In[2]:
 
 
 import pandas as pd
@@ -167,7 +167,7 @@ data
 
 # ### Calculate means of x and y
 
-# In[4]:
+# In[3]:
 
 
 x_mean = round(sum(data.x) / len(data.x), 2)
@@ -180,7 +180,7 @@ print("mean of y:", y_mean)
 # 
 # Plot the known relationships between x and y. 
 
-# In[5]:
+# In[4]:
 
 
 plt.scatter(data.x, data.y);
@@ -190,14 +190,14 @@ plt.scatter(data.x, data.y);
 # 
 # Error (least squares method) is the difference between each observation and the mean. Below this will be represented visually by the distance between each point and the line of best fit. 
 
-# In[6]:
+# In[5]:
 
 
 x_error = data.x - x_mean
 y_error = data.y - y_mean
 
 
-# In[7]:
+# In[6]:
 
 
 # x
@@ -206,7 +206,7 @@ print(x_mean)
 print(x_error)
 
 
-# In[8]:
+# In[7]:
 
 
 # y
@@ -217,7 +217,7 @@ print(y_error)
 
 # ### Compute beta coefficients
 
-# In[9]:
+# In[8]:
 
 
 ## Estimate the B1 coefficient (slope)
@@ -231,7 +231,7 @@ print("intercept (B0) is: ", B0)
 
 # ### Plot best fit line
 
-# In[10]:
+# In[9]:
 
 
 import seaborn as sns
@@ -245,7 +245,7 @@ plt.yticks(np.arange(min(data.y), max(data.y)+1, 2.0));
 
 # ### Generate the predictions (test set)
 
-# In[11]:
+# In[10]:
 
 
 y_hat = B0 + B1 * data.x
@@ -266,7 +266,7 @@ print(y_hat)
 # 
 # In our toy example here, we are off an average of 2.82843 units on the y-axis of a given data point from the line of best fit. 
 
-# In[12]:
+# In[11]:
 
 
 # 1. Square each error
@@ -274,7 +274,7 @@ y_error_sq = y_error ** 2
 print(y_error_sq)
 
 
-# In[13]:
+# In[12]:
 
 
 # 2. Sum these values
@@ -282,7 +282,7 @@ sum_error_sq = sum(y_error_sq)
 print(sum_error_sq)
 
 
-# In[14]:
+# In[13]:
 
 
 # 3. Calculate RMSE - the square root of summed squared error divided by the length of y
@@ -293,7 +293,7 @@ print(round(RMSE, 5))
 
 # ### Compare our by "hand" results to the scikit-learn version! 
 
-# In[15]:
+# In[14]:
 
 
 # use scikit-learn to compute R-squared value
@@ -303,7 +303,7 @@ lin_mod = LinearRegression().fit(data[['x']], data[['y']])
 print("R-squared: " + str(lin_mod.score(data[['x']], data[['y']])))
 
 
-# In[16]:
+# In[15]:
 
 
 # use scikit-learn to compute slope and intercept
@@ -311,7 +311,7 @@ print("scikit-learn slope: " + str(lin_mod.coef_))
 print("scikit-learn intercept: " + str(lin_mod.intercept_))
 
 
-# In[17]:
+# In[16]:
 
 
 # compare to our by "hand" versions. Both are the same!
@@ -319,7 +319,7 @@ print(int(lin_mod.coef_) == B1)
 print(int(lin_mod.intercept_) == B0)
 
 
-# In[18]:
+# In[17]:
 
 
 # use scikit-learn to compute RMSE
@@ -329,7 +329,7 @@ RMSE_scikit = round(mean_squared_error(data.y, y_hat, squared = False), 5)
 print(RMSE_scikit)
 
 
-# In[19]:
+# In[18]:
 
 
 # Does our hand-computed RMSE equal that of scikit-learn at 5 digits?? Yes!
@@ -344,14 +344,14 @@ print(round(RMSE, 5) == round(RMSE_scikit, 5))
 # 
 # Let's calculate training and test set accuracy to predict whether a penguin is MALE or FEMALE based on thier biological and spatial characteristics. 
 
-# In[20]:
+# In[19]:
 
 
 # load data
 penguins = pd.read_csv("data/penguins.csv")
 
 
-# In[21]:
+# In[20]:
 
 
 penguins.head()
@@ -359,21 +359,21 @@ penguins.head()
 
 # ### Preprocess the data - remove rows with NaN (missing) values
 
-# In[22]:
+# In[21]:
 
 
 # count number of rows with missing data in penguins. Eleven...
 penguins.isnull().any(axis=1).sum()
 
 
-# In[23]:
+# In[22]:
 
 
 # make a copy with listwise deleted rows
 p_complete = penguins.dropna()
 
 
-# In[24]:
+# In[23]:
 
 
 # count number of rows with missing data in p_complete. Zero! 
@@ -384,7 +384,7 @@ p_complete.isnull().any(axis=1).sum()
 # 
 # Check out this great tutorial on [one-hot encoding](https://stackabuse.com/one-hot-encoding-in-python-with-pandas-and-scikit-learn/) to learn more.
 
-# In[25]:
+# In[24]:
 
 
 # convert island categorical variable into numeric indicators
@@ -392,7 +392,7 @@ p_dummy_island = pd.get_dummies(p_complete.island, prefix = "island")
 p_dummy_island.head()
 
 
-# In[26]:
+# In[25]:
 
 
 # convert species categorical variable into numeric indicators
@@ -402,7 +402,7 @@ p_dummy_species.head()
 
 # ### Preprocess the data - remove the island and species variables from p_complete
 
-# In[27]:
+# In[26]:
 
 
 # view column names
@@ -415,7 +415,7 @@ p_complete.head()
 
 # ### Recombine the numeric indicators with the other variables
 
-# In[28]:
+# In[27]:
 
 
 clean_penguins = pd.concat([p_dummy_island, p_dummy_species, p_complete], axis=1) 
@@ -424,13 +424,13 @@ clean_penguins.head()
 
 # ### Recode MALE as 1 and FEMALE as 0 
 
-# In[29]:
+# In[28]:
 
 
 clean_penguins['sex'] = clean_penguins['sex'].map({'MALE': 1, 'FEMALE': 0})
 
 
-# In[30]:
+# In[29]:
 
 
 clean_penguins.head()
@@ -438,7 +438,7 @@ clean_penguins.head()
 
 # ### Define your logistic regression object
 
-# In[31]:
+# In[30]:
 
 
 from sklearn.linear_model import LogisticRegression
@@ -451,7 +451,7 @@ lr = LogisticRegression(solver = 'liblinear')
 
 # ### Split the `clean_penguins` dataset into training and test sets
 
-# In[32]:
+# In[31]:
 
 
 # Define x and y for both training and test sets
@@ -465,25 +465,25 @@ y = np.array(clean_penguins['sex'])
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.3, random_state = 123)
 
 
-# In[33]:
+# In[32]:
 
 
 x_train.shape
 
 
-# In[34]:
+# In[33]:
 
 
 x_test.shape
 
 
-# In[35]:
+# In[34]:
 
 
 len(y_train)
 
 
-# In[36]:
+# In[35]:
 
 
 len(y_test)
@@ -491,13 +491,13 @@ len(y_test)
 
 # ### Fit the model to the training data (0.84 accuracy)
 
-# In[37]:
+# In[36]:
 
 
 lr.fit(x_train, y_train)
 
 
-# In[38]:
+# In[37]:
 
 
 # View the accuracy
@@ -506,7 +506,7 @@ lr.score(x_train, y_train)
 
 # ### Generate predicted values on the test data
 
-# In[39]:
+# In[38]:
 
 
 # Generate predicted y values based on the x test set data
@@ -516,14 +516,14 @@ predictions
 
 # ### Calculate test set accuracy (0.81 accuracy)
 
-# In[40]:
+# In[39]:
 
 
 test_score = lr.score(x_test, y_test)
 print(test_score)
 
 
-# In[41]:
+# In[40]:
 
 
 from sklearn import metrics
@@ -532,7 +532,7 @@ cm = metrics.confusion_matrix(y_test, predictions)
 print(cm)
 
 
-# In[42]:
+# In[41]:
 
 
 # Fancy it up! Use plt.savefig() to export
@@ -552,7 +552,7 @@ plt.title(all_sample_title, size = 15);
 
 # ### Define a corpus 
 
-# In[43]:
+# In[42]:
 
 
 corpus = [
@@ -568,7 +568,7 @@ corpus
 # 
 # The bag of words models represents text as a bag of its word, ignoring syntactical elements like grammar and word order while only preserving the multiplicy/frequency of unique tokens. Typically, a bag of words model removes punctuation and casefolds the text to lowercase before counting the words (i.e. 'Apple' and 'apple' will both count toward instances of the word, 'apple'). 
 
-# In[44]:
+# In[43]:
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -591,7 +591,7 @@ vectorizer.vocabulary_
 # * The second number is the word from the vocabulary
 # * The third number is the number of times that word occurs
 
-# In[45]:
+# In[44]:
 
 
 vector = vectorizer.transform(corpus)
@@ -600,7 +600,7 @@ print(vector)
 
 # ### Present the sparse matrix
 
-# In[46]:
+# In[45]:
 
 
 # each row is a document, each column is a word from the vocabulary! 
@@ -608,21 +608,21 @@ print(vector)
 print(vector.toarray())
 
 
-# In[47]:
+# In[46]:
 
 
 # get the column names (alphabetical sort)
 vectorizer.get_feature_names()
 
 
-# In[48]:
+# In[47]:
 
 
 # What does this tell us? 
 vectorizer.transform(['document']).toarray() 
 
 
-# In[49]:
+# In[48]:
 
 
 # 'document' is present in our bag of words, and in the sparse matrix, occupies the second column!
@@ -640,7 +640,7 @@ vectorizer.transform(['abracadabra']).toarray()
 # * trigrams   `ngram_range = (1, 3)`
 # * etc.
 
-# In[50]:
+# In[49]:
 
 
 # token pattern is written using regular expressions (regex for short): 
@@ -656,7 +656,7 @@ bigram_vectorizer
 
 # Since we specify bigrams, both unigrams _and_ bigrams are returned!
 
-# In[51]:
+# In[50]:
 
 
 from sklearn.feature_extraction import DictVectorizer
@@ -666,13 +666,13 @@ bigram_analyzer('Welcome to Stanford Libraries!')
 
 # ### Apply n-grams to our above corpus
 
-# In[52]:
+# In[51]:
 
 
 corpus
 
 
-# In[53]:
+# In[52]:
 
 
 # perform the transformation
@@ -680,7 +680,7 @@ x = bigram_vectorizer.fit_transform(corpus).toarray()
 print(x)
 
 
-# In[54]:
+# In[53]:
 
 
 # get the feature (column) names
@@ -688,7 +688,7 @@ print(x)
 bigram_vectorizer.get_feature_names()
 
 
-# In[55]:
+# In[54]:
 
 
 # search for vocabulary words across the documents
@@ -700,7 +700,7 @@ x[:, feature_index]
 # 
 # Our vocabulary consists of 29 unigrams and bigrams across the four documents.
 
-# In[56]:
+# In[55]:
 
 
 # redefine x as sparse matrix (not array)
@@ -708,7 +708,7 @@ x = bigram_vectorizer.fit_transform(corpus)
 print(x)
 
 
-# In[57]:
+# In[56]:
 
 
 import scipy.sparse
@@ -716,7 +716,7 @@ corpus_df = pd.DataFrame(x.todense(), columns = bigram_vectorizer.get_feature_na
 corpus_df
 
 
-# In[58]:
+# In[57]:
 
 
 # The features (columns) are the vocabulary from the bigram version of our corpus variable above! 

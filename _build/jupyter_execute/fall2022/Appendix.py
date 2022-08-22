@@ -205,14 +205,14 @@
 #     * The [contractions](https://github.com/kootenpv/contractions) package can be useful here! Let's see an example:   
 # 
 
-# In[1]:
+# In[ ]:
 
 
 # required install: 
 get_ipython().system('pip install contractions')
 
 
-# In[2]:
+# In[ ]:
 
 
 import contractions 
@@ -240,7 +240,7 @@ print(contractions.fix(slang_sentence, slang=True))
 # 
 #     * Here's a quick loop that can help filter out the stopwords from a string: 
 
-# In[3]:
+# In[ ]:
 
 
 from nltk.corpus import stopwords 
@@ -267,14 +267,14 @@ print(filtered_sentence)
 # 
 #     * In such cases, we may need to write a custom script to standardize key phrases, or there may be a packages out there that already do this for us. Let's take a look at one for our example, standardizing company names: 
 
-# In[4]:
+# In[ ]:
 
 
 # required install: 
 get_ipython().system('pip install cleanco')
 
 
-# In[5]:
+# In[ ]:
 
 
 from cleanco import basename

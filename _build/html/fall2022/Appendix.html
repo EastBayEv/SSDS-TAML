@@ -824,14 +824,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: contractions in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (0.1.72)
-Requirement already satisfied: textsearch&gt;=0.0.21 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from contractions) (0.0.21)
-Requirement already satisfied: pyahocorasick in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from textsearch&gt;=0.0.21-&gt;contractions) (1.4.4)
-Requirement already satisfied: anyascii in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from textsearch&gt;=0.0.21-&gt;contractions) (0.3.1)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -846,12 +838,6 @@ Requirement already satisfied: anyascii in /Users/evanmuzzall/.local/share/virtu
 <span class="n">slang_sentence</span> <span class="o">=</span> <span class="s2">&quot;Ima go sign up for an SSDS consult - yall gotta do it too!&quot;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">contractions</span><span class="o">.</span><span class="n">fix</span><span class="p">(</span><span class="n">slang_sentence</span><span class="p">,</span> <span class="n">slang</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I would like to know how you are doing! You are her best friend, but I am your friend too, are not I?
-I Am About To go sign up for an SSDS consult - you all got to do it too!
 </pre></div>
 </div>
 </div>
@@ -893,13 +879,6 @@ I Am About To go sign up for an SSDS consult - you all got to do it too!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Example stopwords include: [&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;]
-[&#39;Hi&#39;, &#39;!&#39;, &#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;needlessly&#39;, &#39;wordy&#39;, &#39;sentence&#39;, &#39;with&#39;, &#39;lots&#39;, &#39;of&#39;, &#39;stopwords&#39;, &#39;.&#39;, &#39;My&#39;, &#39;favorite&#39;, &#39;words&#39;, &#39;are&#39;, &#39;:&#39;, &#39;a&#39;, &#39;,&#39;, &#39;the&#39;, &#39;,&#39;, &#39;with&#39;, &#39;,&#39;, &#39;which&#39;, &#39;.&#39;, &#39;You&#39;, &#39;may&#39;, &#39;think&#39;, &#39;that&#39;, &#39;is&#39;, &#39;strange&#39;, &#39;-&#39;, &#39;and&#39;, &#39;it&#39;, &#39;is&#39;, &#39;!&#39;]
-[&#39;Hi&#39;, &#39;!&#39;, &#39;needlessly&#39;, &#39;wordy&#39;, &#39;sentence&#39;, &#39;lots&#39;, &#39;stopwords&#39;, &#39;.&#39;, &#39;favorite&#39;, &#39;words&#39;, &#39;:&#39;, &#39;,&#39;, &#39;,&#39;, &#39;,&#39;, &#39;.&#39;, &#39;may&#39;, &#39;think&#39;, &#39;strange&#39;, &#39;-&#39;, &#39;!&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>Note that different packages have different lists which define stopwords, so make sure you pick a suitable one. Also, feel free to define your own custom stopwords lists!</p></li>
@@ -916,11 +895,6 @@ I Am About To go sign up for an SSDS consult - you all got to do it too!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cleanco in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (2.2)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -934,11 +908,6 @@ I Am About To go sign up for an SSDS consult - you all got to do it too!
 
 <span class="c1"># sanity check - are the cleaned company names identical?  </span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cleaned_name_one</span> <span class="o">==</span> <span class="n">cleaned_name_two</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>

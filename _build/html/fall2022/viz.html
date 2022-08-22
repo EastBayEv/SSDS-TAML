@@ -1190,6 +1190,170 @@ Name: lifeExp, dtype: float64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Signature:</span>
+sns<span class=" -Color -Color-Bold -Color-Bold-Yellow">.</span>scatterplot<span class=" -Color -Color-Bold -Color-Bold-Yellow">(</span>
+    <span class=" -Color -Color-Bold -Color-Bold-Yellow">*,</span>
+    x<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    y<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    hue<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    style<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    size<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    data<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    palette<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    hue_order<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    hue_norm<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    sizes<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    size_order<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    size_norm<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    markers<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">True</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    style_order<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    x_bins<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    y_bins<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    units<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    estimator<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    ci<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">95</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    n_boot<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">1000</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    alpha<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    x_jitter<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    y_jitter<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    legend<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Blue">&#39;auto&#39;</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    ax<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    <span class=" -Color -Color-Bold -Color-Bold-Yellow">**</span>kwargs<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">)</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span>
+Draw a scatter plot with possibility of several semantic groupings.
+
+The relationship between ``x`` and ``y`` can be shown for different subsets
+of the data using the ``hue``, ``size``, and ``style`` parameters. These
+parameters control what visual semantics are used to identify the different
+subsets. It is possible to show up to three dimensions independently by
+using all three semantic types, but this style of plot can be hard to
+interpret and is often ineffective. Using redundant semantics (i.e. both
+``hue`` and ``style`` for the same variable) can be helpful for making
+graphics more accessible.
+
+See the :ref:`tutorial &lt;relational_tutorial&gt;` for more information.
+
+The default treatment of the ``hue`` (and to a lesser extent, ``size``)
+semantic, if present, depends on whether the variable is inferred to
+represent &quot;numeric&quot; or &quot;categorical&quot; data. In particular, numeric variables
+are represented with a sequential colormap by default, and the legend
+entries show regular &quot;ticks&quot; with values that may or may not exist in the
+data. This behavior can be controlled through various parameters, as
+described and illustrated below.
+
+Parameters
+----------
+x, y : vectors or keys in ``data``
+    Variables that specify positions on the x and y axes.
+hue : vector or key in ``data``
+    Grouping variable that will produce points with different colors.
+    Can be either categorical or numeric, although color mapping will
+    behave differently in latter case.
+size : vector or key in ``data``
+    Grouping variable that will produce points with different sizes.
+    Can be either categorical or numeric, although size mapping will
+    behave differently in latter case.
+style : vector or key in ``data``
+    Grouping variable that will produce points with different markers.
+    Can have a numeric dtype but will always be treated as categorical.
+data : :class:`pandas.DataFrame`, :class:`numpy.ndarray`, mapping, or sequence
+    Input data structure. Either a long-form collection of vectors that can be
+    assigned to named variables or a wide-form dataset that will be internally
+    reshaped.
+palette : string, list, dict, or :class:`matplotlib.colors.Colormap`
+    Method for choosing the colors to use when mapping the ``hue`` semantic.
+    String values are passed to :func:`color_palette`. List or dict values
+    imply categorical mapping, while a colormap object implies numeric mapping.
+hue_order : vector of strings
+    Specify the order of processing and plotting for categorical levels of the
+    ``hue`` semantic.
+hue_norm : tuple or :class:`matplotlib.colors.Normalize`
+    Either a pair of values that set the normalization range in data units
+    or an object that will map from data units into a [0, 1] interval. Usage
+    implies numeric mapping.
+sizes : list, dict, or tuple
+    An object that determines how sizes are chosen when ``size`` is used.
+    It can always be a list of size values or a dict mapping levels of the
+    ``size`` variable to sizes. When ``size``  is numeric, it can also be
+    a tuple specifying the minimum and maximum size to use such that other
+    values are normalized within this range.
+size_order : list
+    Specified order for appearance of the ``size`` variable levels,
+    otherwise they are determined from the data. Not relevant when the
+    ``size`` variable is numeric.
+size_norm : tuple or Normalize object
+    Normalization in data units for scaling plot objects when the
+    ``size`` variable is numeric.
+markers : boolean, list, or dictionary
+    Object determining how to draw the markers for different levels of the
+    ``style`` variable. Setting to ``True`` will use default markers, or
+    you can pass a list of markers or a dictionary mapping levels of the
+    ``style`` variable to markers. Setting to ``False`` will draw
+    marker-less lines.  Markers are specified as in matplotlib.
+style_order : list
+    Specified order for appearance of the ``style`` variable levels
+    otherwise they are determined from the data. Not relevant when the
+    ``style`` variable is numeric.
+{x,y}_bins : lists or arrays or functions
+    *Currently non-functional.*
+units : vector or key in ``data``
+    Grouping variable identifying sampling units. When used, a separate
+    line will be drawn for each unit with appropriate semantics, but no
+    legend entry will be added. Useful for showing distribution of
+    experimental replicates when exact identities are not needed.
+    *Currently non-functional.*
+estimator : name of pandas method or callable or None
+    Method for aggregating across multiple observations of the ``y``
+    variable at the same ``x`` level. If ``None``, all observations will
+    be drawn.
+    *Currently non-functional.*
+ci : int or &quot;sd&quot; or None
+    Size of the confidence interval to draw when aggregating with an
+    estimator. &quot;sd&quot; means to draw the standard deviation of the data.
+    Setting to ``None`` will skip bootstrapping.
+    *Currently non-functional.*
+n_boot : int
+    Number of bootstraps to use for computing the confidence interval.
+    *Currently non-functional.*
+alpha : float
+    Proportional opacity of the points.
+{x,y}_jitter : booleans or floats
+    *Currently non-functional.*
+legend : &quot;auto&quot;, &quot;brief&quot;, &quot;full&quot;, or False
+    How to draw the legend. If &quot;brief&quot;, numeric ``hue`` and ``size``
+    variables will be represented with a sample of evenly spaced values.
+    If &quot;full&quot;, every group will get an entry in the legend. If &quot;auto&quot;,
+    choose between brief or full representation based on number of levels.
+    If ``False``, no legend data is added and no legend is drawn.
+ax : :class:`matplotlib.axes.Axes`
+    Pre-existing axes for the plot. Otherwise, call :func:`matplotlib.pyplot.gca`
+    internally.
+kwargs : key, value mappings
+    Other keyword arguments are passed down to
+    :meth:`matplotlib.axes.Axes.scatter`.
+
+Returns
+-------
+:class:`matplotlib.axes.Axes`
+    The matplotlib axes containing the plot.
+
+See Also
+--------
+lineplot : Plot data using lines.
+stripplot : Plot a categorical scatter with jitter.
+swarmplot : Plot a categorical scatter with non-overlapping points.
+
+Examples
+--------
+
+.. include:: ../docstrings/scatterplot.rst
+<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\users\ad2we\anaconda3\lib\site-packages\seaborn\relational.py
+<span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      function
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

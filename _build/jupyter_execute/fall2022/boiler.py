@@ -17,14 +17,14 @@
 # 
 # You could read this as "x is defined as four", "five is assigned to y", or "z is six".
 
-# In[1]:
+# In[ ]:
 
 
 # define one variable
 x = 1
 
 
-# In[2]:
+# In[ ]:
 
 
 # assign multiple variables
@@ -35,13 +35,13 @@ z = 3
 
 # ## Use `print()` to show it on the screen
 
-# In[3]:
+# In[ ]:
 
 
 print(x)
 
 
-# In[4]:
+# In[ ]:
 
 
 # call the variables directly!
@@ -67,7 +67,7 @@ x / y * z
 # 
 # Everything in Python has a type which determines how we can manipulate that piece of data. Be careful, it is easy to get confused when trying to complete multiple tasks that use lots of different variables!
 
-# In[5]:
+# In[3]:
 
 
 # Use the type() function to get the type of any variable if you're unsure: 
@@ -78,7 +78,7 @@ x2 = True
 print(type(x2))
 
 
-# In[6]:
+# In[95]:
 
 
 # float (decimals)
@@ -87,7 +87,7 @@ pi = 3.14
 print(type(pi))
 
 
-# In[7]:
+# In[96]:
 
 
 # integer (whole numbers)
@@ -96,7 +96,7 @@ amount = 4
 print(type(amount))
 
 
-# In[8]:
+# In[97]:
 
 
 # string (text)
@@ -105,7 +105,7 @@ welcome = "Welcome to Stanford Libraries"
 print(type(welcome))
 
 
-# In[9]:
+# In[1]:
 
 
 # boolean (logical)
@@ -116,14 +116,14 @@ print(False - True)
 
 # ### Addition examples with strings versus numbers
 
-# In[10]:
+# In[1]:
 
 
 # character strings
 '1' + '1'
 
 
-# In[11]:
+# In[2]:
 
 
 # integers
@@ -142,7 +142,7 @@ print(False - True)
 # 
 # Lists are ordered groups of data that are both created and indexed (positionally referenced) with square brackets `[]`.
 
-# In[12]:
+# In[4]:
 
 
 animals = ['shark', 'dolphin']
@@ -151,7 +151,7 @@ animals[0]
 
 # Lists can contain elements of almost any data type, including other lists! 
 
-# In[13]:
+# In[5]:
 
 
 # To get an element from a list within a list, double-index the original list!
@@ -162,7 +162,7 @@ print(animals[2][1])
 
 # Lists can also contain elements of different types simultaneously! 
 
-# In[14]:
+# In[6]:
 
 
 chimera = ['lion', 0.5, 'griffin', 0.5]
@@ -174,7 +174,7 @@ print(type(chimera[1]))
 # 
 # Dictionaries are _unordered_ groups of "key:value" pairs. Use the key to access the value. 
 
-# In[15]:
+# In[103]:
 
 
 apple = {'name': 'apple', 'color': ['red', 'green'], 'recipes': ['pie', 'salad', 'sauce']}
@@ -185,7 +185,7 @@ fruits = {'fruits': [apple, orange]}
 fruits
 
 
-# In[16]:
+# In[104]:
 
 
 fruits['fruits'][1]['recipes'][0]
@@ -195,7 +195,7 @@ fruits['fruits'][1]['recipes'][0]
 # 
 # Import text using the `open().read()` Python convention to import text as a single string.
 
-# In[17]:
+# In[4]:
 
 
 frank = open('data/frankenstein.txt').read()
@@ -208,28 +208,28 @@ print(frank[:1000])
 # 
 # Data frames are programming speak for tabular spreadsheets organized into rows and columns and often stored in .csv format. 
 
-# In[18]:
+# In[7]:
 
 
 # Step 1. link the pandas library to our current notebook
 import pandas as pd
 
 
-# In[19]:
+# In[8]:
 
 
 # Step 2. enter the file path in pandas's read_csv() function  
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[20]:
+# In[9]:
 
 
 # Step 3. view the data
 print(gap)
 
 
-# In[21]:
+# In[10]:
 
 
 gap
@@ -269,7 +269,7 @@ gap
 # 
 # You have entered something python does not understand.
 
-# In[22]:
+# In[3]:
 
 
 # x 89 5
@@ -279,7 +279,7 @@ gap
 # 
 # Your indentation does not conform to the rules
 
-# In[23]:
+# In[5]:
 
 
 ### indentation
@@ -295,7 +295,7 @@ gap
 # 
 # You try to call a variable you have not yet assigned
 
-# In[24]:
+# In[10]:
 
 
 # x
@@ -303,7 +303,7 @@ gap
 
 # Or, you try to call a function from a library that you have not yet imported
 
-# In[25]:
+# In[8]:
 
 
 # example()
@@ -313,7 +313,7 @@ gap
 # 
 # You write code with incompatible types
 
-# In[26]:
+# In[11]:
 
 
 # "5" + 5
@@ -323,7 +323,7 @@ gap
 # 
 # You try to reference something that is out of range
 
-# In[27]:
+# In[12]:
 
 
 my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
@@ -336,7 +336,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # You try to import something that does not exist
 
-# In[28]:
+# In[13]:
 
 
 # document = open('fakedocument.txt').read()
