@@ -43,6 +43,7 @@ get_ipython().system('pip install bertopic[visualization]')
 # In[2]:
 
 
+import bertopic
 from bertopic import BERTopic
 from sklearn.datasets import fetch_20newsgroups
 
