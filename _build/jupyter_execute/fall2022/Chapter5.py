@@ -84,7 +84,8 @@ model = BERTopic(vectorizer_model = stopwords_vectorizer)
 # In[4]:
 
 
-topics, probs = model.fit_transform(documents)
+# Unhashtag the below line
+# topics, probs = model.fit_transform(documents)
 
 
 # * ```.fit_transform()``` returns two outputs:
