@@ -37,19 +37,15 @@
 # 
 #     2. On the left-hand side of the Navigator window, find and click on the button that say 'Environments': 
 #     
-#         <div>
-#         <img src="img/ana_env.png" width="500"/>
-#         <div>
+# ![](img/ana_env.png)
 # 
 #     3. In the 'Environments' page, go to the bottom-left of the page and click the button that says 'Create'.
 # 
-#         * When you do so, you'll be prompted by a pop-up window to provide a name for your new virtual environment. The location for the virutal environment will be shown to you, and you can install a specific version of Python and/or R: 
-#         
-#             <div>
-#             <img src="img/test_env.png"/>
-#             <div>
+# * When you do so, you'll be prompted by a pop-up window to provide a name for your new virtual environment. The location for the virutal environment will be shown to you, and you can install a specific version of Python and/or R: 
 # 
-#         * Click the 'Create' button in the pop-up window, and wait for the virtual environment to finish being created.  
+# ![](img/test_env.png)
+# 
+# * Click the 'Create' button in the pop-up window, and wait for the virtual environment to finish being created.  
 
 # #### A.1.2: *Activating your virtual environment*
 # Now you're ready to use your virtual environment! To work in this environment, anytime you open Anaconda: 
@@ -68,17 +64,13 @@
 #      
 #      * Change the field dictating displayed packages to 'Not installed' or 'All': 
 # 
-#           <div>
-#           <img src="img/packages_ana_env.png" width="500"/>
-#           <div>
+# ![](img/packages_ana_env.png)
 # 
 #      * Go to the 'Search Packages' field and type in the name(s) of the package you want to install; 
 # 
 #      * If your package is available, click the open checkbox to the left of the package name: 
 # 
-#           <div>
-#           <img src="img/install_numpy_base.png" width="500"/>
-#           <div>
+# ![](img/install_numpy_base.png)
 # 
 #      * Once you've selected all of the packages of interest, click the 'Apply' button in the bottom right-hand corner of the page to install them.  
 # 
@@ -86,9 +78,7 @@
 # 
 #      * In your command prompt window, you'll see that you're operating in your previously-selected virtual environment: 
 # 
-#           <div>
-#           <img src="img/my_env_cmd_prompt.png" width="500">
-#           <div>
+# ![](img/my_env_cmd_prompt.png)
 # 
 #      * In this window, type ``` pip install [name of package] ``` for each package you want to install/weren't able to install in the 'Environments' page. 
 
@@ -112,17 +102,13 @@
 #   
 #   * Make sure Python is installed and recognized by your device by typing the ```py``` command in the command window. You should be greeted by a message which looks something like this: 
 # 
-#       <div>
-#       <img src="img/cmd_py_welcome.png" width="500"/>
-#       <div>
+# ![](img/cmd_py_welcome.png)
 #      
 #     which displays the current version of Python running and some other information.
 # 
 #     * Running Python from a command window still lets you do all the wonderful Pythonic things you might want to! Writing functions, running scripts, etc. For example: 
 # 
-#         <div>
-#         <img src="img/cmd_py_testfunc.png" width="500"/>
-#         <div>
+# ![](img/cmd_py_testfunc.png)
 #   
 #     * Most people treat Python in the command window as a lightweight test IDE/calculator. Feel free to play around with it! 
 # 
@@ -158,9 +144,7 @@
 # 
 #     * To create a new virtual environment, simply enter the command ```py -m pipenv shell```. This will instantiate a new virtual environment (and a shell/command window in that environment) if one doesn't already exist. You should see a screen that looks like this: 
 # 
-#         <div>
-#         <img src="img/cmd_pipenv_new_venv.png" width="500"/>
-#         <div>
+# ![](img/cmd_pipenv_new_venv.png)
 # 
 #     * In the sub-shell, you will be able to see the name of the new virtual environment prefixed before the working directory path. In the  image above, my new virtual environment is called ```ad2we-Y4yP-kYp```.
 # 
@@ -172,15 +156,11 @@
 # 
 #         * If you don't need a particular version of a package, just type ```pipenv install <name of package>```:
 #             
-#             <div>
-#             <img src="img/cmd_pipenv_np_install.png" width="500"/>
-#             <div>
+# ![](img/cmd_pipenv_np_install.png)
 #         
 #         * If you need a particular version of a package, you can enter ```pipenv install <name of package>==<version number>```:
 # 
-#             <div>
-#             <img src="img/cmd_pipenv_flask_install.png" width="500"/>
-#             <div>
+# ![](img/cmd_pipenv_flask_install.png)
 # 
 #         * Uninstalling packages can be done by executing ```pipenv uninstall <name of package>```.
 # 
@@ -195,9 +175,3 @@
 #         ```pipenv install --ignore-pipfile```  
 #   
 #    * which bypasses the Pipfile—a file that contains only general information about required packages—to re-initalize the exact environment present when your previously locked development in this project directory. 
-
-# * How and where you choose to standardize phrases in text will of course depend on your end goal, but there are plenty of resources/examples out there for you to model an approach after if a package doesn't already exist!
-# 
-# * **Normalize text** - normalization refers to the process of transforming text into a canonical (standard) form. Sometimes, people take this to mean the entire text pre-processing pipeline, but here we're using it to refer to conversions like "2mrrw" to "tomorrow" and "b4" to "before." 
-# 
-#     * This process is especially useful when using social media comments as your base text for analysis but often requires custom scripting. 
