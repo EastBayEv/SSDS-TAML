@@ -38,7 +38,7 @@
 #     2. On the left-hand side of the Navigator window, find and click on the button that say 'Environments': 
 #     
 #         <div>
-#         <img src="img/ana_env.png" width="500"/>
+#         <img src="fall2022/img/ana_env.png" width="500"/>
 #         <div>
 # 
 #     3. In the 'Environments' page, go to the bottom-left of the page and click the button that says 'Create'.
@@ -46,7 +46,7 @@
 #         * When you do so, you'll be prompted by a pop-up window to provide a name for your new virtual environment. The location for the virutal environment will be shown to you, and you can install a specific version of Python and/or R: 
 #         
 #             <div>
-#             <img src="img/test_env.png"/>
+#             <img src="fall2022/img/test_env.png"/>
 #             <div>
 # 
 #         * Click the 'Create' button in the pop-up window, and wait for the virtual environment to finish being created.  
@@ -69,7 +69,7 @@
 #      * Change the field dictating displayed packages to 'Not installed' or 'All': 
 # 
 #           <div>
-#           <img src="img/packages_ana_env.png" width="500"/>
+#           <img src="fall2022/img/packages_ana_env.png" width="500"/>
 #           <div>
 # 
 #      * Go to the 'Search Packages' field and type in the name(s) of the package you want to install; 
@@ -77,7 +77,7 @@
 #      * If your package is available, click the open checkbox to the left of the package name: 
 # 
 #           <div>
-#           <img src="img/install_numpy_base.png" width="500"/>
+#           <img src="fall2022/img/install_numpy_base.png" width="500"/>
 #           <div>
 # 
 #      * Once you've selected all of the packages of interest, click the 'Apply' button in the bottom right-hand corner of the page to install them.  
@@ -87,7 +87,7 @@
 #      * In your command prompt window, you'll see that you're operating in your previously-selected virtual environment: 
 # 
 #           <div>
-#           <img src="img/my_env_cmd_prompt.png" width="500">
+#           <img src="fall2022/img/my_env_cmd_prompt.png" width="500">
 #           <div>
 # 
 #      * In this window, type ``` pip install [name of package] ``` for each package you want to install/weren't able to install in the 'Environments' page. 
@@ -113,7 +113,7 @@
 #   * Make sure Python is installed and recognized by your device by typing the ```py``` command in the command window. You should be greeted by a message which looks something like this: 
 # 
 #       <div>
-#       <img src="img/cmd_py_welcome.png" width="500"/>
+#       <img src="fall2022/img/cmd_py_welcome.png" width="500"/>
 #       <div>
 #      
 #     which displays the current version of Python running and some other information.
@@ -121,7 +121,7 @@
 #     * Running Python from a command window still lets you do all the wonderful Pythonic things you might want to! Writing functions, running scripts, etc. For example: 
 # 
 #         <div>
-#         <img src="img/cmd_py_testfunc.png" width="500"/>
+#         <img src="fall2022/img/cmd_py_testfunc.png" width="500"/>
 #         <div>
 #   
 #     * Most people treat Python in the command window as a lightweight test IDE/calculator. Feel free to play around with it! 
@@ -159,7 +159,7 @@
 #     * To create a new virtual environment, simply enter the command ```py -m pipenv shell```. This will instantiate a new virtual environment (and a shell/command window in that environment) if one doesn't already exist. You should see a screen that looks like this: 
 # 
 #         <div>
-#         <img src="img/cmd_pipenv_new_venv.png" width="500"/>
+#         <img src="fall2022/img/cmd_pipenv_new_venv.png" width="500"/>
 #         <div>
 # 
 #     * In the sub-shell, you will be able to see the name of the new virtual environment prefixed before the working directory path. In the  image above, my new virtual environment is called ```ad2we-Y4yP-kYp```.
@@ -173,13 +173,13 @@
 #         * If you don't need a particular version of a package, just type ```pipenv install <name of package>```:
 #             
 #             <div>
-#             <img src="img/cmd_pipenv_np_install.png" width="500"/>
+#             <img src="fall2022/img/cmd_pipenv_np_install.png" width="500"/>
 #             <div>
 #         
 #         * If you need a particular version of a package, you can enter ```pipenv install <name of package>==<version number>```:
 # 
 #             <div>
-#             <img src="img/cmd_pipenv_flask_install.png" width="500"/>
+#             <img src="fall2022/img/cmd_pipenv_flask_install.png" width="500"/>
 #             <div>
 # 
 #         * Uninstalling packages can be done by executing ```pipenv uninstall <name of package>```.
