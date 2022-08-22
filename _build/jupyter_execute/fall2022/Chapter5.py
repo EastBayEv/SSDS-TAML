@@ -40,7 +40,7 @@ get_ipython().system('pip install bertopic[visualization]')
 # 
 # * For this exercise, we're going to use a popular data set, '20 Newsgroups,' which contains ~18,000 newsgroups posts on 20 topics. This dataset is readily available to us through Scikit-Learn: 
 
-# In[2]:
+# In[1]:
 
 
 import bertopic
