@@ -23,7 +23,7 @@
 
 # ### Required installs:
 
-# In[1]:
+# In[14]:
 
 
 # Installs the base bertopic module:
@@ -40,7 +40,7 @@ get_ipython().system('pip install bertopic')
 # 
 # * For this exercise, we're going to use a popular data set, '20 Newsgroups,' which contains ~18,000 newsgroups posts on 20 topics. This dataset is readily available to us through Scikit-Learn: 
 
-# In[2]:
+# In[21]:
 
 
 import bertopic
@@ -65,7 +65,7 @@ print(documents[0]) # Any ice hockey fans?
 
 # ### *Example instantiation:*
 
-# In[3]:
+# In[20]:
 
 
 from sklearn.feature_extraction.text import CountVectorizer 
@@ -100,7 +100,7 @@ model = BERTopic(vectorizer_model = stopwords_vectorizer)
 # 
 # * The BERTopic module has many built-in methods to view and analyze your fitted model topics. Here are some basics:
 
-# In[5]:
+# In[18]:
 
 
 # view your topics: 
@@ -114,21 +114,21 @@ print(topics_info.head(5))
 # 
 # * Forcing documents into a topic could decrease the quality of the topics generated, so it's usually a good idea to allow the model to discard inputs into this 'Topic -1' bin. 
 
-# In[6]:
+# In[17]:
 
 
 # access a single topic: 
 print(model.get_topic(topic=0)) # .get_topics() accesses all topics
 
 
-# In[7]:
+# In[16]:
 
 
 # get representative documents for a specific topic: 
 print(model.get_representative_docs(topic=0)) # omit the 'topic' parameter to get docs for all topics 
 
 
-# In[8]:
+# In[15]:
 
 
 # find topics similar to a key term/phrase: 
