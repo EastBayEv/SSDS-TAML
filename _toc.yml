@@ -6,24 +6,18 @@ root: intro
 parts:
 - caption: Python Basics
   chapters:
-  - file: winter2022/how_to
-  - file: winter2022/start
-  - file: winter2022/boiler
-  - file: winter2022/wrangle
-  - file: winter2022/viz
-- caption: Winter Quarter 2022
+  - file: fall2022/how_to
+  - file: fall2022/start
+  - file: fall2022/boiler
+  - file: fall2022/wrangle
+  - file: fall2022/viz
+- caption: Fall Quarter 2022
   chapters:
-  - file: winter2022/Chapter1
-  - file: winter2022/Chapter2
-  - file: winter2022/Chapter3
-  - file: winter2022/Chapter4
-  - file: winter2022/Chapter4_add
-  - file: winter2022/Chapter5
-  - file: winter2022/Chapter6
-  - file: winter2022/Chapter7
+  - file: fall2022/Chapter1
+  - file: fall2022/Chapter2
+  - file: fall2022/Chapter3
+  - file: fall2022/Chapter4
+  - file: fall2022/Chapter5
   - file: Appendix
-- caption: Miscellaneous
-  chapters:
-  - file: winter2022/resources.md
+- caption: Readme
   - file: README.md
-  - file: winter2022/Guest_Speakers

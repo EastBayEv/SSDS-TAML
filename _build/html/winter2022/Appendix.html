@@ -484,6 +484,32 @@ title="Print to PDF"
       Virtual environments in Command Window
      </em>
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-2-1-installation-prerequisites">
+       A.2.1:
+       <em>
+        Installation prerequisites
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-2-2-installing-pipenv">
+       A.2.2:
+       <em>
+        Installing pipenv
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-2-3-using-pipenv">
+       A.2.3:
+       <em>
+        Using pipenv
+       </em>
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -563,6 +589,32 @@ title="Print to PDF"
       Virtual environments in Command Window
      </em>
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-2-1-installation-prerequisites">
+       A.2.1:
+       <em>
+        Installation prerequisites
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-2-2-installing-pipenv">
+       A.2.2:
+       <em>
+        Installing pipenv
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-2-3-using-pipenv">
+       A.2.3:
+       <em>
+        Using pipenv
+       </em>
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -681,7 +733,101 @@ title="Print to PDF"
 <h3>Appendix A.2: <em>Virtual environments in Command Window</em><a class="headerlink" href="#appendix-a-2-virtual-environments-in-command-window" title="Permalink to this headline">#</a></h3>
 <p>If you prefer to run Python in a command window-type interface, you can still use virtual environments! For this purpose, I recommend the user-friendly <a class="reference external" href="https://pipenv.pypa.io/en/latest/">pipenv</a> package (which utilizes the <code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> packages, but handles most of the nitty-gritty details so you don’t have to).</p>
 <p>Let’s take a look at how to use it:</p>
-<p><strong>More coming soon…</strong></p>
+<section id="a-2-1-installation-prerequisites">
+<h4>A.2.1: <em>Installation prerequisites</em><a class="headerlink" href="#a-2-1-installation-prerequisites" title="Permalink to this headline">#</a></h4>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> package, there’s some other things we need to take care of first:</p>
+<ul>
+<li><p>Make sure you have Python installed on your machine. If you don’t, you should download the latest <a class="reference external" href="https://www.python.org/downloads/">version</a> before proceeding.</p></li>
+<li><p>Open a command window:</p>
+<ul class="simple">
+<li><p>On Windows devices, you can access this interface through the ‘Command Prompt’ program or the ‘Windows Powershell’ program.</p></li>
+<li><p>On Apple devices, a similar interface is avaialbe through the ‘Terminal’ application.</p></li>
+</ul>
+</li>
+<li><p>Make sure Python is installed and recognized by your device by typing the <code class="docutils literal notranslate"><span class="pre">py</span></code> command in the command window. You should be greeted by a message which looks something like this:</p>
+  <div>
+  <img src="img/cmd_py_welcome.png" width="500"/>
+  <div>
+<p>which displays the current version of Python running and some other information.</p>
+<ul>
+<li><p>Running Python from a command window still lets you do all the wonderful Pythonic things you might want to! Writing functions, running scripts, etc. For example:</p>
+  <div>
+  <img src="img/cmd_py_testfunc.png" width="500"/>
+  <div>
+</li>
+<li><p>Most people treat Python in the command window as a lightweight test IDE/calculator. Feel free to play around with it!</p></li>
+</ul>
+</li>
+<li><p>If you see a similar “version (misc. info) [misc. info]” message, your Python installation is ready to go! Please reach out for help  troubleshooting if you don’t.</p></li>
+</ul>
+</section>
+<section id="a-2-2-installing-pipenv">
+<h4>A.2.2: <em>Installing pipenv</em><a class="headerlink" href="#a-2-2-installing-pipenv" title="Permalink to this headline">#</a></h4>
+<p>Now that you’ve installed Python and can access it from a command window, you’re ready to install pipenv.</p>
+<ul class="simple">
+<li><p>First, install the <code class="docutils literal notranslate"><span class="pre">pip</span></code> package to unpack the <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> package.</p>
+<ul>
+<li><p>If you’re not sure as to whether you’ve installed <code class="docutils literal notranslate"><span class="pre">pip</span></code> or not, in your any command window Python instance, type and enter <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pip</span></code>.</p></li>
+<li><p>If no errors rise or nothing happens, you’re good to go!</p></li>
+</ul>
+</li>
+<li><p>Exit the Python instance you’re currently running in your command window by executing “exit() + Enter” or “Ctrl + Z + Enter.”</p></li>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> by typing and entering: <code class="docutils literal notranslate"><span class="pre">py</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pipenv</span></code>.</p></li>
+</ul>
+<p>That’s it! <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> has been installed and you’re ready to set up virtual environments.</p>
+</section>
+<section id="a-2-3-using-pipenv">
+<h4>A.2.3: <em>Using pipenv</em><a class="headerlink" href="#a-2-3-using-pipenv" title="Permalink to this headline">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">pipenv</span></code> allows you to control virutal environment creation and package installation and versioning all from the same interface. Let’s go through some of the most common operations in <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> for virtual environment management:</p>
+<ol>
+<li><p><strong>Navigate to your project directory:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pipenv</span></code> keeps all of your virutal environments separate by hashing the path of your current working directory. So, before you create a new virtual environment, be sure to navigate to the directory where you want all of the materials for your current project/workflow to be stored.</p></li>
+<li><p>After you’ve created your virtual environment for that project (by following the rest of the guide below), it will automatically be re-initialized anytime you navigate to that same working directory and open a <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> shell in it—read on for more about that!</p></li>
+</ul>
+</li>
+<li><p><strong>Creating a virtual environment:</strong></p>
+<ul>
+<li><p>To create a new virtual environment, simply enter the command <code class="docutils literal notranslate"><span class="pre">py</span> <span class="pre">-m</span> <span class="pre">pipenv</span> <span class="pre">shell</span></code>. This will instantiate a new virtual environment (and a shell/command window in that environment) if one doesn’t already exist. You should see a screen that looks like this:</p>
+  <div>
+  <img src="img/cmd_pipenv_new_venv.png" width="500"/>
+  <div>
+</li>
+<li><p>In the sub-shell, you will be able to see the name of the new virtual environment prefixed before the working directory path. In the  image above, my new virtual environment is called <code class="docutils literal notranslate"><span class="pre">ad2we-Y4yP-kYp</span></code>.</p></li>
+<li><p>Then, be sure to install <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> in your sub-shell (confusing, I know, but your virtual environment is sealed off from your local machine - it doens’t know you have <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> installed upstairs!) Executing <code class="docutils literal notranslate"><span class="pre">py</span> <span class="pre">-m</span> <span class="pre">install</span> <span class="pre">pipenv</span></code> in your subshell will do the trick.</p></li>
+</ul>
+</li>
+<li><p><strong>Installing packages:</strong></p>
+<ul>
+<li><p>Now in your virtual environment sub-shell, installing packages with <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> is just like installing packages with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<ul>
+<li><p>If you don’t need a particular version of a package, just type <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">install</span> <span class="pre">&lt;name</span> <span class="pre">of</span> <span class="pre">package&gt;</span></code>:</p>
+  <div>
+  <img src="img/cmd_pipenv_np_install.png" width="500"/>
+  <div>
+</li>
+<li><p>If you need a particular version of a package, you can enter <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">install</span> <span class="pre">&lt;name</span> <span class="pre">of</span> <span class="pre">package&gt;==&lt;version</span> <span class="pre">number&gt;</span></code>:</p>
+  <div>
+  <img src="img/cmd_pipenv_flask_install.png" width="500"/>
+  <div>
+</li>
+<li><p>Uninstalling packages can be done by executing <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">uninstall</span> <span class="pre">&lt;name</span> <span class="pre">of</span> <span class="pre">package&gt;</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Locking the environment:</strong></p>
+<ul>
+<li><p>In your virutal environment shell, you can run scripts, write functions, edit files, etc. as usual. Once you’ve completed your workflow, you can <em>lock</em> the versions of the different packages you have installed to ensure that you and others can always replicate your work without having to worry about versioning issues.</p></li>
+<li><p>Run the command <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">lock</span></code> — this will generate/update a file called <code class="docutils literal notranslate"><span class="pre">Pipfile.lock</span></code> which you should never need to edit manually. This file lists all the package versions, dependencies, and other computer-useful information used at the exact moment your ran the <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">lock</span></code> command.</p></li>
+<li><p>Anytime after running <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">lock</span></code>, if you’d like to restore this locked environment (say, when opening a new command window and resuming work on a project), you can run the command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">install</span> <span class="pre">--ignore-pipfile</span></code></p>
+</li>
+<li><p>which bypasses the Pipfile—a file that contains only general information about required packages—to re-initalize the exact environment present when your previously locked development in this project directory.</p></li>
+</ul>
+</li>
+</ol>
+</section>
 </section>
 </section>
 <section id="appendix-b-more-on-text-preprocessing">

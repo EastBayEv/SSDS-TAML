@@ -97,8 +97,104 @@
 # If you prefer to run Python in a command window-type interface, you can still use virtual environments! For this purpose, I recommend the user-friendly [pipenv](https://pipenv.pypa.io/en/latest/) package (which utilizes the ```pip``` and ```virtualenv``` packages, but handles most of the nitty-gritty details so you don't have to).
 # 
 # Let's take a look at how to use it: 
+
+# #### A.2.1: *Installation prerequisites* 
 # 
-# **More coming soon...**
+# To use the ```pipenv``` package, there's some other things we need to take care of first: 
+#   
+#   * Make sure you have Python installed on your machine. If you don't, you should download the latest [version](https://www.python.org/downloads/) before proceeding. 
+# 
+#   * Open a command window: 
+# 
+#     * On Windows devices, you can access this interface through the 'Command Prompt' program or the 'Windows Powershell' program. 
+# 
+#     * On Apple devices, a similar interface is avaialbe through the 'Terminal' application.   
+#   
+#   * Make sure Python is installed and recognized by your device by typing the ```py``` command in the command window. You should be greeted by a message which looks something like this: 
+# 
+#       <div>
+#       <img src="img/cmd_py_welcome.png" width="500"/>
+#       <div>
+#      
+#     which displays the current version of Python running and some other information.
+# 
+#     * Running Python from a command window still lets you do all the wonderful Pythonic things you might want to! Writing functions, running scripts, etc. For example: 
+# 
+#         <div>
+#         <img src="img/cmd_py_testfunc.png" width="500"/>
+#         <div>
+#   
+#     * Most people treat Python in the command window as a lightweight test IDE/calculator. Feel free to play around with it! 
+# 
+#   * If you see a similar "version (misc. info) [misc. info]" message, your Python installation is ready to go! Please reach out for help  troubleshooting if you don't. 
+
+# #### A.2.2: *Installing pipenv*
+# 
+# Now that you've installed Python and can access it from a command window, you're ready to install pipenv. 
+# 
+# * First, install the ```pip``` package to unpack the ```pipenv``` package. 
+#   
+#     * If you're not sure as to whether you've installed ```pip``` or not, in your any command window Python instance, type and enter ```import pip```. 
+#   
+#     * If no errors rise or nothing happens, you're good to go! 
+# 
+# * Exit the Python instance you're currently running in your command window by executing "exit() + Enter" or "Ctrl + Z + Enter." 
+# 
+# * Install ```pipenv``` by typing and entering: ```py -m pip install pipenv```. 
+# 
+# That's it! ```pipenv``` has been installed and you're ready to set up virtual environments. 
+
+# #### A.2.3: *Using pipenv*
+# 
+# ```pipenv``` allows you to control virutal environment creation and package installation and versioning all from the same interface. Let's go through some of the most common operations in ```pipenv``` for virtual environment management: 
+# 
+# 0. **Navigate to your project directory:** 
+#   
+#     * ```pipenv``` keeps all of your virutal environments separate by hashing the path of your current working directory. So, before you create a new virtual environment, be sure to navigate to the directory where you want all of the materials for your current project/workflow to be stored. 
+# 
+#     * After you've created your virtual environment for that project (by following the rest of the guide below), it will automatically be re-initialized anytime you navigate to that same working directory and open a ```pipenv``` shell in it—read on for more about that!
+# 
+# 1. **Creating a virtual environment:**
+# 
+#     * To create a new virtual environment, simply enter the command ```py -m pipenv shell```. This will instantiate a new virtual environment (and a shell/command window in that environment) if one doesn't already exist. You should see a screen that looks like this: 
+# 
+#         <div>
+#         <img src="img/cmd_pipenv_new_venv.png" width="500"/>
+#         <div>
+# 
+#     * In the sub-shell, you will be able to see the name of the new virtual environment prefixed before the working directory path. In the  image above, my new virtual environment is called ```ad2we-Y4yP-kYp```.
+# 
+#     * Then, be sure to install ```pipenv``` in your sub-shell (confusing, I know, but your virtual environment is sealed off from your local machine - it doens't know you have ```pipenv``` installed upstairs!) Executing ```py -m install pipenv``` in your subshell will do the trick. 
+#   
+# 2. **Installing packages:**
+#    
+#    * Now in your virtual environment sub-shell, installing packages with ```pipenv``` is just like installing packages with ```pip```:
+# 
+#         * If you don't need a particular version of a package, just type ```pipenv install <name of package>```:
+#             
+#             <div>
+#             <img src="img/cmd_pipenv_np_install.png" width="500"/>
+#             <div>
+#         
+#         * If you need a particular version of a package, you can enter ```pipenv install <name of package>==<version number>```:
+# 
+#             <div>
+#             <img src="img/cmd_pipenv_flask_install.png" width="500"/>
+#             <div>
+# 
+#         * Uninstalling packages can be done by executing ```pipenv uninstall <name of package>```.
+# 
+# 3. **Locking the environment:** 
+#    
+#    * In your virutal environment shell, you can run scripts, write functions, edit files, etc. as usual. Once you've completed your workflow, you can *lock* the versions of the different packages you have installed to ensure that you and others can always replicate your work without having to worry about versioning issues. 
+# 
+#    * Run the command ```pipenv lock``` — this will generate/update a file called ```Pipfile.lock``` which you should never need to edit manually. This file lists all the package versions, dependencies, and other computer-useful information used at the exact moment your ran the ```pipenv lock``` command. 
+# 
+#    * Anytime after running ```pipenv lock```, if you'd like to restore this locked environment (say, when opening a new command window and resuming work on a project), you can run the command:
+#  
+#         ```pipenv install --ignore-pipfile```  
+#   
+#    * which bypasses the Pipfile—a file that contains only general information about required packages—to re-initalize the exact environment present when your previously locked development in this project directory. 
 
 # ## Appendix B: *More on text preprocessing*
 # 
