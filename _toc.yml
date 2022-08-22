@@ -18,5 +18,7 @@ parts:
   - file: fall2022/Chapter3
   - file: fall2022/Chapter4
   - file: fall2022/Chapter5
+- caption: Miscellaneous
+  chapters:
   - file: fall2022/Appendix
   - file: README

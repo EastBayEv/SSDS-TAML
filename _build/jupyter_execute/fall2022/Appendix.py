@@ -38,7 +38,7 @@
 #     2. On the left-hand side of the Navigator window, find and click on the button that say 'Environments': 
 #     
 #         <div>
-#         <img src="fall2022/img/ana_env.png" width="500"/>
+#         <img src="img/ana_env.png" width="500"/>
 #         <div>
 # 
 #     3. In the 'Environments' page, go to the bottom-left of the page and click the button that says 'Create'.
@@ -46,7 +46,7 @@
 #         * When you do so, you'll be prompted by a pop-up window to provide a name for your new virtual environment. The location for the virutal environment will be shown to you, and you can install a specific version of Python and/or R: 
 #         
 #             <div>
-#             <img src="fall2022/img/test_env.png"/>
+#             <img src="img/test_env.png"/>
 #             <div>
 # 
 #         * Click the 'Create' button in the pop-up window, and wait for the virtual environment to finish being created.  
@@ -69,7 +69,7 @@
 #      * Change the field dictating displayed packages to 'Not installed' or 'All': 
 # 
 #           <div>
-#           <img src="fall2022/img/packages_ana_env.png" width="500"/>
+#           <img src="img/packages_ana_env.png" width="500"/>
 #           <div>
 # 
 #      * Go to the 'Search Packages' field and type in the name(s) of the package you want to install; 
@@ -77,7 +77,7 @@
 #      * If your package is available, click the open checkbox to the left of the package name: 
 # 
 #           <div>
-#           <img src="fall2022/img/install_numpy_base.png" width="500"/>
+#           <img src="img/install_numpy_base.png" width="500"/>
 #           <div>
 # 
 #      * Once you've selected all of the packages of interest, click the 'Apply' button in the bottom right-hand corner of the page to install them.  
@@ -87,7 +87,7 @@
 #      * In your command prompt window, you'll see that you're operating in your previously-selected virtual environment: 
 # 
 #           <div>
-#           <img src="fall2022/img/my_env_cmd_prompt.png" width="500">
+#           <img src="img/my_env_cmd_prompt.png" width="500">
 #           <div>
 # 
 #      * In this window, type ``` pip install [name of package] ``` for each package you want to install/weren't able to install in the 'Environments' page. 
@@ -113,7 +113,7 @@
 #   * Make sure Python is installed and recognized by your device by typing the ```py``` command in the command window. You should be greeted by a message which looks something like this: 
 # 
 #       <div>
-#       <img src="fall2022/img/cmd_py_welcome.png" width="500"/>
+#       <img src="img/cmd_py_welcome.png" width="500"/>
 #       <div>
 #      
 #     which displays the current version of Python running and some other information.
@@ -121,7 +121,7 @@
 #     * Running Python from a command window still lets you do all the wonderful Pythonic things you might want to! Writing functions, running scripts, etc. For example: 
 # 
 #         <div>
-#         <img src="fall2022/img/cmd_py_testfunc.png" width="500"/>
+#         <img src="img/cmd_py_testfunc.png" width="500"/>
 #         <div>
 #   
 #     * Most people treat Python in the command window as a lightweight test IDE/calculator. Feel free to play around with it! 
@@ -159,7 +159,7 @@
 #     * To create a new virtual environment, simply enter the command ```py -m pipenv shell```. This will instantiate a new virtual environment (and a shell/command window in that environment) if one doesn't already exist. You should see a screen that looks like this: 
 # 
 #         <div>
-#         <img src="fall2022/img/cmd_pipenv_new_venv.png" width="500"/>
+#         <img src="img/cmd_pipenv_new_venv.png" width="500"/>
 #         <div>
 # 
 #     * In the sub-shell, you will be able to see the name of the new virtual environment prefixed before the working directory path. In the  image above, my new virtual environment is called ```ad2we-Y4yP-kYp```.
@@ -173,13 +173,13 @@
 #         * If you don't need a particular version of a package, just type ```pipenv install <name of package>```:
 #             
 #             <div>
-#             <img src="fall2022/img/cmd_pipenv_np_install.png" width="500"/>
+#             <img src="img/cmd_pipenv_np_install.png" width="500"/>
 #             <div>
 #         
 #         * If you need a particular version of a package, you can enter ```pipenv install <name of package>==<version number>```:
 # 
 #             <div>
-#             <img src="fall2022/img/cmd_pipenv_flask_install.png" width="500"/>
+#             <img src="img/cmd_pipenv_flask_install.png" width="500"/>
 #             <div>
 # 
 #         * Uninstalling packages can be done by executing ```pipenv uninstall <name of package>```.
@@ -195,99 +195,6 @@
 #         ```pipenv install --ignore-pipfile```  
 #   
 #    * which bypasses the Pipfile—a file that contains only general information about required packages—to re-initalize the exact environment present when your previously locked development in this project directory. 
-
-# ## Appendix B: *More on text preprocessing*
-# 
-# While the exact steps you elect to use for text preprocessing will ultimately depend on applications, there are some more generalizable techniques that you can usually look to apply: 
-# 
-# * **Expand contractions** - contractions like "don't", "they're", and "it's" all count as unique tokens if punctuation is simply removed (converting them to "dont", "theyre", "its", respectively). Decompose contractions into their constituent words to get more accurate counts of tokens like "is," "they," etc. (or for ensuring their removal when omitting stopwords from text -- read on for more about those!)
-# 
-#     * The [contractions](https://github.com/kootenpv/contractions) package can be useful here! Let's see an example:   
-# 
-
-# In[1]:
-
-
-# required install: 
-get_ipython().system('pip install contractions')
-
-
-# In[2]:
-
-
-import contractions 
-
-contractions_sentence = "I'd like to know how you're doing! You're her best friend, but I'm your friend too, aren't I?"
-
-# let's see the text, de-contraction-afied!
-print(contractions.fix(contractions_sentence))
-
-# this package can also resolve some slang! an example in action: 
-slang_sentence = "Ima go sign up for an SSDS consult - yall gotta do it too!"
-
-print(contractions.fix(slang_sentence, slang=True))
-
-
-# * If you ran the previous code cell, you might notice that one of the contraction expansions in ```contractions_sentence``` isn't quite grammatically correct; "aren't I?" is coverted to "are not I?" where it should be "am I not?"
-#  
-#     * This is because the ```contractions``` package only offers *static* contraction conversions--i.e., it doesn't consider the context surrounding a contraction and always converts a specific contraction into a specific expansion. 
-# 
-#     * For a package that converts contractions with more contextual analysis, consider the [pycontractions](https://pypi.org/project/pycontractions/) package. Where multiple expansions are possible, this package evaluates which expansions are gramatically correct and then which one is most likely to be correct (by a metric called [Word Mover's Distance](https://towardsdatascience.com/word-distance-between-word-embeddings-cc3e9cf1d632)).
-# 
-#     * If you would like to use ```pycontractions```, be note that the install can be rather finnicky--the package requires another module called ```language-check``` which requires an up-to-date version of [Java](https://www.java.com/en/download/help/download_options.html). If you have issues during the install, please reach out to SSDS for help! 
-
-# * **Remove stopwords** - stopwords are words like "a," "from," and "the" which are typically filtered out from text before analysis as they do not meaningfully contribute to the content of a document. Leaving in stopwords can lead to irrelevant topics in topic modeling, dilute the strength of sentiment in sentiment analysis, etc. 
-# 
-#     * Here's a quick loop that can help filter out the stopwords from a string: 
-
-# In[3]:
-
-
-from nltk.corpus import stopwords 
-from nltk.tokenize import word_tokenize
-
-example_sentence = "Hi! This is a needlessly wordy sentence with lots of stopwords. My favorite words are: a, the, with, which. You may think that is strange - and it is!"
-
-stop_words = set(stopwords.words('english'))
-
-print("Example stopwords include: " + str(stopwords.words('english')[:5])) # if you want to see what are considered English stopwords by the NLTK package
-
-word_tokens = word_tokenize(example_sentence)
-
-filtered_sentence = [w for w in word_tokens if not w.lower() in stop_words]
-
-# let's see the difference!
-print(word_tokens)
-print(filtered_sentence)
-
-
-# * Note that different packages have different lists which define stopwords, so make sure you pick a suitable one. Also, feel free to define your own custom stopwords lists!  
-# 
-# * **Standardize phrases** - oftentimes text preprocessing is carried out as a precursor to a matching exercise (e.g. using company name to merge two databases). In such cases, we may want to standardize key phrases. For example, "My Little Startup, LLC" and "my little startup" clearly refer to the same entity, but will not match currently. 
-# 
-#     * In such cases, we may need to write a custom script to standardize key phrases, or there may be a packages out there that already do this for us. Let's take a look at one for our example, standardizing company names: 
-
-# In[4]:
-
-
-# required install: 
-get_ipython().system('pip install cleanco')
-
-
-# In[5]:
-
-
-from cleanco import basename
-
-business_name_one = "My Little Startup, LLC"
-cleaned_name_one  = basename(business_name_one) # feel free to print this out! just add: 'print(cleaned_name_one)' below. 
-
-business_name_two = "My Little Startup"
-cleaned_name_two  = basename(business_name_two)
-
-# sanity check - are the cleaned company names identical?  
-print(cleaned_name_one == cleaned_name_two)
-
 
 # * How and where you choose to standardize phrases in text will of course depend on your end goal, but there are plenty of resources/examples out there for you to model an approach after if a package doesn't already exist!
 # 

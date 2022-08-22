@@ -23,7 +23,7 @@
 
 # ### Required installs:
 
-# In[1]:
+# In[14]:
 
 
 # Installs the base bertopic module:
@@ -40,7 +40,7 @@ get_ipython().system('pip install bertopic[visualization]')
 # 
 # * For this exercise, we're going to use a popular data set, '20 Newsgroups,' which contains ~18,000 newsgroups posts on 20 topics. This dataset is readily available to us through Scikit-Learn: 
 
-# In[2]:
+# In[21]:
 
 
 import bertopic
@@ -65,7 +65,7 @@ print(documents[0]) # Any ice hockey fans?
 
 # ### *Example instantiation:*
 
-# In[3]:
+# In[20]:
 
 
 from sklearn.feature_extraction.text import CountVectorizer 
