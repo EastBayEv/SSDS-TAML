@@ -15,6 +15,7 @@ requests = "*"
 regex = "*"
 bertopic = "*"
 scipy = "*"
+sklearn = "*"
 
 [dev-packages]
 
