@@ -36,9 +36,9 @@ Here is a preview of the cell contents:
 !pip install bertopic 
 
 # If you want to use other transformers/language backends, it may require additional installs: 
-!pip install bertopic[flair] # can substitute 'flair' with 'gensim', 'spacy', 'use'
+# !pip install bertopic[flair] # can substitute 'flair' with 'gensim', 'spacy', 'use'
 
 # bertopic also comes with its own handy visualization suite: 
-!pip install bertopic[visualization]
+# !pip install bertopic[visualization]
 -------------------
 
