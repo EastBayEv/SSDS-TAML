@@ -13,4 +13,4 @@ math
 scipy
 os
 notebook
-jb
+jupyter-book

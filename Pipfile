@@ -16,6 +16,7 @@ regex = "*"
 bertopic = "*"
 scipy = "*"
 sklearn = "*"
+jupyter-book = "*"
 
 [dev-packages]
 
