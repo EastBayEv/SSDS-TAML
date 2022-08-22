@@ -1,4 +1,3 @@
-![](winter2022/img/const.png)
 The repository and Jupyter Book are undergoing maintenance in August 2022 and might not function properly for a couple weeks. You are encouraged to file an issue if you notice a bug! 
 
 # Open the Jupyter Book
