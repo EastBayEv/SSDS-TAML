@@ -889,6 +889,21 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sanmarino2014.txt&#39;,
+ &#39;tuvalu2013.txt&#39;,
+ &#39;kazakhstan2014.txt&#39;,
+ &#39;cotedivoire2014.txt&#39;,
+ &#39;fiji2014.txt&#39;,
+ &#39;bangladesh2013.txt&#39;,
+ &#39;turkmenistan2013.txt&#39;,
+ &#39;jordan2013.txt&#39;,
+ &#39;monaco2013.txt&#39;,
+ &#39;afghanistan2014.txt&#39;,
+ &#39;djibouti2013.txt&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="store-these-documents-in-a-data-frame">
@@ -923,6 +938,88 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>file_name</th>
+      <th>document_text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sanmarino2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/9 \n \n \n\n Ge...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tuvalu2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/8  \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kazakhstan2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/10 \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>cotedivoire2014.txt</td>
+      <td>\nDistr.: General 7 July 2014 English Original...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>fiji2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/8 \n \n \n\n Ge...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>bangladesh2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/12  \n \n \n\n ...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>turkmenistan2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/3  \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>jordan2013.txt</td>
+      <td>\nDistr.: General 6 January 2014 \nOriginal: E...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>monaco2013.txt</td>
+      <td>\nDistr.: General 3 January 2014 English Origi...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>afghanistan2014.txt</td>
+      <td>\nDistr.: General 4 April 2014 \nOriginal: Eng...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>djibouti2013.txt</td>
+      <td>\n\nDistr.: General 8 July 2013 English Origin...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="view-the-text-of-the-first-document">
@@ -931,6 +1028,40 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first thousand characters</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;document_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ United Nations 
+ A/HRC/28/9 
+ 
+ 
+
+ General Assembly 
+ Distr.: General 
+24 December 2014 
+ 
+Original: English 
+ 
+
+Human Rights Council 
+
+Twenty-eighth session 
+Agenda item 6 
+Universal Periodic Review 
+  Report of the Working Group on the Universal Periodic Review* 
+ * The annex to the present report is circulated as received. 
+  San Marino 
+Contents 
+ Paragraphs Page 
+  Introduction .............................................................................................................  1Ð4 3 
+ I. Summary of the proceedings of the review process ................................................  5Ð77 3 
+  A. Presentation by the State under review ...........................................................  5Ð23 3 
+  B. Interactive dialogue and responses by the State under review ........................  24Ð77 6 
+ II. Conclusions and/or recommendations .....................................................................  78Ð81 13 
+ Annex 
+  Composition of the delegation .......
 </pre></div>
 </div>
 </div>
@@ -968,6 +1099,40 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ United Nations 
+ A HRC 28 9 
+ 
+ 
+
+ General Assembly 
+ Distr   General 
+24 December 2014 
+ 
+Original  English 
+ 
+
+Human Rights Council 
+
+Twenty eighth session 
+Agenda item 6 
+Universal Periodic Review 
+  Report of the Working Group on the Universal Periodic Review  
+   The annex to the present report is circulated as received  
+  San Marino 
+Contents 
+ Paragraphs Page 
+  Introduction                                                                                                                1Ð4 3 
+ I  Summary of the proceedings of the review process                                                   5Ð77 3 
+  A  Presentation by the State under review                                                              5Ð23 3 
+  B  Interactive dialogue and responses by the State under review                           24Ð77 6 
+ II  Conclusions and or recommendations                                                                        78Ð81 13 
+ Annex 
+  Composition of the delegation        
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -976,6 +1141,100 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>file_name</th>
+      <th>document_text</th>
+      <th>clean_text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sanmarino2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/9 \n \n \n\n Ge...</td>
+      <td>\n United Nations \n A HRC 28 9 \n \n \n\n Ge...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tuvalu2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/8  \n \n \n\n G...</td>
+      <td>\n United Nations \n A HRC 24 8  \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kazakhstan2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/10 \n \n \n\n G...</td>
+      <td>\n United Nations \n A HRC 28 10 \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>cotedivoire2014.txt</td>
+      <td>\nDistr.: General 7 July 2014 English Original...</td>
+      <td>\nDistr   General 7 July 2014 English Original...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>fiji2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/8 \n \n \n\n Ge...</td>
+      <td>\n United Nations \n A HRC 28 8 \n \n \n\n Ge...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>bangladesh2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/12  \n \n \n\n ...</td>
+      <td>\n United Nations \n A HRC 24 12  \n \n \n\n ...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>turkmenistan2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/3  \n \n \n\n G...</td>
+      <td>\n United Nations \n A HRC 24 3  \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>jordan2013.txt</td>
+      <td>\nDistr.: General 6 January 2014 \nOriginal: E...</td>
+      <td>\nDistr   General 6 January 2014 \nOriginal  E...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>monaco2013.txt</td>
+      <td>\nDistr.: General 3 January 2014 English Origi...</td>
+      <td>\nDistr   General 3 January 2014 English Origi...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>afghanistan2014.txt</td>
+      <td>\nDistr.: General 4 April 2014 \nOriginal: Eng...</td>
+      <td>\nDistr   General 4 April 2014 \nOriginal  Eng...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>djibouti2013.txt</td>
+      <td>\n\nDistr.: General 8 July 2013 English Origin...</td>
+      <td>\n\nDistr   General 8 July 2013 English Origin...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="remove-digits">
@@ -990,6 +1249,40 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ United Nations 
+ A HRC      
+ 
+ 
+
+ General Assembly 
+ Distr   General 
+   December      
+ 
+Original  English 
+ 
+
+Human Rights Council 
+
+Twenty eighth session 
+Agenda item   
+Universal Periodic Review 
+  Report of the Working Group on the Universal Periodic Review  
+   The annex to the present report is circulated as received  
+  San Marino 
+Contents 
+ Paragraphs Page 
+  Introduction                                                                                                                 Ð    
+ I  Summary of the proceedings of the review process                                                    Ð     
+  A  Presentation by the State under review                                                               Ð     
+  B  Interactive dialogue and responses by the State under review                             Ð     
+ II  Conclusions and or recommendations                                                                          Ð      
+ Annex 
+  Composition of the delegation        
 </pre></div>
 </div>
 </div>
@@ -1011,6 +1304,40 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ United Nations 
+ A HRC      
+ 
+ 
+
+ General Assembly 
+ Distr   General 
+   December      
+ 
+Original  English 
+ 
+
+Human Rights Council 
+
+Twenty eighth session 
+Agenda item   
+Universal Periodic Review 
+  Report of the Working Group on the Universal Periodic Review  
+   The annex to the present report is circulated as received  
+  San Marino 
+Contents 
+ Paragraphs Page 
+  Introduction                                                                                                                     
+ I  Summary of the proceedings of the review process                                                         
+  A  Presentation by the State under review                                                                    
+  B  Interactive dialogue and responses by the State under review                                  
+ II  Conclusions and or recommendations                                                                                
+ Annex 
+  Composition of the delegation             
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="remove-extra-spaces">
@@ -1029,6 +1356,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> United Nations A HRC General Assembly Distr General December Original English Human Rights Council Twenty eighth session Agenda item Universal Periodic Review Report of the Working Group on the Universal Periodic Review The annex to the present report is circulated as received San Marino Contents Paragraphs Page Introduction I Summary of the proceedings of the review process A Presentation by the State under review B Interactive dialogue and responses by the State under review II Conclusions and or recommendations Annex Composition of the delegation Introduction The Working Group on the Universal Periodic Review established in accordance with Human Rights Council resolution of June held its twentieth session from October to November The review of San Marino was held at the th meeting on October The delegation of San Marino was headed by Pasquale Valentini Minister for Foreign Affairs At its th meeting held on October the Working Group adopted the report on San Marino On January the Hu
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="convert-to-lowercase">
@@ -1043,6 +1375,11 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> united nations a hrc general assembly distr general december original english human rights council twenty eighth session agenda item universal periodic review report of the working group on the universal periodic review the annex to the present report is circulated as received san marino contents paragraphs page introduction i summary of the proceedings of the review process a presentation by the state under review b interactive dialogue and responses by the state under review ii conclusions and or recommendations annex composition of the delegation introduction the working group on the universal periodic review established in accordance with human rights council resolution of june held its twentieth session from october to november the review of san marino was held at the th meeting on october the delegation of san marino was headed by pasquale valentini minister for foreign affairs at its th meeting held on october the working group adopted the report on san marino on january the hu
 </pre></div>
 </div>
 </div>
@@ -1089,6 +1426,100 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>file_name</th>
+      <th>document_text</th>
+      <th>clean_text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sanmarino2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/9 \n \n \n\n Ge...</td>
+      <td>united nations a hrc general assembly distr g...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tuvalu2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/8  \n \n \n\n G...</td>
+      <td>united nations a hrc general assembly distr g...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kazakhstan2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/10 \n \n \n\n G...</td>
+      <td>united nations a hrc general assembly distr g...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>cotedivoire2014.txt</td>
+      <td>\nDistr.: General 7 July 2014 English Original...</td>
+      <td>distr general july english original english f...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>fiji2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/8 \n \n \n\n Ge...</td>
+      <td>united nations a hrc general assembly distr g...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>bangladesh2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/12  \n \n \n\n ...</td>
+      <td>united nations a hrc general assembly distr g...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>turkmenistan2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/3  \n \n \n\n G...</td>
+      <td>united nations a hrc general assembly distr g...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>jordan2013.txt</td>
+      <td>\nDistr.: General 6 January 2014 \nOriginal: E...</td>
+      <td>distr general january original english genera...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>monaco2013.txt</td>
+      <td>\nDistr.: General 3 January 2014 English Origi...</td>
+      <td>distr general january english original englis...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>afghanistan2014.txt</td>
+      <td>\nDistr.: General 4 April 2014 \nOriginal: Eng...</td>
+      <td>distr general april original english general ...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>djibouti2013.txt</td>
+      <td>\n\nDistr.: General 8 July 2013 English Origin...</td>
+      <td>distr general july english original english f...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 </section>
@@ -1116,10 +1547,70 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11, 88194)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tf_sparse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (0, 41201)	0.004841792538927591
+  (0, 33118)	0.004841792538927591
+  (0, 52297)	0.004841792538927591
+  (0, 83563)	0.004841792538927591
+  (0, 48098)	0.004841792538927591
+  (0, 73938)	0.004841792538927591
+  (0, 70099)	0.004841792538927591
+  (0, 50457)	0.004841792538927591
+  (0, 57730)	0.004841792538927591
+  (0, 5933)	0.004841792538927591
+  (0, 2131)	0.004841792538927591
+  (0, 19496)	0.004841792538927591
+  (0, 4456)	0.004841792538927591
+  (0, 51455)	0.004841792538927591
+  (0, 2831)	0.004841792538927591
+  (0, 41350)	0.004841792538927591
+  (0, 7670)	0.004841792538927591
+  (0, 84240)	0.004841792538927591
+  (0, 51495)	0.004841792538927591
+  (0, 2835)	0.004841792538927591
+  (0, 45547)	0.004138587998252598
+  (0, 21498)	0.004841792538927591
+  (0, 29085)	0.004841792538927591
+  (0, 56075)	0.004841792538927591
+  (0, 78289)	0.004841792538927591
+  :	:
+  (10, 56156)	0.005334258825700086
+  (10, 64482)	0.005334258825700086
+  (10, 12086)	0.006065489955079169
+  (10, 54457)	0.006065489955079169
+  (10, 24386)	0.004303646433350054
+  (10, 40670)	0.008607292866700108
+  (10, 50511)	0.006065489955079169
+  (10, 67275)	0.008607292866700108
+  (10, 30214)	0.00476707189726019
+  (10, 65265)	0.005334258825700086
+  (10, 21793)	0.00476707189726019
+  (10, 67704)	0.004303646433350054
+  (10, 31604)	0.005334258825700086
+  (10, 83182)	0.006065489955079169
+  (10, 80749)	0.006065489955079169
+  (10, 79281)	0.014301215691780571
+  (10, 28564)	0.004303646433350054
+  (10, 59645)	0.025821878600100327
+  (10, 63422)	0.03012552503345038
+  (10, 73852)	0.025821878600100327
+  (10, 76145)	0.005334258825700086
+  (10, 50217)	0.008607292866700108
+  (10, 30122)	0.010668517651400172
+  (10, 8598)	0.010668517651400172
+  (10, 19266)	0.008607292866700108
 </pre></div>
 </div>
 </div>
@@ -1133,6 +1624,321 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>abasi</th>
+      <th>abasi desk</th>
+      <th>abasi desk officer</th>
+      <th>abdi</th>
+      <th>abdi ismael</th>
+      <th>abdi ismael hersi</th>
+      <th>abdou</th>
+      <th>abdou prsident</th>
+      <th>abdou prsident la</th>
+      <th>abduction</th>
+      <th>...</th>
+      <th>zone social</th>
+      <th>zone social benefits</th>
+      <th>zones</th>
+      <th>zones inclusive</th>
+      <th>zones inclusive education</th>
+      <th>zones senegal</th>
+      <th>zones senegal recommendations</th>
+      <th>zouon</th>
+      <th>zouon bi</th>
+      <th>zouon bi tidou</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004775</td>
+      <td>...</td>
+      <td>0.007108</td>
+      <td>0.007108</td>
+      <td>0.006076</td>
+      <td>0.007108</td>
+      <td>0.007108</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.006234</td>
+      <td>0.006234</td>
+      <td>0.006234</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.010880</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.006219</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.007276</td>
+      <td>0.007276</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004741</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.007519</td>
+      <td>0.007519</td>
+      <td>0.007519</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.005051</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>11 rows × 88194 columns</p>
+</div></div></div>
 </div>
 </section>
 <section id="view-20-highest-weighted-words">
@@ -1140,6 +1946,31 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>monaco                        0.718573
+tuvalu                        0.638645
+fiji                          0.566999
+turkmenistan                  0.566983
+san                           0.551964
+jordan                        0.482716
+marino                        0.455128
+san marino                    0.455128
+kazakhstan                    0.448850
+divoire                       0.330871
+te divoire                    0.330871
+te                            0.306268
+kazakhstans                   0.284333
+bangladeshs                   0.251033
+elimination violence women    0.250640
+elimination violence          0.250640
+djiboutis                     0.248364
+reconciliation                0.245134
+fgm                           0.194096
+afghan                        0.180447
+dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1153,6 +1984,21 @@ title="Print to PDF"
 <span class="n">countries</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">stop</span> <span class="o">=</span> <span class="o">-</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">countries</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span>
 <span class="n">countries</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sanmarino&#39;,
+ &#39;tuvalu&#39;,
+ &#39;kazakhstan&#39;,
+ &#39;cotedivoire&#39;,
+ &#39;fiji&#39;,
+ &#39;bangladesh&#39;,
+ &#39;turkmenistan&#39;,
+ &#39;jordan&#39;,
+ &#39;monaco&#39;,
+ &#39;afghanistan&#39;,
+ &#39;djibouti&#39;]
 </pre></div>
 </div>
 </div>
@@ -1170,6 +2016,317 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>abasi</th>
+      <th>abasi desk</th>
+      <th>abasi desk officer</th>
+      <th>abdi</th>
+      <th>abdi ismael</th>
+      <th>abdi ismael hersi</th>
+      <th>abdou</th>
+      <th>abdou prsident</th>
+      <th>abdou prsident la</th>
+      <th>abduction</th>
+      <th>...</th>
+      <th>zone social benefits</th>
+      <th>zones</th>
+      <th>zones inclusive</th>
+      <th>zones inclusive education</th>
+      <th>zones senegal</th>
+      <th>zones senegal recommendations</th>
+      <th>zouon</th>
+      <th>zouon bi</th>
+      <th>zouon bi tidou</th>
+      <th>COUNTRY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>sanmarino</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>tuvalu</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004775</td>
+      <td>...</td>
+      <td>0.007108</td>
+      <td>0.006076</td>
+      <td>0.007108</td>
+      <td>0.007108</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>kazakhstan</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.006234</td>
+      <td>0.006234</td>
+      <td>0.006234</td>
+      <td>cotedivoire</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>fiji</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.010880</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>bangladesh</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.006219</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.007276</td>
+      <td>0.007276</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>turkmenistan</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004741</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>jordan</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>monaco</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.007519</td>
+      <td>0.007519</td>
+      <td>0.007519</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.005051</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>afghanistan</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>djibouti</td>
+    </tr>
+  </tbody>
+</table>
+<p>11 rows × 88195 columns</p>
+</div></div></div>
 </div>
 </section>
 <section id="examine-unique-words-by-each-document-country">
@@ -1179,6 +2336,31 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="p">[</span><span class="n">tfidf_df</span><span class="p">[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;jordan&#39;</span><span class="p">]</span>
 <span class="n">country</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numeric_only</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jordan                                 0.482716
+jordanian                              0.127019
+press publications                     0.112906
+publications                           0.108571
+syrian                                 0.098792
+constitutional amendments              0.096508
+publications law                       0.091736
+press publications law                 0.091736
+syrian refugees                        0.084679
+websites                               0.072381
+reservations                           0.071108
+commitment jordan                      0.063509
+reservations convention                0.060317
+news websites                          0.056453
+al                                     0.054286
+personal status                        0.054286
+news                                   0.054286
+personal                               0.053046
+reservations convention elimination    0.048254
+hosting                                0.042437
+dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1202,6 +2384,8 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>TruncatedSVD(algorithm=&#x27;arpack&#x27;, n_components=5, random_state=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">TruncatedSVD</label><div class="sk-toggleable__content"><pre>TruncatedSVD(algorithm=&#x27;arpack&#x27;, n_components=5, random_state=1)</pre></div></div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1209,10 +2393,20 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.00816051 0.10375827 0.10320114 0.09968319 0.10115778]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tsvd</span><span class="o">.</span><span class="n">singular_values_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.13997839 1.01408739 1.00306128 0.99825596 0.99320396]
 </pre></div>
 </div>
 </div>
@@ -1232,6 +2426,28 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf_features</span> <span class="o">=</span> <span class="n">tf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
 <span class="n">topics</span><span class="p">(</span><span class="n">tsvd</span><span class="p">,</span> <span class="n">tf_features</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic #0:
+turkmenistan kazakhstan jordan fiji tuvalu divoire te divoire monaco te reconciliation bangladeshs san elimination violence elimination violence women kazakhstans fgm djiboutis san marino marino violence women law
+
+Topic #1:
+monaco san marino san marino te divoire divoire te reconciliation fgm djiboutis op crc fiji san marinos marinos monegasque national reconciliation elimination forms racial forms racial discrimination forms racial international convention elimination
+
+Topic #2:
+tuvalu fiji djiboutis national strategic climate change strategic water sanitation sanitation fgm safe drinking safe drinking water rapporteur human right rapporteur human special rapporteur human human right safe climate national gender policy national gender fijian drinking water sanitation
+
+Topic #3:
+te divoire divoire te reconciliation fgm national reconciliation jordan djiboutis ivorian national development plan elimination violence elimination violence women truth genital mutilation genital female genital female genital mutilation dialogue truth reconciliation truth reconciliation dialogue truth
+
+Topic #4:
+monaco jordan tuvalu jordanian press publications publications monegasque syrian constitutional amendments bangladeshs publications law press publications law principality nationality commended monaco syrian refugees reservations des sanitation websites
 </pre></div>
 </div>
 </div>
@@ -1260,6 +2476,16 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package movie_reviews to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package movie_reviews is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="define-x-reviews-and-y-judgements-variables">
@@ -1282,10 +2508,67 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Reviews</th>
+      <th>Judgements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>plot : two teen couples go to a church party ,...</td>
+      <td>neg</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>the happy bastard's quick movie review \ndamn ...</td>
+      <td>neg</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>it is movies like these that make a jaded movi...</td>
+      <td>neg</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>" quest for camelot " is warner bros . ' firs...</td>
+      <td>neg</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>synopsis : a mentally unstable man undergoing ...</td>
+      <td>neg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2000, 2)
 </pre></div>
 </div>
 </div>
@@ -1306,6 +2589,15 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># change x[0] and y[0] to see different reviews</span>
 <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human review was:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Human review was: neg
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;steve martin is one of the funniest men alive . \nif you can take that as a true statement , then your disappointment at this film will equal mine . \nmartin can be hilarious , creating some of the best laugh-out-loud experiences that have ever taken place in movie theaters . \nyou won\&#39;t find any of them here . \nthe old television series that this is based on has its moments of humor and wit . \nbilko ( and the name isn\&#39;t an accident ) is the head of an army motor pool group , but his passion is his schemes . \nevery episode involves the sergeant and his men in one or another hair-brained plan to get rich quick while outwitting the officers of the base . \n &quot; mchale\&#39;s navy &quot; \&#39;s granddaddy . \nthat\&#39;s the idea behind this movie too , but the difference is that , as far-fetched and usually goofy as the television series was , it was funny . \nthere is not one laugh in the film . \nthe re-make retains the goofiness , but not the entertainment . \neverything is just too clean . \nit was obviously made on a hollywood back lot and looks every bit like it . \nit all looks brand new , even the old beat-up stuff . \nmartin is remarkably small in what should have been a bigger than life role . \nin the original , phil silvers played the huckster with a heart of gold and more than a touch of sleaziness . \nmartin\&#39;s bilko is a pale imitation . \nthe only semi-bright spot is phil hartman as bilko\&#39;s arch-enemy . \nit\&#39;s not saying much , considering martin\&#39;s lackluster character , but hartman leaves him in the dust . \n&#39;,
+ None)
 </pre></div>
 </div>
 </div>
@@ -1345,6 +2637,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8216666666666667
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="k-fold-cross-validated-model">
@@ -1368,6 +2665,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.8155922  0.79910045 0.80630631] 0.8069996533264899
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="top-25-features-for-positive-and-negative-reviews">
@@ -1385,6 +2687,19 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top features for positive reviews:
+[&#39;gas&#39;, &#39;perfectly&#39;, &#39;family&#39;, &#39;political&#39;, &#39;will&#39;, &#39;seen&#39;, &#39;rocky&#39;, &#39;always&#39;, &#39;different&#39;, &#39;excellent&#39;, &#39;also&#39;, &#39;many&#39;, &#39;is&#39;, &#39;matrix&#39;, &#39;trek&#39;, &#39;well&#39;, &#39;definitely&#39;, &#39;truman&#39;, &#39;very&#39;, &#39;great&#39;, &#39;quite&#39;, &#39;fun&#39;, &#39;jackie&#39;, &#39;as&#39;, &#39;and&#39;]
+
+Top features for negative reviews:
+[&#39;bad&#39;, &#39;only&#39;, &#39;plot&#39;, &#39;worst&#39;, &#39;there&#39;, &#39;boring&#39;, &#39;script&#39;, &#39;why&#39;, &#39;have&#39;, &#39;unfortunately&#39;, &#39;dull&#39;, &#39;poor&#39;, &#39;any&#39;, &#39;waste&#39;, &#39;nothing&#39;, &#39;looks&#39;, &#39;ridiculous&#39;, &#39;supposed&#39;, &#39;no&#39;, &#39;even&#39;, &#39;harry&#39;, &#39;awful&#39;, &#39;then&#39;, &#39;reason&#39;, &#39;wasted&#39;]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1393,6 +2708,11 @@ title="Print to PDF"
 <span class="n">features</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">new_bad_review</span><span class="p">])</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;neg&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -1407,6 +2727,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;pos&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1414,6 +2739,11 @@ title="Print to PDF"
 <span class="n">my_review</span> <span class="o">=</span> <span class="s1">&#39;I hated this movie, even though my friend loved it&#39;</span>
 <span class="n">my_features</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">my_review</span><span class="p">])</span>
 <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">my_features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;neg&#39;], dtype=object)
 </pre></div>
 </div>
 </div>

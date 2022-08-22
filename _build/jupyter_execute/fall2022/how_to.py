@@ -8,7 +8,7 @@
 # The interface is divided into three sections. 
 # 1. **The center portion** contains the main text. Here, goals, concepts, objectives, and code will be presented and explained. 
 
-# In[4]:
+# In[1]:
 
 
 # card trick
