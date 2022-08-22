@@ -30,10 +30,10 @@
 get_ipython().system('pip install bertopic')
 
 # If you want to use other transformers/language backends, it may require additional installs: 
-# !pip install bertopic[flair] # can substitute 'flair' with 'gensim', 'spacy', 'use'
+get_ipython().system("pip install bertopic[flair] # can substitute 'flair' with 'gensim', 'spacy', 'use'")
 
 # bertopic also comes with its own handy visualization suite: 
-# !pip install bertopic[visualization]
+get_ipython().system('pip install bertopic[visualization]')
 
 
 # ### Data sourcing 
