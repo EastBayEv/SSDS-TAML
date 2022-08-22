@@ -13,9 +13,8 @@ bs4 = "*"
 nltk = "*"
 requests = "*"
 regex = "*"
-tensorflow = "*"
-cleanco = "*"
-language-check = "*"
+bertopic = "*"
+scipy = "*"
 
 [dev-packages]
 
