@@ -19,5 +19,3 @@ parts:
   - file: fall2022/Chapter4
   - file: fall2022/Chapter5
   - file: Appendix
-- caption: Readme
-  - file: README.md
