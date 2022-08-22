@@ -40,7 +40,7 @@ get_ipython().system('pip install bertopic[visualization]')
 # 
 # * For this exercise, we're going to use a popular data set, '20 Newsgroups,' which contains ~18,000 newsgroups posts on 20 topics. This dataset is readily available to us through Scikit-Learn: 
 
-# In[1]:
+# In[2]:
 
 
 import bertopic
@@ -81,7 +81,7 @@ model = BERTopic(vectorizer_model = stopwords_vectorizer)
 # 
 # * The first step of topic modeling is to fit the model to the documents: 
 
-# In[ ]:
+# In[4]:
 
 
 topics, probs = model.fit_transform(documents)
@@ -99,7 +99,7 @@ topics, probs = model.fit_transform(documents)
 # 
 # * The BERTopic module has many built-in methods to view and analyze your fitted model topics. Here are some basics:
 
-# In[6]:
+# In[5]:
 
 
 # view your topics: 
@@ -113,21 +113,21 @@ print(topics_info.head(5))
 # 
 # * Forcing documents into a topic could decrease the quality of the topics generated, so it's usually a good idea to allow the model to discard inputs into this 'Topic -1' bin. 
 
-# In[8]:
+# In[6]:
 
 
 # access a single topic: 
 print(model.get_topic(topic=0)) # .get_topics() accesses all topics
 
 
-# In[19]:
+# In[7]:
 
 
 # get representative documents for a specific topic: 
 print(model.get_representative_docs(topic=0)) # omit the 'topic' parameter to get docs for all topics 
 
 
-# In[17]:
+# In[8]:
 
 
 # find topics similar to a key term/phrase: 
@@ -144,14 +144,14 @@ for topic_num in topics:
 # ### Saving/loading models: 
 # * One of the most obvious drawbacks of using the BERTopic technique is the algorithm's run-time. But, rather than re-running a script every time you want to conduct topic modeling analysis, you can simply save/load models! 
 
-# In[22]:
+# In[9]:
 
 
 # save your model: 
 # model.save("TAML_ex_model")
 
 
-# In[23]:
+# In[10]:
 
 
 # load it later: 
@@ -165,21 +165,21 @@ for topic_num in topics:
 # 
 # * Let's see some examples!
 
-# In[18]:
+# In[11]:
 
 
 # Create a 2D representation of your modeled topics & their pairwise distances: 
 model.visualize_topics()
 
 
-# In[20]:
+# In[12]:
 
 
 # Get the words and probabilities of top topics, but in bar chart form! 
 model.visualize_barchart()
 
 
-# In[21]:
+# In[13]:
 
 
 # Evaluate topic similarity through a heat map: 
