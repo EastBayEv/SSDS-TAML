@@ -12,3 +12,4 @@ bertopic
 math
 scipy
 os
+notebook
