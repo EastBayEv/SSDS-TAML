@@ -1,15 +1,4 @@
 Traceback (most recent call last):
-  File "/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/nbclient/client.py", line 730, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/nbclient/util.py", line 96, in ensure_async
-    result = await obj
-  File "/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/jupyter_client/channels.py", line 230, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
   File "/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
@@ -22,23 +11,99 @@ Traceback (most recent call last):
     return future.result()
   File "/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/nbclient/client.py", line 949, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/nbclient/client.py", line 754, in _async_poll_for_reply
-    await self._async_handle_timeout(timeout, cell)
-  File "/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/nbclient/client.py", line 801, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-# Installs the base bertopic module:
-!pip install bertopic 
+  File "/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import bertopic
+from bertopic import BERTopic
+from sklearn.datasets import fetch_20newsgroups
 
-# If you want to use other transformers/language backends, it may require additional installs: 
-# !pip install bertopic[flair] # can substitute 'flair' with 'gensim', 'spacy', 'use'
+documents = fetch_20newsgroups(subset='all', remove=('headers', 'footers', 'quotes'))['data']
 
-# bertopic also comes with its own handy visualization suite: 
-# !pip install bertopic[visualization]
--------------------
+print(documents[0]) # Any ice hockey fans? 
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mContextualVersionConflict[0m                 Traceback (most recent call last)
+Input [0;32mIn [2][0m, in [0;36m<cell line: 1>[0;34m()[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mbertopic[39;00m
+[1;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mbertopic[39;00m [38;5;28;01mimport[39;00m BERTopic
+[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdatasets[39;00m [38;5;28;01mimport[39;00m fetch_20newsgroups
+
+File [0;32m~/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/bertopic/__init__.py:1[0m, in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mbertopic[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_bertopic[39;00m [38;5;28;01mimport[39;00m BERTopic
+[1;32m      3[0m __version__ [38;5;241m=[39m [38;5;124m"[39m[38;5;124m0.11.0[39m[38;5;124m"[39m
+[1;32m      5[0m __all__ [38;5;241m=[39m [
+[1;32m      6[0m     [38;5;124m"[39m[38;5;124mBERTopic[39m[38;5;124m"[39m,
+[1;32m      7[0m ]
+
+File [0;32m~/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/bertopic/_bertopic.py:23[0m, in [0;36m<module>[0;34m[0m
+[1;32m     21[0m [38;5;66;03m# Models[39;00m
+[1;32m     22[0m [38;5;28;01mimport[39;00m [38;5;21;01mhdbscan[39;00m
+[0;32m---> 23[0m [38;5;28;01mfrom[39;00m [38;5;21;01mumap[39;00m [38;5;28;01mimport[39;00m UMAP
+[1;32m     24[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfeature_extraction[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtext[39;00m [38;5;28;01mimport[39;00m CountVectorizer
+[1;32m     25[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmetrics[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpairwise[39;00m [38;5;28;01mimport[39;00m cosine_similarity
+
+File [0;32m~/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/umap/__init__.py:2[0m, in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mwarnings[39;00m [38;5;28;01mimport[39;00m warn, catch_warnings, simplefilter
+[0;32m----> 2[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mumap_[39;00m [38;5;28;01mimport[39;00m UMAP
+[1;32m      4[0m [38;5;28;01mtry[39;00m:
+[1;32m      5[0m     [38;5;28;01mwith[39;00m catch_warnings():
+
+File [0;32m~/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/umap/umap_.py:47[0m, in [0;36m<module>[0;34m[0m
+[1;32m     40[0m [38;5;28;01mfrom[39;00m [38;5;21;01mumap[39;00m[38;5;21;01m.[39;00m[38;5;21;01mspectral[39;00m [38;5;28;01mimport[39;00m spectral_layout
+[1;32m     41[0m [38;5;28;01mfrom[39;00m [38;5;21;01mumap[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlayouts[39;00m [38;5;28;01mimport[39;00m (
+[1;32m     42[0m     optimize_layout_euclidean,
+[1;32m     43[0m     optimize_layout_generic,
+[1;32m     44[0m     optimize_layout_inverse,
+[1;32m     45[0m )
+[0;32m---> 47[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpynndescent[39;00m [38;5;28;01mimport[39;00m NNDescent
+[1;32m     48[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpynndescent[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdistances[39;00m [38;5;28;01mimport[39;00m named_distances [38;5;28;01mas[39;00m pynn_named_distances
+[1;32m     49[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpynndescent[39;00m[38;5;21;01m.[39;00m[38;5;21;01msparse[39;00m [38;5;28;01mimport[39;00m sparse_named_distances [38;5;28;01mas[39;00m pynn_sparse_named_distances
+
+File [0;32m~/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/pynndescent/__init__.py:15[0m, in [0;36m<module>[0;34m[0m
+[1;32m     11[0m     [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m [38;5;28;01mas[39;00m e:
+[1;32m     12[0m         [38;5;66;03m# might be a missing symbol due to e.g. tbb libraries missing[39;00m
+[1;32m     13[0m         numba[38;5;241m.[39mconfig[38;5;241m.[39mTHREADING_LAYER [38;5;241m=[39m [38;5;124m"[39m[38;5;124mworkqueue[39m[38;5;124m"[39m
+[0;32m---> 15[0m __version__ [38;5;241m=[39m [43mpkg_resources[49m[38;5;241;43m.[39;49m[43mget_distribution[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mpynndescent[39;49m[38;5;124;43m"[39;49m[43m)[49m[38;5;241m.[39mversion
+
+File [0;32m~/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/pkg_resources/__init__.py:478[0m, in [0;36mget_distribution[0;34m(dist)[0m
+[1;32m    476[0m     dist [38;5;241m=[39m Requirement[38;5;241m.[39mparse(dist)
+[1;32m    477[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(dist, Requirement):
+[0;32m--> 478[0m     dist [38;5;241m=[39m [43mget_provider[49m[43m([49m[43mdist[49m[43m)[49m
+[1;32m    479[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(dist, Distribution):
+[1;32m    480[0m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m([38;5;124m"[39m[38;5;124mExpected string, Requirement, or Distribution[39m[38;5;124m"[39m, dist)
+
+File [0;32m~/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/pkg_resources/__init__.py:354[0m, in [0;36mget_provider[0;34m(moduleOrReq)[0m
+[1;32m    352[0m [38;5;124;03m"""Return an IResourceProvider for the named module or requirement"""[39;00m
+[1;32m    353[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(moduleOrReq, Requirement):
+[0;32m--> 354[0m     [38;5;28;01mreturn[39;00m working_set[38;5;241m.[39mfind(moduleOrReq) [38;5;129;01mor[39;00m [43mrequire[49m[43m([49m[38;5;28;43mstr[39;49m[43m([49m[43mmoduleOrReq[49m[43m)[49m[43m)[49m[[38;5;241m0[39m]
+[1;32m    355[0m [38;5;28;01mtry[39;00m:
+[1;32m    356[0m     module [38;5;241m=[39m sys[38;5;241m.[39mmodules[moduleOrReq]
+
+File [0;32m~/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/pkg_resources/__init__.py:909[0m, in [0;36mWorkingSet.require[0;34m(self, *requirements)[0m
+[1;32m    900[0m [38;5;28;01mdef[39;00m [38;5;21mrequire[39m([38;5;28mself[39m, [38;5;241m*[39mrequirements):
+[1;32m    901[0m     [38;5;124;03m"""Ensure that distributions matching `requirements` are activated[39;00m
+[1;32m    902[0m 
+[1;32m    903[0m [38;5;124;03m    `requirements` must be a string or a (possibly-nested) sequence[39;00m
+[0;32m   (...)[0m
+[1;32m    907[0m [38;5;124;03m    included, even if they were already activated in this working set.[39;00m
+[1;32m    908[0m [38;5;124;03m    """[39;00m
+[0;32m--> 909[0m     needed [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mresolve[49m[43m([49m[43mparse_requirements[49m[43m([49m[43mrequirements[49m[43m)[49m[43m)[49m
+[1;32m    911[0m     [38;5;28;01mfor[39;00m dist [38;5;129;01min[39;00m needed:
+[1;32m    912[0m         [38;5;28mself[39m[38;5;241m.[39madd(dist)
+
+File [0;32m~/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/pkg_resources/__init__.py:800[0m, in [0;36mWorkingSet.resolve[0;34m(self, requirements, env, installer, replace_conflicting, extras)[0m
+[1;32m    797[0m [38;5;28;01mif[39;00m dist [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m req:
+[1;32m    798[0m     [38;5;66;03m# Oops, the "best" so far conflicts with a dependency[39;00m
+[1;32m    799[0m     dependent_req [38;5;241m=[39m required_by[req]
+[0;32m--> 800[0m     [38;5;28;01mraise[39;00m VersionConflict(dist, req)[38;5;241m.[39mwith_context(dependent_req)
+[1;32m    802[0m [38;5;66;03m# push the new requirements onto the stack[39;00m
+[1;32m    803[0m new_requirements [38;5;241m=[39m dist[38;5;241m.[39mrequires(req[38;5;241m.[39mextras)[::[38;5;241m-[39m[38;5;241m1[39m]
+
+[0;31mContextualVersionConflict[0m: (numpy 1.23.1 (/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages), Requirement.parse('numpy<1.23,>=1.18'), {'numba'})
+ContextualVersionConflict: (numpy 1.23.1 (/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages), Requirement.parse('numpy<1.23,>=1.18'), {'numba'})
 

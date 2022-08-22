@@ -23,7 +23,7 @@
 
 # ### Required installs:
 
-# In[14]:
+# In[1]:
 
 
 # Installs the base bertopic module:
@@ -40,7 +40,7 @@ get_ipython().system('pip install bertopic')
 # 
 # * For this exercise, we're going to use a popular data set, '20 Newsgroups,' which contains ~18,000 newsgroups posts on 20 topics. This dataset is readily available to us through Scikit-Learn: 
 
-# In[21]:
+# In[2]:
 
 
 import bertopic
@@ -84,8 +84,7 @@ model = BERTopic(vectorizer_model = stopwords_vectorizer)
 # In[4]:
 
 
-# Unhashtag the below line
-# topics, probs = model.fit_transform(documents)
+topics, probs = model.fit_transform(documents)
 
 
 # * ```.fit_transform()``` returns two outputs:
