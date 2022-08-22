@@ -349,7 +349,7 @@ country.max(numeric_only = True).sort_values(ascending = False).head(20)
 # 
 # [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2021/06/part-16-step-by-step-guide-to-master-nlp-topic-modelling-using-lsa/)
 # 
-# * Look ahead to Chapter 4.5 for new techniques in topic modeling - [BERTopic!](Chapter4_add.ipynb)
+# * Look ahead to Chapter 5 for new techniques in topic modeling - [BERTopic!](Chapter5.ipynb)
 
 # In[ ]:
 
@@ -399,7 +399,7 @@ topics(tsvd, tf_features, 20)
 # 
 # [Also, read this post about how to grid search for the best topic models](https://www.machinelearningplus.com/nlp/topic-modeling-python-sklearn-examples/)
 # 
-# Use BERTopic (see Chapter 4.5 in this book)
+# Use BERTopic (see Chapter 5 in this book)
 
 # ## Sentiment analysis
 # 
@@ -564,97 +564,3 @@ model.predict(my_features)
 # Go through the 20 newsgroups text dataset to get familiar with newspaper data: https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html
 # 
 # "The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date."
-
-# ## Appendix: *More on text preprocessing*
-# 
-# While the exact steps you elect to use for text preprocessing will ultimately depend on applications, there are some more generalizable techniques that you can usually look to apply: 
-# 
-# * **Expand contractions** - contractions like "don't", "they're", and "it's" all count as unique tokens if punctuation is simply removed (converting them to "dont", "theyre", "its", respectively). Decompose contractions into their constituent words to get more accurate counts of tokens like "is," "they," etc. [pycontractions](https://pypi.org/project/pycontractions/) can be useful here! 
-# 
-#     * Let's see an example:   
-# 
-
-# In[ ]:
-
-
-# required install: 
-get_ipython().system('pip install pycontractions')
-
-
-# In[ ]:
-
-
-from pycontractions import Contractions as ct
-
-# load contractions from a vector model - many models accepted!
-contractions = ct('GoogleNews-vectors-negative300.bin')
-
-# optional: load the model before the first .expand_texts call 
-contractions.load_models() 
-
-example_sentence = "I'd like to know how you're doing! You're her best friend, but I'm your friend too, aren't I?"
-
-# let's see the text, de-contraction-afied!
-print(list(ct.expand_texts([example_sentence])))
-
-
-# * **Remove stopwords** - stopwords are words like "a," "from," and "the" which are typically filtered out from text before analysis as they do not meaningfully contribute to the content of a document. Leaving in stopwords can lead to irrelevant topics in topic modeling, dilute the strength of sentiment in sentiment analysis, etc. 
-# 
-#     * Here's a quick loop that can help filter out the stopwords from a string: 
-
-# In[ ]:
-
-
-from nltk.corpus import stopwords 
-from nltk.tokenize import word_tokenize
-
-example_sentence = "Hi! This is a needlessly wordy sentence with lots of stopwords. My favorite words are: a, the, with, which. You may think that is strange - and it is!"
-
-stop_words = set(stopwords.words('english'))
-
-print("Example stopwords include: " + str(stopwords.words('english')[:5])) # if you want to see what are considered English stopwords by the NLTK package
-
-word_tokens = word_tokenize(example_sentence)
-
-filtered_sentence = [w for w in word_tokens if not w.lower() in stop_words]
-
-# let's see the difference!
-print(word_tokens)
-print(filtered_sentence)
-
-
-# * Note that different packages have different lists which define stopwords, so make sure you pick a suitable one. Also, feel free to define your own custom stopwords lists!  
-# 
-# * **Standardize phrases** - oftentimes text preprocessing is carried out as a precursor to a matching exercise (e.g. using company name to merge two databases). In such cases, we may want to standardize key phrases. For example, "My Little Startup, LLC" and "my little startup" clearly refer to the same entity, but will not match currently. 
-# 
-#     * In such cases, we may need to write a custom script to standardize key phrases, or there may be a packages out there that already do this for us. Let's take a look at one for our example, standardizing company names: 
-
-# In[ ]:
-
-
-# required install: 
-get_ipython().system('pip install cleanco')
-
-
-# In[ ]:
-
-
-from cleanco import basename
-
-business_name_one = "My Little Startup, LLC"
-cleaned_name_one  = basename(business_name_one) # feel free to print this out! just add: 'print(cleaned_name_one)' below. 
-
-business_name_two = "My Little Startup"
-cleaned_name_two  = basename(business_name_two)
-
-# sanity check - are the cleaned company names identical?  
-print(cleaned_name_one == cleaned_name_two)
-
-
-# * How and where you choose to standardize phrases in text will of course depend on your end goal, but there are plenty of resources/examples out there for you to model an approach after if a package doesn't already exist!
-# 
-# * **Normalize text** - normalization refers to the process of transforming text into a canonical (standard) form. Sometimes, people take this to mean the entire text pre-processing pipeline, but here we're using it to refer to conversions like "2mrrw" to "tomorrow" and "b4" to "before." 
-# 
-#     * This process is especially useful when using social media comments as your base text for analysis but often requires custom scripting. 
-
-# 

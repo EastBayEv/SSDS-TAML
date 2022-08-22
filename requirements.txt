@@ -9,3 +9,6 @@ requests
 regex
 sklearn
 bertopic
+math
+scipy
+os

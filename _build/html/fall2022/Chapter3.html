@@ -590,14 +590,6 @@ title="Print to PDF"
    Quiz - 20 newsgroups dataset
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#appendix-more-on-text-preprocessing">
-   Appendix:
-   <em>
-    More on text preprocessing
-   </em>
-  </a>
- </li>
 </ul>
 
     </nav>
@@ -796,14 +788,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#quiz-20-newsgroups-dataset">
    Quiz - 20 newsgroups dataset
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#appendix-more-on-text-preprocessing">
-   Appendix:
-   <em>
-    More on text preprocessing
-   </em>
   </a>
  </li>
 </ul>
@@ -1214,7 +1198,7 @@ title="Print to PDF"
 <p><img alt="tsvd" src="../_images/tsvd.png" /></p>
 <p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2021/06/part-16-step-by-step-guide-to-master-nlp-topic-modelling-using-lsa/">Analytics Vidhya</a></p>
 <ul class="simple">
-<li><p>Look ahead to Chapter 4.5 for new techniques in topic modeling - <span class="xref myst">BERTopic!</span></p></li>
+<li><p>Look ahead to Chapter 5 for new techniques in topic modeling - <a class="reference internal" href="Chapter5.html"><span class="doc std std-doc">BERTopic!</span></a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1268,7 +1252,7 @@ title="Print to PDF"
 <p>Keep in mind that we have not even begun to consider named entities and parts of speech. How might country names be swamping the five topics produced?</p>
 <p><a class="reference external" href="https://stats.stackexchange.com/questions/302965/some-topics-with-all-equal-weights-when-using-latentdirichletallocation-from-sci">Read this stack overflow post to learn about the possibility of having too few documents in your corpus</a></p>
 <p><a class="reference external" href="https://www.machinelearningplus.com/nlp/topic-modeling-python-sklearn-examples/">Also, read this post about how to grid search for the best topic models</a></p>
-<p>Use BERTopic (see Chapter 4.5 in this book)</p>
+<p>Use BERTopic (see Chapter 5 in this book)</p>
 </section>
 <section id="sentiment-analysis">
 <h2>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">#</a></h2>
@@ -1449,112 +1433,6 @@ title="Print to PDF"
 <h2>Quiz - 20 newsgroups dataset<a class="headerlink" href="#quiz-20-newsgroups-dataset" title="Permalink to this headline">#</a></h2>
 <p>Go through the 20 newsgroups text dataset to get familiar with newspaper data: <a class="reference external" href="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html">https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html</a></p>
 <p>“The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date.”</p>
-</section>
-<section id="appendix-more-on-text-preprocessing">
-<h2>Appendix: <em>More on text preprocessing</em><a class="headerlink" href="#appendix-more-on-text-preprocessing" title="Permalink to this headline">#</a></h2>
-<p>While the exact steps you elect to use for text preprocessing will ultimately depend on applications, there are some more generalizable techniques that you can usually look to apply:</p>
-<ul class="simple">
-<li><p><strong>Expand contractions</strong> - contractions like “don’t”, “they’re”, and “it’s” all count as unique tokens if punctuation is simply removed (converting them to “dont”, “theyre”, “its”, respectively). Decompose contractions into their constituent words to get more accurate counts of tokens like “is,” “they,” etc. <a class="reference external" href="https://pypi.org/project/pycontractions/">pycontractions</a> can be useful here!</p>
-<ul>
-<li><p>Let’s see an example:</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># required install: </span>
-<span class="o">!</span>pip install pycontractions
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycontractions</span> <span class="kn">import</span> <span class="n">Contractions</span> <span class="k">as</span> <span class="n">ct</span>
-
-<span class="c1"># load contractions from a vector model - many models accepted!</span>
-<span class="n">contractions</span> <span class="o">=</span> <span class="n">ct</span><span class="p">(</span><span class="s1">&#39;GoogleNews-vectors-negative300.bin&#39;</span><span class="p">)</span>
-
-<span class="c1"># optional: load the model before the first .expand_texts call </span>
-<span class="n">contractions</span><span class="o">.</span><span class="n">load_models</span><span class="p">()</span> 
-
-<span class="n">example_sentence</span> <span class="o">=</span> <span class="s2">&quot;I&#39;d like to know how you&#39;re doing! You&#39;re her best friend, but I&#39;m your friend too, aren&#39;t I?&quot;</span>
-
-<span class="c1"># let&#39;s see the text, de-contraction-afied!</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">expand_texts</span><span class="p">([</span><span class="n">example_sentence</span><span class="p">])))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p><strong>Remove stopwords</strong> - stopwords are words like “a,” “from,” and “the” which are typically filtered out from text before analysis as they do not meaningfully contribute to the content of a document. Leaving in stopwords can lead to irrelevant topics in topic modeling, dilute the strength of sentiment in sentiment analysis, etc.</p>
-<ul>
-<li><p>Here’s a quick loop that can help filter out the stopwords from a string:</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span> 
-<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
-
-<span class="n">example_sentence</span> <span class="o">=</span> <span class="s2">&quot;Hi! This is a needlessly wordy sentence with lots of stopwords. My favorite words are: a, the, with, which. You may think that is strange - and it is!&quot;</span>
-
-<span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Example stopwords include: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]))</span> <span class="c1"># if you want to see what are considered English stopwords by the NLTK package</span>
-
-<span class="n">word_tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">example_sentence</span><span class="p">)</span>
-
-<span class="n">filtered_sentence</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">word_tokens</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
-
-<span class="c1"># let&#39;s see the difference!</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">word_tokens</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">filtered_sentence</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Note that different packages have different lists which define stopwords, so make sure you pick a suitable one. Also, feel free to define your own custom stopwords lists!</p></li>
-<li><p><strong>Standardize phrases</strong> - oftentimes text preprocessing is carried out as a precursor to a matching exercise (e.g. using company name to merge two databases). In such cases, we may want to standardize key phrases. For example, “My Little Startup, LLC” and “my little startup” clearly refer to the same entity, but will not match currently.</p>
-<ul>
-<li><p>In such cases, we may need to write a custom script to standardize key phrases, or there may be a packages out there that already do this for us. Let’s take a look at one for our example, standardizing company names:</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># required install: </span>
-<span class="o">!</span>pip install cleanco
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cleanco</span> <span class="kn">import</span> <span class="n">basename</span>
-
-<span class="n">business_name_one</span> <span class="o">=</span> <span class="s2">&quot;My Little Startup, LLC&quot;</span>
-<span class="n">cleaned_name_one</span>  <span class="o">=</span> <span class="n">basename</span><span class="p">(</span><span class="n">business_name_one</span><span class="p">)</span> <span class="c1"># feel free to print this out! just add: &#39;print(cleaned_name_one)&#39; below. </span>
-
-<span class="n">business_name_two</span> <span class="o">=</span> <span class="s2">&quot;My Little Startup&quot;</span>
-<span class="n">cleaned_name_two</span>  <span class="o">=</span> <span class="n">basename</span><span class="p">(</span><span class="n">business_name_two</span><span class="p">)</span>
-
-<span class="c1"># sanity check - are the cleaned company names identical?  </span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cleaned_name_one</span> <span class="o">==</span> <span class="n">cleaned_name_two</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>How and where you choose to standardize phrases in text will of course depend on your end goal, but there are plenty of resources/examples out there for you to model an approach after if a package doesn’t already exist!</p></li>
-<li><p><strong>Normalize text</strong> - normalization refers to the process of transforming text into a canonical (standard) form. Sometimes, people take this to mean the entire text pre-processing pipeline, but here we’re using it to refer to conversions like “2mrrw” to “tomorrow” and “b4” to “before.”</p>
-<ul>
-<li><p>This process is especially useful when using social media comments as your base text for analysis but often requires custom scripting.</p></li>
-</ul>
-</li>
-</ul>
 </section>
 </section>
 
