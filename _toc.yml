@@ -8,15 +8,15 @@ parts:
   chapters:
   - file: fall2022/1_How_to_use_this_book
   - file: fall2022/2_Start_coding
-  - file: fall2022/3_Boilerplate_code
+  - file: fall2022/3_Boilerplate_code_review
   - file: fall2022/4_Numeric_data_wrangling
   - file: fall2022/5_Data_visualization_essentials
-- caption: TAML Bootcamp Fall Quarter 2022
+- caption: Text analysis and machine learning
   chapters:
   - file: fall2022/6_English_text_preprocessing_basics
-  - file: fall2022/Chapter2
-  - file: fall2022/Chapter3
-  - file: fall2022/Chapter4
-  - file: fall2022/Chapter5
+  - file: fall2022/7_core_concepts_vocabularies
+  - file: fall2022/8_Docencoding_sentanalysis_textclassif
+  - file: fall2022/9_spaCy_textaCy_intros
+  - file: fall2022/10_BERTopic
   - file: fall2022/Appendix
   - file: README
