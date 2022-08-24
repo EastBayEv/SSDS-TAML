@@ -16,7 +16,7 @@ parts:
   - file: fall2022/6_English_text_preprocessing_basics
   - file: fall2022/7_Core_concepts_vocabularies
   - file: fall2022/8_Docencoding_sentanalysis_textclassif
-  - file: fall2022/9_spaCy_textaCy_intros
+  - file: fall2022/9_spaCy_textaCy
   - file: fall2022/10_BERTopic
   - file: fall2022/Appendix
   - file: fall2022/Solutions

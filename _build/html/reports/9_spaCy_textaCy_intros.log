@@ -17,13 +17,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-Check out the [spaCy 101](https://spacy.io/usage/spacy-101) guide
+import spacy
+import textacy
 ------------------
 
-[0;36m  Input [0;32mIn [1][0;36m[0m
-[0;31m    Check out the [spaCy 101](https://spacy.io/usage/spacy-101) guide[0m
-[0m          ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<cell line: 1>[0;34m()[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mspacy[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mtextacy[39;00m
 
-SyntaxError: invalid syntax (3276748790.py, line 1)
+[0;31mModuleNotFoundError[0m: No module named 'spacy'
+ModuleNotFoundError: No module named 'spacy'
 

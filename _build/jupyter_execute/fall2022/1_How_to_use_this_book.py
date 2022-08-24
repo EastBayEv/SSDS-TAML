@@ -58,6 +58,8 @@ print("\nYour lucky card for " + today + " " + date + " is: " + select_value + "
 # * 40 minutes of challenge exercises/question asking
 # * 20 minutes of solutions discussion
 # 
+# > Be aware that we won't always go through all of the exercises due to time constraints (especially during the Fall Quarter 2022 Bootcamp), but that they are there along with solutions for you to practice on your own. 
+# 
 # Any extra time will be reserved for consulting, talking about projects, etc.
 
 # ## Exercises
