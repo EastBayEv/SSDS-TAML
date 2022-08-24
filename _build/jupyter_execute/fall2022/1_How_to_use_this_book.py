@@ -53,10 +53,10 @@ print("\nYour lucky card for " + today + " " + date + " is: " + select_value + "
 # 
 # TAML's format consists of 2-hour sessions, divided into the following sections:
 # 
-# * 55 minute lecture overview of concepts, vocabulary, and workflows
-# * 5 minute break
-# * 40 minutes of challenge exercises/question asking
-# * 20 minutes of solutions discussion
+# * Lecture overview of concepts, vocabulary, and workflows (varying length)
+# * Short break
+# * Time to work on challenge exercises and ask questions
+# * Discussion of solutions to challenge exercises
 # 
 # > Be aware that we won't always go through all of the exercises due to time constraints (especially during the Fall Quarter 2022 Bootcamp), but that they are there along with solutions for you to practice on your own. 
 # 
