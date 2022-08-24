@@ -19,4 +19,3 @@ parts:
   - file: fall2022/9_spaCy_textaCy_intros
   - file: fall2022/10_BERTopic
   - file: fall2022/Appendix
-  - file: README
