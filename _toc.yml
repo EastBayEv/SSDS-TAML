@@ -6,14 +6,14 @@ root: intro
 parts:
 - caption: Python Basics
   chapters:
-  - file: fall2022/how_to
-  - file: fall2022/start
-  - file: fall2022/boiler
-  - file: fall2022/wrangle
-  - file: fall2022/viz
-- caption: Fall Quarter 2022
+  - file: fall2022/1_How_to_use_this_book
+  - file: fall2022/2_Start_coding
+  - file: fall2022/3_Boilerplate_code
+  - file: fall2022/4_Numeric_data_wrangling
+  - file: fall2022/5_Data_visualization_essentials
+- caption: TAML Bootcamp Fall Quarter 2022
   chapters:
-  - file: fall2022/Chapter1
+  - file: fall2022/6_English_text_preprocessing_basics
   - file: fall2022/Chapter2
   - file: fall2022/Chapter3
   - file: fall2022/Chapter4
