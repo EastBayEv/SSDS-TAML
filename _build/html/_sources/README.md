@@ -1,7 +1,5 @@
 # Fall Quarter 2022 Text Analysis and Machine Learning Bootcamp
 
-![Ralf Kunze from Pixabay](fall2022/img/fallbootcamp.jpg)
-
 Do you want to **learn Python** but don't know how to get started? Attend the Fall Quarter 2022 Text Analysis and Machine Learning Bootcamp! 
 
 This is relaxed, low-stakes environments for beginners who have little or no experience programming in Python and want to learn it for purposes of computational text analysis and machine learning. 
