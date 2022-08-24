@@ -16,6 +16,8 @@ regex = "*"
 bertopic = "*"
 scipy = "*"
 sklearn = "*"
+spacy = "*"
+textacy = "*"
 
 [dev-packages]
 
