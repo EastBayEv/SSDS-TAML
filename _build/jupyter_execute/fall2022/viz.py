@@ -336,7 +336,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[28]:
+# In[29]:
 
 
 # 10. categorical - violinplot
@@ -344,7 +344,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[29]:
+# In[30]:
 
 
 # 11. categorical - pointplot
@@ -352,7 +352,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[30]:
+# In[31]:
 
 
 # 12. categorical - barplot
@@ -374,7 +374,7 @@ penguins.groupby('island').mean()
 # 
 # See the survey and correct response rate of the [Sustainable Development Misconception Study 2020](https://www.gapminder.org/ignorance/studies/sdg2020/)
 
-# In[31]:
+# In[32]:
 
 
 # 1. relational - scatterplot
@@ -382,7 +382,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[32]:
+# In[33]:
 
 
 # 2. relational - lineplot
@@ -390,7 +390,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[33]:
+# In[34]:
 
 
 # 3. distributions - histplot
@@ -398,7 +398,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[34]:
+# In[35]:
 
 
 # 4. distributions - kdeplot
@@ -406,7 +406,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[35]:
+# In[36]:
 
 
 # 5. distributions - ecdfplot
@@ -414,7 +414,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[36]:
+# In[37]:
 
 
 # 6. distributions - rugplot
@@ -422,7 +422,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[37]:
+# In[38]:
 
 
 # 7. categorical - stripplot
@@ -430,7 +430,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[38]:
+# In[39]:
 
 
 # 8. categorical - swarmplot
@@ -438,7 +438,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[39]:
+# In[40]:
 
 
 # 9. categorical - boxplot
@@ -446,7 +446,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[40]:
+# In[41]:
 
 
 # 10. categorical - violinplot
@@ -454,7 +454,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[41]:
+# In[42]:
 
 
 # 11. categorical - pointplot
@@ -462,7 +462,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[42]:
+# In[43]:
 
 
 # 12. categorical - barplot
