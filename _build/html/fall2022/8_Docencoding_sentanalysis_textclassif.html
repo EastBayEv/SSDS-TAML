@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 9 - spaCy and textaCy introductions" href="9_spaCy_textaCy_intros.html" />
+    <link rel="next" title="Chapter 9 - spaCy and textaCy" href="9_spaCy_textaCy_intros.html" />
     <link rel="prev" title="Chapter 7 - Core machine learning concepts; building text vocabularies" href="7_Core_concepts_vocabularies.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -170,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9_spaCy_textaCy_intros.html">
-   Chapter 9 - spaCy and textaCy introductions
+   Chapter 9 - spaCy and textaCy
   </a>
  </li>
  <li class="toctree-l1">
@@ -183,6 +183,11 @@ const thebe_selector_output = ".output, .cell_output"
    <strong>
     Appendix
    </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions.html">
+   Solutions
   </a>
  </li>
 </ul>
@@ -413,22 +418,19 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#document-encoding-for-machine-learning">
    Document encoding for machine learning
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#key-terms">
-   Key terms
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#topic-modeling">
-   Topic modeling
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#corpus-definition-united-nations-human-rights-council-documentation">
-     Corpus definition: United Nations Human Rights Council Documentation
+    <a class="reference internal nav-link" href="#key-terms">
+     Key terms
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#corpus-definition-united-nations-human-rights-council-documentation">
+   Corpus definition: United Nations Human Rights Council Documentation
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#define-the-corpus-directory">
      Define the corpus directory
@@ -456,6 +458,11 @@ title="Print to PDF"
    English text preprocessing
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-some-of-the-things-we-can-do">
+     What are some of the things we can do?
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#remove-non-alphanumeric-characters-punctuation">
      Remove non-alphanumeric characters/punctuation
@@ -528,17 +535,7 @@ title="Print to PDF"
      Examine unique words by each document/country
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#singular-value-decomposition">
-     Singular value decomposition
-    </a>
-   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#un-hrc-text-analysis-what-next">
-   UN HRC text analysis - what next?
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sentiment-analysis">
@@ -546,8 +543,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-the-nltk-built-in-movie-reviews-dataset">
-     Download the nltk built-in movie reviews dataset
+    <a class="reference internal nav-link" href="#download-the-nltk-built-movie-reviews-dataset">
+     Download the nltk built movie reviews dataset
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -561,13 +558,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pipelines">
-     Pipelines
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-standard-way">
-     One standard way
+    <a class="reference internal nav-link" href="#pipelines-one-example">
+     Pipelines - one example
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -586,8 +578,13 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quiz-20-newsgroups-dataset">
-   Quiz - 20 newsgroups dataset
+  <a class="reference internal nav-link" href="#un-hrc-text-analysis-what-next">
+   UN HRC text analysis - what next?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-text-classification">
+   Exercise - text classification
   </a>
  </li>
 </ul>
@@ -613,22 +610,19 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#document-encoding-for-machine-learning">
    Document encoding for machine learning
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#key-terms">
-   Key terms
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#topic-modeling">
-   Topic modeling
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#corpus-definition-united-nations-human-rights-council-documentation">
-     Corpus definition: United Nations Human Rights Council Documentation
+    <a class="reference internal nav-link" href="#key-terms">
+     Key terms
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#corpus-definition-united-nations-human-rights-council-documentation">
+   Corpus definition: United Nations Human Rights Council Documentation
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#define-the-corpus-directory">
      Define the corpus directory
@@ -656,6 +650,11 @@ title="Print to PDF"
    English text preprocessing
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-some-of-the-things-we-can-do">
+     What are some of the things we can do?
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#remove-non-alphanumeric-characters-punctuation">
      Remove non-alphanumeric characters/punctuation
@@ -728,17 +727,7 @@ title="Print to PDF"
      Examine unique words by each document/country
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#singular-value-decomposition">
-     Singular value decomposition
-    </a>
-   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#un-hrc-text-analysis-what-next">
-   UN HRC text analysis - what next?
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sentiment-analysis">
@@ -746,8 +735,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-the-nltk-built-in-movie-reviews-dataset">
-     Download the nltk built-in movie reviews dataset
+    <a class="reference internal nav-link" href="#download-the-nltk-built-movie-reviews-dataset">
+     Download the nltk built movie reviews dataset
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -761,13 +750,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pipelines">
-     Pipelines
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-standard-way">
-     One standard way
+    <a class="reference internal nav-link" href="#pipelines-one-example">
+     Pipelines - one example
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -786,8 +770,13 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quiz-20-newsgroups-dataset">
-   Quiz - 20 newsgroups dataset
+  <a class="reference internal nav-link" href="#un-hrc-text-analysis-what-next">
+   UN HRC text analysis - what next?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-text-classification">
+   Exercise - text classification
   </a>
  </li>
 </ul>
@@ -802,13 +791,13 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-8-document-encoding-sentiment-analysis-and-text-classification">
 <h1>Chapter 8 - Document encoding, sentiment analysis, and text classification<a class="headerlink" href="#chapter-8-document-encoding-sentiment-analysis-and-text-classification" title="Permalink to this headline">#</a></h1>
-<p>2022 February 2</p>
+<p>2022 August 24</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">TfidfVectorizer</span><span class="p">,</span> <span class="n">TfidfTransformer</span>
-<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+<span class="kn">import</span> <span class="nn">spacy</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">movie_reviews</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -823,14 +812,27 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">TfidfVectorizer</span><span class="p">,</span> <span class="n">TfidfTransformer</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">spacy</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">nltk</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">movie_reviews</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;spacy&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <section id="document-encoding-for-machine-learning">
 <h2>Document encoding for machine learning<a class="headerlink" href="#document-encoding-for-machine-learning" title="Permalink to this headline">#</a></h2>
 <p>In the last chapter you saw that we do not change text to numbers, but instead changed the <em>representation</em> of the text to the numbers in sparse matrix format.</p>
 <p>In this format, each row represents a document and each column represents a token from the shared text vocabulary called a <strong>feature</strong>.</p>
-</section>
 <section id="key-terms">
-<h2>Key terms<a class="headerlink" href="#key-terms" title="Permalink to this headline">#</a></h2>
+<h3>Key terms<a class="headerlink" href="#key-terms" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>Document term matrix:</strong> contains the frequencies (or TF-IDF scores) of vocabulary terms in a collection of documents in sparse format.</p>
 <ul>
@@ -860,17 +862,13 @@ title="Print to PDF"
 <p><img alt="tf2" src="../_images/tf2.png" /></p>
 <p><a class="reference external" href="https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558">towardsdatascience</a></p>
 </section>
-<section id="topic-modeling">
-<h2>Topic modeling<a class="headerlink" href="#topic-modeling" title="Permalink to this headline">#</a></h2>
-<p><img alt="topic" src="../_images/topic.png" /></p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Topic_model">Wikipedia</a></p>
-<p><img alt="unhrc" src="../_images/unhrc.jpg" /></p>
+</section>
 <section id="corpus-definition-united-nations-human-rights-council-documentation">
-<h3>Corpus definition: United Nations Human Rights Council Documentation<a class="headerlink" href="#corpus-definition-united-nations-human-rights-council-documentation" title="Permalink to this headline">#</a></h3>
+<h2>Corpus definition: United Nations Human Rights Council Documentation<a class="headerlink" href="#corpus-definition-united-nations-human-rights-council-documentation" title="Permalink to this headline">#</a></h2>
+<p><img alt="unhrc" src="../_images/unhrc.jpg" /></p>
 <p>We will select eleven .txt files from the UN HRC as our corpus, stored within the subfolder “human_rights” folder inside the main “data” directory.</p>
 <p>These documents contain information about human rights recommendations made by member nations towards countries deemed to be in violation of the HRC.</p>
 <p><a class="reference external" href="https://www.ohchr.org/en/hrbodies/hrc/pages/home.aspx">Learn more about the UN HRC by clicking here.</a></p>
-</section>
 <section id="define-the-corpus-directory">
 <h3>Define the corpus directory<a class="headerlink" href="#define-the-corpus-directory" title="Permalink to this headline">#</a></h3>
 <p>Set the directory’s file path and print the files it contains.</p>
@@ -905,9 +903,7 @@ title="Print to PDF"
 <h3>Store these documents in a data frame<a class="headerlink" href="#store-these-documents-in-a-data-frame" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Store in an empty dictionary for conversion to data frame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Store in an empty dictionary for conversion to data frame</span>
 <span class="n">empty_dictionary</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="c1"># Loop through the folder of documents to open and read each one</span>
@@ -1066,6 +1062,9 @@ Contents
 <section id="english-text-preprocessing">
 <h2>English text preprocessing<a class="headerlink" href="#english-text-preprocessing" title="Permalink to this headline">#</a></h2>
 <p>Create a new column named “clean_text” to store the text as it is preprocessed.</p>
+<section id="what-are-some-of-the-things-we-can-do">
+<h3>What are some of the things we can do?<a class="headerlink" href="#what-are-some-of-the-things-we-can-do" title="Permalink to this headline">#</a></h3>
+<p>How else could you improve this process?</p>
 <ul class="simple">
 <li><p>Remove non-alphanumeric characters/punctuation</p></li>
 <li><p>Remove digits</p></li>
@@ -1075,10 +1074,10 @@ Contents
 <li><p>Lemmatize (optional for now)</p></li>
 </ul>
 <p>Take a look at the first document after each step to see if you can notice what changed.</p>
-<p><a class="reference external" href="/SSDS-TAML/winter2022/Appendix.ipynb#appendix-b-more-on-text-preprocessing">How else could you improve this process?</a></p>
 <blockquote>
-<div><p>NOTE: Remember, this is just a bare bones, basic process. Furthermore, it will not likely work for many other languages.</p>
+<div><p>Remember: the process will likely be different for many other natural languages, which frequently require special considerations.</p>
 </div></blockquote>
+</section>
 <section id="remove-non-alphanumeric-characters-punctuation">
 <h3>Remove non-alphanumeric characters/punctuation<a class="headerlink" href="#remove-non-alphanumeric-characters-punctuation" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
@@ -1384,14 +1383,7 @@ Contents
 <h3>Lemmatize<a class="headerlink" href="#lemmatize" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import spacy</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !python -m spacy download en_core_web_sm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m spacy download en_core_web_sm
 <span class="c1"># !python -m spacy download en_core_web_lg</span>
 </pre></div>
 </div>
@@ -1399,15 +1391,20 @@ Contents
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nlp = spacy.load(&#39;en_core_web_lg&#39;)</span>
-<span class="c1"># human_rights[&#39;clean_text&#39;] = human_rights[&#39;clean_text&#39;].apply(lambda row: &#39; &#39;.join([w.lemma_ for w in nlp(row)]))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_sm&#39;</span><span class="p">)</span>
+<span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">w</span><span class="o">.</span><span class="n">lemma_</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">nlp</span><span class="p">(</span><span class="n">row</span><span class="p">)]))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(human_rights[&#39;clean_text&#39;][0])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  united nations a hrc general assembly distr general december original english human rights council twenty eighth session agenda item universal periodic review report of the working group on the universal periodic review the annex to the present report be circulate as receive san marino content paragraph page introduction I summary of the proceeding of the review process a presentation by the state under review b interactive dialogue and response by the state under review ii conclusion and or recommendation annex composition of the delegation introduction the working group on the universal periodic review establish in accordance with human rights council resolution of june hold its twentieth session from october to november the review of san marino be hold at the th meeting on october the delegation of san marino be head by pasquale valentini minister for foreign affair at its th meeting hold on october the working group adopt the report on san marino on january the human rights council select the follow group of rapporteur troika to facilitate the review of san marino burkina faso chile china in accordance with paragraph of the annex to resolution and paragraph of the annex to resolution the follow document be issue for the review of san marino a a national report submit write presentation prepare in accordance with paragraph a a hrc wg smr b a compilation prepare by the office of the united nations high commissioner for human right ohchr in accordance with paragraph b a hrc wg smr c a summary prepare by ohchr in accordance with paragraph c a hrc wg smr a list of question prepare in advance by liechtenstein mexico the netherlands slovenia spain and the united kingdom of great britain and northern ireland be transmit to san marino through the troika these question be available on the extranet of the universal periodic review upr I summary of the proceeding of the review process a presentation by the state under review the delegation of san marino present its report for the second cycle of the upr on the human right situation the delegation note that in july it have present the national report prepare by the ministry of foreign affair in collaboration with the ministry of internal affair health labour and education and other government office it state that the national report include the step take to implement the recommendation accept during the first review note that several provision adopt in recent year have be base on those recommendation the delegation explain the approach that san marino have always hold towards the protection of human right in the context of its declaration on the citizen right and fundamental principle of san marino constitutional order the delegation state that san marino be one of the few state that in the field of human right do not need internal implementation rule as international law be an integral part of national law and even supersede this in the event of any conflict the delegation highlight the human right convention that have be ratify or adopt on july san marino ratify the united nations convention against transnational organize crime the protocol to prevent suppress and punish trafficking in person especially woman and child and the protocol against the smuggling of migrant by land sea and air supplement it on july it ratify the optional protocol to the convention on the right of the child on the involvement of child in armed conflict op crc ac and the optional protocol to the convention on the right of the child on the sale of child child prostitution and child pornography op crc sc on october it accede to the convention on the prevention and punishment of the crime of genocide and on september approve law no on regulation on the prevention and punishment of the crime of genocide in recent year san marino have ratify the following council of europe instrument the convention on the protection of child against sexual exploitation and sexual abuse the convention on action against trafficking in human being protocol no amend the convention for the protection of human right and fundamental freedom and the european charter of local self government furthermore san marino sign the council of europe protocol no to the convention for the protection of human right and fundamental freedom and the council of europe convention on prevent and combat violence against woman and domestic violence the delegation state that the ratification procedure be ongoing for both instrument regard the question submit by liechtenstein the delegation announce that having ratify on july the amendment to article of the rome statute of the international criminal court the ratification process of the amendment to the statute on the crime of aggression be expect to be complete during the current session of parliament the delegation also address the question submit by the netherland on the intention of san marino to ratify the council of europe convention on cybercrime and its additional protocol it state that a study on compliance with the convention have be complete though owe to the necessary adjustment of domestic legislation the introduction of new technology and specific training of the personnel involve san marino be unable to predict a time frame for accession the delegation point out that progress have be make in the prevention of violence against woman and gender violence through the approval of law no of june on prevention and elimination of violence against woman and gender violence which introduce into the san marino legal system the offence of gang violence stalk and trafficking in human being and modify the offence of enslavement the delegation also comment that the law establish the authority for equal opportunity as a mechanism for monitor its implementation the establishment of a dedicated authority allow legislation on the protection of equal opportunity to be complete the delegation go on to say that the authority operate alongside the commission for equal opportunity which deal with issue relate to awareness raising and the promotion of legislative and non legislative measure to guarantee the legal equality of citizen on may a decree be adopt to implement the above mention law the decree also establish an assistance centre for victim of violence the delegation report that coordination between the health authority and the authority for equal opportunity have be establish in order to collect datum on violence against woman and gender violence in san marino in addition the delegation state that a special study group have be establish in order to identify the amendment to be make and the requirement to be meet in view of the ratification of the council of europe convention on prevent and combat violence against woman the delegation say that the parliament of san marino have adopt a law that introduce amendment to the criminal code and the law aim at reform family law by introduce the prohibition of corporal punishment in the exercise of correction or discipline power the delegation state that law no of september entitle legislation relate to specific developmental disorder in school and training facility have be approve that law underline the importance of the role of education for the development of social integration as strongly reiterate at the council of europe stand conference of minister of education hold in helsinki on and april and aim at protect student with specific developmental disorder and special educational need in the national report the delegation cite the work carry out by the ministry of education and health for the development of a framework law on disability the propose framework law fully incorporate the principle definition and content of the convention on the right of person with disability crpd and include some instrument that be fundamental to its implementation the delegation state that the draft law provide for the establishment of a special commission task with monitor the implementation of the principle contain in the convention the delegation state that in response to the recommendation of the council of europe group of state against corruption greco law no of september introduce the code of conduct of public official in response to the question submit by the netherland the delegation state that the recommendation make by the european commission against racism and intolerance of the council of europe on the san marino commission for equal opportunity have be assess by the commission and that it have transmit its opinion in the light of this the government intend to work with the commission to develop the necessary measure for the implementation of the recommendation in reply to the question submit by slovenia concern the measure adopt to improve prison detention condition in san marino the delegation state that procedure have improve in recent year accord to the delegation san marino have accede in december to the european convention for the prevention of torture and inhuman or degrading treatment or punishment the delegation report that since then a delegation from the council of europe european committee for the prevention of torture have visit san marino four time in march june february and january with respect to the second question submit by slovenia on raise the minimum age for military recruitment to the delegation state that the age of for recruitment in the case of general mobilization have be establish in previous regulation which san marino have long plan to change the delegation explain that the delay in the amendment of that provision be due to the fact that the measure be part of a more complex ongoing reform concern the reorganization of the military corp and its regulation in response to the question from mexico on the freedom of expression in electronic format and the sanction for improper and legally actionable conduct in the field of publishing and freedom of the medium the delegation state that a new law seek to balance freedom of expression and protection of the dignity integrity and privacy of the individual the delegation explain that under that new law certain mode of expression of information have be regulate by introduce a code of ethic for operator and an authority that monitor any abuse or distortion moreover the new law establish and govern more flexible instrument for the protection of citizen and more accessible appeal procedure for individual the delegation report that the law also specifically regulate the field of newspaper and online publication by make they equal in all aspect and effect to paper publication with the obvious difference relate to the diversity of the mean of expression b interactive dialogue and response by the state under review during the interactive dialogue delegation make statement the recommendation make during the dialogue can be find in section ii of the present report kuwait commend the effort to promote and protect human right and welcome the ratification of a number of international convention and protocol since include op crc sc the united nations convention against transnational organize crime and two protocol supplement it and the convention on the prevention and punishment of the crime of genocide it note commendable effort that san marino have make for the promotion of the right of person with disability and the accession to related convention kuwait make a recommendation malaysia note the transparent and consultative approach take by san marino with respect to the upr and the progress make in the field of human right through its commitment to implement the recommendation accept during the first cycle of the upr and the introduction of various legislative and institutional measure in particular malaysia commend san marino for ongoing and continuous step to protect women right and promote the role of woman in the country and measure to far integrate person with disability into society in line with its obligation under crpd amongst other it note the adoption of important law and provision relate to violence against woman and the enforcement of measure for the protection of woman express appreciation for the strong belief of san marino in the value of the family for human development and its effort to protect the family institution and encourage they to continue in that regard malaysia make recommendation mexico welcome the adoption of international instrument since the first cycle of the upr in particular it note the ratification of op crc sc the united nations convention against transnational organize crime and two protocol supplement it it recognize the advance make in combat domestic violence notably through the implementation of prevention programme and the provision of medical and psychological support for victim it thank san marino for the response to its query regard freedom of expression mexico make recommendation monaco welcome the advance make regard the right of person with disability notably the step take to implement crpd as well as the extension of the advantage to adoptive and foster parent grant under law no monaco request further information on the functioning of the residential centre for person with disability it welcome the ratification of op crc ac and op crc sc monaco make a recommendation montenegro commend san marino for its commitment to the promotion and protection of human right express appreciation of its effort to abolish the death penalty and protect the right of woman and child while welcome the dedication of san marino to the upr process montenegro observe that report to several committee on the implementation of core human right instrument be still overdue and encourage the government of san marino to make additional effort to improve cooperation with the treaty body system it note the request make by the human rights committee concern the introduction of a juvenile criminal justice system and ask san marino to elaborate on the activity take in that regard montenegro make recommendation the netherland commend san marino on its human right record and effort to ratify relate instrument in particular it welcome the ratification of the op crc sc and op crc ac as well as the accession to the convention on the prevention and punishment of the crime of genocide however it note that the independent information and conclude observation of the treaty body be out of date as some country report be still outstanding the netherland make recommendation the philippines recognize the strong commitment of the government of san marino to the overall development of the country and the fulfilment of the human right of its people and laud the accession of san marino to a number of international human right convention in the period under review particularly its ratification of the united nations convention against transnational organize crime and two protocol supplement it it ask how san marino as an advocate of women right could contribute to the strengthening of regional and international cooperation or partnership in combat trafficking in woman and girl it note the remarkable progress achieve by san marino in the realization of the right to an adequate standard of living and the provision of welfare programme and other social safety net for citizen who become vulnerable as a result of the recent global financial instability the philippines make recommendation portugal praise the commitment of san marino to the implementation of the recommendation accept during the first cycle and welcome the ratification of op crc sc and op crc ac it note that although san marino have accept a recommendation during the first cycle of the upr to improve timely reporting report to the treaty body be still overdue it welcome the creation of a work group to prepare a draft law to adapt san marinos legal terminology regard the concept of legitimate and natural child and encouraged effort in that regard portugal make recommendation serbia congratulate san marino for its dedication to human right democracy and the rule of law and note san marinos effort to align domestic legislation with international standard as well as its pledge to comply with international treaty it applaud san marinos advocacy work to abolish the death penalty worldwide and commend effort to implement recommendation make by the european committee for the prevention of torture it note that constitutional and legislative norm and ratify international treaty on human right guarantee equality and freedom from discrimination and encourage san marino to continue its positive promotion of the principle of equality and non discrimination take into account all relevant recommendation of the european commission against racism and intolerance serbia make a recommendation sierra leone commend san marinos effort to promote and protect human right in spite of the international economic crisis which have affect the strategy and measure take to address the right to a fair trial as well as the death penalty violence against woman and domestic violence it be interested to note that san marino have be the third country to abolish the death penalty it appreciate effort to align domestic legislation with international human right instrument and commend measure to ensure freedom of religion or belief it acknowledge san marinos effort to sign ratify or accede to more human right instrument since the first cycle of the upr but note that further effort be require to address racism xenophobia and corruption it laud san marinos financial contribution to ohchr in and sierra leone make recommendation singapore commend the effort take by san marino to combat domestic violence note the role play by the authority for equal opportunity in enforce the law on the prevention and elimination of violence against woman and gender violence implement the related decree to assist victim of violence and promote public awareness on service available include shelter for victim of domestic violence a technical institutional panel of expert be set up in to improve coordination among agency in address domestic violence singapore note effort to build an inclusive society for person with disability include the drafting of a framework law on disability to strengthen implementation of crpd and the preparation of decree on specific policy theme such the elimination of architectural barrier as well as job placement health and social inclusion singapore make recommendation slovenia note the implementation of the majority of recommendation accept under the first cycle of the upr include ratification of op crc ac and op crc sc it note progress make in the field of anti discrimination and thank san marino for respond to its question on step take to improve prison detention condition follow the request from the human rights committee slovenia request information on measure that could be take to modify legislation article of act no of january regard the exceptional circumstance in which all citizen aged to could be conscript slovenia make a recommendation spain welcome the delegation of san marino and thank it for its presentation and the reply to its advanced question it congratulate the country on the adoption of the law on provision on maltreatment within the family and on child by the great and general council spain note the concern express by the human rights committee regard the failure of san marino to approve a new code of criminal procedure spain make recommendation thailand commend the effort make by san marino since its first review particularly human right awareness raise initiative and the improvement of its normative framework in various area aim at well integration of foreigner and vulnerable group it express appreciation of progress in the protection of children right particularly regard ratification of op crc ac and op crc sc it express interest in the recent examination of a draft law on provision against child maltreatment in the family and look forwards to its adoption while note step already take to well protect the right of person with disability thailand consider that further effort could be make to promote independent living and well integration into society thailand make recommendation ukraine note the ratification since the last review of important international human right mechanism and the alignment of domestic legislation with relevant international standard it appreciate the progress make to protect and promote the right of its citizen particularly regard women right and gender equality it recognize the increase representation of woman in the san marino parliament and encourage it to take further step in empower woman to end the underrepresentation of woman in the government particularly in ministerial position ukraine welcome effort regard freedom of expression particularly the initiation of procedure on a new draft law on publishing and the profession of medium operator and express hope that it would be swiftly adopt and compliant with correspond international standard the united kingdom of great britain and northern ireland welcome san marinos firm commitment to the promotion and protection of human right it commend san marino for its ongoing effort to reflect international human right standard in domestic legislation the united kingdom make recommendation the united states of america commend san marinos exemplary human right record longstanding commitment to democracy and the promotion and protection of human right while recognize that labour standard be generally well enforce it express concern that some employer do not consistently abide by safety regulation include limitation on work hour and the use of personal safety device particularly in the informal labour market it note that the ministry for territory and environment have not fully implement a law that mandate easy access to public building for person with disability and that many building remain inaccessible it make recommendation uruguay note san marinos ratification of op crc ac and op crc sc and its accession to regional human right instrument it note the draft law to prohibit the corporal punishment of child in all setting include at home and in day care and hope that it would be discuss fruitfully by the parliament in order to meet san marinos commitment pursuant to the first cycle of the upr it note san marinos effort to comply with its international obligation in particular regular reporting to treaty body it encourage san marino to continue those effort and its cooperation with ohchr it welcome that san marino be consider accede to the optional protocol to the international covenant on economic social and cultural right op icescr uruguay make recommendation the bolivarian republic of venezuela emphasize san marinos political commitment to implement recommendation accept during the first cycle of the upr despite the serious international economic crisis it note san marinos adherence to international instrument include the united nations convention against transnational organize crime and two protocol supplement it the convention on the prevention and punishment of the crime of genocide op crc sc and op crc ac it commend progress make in the legal sphere to promote equality of all people before the law and protect the right and freedom of the population and acknowledge the policy to protect women right and promote their participation in society through the adoption of important legal provision and measure relate to the protection of woman from violence it make a recommendation algeria congratulate san marino on the ratification of op crc ac and op crc sc as well as the adoption of legal provision relate to violence against woman and the promulgation of text to improve the effectiveness of the legal system particularly in the area of criminal law it welcome the measure take to consolidate the protection of the family and its solidarity algeria make recommendation argentina welcome the delegation of san marino it congratulate san marino for accede to the convention on the prevention and punishment of the crime of genocide argentina make recommendation australia commend san marinos exemplary human right record note that its human right framework value the integrity of the person afford a high degree of political participation and enforce civil liberty despite the fact that the declaration on the citizen right and fundamental principle of san marino constitutional order prohibit discrimination on all ground it be concern that same sex couple still encounter discrimination in some basic right include residency and inheritance it commend effort to protect the right of person with disability in many area particularly employment education health care and other state service australia make recommendation brazil welcome the ratification of op crc ac op crc sc and the convention on the prevention and punishment of the crime of genocide and the enactment of legislation on maltreatment within the family and on child it maintain that it be important to increase awareness of the importance of combat racism racial discrimination and xenophobia through the effective implementation of law no on provision against racial ethnic and religious discrimination note that decree no establish various form of assistance to woman who be victim of violence brazil ask what specific measure have be take to prevent gender base and domestic violence brazil make recommendation burkina faso note san marinos commitment to cooperate with human right mechanism include its stand invitation to the special procedure of the human rights council it welcome effort to abolish the death penalty combat transnational organize crime legalize the residence status of foreign national and support worker who be victim of the economic crisis it commend the ratification of various human right instrument notably op crc ac and op crc sc and regional instrument by accede to instrument contain complaint mechanism and enable individual to seek reparation it welcome the adoption of legislation to protect female victim of violence include domestic violence and action in favour of child and person with disability it encourage the establishment of the national observatory on the family increase effort to promote human right in its educational system and improve reporting to treaty body canada ask san marino to provide up to date information regard step to establish an independent ombudsman for the protection and promotion of human right in accordance with the principle relate to the status of national institution paris principle it note that san marino have ratify op crc ac and op crc sc and have welcome the contribution that those instrument make to the protection of the right of child canada make recommendation costa rica thank san marino for the presentation of its national report and congratulate the progress make in the promotion and protection of human right it note that san marino have ratify several international instrument and have be the first state party to the rome statute of the international criminal court to ratify the amendment to article of that statute it welcome the adoption of measure to prohibit the corporal punishment of child and those that have raise the minimum age of criminal responsibility costa rica make recommendation c te divoire say that the national report indicate the constant commitment of the government of san marino to the promotion and protection of human right through the adoption of various measure and policy for the promotion of equality for all such as those aim at combat discrimination protect woman child elderly person and person with disability combat domestic violence and strengthen the judicial political and social system those measure demonstrate the importance that san marino place on international obligation and on the protection of fundamental freedom it encourage san marino to continue to cooperate with international human right mechanism c te divoire make recommendation estonia note san marinos accession to most core international human right instrument and its stand invitation to the special procedure of the human rights council however it raise concern at the lack of reporting to the treaty body and hope that san marino would make positive step in that regard it commend the ratification of the convention on the prevention and punishment of the crime of genocide the united nations convention on transnational organize crime the protocol to prevent suppress and punish trafficking in person especially woman and child supplement it op crc sc and op crc ac in that regard it call upon san marino to review the law on extraordinary military conscription and withdraw the relevant clause of that law to bring it into compliance with op crc ac the protection of women right and their participation in society be a priority and should continue there be a need for a freedom of information law in accordance with international standard estonia make recommendation france welcome the delegation from san marino it welcome the commitment show by san marino in favour of human right and its accession to various international human right instrument since its review under the first cycle of the upr france make recommendation germany thank san marino for its national report and welcome the progress make by the country since the first cycle of the upr for example regard its human right legislation it commend san marinos cooperation with civil society ohchr the special procedure of the human rights council and united nations treaty body germany make recommendation ghana welcome the delegation of san marino and applaud the countrys dedication to the upr process ghana make recommendation the holy see welcome step take since the first cycle of the upr to promote and protect human right and strengthen legislation and on the administration of justice in line with international instrument it commend the continue protection of the institution of the family as a union base on a stable relationship between a man and a woman and the related legislation that extend the right of a parent to be absent from the workplace when his or her child be ill or to assist family member who require special assistance include owe to disability or serious age relate disease it make recommendation indonesia applaud the priority give to the protection of women right in national policy and the adoption and effective implementation of law no on the prevention and elimination of violence against woman and gender violence the establishment of a national human right institution in line with the paris principle would far support san marinos effort to combat violence against woman as well as its effort in other area indonesia note that san marino have ratify several international human right instrument the international convention on the protection of the right of all migrant worker and member of their family icrmw would be particularly relevant as one third of san marinos population live abroad indonesia make recommendation ireland commend san marino for extend a stand invitation to the special procedure of the human rights council however it note that a significant number of report to the treaty body be overdue it welcome san marinos ratification of op crc ac and op crc sc ireland make recommendation italy commend san marino for its commitment to cooperate with international human right mechanism and for extend a stand invitation to the special procedure of the human rights council it note the difficulty face by san marino in fulfil its reporting obligation and the measure it have take to end the backlog it encourage san marino to consider good practice and expedite the drafting of report under the international covenant on civil and political right it ask for information about the function lesson learn and good practice of the panel create to coordinate measure to prevent and combat violence against woman it ask whether san marino would consider the establishment of a formal procedure for process asylum request italy make a recommendation san marino thank all the delegation for their interesting and valuable recommendation as regard the treatment of asylum application the minister for foreign affair inform the delegation that it be not foresee to introduce a relevant procedure give the very low number of application receive in recent year often submit by person from country that uphold high human right standard establish a procedure to determine refugee status would prove problematic owing to the lack of border control between italy and san marino in the case of foreigner who be unable to return to their home country he say that the government of san marino may issue an extraordinary stay permit for humanitarian and social protection reason issue on a case by case basis beneficiary would then be entitle to temporary medical and financial assistance provide by the social welfare institute with respect to question relate to discrimination include on the basis of sexual orientation and gender identity and on the need to protect single parent and non conventional family he say that all people be equal before the law and all form of discrimination be reject under the declaration of citizen right all sector of the public administration be also abide by that principle such prohibition be reinforce by law no which punish anyone who incite or commit any act of discrimination on the basis of sexual orientation the law consider it an aggravate circumstance despite the lack of a national plan against discrimination he say that san marino have participate in international campaign and have carry out national initiative to raise awareness in that field the minister say that great importance have be attach to the role play by the authority and the commission for equal opportunity which have jointly promote action to encourage the participation of all citizen in the political social and economic life accord to the principle of legal equality in that regard he say that school play a major role respect for diversity be discuss and promote in all school grade thus favour integration learn about different culture understanding and tolerance the fight against discrimination be a practical experience in school which contribute effectively to inclusion all child reside in san marino include on a temporary basis be provide with a free education all child with disability include those with severe disability have access to education include through the support of professional and personalize didactical tool regard the question of single parent and non conventional family he say that in san marino there have be a grow number of unmarried cohabiting couple also that category of person be recognize and protect by san marino family law indeed child bear from those relationship enjoy the same right as those of child bear in wedlock in that regard attention be also bring to single parent family who on account of their inherent characteristic require strong protection due consideration have also be give to single parent family by allow single people to adopt child the minister say that a national debate encourage by civil society be ongoing about same sex union parliament have recently address the issue and have decide not to consider same sex union on an equal footing to traditional household cohabitation between person of the same sex be recognize if they be entitle to live in the territory but their right and duty be regulate by private law as for human right education he say that san marino be commit to the promotion of human right in education by implement relevant project include training for teacher and the involvement of family he say that education on human right and the protection and respect for difference follow an interdisciplinary approach and be aim at promote the integration of value in all context to combat racism and intolerance as regard the question on the facility for person with disability il colore del grano it be explain that the centre host person with various type of disability and contribute to their education rehabilitation and social inclusion by provide assistance care and treatment include in support of their family with reference to international instrument san marino recognize the importance of treaty that contain individual complaint mechanism and be commit to address reporting delay and to accede to op icescr the optional protocol to the convention on the right of the child on a communication procedure and to the united nations educational scientific and cultural organization unesco convention against discrimination in education the minister say that for the time be san marino do not intend to adhere to or ratify the international convention for the protection of all person from enforce disappearance icppe the optional protocol to the convention against torture and other cruel inhuman or degrading treatment or punishment icrmw nor the convention relate to the status of refugee as regard the establishment of a national institution on human right base on the paris principle san marino consider the exist complaint mechanism to be adequate anyone may file a petition to the head of state to complain about violation of human right and other related issue on the question about juvenile crime law no raise the age of juvenile jurisdiction to with safeguard for child under and alternative measure to detention under the criminal code the reform of the criminal procedure code be a major priority government decision no entrust a technical working group with the drafting of a new code finally the minister commit to give due consideration to all recommendation to enhance human right in san marino ii conclusion and or recommendation the recommendation formulate during the interactive dialogue and list below have be examine by san marino and enjoy the support of san marino ratify the optional protocol to the international covenant on economic social and cultural right icescr montenegro spain accede to the optional protocol to the international covenant on economic social and cultural right uruguay ratify the optional protocol to icescr portugal ratify the optional protocol to the international covenant on economic social and cultural right and opt into the inquiry and inter state mechanism germany accede to the optional protocol to the convention on the right of the child on a communication procedure monaco ratify the optional protocol to the convention on the right of the child on a communication procedure montenegro ratify the third optional protocol to the convention on the right of the child which establish a complaint mechanism portugal sign and ratify the third optional protocol to the convention on the right of the child on a communication procedure without reservation ireland consider become a party to other related human right instrument such as the optional protocol to the convention on the right of the child on a communication procedure thailand ratify without make any reservation the agreement on the privilege and immunity of the international criminal court germany fully align its national legislation with the rome statute of the international criminal court include by incorporate provision to cooperate promptly and fully with the international criminal court and investigate and prosecute genocide crime against humanity and war crime effectively before its national court and accede to the agreement on the privilege and immunity of the international criminal court netherland fully align its national legislation with the rome statute of the international criminal court to ratify the kampala amendment to the rome statute on the crime of aggression and to accede to the agreement on the privilege and immunity of the international criminal court estonia incorporate into the national legislation measure to implement the rome statute of the international criminal court include measure to cooperate with the court costa rica ratify the unesco convention against discrimination in education slovenia consider ratify the unesco convention against discrimination in education ghana intensify ongoing effort to adjust domestic legislation to international standard sierra leone pass the new criminal procedure code which be be study by the technical working group spain strengthen cooperation with civil society on promote non discrimination and tolerance in society and consider institute regular consultation with civil society organization on improve the human right protection system serbia engage with civil society in the follow up to the present review united kingdom of great britain and northern ireland submit as soon as possible country report to the committee on the elimination of racial discrimination the committee on economic social and cultural right the committee on the elimination of discrimination against woman the committee against torture and the committee on the right of the child netherland submit its overdue report to the united nations treaty body portugal endeavour to submit its overdue report some of which have be overdue since to the treaty body on the application of the convention it have ratify ghana submit its outstanding report to the treaty body as soon as possible ireland submit its national report to the relevant united nations treaty body sierra leone accelerate effort to devise and implement anti discrimination public awareness programme include in the health service sector and intensify campaign to encourage tolerance and interreligious and intercultural dialogue philippines eliminate the legal concept of child bear outside wedlock as well as combat against all form of discrimination both legally and in practice portugal continue to ensure that woman be give equitable access to the labour market and that measure introduce to address the problem of unemployment would not result in curtailment of the right of migrant worker in san marino philippines strengthen effort to increase public awareness of the importance of tolerance and intercultural dialogue and pursue measure to promote and facilitate the integration of migrant brazil protect the right of all individual regardless of sexual orientation on an equal basis canada ensure respect for minority especially sexual minority france far strengthen exist mechanism aim at safeguard the right of woman especially with regard to protection against violence sierra leone continue its measure in the prevention and repression of violence against woman through effective implementation of the exist domestic legislation and awareness raise campaign and programme malaysia continue its effort to combat domestic violence and promote gender equality singapore promulgate law which expressly prohibit all form of corporal punishment of minor at home as well as in kindergarten school and other institution care for child mexico assign the necessary resource to complete the implementation of the law on the prevention of ill treatment in the heart of the family and of the child particularly in the field of the sensitizing and educate people on counter violence against child spain continue the work already under way aim at improve the judicial system include the effort to establish a new code of criminal procedure holy see continue to defend the institution of the family base on the union of a man and a woman and to keep provide assistance to those most vulnerable to human right violation particularly woman child and the elderly holy see continue strengthen the social programme and plan which drive the fight against social exclusion and inequality with emphasis on the area of employment food and health and pay special attention to the most vulnerable sector venezuela bolivarian republic of adopt appropriate legislation to guarantee the right of disabled person and provide they with the good care without discrimination kuwait adopt the framework law on disability which will incorporate the convention on the right of person with disability costa rica continue effort in provide necessary care for person with disability in line with its obligation under crpd malaysia continue to enhance its domestic policy and law to far develop an inclusive live environment for person with disability singapore continue to ensure inclusive education for child and person with disability as education would allow they to fully participate in society and open the opportunity of employment thailand bring all public building up to code so that they be accessible by person with disability in line with its international obligation and commitment united states of america take step to improve access to building for people with a disability australia consider social policy that facilitate the integration of migrant and asylum seeker holy see the follow recommendation will be examine by san marino which will respond in due course but no later than the twenty eighth session of the human rights council in march the response will be include in the outcome report adopt by council at its twenty eighth session ratify the international convention for the protection of all person from enforce disappearance spain uruguay argentina france consider ratify the international convention for the protection of all person from enforce disappearance ghana ratify without make any reservation the international convention for the protection of all person from enforce disappearance implement it into national law and recognize the competence of the committee on enforce disappearance to receive and consider from or on behalf of victim or other state party germany consider ratify the icppe sierra leone adhere to the convention on the non applicability of statutory limitation to war crime and crime against humanity without make any reservation and implement the treaty into national law germany consider develop human right indicator accord to the ohchr framework as an instrument that would allow for a more precise and coherent evaluation of its national human right policy portugal strengthen measure to combat all form of discrimination focus on sensitization and monitor c te divoire formulate civil and administrative law which complement the provision of the criminal law and be direct towards combat discrimination on the basis of ethnicity nationality or language in the field of employment and the public service in particular mexico strengthen the institutional and legal framework to counter all form of discrimination base on consideration of race ethnic origin religion or colour algeria elaborate and adopt a plan which promote a great and wide understanding of discrimination and intolerance and its various manifestation and also adopt administrative measure which allow the combating of discrimination on the basis of ethnicity nationality or language argentina introduce appropriate administrative or legislative reform to ensure equal protection for same sex couple include on matter of residency and inheritance australia decriminalize defamation and place it under the civil code estonia adopt measure enable more women political representation algeria ensure domestic institution protect promote and monitor the right of woman and girl and strengthen equality between man and woman by ensure the full participation of woman in policy and decision making process canada adopt measure to decriminalize defamation ghana adopt measure to ensure a fair representation of woman in ministerial position of the country ghana actively monitor compliance and enforce employment safety regulation especially in the construction and mechanical industry united states of america the recommendation list below have be note by san marino proceed with the ratification of relevant international instrument not yet ratify and monitor implementation of instrument already ratify c te divoire ratify the optional protocol to the convention against torture and other cruel inhuman or degrading treatment or punishment uruguay france portugal adhere to the principle of the international convention on the protection of the right of all migrant worker and member of their family and positively consider ratify it mexico ratify the international convention on the protection of the right of all migrant worker and member of their family uruguay consider ratify the international convention on the protection of the right of all migrant worker and member of their family ghana indonesia sierra leone continue to evaluate the possibility of future accession to other international human right convention that it be not yet party to such as the icrmw and the optional protocol to the convention against torture and other cruel inhuman or degrading treatment or punishment philippine take all necessary step to ratify the convention relate to the status of refugee and its protocol brazil ratify the convention relate to the status of refugee and its protocol italy establish a national human right institution in accordance with the paris principle spain consider the establishment of a national human right institution in accordance with the paris principle indonesia ensure equal right of lesbian gay bisexual and transgender people by legally recognize same sex marriage and civil partnership unite kingdom of great britain and northern ireland all conclusion and or recommendation contain in the present report reflect the position of the submit state s and or the state under review they should not be construe as endorse by the working group as a whole annex english only composition of the delegation the delegation of san marino be head by his excellency pasquale valentini minister of foreign affair and compose of the follow member ms federica bigi director of political and diplomatic affair of the department of foreign affairs ms ilaria salicioni first secretary of the directorate of political and diplomatic affair of the department of foreign affair mr eros gasperoni first secretary of the directorate of european affair of the department of foreign affairs mr stefano palmucci expert of the directorate of legal affair of the department of foreign affairs ms valentina bertozzi interpreter of the department of foreign affairs ms anita dedic administrative assistant of the permanent mission of the republic of san marino to the united nations in geneva and other international organization in switzerland
 </pre></div>
 </div>
 </div>
@@ -1450,67 +1447,67 @@ Contents
       <th>0</th>
       <td>sanmarino2014.txt</td>
       <td>\n United Nations \n A/HRC/28/9 \n \n \n\n Ge...</td>
-      <td>united nations a hrc general assembly distr g...</td>
+      <td>united nations a hrc general assembly distr ...</td>
     </tr>
     <tr>
       <th>1</th>
       <td>tuvalu2013.txt</td>
       <td>\n United Nations \n A/HRC/24/8  \n \n \n\n G...</td>
-      <td>united nations a hrc general assembly distr g...</td>
+      <td>united nations a hrc general assembly distr ...</td>
     </tr>
     <tr>
       <th>2</th>
       <td>kazakhstan2014.txt</td>
       <td>\n United Nations \n A/HRC/28/10 \n \n \n\n G...</td>
-      <td>united nations a hrc general assembly distr g...</td>
+      <td>united nations a hrc general assembly distr ...</td>
     </tr>
     <tr>
       <th>3</th>
       <td>cotedivoire2014.txt</td>
       <td>\nDistr.: General 7 July 2014 English Original...</td>
-      <td>distr general july english original english f...</td>
+      <td>distr general july english original english ...</td>
     </tr>
     <tr>
       <th>4</th>
       <td>fiji2014.txt</td>
       <td>\n United Nations \n A/HRC/28/8 \n \n \n\n Ge...</td>
-      <td>united nations a hrc general assembly distr g...</td>
+      <td>united nations a hrc general assembly distr ...</td>
     </tr>
     <tr>
       <th>5</th>
       <td>bangladesh2013.txt</td>
       <td>\n United Nations \n A/HRC/24/12  \n \n \n\n ...</td>
-      <td>united nations a hrc general assembly distr g...</td>
+      <td>united nations a hrc general assembly distr ...</td>
     </tr>
     <tr>
       <th>6</th>
       <td>turkmenistan2013.txt</td>
       <td>\n United Nations \n A/HRC/24/3  \n \n \n\n G...</td>
-      <td>united nations a hrc general assembly distr g...</td>
+      <td>united nations a hrc general assembly distr ...</td>
     </tr>
     <tr>
       <th>7</th>
       <td>jordan2013.txt</td>
       <td>\nDistr.: General 6 January 2014 \nOriginal: E...</td>
-      <td>distr general january original english genera...</td>
+      <td>distr general january original english gener...</td>
     </tr>
     <tr>
       <th>8</th>
       <td>monaco2013.txt</td>
       <td>\nDistr.: General 3 January 2014 English Origi...</td>
-      <td>distr general january english original englis...</td>
+      <td>distr general january english original engli...</td>
     </tr>
     <tr>
       <th>9</th>
       <td>afghanistan2014.txt</td>
       <td>\nDistr.: General 4 April 2014 \nOriginal: Eng...</td>
-      <td>distr general april original english general ...</td>
+      <td>distr general april original english general...</td>
     </tr>
     <tr>
       <th>10</th>
       <td>djibouti2013.txt</td>
       <td>\n\nDistr.: General 8 July 2013 English Origin...</td>
-      <td>distr general july english original english f...</td>
+      <td>distr general july english original english ...</td>
     </tr>
   </tbody>
 </table>
@@ -1520,9 +1517,7 @@ Contents
 </section>
 <section id="unsupervised-learning-with-tfidfvectorizer">
 <h2>Unsupervised learning with <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer()</span></code><a class="headerlink" href="#unsupervised-learning-with-tfidfvectorizer" title="Permalink to this headline">#</a></h2>
-<p>Remember <code class="docutils literal notranslate"><span class="pre">CountVectorizer()</span></code> for creating Bag of Word models? Bag of Words models are inputs for <a class="reference external" href="https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">Latent Dirichlet allocation</a>.</p>
-<p>However, let’s extend this idea to <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer()</span></code>. Each row will still be a colunm in our matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies.</p>
-<p>This will be the input for <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">Truncated Singular Value Decomposition</a> instead of LDA.</p>
+<p>Remember <code class="docutils literal notranslate"><span class="pre">CountVectorizer()</span></code> for creating Bag of Word models? We can extend this idea of counting words, to <em>counting unique words</em> within a document relative to the rest of the corpus with <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer()</span></code>. Each row will still be a document in the document term matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
@@ -1543,7 +1538,7 @@ Contents
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11, 88194)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11, 84201)
 </pre></div>
 </div>
 </div>
@@ -1555,57 +1550,57 @@ Contents
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (0, 41201)	0.004841792538927591
-  (0, 33118)	0.004841792538927591
-  (0, 52297)	0.004841792538927591
-  (0, 83563)	0.004841792538927591
-  (0, 48098)	0.004841792538927591
-  (0, 73938)	0.004841792538927591
-  (0, 70099)	0.004841792538927591
-  (0, 50457)	0.004841792538927591
-  (0, 57730)	0.004841792538927591
-  (0, 5933)	0.004841792538927591
-  (0, 2131)	0.004841792538927591
-  (0, 19496)	0.004841792538927591
-  (0, 4456)	0.004841792538927591
-  (0, 51455)	0.004841792538927591
-  (0, 2831)	0.004841792538927591
-  (0, 41350)	0.004841792538927591
-  (0, 7670)	0.004841792538927591
-  (0, 84240)	0.004841792538927591
-  (0, 51495)	0.004841792538927591
-  (0, 2835)	0.004841792538927591
-  (0, 45547)	0.004138587998252598
-  (0, 21498)	0.004841792538927591
-  (0, 29085)	0.004841792538927591
-  (0, 56075)	0.004841792538927591
-  (0, 78289)	0.004841792538927591
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (0, 39196)	0.0048535687193453775
+  (0, 31576)	0.0048535687193453775
+  (0, 50184)	0.0048535687193453775
+  (0, 79765)	0.0048535687193453775
+  (0, 46180)	0.0048535687193453775
+  (0, 70607)	0.0048535687193453775
+  (0, 67077)	0.0048535687193453775
+  (0, 48409)	0.0048535687193453775
+  (0, 55432)	0.0048535687193453775
+  (0, 5664)	0.0048535687193453775
+  (0, 2039)	0.0048535687193453775
+  (0, 18504)	0.0048535687193453775
+  (0, 4246)	0.0048535687193453775
+  (0, 49359)	0.0048535687193453775
+  (0, 2724)	0.0048535687193453775
+  (0, 39343)	0.0048535687193453775
+  (0, 7346)	0.0048535687193453775
+  (0, 80402)	0.0048535687193453775
+  (0, 49399)	0.0048535687193453775
+  (0, 2727)	0.0048535687193453775
+  (0, 43339)	0.0048535687193453775
+  (0, 20389)	0.0048535687193453775
+  (0, 27586)	0.0048535687193453775
+  (0, 53819)	0.0048535687193453775
+  (0, 74911)	0.0048535687193453775
   :	:
-  (10, 56156)	0.005334258825700086
-  (10, 64482)	0.005334258825700086
-  (10, 12086)	0.006065489955079169
-  (10, 54457)	0.006065489955079169
-  (10, 24386)	0.004303646433350054
-  (10, 40670)	0.008607292866700108
-  (10, 50511)	0.006065489955079169
-  (10, 67275)	0.008607292866700108
-  (10, 30214)	0.00476707189726019
-  (10, 65265)	0.005334258825700086
-  (10, 21793)	0.00476707189726019
-  (10, 67704)	0.004303646433350054
-  (10, 31604)	0.005334258825700086
-  (10, 83182)	0.006065489955079169
-  (10, 80749)	0.006065489955079169
-  (10, 79281)	0.014301215691780571
-  (10, 28564)	0.004303646433350054
-  (10, 59645)	0.025821878600100327
-  (10, 63422)	0.03012552503345038
-  (10, 73852)	0.025821878600100327
-  (10, 76145)	0.005334258825700086
-  (10, 50217)	0.008607292866700108
-  (10, 30122)	0.010668517651400172
-  (10, 8598)	0.010668517651400172
-  (10, 19266)	0.008607292866700108
+  (10, 61837)	0.005383997583630433
+  (10, 11728)	0.006122047003858112
+  (10, 52260)	0.006122047003858112
+  (10, 32042)	0.008687550700135141
+  (10, 38698)	0.008687550700135141
+  (10, 48463)	0.012244094007716224
+  (10, 64401)	0.008687550700135141
+  (10, 28787)	0.0048115219779334435
+  (10, 66521)	0.032303985501782595
+  (10, 62590)	0.005383997583630433
+  (10, 62731)	0.004343775350067571
+  (10, 48510)	0.008687550700135141
+  (10, 30126)	0.0048115219779334435
+  (10, 79365)	0.006122047003858112
+  (10, 4259)	0.004343775350067571
+  (10, 27100)	0.004343775350067571
+  (10, 57265)	0.026062652100405426
+  (10, 60862)	0.030406427450472995
+  (10, 70526)	0.026062652100405426
+  (10, 76197)	0.004343775350067571
+  (10, 72815)	0.005383997583630433
+  (10, 27608)	0.004343775350067571
+  (10, 28699)	0.010767995167260866
+  (10, 8155)	0.010767995167260866
+  (10, 18284)	0.008687550700135141
 </pre></div>
 </div>
 </div>
@@ -1620,7 +1615,7 @@ Contents
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
   warnings.warn(msg, category=FutureWarning)
 </pre></div>
 </div>
@@ -1653,13 +1648,13 @@ Contents
       <th>abdou prsident la</th>
       <th>abduction</th>
       <th>...</th>
+      <th>zone</th>
+      <th>zone inclusive</th>
+      <th>zone inclusive education</th>
+      <th>zone senegal</th>
+      <th>zone senegal make</th>
       <th>zone social</th>
-      <th>zone social benefits</th>
-      <th>zones</th>
-      <th>zones inclusive</th>
-      <th>zones inclusive education</th>
-      <th>zones senegal</th>
-      <th>zones senegal recommendations</th>
+      <th>zone social benefit</th>
       <th>zouon</th>
       <th>zouon bi</th>
       <th>zouon bi tidou</th>
@@ -1725,15 +1720,15 @@ Contents
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.004775</td>
+      <td>0.004660</td>
       <td>...</td>
-      <td>0.007108</td>
-      <td>0.007108</td>
-      <td>0.006076</td>
-      <td>0.007108</td>
-      <td>0.007108</td>
+      <td>0.011858</td>
+      <td>0.006937</td>
+      <td>0.006937</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.006937</td>
+      <td>0.006937</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1758,9 +1753,9 @@ Contents
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.006234</td>
-      <td>0.006234</td>
-      <td>0.006234</td>
+      <td>0.006247</td>
+      <td>0.006247</td>
+      <td>0.006247</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1797,7 +1792,7 @@ Contents
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.010880</td>
+      <td>0.011048</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1823,13 +1818,13 @@ Contents
       <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
+      <td>0.006302</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.006219</td>
+      <td>0.007373</td>
+      <td>0.007373</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.007276</td>
-      <td>0.007276</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1845,7 +1840,7 @@ Contents
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.004741</td>
+      <td>0.004719</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1884,16 +1879,16 @@ Contents
     </tr>
     <tr>
       <th>9</th>
-      <td>0.007519</td>
-      <td>0.007519</td>
-      <td>0.007519</td>
+      <td>0.007621</td>
+      <td>0.007621</td>
+      <td>0.007621</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.005051</td>
+      <td>0.005119</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1911,12 +1906,12 @@ Contents
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.007096</td>
-      <td>0.007096</td>
-      <td>0.007096</td>
-      <td>0.007096</td>
-      <td>0.007096</td>
-      <td>0.007096</td>
+      <td>0.007162</td>
+      <td>0.007162</td>
+      <td>0.007162</td>
+      <td>0.007162</td>
+      <td>0.007162</td>
+      <td>0.007162</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -1932,7 +1927,7 @@ Contents
     </tr>
   </tbody>
 </table>
-<p>11 rows × 88194 columns</p>
+<p>11 rows × 84201 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -1945,26 +1940,26 @@ Contents
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>monaco                        0.718573
-tuvalu                        0.638645
-fiji                          0.566999
-turkmenistan                  0.566983
-san                           0.551964
-jordan                        0.482716
-marino                        0.455128
-san marino                    0.455128
-kazakhstan                    0.448850
-divoire                       0.330871
-te divoire                    0.330871
-te                            0.306268
-kazakhstans                   0.284333
-bangladeshs                   0.251033
-elimination violence women    0.250640
-elimination violence          0.250640
-djiboutis                     0.248364
-reconciliation                0.245134
-fgm                           0.194096
-afghan                        0.180447
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>monaco                        0.719734
+tuvalu                        0.641024
+fiji                          0.582249
+turkmenistan                  0.579527
+kazakhstan                    0.578786
+san                           0.553307
+jordan                        0.491085
+san marino                    0.456235
+marino                        0.456235
+divoire                       0.339938
+te divoire                    0.339938
+te                            0.306891
+bangladeshs                   0.254911
+elimination violence woman    0.254039
+elimination violence          0.254039
+djiboutis                     0.250679
+reconciliation                0.245633
+fgm                           0.195906
+afghan                        0.190515
+violence woman law            0.182894
 dtype: float64
 </pre></div>
 </div>
@@ -2041,12 +2036,12 @@ dtype: float64
       <th>abdou prsident la</th>
       <th>abduction</th>
       <th>...</th>
-      <th>zone social benefits</th>
-      <th>zones</th>
-      <th>zones inclusive</th>
-      <th>zones inclusive education</th>
-      <th>zones senegal</th>
-      <th>zones senegal recommendations</th>
+      <th>zone inclusive</th>
+      <th>zone inclusive education</th>
+      <th>zone senegal</th>
+      <th>zone senegal make</th>
+      <th>zone social</th>
+      <th>zone social benefit</th>
       <th>zouon</th>
       <th>zouon bi</th>
       <th>zouon bi tidou</th>
@@ -2113,14 +2108,14 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.004775</td>
+      <td>0.004660</td>
       <td>...</td>
-      <td>0.007108</td>
-      <td>0.006076</td>
-      <td>0.007108</td>
-      <td>0.007108</td>
+      <td>0.006937</td>
+      <td>0.006937</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.006937</td>
+      <td>0.006937</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -2145,9 +2140,9 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.006234</td>
-      <td>0.006234</td>
-      <td>0.006234</td>
+      <td>0.006247</td>
+      <td>0.006247</td>
+      <td>0.006247</td>
       <td>cotedivoire</td>
     </tr>
     <tr>
@@ -2185,7 +2180,7 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.010880</td>
+      <td>0.011048</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -2212,11 +2207,11 @@ dtype: float64
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
-      <td>0.006219</td>
+      <td>0.000000</td>
+      <td>0.007373</td>
+      <td>0.007373</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.007276</td>
-      <td>0.007276</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -2233,7 +2228,7 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.004741</td>
+      <td>0.004719</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -2272,16 +2267,16 @@ dtype: float64
     </tr>
     <tr>
       <th>9</th>
-      <td>0.007519</td>
-      <td>0.007519</td>
-      <td>0.007519</td>
+      <td>0.007621</td>
+      <td>0.007621</td>
+      <td>0.007621</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.005051</td>
+      <td>0.005119</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -2299,12 +2294,12 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.007096</td>
-      <td>0.007096</td>
-      <td>0.007096</td>
-      <td>0.007096</td>
-      <td>0.007096</td>
-      <td>0.007096</td>
+      <td>0.007162</td>
+      <td>0.007162</td>
+      <td>0.007162</td>
+      <td>0.007162</td>
+      <td>0.007162</td>
+      <td>0.007162</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -2320,7 +2315,7 @@ dtype: float64
     </tr>
   </tbody>
 </table>
-<p>11 rows × 88195 columns</p>
+<p>11 rows × 84202 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -2335,134 +2330,40 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jordan                                 0.482716
-jordanian                              0.127019
-press publications                     0.112906
-publications                           0.108571
-syrian                                 0.098792
-constitutional amendments              0.096508
-publications law                       0.091736
-press publications law                 0.091736
-syrian refugees                        0.084679
-websites                               0.072381
-reservations                           0.071108
-commitment jordan                      0.063509
-reservations convention                0.060317
-news websites                          0.056453
-al                                     0.054286
-personal status                        0.054286
-news                                   0.054286
-personal                               0.053046
-reservations convention elimination    0.048254
-hosting                                0.042437
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jordan                                0.491085
+jordanian                             0.140491
+press publication                     0.112393
+syrian                                0.105369
+reservation                           0.099099
+press publication law                 0.091319
+publication law                       0.091319
+constitutional amendment              0.089768
+syrian refugee                        0.084295
+publication                           0.080945
+reservation convention                0.078057
+reservation convention elimination    0.072052
+website                               0.072052
+commitment jordan                     0.063221
+news website                          0.056197
+personal status                       0.054039
+al                                    0.054039
+news                                  0.054039
+personal                              0.052805
+host                                  0.046863
 dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="singular-value-decomposition">
-<h3>Singular value decomposition<a class="headerlink" href="#singular-value-decomposition" title="Permalink to this headline">#</a></h3>
-<p><img alt="tsvd" src="../_images/tsvd.png" /></p>
-<p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2021/06/part-16-step-by-step-guide-to-master-nlp-topic-modelling-using-lsa/">Analytics Vidhya</a></p>
-<ul class="simple">
-<li><p>Look ahead to Chapter 5 for new techniques in topic modeling - <span class="xref myst">BERTopic!</span></p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
-
-<span class="n">tsvd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> 
-                   <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> 
-                   <span class="n">algorithm</span> <span class="o">=</span> <span class="s1">&#39;arpack&#39;</span><span class="p">)</span>
-<span class="n">tsvd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tf_sparse</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>TruncatedSVD(algorithm=&#x27;arpack&#x27;, n_components=5, random_state=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">TruncatedSVD</label><div class="sk-toggleable__content"><pre>TruncatedSVD(algorithm=&#x27;arpack&#x27;, n_components=5, random_state=1)</pre></div></div></div></div></div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tsvd</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.00816051 0.10375827 0.10320114 0.09968319 0.10115778]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tsvd</span><span class="o">.</span><span class="n">singular_values_</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.13997839 1.01408739 1.00306128 0.99825596 0.99320396]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">topics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">,</span> <span class="n">n_top_words</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">topic_idx</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">components_</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Topic #</span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">topic_idx</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">topic</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[:</span><span class="o">-</span><span class="n">n_top_words</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf_features</span> <span class="o">=</span> <span class="n">tf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
-<span class="n">topics</span><span class="p">(</span><span class="n">tsvd</span><span class="p">,</span> <span class="n">tf_features</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
-  warnings.warn(msg, category=FutureWarning)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic #0:
-turkmenistan kazakhstan jordan fiji tuvalu divoire te divoire monaco te reconciliation bangladeshs san elimination violence elimination violence women kazakhstans fgm djiboutis san marino marino violence women law
-
-Topic #1:
-monaco san marino san marino te divoire divoire te reconciliation fgm djiboutis op crc fiji san marinos marinos monegasque national reconciliation elimination forms racial forms racial discrimination forms racial international convention elimination
-
-Topic #2:
-tuvalu fiji djiboutis national strategic climate change strategic water sanitation sanitation fgm safe drinking safe drinking water rapporteur human right rapporteur human special rapporteur human human right safe climate national gender policy national gender fijian drinking water sanitation
-
-Topic #3:
-te divoire divoire te reconciliation fgm national reconciliation jordan djiboutis ivorian national development plan elimination violence elimination violence women truth genital mutilation genital female genital female genital mutilation dialogue truth reconciliation truth reconciliation dialogue truth
-
-Topic #4:
-monaco jordan tuvalu jordanian press publications publications monegasque syrian constitutional amendments bangladeshs publications law press publications law principality nationality commended monaco syrian refugees reservations des sanitation websites
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="un-hrc-text-analysis-what-next">
-<h2>UN HRC text analysis - what next?<a class="headerlink" href="#un-hrc-text-analysis-what-next" title="Permalink to this headline">#</a></h2>
-<p>Keep in mind that we have not even begun to consider named entities and parts of speech. How might country names be swamping the five topics produced?</p>
-<p><a class="reference external" href="https://stats.stackexchange.com/questions/302965/some-topics-with-all-equal-weights-when-using-latentdirichletallocation-from-sci">Read this stack overflow post to learn about the possibility of having too few documents in your corpus</a></p>
-<p><a class="reference external" href="https://www.machinelearningplus.com/nlp/topic-modeling-python-sklearn-examples/">Also, read this post about how to grid search for the best topic models</a></p>
-<p>Use BERTopic (see Chapter 5 in this book)</p>
 </section>
 <section id="sentiment-analysis">
 <h2>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">#</a></h2>
 <p>Sentiment analysis is the contextual mining of text data that elicits abstract information in source materials to determine if data are positive, negative, or neutral.</p>
 <p><img alt="sa" src="../_images/sa.jpg" /></p>
 <p><a class="reference external" href="https://www.repustate.com/blog/sentiment-analysis-challenges-with-solutions/">Repustate</a></p>
-<section id="download-the-nltk-built-in-movie-reviews-dataset">
-<h3>Download the nltk built-in movie reviews dataset<a class="headerlink" href="#download-the-nltk-built-in-movie-reviews-dataset" title="Permalink to this headline">#</a></h3>
+<section id="download-the-nltk-built-movie-reviews-dataset">
+<h3>Download the nltk built movie reviews dataset<a class="headerlink" href="#download-the-nltk-built-movie-reviews-dataset" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
@@ -2598,12 +2499,9 @@ monaco jordan tuvalu jordanian press publications publications monegasque syrian
 </div>
 </div>
 </section>
-<section id="pipelines">
-<h3>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this headline">#</a></h3>
+<section id="pipelines-one-example">
+<h3>Pipelines - one example<a class="headerlink" href="#pipelines-one-example" title="Permalink to this headline">#</a></h3>
 <p>scikit-learn offers hand ways to build machine learning pipelines: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html</a></p>
-</section>
-<section id="one-standard-way">
-<h3>One standard way<a class="headerlink" href="#one-standard-way" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># standard training/test split (no cross validation)</span>
@@ -2690,7 +2588,7 @@ Top features for negative reviews:
 [&#39;bad&#39;, &#39;only&#39;, &#39;plot&#39;, &#39;worst&#39;, &#39;there&#39;, &#39;boring&#39;, &#39;script&#39;, &#39;why&#39;, &#39;have&#39;, &#39;unfortunately&#39;, &#39;dull&#39;, &#39;poor&#39;, &#39;any&#39;, &#39;waste&#39;, &#39;nothing&#39;, &#39;looks&#39;, &#39;ridiculous&#39;, &#39;supposed&#39;, &#39;no&#39;, &#39;even&#39;, &#39;harry&#39;, &#39;awful&#39;, &#39;then&#39;, &#39;reason&#39;, &#39;wasted&#39;]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
   warnings.warn(msg, category=FutureWarning)
 </pre></div>
 </div>
@@ -2730,7 +2628,7 @@ Top features for negative reviews:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># type another review here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try a more complex statement</span>
 <span class="n">my_review</span> <span class="o">=</span> <span class="s1">&#39;I hated this movie, even though my friend loved it&#39;</span>
 <span class="n">my_features</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">my_review</span><span class="p">])</span>
 <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">my_features</span><span class="p">)</span>
@@ -2745,10 +2643,20 @@ Top features for negative reviews:
 </div>
 </section>
 </section>
-<section id="quiz-20-newsgroups-dataset">
-<h2>Quiz - 20 newsgroups dataset<a class="headerlink" href="#quiz-20-newsgroups-dataset" title="Permalink to this headline">#</a></h2>
-<p>Go through the 20 newsgroups text dataset to get familiar with newspaper data: <a class="reference external" href="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html">https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html</a></p>
+<section id="un-hrc-text-analysis-what-next">
+<h2>UN HRC text analysis - what next?<a class="headerlink" href="#un-hrc-text-analysis-what-next" title="Permalink to this headline">#</a></h2>
+<p>What next? Keep in mind that we have not even begun to consider named entities and parts of speech. What problems immediately jump out from the above examples, such as with the number and uniqueness of country names?</p>
+<p>The next two chapters introduce powerful text preprocessing and analysis techniques. Read ahead to see how we can handle roadblocks such as these.</p>
+<p><a class="reference external" href="https://eastbayev.github.io/SSDS-TAML/fall2022/9_spaCy_textaCy_intros.html">Chapter 9</a> provides introductions to the spaCy and textaCy Python libraries.</p>
+<p><a class="reference external" href="https://eastbayev.github.io/SSDS-TAML/fall2022/10_BERTopic.html">Chapter 10</a> provides an application of the BERTopic model.</p>
+</section>
+<section id="exercise-text-classification">
+<h2>Exercise - text classification<a class="headerlink" href="#exercise-text-classification" title="Permalink to this headline">#</a></h2>
 <p>“The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date.”</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html">Read through this 20 newsgroups dataset example</a> to get familiar with newspaper data.</p></li>
+<li><p>Do you best to understand and explain what is happening at each step of the workflow.</p></li>
+</ol>
 </section>
 </section>
 
@@ -2789,7 +2697,7 @@ Top features for negative reviews:
     <a class='right-next' id="next-link" href="9_spaCy_textaCy_intros.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 9 - spaCy and textaCy introductions</p>
+        <p class="prev-next-title">Chapter 9 - spaCy and textaCy</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

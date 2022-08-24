@@ -3,7 +3,7 @@
 
 # # Chapter 8 - Document encoding, sentiment analysis, and text classification
 
-# 2022 February 2
+# 2022 August 24
 
 # In[1]:
 
@@ -11,7 +11,7 @@
 import os
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer, TfidfTransformer
-from sklearn.decomposition import TruncatedSVD
+import spacy
 import nltk
 from nltk.corpus import movie_reviews
 import numpy as np
@@ -30,9 +30,9 @@ warnings.filterwarnings("ignore", category = DeprecationWarning)
 # In the last chapter you saw that we do not change text to numbers, but instead changed the _representation_ of the text to the numbers in sparse matrix format. 
 # 
 # In this format, each row represents a document and each column represents a token from the shared text vocabulary called a **feature**. 
-
-# ## Key terms
-
+# 
+# ### Key terms
+# 
 # * **Document term matrix:** contains the frequencies (or TF-IDF scores) of vocabulary terms in a collection of documents in sparse format. 
 #     * Each row is a document in the corpus.
 #     * Each column represents a term (uni-gram, bi-gram, etc.) called a feature.
@@ -59,15 +59,9 @@ warnings.filterwarnings("ignore", category = DeprecationWarning)
 # 
 # [towardsdatascience](https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558)
 
-# ## Topic modeling
+# ## Corpus definition: United Nations Human Rights Council Documentation
 # 
-# ![topic](img/topic.png)
-# 
-# [Wikipedia](https://en.wikipedia.org/wiki/Topic_model)
-
 # ![unhrc](img/unhrc.jpg)
-# 
-# ### Corpus definition: United Nations Human Rights Council Documentation
 # 
 # We will select eleven .txt files from the UN HRC as our corpus, stored within the subfolder "human_rights" folder inside the main "data" directory. 
 # 
@@ -79,7 +73,7 @@ warnings.filterwarnings("ignore", category = DeprecationWarning)
 # 
 # Set the directory's file path and print the files it contains.
 
-# In[2]:
+# In[4]:
 
 
 import os
@@ -91,10 +85,8 @@ corpus
 
 # ### Store these documents in a data frame
 
-# In[3]:
+# In[6]:
 
-
-import pandas as pd
 
 # Store in an empty dictionary for conversion to data frame
 empty_dictionary = {}
@@ -113,7 +105,7 @@ human_rights = (pd.DataFrame.from_dict(empty_dictionary,
 
 # ### View the data frame
 
-# In[4]:
+# In[7]:
 
 
 human_rights
@@ -121,7 +113,7 @@ human_rights
 
 # ### View the text of the first document
 
-# In[5]:
+# In[8]:
 
 
 # first thousand characters
@@ -132,6 +124,10 @@ print(human_rights['document_text'][0][:1000])
 # 
 # Create a new column named "clean_text" to store the text as it is preprocessed. 
 # 
+# ### What are some of the things we can do? 
+# 
+# How else could you improve this process? 
+# 
 # * Remove non-alphanumeric characters/punctuation
 # * Remove digits
 # * Remove [unicode characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters)
@@ -141,52 +137,14 @@ print(human_rights['document_text'][0][:1000])
 # 
 # Take a look at the first document after each step to see if you can notice what changed. 
 # 
-# [How else could you improve this process?](/SSDS-TAML/winter2022/Appendix.ipynb#appendix-b-more-on-text-preprocessing) 
-# 
-# > NOTE: Remember, this is just a bare bones, basic process. Furthermore, it will not likely work for many other languages. 
+# > Remember: the process will likely be different for many other natural languages, which frequently require special considerations. 
 
 # ### Remove non-alphanumeric characters/punctuation
-
-# In[6]:
-
-
-human_rights['clean_text'] = human_rights['document_text'].str.replace(r'[^\w\s]', ' ', regex = True)
-
-
-# In[7]:
-
-
-print(human_rights['clean_text'][0][:1000])
-
-
-# In[8]:
-
-
-# view third column
-human_rights
-
-
-# ### Remove digits
-
-# In[9]:
-
-
-human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\d', ' ', regex = True)
-
-
-# In[10]:
-
-
-print(human_rights['clean_text'][0][:1000])
-
-
-# ### Remove unicode characters such as Ð and ð
 
 # In[11]:
 
 
-# for more on text encodings: https://www.w3.org/International/questions/qa-what-is-encoding
-human_rights['clean_text'] = human_rights['clean_text'].str.encode('ascii', 'ignore').str.decode('ascii')
+human_rights['clean_text'] = human_rights['document_text'].str.replace(r'[^\w\s]', ' ', regex = True)
 
 
 # In[12]:
@@ -195,16 +153,52 @@ human_rights['clean_text'] = human_rights['clean_text'].str.encode('ascii', 'ign
 print(human_rights['clean_text'][0][:1000])
 
 
+# In[13]:
+
+
+# view third column
+human_rights
+
+
+# ### Remove digits
+
+# In[14]:
+
+
+human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\d', ' ', regex = True)
+
+
+# In[15]:
+
+
+print(human_rights['clean_text'][0][:1000])
+
+
+# ### Remove unicode characters such as Ð and ð
+
+# In[16]:
+
+
+# for more on text encodings: https://www.w3.org/International/questions/qa-what-is-encoding
+human_rights['clean_text'] = human_rights['clean_text'].str.encode('ascii', 'ignore').str.decode('ascii')
+
+
+# In[17]:
+
+
+print(human_rights['clean_text'][0][:1000])
+
+
 # ### Remove extra spaces
 
-# In[13]:
+# In[18]:
 
 
 import regex as re
 human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\s+', ' ', regex = True)
 
 
-# In[14]:
+# In[19]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -212,13 +206,13 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Convert to lowercase
 
-# In[15]:
+# In[20]:
 
 
 human_rights['clean_text'] = human_rights['clean_text'].str.lower()
 
 
-# In[16]:
+# In[21]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -226,35 +220,29 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Lemmatize
 
-# In[17]:
+# In[25]:
 
 
-# import spacy
-
-
-# In[18]:
-
-
-# !python -m spacy download en_core_web_sm
+get_ipython().system('python -m spacy download en_core_web_sm')
 # !python -m spacy download en_core_web_lg
 
 
-# In[19]:
+# In[26]:
 
 
-# nlp = spacy.load('en_core_web_lg')
-# human_rights['clean_text'] = human_rights['clean_text'].apply(lambda row: ' '.join([w.lemma_ for w in nlp(row)]))
+nlp = spacy.load('en_core_web_sm')
+human_rights['clean_text'] = human_rights['clean_text'].apply(lambda row: ' '.join([w.lemma_ for w in nlp(row)]))
 
 
-# In[20]:
+# In[27]:
 
 
-# print(human_rights['clean_text'][0])
+print(human_rights['clean_text'][0])
 
 
 # ### View the updated data frame
 
-# In[21]:
+# In[28]:
 
 
 human_rights
@@ -262,13 +250,9 @@ human_rights
 
 # ## Unsupervised learning with `TfidfVectorizer()`
 # 
-# Remember `CountVectorizer()` for creating Bag of Word models? Bag of Words models are inputs for [Latent Dirichlet allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation). 
-# 
-# However, let's extend this idea to `TfidfVectorizer()`. Each row will still be a colunm in our matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies. 
-# 
-# This will be the input for [Truncated Singular Value Decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition) instead of LDA. 
+# Remember `CountVectorizer()` for creating Bag of Word models? We can extend this idea of counting words, to _counting unique words_ within a document relative to the rest of the corpus with `TfidfVectorizer()`. Each row will still be a document in the document term matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies. 
 
-# In[22]:
+# In[29]:
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -280,13 +264,13 @@ tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3),
 tf_sparse = tf_vectorizer.fit_transform(human_rights['clean_text'])
 
 
-# In[23]:
+# In[30]:
 
 
 tf_sparse.shape
 
 
-# In[24]:
+# In[31]:
 
 
 print(tf_sparse)
@@ -294,7 +278,7 @@ print(tf_sparse)
 
 # ### Convert the tfidf sparse matrix to data frame
 
-# In[25]:
+# In[48]:
 
 
 tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names())
@@ -303,7 +287,7 @@ tfidf_df
 
 # ### View 20 highest weighted words
 
-# In[26]:
+# In[49]:
 
 
 tfidf_df.max().sort_values(ascending = False).head(n = 20)
@@ -311,7 +295,7 @@ tfidf_df.max().sort_values(ascending = False).head(n = 20)
 
 # ### Add country name to `tfidf_df`
 
-# In[27]:
+# In[50]:
 
 
 # wrangle the country names from the human_rights data frame
@@ -320,13 +304,13 @@ countries = list(countries)
 countries
 
 
-# In[28]:
+# In[51]:
 
 
 tfidf_df['COUNTRY'] = countries
 
 
-# In[29]:
+# In[52]:
 
 
 tfidf_df
@@ -336,70 +320,12 @@ tfidf_df
 # 
 # Change the country names to view their highest rated terms.
 
-# In[30]:
+# In[53]:
 
 
 country = tfidf_df[tfidf_df['COUNTRY'] == 'jordan']
 country.max(numeric_only = True).sort_values(ascending = False).head(20)
 
-
-# ### Singular value decomposition
-# 
-# ![tsvd](img/tsvd.png)
-# 
-# [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2021/06/part-16-step-by-step-guide-to-master-nlp-topic-modelling-using-lsa/)
-# 
-# * Look ahead to Chapter 5 for new techniques in topic modeling - [BERTopic!](Chapter5.ipynb)
-
-# In[31]:
-
-
-from sklearn.decomposition import TruncatedSVD
-
-tsvd = TruncatedSVD(n_components = 5, 
-                   random_state = 1, 
-                   algorithm = 'arpack')
-tsvd.fit(tf_sparse)
-
-
-# In[32]:
-
-
-print(tsvd.explained_variance_ratio_)
-
-
-# In[33]:
-
-
-print(tsvd.singular_values_)
-
-
-# In[34]:
-
-
-def topics(model, feature_names, n_top_words):
-    for topic_idx, topic in enumerate(model.components_):
-        print("\nTopic #{}:".format(topic_idx))
-        print(" ".join([feature_names[i]
-                        for i in topic.argsort()[:-n_top_words - 1:-1]]))
-
-
-# In[35]:
-
-
-tf_features = tf_vectorizer.get_feature_names()
-topics(tsvd, tf_features, 20)
-
-
-# ## UN HRC text analysis - what next? 
-# 
-# Keep in mind that we have not even begun to consider named entities and parts of speech. How might country names be swamping the five topics produced? 
-# 
-# [Read this stack overflow post to learn about the possibility of having too few documents in your corpus](https://stats.stackexchange.com/questions/302965/some-topics-with-all-equal-weights-when-using-latentdirichletallocation-from-sci)
-# 
-# [Also, read this post about how to grid search for the best topic models](https://www.machinelearningplus.com/nlp/topic-modeling-python-sklearn-examples/)
-# 
-# Use BERTopic (see Chapter 5 in this book)
 
 # ## Sentiment analysis
 # 
@@ -409,9 +335,9 @@ topics(tsvd, tf_features, 20)
 # 
 # [Repustate](https://www.repustate.com/blog/sentiment-analysis-challenges-with-solutions/)
 
-# ### Download the nltk built-in movie reviews dataset
+# ### Download the nltk built movie reviews dataset
 
-# In[36]:
+# In[54]:
 
 
 import nltk
@@ -421,7 +347,7 @@ nltk.download("movie_reviews")
 
 # ### Define x (reviews) and y (judgements) variables
 
-# In[37]:
+# In[55]:
 
 
 # Extract our x (reviews) and y (judgements) variables
@@ -429,7 +355,7 @@ reviews = [movie_reviews.raw(fileid) for fileid in movie_reviews.fileids()]
 judgements = [movie_reviews.categories(fileid)[0] for fileid in movie_reviews.fileids()]
 
 
-# In[38]:
+# In[56]:
 
 
 # Save in a dataframe
@@ -438,7 +364,7 @@ movies = pd.DataFrame({"Reviews" : reviews,
 movies.head()
 
 
-# In[39]:
+# In[57]:
 
 
 movies.shape
@@ -446,7 +372,7 @@ movies.shape
 
 # ### Shuffle the reviews
 
-# In[40]:
+# In[58]:
 
 
 import numpy as np
@@ -454,20 +380,18 @@ from sklearn.utils import shuffle
 x, y = shuffle(np.array(movies.Reviews), np.array(movies.Judgements), random_state = 1)
 
 
-# In[41]:
+# In[59]:
 
 
 # change x[0] and y[0] to see different reviews
 x[0], print("Human review was:", y[0])
 
 
-# ### Pipelines
+# ### Pipelines - one example
 # 
 # scikit-learn offers hand ways to build machine learning pipelines: https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
 
-# ### One standard way
-
-# In[42]:
+# In[61]:
 
 
 # standard training/test split (no cross validation)
@@ -487,7 +411,7 @@ logit_class = LogisticRegression(solver = 'liblinear',
 model = logit_class.fit(x_train, y_train)
 
 
-# In[43]:
+# In[62]:
 
 
 # test set accuracy
@@ -496,7 +420,7 @@ model.score(x_test, y_test)
 
 # ### $k$-fold cross-validated model
 
-# In[44]:
+# In[63]:
 
 
 # Cross-validated model!
@@ -517,7 +441,7 @@ print(scores, np.mean(scores))
 
 # ### Top 25 features for positive and negative reviews
 
-# In[45]:
+# In[64]:
 
 
 feature_names = tfidf.get_feature_names()
@@ -530,7 +454,7 @@ top25neg = np.argsort(model.coef_[0])[:25]
 print(list(feature_names[j] for j in top25neg))
 
 
-# In[46]:
+# In[65]:
 
 
 new_bad_review = "This was the most awful worst super bad movie ever!"
@@ -540,7 +464,7 @@ features = tfidf.transform([new_bad_review])
 model.predict(features)
 
 
-# In[47]:
+# In[66]:
 
 
 new_good_review = 'WHAT A WONDERFUL, FANTASTIC MOVIE!!!'
@@ -550,17 +474,28 @@ features = tfidf.transform([new_good_review])
 model.predict(features)
 
 
-# In[48]:
+# In[68]:
 
 
-# type another review here
+# try a more complex statement
 my_review = 'I hated this movie, even though my friend loved it'
 my_features = tfidf.transform([my_review])
 model.predict(my_features)
 
 
-# ## Quiz - 20 newsgroups dataset
+# ## UN HRC text analysis - what next?
 # 
-# Go through the 20 newsgroups text dataset to get familiar with newspaper data: https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html
+# What next? Keep in mind that we have not even begun to consider named entities and parts of speech. What problems immediately jump out from the above examples, such as with the number and uniqueness of country names?
+# 
+# The next two chapters introduce powerful text preprocessing and analysis techniques. Read ahead to see how we can handle roadblocks such as these. 
+# 
+# [Chapter 9](https://eastbayev.github.io/SSDS-TAML/fall2022/9_spaCy_textaCy_intros.html) provides introductions to the spaCy and textaCy Python libraries. 
+# 
+# [Chapter 10](https://eastbayev.github.io/SSDS-TAML/fall2022/10_BERTopic.html) provides an application of the BERTopic model. 
+
+# ## Exercise - text classification
 # 
 # "The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date."
+# 
+# 1. [Read through this 20 newsgroups dataset example](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html) to get familiar with newspaper data. 
+# 2. Do you best to understand and explain what is happening at each step of the workflow. 

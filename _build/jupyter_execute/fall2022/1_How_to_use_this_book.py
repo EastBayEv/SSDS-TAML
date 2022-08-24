@@ -64,6 +64,8 @@ print("\nYour lucky card for " + today + " " + date + " is: " + select_value + "
 # 
 # 1. You will find challenge exercises to work on at the end of each chapter. They will frequently require you to write code such as that found in the cell at the top of this notebook. 
 # 
+# Solutions to these exercises can be found in the "Solutions" chapter.
+# 
 # 2. Click the "Colab" badge at the top of this notebook to open it in the Colaboratory environment. Press `shift` and `enter` simultaneously on your keyboard to run the code and draw your lucky card!
 
 # ## Start coding

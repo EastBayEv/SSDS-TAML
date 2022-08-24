@@ -3,11 +3,11 @@
 
 # # Chapter 7 - Core machine learning concepts; building text vocabularies
 
-# 2022 January 26
+# 2022 August 24
 
 # ![ml](img/ml.png)
 # 
-# [towardsdatascience.com - figure above and quotes below](https://towardsdatascience.com/artificial-intelligence-vs-machine-learning-vs-deep-learning-2210ba8cc4ac) 
+# [towardsdatascience.com](https://towardsdatascience.com/artificial-intelligence-vs-machine-learning-vs-deep-learning-2210ba8cc4ac) 
 
 # In[1]:
 
