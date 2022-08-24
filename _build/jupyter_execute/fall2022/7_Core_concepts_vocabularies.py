@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Chapter 2 - Core machine learning concepts; building text vocabularies
+# # Chapter 7 - Core machine learning concepts; building text vocabularies
 
 # 2022 January 26
 

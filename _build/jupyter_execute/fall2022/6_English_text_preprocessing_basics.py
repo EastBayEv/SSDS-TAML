@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 6 - English text preprocessing basics
+# # Chapter 6 - English text preprocessing basics
 
 # 2022 January 19
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Chapter 5 - New Developments: Topic Modeling with BERTopic! 
+# # Chapter 10 - New Developments: Topic Modeling with BERTopic! 
 # 
 # 2022 July 30
 # 
