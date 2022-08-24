@@ -14,11 +14,6 @@
 # 1. **The center portion** contains the main text. Here, goals, concepts, vocabulary, objectives, and code will be presented and explained. 
 # 
 # Below is a crude program that randomly draws a lucky card by randomly sampling a card and suit, joins them together to form the welcome message, and shows the output on the screen. 
-# 
-# ## Exercises
-# 
-# 1. You will find challenge exercises to work on at the end of each chapter. 
-# 2. Draw your lucky card. If you are in a Jupyter Notebook environment, click the cell below and press `shift` and `enter` simultaneously on your keyboard to run the code and draw your lucky card:  
 
 # In[1]:
 
@@ -65,10 +60,11 @@ print("\nYour lucky card for " + today + " " + date + " is: " + select_value + "
 # 
 # Any extra time will be reserved for consulting, talking about projects, etc.
 
-# ## Challenge
+# ## Exercises
 # 
-# 1. Click the "Colab" badge at the top of this notebook to open it in the Colaboratory environment. 
-# 2. What is your lucky card for today? 
+# 1. You will find challenge exercises to work on at the end of each chapter. They will frequently require you to write code such as that found in the cell at the top of this notebook. 
+# 
+# 2. Click the "Colab" badge at the top of this notebook to open it in the Colaboratory environment. Press `shift` and `enter` simultaneously on your keyboard to run the code and draw your lucky card!
 
 # ## Start coding
 # 

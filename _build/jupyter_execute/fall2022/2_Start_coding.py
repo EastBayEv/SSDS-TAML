@@ -3,7 +3,7 @@
 
 # # Chapter 2 - Start coding
 # 
-# There are several mediums in which to program Python. 
+# You can program Python in several different environments: 
 # 
 # 1. Google Colab
 # 2. Jupyter Lab via Binder
@@ -17,6 +17,11 @@
 # Right-click the Colab badge at the top of each chapter that contains runnable code. 
 # 
 # Click the `Run` button in the toolbar, or press `shift` and `enter` on your keyboard to execute the cell. 
+# 
+# * Although there are some differences (keyboard shortcuts and runtimes, for example), Google Colab functions similarly to Jupyter Lab and Notebooks. 
+# 
+# **Save your work** by clicking "File" --> "Download"
+# ![](img/colab_save_notebook.png)
 
 # ## 2. Jupyter Lab 
 # 
@@ -115,13 +120,13 @@
 # #### git clone
 # Git users open a Terminal and type: `git clone https://github.com/EastBayEv/SSDS-TAML.git`
 
-# ## Install external libraries
+# ### Install external libraries
 # 
 # Install user-defined software libraries to enhance Python's functionality. In a new notebook cell type `!pip install <library name>`, e.g.: 
 # * `!pip install pandas` 
 # * `!pip install seaborn`
 
-# ## Dead kernel? 
+# ### Dead kernel? 
 # 
 # The notebook kernel will fail from time to time, which is normal. Simply click "Kernel" from the File menu and one of the "Restart" options.
 
@@ -131,9 +136,13 @@
 # 
 # ![terminal](img/terminal.png)
 
-# ## If you accidentally delete a Jupyter Notebook ...
+# ### If you accidentally delete a Jupyter Notebook ...
 # 
 # Check your operating system's Recycle Bin!
+
+# ## 4. Text editors
+# 
+# You might find that Jupyter environments are too limiting for your task. Using a text editor to write your scripts and run them via the command line is another common option. Contact SSDS if you want to learn more!
 
 # ## Python basics
 # 

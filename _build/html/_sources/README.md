@@ -14,6 +14,6 @@ This is relaxed, low-stakes environments for beginners who have little or no exp
     * AM session: 10AM-12PM
     * PM session: 1PM-3PM
     
-[Click here for registration information!](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+**Registration information coming soon!**
 
 > Hosted by the Text Analysis and Machine Learning Working Group (TAML) at Software and Serivces for Data Science (SSDS) at the Stanford University Cecil H. Green Library. 
