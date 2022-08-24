@@ -4,7 +4,7 @@ This is the Jupyter Book for the Text Analysis and Machine Learning (TAML) Group
 
 # Fall Quarter 2022 Text Analysis and Machine Learning Bootcamp
 
-![Ralf Kunze from Pixabay](fall2022/img/fallbootcamp.jpg)
+![triviz](fall2022/img/triviz.png)
 
 Do you want to **learn Python** but don't know how to get started? Attend the Fall Quarter 2022 Text Analysis and Machine Learning Bootcamp! 
 
