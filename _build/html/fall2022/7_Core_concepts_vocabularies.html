@@ -459,6 +459,16 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bias-in-research">
+   Bias in research
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ethical-considerations">
+   Ethical considerations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ols-example-by-hand">
    OLS example - by “hand”
   </a>
@@ -546,8 +556,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#define-your-logistic-regression-object">
-     Define your logistic regression object
+    <a class="reference internal nav-link" href="#define-the-logistic-regression-object">
+     Define the logistic regression object
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -562,8 +572,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fit-the-model-to-the-training-data-0-84-accuracy">
-     Fit the model to the training data (0.84 accuracy)
+    <a class="reference internal nav-link" href="#fit-the-model-to-the-training-data">
+     Fit the model to the training data
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -572,8 +582,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculate-test-set-accuracy-0-81-accuracy">
-     Calculate test set accuracy (0.81 accuracy)
+    <a class="reference internal nav-link" href="#calculate-test-set-accuracy">
+     Calculate test set accuracy
     </a>
    </li>
   </ul>
@@ -626,8 +636,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quiz-classic-horror-novel-vocabulary">
-   Quiz - Classic horror novel vocabulary
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
   </a>
  </li>
 </ul>
@@ -694,6 +704,16 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bias-in-research">
+   Bias in research
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ethical-considerations">
+   Ethical considerations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ols-example-by-hand">
    OLS example - by “hand”
   </a>
@@ -781,8 +801,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#define-your-logistic-regression-object">
-     Define your logistic regression object
+    <a class="reference internal nav-link" href="#define-the-logistic-regression-object">
+     Define the logistic regression object
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -797,8 +817,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fit-the-model-to-the-training-data-0-84-accuracy">
-     Fit the model to the training data (0.84 accuracy)
+    <a class="reference internal nav-link" href="#fit-the-model-to-the-training-data">
+     Fit the model to the training data
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -807,8 +827,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculate-test-set-accuracy-0-81-accuracy">
-     Calculate test set accuracy (0.81 accuracy)
+    <a class="reference internal nav-link" href="#calculate-test-set-accuracy">
+     Calculate test set accuracy
     </a>
    </li>
   </ul>
@@ -861,8 +881,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quiz-classic-horror-novel-vocabulary">
-   Quiz - Classic horror novel vocabulary
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
   </a>
  </li>
 </ul>
@@ -889,12 +909,10 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sklearn in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (0.0)
 Requirement already satisfied: scikit-learn in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from sklearn) (1.1.2)
+Requirement already satisfied: joblib&gt;=1.0.0 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from scikit-learn-&gt;sklearn) (1.1.0)
 Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from scikit-learn-&gt;sklearn) (3.1.0)
 Requirement already satisfied: scipy&gt;=1.3.2 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from scikit-learn-&gt;sklearn) (1.9.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.17.3 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from scikit-learn-&gt;sklearn) (1.22.4)
-Requirement already satisfied: joblib&gt;=1.0.0 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from scikit-learn-&gt;sklearn) (1.1.0)
+Requirement already satisfied: numpy&gt;=1.17.3 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from scikit-learn-&gt;sklearn) (1.22.4)
 </pre></div>
 </div>
 </div>
@@ -921,9 +939,8 @@ Requirement already satisfied: joblib&gt;=1.0.0 in /Users/evanmuzzall/.local/sha
 </div>
 <section id="what-is-machine-learning">
 <h2>What is machine learning?<a class="headerlink" href="#what-is-machine-learning" title="Permalink to this headline">#</a></h2>
-<p>Machine learning is a toolbox for modeling, investigating, and understanding data. To understand machine learning, a handful of key terms need to be defined.</p>
-<p><a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a> provides the foundation for this introductory machine learning session.</p>
-<p>Be sure to bookmark the below resources. Try them out with data from the <code class="docutils literal notranslate"><span class="pre">data/</span></code> folder as well as your own data!</p>
+<p>Machine learning is a toolbox for modeling, investigating, and understanding data.</p>
+<p>Be sure to bookmark the below resources. Try out the examples on your own after this lesson!</p>
 <ul class="simple">
 <li><p>scikit-learn tutorials: <a class="reference external" href="https://scikit-learn.org/stable/tutorial/index.html">https://scikit-learn.org/stable/tutorial/index.html</a></p></li>
 <li><p>scikit-learn user guide: <a class="reference external" href="https://scikit-learn.org/stable/user_guide.html">https://scikit-learn.org/stable/user_guide.html</a></p></li>
@@ -1034,25 +1051,21 @@ Requirement already satisfied: joblib&gt;=1.0.0 in /Users/evanmuzzall/.local/sha
 </ul>
 </li>
 </ul>
+</section>
+</section>
+<section id="bias-in-research">
+<h2>Bias in research<a class="headerlink" href="#bias-in-research" title="Permalink to this headline">#</a></h2>
+<p><img alt="citation unknown" src="../_images/bias_res.png" /></p>
+</section>
+<section id="ethical-considerations">
+<h2>Ethical considerations<a class="headerlink" href="#ethical-considerations" title="Permalink to this headline">#</a></h2>
+<p>Begin to familiarize yourself with the many ethnical points to consider along with their real-world implications:</p>
 <ul class="simple">
-<li><p><strong>Bias in research</strong></p></li>
-</ul>
-<p><img alt="bias_res" src="../_images/bias_res.png" /></p>
-<ul class="simple">
-<li><p><strong>Ethical considerations:</strong></p>
-<ul>
-<li><p>Begin to familiarize yourself with the many ethnical points to consider along with their real-world implications:</p>
-<ul>
 <li><p><a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/8025197?casa_token=xyJcglvpeyUAAAAA:_tpPmFLycMFQuTd4UC52Y2C5yxXignXv7OE1rgv01YwzOs2o9j_bMvIQPwD8IW2NT5awRJcl4g">Howard et al, 2017. Addressing bias in machine learning algorithms: A pilot study on emotion recognition for intelligent systems</a></p></li>
 <li><p><a class="reference external" href="https://nyupress.org/9781479837243/algorithms-of-oppression/">Noble, 2018. Algorithms of oppression: How search engines reinforce racism</a></p></li>
 <li><p><a class="reference external" href="https://aisel.aisnet.org/hicss-51/os/topics_in_os/6/">Yapo and Weiss, 2018. Ethical implications of bias in machine learning</a></p></li>
 <li><p><a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/3457607?casa_token=HkkFHCUfRh0AAAAA%3Az5PprDD4p2VDEyZD7KeJzl67tlpTTA48RsIlqcqDYLROEfyJMTzHRjdYYN8SheqDRkvt_H1XXojANQ">Mehrabi et al, 2021. A survey on bias and fairness in machine learning</a></p></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</section>
 </section>
 <section id="ols-example-by-hand">
 <h2>OLS example - by “hand”<a class="headerlink" href="#ols-example-by-hand" title="Permalink to this headline">#</a></h2>
@@ -1340,7 +1353,6 @@ Name: y, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. Calculate RMSE - the square root of summed squared error divided by the length of y</span>
-<span class="kn">import</span> <span class="nn">math</span>
 <span class="n">RMSE</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sum_error_sq</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">RMSE</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
@@ -2039,16 +2051,13 @@ True
 </div></div></div>
 </div>
 </section>
-<section id="define-your-logistic-regression-object">
-<h3>Define your logistic regression object<a class="headerlink" href="#define-your-logistic-regression-object" title="Permalink to this headline">#</a></h3>
+<section id="define-the-logistic-regression-object">
+<h3>Define the logistic regression object<a class="headerlink" href="#define-the-logistic-regression-object" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 
 <span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span> <span class="o">=</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">)</span>
-
-<span class="c1"># Use something like the code below for multi-class classification</span>
-<span class="c1"># lr = LogisticRegression(multi_class=&#39;multinomial&#39;, solver=&#39;lbfgs&#39;)</span>
 </pre></div>
 </div>
 </div>
@@ -2120,8 +2129,9 @@ True
 </div>
 </div>
 </section>
-<section id="fit-the-model-to-the-training-data-0-84-accuracy">
-<h3>Fit the model to the training data (0.84 accuracy)<a class="headerlink" href="#fit-the-model-to-the-training-data-0-84-accuracy" title="Permalink to this headline">#</a></h3>
+<section id="fit-the-model-to-the-training-data">
+<h3>Fit the model to the training data<a class="headerlink" href="#fit-the-model-to-the-training-data" title="Permalink to this headline">#</a></h3>
+<p>And view the classification accuracy</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -2133,8 +2143,7 @@ True
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># View the accuracy</span>
-<span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2166,8 +2175,8 @@ True
 </div>
 </div>
 </section>
-<section id="calculate-test-set-accuracy-0-81-accuracy">
-<h3>Calculate test set accuracy (0.81 accuracy)<a class="headerlink" href="#calculate-test-set-accuracy-0-81-accuracy" title="Permalink to this headline">#</a></h3>
+<section id="calculate-test-set-accuracy">
+<h3>Calculate test set accuracy<a class="headerlink" href="#calculate-test-set-accuracy" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_score</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
@@ -2193,9 +2202,6 @@ True
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[34 10]
  [ 9 47]]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -2772,12 +2778,30 @@ True
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adelie       152
+Gentoo       124
+Chinstrap     68
+Name: species, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="quiz-classic-horror-novel-vocabulary">
-<h2>Quiz - Classic horror novel vocabulary<a class="headerlink" href="#quiz-classic-horror-novel-vocabulary" title="Permalink to this headline">#</a></h2>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
-<li><p>Create a single sparse data frame that contains the vocabulary for <em>Frankenstein</em> and <em>Dracula</em>. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts.</p></li>
+<li><p>Investigate classic horror novel vocabulary. Create a single sparse data frame that contains the vocabulary for <em>Frankenstein</em> and <em>Dracula</em>. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts.</p></li>
+<li><p>What if you have more than two classes? Rewrite the data preprocessing steps in a new notebook to predict penguin species (Adelie, Gentoo, or Chinstrap). You could use something like this for multi-class classification:
+<code class="docutils literal notranslate"><span class="pre">lr</span> <span class="pre">=</span> <span class="pre">LogisticRegression(multi_class='multinomial',</span> <span class="pre">solver='lbfgs')</span></code></p></li>
+<li><p>Skip ahead to Exercise # 2 about the 20 newsgroups dataset in Chapter 8 “Document encoding, sentiment analysis, and text classification” to see another example for predicting text.</p></li>
 </ol>
 </section>
 </section>

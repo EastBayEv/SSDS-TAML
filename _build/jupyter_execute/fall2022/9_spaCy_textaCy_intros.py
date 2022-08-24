@@ -5,10 +5,10 @@
 # 
 # 2022 August 22
 
-# In[ ]:
+# In[1]:
 
 
-
+Check out the [spaCy 101](https://spacy.io/usage/spacy-101) guide
 
 
 # ## Topic modeling

@@ -146,12 +146,6 @@ print(type(amount))
 1 + 1
 
 
-# In[14]:
-
-
-get_ipython().run_line_magic('pinfo', 'dict')
-
-
 # ## Data structures
 # 
 # Data can be stored in a variety of ways. Regardless, we use Python to **index** (positionally reference) a portion of a larger data structure or collection. 
@@ -166,14 +160,14 @@ get_ipython().run_line_magic('pinfo', 'dict')
 
 # ## 1. List
 
-# In[15]:
+# In[14]:
 
 
 animals = ['shark', 'dolphin']
 animals[0]
 
 
-# In[16]:
+# In[15]:
 
 
 animals[1]
@@ -183,7 +177,7 @@ animals[1]
 # 
 # When this is the case, we can use multi-indices to extract just the piece of data we want. For example, to return only the element "tree":
 
-# In[17]:
+# In[16]:
 
 
 # To get an element from a list within a list, double-index the original list!
@@ -193,7 +187,7 @@ print(animals[3][0])
 
 # Or, to just return the element "cat":
 
-# In[18]:
+# In[17]:
 
 
 print(animals[2][1])
@@ -201,7 +195,7 @@ print(animals[2][1])
 
 # Lists can also contain elements of different types:
 
-# In[19]:
+# In[18]:
 
 
 chimera = ['lion', 0.5, 'griffin', 0.5]
@@ -211,7 +205,7 @@ print(type(chimera[1]))
 
 # ## 2. Dictionary
 
-# In[20]:
+# In[19]:
 
 
 apple = {'name': 'apple', 'color': ['red', 'green'], 'recipes': ['pie', 'salad', 'sauce']}
@@ -219,7 +213,7 @@ orange = {'name': 'orange', 'color': 'orange', 'recipes': ['juice', 'marmalade',
 apple
 
 
-# In[21]:
+# In[20]:
 
 
 orange
@@ -229,7 +223,7 @@ orange
 # 
 # `fruits` is the key. Call the key to see the value(s)!
 
-# In[22]:
+# In[21]:
 
 
 fruits = {'fruits': [apple, orange]}
@@ -239,7 +233,7 @@ fruits
 
 # To index just "juice", combine dictionary key and list techniques to tunnel into the hierarchical structure of the dictionary and extract just what you want:
 
-# In[23]:
+# In[22]:
 
 
 fruits['fruits'][1]['recipes'][0]
@@ -263,7 +257,7 @@ fruits['fruits'][1]['recipes'][0]
 # 3. `'data/frankenstein.txt'` is the argument that we provide to the `open` function. This is the file path location for the Frankenstein book.
 # 4. `.read()` reads the file as text. 
 
-# In[24]:
+# In[23]:
 
 
 frank = open('data/frankenstein.txt').read()
@@ -280,14 +274,14 @@ print(frank[:1000])
 # 
 # For this part, we will use the [Pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html) Python library. Using additional software libraries requires two steps: 
 
-# In[25]:
+# In[24]:
 
 
 # Step 1. Physically download and install the library's files (unhashtab the line below to run)
 # !pip install pandas
 
 
-# In[26]:
+# In[25]:
 
 
 # Step 2. link the pandas library to our current notebook
@@ -301,23 +295,33 @@ import pandas as pd
 # 
 # Save it in the variable named `gap`
 
-# In[27]:
+# In[26]:
 
 
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[28]:
+# In[27]:
 
 
 # View the data
 print(gap)
 
 
-# In[29]:
+# In[28]:
 
 
 gap
+
+
+# ## Getting help
+# 
+# The help pages in Python are generally quite useful and tell you everything you need to know - you just don't know it yet! Type a question mark `?` before a funciton to view its help pages.
+
+# In[29]:
+
+
+# ?pd.read_csv
 
 
 # ## Error messages

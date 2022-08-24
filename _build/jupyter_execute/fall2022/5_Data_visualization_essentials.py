@@ -70,12 +70,19 @@ plt.show()
 # In[3]:
 
 
+# load gapminder dataset
+gap = pd.read_csv("data/gapminder-FiveYearData.csv")
+
+
+# In[4]:
+
+
 # all data
 sns.histplot(data = gap,
             x = 'lifeExp'); 
 
 
-# In[8]:
+# In[5]:
 
 
 # by continent
@@ -88,14 +95,14 @@ sns.histplot(data = gap,
 # 
 # Boxplots can be used to visualize one distribution as well, and illustrate different aspects of the table of summary statistics.
 
-# In[10]:
+# In[6]:
 
 
 # summary statistics
 gap.describe()
 
 
-# In[12]:
+# In[7]:
 
 
 # all data
@@ -104,13 +111,13 @@ sns.boxplot(data = gap,
             color = 'gray');
 
 
-# In[13]:
+# In[8]:
 
 
 gap.groupby('continent').count()
 
 
-# In[14]:
+# In[9]:
 
 
 # by continent
@@ -119,7 +126,7 @@ sns.boxplot(data = gap,
             y = 'lifeExp').set_title('Boxplots');
 
 
-# In[15]:
+# In[10]:
 
 
 # custom colors
@@ -133,7 +140,7 @@ sns.boxplot(data = gap,
 # 
 # Scatterplots are useful to illustrate the relationship between two continuous variables. Below are several options for you to try.
 
-# In[16]:
+# In[11]:
 
 
 ### change figure size
@@ -192,35 +199,35 @@ ex1.set_ylabel("GDP per cap (US$)", fontsize = 20);
 # 
 # ![antarctica](img/antarctica.png)
 
-# In[16]:
+# In[12]:
 
 
 # get help with the question mark
 # sns.scatterplot?
 
 
-# In[17]:
+# In[13]:
 
 
 # load penguins data
 penguins = pd.read_csv('data/penguins.csv')
 
 
-# In[18]:
+# In[14]:
 
 
 # hint: 
 penguins.groupby('island').count()
 
 
-# In[19]:
+# In[15]:
 
 
 # hint:
 penguins.groupby('island').mean()
 
 
-# In[20]:
+# In[16]:
 
 
 # 1. relational - scatterplot
@@ -228,7 +235,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[21]:
+# In[17]:
 
 
 # 2. relational - lineplot
@@ -236,7 +243,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[22]:
+# In[18]:
 
 
 # 3. distributions - histplot
@@ -244,7 +251,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[23]:
+# In[19]:
 
 
 # 4. distributions - kdeplot
@@ -252,7 +259,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[24]:
+# In[20]:
 
 
 # 5. distributions - ecdfplot
@@ -260,7 +267,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[25]:
+# In[21]:
 
 
 # 6. distributions - rugplot
@@ -268,7 +275,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[26]:
+# In[22]:
 
 
 # 7. categorical - stripplot
@@ -276,7 +283,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[27]:
+# In[23]:
 
 
 # 8. categorical - swarmplot
@@ -284,7 +291,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[28]:
+# In[24]:
 
 
 # 9. categorical - boxplot
@@ -292,7 +299,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[28]:
+# In[25]:
 
 
 # 10. categorical - violinplot
@@ -300,7 +307,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[29]:
+# In[26]:
 
 
 # 11. categorical - pointplot
@@ -308,7 +315,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[30]:
+# In[27]:
 
 
 # 12. categorical - barplot
@@ -330,7 +337,7 @@ penguins.groupby('island').mean()
 # 
 # See the survey and correct response rate of the [Sustainable Development Misconception Study 2020](https://www.gapminder.org/ignorance/studies/sdg2020/)
 
-# In[31]:
+# In[28]:
 
 
 # 1. relational - scatterplot
@@ -338,7 +345,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[32]:
+# In[29]:
 
 
 # 2. relational - lineplot
@@ -346,7 +353,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[33]:
+# In[30]:
 
 
 # 3. distributions - histplot
@@ -354,7 +361,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[34]:
+# In[31]:
 
 
 # 4. distributions - kdeplot
@@ -362,7 +369,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[35]:
+# In[32]:
 
 
 # 5. distributions - ecdfplot
@@ -370,7 +377,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[36]:
+# In[33]:
 
 
 # 6. distributions - rugplot
@@ -378,7 +385,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[37]:
+# In[34]:
 
 
 # 7. categorical - stripplot
@@ -386,7 +393,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[38]:
+# In[35]:
 
 
 # 8. categorical - swarmplot
@@ -394,7 +401,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[39]:
+# In[36]:
 
 
 # 9. categorical - boxplot
@@ -402,7 +409,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[40]:
+# In[37]:
 
 
 # 10. categorical - violinplot
@@ -410,7 +417,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[41]:
+# In[38]:
 
 
 # 11. categorical - pointplot
@@ -418,7 +425,7 @@ penguins.groupby('island').mean()
 
 
 
-# In[42]:
+# In[39]:
 
 
 # 12. categorical - barplot

@@ -26,6 +26,7 @@ import pandas as pd
 # In[2]:
 
 
+# import the gapminder dataset
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 

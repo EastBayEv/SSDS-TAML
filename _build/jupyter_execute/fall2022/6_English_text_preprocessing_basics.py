@@ -10,27 +10,14 @@
 # Unstructured text - text you find in the wild in books and websites - is generally not amenable to analysis. Before it can be analyzed, the text needs to be standardized to a format so that Python can recognize each unit of meaning (called a "token") as unique, no matter how many times it occurs and how it is stylized. 
 # 
 # Although not an exhaustive list, some key steps in preprocessing text include:  
-# * Standardizing text casing and text spacing 
+# * Standardizing text casing and spacing 
 # * Remove punctuation and special characters/symbols
 # * Remove stop words
 # * Stem or lemmatize: convert all non-base words to their base form 
 # 
-# Stemming/lemmatization and stop words (and some punctuation) are language-specific. NLTK works for English out-of-the-box, but you'll need different code to work with other languages. Some languages (e.g. Chinese) also require *segmentation*: artificially inserting spaces between words. If you want to do text pre-processing for other languages, please let us know and we can put together a notebook for you.
+# Stemming/lemmatization and stop words (and some punctuation) are language-specific. NLTK works for English out-of-the-box, but you'll need different code to work with other languages. Some languages (e.g. Chinese) also require *segmentation*: artificially inserting spaces between words. If you want to do text pre-processing for other languages, please let us know and we can help!
 
 # In[1]:
-
-
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-from nltk.stem.porter import PorterStemmer
-from string import punctuation
-import pandas as pd
-import seaborn as sns
-from collections import Counter
-import regex as re
-
-
-# In[2]:
 
 
 # ensure you have the proper nltk modules
@@ -41,6 +28,19 @@ nltk.download('wordnet')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('maxent_ne_chunker')
 nltk.download('omw-1.4')
+
+
+# In[2]:
+
+
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk.stem.porter import PorterStemmer
+from string import punctuation
+import pandas as pd
+import seaborn as sns
+from collections import Counter
+import regex as re
 
 
 # In[3]:
@@ -65,7 +65,7 @@ print(message.lower())
 
 # To replace instances of multiple spaces with one, we can use the regex module's 'sub' function:
 # Documentation on regex can be found at: https://docs.python.org/3/library/re.html
-single_spaces_msg = re.sub('\s+', ' ', message) 
+single_spaces_msg = re.sub('\s+', ' ', message)
 print(single_spaces_msg)
 
 
@@ -127,12 +127,13 @@ filtered_text = [word for word in tokens if word not in stopwords.words('english
 
 
 # show only the first 100 words
+# do you see any stopwords?
 print(filtered_text[:100])
 
 
 # ## Lemmatizing/Stemming tokens
 # 
-# Lemmatizating and stemming are related, but different practices. Both processes aim to reduce the inflectional forms of a token to a common base/root. However, how they go about doing so is the key differentiating factor.  
+# Lemmatizating and stemming are related, but are different practices. Both aim to reduce the inflectional forms of a token to a common base/root. However, how they go about doing so is the key differentiating factor.  
 # 
 # Stemming operates by removes the prefixs and/or suffixes of a word. Examples include: 
 # * flooding to flood 
@@ -157,6 +158,7 @@ lmtzr = nltk.WordNetLemmatizer()
 # In[13]:
 
 
+# do you see any differences?
 token_stem  = [ stmer.stem(token) for token in filtered_text]
 
 token_lemma = [ lmtzr.lemmatize(token) for token in filtered_text ]
@@ -199,7 +201,7 @@ df = pd.DataFrame(chunked, columns=['word', 'pos'])
 # In[17]:
 
 
-df.head()
+df.head(n = 10)
 
 
 # In[18]:
@@ -234,19 +236,19 @@ words_df[:20]
 # In[22]:
 
 
+# What would you need to do to improve an approach to word visualization such as this one?
 top_plot = sns.barplot(x = 'word', y = 'count', data = words_df[:20])
 top_plot.set_xticklabels(top_plot.get_xticklabels(),rotation = 40);
 
 
-# ![redwood](img/redwood.png)
-
-# # Quiz: Redwood webscraping
+# ## Exercise - redwoods webscraping
 # 
-# This also works with data scraped from the web. Below is very brief BeautifulSoup example to save the contents of the Sequoioideae (redwood trees) Wikipedia page to a variable named `text`. 
+# ![redwood](img/redwood.png)
+# 
+# This also works with data scraped from the web. Below is very brief BeautifulSoup example to save the contents of the Sequoioideae (redwood trees) Wikipedia page in a variable named `text`. 
 # 
 # 1. Read through the code below
 # 2. Practice by repeating for a webpage of your choice
-# 3. Combine methods on this page to produce a ready-to-be analyzed copy of "Frankenstein.txt". This file is located in the `/data` folder
 
 # In[23]:
 
@@ -276,7 +278,7 @@ soup = BeautifulSoup(response.text, 'html')
 # 
 # HTML (hypertext markup language) is used to structure a webpage and the content it contains, including text.
 # 
-# Below is a handy for loop that finds all everything within paragraph `<p>` tags. 
+# Below is a handy for loop that finds all everything within paragraph `<p>`, or paragraph tags. 
 
 # In[25]:
 
@@ -296,7 +298,7 @@ print(text)
 
 # ## Regular expressions
 # 
-# Remember how we did preprocessing the long way above? You might find that using egular expressions are easier. [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code.
+# Remember how we did some regular expression preprocessing above? You could even use a bunch of regular expressions in sequence or simultaneously. [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code.
 
 # In[27]:
 
@@ -314,8 +316,8 @@ text = text.lower()
 print(text)
 
 
-# # Going further: n-grams
+# ## Improving preprocessing accuracy and efficiency
 # 
-# We have used indivual words in this example, but what about [n-grams?](https://en.wikipedia.org/wiki/N-gram) Also read through this [n-gram language model with nltk](https://www.kaggle.com/alvations/n-gram-language-model-with-nltk). 
+# We have used indivual words in this example, but what about [n-grams?](https://en.wikipedia.org/wiki/N-gram) Check out this example as well [n-gram language model with nltk](https://www.kaggle.com/alvations/n-gram-language-model-with-nltk). 
 # 
-# There are also more optimal ways to preprocess your text. Check out the [spaCy 101](https://spacy.io/usage/spacy-101) guide to try it out yourself and attend the CIDR Python Introduction to Text Analysis workshop on February 8, 2022. [Register here](https://appointments.library.stanford.edu/calendar/ssds/cidr-python-text). 
+# Remember these are just the basics. There are more efficient ways to preprocess your text that you will want to consider. Read Chapter 9 "spaCy and textaCy" to learn more!

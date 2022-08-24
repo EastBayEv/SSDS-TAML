@@ -36,11 +36,9 @@ import scipy.sparse
 
 # ## What is machine learning?
 # 
-# Machine learning is a toolbox for modeling, investigating, and understanding data. To understand machine learning, a handful of key terms need to be defined. 
+# Machine learning is a toolbox for modeling, investigating, and understanding data. 
 
-# [scikit-learn](https://scikit-learn.org/stable/) provides the foundation for this introductory machine learning session. 
-# 
-# Be sure to bookmark the below resources. Try them out with data from the `data/` folder as well as your own data! 
+# Be sure to bookmark the below resources. Try out the examples on your own after this lesson!
 # 
 # * scikit-learn tutorials: https://scikit-learn.org/stable/tutorial/index.html
 # * scikit-learn user guide: https://scikit-learn.org/stable/user_guide.html 
@@ -137,18 +135,18 @@ import scipy.sparse
 # 
 #         * **Other:** semi-supervised, etc.
 
-# * **Bias in research**
+# ## Bias in research
 # 
-# ![bias_res](img/bias_res.png)
+# ![citation unknown](img/bias_res.png)
 
-# * **Ethical considerations:** 
+# ## Ethical considerations
 # 
-#     * Begin to familiarize yourself with the many ethnical points to consider along with their real-world implications:
+# Begin to familiarize yourself with the many ethnical points to consider along with their real-world implications:
 #     
-#         * [Howard et al, 2017. Addressing bias in machine learning algorithms: A pilot study on emotion recognition for intelligent systems](https://ieeexplore.ieee.org/abstract/document/8025197?casa_token=xyJcglvpeyUAAAAA:_tpPmFLycMFQuTd4UC52Y2C5yxXignXv7OE1rgv01YwzOs2o9j_bMvIQPwD8IW2NT5awRJcl4g)
-#         * [Noble, 2018. Algorithms of oppression: How search engines reinforce racism](https://nyupress.org/9781479837243/algorithms-of-oppression/)
-#         * [Yapo and Weiss, 2018. Ethical implications of bias in machine learning](https://aisel.aisnet.org/hicss-51/os/topics_in_os/6/)
-#         * [Mehrabi et al, 2021. A survey on bias and fairness in machine learning](https://dl.acm.org/doi/abs/10.1145/3457607?casa_token=HkkFHCUfRh0AAAAA%3Az5PprDD4p2VDEyZD7KeJzl67tlpTTA48RsIlqcqDYLROEfyJMTzHRjdYYN8SheqDRkvt_H1XXojANQ)
+# * [Howard et al, 2017. Addressing bias in machine learning algorithms: A pilot study on emotion recognition for intelligent systems](https://ieeexplore.ieee.org/abstract/document/8025197?casa_token=xyJcglvpeyUAAAAA:_tpPmFLycMFQuTd4UC52Y2C5yxXignXv7OE1rgv01YwzOs2o9j_bMvIQPwD8IW2NT5awRJcl4g)
+# * [Noble, 2018. Algorithms of oppression: How search engines reinforce racism](https://nyupress.org/9781479837243/algorithms-of-oppression/)
+# * [Yapo and Weiss, 2018. Ethical implications of bias in machine learning](https://aisel.aisnet.org/hicss-51/os/topics_in_os/6/)
+# * [Mehrabi et al, 2021. A survey on bias and fairness in machine learning](https://dl.acm.org/doi/abs/10.1145/3457607?casa_token=HkkFHCUfRh0AAAAA%3Az5PprDD4p2VDEyZD7KeJzl67tlpTTA48RsIlqcqDYLROEfyJMTzHRjdYYN8SheqDRkvt_H1XXojANQ)
 
 # ## OLS example - by "hand"
 # 
@@ -286,7 +284,6 @@ print(sum_error_sq)
 
 
 # 3. Calculate RMSE - the square root of summed squared error divided by the length of y
-import math
 RMSE = math.sqrt(sum_error_sq) / len(data.y)
 print(round(RMSE, 5))
 
@@ -436,7 +433,7 @@ clean_penguins['sex'] = clean_penguins['sex'].map({'MALE': 1, 'FEMALE': 0})
 clean_penguins.head()
 
 
-# ### Define your logistic regression object
+# ### Define the logistic regression object
 
 # In[31]:
 
@@ -444,9 +441,6 @@ clean_penguins.head()
 from sklearn.linear_model import LogisticRegression
 
 lr = LogisticRegression(solver = 'liblinear')
-
-# Use something like the code below for multi-class classification
-# lr = LogisticRegression(multi_class='multinomial', solver='lbfgs')
 
 
 # ### Split the `clean_penguins` dataset into training and test sets
@@ -489,7 +483,9 @@ len(y_train)
 len(y_test)
 
 
-# ### Fit the model to the training data (0.84 accuracy)
+# ### Fit the model to the training data
+# 
+# And view the classification accuracy
 
 # In[37]:
 
@@ -500,7 +496,6 @@ lr.fit(x_train, y_train)
 # In[38]:
 
 
-# View the accuracy
 lr.score(x_train, y_train)
 
 
@@ -514,7 +509,7 @@ predictions = lr.predict(x_test)
 predictions
 
 
-# ### Calculate test set accuracy (0.81 accuracy)
+# ### Calculate test set accuracy
 
 # In[40]:
 
@@ -723,6 +718,17 @@ corpus_df
 corpus_df.columns
 
 
-# ## Quiz - Classic horror novel vocabulary
+# In[59]:
+
+
+penguins['species'].value_counts()
+
+
+# ## Exercises
 # 
-# 1. Create a single sparse data frame that contains the vocabulary for _Frankenstein_ and _Dracula_. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. 
+# 1. Investigate classic horror novel vocabulary. Create a single sparse data frame that contains the vocabulary for _Frankenstein_ and _Dracula_. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. 
+# 
+# 2. What if you have more than two classes? Rewrite the data preprocessing steps in a new notebook to predict penguin species (Adelie, Gentoo, or Chinstrap). You could use something like this for multi-class classification: 
+# `lr = LogisticRegression(multi_class='multinomial', solver='lbfgs')`
+# 
+# 3. Skip ahead to Exercise # 2 about the 20 newsgroups dataset in Chapter 8 "Document encoding, sentiment analysis, and text classification" to see another example for predicting text. 
