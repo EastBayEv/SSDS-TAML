@@ -4,8 +4,6 @@ This is the Jupyter Book for the Text Analysis and Machine Learning (TAML) Group
 
 Start by opening Chapter 1 from the left sidebar.
 
-Visit https://ssds.stanford.edu/ to learn more about Software and Services for Data Science, schedule a consultation, or RSVP for a workshop. 
-
 # Fall Quarter 2022 Text Analysis and Machine Learning Bootcamp
 
 ![Ralf Kunze from Pixabay](fall2022/img/fallbootcamp.jpg)
@@ -26,4 +24,8 @@ This is relaxed, low-stakes environments for beginners who have little or no exp
     
 [Click here for registration information!](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
-> Hosted by the Text Analysis and Machine Learning Working Group (TAML) at Software and Serivces for Data Science (SSDS) at the Stanford University Cecil H. Green Library. 
+# Hosted by TAML at SSDS
+
+Hosted by the Text Analysis and Machine Learning Working Group (TAML) at Software and Serivces for Data Science (SSDS) at the Stanford University Cecil H. Green Library. 
+
+Visit https://ssds.stanford.edu/ to learn more SSDS, schedule a consultation, or RSVP for a workshop!

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Chapter 1 - How to use this TAML Jupyter Book
+# # Chapter 1 - How to use this book
 
 # This book provides a reference for the code we present and discuss in the Text Analysis and Machine Learning (TAML) group. While you can actually run the code in the book itself (although it might take awhile to load! see below), think of this book as the single point to access the content, conceptual introductions, and vocabulary terms. 
 # 
