@@ -14,11 +14,16 @@
 # 1. **The center portion** contains the main text. Here, goals, concepts, vocabulary, objectives, and code will be presented and explained. 
 # 
 # Below is a crude program that randomly draws a lucky card by randomly sampling a card and suit, joins them together to form the welcome message, and shows the output on the screen. 
+# 
+# ## Exercises
+# 
+# 1. You will find challenge exercises to work on at the end of each chapter. 
+# 2. Draw your lucky card. If you are in a Jupyter Notebook environment, click the cell below and press `shift` and `enter` simultaneously on your keyboard to run the code and draw your lucky card:  
 
 # In[1]:
 
 
-# Card trick
+# Lucky card
 
 import random
 import calendar
@@ -29,7 +34,7 @@ today = calendar.day_name[date.today().weekday()]
 date = datetime.today().strftime('%Y-%m-%d')
 select_value = random.sample(deck, 1)[0]
 select_suit = random.sample(suit, 1)[0]
-print("\nWelcome to SSDS!")
+print("\nWelcome to TAML at SSDS!")
 print("\nYour lucky card for " + today + " " + date + " is: " + select_value + " of " + select_suit)
 
 
