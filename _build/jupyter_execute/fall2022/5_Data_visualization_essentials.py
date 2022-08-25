@@ -3,6 +3,10 @@
 
 # # Chapter 5 - Data visualization essentials
 
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/5_Data_visualization_essentials.ipynb">
+#   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+# </a>
+
 # ![viz](img/viz.png)
 
 # In[1]:

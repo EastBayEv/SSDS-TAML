@@ -5,6 +5,10 @@
 
 # 2022 August 24
 
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/8_Docencoding_sentanalysis_textclassif.ipynb">
+#   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+# </a>
+
 # In[1]:
 
 

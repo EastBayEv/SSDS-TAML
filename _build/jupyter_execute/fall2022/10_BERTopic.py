@@ -4,7 +4,11 @@
 # # Chapter 10 - New Developments: Topic Modeling with BERTopic! 
 # 
 # 2022 July 30
-# 
+
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/10_BERTopic.ipynb">
+#   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+# </a>
+
 # ![bertopic](img/bert_topic.png)
 
 # ## What is BERTopic? 

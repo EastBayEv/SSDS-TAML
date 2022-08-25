@@ -7,7 +7,7 @@ parts:
 - caption: Python Basics
   chapters:
   - file: fall2022/1_How_to_use_this_book
-  - file: fall2022/2_Start_coding
+  - file: fall2022/2_Python_environments
   - file: fall2022/3_Boilerplate_code_review
   - file: fall2022/4_Numeric_data_wrangling
   - file: fall2022/5_Data_visualization_essentials

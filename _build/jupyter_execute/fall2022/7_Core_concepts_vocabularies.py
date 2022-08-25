@@ -5,6 +5,10 @@
 
 # 2022 August 24
 
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/7_Core_concepts_vocabularies.ipynb">
+#   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+# </a>
+
 # ![ml](img/ml.png)
 # 
 # [towardsdatascience.com](https://towardsdatascience.com/artificial-intelligence-vs-machine-learning-vs-deep-learning-2210ba8cc4ac) 

@@ -5,6 +5,10 @@
 
 # 2022 January 19
 
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/6_English_text_preprocessing_basics.ipynb">
+#   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+# </a>
+
 # ![text](img/text.png)
 
 # Unstructured text - text you find in the wild in books and websites - is generally not amenable to analysis. Before it can be analyzed, the text needs to be standardized to a format so that Python can recognize each unit of meaning (called a "token") as unique, no matter how many times it occurs and how it is stylized. 
