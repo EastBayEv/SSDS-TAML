@@ -3,6 +3,10 @@
 
 # # Chapter 3 - Boilerplate code review
 
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/3_Boilerplate_code_review.ipynb">
+#   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+# </a>
+
 # ![boiler](img/boiler.jpg)
 
 # This chapter explains foundational Python syntax that you can reuse to accomplish many basic data creation, importing, and exporting tasks. 

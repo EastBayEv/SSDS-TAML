@@ -3,6 +3,10 @@
 
 # # Chapter 1 - How to use this book
 
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/1_How_to_use_this_book.ipynb">
+#   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+# </a>
+
 # This book provides a reference for the code we present and discuss in the Text Analysis and Machine Learning (TAML) group. While you can actually run the code in the book itself (although it might take awhile to load! see below), think of this book as the single point to access the content, conceptual introductions, and vocabulary terms. 
 # 
 # Additionally, each chapter with runnable code has a link to open the materials in a Google Colab Python environment. Simply click the Colab badge to open the notebook for a specific chapter. 
