@@ -76,6 +76,6 @@ print("\nYour lucky card for " + today + " " + date + " is: " + select_value + "
 # 
 # Solutions to the challenge exercises can be found in the "Solutions" chapter.
 
-# ## Start coding
+# ## Python environments
 # 
-# Read Chapter 2 "Start Coding" to learn various ways to access the materials and start running code!
+# Read Chapter 2 "Python environments" to learn a few different ways you can start coding in Python. 
