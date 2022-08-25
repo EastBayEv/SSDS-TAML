@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Chapter 6 - English text preprocessing basics
+# # Chapter 7 - English text preprocessing basics
 
 # 2022 January 19
 
@@ -63,7 +63,7 @@ import warnings
 warnings.filterwarnings("ignore", category = DeprecationWarning)
 
 
-# In[3]:
+# In[68]:
 
 
 text = open("data/dracula.txt").read()
@@ -76,7 +76,7 @@ print(text[:100])
 # 
 # Oftentimes in text analysis, identifying occurences of key word(s) is a necessary step. To do so, we may want "apple," "ApPLe," and "apple      " to be treated the same; i.e., as an occurence of the token, 'apple.' To achieve this, we can standardize text casing and spacing: 
 
-# In[9]:
+# In[70]:
 
 
 # Converting all charazcters in a string to lowercase only requires one method: 
@@ -95,20 +95,20 @@ print(single_spaces_msg)
 # 
 # Below, a standard for loop loops through the `punctuation` module to replace any of these characters with nothing.
 
-# In[10]:
+# In[71]:
 
 
 print(punctuation)
 
 
-# In[11]:
+# In[72]:
 
 
 for char in punctuation:
     text = text.lower().replace(char, "")
 
 
-# In[12]:
+# In[73]:
 
 
 print(text[:100])
@@ -118,14 +118,14 @@ print(text[:100])
 # 
 # Split each word on spaces.
 
-# In[13]:
+# In[74]:
 
 
 # .split() returns a list of the tokens in a string, separated by the specified delimiter (default: " ")
 tokens = text.split()
 
 
-# In[14]:
+# In[75]:
 
 
 print(tokens[:20])
@@ -137,13 +137,13 @@ print(tokens[:20])
 # 
 # Below is a list comprehension (a sort of shortcut for loop) that can accomplish this task for us.
 
-# In[15]:
+# In[76]:
 
 
 filtered_text = [word for word in tokens if word not in stopwords.words('english')]
 
 
-# In[16]:
+# In[77]:
 
 
 # show only the first 100 words
@@ -167,7 +167,7 @@ print(filtered_text[:100])
 # 
 # One technique is not strictly better than the other - it's a matter of project needs and proper application. 
 
-# In[17]:
+# In[78]:
 
 
 stmer = nltk.PorterStemmer()
@@ -175,7 +175,7 @@ stmer = nltk.PorterStemmer()
 lmtzr = nltk.WordNetLemmatizer()
 
 
-# In[20]:
+# In[79]:
 
 
 # do you see any differences?
@@ -192,7 +192,7 @@ print(token_lemma[:10])
 # 
 # Part of speech tags are labels given to each word in a text such as verbs, adverbs, nouns, pronouns, adjectives, conjunctions, and their various derivations and subcategories. 
 
-# In[21]:
+# In[80]:
 
 
 tagged = nltk.pos_tag(token_lemma)
@@ -204,7 +204,7 @@ print(nltk.pos_tag(ex_string.split()))
 
 # The output of .pos_tag is a list of tuples (pairs), where the first element is a text token and the second is a part of speech. Note that, in our example string, the token 'refuse' shows up twice - once as a verb, and once as a noun. In the output to .pos_tag, the first tuple with 'refuse' has the 'VBP' tag (present tense verb) and the second tuple has the 'NN' tag (noun). Nifty!
 
-# In[22]:
+# In[81]:
 
 
 chunked = nltk.chunk.ne_chunk(tagged)
@@ -212,19 +212,19 @@ chunked = nltk.chunk.ne_chunk(tagged)
 
 # ## Convert to dataframe
 
-# In[23]:
+# In[82]:
 
 
 df = pd.DataFrame(chunked, columns=['word', 'pos'])
 
 
-# In[26]:
+# In[83]:
 
 
 df.head(n = 10)
 
 
-# In[25]:
+# In[84]:
 
 
 df.shape
@@ -232,7 +232,7 @@ df.shape
 
 # ## Visualize the 20 most frequent words
 
-# In[27]:
+# In[85]:
 
 
 top = df.copy()
@@ -241,19 +241,19 @@ count_words = Counter(top['word'])
 count_words.most_common()[:20]
 
 
-# In[28]:
+# In[86]:
 
 
 words_df = pd.DataFrame(count_words.items(), columns=['word', 'count']).sort_values(by = 'count', ascending=False)
 
 
-# In[29]:
+# In[87]:
 
 
 words_df[:20]
 
 
-# In[31]:
+# In[88]:
 
 
 # What would you need to do to improve an approach to word visualization such as this one?
@@ -309,7 +309,7 @@ top_plot.set_xticklabels(top_plot.get_xticklabels(),rotation = 40);
 # 
 # Set the directory's file path and print the files it contains.
 
-# In[4]:
+# In[23]:
 
 
 import os
@@ -321,7 +321,7 @@ corpus
 
 # ### Store these documents in a data frame
 
-# In[6]:
+# In[24]:
 
 
 # Store in an empty dictionary for conversion to data frame
@@ -341,7 +341,7 @@ human_rights = (pd.DataFrame.from_dict(empty_dictionary,
 
 # ### View the data frame
 
-# In[7]:
+# In[25]:
 
 
 human_rights
@@ -349,7 +349,7 @@ human_rights
 
 # ### View the text of the first document
 
-# In[8]:
+# In[26]:
 
 
 # first thousand characters
@@ -377,19 +377,19 @@ print(human_rights['document_text'][0][:1000])
 
 # ### Remove non-alphanumeric characters/punctuation
 
-# In[11]:
+# In[27]:
 
 
 human_rights['clean_text'] = human_rights['document_text'].str.replace(r'[^\w\s]', ' ', regex = True)
 
 
-# In[12]:
+# In[28]:
 
 
 print(human_rights['clean_text'][0][:1000])
 
 
-# In[13]:
+# In[29]:
 
 
 # view third column
@@ -398,13 +398,13 @@ human_rights
 
 # ### Remove digits
 
-# In[14]:
+# In[30]:
 
 
 human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\d', ' ', regex = True)
 
 
-# In[15]:
+# In[31]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -412,14 +412,14 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Remove unicode characters such as Ð and ð
 
-# In[16]:
+# In[32]:
 
 
 # for more on text encodings: https://www.w3.org/International/questions/qa-what-is-encoding
 human_rights['clean_text'] = human_rights['clean_text'].str.encode('ascii', 'ignore').str.decode('ascii')
 
 
-# In[17]:
+# In[33]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -427,14 +427,14 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Remove extra spaces
 
-# In[18]:
+# In[34]:
 
 
 import regex as re
 human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\s+', ' ', regex = True)
 
 
-# In[19]:
+# In[35]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -442,13 +442,13 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Convert to lowercase
 
-# In[20]:
+# In[36]:
 
 
 human_rights['clean_text'] = human_rights['clean_text'].str.lower()
 
 
-# In[21]:
+# In[37]:
 
 
 print(human_rights['clean_text'][0][:1000])
@@ -456,21 +456,21 @@ print(human_rights['clean_text'][0][:1000])
 
 # ### Lemmatize
 
-# In[25]:
+# In[38]:
 
 
 get_ipython().system('python -m spacy download en_core_web_sm')
 # !python -m spacy download en_core_web_lg
 
 
-# In[26]:
+# In[41]:
 
 
 nlp = spacy.load('en_core_web_sm')
 human_rights['clean_text'] = human_rights['clean_text'].apply(lambda row: ' '.join([w.lemma_ for w in nlp(row)]))
 
 
-# In[27]:
+# In[42]:
 
 
 print(human_rights['clean_text'][0])
@@ -478,7 +478,7 @@ print(human_rights['clean_text'][0])
 
 # ### View the updated data frame
 
-# In[28]:
+# In[43]:
 
 
 human_rights
@@ -488,7 +488,7 @@ human_rights
 # 
 # Remember `CountVectorizer()` for creating Bag of Word models? We can extend this idea of counting words, to _counting unique words_ within a document relative to the rest of the corpus with `TfidfVectorizer()`. Each row will still be a document in the document term matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies. 
 
-# In[29]:
+# In[44]:
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -500,13 +500,13 @@ tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3),
 tf_sparse = tf_vectorizer.fit_transform(human_rights['clean_text'])
 
 
-# In[30]:
+# In[45]:
 
 
 tf_sparse.shape
 
 
-# In[31]:
+# In[46]:
 
 
 print(tf_sparse)
@@ -514,7 +514,7 @@ print(tf_sparse)
 
 # ### Convert the tfidf sparse matrix to data frame
 
-# In[48]:
+# In[47]:
 
 
 tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names())
@@ -523,7 +523,7 @@ tfidf_df
 
 # ### View 20 highest weighted words
 
-# In[49]:
+# In[48]:
 
 
 tfidf_df.max().sort_values(ascending = False).head(n = 20)
@@ -531,7 +531,7 @@ tfidf_df.max().sort_values(ascending = False).head(n = 20)
 
 # ### Add country name to `tfidf_df`
 
-# In[50]:
+# In[49]:
 
 
 # wrangle the country names from the human_rights data frame
@@ -540,13 +540,13 @@ countries = list(countries)
 countries
 
 
-# In[51]:
+# In[50]:
 
 
 tfidf_df['COUNTRY'] = countries
 
 
-# In[52]:
+# In[51]:
 
 
 tfidf_df
@@ -556,7 +556,7 @@ tfidf_df
 # 
 # Change the country names to view their highest rated terms.
 
-# In[53]:
+# In[52]:
 
 
 country = tfidf_df[tfidf_df['COUNTRY'] == 'jordan']
@@ -573,7 +573,7 @@ country.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 # ### Download the nltk built movie reviews dataset
 
-# In[54]:
+# In[53]:
 
 
 import nltk
@@ -583,7 +583,7 @@ nltk.download("movie_reviews")
 
 # ### Define x (reviews) and y (judgements) variables
 
-# In[55]:
+# In[54]:
 
 
 # Extract our x (reviews) and y (judgements) variables
@@ -591,7 +591,7 @@ reviews = [movie_reviews.raw(fileid) for fileid in movie_reviews.fileids()]
 judgements = [movie_reviews.categories(fileid)[0] for fileid in movie_reviews.fileids()]
 
 
-# In[56]:
+# In[55]:
 
 
 # Save in a dataframe
@@ -600,7 +600,7 @@ movies = pd.DataFrame({"Reviews" : reviews,
 movies.head()
 
 
-# In[57]:
+# In[56]:
 
 
 movies.shape
@@ -608,7 +608,7 @@ movies.shape
 
 # ### Shuffle the reviews
 
-# In[58]:
+# In[57]:
 
 
 import numpy as np
@@ -616,7 +616,7 @@ from sklearn.utils import shuffle
 x, y = shuffle(np.array(movies.Reviews), np.array(movies.Judgements), random_state = 1)
 
 
-# In[59]:
+# In[58]:
 
 
 # change x[0] and y[0] to see different reviews
@@ -627,7 +627,7 @@ x[0], print("Human review was:", y[0])
 # 
 # scikit-learn offers hand ways to build machine learning pipelines: https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
 
-# In[61]:
+# In[59]:
 
 
 # standard training/test split (no cross validation)
@@ -647,7 +647,7 @@ logit_class = LogisticRegression(solver = 'liblinear',
 model = logit_class.fit(x_train, y_train)
 
 
-# In[62]:
+# In[60]:
 
 
 # test set accuracy
@@ -656,7 +656,7 @@ model.score(x_test, y_test)
 
 # ### $k$-fold cross-validated model
 
-# In[63]:
+# In[61]:
 
 
 # Cross-validated model!
@@ -677,7 +677,7 @@ print(scores, np.mean(scores))
 
 # ### Top 25 features for positive and negative reviews
 
-# In[64]:
+# In[62]:
 
 
 feature_names = tfidf.get_feature_names()
@@ -690,7 +690,7 @@ top25neg = np.argsort(model.coef_[0])[:25]
 print(list(feature_names[j] for j in top25neg))
 
 
-# In[65]:
+# In[63]:
 
 
 new_bad_review = "This was the most awful worst super bad movie ever!"
@@ -700,7 +700,7 @@ features = tfidf.transform([new_bad_review])
 model.predict(features)
 
 
-# In[66]:
+# In[64]:
 
 
 new_good_review = 'WHAT A WONDERFUL, FANTASTIC MOVIE!!!'
@@ -710,7 +710,7 @@ features = tfidf.transform([new_good_review])
 model.predict(features)
 
 
-# In[68]:
+# In[65]:
 
 
 # try a more complex statement
@@ -735,174 +735,6 @@ model.predict(my_features)
 # 
 # 1. [Read through this 20 newsgroups dataset example](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html) to get familiar with newspaper data. 
 # 2. Do you best to understand and explain what is happening at each step of the workflow. 
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
 
 # ## Exercise - redwoods webscraping
 # 

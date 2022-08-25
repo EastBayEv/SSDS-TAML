@@ -436,6 +436,8 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # If you encounter error messages, which ones? 
 
-# ## Data wrangling
+# ## Numeric data wrangling
 # 
-# Importing data is one thing, but wrangling it into a format that suits your needs is another. Read Chapter 4 "Numeric data wrangling" to learn how to use the pandas library to subset your data. 
+# Importing numeric data from a .csv file is one thing, but wrangling it into a format that suits your needs is another. Read Chapter 4 "Numeric data wrangling" to learn how to use the pandas library to subset numeric data! 
+# 
+# Chapter 7 contains information about preprocessing text data. 

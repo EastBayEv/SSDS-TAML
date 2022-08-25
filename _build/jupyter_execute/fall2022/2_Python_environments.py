@@ -221,6 +221,6 @@
 # 
 # You might find that Jupyter environments are too limiting for your task. Using a text editor to write your scripts and run them via the command line is another common option. Contact SSDS if you want to learn more!
 
-# ## Python basics
+# ## Basic Python syntax
 # 
-# Open Chapter 3 "Boilerplate code" to start learning basic Python syntax.
+# Open Chapter 3 "Basic Python syntax" to start coding!
