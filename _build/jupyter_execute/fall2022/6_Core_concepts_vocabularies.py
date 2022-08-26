@@ -292,51 +292,6 @@ RMSE = math.sqrt(sum_error_sq) / len(data.y)
 print(round(RMSE, 5))
 
 
-# ### Compare our by "hand" results to the scikit-learn version! 
-
-# In[15]:
-
-
-# use scikit-learn to compute R-squared value
-from sklearn.linear_model import LinearRegression
-
-lin_mod = LinearRegression().fit(data[['x']], data[['y']])
-print("R-squared: " + str(lin_mod.score(data[['x']], data[['y']])))
-
-
-# In[16]:
-
-
-# use scikit-learn to compute slope and intercept
-print("scikit-learn slope: " + str(lin_mod.coef_))
-print("scikit-learn intercept: " + str(lin_mod.intercept_))
-
-
-# In[17]:
-
-
-# compare to our by "hand" versions. Both are the same!
-print(int(lin_mod.coef_) == B1)
-print(int(lin_mod.intercept_) == B0)
-
-
-# In[18]:
-
-
-# use scikit-learn to compute RMSE
-from sklearn.metrics import mean_squared_error
-
-RMSE_scikit = round(mean_squared_error(data.y, y_hat, squared = False), 5)
-print(RMSE_scikit)
-
-
-# In[19]:
-
-
-# Does our hand-computed RMSE equal that of scikit-learn at 5 digits?? Yes!
-print(round(RMSE, 5) == round(RMSE_scikit, 5))
-
-
 # ## Supervised machine learning - logistic regression
 # 
 # Fortunately, you do not have to do any of this by hand thanks to scikit-learn! 
@@ -345,14 +300,14 @@ print(round(RMSE, 5) == round(RMSE_scikit, 5))
 # 
 # Let's calculate training and test set accuracy to predict whether a penguin is MALE or FEMALE based on thier biological and spatial characteristics. 
 
-# In[20]:
+# In[15]:
 
 
 # load data
 penguins = pd.read_csv("data/penguins.csv")
 
 
-# In[21]:
+# In[16]:
 
 
 penguins.head()
@@ -360,21 +315,21 @@ penguins.head()
 
 # ### Preprocess the data - remove rows with NaN (missing) values
 
-# In[22]:
+# In[17]:
 
 
 # count number of rows with missing data in penguins. Eleven...
 penguins.isnull().any(axis=1).sum()
 
 
-# In[23]:
+# In[18]:
 
 
 # make a copy with listwise deleted rows
 p_complete = penguins.dropna()
 
 
-# In[24]:
+# In[19]:
 
 
 # count number of rows with missing data in p_complete. Zero! 
@@ -385,7 +340,7 @@ p_complete.isnull().any(axis=1).sum()
 # 
 # Check out this great tutorial on [one-hot encoding](https://stackabuse.com/one-hot-encoding-in-python-with-pandas-and-scikit-learn/) to learn more.
 
-# In[25]:
+# In[20]:
 
 
 # convert island categorical variable into numeric indicators
@@ -393,7 +348,7 @@ p_dummy_island = pd.get_dummies(p_complete.island, prefix = "island")
 p_dummy_island.head()
 
 
-# In[26]:
+# In[21]:
 
 
 # convert species categorical variable into numeric indicators
@@ -403,7 +358,7 @@ p_dummy_species.head()
 
 # ### Preprocess the data - remove the island and species variables from p_complete
 
-# In[27]:
+# In[22]:
 
 
 # view column names
@@ -416,7 +371,7 @@ p_complete.head()
 
 # ### Recombine the numeric indicators with the other variables
 
-# In[28]:
+# In[23]:
 
 
 clean_penguins = pd.concat([p_dummy_island, p_dummy_species, p_complete], axis=1) 
@@ -425,13 +380,13 @@ clean_penguins.head()
 
 # ### Recode MALE as 1 and FEMALE as 0 
 
-# In[29]:
+# In[24]:
 
 
 clean_penguins['sex'] = clean_penguins['sex'].map({'MALE': 1, 'FEMALE': 0})
 
 
-# In[30]:
+# In[25]:
 
 
 clean_penguins.head()
@@ -439,7 +394,7 @@ clean_penguins.head()
 
 # ### Define the logistic regression object
 
-# In[31]:
+# In[26]:
 
 
 from sklearn.linear_model import LogisticRegression
@@ -449,7 +404,7 @@ lr = LogisticRegression(solver = 'liblinear')
 
 # ### Split the `clean_penguins` dataset into training and test sets
 
-# In[32]:
+# In[27]:
 
 
 # Define x and y for both training and test sets
@@ -463,25 +418,25 @@ y = np.array(clean_penguins['sex'])
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.3, random_state = 123)
 
 
-# In[33]:
+# In[28]:
 
 
 x_train.shape
 
 
-# In[34]:
+# In[29]:
 
 
 x_test.shape
 
 
-# In[35]:
+# In[30]:
 
 
 len(y_train)
 
 
-# In[36]:
+# In[31]:
 
 
 len(y_test)
@@ -491,13 +446,13 @@ len(y_test)
 # 
 # And view the classification accuracy
 
-# In[37]:
+# In[32]:
 
 
 lr.fit(x_train, y_train)
 
 
-# In[38]:
+# In[33]:
 
 
 lr.score(x_train, y_train)
@@ -505,7 +460,7 @@ lr.score(x_train, y_train)
 
 # ### Generate predicted values on the test data
 
-# In[39]:
+# In[34]:
 
 
 # Generate predicted y values based on the x test set data
@@ -515,14 +470,14 @@ predictions
 
 # ### Calculate test set accuracy
 
-# In[40]:
+# In[35]:
 
 
 test_score = lr.score(x_test, y_test)
 print(test_score)
 
 
-# In[41]:
+# In[36]:
 
 
 from sklearn import metrics
@@ -531,7 +486,7 @@ cm = metrics.confusion_matrix(y_test, predictions)
 print(cm)
 
 
-# In[42]:
+# In[37]:
 
 
 # Fancy it up! Use plt.savefig() to export
@@ -551,7 +506,7 @@ plt.title(all_sample_title, size = 15);
 
 # ### Define a corpus 
 
-# In[43]:
+# In[38]:
 
 
 corpus = [
@@ -563,11 +518,45 @@ corpus = [
 corpus
 
 
+# ## Document encoding for machine learning
+# 
+# In the last chapter you saw that we do not change text to numbers, but instead changed the _representation_ of the text to the numbers in sparse matrix format. 
+# 
+# In this format, each row represents a document and each column represents a token from the shared text vocabulary called a **feature**. 
+# 
+# ### Key terms
+# 
+# * **Document term matrix:** contains the frequencies (or TF-IDF scores) of vocabulary terms in a collection of documents in sparse format. 
+#     * Each row is a document in the corpus.
+#     * Each column represents a term (uni-gram, bi-gram, etc.) called a feature.    
+# 
+# * **Bag of words:** The simplest text analysis model that standardizes text in a document by removing punctuation, converting the words to lowercase, and counting the token frequencies.
+#     * Numeric values indicate that a particular feature is found in a document that number of times.
+#     * A 0 indicates that the feature is _not_ found in that document. 
+# 
+# ![dtm](img/dtm.png)
+# 
+# [modified from "The Effects of Feature Scaling: From Bag-of-Words to Tf-Idf"](https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/ch04.html)
+
+# * **TF-IDF:** Term frequency–inverse document frequency; a weighted numerical statistic that indicates the uniqueness of a word is in a given document or corpus.
+# 
+# For TF-IDF sparse matrices:
+# * A value closer to 1 indicate that a feature is more relevant to a particular document.
+# * A value closer to 0 indicates that that feature is less/not relevant to that document.
+# 
+# ![tf1](img/tf1.png)
+# 
+# [Wikipedia](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
+# 
+# ![tf2](img/tf2.png)
+# 
+# [towardsdatascience](https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558)
+
 # ### Bag of words model with `CountVectorizer`
 # 
 # The bag of words models represents text as a bag of its word, ignoring syntactical elements like grammar and word order while only preserving the multiplicy/frequency of unique tokens. Typically, a bag of words model removes punctuation and casefolds the text to lowercase before counting the words (i.e. 'Apple' and 'apple' will both count toward instances of the word, 'apple'). 
 
-# In[44]:
+# In[39]:
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -582,24 +571,20 @@ vectorizer.fit(corpus)
 vectorizer.vocabulary_
 
 
-# ### Document term matrix
-# 
-# A [document term matrix](https://en.wikipedia.org/wiki/Document-term_matrix) displays term frequencies in sparse format across a collection of docuemnts. The `.transform` method will help us here!
-# 
-# * The first number is the document number
-# * The second number is the word from the vocabulary
-# * The third number is the number of times that word occurs
-
-# In[45]:
+# In[40]:
 
 
+# The `.transform` method will help us here!
+# The first number is the document number
+# The second number is the word from the vocabulary
+# The third number is the number of times that word occurs
 vector = vectorizer.transform(corpus)
 print(vector) 
 
 
 # ### Present the sparse matrix
 
-# In[46]:
+# In[41]:
 
 
 # each row is a document, each column is a word from the vocabulary! 
@@ -607,21 +592,21 @@ print(vector)
 print(vector.toarray())
 
 
-# In[47]:
+# In[42]:
 
 
 # get the column names (alphabetical sort)
 vectorizer.get_feature_names()
 
 
-# In[48]:
+# In[43]:
 
 
 # What does this tell us? 
 vectorizer.transform(['document']).toarray() 
 
 
-# In[49]:
+# In[44]:
 
 
 # 'document' is present in our bag of words, and in the sparse matrix, occupies the second column!
@@ -639,7 +624,7 @@ vectorizer.transform(['abracadabra']).toarray()
 # * trigrams   `ngram_range = (1, 3)`
 # * etc.
 
-# In[50]:
+# In[45]:
 
 
 # token pattern is written using regular expressions (regex for short): 
@@ -655,7 +640,7 @@ bigram_vectorizer
 
 # Since we specify bigrams, both unigrams _and_ bigrams are returned!
 
-# In[51]:
+# In[46]:
 
 
 from sklearn.feature_extraction import DictVectorizer
@@ -665,13 +650,13 @@ bigram_analyzer('Welcome to Stanford Libraries!')
 
 # ### Apply n-grams to our above corpus
 
-# In[52]:
+# In[47]:
 
 
 corpus
 
 
-# In[53]:
+# In[48]:
 
 
 # perform the transformation
@@ -679,7 +664,7 @@ x = bigram_vectorizer.fit_transform(corpus).toarray()
 print(x)
 
 
-# In[54]:
+# In[49]:
 
 
 # get the feature (column) names
@@ -687,7 +672,7 @@ print(x)
 bigram_vectorizer.get_feature_names()
 
 
-# In[55]:
+# In[50]:
 
 
 # search for vocabulary words across the documents
@@ -699,7 +684,7 @@ x[:, feature_index]
 # 
 # Our vocabulary consists of 29 unigrams and bigrams across the four documents.
 
-# In[56]:
+# In[51]:
 
 
 # redefine x as sparse matrix (not array)
@@ -707,7 +692,7 @@ x = bigram_vectorizer.fit_transform(corpus)
 print(x)
 
 
-# In[57]:
+# In[52]:
 
 
 import scipy.sparse
@@ -715,14 +700,14 @@ corpus_df = pd.DataFrame(x.todense(), columns = bigram_vectorizer.get_feature_na
 corpus_df
 
 
-# In[58]:
+# In[53]:
 
 
 # The features (columns) are the vocabulary from the bigram version of our corpus variable above! 
 corpus_df.columns
 
 
-# In[59]:
+# In[54]:
 
 
 penguins['species'].value_counts()
@@ -730,9 +715,15 @@ penguins['species'].value_counts()
 
 # ## Exercises
 # 
-# 1. Investigate classic horror novel vocabulary. Create a single sparse data frame that contains the vocabulary for _Frankenstein_ and _Dracula_. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. 
+# 1. Compare our "by hand" OLS results to those producd by sklearn's `LinearRegression` function. Are they the same? 
+#     * Slope = 4
+#     * Intercept = -4
+#     * RMSE = 2.82843
+#     * y_hat = y_hat = B0 + B1 * data.x
 # 
 # 2. What if you have more than two classes? Rewrite the data preprocessing steps in a new notebook to predict penguin species (Adelie, Gentoo, or Chinstrap). You could use something like this for multi-class classification: 
 # `lr = LogisticRegression(multi_class='multinomial', solver='lbfgs')`
+
+# ## What does this mean for predicting text?
 # 
-# 3. Skip ahead to Exercise # 2 about the 20 newsgroups dataset in Chapter 8 "Document encoding, sentiment analysis, and text classification" to see another example for predicting text. 
+# Read on in Chapter 7 "English text preprocessing basics" to learn about predicting text. 

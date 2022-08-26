@@ -408,21 +408,24 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#run-code">
-   Run code
+  <a class="reference internal nav-link" href="#what-is-a-programming-language">
+   What is a programming language?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-the-code">
+   Run the code
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#google-colaboratory">
    1. Google Colaboratory
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-up-your-colab-environment">
-     Set up your Colab environment
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#required-set-up-your-colab-environment-before-the-bootcamp">
+   REQUIRED: Set up your Colab environment before the bootcamp!
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#code-versus-markdown-cells">
@@ -437,6 +440,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#save-your-work">
      Save your work
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learn-more">
+     Learn more
     </a>
    </li>
   </ul>
@@ -492,13 +500,11 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#download-the-workshop-materials">
      Download the workshop materials
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#git-clone">
-       git clone
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-clone">
+     git clone
+    </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#install-external-libraries">
@@ -547,21 +553,24 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#run-code">
-   Run code
+  <a class="reference internal nav-link" href="#what-is-a-programming-language">
+   What is a programming language?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-the-code">
+   Run the code
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#google-colaboratory">
    1. Google Colaboratory
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-up-your-colab-environment">
-     Set up your Colab environment
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#required-set-up-your-colab-environment-before-the-bootcamp">
+   REQUIRED: Set up your Colab environment before the bootcamp!
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#code-versus-markdown-cells">
@@ -576,6 +585,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#save-your-work">
      Save your work
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learn-more">
+     Learn more
     </a>
    </li>
   </ul>
@@ -631,13 +645,11 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#download-the-workshop-materials">
      Download the workshop materials
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#git-clone">
-       git clone
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-clone">
+     git clone
+    </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#install-external-libraries">
@@ -680,16 +692,20 @@ title="Print to PDF"
 <h1>Chapter 2 - Python environments<a class="headerlink" href="#chapter-2-python-environments" title="Permalink to this headline">#</a></h1>
 <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/2_Start_coding.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a><p>You can program Python in several different environments:</p>
+</a><section id="what-is-a-programming-language">
+<h2>What is a programming language?<a class="headerlink" href="#what-is-a-programming-language" title="Permalink to this headline">#</a></h2>
+<p>For all intents and purposes, a programming language is a means to give instructions to a computer. <a class="reference external" href="https://www.python.org/doc/essays/blurb/">Read Python’s executive summary here.</a></p>
+<p>You can write your python code in the below environments (and more!), but no matter which option you choose the content is virtually identical:</p>
 <ol class="simple">
 <li><p>Google Colab</p></li>
 <li><p>Jupyter Lab via Binder</p></li>
 <li><p>Local Anaconda environment</p></li>
 <li><p>Text editor</p></li>
 </ol>
-<p>No matter which option you choose, the content is identical, although there are a few slight differences in the interfaces. Furthermore, one interface might be better than the others for a given task.</p>
-<section id="run-code">
-<h2>Run code<a class="headerlink" href="#run-code" title="Permalink to this headline">#</a></h2>
+<p>Furthermore, it is hard to say which is “better” or “best”, since this is dependent on the task at hand. Remember that TAML sessions use Google Colab:</p>
+</section>
+<section id="run-the-code">
+<h2>Run the code<a class="headerlink" href="#run-the-code" title="Permalink to this headline">#</a></h2>
 <p>If you are using Google Colab, Jupyter Lab, or a local Python Anaconda installation, press <code class="docutils literal notranslate"><span class="pre">shift</span></code> and <code class="docutils literal notranslate"><span class="pre">enter</span></code> simultaneously on your keyboard to:</p>
 <ul class="simple">
 <li><p>Run a code cell</p></li>
@@ -698,12 +714,10 @@ title="Print to PDF"
 </section>
 <section id="google-colaboratory">
 <h2>1. Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="Permalink to this headline">#</a></h2>
-<section id="set-up-your-colab-environment">
-<h3>Set up your Colab environment<a class="headerlink" href="#set-up-your-colab-environment" title="Permalink to this headline">#</a></h3>
-<blockquote>
-<div><p><strong>REQUIRED: Before the bootcamp, set up your Google Colaboratory environment!</strong></p>
-</div></blockquote>
-<p>Google Colab is the easiest way to run all of this week’s materials, and is what we will use to teach you. You can also use Jupyter Lab or a local Python installation - see instructions below. While they function similarly, there are some slight differences.</p>
+</section>
+<section id="required-set-up-your-colab-environment-before-the-bootcamp">
+<h2>REQUIRED: Set up your Colab environment before the bootcamp!<a class="headerlink" href="#required-set-up-your-colab-environment-before-the-bootcamp" title="Permalink to this headline">#</a></h2>
+<p>Google Colab is the easiest way to run the TAML materials, and is what we will use to teach you. Instructions for Jupyter Lab or a local Python installation are also below. While they function similarly, keep in mind that there are some slight differences between the environments.</p>
 <p>Start by installing the extension to your Stanford Google Drive account.</p>
 <ol class="simple">
 <li><p><a class="reference external" href="https://accounts.google.com/ServiceLogin/signinchooser?service=wise&amp;passive=true&amp;continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&amp;utm_medium=button&amp;utm_campaign=web&amp;utm_content=gotodrive&amp;usp=gtd%3Cmpl=drive&amp;flowName=GlifWebSignIn&amp;flowEntry=ServiceLogin">Click here to visit the Google Colab sign in page</a></p></li>
@@ -721,31 +735,17 @@ title="Print to PDF"
 </ol>
 <p><img alt="" src="../_images/colab_install.png" /></p>
 <ol class="simple">
-<li><p>Click “Continue” and select your <a class="reference external" href="http://stanford.edu">stanford.edu</a> account if prompted</p></li>
+<li><p>Click “Continue” and select your <strong><a class="reference external" href="http://stanford.edu">stanford.edu</a> account</strong> if prompted</p></li>
 </ol>
 <p><img alt="" src="../_images/colab_continue.png" /></p>
 <ol class="simple">
-<li><p>You will see that Colaboratory was successfully installed/connected to Good Drive when finished. Click OK and Done to complete and close any extraneous pop-up windows.</p></li>
+<li><p>You will see that Colaboratory was successfully installed/connected to Good Drive when finished. Click OK and Done to complete and close any remaining pop-up windows.</p></li>
 </ol>
 <p><img alt="" src="../_images/colab_success.png" /></p>
-<p>Local Python Installation (optional)
-If you want to install Python Anaconda distribution on your computer and run these materials locally, visit:</p>
-<p>Although this is optional, it is recommended to have a local installation in case you do not have Internet access.</p>
-<p>Jupyter Book
-Need to review something quick or read ahead? Quickly open the Jupyter Book and click around fast - without having to open Python, or any notebook!</p>
-<p>Jupyter Lab
-You can also run a cloud-based instance in Jupyter Lab on Binder. Keep in mind that Jupyter Lab might take several minutes to load (especially the first time you launch Binder).</p>
-<p>Click here to launch Jupyter Lab:</p>
-<p>Be sure to see this note about saving your work from Jupyter Lab:</p>
-<p>Open the notebooks
-… and start clicking around!</p>
-<p>Click …
-Press Shift+Enter</p>
-</section>
 </section>
 <section id="code-versus-markdown-cells">
 <h2>Code versus markdown cells<a class="headerlink" href="#code-versus-markdown-cells" title="Permalink to this headline">#</a></h2>
-<p>Right-click the Colab badge at the top of each chapter that contains runnable code.</p>
+<p>Click the Colab badge at the top of each chapter in the book.</p>
 <p>Click the <code class="docutils literal notranslate"><span class="pre">Run</span></code> button in the toolbar, or press <code class="docutils literal notranslate"><span class="pre">shift</span></code> and <code class="docutils literal notranslate"><span class="pre">enter</span></code> on your keyboard to execute the cell.</p>
 <section id="make-note-of-the-top-menu-toolbar">
 <h3>Make note of the top menu toolbar<a class="headerlink" href="#make-note-of-the-top-menu-toolbar" title="Permalink to this headline">#</a></h3>
@@ -756,7 +756,6 @@ Press Shift+Enter</p>
 <li><p>Click the <strong>File folder</strong> to view your available files</p></li>
 </ul>
 <p><img alt="" src="../_images/colab_toolbar.png" /></p>
-<p>Check out <a class="reference external" href="https://amitness.com/2020/06/google-colaboratory-tips/">Google Colab Tips for Power Users </a> for shortcuts.</p>
 </section>
 <section id="save-your-work">
 <h3>Save your work<a class="headerlink" href="#save-your-work" title="Permalink to this headline">#</a></h3>
@@ -766,23 +765,27 @@ Press Shift+Enter</p>
 </ul>
 <p><img alt="" src="../_images/colab_save_notebook.png" /></p>
 </section>
+<section id="learn-more">
+<h3>Learn more<a class="headerlink" href="#learn-more" title="Permalink to this headline">#</a></h3>
+<p>Check out <a class="reference external" href="https://amitness.com/2020/06/google-colaboratory-tips/">Google Colab Tips for Power Users </a> for shortcuts.</p>
+</section>
 </section>
 <section id="jupyter-lab">
 <h2>2. Jupyter Lab<a class="headerlink" href="#jupyter-lab" title="Permalink to this headline">#</a></h2>
 <p>JupyterLab is another way to access these materials. It is a web-based interactive development environment (IDE) which allows you to write and run code in your browser.</p>
-<p>Right click the “Launch Binder” button below and open it in a new browser tab.</p>
+<p>Cick the “Launch Binder” button below and open it in a new browser tab.</p>
 <p><a class="reference external" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/HEAD"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
 <section id="click-python-3-ipykernel">
 <h3>Click “Python 3 (ipykernel)”<a class="headerlink" href="#click-python-3-ipykernel" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>Click “Python 3 (ipykernel) under the “Notebook” header to launch a blank notebook.</p></li>
-<li><p>Otherwise, navigate the file structure in the top left corner to open an existing notewook.
+<li><p>Click “Python 3 (ipykernel) under the “Notebook” header to <strong>open a blank notebook.</strong></p></li>
+<li><p>Otherwise, navigate the file structure in the top left corner to <strong>open an existing notebook.</strong>
 <img alt="setkernel" src="../_images/kernel.png" /></p></li>
 </ul>
 </section>
 <section id="cells-are-code-by-default">
 <h3>Cells are code by default<a class="headerlink" href="#cells-are-code-by-default" title="Permalink to this headline">#</a></h3>
-<p>In the first cell, type:</p>
+<p>Open a blank notebook and in the first cell, type:</p>
 <blockquote>
 <div><p>print(“Your Name Here”)</p>
 </div></blockquote>
@@ -791,7 +794,7 @@ Press Shift+Enter</p>
 <h3>Insert new cells<a class="headerlink" href="#insert-new-cells" title="Permalink to this headline">#</a></h3>
 <p>Click the “plus” button to insert a new cell. It can be found between the “save disk” and “scissors” icons.
 <img alt="addcell" src="../_images/addcell.png" /></p>
-<p>Alternatively, click on an area outside of any cells in the notebook, and press ‘A’ or ‘B’ to create new cell above or below your current one, respectively.</p>
+<p>Alternatively, click on an area outside of any cells in the notebook, and press the <code class="docutils literal notranslate"><span class="pre">a</span></code> or <code class="docutils literal notranslate"><span class="pre">b</span></code> key to create a new cell above or below your current one.</p>
 </section>
 <section id="switch-between-code-and-text-cells">
 <h3>Switch between code and text cells<a class="headerlink" href="#switch-between-code-and-text-cells" title="Permalink to this headline">#</a></h3>
@@ -819,7 +822,7 @@ Press Shift+Enter</p>
 </section>
 <section id="id1">
 <h3>Save your work<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-<p>Click the “disk” icon to save your work. Right-click the tab to give your notebook a name:</p>
+<p>Click the “disk” icon to save your work. Right-click the tab and click “Rename Notebook” to give your notebook a name:</p>
 <p><img alt="rename" src="../_images/rename.png" /></p>
 <ul class="simple">
 <li><p>Click “File” –&gt; “Download” to save your Jupyter Notebook (extension <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) before exiting a Jupyter Lab session.</p></li>
@@ -835,7 +838,7 @@ Press Shift+Enter</p>
 </section>
 <section id="local-python-installation">
 <h2>3. Local Python installation<a class="headerlink" href="#local-python-installation" title="Permalink to this headline">#</a></h2>
-<p>Despite the increasing number of cloud-based solutions, it is always good to have a local installation on your own computer. Point your web browswer here to install Python Anaconda distribution 3.9 (as of January 2022): <a class="reference external" href="https://www.anaconda.com/products/individual">https://www.anaconda.com/products/individual</a></p>
+<p>Despite the increasing number of cloud-based solutions, it is always good to have a local installation on your own computer. Point your web browswer here to install Python Anaconda distribution 3.9 (as of August 2022): <a class="reference external" href="https://www.anaconda.com/products/individual">https://www.anaconda.com/products/individual</a></p>
 <ul class="simple">
 <li><p>Download the installation file for your operating system, open it, and follow the instructions to install.</p></li>
 <li><p>Once installation completes, open the application named “Anaconda Navigator”. It looks like this:</p></li>
@@ -847,20 +850,19 @@ Press Shift+Enter</p>
 </ul>
 <section id="download-the-workshop-materials">
 <h3>Download the workshop materials<a class="headerlink" href="#download-the-workshop-materials" title="Permalink to this headline">#</a></h3>
-<p>Copy these materials for use on your local installation.</p>
+<p>You can also download the TAML materials for use on your local installation.</p>
 <ol class="simple">
 <li><p>Visit: <a class="reference external" href="https://github.com/EastBayEv/SSDS-TAML">https://github.com/EastBayEv/SSDS-TAML</a></p></li>
-<li><p>Click the green “Code” button
-<img alt="code" src="../_images/code.png" /></p></li>
+<li><p>Click the green “Code” button</p></li>
 <li><p>Click “Download ZIP”
 <img alt="zip" src="../_images/zip.png" /></p></li>
-<li><p>Extract this folder someplace familiar such as your Desktop.</p></li>
-<li><p>Open Anaconda Navigator, launch JupyterLab, and navigate your directories to launch these notebooks.</p></li>
+<li><p>Extract this folder someplace familiar (we recommend your Desktop).</p></li>
+<li><p>Open Anaconda Navigator, launch JupyterLab, navigate your your file structure, and click the notebook file to launch it.</p></li>
 </ol>
-<section id="git-clone">
-<h4>git clone<a class="headerlink" href="#git-clone" title="Permalink to this headline">#</a></h4>
-<p>Git users open a Terminal and type: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/EastBayEv/SSDS-TAML.git</span></code></p>
 </section>
+<section id="git-clone">
+<h3>git clone<a class="headerlink" href="#git-clone" title="Permalink to this headline">#</a></h3>
+<p>Git users open a Terminal and type: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/EastBayEv/SSDS-TAML.git</span></code></p>
 </section>
 <section id="install-external-libraries">
 <h3>Install external libraries<a class="headerlink" href="#install-external-libraries" title="Permalink to this headline">#</a></h3>
@@ -875,7 +877,7 @@ Press Shift+Enter</p>
 <p>The notebook kernel will fail from time to time, which is normal. Simply click “Kernel” from the File menu and one of the “Restart” options.</p>
 <p><img alt="restart" src="../_images/restart.png" /></p>
 <blockquote>
-<div><p>NOTE: about the terminal, you will see it run processes in the background like this:</p>
+<div><p>NOTE: about the terminal, you will see it run processes in the background like this - you can ignore this, but don’t close it!</p>
 </div></blockquote>
 <p><img alt="terminal" src="../_images/terminal.png" /></p>
 </section>

@@ -7,16 +7,20 @@
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 # </a>
 
-# You can program Python in several different environments: 
+# ## What is a programming language?
+# 
+# For all intents and purposes, a programming language is a means to give instructions to a computer. [Read Python's executive summary here.](https://www.python.org/doc/essays/blurb/)
+# 
+# You can write your python code in the below environments (and more!), but no matter which option you choose the content is virtually identical:
 # 
 # 1. Google Colab
 # 2. Jupyter Lab via Binder
 # 3. Local Anaconda environment
 # 4. Text editor
 # 
-# No matter which option you choose, the content is identical, although there are a few slight differences in the interfaces. Furthermore, one interface might be better than the others for a given task. 
+# Furthermore, it is hard to say which is "better" or "best", since this is dependent on the task at hand. Remember that TAML sessions use Google Colab:
 # 
-# ## Run code
+# ## Run the code
 # 
 # If you are using Google Colab, Jupyter Lab, or a local Python Anaconda installation, press `shift` and `enter` simultaneously on your keyboard to:
 # * Run a code cell
@@ -24,11 +28,9 @@
 
 # ## 1. Google Colaboratory
 # 
-# ### Set up your Colab environment
+# ## REQUIRED: Set up your Colab environment before the bootcamp! 
 # 
-# > **REQUIRED: Before the bootcamp, set up your Google Colaboratory environment!**
-# 
-# Google Colab is the easiest way to run all of this week’s materials, and is what we will use to teach you. You can also use Jupyter Lab or a local Python installation - see instructions below. While they function similarly, there are some slight differences. 
+# Google Colab is the easiest way to run the TAML materials, and is what we will use to teach you. Instructions for Jupyter Lab or a local Python installation are also below. While they function similarly, keep in mind that there are some slight differences between the environments. 
 # 
 # Start by installing the extension to your Stanford Google Drive account. 
 # 
@@ -38,7 +40,7 @@
 # 4. Click the “+New” button and select “Google Colaboratory”
 # 
 # ![](img/colab_new.png)
-# 
+
 # 5. If you do not see this option, click “+ Connect more apps” and search for Colaboratory and the icon will appear.
 # 
 # ![](img/colab_search.png)
@@ -47,38 +49,17 @@
 # 
 # ![](img/colab_install.png)
 # 
-# 7. Click “Continue” and select your stanford.edu account if prompted
+# 7. Click “Continue” and select your **stanford.edu account** if prompted
 # 
 # ![](img/colab_continue.png)
 # 
-# 8. You will see that Colaboratory was successfully installed/connected to Good Drive when finished. Click OK and Done to complete and close any extraneous pop-up windows.
+# 8. You will see that Colaboratory was successfully installed/connected to Good Drive when finished. Click OK and Done to complete and close any remaining pop-up windows.
 # 
 # ![](img/colab_success.png)
 
-# Local Python Installation (optional)
-# If you want to install Python Anaconda distribution on your computer and run these materials locally, visit: 
-# 
-# Although this is optional, it is recommended to have a local installation in case you do not have Internet access. 
-# 
-# Jupyter Book
-# Need to review something quick or read ahead? Quickly open the Jupyter Book and click around fast - without having to open Python, or any notebook!
-# 
-# Jupyter Lab
-# You can also run a cloud-based instance in Jupyter Lab on Binder. Keep in mind that Jupyter Lab might take several minutes to load (especially the first time you launch Binder). 
-# 
-# Click here to launch Jupyter Lab: 
-# 
-# Be sure to see this note about saving your work from Jupyter Lab: 
-# 
-# Open the notebooks
-# … and start clicking around!
-# 
-# Click …
-# Press Shift+Enter 
-
 # ## Code versus markdown cells
 # 
-# Right-click the Colab badge at the top of each chapter that contains runnable code. 
+# Click the Colab badge at the top of each chapter in the book.
 # 
 # Click the `Run` button in the toolbar, or press `shift` and `enter` on your keyboard to execute the cell. 
 # 
@@ -91,32 +72,34 @@
 # 
 # ![](img/colab_toolbar.png)
 # 
-# Check out [Google Colab Tips for Power Users ](https://amitness.com/2020/06/google-colaboratory-tips/) for shortcuts. 
-# 
 # ### Save your work
 # 
 # * Click the **Copy to Drive** toolbar button, or
 # * Click "File" --> "Download" --> "Download.ipynb"
 # 
 # ![](img/colab_save_notebook.png)
+# 
+# ### Learn more
+# 
+# Check out [Google Colab Tips for Power Users ](https://amitness.com/2020/06/google-colaboratory-tips/) for shortcuts. 
 
 # ## 2. Jupyter Lab 
 # 
 # JupyterLab is another way to access these materials. It is a web-based interactive development environment (IDE) which allows you to write and run code in your browser. 
 # 
-# Right click the "Launch Binder" button below and open it in a new browser tab. 
+# Cick the "Launch Binder" button below and open it in a new browser tab. 
 # 
 # [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/HEAD)
 
 # ### Click "Python 3 (ipykernel)" 
 # 
-# * Click "Python 3 (ipykernel) under the "Notebook" header to launch a blank notebook. 
-# * Otherwise, navigate the file structure in the top left corner to open an existing notewook.
+# * Click "Python 3 (ipykernel) under the "Notebook" header to **open a blank notebook.**
+# * Otherwise, navigate the file structure in the top left corner to **open an existing notebook.**
 # ![setkernel](img/kernel.png)
 
 # ### Cells are code by default
 # 
-# In the first cell, type:
+# Open a blank notebook and in the first cell, type:
 #     
 # > print("Your Name Here") 
 
@@ -125,7 +108,7 @@
 # Click the "plus" button to insert a new cell. It can be found between the "save disk" and "scissors" icons. 
 # ![addcell](img/addcell.png)  
 # 
-# Alternatively, click on an area outside of any cells in the notebook, and press 'A' or 'B' to create new cell above or below your current one, respectively. 
+# Alternatively, click on an area outside of any cells in the notebook, and press the `a` or `b` key to create a new cell above or below your current one. 
 
 # ### Switch between code and text cells
 # 
@@ -155,7 +138,7 @@
 
 # ### Save your work
 # 
-# Click the "disk" icon to save your work. Right-click the tab to give your notebook a name:
+# Click the "disk" icon to save your work. Right-click the tab and click "Rename Notebook" to give your notebook a name:
 # 
 # ![rename](img/rename.png)
 
@@ -172,7 +155,7 @@
 
 # ## 3. Local Python installation
 # 
-# Despite the increasing number of cloud-based solutions, it is always good to have a local installation on your own computer. Point your web browswer here to install Python Anaconda distribution 3.9 (as of January 2022): https://www.anaconda.com/products/individual
+# Despite the increasing number of cloud-based solutions, it is always good to have a local installation on your own computer. Point your web browswer here to install Python Anaconda distribution 3.9 (as of August 2022): https://www.anaconda.com/products/individual
 # 
 # * Download the installation file for your operating system, open it, and follow the instructions to install. 
 # * Once installation completes, open the application named "Anaconda Navigator". It looks like this: 
@@ -184,17 +167,16 @@
 
 # ### Download the workshop materials
 # 
-# Copy these materials for use on your local installation. 
+# You can also download the TAML materials for use on your local installation. 
 # 
 # 1. Visit: https://github.com/EastBayEv/SSDS-TAML
 # 2. Click the green "Code" button
-# ![code](img/code.png)
 # 3. Click "Download ZIP"
 # ![zip](img/zip.png)
-# 4. Extract this folder someplace familiar such as your Desktop.
-# 5. Open Anaconda Navigator, launch JupyterLab, and navigate your directories to launch these notebooks.
+# 4. Extract this folder someplace familiar (we recommend your Desktop). 
+# 5. Open Anaconda Navigator, launch JupyterLab, navigate your your file structure, and click the notebook file to launch it. 
 # 
-# #### git clone
+# ### git clone
 # Git users open a Terminal and type: `git clone https://github.com/EastBayEv/SSDS-TAML.git`
 
 # ### Install external libraries
@@ -209,7 +191,7 @@
 
 # ![restart](img/restart.png)
 
-# > NOTE: about the terminal, you will see it run processes in the background like this:
+# > NOTE: about the terminal, you will see it run processes in the background like this - you can ignore this, but don't close it!
 # 
 # ![terminal](img/terminal.png)
 

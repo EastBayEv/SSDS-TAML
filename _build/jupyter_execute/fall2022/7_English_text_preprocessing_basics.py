@@ -72,11 +72,13 @@ text = open("data/dracula.txt").read()
 print(text[:100])
 
 
-# ## Standardize Text casing & spacing
+# ## Standardize Text 
+# 
+# ### Casing and spacing
 # 
 # Oftentimes in text analysis, identifying occurences of key word(s) is a necessary step. To do so, we may want "apple," "ApPLe," and "apple      " to be treated the same; i.e., as an occurence of the token, 'apple.' To achieve this, we can standardize text casing and spacing: 
 
-# In[70]:
+# In[14]:
 
 
 # Converting all charazcters in a string to lowercase only requires one method: 
@@ -95,37 +97,37 @@ print(single_spaces_msg)
 # 
 # Below, a standard for loop loops through the `punctuation` module to replace any of these characters with nothing.
 
-# In[71]:
+# In[15]:
 
 
 print(punctuation)
 
 
-# In[72]:
+# In[16]:
 
 
 for char in punctuation:
     text = text.lower().replace(char, "")
 
 
-# In[73]:
+# In[17]:
 
 
 print(text[:100])
 
 
-# ## Tokenize the text
+# ### Tokenize the text
 # 
 # Split each word on spaces.
 
-# In[74]:
+# In[18]:
 
 
 # .split() returns a list of the tokens in a string, separated by the specified delimiter (default: " ")
 tokens = text.split()
 
 
-# In[75]:
+# In[19]:
 
 
 print(tokens[:20])
@@ -137,7 +139,7 @@ print(tokens[:20])
 # 
 # Below is a list comprehension (a sort of shortcut for loop) that can accomplish this task for us.
 
-# In[76]:
+# In[20]:
 
 
 filtered_text = [word for word in tokens if word not in stopwords.words('english')]
@@ -151,7 +153,7 @@ filtered_text = [word for word in tokens if word not in stopwords.words('english
 print(filtered_text[:100])
 
 
-# ## Lemmatizing/Stemming tokens
+# ### Lemmatizing/Stemming tokens
 # 
 # Lemmatizating and stemming are related, but are different practices. Both aim to reduce the inflectional forms of a token to a common base/root. However, how they go about doing so is the key differentiating factor.  
 # 
@@ -192,7 +194,7 @@ print(token_lemma[:10])
 # 
 # Part of speech tags are labels given to each word in a text such as verbs, adverbs, nouns, pronouns, adjectives, conjunctions, and their various derivations and subcategories. 
 
-# In[80]:
+# In[21]:
 
 
 tagged = nltk.pos_tag(token_lemma)
@@ -260,40 +262,6 @@ words_df[:20]
 top_plot = sns.barplot(x = 'word', y = 'count', data = words_df[:20])
 top_plot.set_xticklabels(top_plot.get_xticklabels(),rotation = 40);
 
-
-# ## Document encoding for machine learning
-# 
-# In the last chapter you saw that we do not change text to numbers, but instead changed the _representation_ of the text to the numbers in sparse matrix format. 
-# 
-# In this format, each row represents a document and each column represents a token from the shared text vocabulary called a **feature**. 
-# 
-# ### Key terms
-# 
-# * **Document term matrix:** contains the frequencies (or TF-IDF scores) of vocabulary terms in a collection of documents in sparse format. 
-#     * Each row is a document in the corpus.
-#     * Each column represents a term (uni-gram, bi-gram, etc.) called a feature.
-# 
-# * **Bag of words:** The simplest text analysis model that standardizes text in a document by removing punctuation, converting the words to lowercase, and counting the token frequencies.
-#     * Numeric values indicate that a particular feature is found in a document that number of times.
-#     * A 0 indicates that the feature is _not_ found in that document. 
-# 
-# ![dtm](img/dtm.png)
-# 
-# [modified from "The Effects of Feature Scaling: From Bag-of-Words to Tf-Idf"](https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/ch04.html)
-
-# * **TF-IDF:** Term frequency–inverse document frequency; a weighted numerical statistic that indicates the uniqueness of a word is in a given document or corpus.
-# 
-# For TF-IDF sparse matrices:
-# * A value closer to 1 indicate that a feature is more relevant to a particular document.
-# * A value closer to 0 indicates that that feature is less/not relevant to that document.
-# 
-# ![tf1](img/tf1.png)
-# 
-# [Wikipedia](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
-# 
-# ![tf2](img/tf2.png)
-# 
-# [towardsdatascience](https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558)
 
 # ## Corpus definition: United Nations Human Rights Council Documentation
 # 
@@ -729,13 +697,6 @@ model.predict(my_features)
 # 
 # [Chapter 10](https://eastbayev.github.io/SSDS-TAML/fall2022/10_BERTopic.html) provides an application of the BERTopic model. 
 
-# ## Exercise - text classification
-# 
-# "The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date."
-# 
-# 1. [Read through this 20 newsgroups dataset example](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html) to get familiar with newspaper data. 
-# 2. Do you best to understand and explain what is happening at each step of the workflow. 
-
 # ## Exercise - redwoods webscraping
 # 
 # ![redwood](img/redwood.png)
@@ -745,7 +706,7 @@ model.predict(my_features)
 # 1. Read through the code below
 # 2. Practice by repeating for a webpage of your choice
 
-# In[32]:
+# In[1]:
 
 
 # import necessary libraries
@@ -761,7 +722,7 @@ import nltk
 # 2. `response` - perform the get request on the URL 
 # 3. `soup` - create the soup object so we can parse the html 
 
-# In[33]:
+# In[2]:
 
 
 url = "https://en.wikipedia.org/wiki/Sequoioideae"
@@ -775,7 +736,7 @@ soup = BeautifulSoup(response.text, 'html')
 # 
 # Below is a handy for loop that finds all everything within paragraph `<p>`, or paragraph tags. 
 
-# In[34]:
+# In[3]:
 
 
 # save in an empty string
@@ -785,7 +746,7 @@ for paragraph in soup.find_all('p'):
     text += paragraph.text
 
 
-# In[35]:
+# In[4]:
 
 
 print(text)
@@ -795,7 +756,7 @@ print(text)
 # 
 # Remember how we did some regular expression preprocessing above? You could even use a bunch of regular expressions in sequence or simultaneously. [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code.
 
-# In[36]:
+# In[12]:
 
 
 text = re.sub(r'\[[0-9]*\]',' ',text)
@@ -805,14 +766,20 @@ text = re.sub(r'[^\w\s]','',text)
 text = text.lower()
 
 
-# In[37]:
+# In[13]:
 
 
 print(text)
 
 
-# ## Improving preprocessing accuracy and efficiency
+# ## Exercises - text classification
 # 
-# We have used indivual words in this example, but what about [n-grams?](https://en.wikipedia.org/wiki/N-gram) Check out this example as well [n-gram language model with nltk](https://www.kaggle.com/alvations/n-gram-language-model-with-nltk). 
+# "The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date."
+# 
+# 1. [Read through this 20 newsgroups dataset example](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html) to get familiar with newspaper data. 
+# 2. Do you best to understand and explain what is happening at each step of the workflow. 
+# 3. Investigate classic horror novel vocabulary. Create a single TF-IDF sparse matrix that contains the vocabulary for _Frankenstein_ and _Dracula_. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. What are the 20 most unique words in each?
+
+# ## Improving preprocessing accuracy and efficiency
 # 
 # Remember these are just the basics. There are more efficient ways to preprocess your text that you will want to consider. Read Chapter 9 "spaCy and textaCy" to learn more!

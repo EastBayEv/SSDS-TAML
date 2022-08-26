@@ -513,11 +513,6 @@ title="Print to PDF"
      Evaluate the performance using RMSE
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compare-our-by-hand-results-to-the-scikit-learn-version">
-     Compare our by “hand” results to the scikit-learn version!
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -593,6 +588,18 @@ title="Print to PDF"
      Define a corpus
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#document-encoding-for-machine-learning">
+   Document encoding for machine learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Key terms
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bag-of-words-model-with-countvectorizer">
      Bag of words model with
@@ -601,11 +608,6 @@ title="Print to PDF"
        CountVectorizer
       </span>
      </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#document-term-matrix">
-     Document term matrix
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -633,6 +635,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-does-this-mean-for-predicting-text">
+   What does this mean for predicting text?
   </a>
  </li>
 </ul>
@@ -758,11 +765,6 @@ title="Print to PDF"
      Evaluate the performance using RMSE
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compare-our-by-hand-results-to-the-scikit-learn-version">
-     Compare our by “hand” results to the scikit-learn version!
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -838,6 +840,18 @@ title="Print to PDF"
      Define a corpus
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#document-encoding-for-machine-learning">
+   Document encoding for machine learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Key terms
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bag-of-words-model-with-countvectorizer">
      Bag of words model with
@@ -846,11 +860,6 @@ title="Print to PDF"
        CountVectorizer
       </span>
      </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#document-term-matrix">
-     Document term matrix
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -880,6 +889,11 @@ title="Print to PDF"
    Exercises
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-does-this-mean-for-predicting-text">
+   What does this mean for predicting text?
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -906,10 +920,10 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sklearn in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (0.0)
 Requirement already satisfied: scikit-learn in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from sklearn) (1.1.2)
+Requirement already satisfied: scipy&gt;=1.3.2 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from scikit-learn-&gt;sklearn) (1.9.0)
+Requirement already satisfied: joblib&gt;=1.0.0 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from scikit-learn-&gt;sklearn) (1.1.0)
 Requirement already satisfied: numpy&gt;=1.17.3 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from scikit-learn-&gt;sklearn) (1.22.4)
 Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from scikit-learn-&gt;sklearn) (3.1.0)
-Requirement already satisfied: joblib&gt;=1.0.0 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from scikit-learn-&gt;sklearn) (1.1.0)
-Requirement already satisfied: scipy&gt;=1.3.2 in /Users/evanmuzzall/.local/share/virtualenvs/SSDS-TAML-xaUfvlpM/lib/python3.9/site-packages (from scikit-learn-&gt;sklearn) (1.9.0)
 </pre></div>
 </div>
 </div>
@@ -1357,84 +1371,6 @@ Name: y, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.82843
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="compare-our-by-hand-results-to-the-scikit-learn-version">
-<h3>Compare our by “hand” results to the scikit-learn version!<a class="headerlink" href="#compare-our-by-hand-results-to-the-scikit-learn-version" title="Permalink to this headline">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use scikit-learn to compute R-squared value</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-
-<span class="n">lin_mod</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">]],</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;y&#39;</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R-squared: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lin_mod</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">]],</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;y&#39;</span><span class="p">]])))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R-squared: 0.8
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use scikit-learn to compute slope and intercept</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;scikit-learn slope: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lin_mod</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;scikit-learn intercept: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lin_mod</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>scikit-learn slope: [[4.]]
-scikit-learn intercept: [-4.]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compare to our by &quot;hand&quot; versions. Both are the same!</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">lin_mod</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span> <span class="o">==</span> <span class="n">B1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">lin_mod</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="o">==</span> <span class="n">B0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-True
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use scikit-learn to compute RMSE</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
-
-<span class="n">RMSE_scikit</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">squared</span> <span class="o">=</span> <span class="kc">False</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">RMSE_scikit</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.82843
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Does our hand-computed RMSE equal that of scikit-learn at 5 digits?? Yes!</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">RMSE</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="nb">round</span><span class="p">(</span><span class="n">RMSE_scikit</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -2218,7 +2154,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6_Core_concepts_vocabularies_83_0.png" src="../_images/6_Core_concepts_vocabularies_83_0.png" />
+<img alt="../_images/6_Core_concepts_vocabularies_77_0.png" src="../_images/6_Core_concepts_vocabularies_77_0.png" />
 </div>
 </div>
 </section>
@@ -2249,6 +2185,42 @@ True
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="document-encoding-for-machine-learning">
+<h2>Document encoding for machine learning<a class="headerlink" href="#document-encoding-for-machine-learning" title="Permalink to this headline">#</a></h2>
+<p>In the last chapter you saw that we do not change text to numbers, but instead changed the <em>representation</em> of the text to the numbers in sparse matrix format.</p>
+<p>In this format, each row represents a document and each column represents a token from the shared text vocabulary called a <strong>feature</strong>.</p>
+<section id="id1">
+<h3>Key terms<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>Document term matrix:</strong> contains the frequencies (or TF-IDF scores) of vocabulary terms in a collection of documents in sparse format.</p>
+<ul>
+<li><p>Each row is a document in the corpus.</p></li>
+<li><p>Each column represents a term (uni-gram, bi-gram, etc.) called a feature.</p></li>
+</ul>
+</li>
+<li><p><strong>Bag of words:</strong> The simplest text analysis model that standardizes text in a document by removing punctuation, converting the words to lowercase, and counting the token frequencies.</p>
+<ul>
+<li><p>Numeric values indicate that a particular feature is found in a document that number of times.</p></li>
+<li><p>A 0 indicates that the feature is <em>not</em> found in that document.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="dtm" src="../_images/dtm.png" /></p>
+<p><a class="reference external" href="https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/ch04.html">modified from “The Effects of Feature Scaling: From Bag-of-Words to Tf-Idf”</a></p>
+<ul class="simple">
+<li><p><strong>TF-IDF:</strong> Term frequency–inverse document frequency; a weighted numerical statistic that indicates the uniqueness of a word is in a given document or corpus.</p></li>
+</ul>
+<p>For TF-IDF sparse matrices:</p>
+<ul class="simple">
+<li><p>A value closer to 1 indicate that a feature is more relevant to a particular document.</p></li>
+<li><p>A value closer to 0 indicates that that feature is less/not relevant to that document.</p></li>
+</ul>
+<p><img alt="tf1" src="../_images/tf1.png" /></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">Wikipedia</a></p>
+<p><img alt="tf2" src="../_images/tf2.png" /></p>
+<p><a class="reference external" href="https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558">towardsdatascience</a></p>
 </section>
 <section id="bag-of-words-model-with-countvectorizer">
 <h3>Bag of words model with <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code><a class="headerlink" href="#bag-of-words-model-with-countvectorizer" title="Permalink to this headline">#</a></h3>
@@ -2288,18 +2260,13 @@ True
 </div>
 </div>
 </div>
-</section>
-<section id="document-term-matrix">
-<h3>Document term matrix<a class="headerlink" href="#document-term-matrix" title="Permalink to this headline">#</a></h3>
-<p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Document-term_matrix">document term matrix</a> displays term frequencies in sparse format across a collection of docuemnts. The <code class="docutils literal notranslate"><span class="pre">.transform</span></code> method will help us here!</p>
-<ul class="simple">
-<li><p>The first number is the document number</p></li>
-<li><p>The second number is the word from the vocabulary</p></li>
-<li><p>The third number is the number of times that word occurs</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The `.transform` method will help us here!</span>
+<span class="c1"># The first number is the document number</span>
+<span class="c1"># The second number is the word from the vocabulary</span>
+<span class="c1"># The third number is the number of times that word occurs</span>
+<span class="n">vector</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -2795,11 +2762,21 @@ Name: species, dtype: int64
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
-<li><p>Investigate classic horror novel vocabulary. Create a single sparse data frame that contains the vocabulary for <em>Frankenstein</em> and <em>Dracula</em>. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts.</p></li>
+<li><p>Compare our “by hand” OLS results to those producd by sklearn’s <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> function. Are they the same?</p>
+<ul class="simple">
+<li><p>Slope = 4</p></li>
+<li><p>Intercept = -4</p></li>
+<li><p>RMSE = 2.82843</p></li>
+<li><p>y_hat = y_hat = B0 + B1 * data.x</p></li>
+</ul>
+</li>
 <li><p>What if you have more than two classes? Rewrite the data preprocessing steps in a new notebook to predict penguin species (Adelie, Gentoo, or Chinstrap). You could use something like this for multi-class classification:
 <code class="docutils literal notranslate"><span class="pre">lr</span> <span class="pre">=</span> <span class="pre">LogisticRegression(multi_class='multinomial',</span> <span class="pre">solver='lbfgs')</span></code></p></li>
-<li><p>Skip ahead to Exercise # 2 about the 20 newsgroups dataset in Chapter 8 “Document encoding, sentiment analysis, and text classification” to see another example for predicting text.</p></li>
 </ol>
+</section>
+<section id="what-does-this-mean-for-predicting-text">
+<h2>What does this mean for predicting text?<a class="headerlink" href="#what-does-this-mean-for-predicting-text" title="Permalink to this headline">#</a></h2>
+<p>Read on in Chapter 7 “English text preprocessing basics” to learn about predicting text.</p>
 </section>
 </section>
 

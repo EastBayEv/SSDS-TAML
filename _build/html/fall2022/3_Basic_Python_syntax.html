@@ -668,9 +668,10 @@ title="Print to PDF"
 <p>This chapter explains foundational Python syntax that you can reuse to accomplish many basic data creation, importing, and exporting tasks.</p>
 <section id="variable-assignment">
 <h2>Variable assignment<a class="headerlink" href="#variable-assignment" title="Permalink to this headline">#</a></h2>
-<p>In Python, data are saved in <strong>variables.</strong> Variable names should be simple and descriptive. This process is called <strong>variable assignment.</strong></p>
-<p>Assign a variable by typing its name to the left of the equals sign. Whatever is written to the right of the equals sign will be saved in the variable.</p>
-<p>You could read this as “x is defined as four”, “five is assigned to y”, or “z is six”.</p>
+<p>In Python, data are saved in <strong>variables.</strong> Variable names should be simple and descriptive.</p>
+<p>The process is saving something in a variable is called <strong>variable assignment.</strong></p>
+<p>Assign a variable by typing its name to the <strong>left</strong> of the equals sign. Whatever is written to the <strong>right</strong> of the equals sign will be saved in the variable.</p>
+<p>Save a single number inside of a variable named with a single letter. You could read the below lines as “x is defined as one”, “two is assigned to y”, or most simply put, “z is three”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define one variable</span>
@@ -758,18 +759,39 @@ title="Print to PDF"
 <h2>Functions, arguments, and methods<a class="headerlink" href="#functions-arguments-and-methods" title="Permalink to this headline">#</a></h2>
 <p>Functions, arguments, and methods form the core user framework for Python programming.</p>
 <ol class="simple">
-<li><p>Functions: Perform self-contained actions on a thing.</p></li>
-<li><p>Argument(s):  The “things” (text, values, expressions, datasets, etc.)</p></li>
+<li><p><strong>Functions:</strong> Perform self-contained actions on a thing.</p></li>
+<li><p><strong>Argument(s):</strong> The “things” (text, values, expressions, datasets, etc.)</p></li>
 </ol>
 <blockquote>
-<div><p>Note “parameters” are the variables as notated during function definition. Arguments are the values we pass into these placeholders while calling the function.<br />
+<div><p>Note <strong>“parameters”</strong> are the variables as notated during function definition. Arguments are the values we pass into these placeholders while calling the function.<br />
 <img alt="params" src="../_images/params_vs_args.png" /></p>
 </div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example custom function</span>
+<span class="k">def</span> <span class="nf">print_name</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="s2">&quot;My name is: &quot;</span> <span class="o">+</span> <span class="n">first</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">last</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_name</span><span class="p">(</span><span class="s2">&quot;Nerd&quot;</span><span class="p">,</span> <span class="s2">&quot;Squirrel&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;My name is: Nerd Squirrel&#39;
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="simple">
-<li><p>Methods:   Type-specific functions (i.e., can only use a specific type of data and not other types). Use “dot” notation to utilize methods on a variable or other object.</p></li>
+<li><p><strong>Methods:</strong> Type-specific functions (i.e., can only use a specific type of data and not other types). Use “dot” notation to utilize methods on a variable or other object.</p></li>
 </ol>
 <blockquote>
-<div><p>For example, you could type <code class="docutils literal notranslate"><span class="pre">gap</span> <span class="pre">=</span> <span class="pre">pd.read_csv('data/gapminder-FiveYearData.csv')</span></code> to use the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> method from the pandas library (imported as the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>) to load the Gapminder data.</p>
+<div><p>For example, you will type <code class="docutils literal notranslate"><span class="pre">gap</span> <span class="pre">=</span> <span class="pre">pd.read_csv('data/gapminder-FiveYearData.csv')</span></code> to use the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> method from the pandas library (imported as the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>) to load the Gapminder data.</p>
 </div></blockquote>
 </section>
 <section id="data-types">
@@ -777,21 +799,23 @@ title="Print to PDF"
 <p>Everything in Python has a type which determines how we can use and manipulate it. Data are no exception! Be careful, it is easy to get confused when trying to complete multiple tasks that use lots of different variables!</p>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">type</span></code> function to get the type of any variable if you’re unsure. Below are four core data types:</p>
 <ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: character string; text. Always wrapped in quotations (single or double are fine).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>: Boolean <code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is stored under the hood as 1, <code class="docutils literal notranslate"><span class="pre">False</span></code> is stored as 0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: Character string; text. Always wrapped in quotations (single or double are fine)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>: Boolean <code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is stored under the hood as 1, <code class="docutils literal notranslate"><span class="pre">False</span></code> is stored as 0</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">float</span></code>: Decimals (floating-point)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: whole numbers (positive and negative, including zero)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: Whole numbers (positive and negative, including zero)</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. String data</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="s2">&quot;This is string data&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is string data
+&lt;class &#39;str&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -800,12 +824,14 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. Boolean data</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;bool&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+&lt;class &#39;bool&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -815,12 +841,14 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. float (decimals)</span>
 <span class="c1"># use a decimal to create floats</span>
 <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;float&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14
+&lt;class &#39;float&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -830,12 +858,14 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4. integer (whole numbers)</span>
 <span class="c1"># do not use a decimal for integers</span>
 <span class="n">amount</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">amount</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+&lt;class &#39;int&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -872,14 +902,16 @@ title="Print to PDF"
 </section>
 <section id="data-structures">
 <h2>Data structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">#</a></h2>
-<p>Data can be stored in a variety of ways. Regardless, we use Python to <strong>index</strong> (positionally reference) a portion of a larger data structure or collection.</p>
+<p>Data can be stored in a variety of ways. Regardless, we can <strong>index</strong> (positionally reference) a portion of a larger data structure or collection.</p>
 <section id="python-is-zero-indexed">
 <h3>Python is zero-indexed!<a class="headerlink" href="#python-is-zero-indexed" title="Permalink to this headline">#</a></h3>
 <p>Python is a zero-indexed programming language and means that you start counting from zero. Thus, the first element in a collection is referenced by 0 instead of 1.</p>
-<p>Three structures are discussed below:</p>
+<p>Four structures are discussed below:</p>
 <ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>: Lists are ordered groups of data that are both created and indexed with square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>: Dictionaries are <em>unordered</em> groups of “key:value” pairs. Use the key to access the value. Curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> are used to create and index dictionaries.</p></li>
+<li><p><strong>Lists</strong> are ordered groups of data that are both created and indexed with square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code></p></li>
+<li><p><strong>Dictionaries</strong> are <em>unordered</em> groups of “key:value” pairs. Use the key to access the value. Curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> are used to create and index dictionaries</p></li>
+<li><p><strong>Character strings</strong> can contain text of virtually any length</p></li>
+<li><p><strong>Data Frames</strong> are tabular data organized into rows and columns. Think of an MS Excel spreadsheet!</p></li>
 </ol>
 </section>
 </section>
@@ -887,7 +919,8 @@ title="Print to PDF"
 <h2>1. List<a class="headerlink" href="#list" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;shark&#39;</span><span class="p">,</span> <span class="s1">&#39;dolphin&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a list with with square brackets. This list contains two character strings &#39;shark&#39; and &#39;dolphin&#39;</span>
+<span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;shark&#39;</span><span class="p">,</span> <span class="s1">&#39;dolphin&#39;</span><span class="p">]</span>
 <span class="n">animals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -900,7 +933,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call the second thing (remember Python is zero-indexed)</span>
+<span class="n">animals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -914,7 +948,8 @@ title="Print to PDF"
 <p>When this is the case, we can use multi-indices to extract just the piece of data we want. For example, to return only the element “tree”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To get an element from a list within a list, double-index the original list!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lists can contain other structures, such as other lists</span>
+<span class="c1"># To get an element from a list within a list, double-index the original list!</span>
 <span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;shark&#39;</span><span class="p">,</span> <span class="s1">&#39;dolphin&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="s1">&#39;cactus&#39;</span><span class="p">]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
@@ -929,7 +964,34 @@ title="Print to PDF"
 <p>Or, to just return the element “cat”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print this &#39;animals&#39; list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;shark&#39;, &#39;dolphin&#39;, [&#39;dog&#39;, &#39;cat&#39;], [&#39;tree&#39;, &#39;cactus&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print just the 3rd thing - the sublist containing &#39;dog&#39; and &#39;cat&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dog&#39;, &#39;cat&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print only &#39;cat&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -942,7 +1004,8 @@ title="Print to PDF"
 <p>Lists can also contain elements of different types:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chimera</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lion&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;griffin&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a heterogeneous list</span>
+<span class="n">chimera</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lion&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;griffin&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">chimera</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">chimera</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 </pre></div>
@@ -960,7 +1023,8 @@ title="Print to PDF"
 <h2>2. Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">],</span> <span class="s1">&#39;recipes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span> <span class="s1">&#39;salad&#39;</span><span class="p">,</span> <span class="s1">&#39;sauce&#39;</span><span class="p">]}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define two dictionaries - apple and orange</span>
+<span class="n">apple</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">],</span> <span class="s1">&#39;recipes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span> <span class="s1">&#39;salad&#39;</span><span class="p">,</span> <span class="s1">&#39;sauce&#39;</span><span class="p">]}</span>
 <span class="n">orange</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;recipes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;juice&#39;</span><span class="p">,</span> <span class="s1">&#39;marmalade&#39;</span><span class="p">,</span> <span class="s1">&#39;gratin&#39;</span><span class="p">]}</span>
 <span class="n">apple</span>
 </pre></div>
@@ -988,8 +1052,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Combine two dictionaries into one by placing them in a list value <code class="docutils literal notranslate"><span class="pre">[apple,</span> <span class="pre">orange]</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">fruits</span></code> is the key. Call the key to see the value(s)!</p>
+<p>Combine two dictionaries into one by placing them in a list value <code class="docutils literal notranslate"><span class="pre">[apple,</span> <span class="pre">orange]</span></code>, with a key named <code class="docutils literal notranslate"><span class="pre">fruits</span></code>. Call the key to see the value(s)!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fruits&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">apple</span><span class="p">,</span> <span class="n">orange</span><span class="p">]}</span>
@@ -1009,10 +1072,75 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>To index just “juice”, combine dictionary key and list techniques to tunnel into the hierarchical structure of the dictionary and extract just what you want:</p>
+<p>To index just “juice” - under the ‘recipes’ key for the <code class="docutils literal notranslate"><span class="pre">orange</span></code> dictionary, combine dictionary key and list techniques to tunnel into the hierarchical structure of the dictionary and extract just what you want:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span><span class="p">[</span><span class="s1">&#39;fruits&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;recipes&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call the newly combined dictionary</span>
+<span class="n">fruits</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fruits&#39;: [{&#39;name&#39;: &#39;apple&#39;,
+   &#39;color&#39;: [&#39;red&#39;, &#39;green&#39;],
+   &#39;recipes&#39;: [&#39;pie&#39;, &#39;salad&#39;, &#39;sauce&#39;]},
+  {&#39;name&#39;: &#39;orange&#39;,
+   &#39;color&#39;: &#39;orange&#39;,
+   &#39;recipes&#39;: [&#39;juice&#39;, &#39;marmalade&#39;, &#39;gratin&#39;]}]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reference the &#39;fruits&#39; key</span>
+<span class="n">fruits</span><span class="p">[</span><span class="s1">&#39;fruits&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;name&#39;: &#39;apple&#39;,
+  &#39;color&#39;: [&#39;red&#39;, &#39;green&#39;],
+  &#39;recipes&#39;: [&#39;pie&#39;, &#39;salad&#39;, &#39;sauce&#39;]},
+ {&#39;name&#39;: &#39;orange&#39;,
+  &#39;color&#39;: &#39;orange&#39;,
+  &#39;recipes&#39;: [&#39;juice&#39;, &#39;marmalade&#39;, &#39;gratin&#39;]}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Index the second thing (orange)</span>
+<span class="n">fruits</span><span class="p">[</span><span class="s1">&#39;fruits&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;orange&#39;,
+ &#39;color&#39;: &#39;orange&#39;,
+ &#39;recipes&#39;: [&#39;juice&#39;, &#39;marmalade&#39;, &#39;gratin&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call the &#39;recipes&#39; key from &#39;orange&#39; to see the items list</span>
+<span class="n">fruits</span><span class="p">[</span><span class="s1">&#39;fruits&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;recipes&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;juice&#39;, &#39;marmalade&#39;, &#39;gratin&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return the first thing from the &#39;recipes&#39; key of the &#39;orange&#39; dictionary inside of &#39;fruits&#39;!</span>
+<span class="n">fruits</span><span class="p">[</span><span class="s1">&#39;fruits&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;recipes&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1038,12 +1166,13 @@ title="Print to PDF"
 <ol class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">frank</span></code> is the name of the variable we will save the text inside of</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">open</span></code> is the function we will use to open the text file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'data/frankenstein.txt'</span></code> is the argument that we provide to the <code class="docutils literal notranslate"><span class="pre">open</span></code> function. This is the file path location for the Frankenstein book.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'data/frankenstein.txt'</span></code> is the argument that we provide to the <code class="docutils literal notranslate"><span class="pre">open</span></code> function. This matches the <code class="docutils literal notranslate"><span class="pre">file</span></code> path argument and needs to contain the location for the Frankenstein book.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.read()</span></code> reads the file as text.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frank</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/frankenstein.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="c1"># print(frank)</span>
 
 <span class="c1"># print only the first 1000 characters</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">frank</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>
@@ -1091,9 +1220,9 @@ or, the Modern Prom
 </section>
 <section id="import-data-frames-with-the-pandas-library">
 <h3>Import data frames with the pandas library<a class="headerlink" href="#import-data-frames-with-the-pandas-library" title="Permalink to this headline">#</a></h3>
-<p>Data frames are programming speak for tabular spreadsheets organized into rows and columns and often stored in .csv format. Just think of a spreadsheet in MS Excel!</p>
+<p>Data frames are programming speak for tabular spreadsheets organized into rows and columns and often stored in useful formats such as .csv (i.e., a spreadsheet)</p>
 <p>.csv stands for “comma-separated values” and means that these data are stored as text files with a comma used to delineate column breaks.</p>
-<p>For this part, we will use the <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html">Pandas</a> Python library. Using additional software libraries requires two steps:</p>
+<p>For this part, we will use the <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html">pandas</a> Python library. Remember how to install user-defined libraries from Chapter 2? This is a two step process.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1. Physically download and install the library&#39;s files (unhashtab the line below to run)</span>
@@ -1111,7 +1240,7 @@ or, the Modern Prom
 </div>
 </div>
 </div>
-<p>Now, you should be able to use dot notation (type <code class="docutils literal notranslate"><span class="pre">pd.</span></code>)to access the functions within the pandas library.</p>
+<p>Now, you can use dot notation (type <code class="docutils literal notranslate"><span class="pre">pd.</span></code>)to access the functions within the pandas library.</p>
 <p>We want the <code class="docutils literal notranslate"><span class="pre">read.csv</span></code> method. Like the .txt file import above, we must provide the file path of the location of the .csv file we want to import.</p>
 <p>Save it in the variable named <code class="docutils literal notranslate"><span class="pre">gap</span></code></p>
 <div class="cell docutils container">
@@ -1309,14 +1438,15 @@ or, the Modern Prom
 <li><p>Strategically place print() statements to know where your program is reaching/failing to reach</p></li>
 <li><p>Ask a friend! A fresh set of eyes goes a long way when you’re working on code.</p></li>
 <li><p>Restart your IDE and/or your machine.</p></li>
+<li><p><a class="reference external" href="https://library.stanford.edu/research/software-and-services-data-science/schedule-consulting-appointment-contact-us">Schedule an SSDS consultation</a></p></li>
 </ol>
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Unhashtag the line of code for each error message below</p></li>
-<li><p>Run each one</p></li>
-<li><p>Inspect the error messages</p></li>
+<li><p>Run each cell</p></li>
+<li><p>Inspect the error messages. Are they helpful?</p></li>
 </ol>
 <section id="syntax-errors">
 <h3>Syntax errors<a class="headerlink" href="#syntax-errors" title="Permalink to this headline">#</a></h3>
@@ -1398,6 +1528,9 @@ or, the Modern Prom
 <section id="id1">
 <h2>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
+<li><p>Define one variable for each of the four data types introduced above: 1) string, 2) boolean, 3) float, and 4) integer.</p></li>
+<li><p>Define two lists that contain four elements each.</p></li>
+<li><p>Define a dictionary that containts the two lists from #2 above.</p></li>
 <li><p>Import the file “dracula.txt”. Save it in a variable named <code class="docutils literal notranslate"><span class="pre">drac</span></code></p></li>
 <li><p>Import the file “penguins.csv”. Save it in a variable named <code class="docutils literal notranslate"><span class="pre">pen</span></code></p></li>
 <li><p>Figure out how to find help to export just the first 1000 characters of <code class="docutils literal notranslate"><span class="pre">drac</span></code> as a .txt file named “dracula_short.txt”</p></li>

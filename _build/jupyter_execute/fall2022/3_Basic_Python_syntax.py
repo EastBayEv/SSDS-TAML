@@ -13,11 +13,13 @@
 
 # ## Variable assignment
 # 
-# In Python, data are saved in **variables.** Variable names should be simple and descriptive. This process is called **variable assignment.**
+# In Python, data are saved in **variables.** Variable names should be simple and descriptive. 
 # 
-# Assign a variable by typing its name to the left of the equals sign. Whatever is written to the right of the equals sign will be saved in the variable. 
+# The process is saving something in a variable is called **variable assignment.**
 # 
-# You could read this as "x is defined as four", "five is assigned to y", or "z is six".
+# Assign a variable by typing its name to the **left** of the equals sign. Whatever is written to the **right** of the equals sign will be saved in the variable. 
+# 
+# Save a single number inside of a variable named with a single letter. You could read the below lines as "x is defined as one", "two is assigned to y", or most simply put, "z is three":
 
 # In[1]:
 
@@ -68,26 +70,33 @@ print(x / y * z)
 x / y * z
 
 
-# In[ ]:
-
-
-
-
-
 # ## Functions, arguments, and methods
 # 
 # Functions, arguments, and methods form the core user framework for Python programming. 
-# 1. Functions: Perform self-contained actions on a thing.
+# 1. **Functions:** Perform self-contained actions on a thing.
 # 
-# 2. Argument(s):  The "things" (text, values, expressions, datasets, etc.)
+# 2. **Argument(s):** The "things" (text, values, expressions, datasets, etc.)
 # 
-# > Note "parameters" are the variables as notated during function definition. Arguments are the values we pass into these placeholders while calling the function.  
+# > Note **"parameters"** are the variables as notated during function definition. Arguments are the values we pass into these placeholders while calling the function.  
 # ![params](img/params_vs_args.png)
+
+# In[8]:
+
+
+# Example custom function
+def print_name(first, last):
+    return("My name is: " + first + " " + last)
+
+
+# In[9]:
+
+
+print_name("Nerd", "Squirrel")
+
+
+# 3. **Methods:** Type-specific functions (i.e., can only use a specific type of data and not other types). Use "dot" notation to utilize methods on a variable or other object. 
 # 
-# 3. Methods:   Type-specific functions (i.e., can only use a specific type of data and not other types). Use "dot" notation to utilize methods on a variable or other object. 
-# 
-# > For example, you could type `gap = pd.read_csv('data/gapminder-FiveYearData.csv')` to use the `read_csv()` method from the pandas library (imported as the alias `pd`) to load the Gapminder data.
-# 
+# > For example, you will type `gap = pd.read_csv('data/gapminder-FiveYearData.csv')` to use the `read_csv()` method from the pandas library (imported as the alias `pd`) to load the Gapminder data.
 
 # ## Data types
 # 
@@ -95,55 +104,59 @@ x / y * z
 # 
 # Use the `type` function to get the type of any variable if you're unsure. Below are four core data types: 
 # 
-# 1. `str`: character string; text. Always wrapped in quotations (single or double are fine).
-# 2. `bool`: Boolean `True`/`False`. `True` is stored under the hood as 1, `False` is stored as 0. 
+# 1. `str`: Character string; text. Always wrapped in quotations (single or double are fine)
+# 2. `bool`: Boolean `True`/`False`. `True` is stored under the hood as 1, `False` is stored as 0
 # 3. `float`: Decimals (floating-point)
-# 4. `int`: whole numbers (positive and negative, including zero)
-
-# In[8]:
-
-
-# 1. String data
-x1 = "This is string data"
-print(type(x1))
-
-
-# In[9]:
-
-
-# 2. Boolean data
-x2 = True
-print(type(x2))
-
+# 4. `int`: Whole numbers (positive and negative, including zero)
 
 # In[10]:
 
 
-# 3. float (decimals)
-# use a decimal to create floats
-pi = 3.14
-print(type(pi))
+# 1. String data
+x1 = "This is string data"
+print(x1)
+print(type(x1))
 
 
 # In[11]:
 
 
+# 2. Boolean data
+x2 = True
+print(x2)
+print(type(x2))
+
+
+# In[12]:
+
+
+# 3. float (decimals)
+# use a decimal to create floats
+pi = 3.14
+print(pi)
+print(type(pi))
+
+
+# In[13]:
+
+
 # 4. integer (whole numbers)
 # do not use a decimal for integers
 amount = 4
+print(amount)
 print(type(amount))
 
 
 # ## String addition versus integer addition
 
-# In[12]:
+# In[14]:
 
 
 # character strings
 '1' + '1'
 
 
-# In[13]:
+# In[15]:
 
 
 # integers
@@ -152,28 +165,32 @@ print(type(amount))
 
 # ## Data structures
 # 
-# Data can be stored in a variety of ways. Regardless, we use Python to **index** (positionally reference) a portion of a larger data structure or collection. 
+# Data can be stored in a variety of ways. Regardless, we can **index** (positionally reference) a portion of a larger data structure or collection. 
 # 
 # ### Python is zero-indexed!
 # 
 # Python is a zero-indexed programming language and means that you start counting from zero. Thus, the first element in a collection is referenced by 0 instead of 1. 
 # 
-# Three structures are discussed below:
-# 1. `list`: Lists are ordered groups of data that are both created and indexed with square brackets `[]`
-# 2. `dict`: Dictionaries are _unordered_ groups of "key:value" pairs. Use the key to access the value. Curly braces `{}` are used to create and index dictionaries. 
+# Four structures are discussed below:
+# 1. **Lists** are ordered groups of data that are both created and indexed with square brackets `[]`
+# 2. **Dictionaries** are _unordered_ groups of "key:value" pairs. Use the key to access the value. Curly braces `{}` are used to create and index dictionaries
+# 3. **Character strings** can contain text of virtually any length
+# 4. **Data Frames** are tabular data organized into rows and columns. Think of an MS Excel spreadsheet!
 
 # ## 1. List
 
-# In[14]:
+# In[16]:
 
 
+# Define a list with with square brackets. This list contains two character strings 'shark' and 'dolphin'
 animals = ['shark', 'dolphin']
 animals[0]
 
 
-# In[15]:
+# In[17]:
 
 
+# Call the second thing (remember Python is zero-indexed)
 animals[1]
 
 
@@ -181,9 +198,10 @@ animals[1]
 # 
 # When this is the case, we can use multi-indices to extract just the piece of data we want. For example, to return only the element "tree":
 
-# In[16]:
+# In[18]:
 
 
+# Lists can contain other structures, such as other lists
 # To get an element from a list within a list, double-index the original list!
 animals = ['shark', 'dolphin', ['dog', 'cat'], ['tree', 'cactus']]
 print(animals[3][0])
@@ -191,17 +209,33 @@ print(animals[3][0])
 
 # Or, to just return the element "cat":
 
-# In[17]:
+# In[19]:
 
 
+# print this 'animals' list
+print(animals)
+
+
+# In[20]:
+
+
+# print just the 3rd thing - the sublist containing 'dog' and 'cat'
+print(animals[2])
+
+
+# In[21]:
+
+
+# print only 'cat'
 print(animals[2][1])
 
 
 # Lists can also contain elements of different types:
 
-# In[18]:
+# In[22]:
 
 
+# Define a heterogeneous list
 chimera = ['lion', 0.5, 'griffin', 0.5]
 print(type(chimera[0]))
 print(type(chimera[1]))
@@ -209,25 +243,24 @@ print(type(chimera[1]))
 
 # ## 2. Dictionary
 
-# In[19]:
+# In[23]:
 
 
+# Define two dictionaries - apple and orange
 apple = {'name': 'apple', 'color': ['red', 'green'], 'recipes': ['pie', 'salad', 'sauce']}
 orange = {'name': 'orange', 'color': 'orange', 'recipes': ['juice', 'marmalade', 'gratin']}
 apple
 
 
-# In[20]:
+# In[24]:
 
 
 orange
 
 
-# Combine two dictionaries into one by placing them in a list value `[apple, orange]`. 
-# 
-# `fruits` is the key. Call the key to see the value(s)!
+# Combine two dictionaries into one by placing them in a list value `[apple, orange]`, with a key named `fruits`. Call the key to see the value(s)!
 
-# In[21]:
+# In[25]:
 
 
 fruits = {'fruits': [apple, orange]}
@@ -235,11 +268,40 @@ fruits = {'fruits': [apple, orange]}
 fruits
 
 
-# To index just "juice", combine dictionary key and list techniques to tunnel into the hierarchical structure of the dictionary and extract just what you want:
+# To index just "juice" - under the 'recipes' key for the `orange` dictionary, combine dictionary key and list techniques to tunnel into the hierarchical structure of the dictionary and extract just what you want:
 
-# In[22]:
+# In[26]:
 
 
+# Call the newly combined dictionary
+fruits
+
+
+# In[27]:
+
+
+# Reference the 'fruits' key
+fruits['fruits']
+
+
+# In[28]:
+
+
+# Index the second thing (orange)
+fruits['fruits'][1]
+
+
+# In[29]:
+
+
+# Call the 'recipes' key from 'orange' to see the items list
+fruits['fruits'][1]['recipes']
+
+
+# In[30]:
+
+
+# Return the first thing from the 'recipes' key of the 'orange' dictionary inside of 'fruits'!
 fruits['fruits'][1]['recipes'][0]
 
 
@@ -258,13 +320,14 @@ fruits['fruits'][1]['recipes'][0]
 # Review your basic building blocks from above: 
 # 1. `frank` is the name of the variable we will save the text inside of
 # 2. `open` is the function we will use to open the text file
-# 3. `'data/frankenstein.txt'` is the argument that we provide to the `open` function. This is the file path location for the Frankenstein book.
+# 3. `'data/frankenstein.txt'` is the argument that we provide to the `open` function. This matches the `file` path argument and needs to contain the location for the Frankenstein book.
 # 4. `.read()` reads the file as text. 
 
-# In[23]:
+# In[31]:
 
 
 frank = open('data/frankenstein.txt').read()
+# print(frank)
 
 # print only the first 1000 characters
 print(frank[:1000])
@@ -272,20 +335,20 @@ print(frank[:1000])
 
 # ### Import data frames with the pandas library
 # 
-# Data frames are programming speak for tabular spreadsheets organized into rows and columns and often stored in .csv format. Just think of a spreadsheet in MS Excel!
+# Data frames are programming speak for tabular spreadsheets organized into rows and columns and often stored in useful formats such as .csv (i.e., a spreadsheet)
 # 
 # .csv stands for "comma-separated values" and means that these data are stored as text files with a comma used to delineate column breaks. 
 # 
-# For this part, we will use the [Pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html) Python library. Using additional software libraries requires two steps: 
+# For this part, we will use the [pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html) Python library. Remember how to install user-defined libraries from Chapter 2? This is a two step process.
 
-# In[24]:
+# In[32]:
 
 
 # Step 1. Physically download and install the library's files (unhashtab the line below to run)
 # !pip install pandas
 
 
-# In[25]:
+# In[33]:
 
 
 # Step 2. link the pandas library to our current notebook
@@ -293,26 +356,26 @@ print(frank[:1000])
 import pandas as pd 
 
 
-# Now, you should be able to use dot notation (type `pd.`)to access the functions within the pandas library. 
+# Now, you can use dot notation (type `pd.`)to access the functions within the pandas library. 
 # 
 # We want the `read.csv` method. Like the .txt file import above, we must provide the file path of the location of the .csv file we want to import. 
 # 
 # Save it in the variable named `gap`
 
-# In[26]:
+# In[34]:
 
 
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[27]:
+# In[35]:
 
 
 # View the data
 print(gap)
 
 
-# In[28]:
+# In[36]:
 
 
 gap
@@ -322,7 +385,7 @@ gap
 # 
 # The help pages in Python are generally quite useful and tell you everything you need to know - you just don't know it yet! Type a question mark `?` before a funciton to view its help pages.
 
-# In[29]:
+# In[37]:
 
 
 # ?pd.read_csv
@@ -340,12 +403,13 @@ gap
 # 3. Strategically place print() statements to know where your program is reaching/failing to reach  
 # 4. Ask a friend! A fresh set of eyes goes a long way when you're working on code.
 # 5. Restart your IDE and/or your machine.  
+# 6. [Schedule an SSDS consultation](https://library.stanford.edu/research/software-and-services-data-science/schedule-consulting-appointment-contact-us)
 # 
 # ## Exercises
 # 
 # 1. Unhashtag the line of code for each error message below
-# 2. Run each one
-# 3. Inspect the error messages
+# 2. Run each cell
+# 3. Inspect the error messages. Are they helpful?
 
 # ### Syntax errors
 # 
@@ -353,7 +417,7 @@ gap
 # 
 # You have entered invalid syntax, or something python does not understand.
 
-# In[30]:
+# In[38]:
 
 
 # x 89 5
@@ -365,7 +429,7 @@ gap
 # 
 # Highlight the code in the cell below and press `command` and `/` (Mac) or `Ctrl` and `/` on Windows to block comment/uncomment multiple lines of code:
 
-# In[31]:
+# In[39]:
 
 
 # def example():
@@ -380,7 +444,7 @@ gap
 # 
 # You try to call a variable you have not yet assigned
 
-# In[32]:
+# In[40]:
 
 
 # p
@@ -388,7 +452,7 @@ gap
 
 # Or, you try to call a function from a library that you have not yet imported
 
-# In[33]:
+# In[41]:
 
 
 # example()
@@ -398,7 +462,7 @@ gap
 # 
 # You write code with incompatible types
 
-# In[34]:
+# In[42]:
 
 
 # "5" + 5
@@ -408,7 +472,7 @@ gap
 # 
 # You try to reference something that is out of range
 
-# In[35]:
+# In[43]:
 
 
 my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
@@ -421,7 +485,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # You try to import something that does not exist
 
-# In[36]:
+# In[44]:
 
 
 # document = open('fakedtextfile.txt').read()
@@ -429,10 +493,13 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 
 # ## Exercises
 # 
-# 1. Import the file "dracula.txt". Save it in a variable named `drac`
-# 2. Import the file "penguins.csv". Save it in a variable named `pen`
-# 3. Figure out how to find help to export just the first 1000 characters of `drac` as a .txt file named "dracula_short.txt"
-# 4. Figure out how to export the `pen` dataframe as a file named "penguins_saved.csv"
+# 1. Define one variable for each of the four data types introduced above: 1) string, 2) boolean, 3) float, and 4) integer. 
+# 2. Define two lists that contain four elements each. 
+# 3. Define a dictionary that containts the two lists from #2 above.
+# 4. Import the file "dracula.txt". Save it in a variable named `drac`
+# 5. Import the file "penguins.csv". Save it in a variable named `pen`
+# 6. Figure out how to find help to export just the first 1000 characters of `drac` as a .txt file named "dracula_short.txt"
+# 7. Figure out how to export the `pen` dataframe as a file named "penguins_saved.csv"
 # 
 # If you encounter error messages, which ones? 
 
