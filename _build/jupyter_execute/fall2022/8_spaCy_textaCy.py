@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Chapter 9 - spaCy and textaCy
+# # Chapter 8 - spaCy and textaCy
 # 
 # 2022 August 22 
-# > This is an abridged version of the CIDR Workshop [Text Analysis with Python](https://github.com/sul-cidr/Workshops/tree/master/Text_Analysis_with_Python)
+# > These abridged materials are borrowed from the CIDR Workshop [Text Analysis with Python](https://github.com/sul-cidr/Workshops/tree/master/Text_Analysis_with_Python)
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/9_spaCy_textaCy.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
