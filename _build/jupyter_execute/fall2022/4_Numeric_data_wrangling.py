@@ -2,8 +2,9 @@
 # coding: utf-8
 
 # # Chapter 4 - Numeric data wrangling
+# 2022 August 25
 # 
-# > For text preprocessing, see Chapter 6 "English text preprocessing basics"
+# > For text preprocessing, see Chapter 7 "English text preprocessing basics"
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/4_Numeric_data_wrangling.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -13,7 +14,7 @@
 
 # ## The pandas library
 # 
-# Import the pandas library with the alias `pd` 
+# Import the pandas library with the alias `pd`. This is just a shortcut to call its methods!
 # 
 # Use "dot notation" to apply its methods to the gapminder dataset, which is stored in a tabular .csv file. 
 # 
@@ -58,34 +59,45 @@ print(type(gap))
 
 # ## First, look at the data
 # 
-# Use pandas methods to learn about the data!
-
-# ### `.head()`
+# `print` or call the dataset to view its output. Use pandas methods to learn about the data!
 
 # In[4]:
 
 
-# look at first five rows by default
+print(gap)
+
+
+# In[5]:
+
+
+gap
+
+
+# ### `.head()`
+
+# In[6]:
+
+
+# .head() shows the first five rows by default
 gap.head()
 
 
 # ### `.columns`
 
-# In[5]:
+# In[7]:
 
 
-# View column names
+# .columns shows the column names
 # this is an attribute instead of a method - note the lack of parentheses ()
 gap.columns
 
 
 # ### `.shape`
 
-# In[6]:
+# In[8]:
 
 
-# Show number of rows by columns
-# this is an attribute instead of a method - note the lack of parentheses ()
+# .shape shows the number of rows by columns
 gap.shape
 
 
@@ -97,7 +109,7 @@ gap.shape
 
 # ### `.describe()`
 
-# In[7]:
+# In[9]:
 
 
 # produce summary statistics for numeric data
@@ -106,7 +118,7 @@ gap.describe()
 
 # ### `.mean()` and `.std()`
 
-# In[8]:
+# In[10]:
 
 
 # calculate mean and standard deviation of lifeExp
@@ -120,10 +132,10 @@ print("Life expectancy sd:", lifeExp_sd)
 # 
 # These two methods are useful for tabulating frequencies by a grouping variable!
 
-# In[9]:
+# In[11]:
 
 
-# count the number of countries grouped by each continent
+# count the number of observations grouped by each continent
 gap.groupby("continent").count()["country"]
 
 
@@ -133,7 +145,7 @@ gap.groupby("continent").count()["country"]
 # 
 # Slice a data frame by using bracket notation to specify start and end points `[start : end]`
 # 
-# The `[start ` index is _included_ and the ` end]` index is **excluded**. 
+# The `[start ` index is **included** and the ` end]` index is **excluded**. 
 # 
 # > Remember that Python is a zero-indexed language, so starts counting from zero, not one.
 # 
@@ -141,7 +153,7 @@ gap.groupby("continent").count()["country"]
 
 # ### Row subset: slice just the first row
 
-# In[10]:
+# In[12]:
 
 
 gap[:1]
@@ -149,7 +161,7 @@ gap[:1]
 
 # ### Row subset: slice first three rows
 
-# In[11]:
+# In[13]:
 
 
 gap[:3]
@@ -157,7 +169,7 @@ gap[:3]
 
 # ### Row subset: slice rows 10 thru 14
 
-# In[12]:
+# In[14]:
 
 
 subset1 = gap[10:15]
@@ -166,7 +178,7 @@ subset1
 
 # ### Column subset: one column
 
-# In[13]:
+# In[15]:
 
 
 # type the column name as a string in square brackets
@@ -175,7 +187,7 @@ gap['lifeExp']
 
 # ### Column subset: multiple columns
 
-# In[14]:
+# In[16]:
 
 
 # note the double sets of brackets
@@ -185,7 +197,7 @@ subset2
 
 # ### Row and column subset
 
-# In[15]:
+# In[17]:
 
 
 # subset more than one column and rows 855 thru 858
@@ -193,16 +205,17 @@ subset3 = gap[['continent', 'lifeExp', 'gdpPercap']][855:859]
 subset3
 
 
-# In[16]:
+# In[18]:
 
 
-# Pandas "Series" can be thought of like numpy arrays - but beware, they do not function the same!
+# A column in a pandas data frame Pandas "Series" can be thought of like numpy arrays
+# But, beware, they do not function exactly the same!
 type(gap["lifeExp"])
 
 
 # ### Subset by logical condition(s)
 
-# In[17]:
+# In[19]:
 
 
 # lifeExp is greater than 80
@@ -214,7 +227,7 @@ le2
 # 
 # All conditions must be satisfied to be included in the subset
 
-# In[18]:
+# In[20]:
 
 
 # create subset that includes life expectancy greater than 81 AND pop < 500,000.
@@ -226,7 +239,7 @@ year2002
 # 
 # Just one of multiple conditions must be satisfied to be included in the subset
 
-# In[19]:
+# In[21]:
 
 
 # create a subset that includes country equals Ireland OR life expectancy greater than 82. 
@@ -234,15 +247,16 @@ ireland82 = gap[(gap["country"] == "Ireland") | (gap["lifeExp"] > 82)]
 ireland82
 
 
-# ## Exercises TODO
+# ## Exercises
 # 
-# 1. Load csv
-# 2. Print col names
-# 3. Print mean for all columns
-# 4. Summary stats for all data
-# 5. mean for one col ie gap.groupby('continent')["lifeExp"].mean()
-# 6. multi columns ie le_table = gap.groupby('continent')[["lifeExp", "gdpPercap"]].mean()
+# 1. Load the file "penguins.csv" and save it in a variable named `peng`
+# 2. Print the column names
+# 3. Compute the mean one numeric columns
+# 4. Compute the mean for all numeric columns
+# 5. Tabulate frequencies for the columns species, island, and sex
+# 6. Compute body mass mean and standard deviation by species, island, and sex
+# 7. Create a subset of `peng` that contains only penguins with body mass less than 3000 and bill length greater than 38.
 
 # ## Data visualization
 # 
-# After importing, exploring, and potentially subsetting your data, visualization is a common technique to perform next. Read Chapter 5 "Data visualization essentials" to get started. 
+# After importing, exploring, and subsetting your data, visualization is a common technique to perform next. Read Chapter 5 "Data visualization essentials" to get started. 

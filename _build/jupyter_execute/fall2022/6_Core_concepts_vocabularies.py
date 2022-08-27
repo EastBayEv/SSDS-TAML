@@ -2,7 +2,6 @@
 # coding: utf-8
 
 # # Chapter 6 - Core machine learning concepts; building text vocabularies
-
 # 2022 August 24
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/7_Core_concepts_vocabularies.ipynb">
@@ -16,8 +15,12 @@
 # In[1]:
 
 
-get_ipython().system('pip install sklearn')
+# !pip install sklearn
 
+
+# The sklearn documentation is superb. Try out the examples on your own after this lesson!
+# * scikit-learn tutorials: https://scikit-learn.org/stable/tutorial/index.html
+# * scikit-learn user guide: https://scikit-learn.org/stable/user_guide.html 
 
 # In[2]:
 
@@ -41,37 +44,42 @@ import scipy.sparse
 # ## What is machine learning?
 # 
 # Machine learning is a toolbox for modeling, investigating, and understanding data. 
-
-# Be sure to bookmark the below resources. Try out the examples on your own after this lesson!
 # 
-# * scikit-learn tutorials: https://scikit-learn.org/stable/tutorial/index.html
-# * scikit-learn user guide: https://scikit-learn.org/stable/user_guide.html 
-
 # ## Key terms
 # 
 # * **Artificial intelligence:** "A program that can sense, reason, act, and adapt."
-# 
 # * **Machine learning:** "Algorithims whose performance improve as they are exposed to more data over time."
-# 
-# * **Deep learning:** "Subset of machine learning in which multilayered neural networks learn from vast amounts of data." 
-# 
 # * **Neural network:** A type of algorithm modeled after the human brain, consisting of multiple layers of nodes/neurons.
+# * **Deep learning:** "Subset of machine learning in which multilayered neural networks learn from vast amounts of data." 
 
-# ### _x_ and _y_ variables
+# ## _x_ and _y_ variables
 # 
 # * **_x_** variables are the independent variables. You will also see these referred to in a variety of contexts as features, covariates, predictors, input, or explanatory variables. 
 # 
 # * The **_y_** variable is the dependent variable. This is also referred to as the response, outcome, and target variable. 
 
-# ### Types of machine learning:
+# ## Types of machine learning:
 # 
 # * **Supervised machine learning:** algorithms train models that (best) learn the relationships between the **_x_** and **_y_** variables on a labeled dataset (called the **training set**, where the ground truth **_y_** variable is known). The performance of the trained model is then evaluated after it predicts the outcome on new data that the model has never seen before (called the **test set**) where where ground truth **_y_** label is unknown. 
 # 
 # The equation looks like:  $y=f(x)+ϵ$
 # * $f$ is the unknown function that relates **_x_** to **_y_** and is estimated
 # * $ϵ$ is random error independent of x and averages to zero
+# 
+# > Supervised machine learning TL;DR - we use the x variables to predict the y variable.
+# 
+# * **Unsupervised machine learning:** algorithms are used to sort unlabeled datasets, without attempting to predict anything. 
+# 
+#     * The equation could simply look like: $\sim\ x$
+#     * Algorithms include: 
+#         * Clustering: hierarchical agglomerative, k-means, centroid, density-based, DBSCAN, GLRM  
+#         * Dimension reduction: PCA, t-SNE, UMAP
+# * **Reinforcement:** algorithims are used to make real-time decisions and skill acquisition in fields such as game-theory and robotics. 
+# * **Deep Learning:**
+# * **Targeted Learning:**
+# * **Other:** semi-supervised, etc.
 
-# ### Data splitting: Training and test performance
+# ## Data splitting: Training and test performance
 # 
 # Preparation for supervised methods requires a split of the dataset into training and test sets. 
 # 
@@ -89,21 +97,20 @@ import scipy.sparse
 
 # ![cv_wiki](img/cv_wiki.png)
 
-# ### Model evaluation
+# ## Model evaluation
+# 
+# How do we know if a model performs well?
 # 
 # ![bv](img/bv.png)
 # 
 # * **Underfit:** A model is underfit if it performs poorly on the training data because it could not discern the relationship(s) between the **_x_** and **_y_** variables.
-# 
 # * **Overfit:** A model is overfit if it performs well on the training dataset but poorly on the test set. 
-# 
 # * **Bias/variance tradeoff:** 
-# 
-# * **Bias** refers to the systematic error due to incorrect assumptions about the machine learning process or the framing of the problem itself. High bias models generally underfit and/or contain large amounts of error. 
-# * **Variance** refers to changes in the model predictive accuracy due to fluctuations in the training set or when using different training datasets, and how much the model can adjust to each. High variance could be due to model complexity, noise in the dataset, and overfitting. 
-# * The **tradeoff** means that models with high bias will have low variance, and vice-versa. The goal is to find the optimal combination of these two factors for your problem. 
+#     * **Bias** refers to the systematic error due to incorrect assumptions about the machine learning process or the framing of the problem itself. High bias models generally underfit and/or contain large amounts of error. 
+#     * **Variance** refers to changes in the model predictive accuracy due to fluctuations in the training set or when using different training datasets, and how much the model can adjust to each. High variance could be due to model complexity, noise in the dataset, and overfitting. 
+#     * The **tradeoff** means that models with high bias will have low variance, and vice-versa. The goal is to find the optimal combination of these two factors for your problem. 
 
-# ### Classification versus regression
+# ## Classification versus regression
 # 
 # * **Supervised classification:** models probability that **_y_** is 1 given the covariates **_x_** and is performed when **_y_** is categorical (either binary yes/no or multinomial): $Pr(y=1|x)$ 
 #     * Medical diagnosis
@@ -126,20 +133,9 @@ import scipy.sparse
 # 
 # ![skest](img/skest.png)
 
-# * **Unsupervised machine learning:** algorithms are used to sort unlabeled datasets, without attempting to predict anything. 
-# 
-#     * The equation could simply look like: $\sim\ x$
-# 
-#     * Algorithms include: 
-#         * Clustering: hierarchical agglomerative, k-means, centroid, density-based, DBSCAN, GLRM  
-# 
-#         * Dimension reduction: PCA, t-SNE, UMAP
-# 
-#         * **Reinforcement:** algorithims are used to make real-time decisions and skill acquisition in fields such as game-theory and robotics. 
-# 
-#         * **Other:** semi-supervised, etc.
-
 # ## Bias in research
+# 
+# Computationally focused, data-centric research is frought with biases. The below figure illustrates several in the process. 
 # 
 # ![citation unknown](img/bias_res.png)
 
@@ -218,6 +214,8 @@ print(y_error)
 
 
 # ### Compute beta coefficients
+# 
+# Beta coefficients are used to measure the amount of change in the y variable for a one-unit change in an x variable. 
 
 # In[9]:
 
@@ -232,6 +230,8 @@ print("intercept (B0) is: ", B0)
 
 
 # ### Plot best fit line
+# 
+# The best fit line is used to illustrate the minimum distance from the actual versus the predicted values.
 
 # In[10]:
 
@@ -267,6 +267,8 @@ print(y_hat)
 # Root mean squared error is a handy performance metric because it has the same units of whatever is plotted on the y-axis. 
 # 
 # In our toy example here, we are off an average of 2.82843 units on the y-axis of a given data point from the line of best fit. 
+# 
+# See the code below for how it is manually calculated.
 
 # In[12]:
 
@@ -296,7 +298,7 @@ print(round(RMSE, 5))
 # 
 # Fortunately, you do not have to do any of this by hand thanks to scikit-learn! 
 # 
-# Here is a short workflow to fit a logistic regression model. Logistic regression is similar to linear regression $y \sim\ x$ but regresses for the probability of a categorical outcome. 
+# Here is a short workflow to fit a logistic regression model. Logistic regression is similar to linear regression $y \sim\ x$ but can regress for the probability of a categorical outcome. 
 # 
 # Let's calculate training and test set accuracy to predict whether a penguin is MALE or FEMALE based on thier biological and spatial characteristics. 
 
@@ -313,23 +315,34 @@ penguins = pd.read_csv("data/penguins.csv")
 penguins.head()
 
 
-# ### Preprocess the data - remove rows with NaN (missing) values
+# ## Balanced versus imbalanced samples
+# 
+# Keep in mind that classification accuracy is a poor performance measure for imbalanced classes. Refer to the confusion matrix derivations for other metrics that are more appropriate to use for imbalanced samples. 
 
 # In[17]:
+
+
+# You could say our penguins sample is balanced
+penguins.value_counts('sex')
+
+
+# ### Preprocess the data - remove rows with NaN (missing) values
+
+# In[18]:
 
 
 # count number of rows with missing data in penguins. Eleven...
 penguins.isnull().any(axis=1).sum()
 
 
-# In[18]:
+# In[19]:
 
 
 # make a copy with listwise deleted rows
 p_complete = penguins.dropna()
 
 
-# In[19]:
+# In[20]:
 
 
 # count number of rows with missing data in p_complete. Zero! 
@@ -340,7 +353,7 @@ p_complete.isnull().any(axis=1).sum()
 # 
 # Check out this great tutorial on [one-hot encoding](https://stackabuse.com/one-hot-encoding-in-python-with-pandas-and-scikit-learn/) to learn more.
 
-# In[20]:
+# In[21]:
 
 
 # convert island categorical variable into numeric indicators
@@ -348,7 +361,7 @@ p_dummy_island = pd.get_dummies(p_complete.island, prefix = "island")
 p_dummy_island.head()
 
 
-# In[21]:
+# In[22]:
 
 
 # convert species categorical variable into numeric indicators
@@ -358,7 +371,7 @@ p_dummy_species.head()
 
 # ### Preprocess the data - remove the island and species variables from p_complete
 
-# In[22]:
+# In[23]:
 
 
 # view column names
@@ -371,7 +384,7 @@ p_complete.head()
 
 # ### Recombine the numeric indicators with the other variables
 
-# In[23]:
+# In[24]:
 
 
 clean_penguins = pd.concat([p_dummy_island, p_dummy_species, p_complete], axis=1) 
@@ -380,13 +393,13 @@ clean_penguins.head()
 
 # ### Recode MALE as 1 and FEMALE as 0 
 
-# In[24]:
+# In[25]:
 
 
 clean_penguins['sex'] = clean_penguins['sex'].map({'MALE': 1, 'FEMALE': 0})
 
 
-# In[25]:
+# In[26]:
 
 
 clean_penguins.head()
@@ -394,7 +407,7 @@ clean_penguins.head()
 
 # ### Define the logistic regression object
 
-# In[26]:
+# In[27]:
 
 
 from sklearn.linear_model import LogisticRegression
@@ -404,7 +417,7 @@ lr = LogisticRegression(solver = 'liblinear')
 
 # ### Split the `clean_penguins` dataset into training and test sets
 
-# In[27]:
+# In[28]:
 
 
 # Define x and y for both training and test sets
@@ -418,25 +431,25 @@ y = np.array(clean_penguins['sex'])
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.3, random_state = 123)
 
 
-# In[28]:
+# In[29]:
 
 
 x_train.shape
 
 
-# In[29]:
+# In[30]:
 
 
 x_test.shape
 
 
-# In[30]:
+# In[31]:
 
 
 len(y_train)
 
 
-# In[31]:
+# In[32]:
 
 
 len(y_test)
@@ -446,13 +459,13 @@ len(y_test)
 # 
 # And view the classification accuracy
 
-# In[32]:
+# In[33]:
 
 
 lr.fit(x_train, y_train)
 
 
-# In[33]:
+# In[34]:
 
 
 lr.score(x_train, y_train)
@@ -460,7 +473,7 @@ lr.score(x_train, y_train)
 
 # ### Generate predicted values on the test data
 
-# In[34]:
+# In[35]:
 
 
 # Generate predicted y values based on the x test set data
@@ -470,14 +483,14 @@ predictions
 
 # ### Calculate test set accuracy
 
-# In[35]:
+# In[36]:
 
 
 test_score = lr.score(x_test, y_test)
 print(test_score)
 
 
-# In[36]:
+# In[37]:
 
 
 from sklearn import metrics
@@ -486,7 +499,7 @@ cm = metrics.confusion_matrix(y_test, predictions)
 print(cm)
 
 
-# In[37]:
+# In[38]:
 
 
 # Fancy it up! Use plt.savefig() to export
@@ -506,7 +519,7 @@ plt.title(all_sample_title, size = 15);
 
 # ### Define a corpus 
 
-# In[38]:
+# In[39]:
 
 
 corpus = [
@@ -520,24 +533,19 @@ corpus
 
 # ## Document encoding for machine learning
 # 
-# In the last chapter you saw that we do not change text to numbers, but instead changed the _representation_ of the text to the numbers in sparse matrix format. 
-# 
-# In this format, each row represents a document and each column represents a token from the shared text vocabulary called a **feature**. 
-# 
 # ### Key terms
 # 
 # * **Document term matrix:** contains the frequencies (or TF-IDF scores) of vocabulary terms in a collection of documents in sparse format. 
 #     * Each row is a document in the corpus.
 #     * Each column represents a term (uni-gram, bi-gram, etc.) called a feature.    
 # 
+# ![dtm](img/dtm.png)
+# [modified from "The Effects of Feature Scaling: From Bag-of-Words to Tf-Idf"](https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/ch04.html)
+# 
 # * **Bag of words:** The simplest text analysis model that standardizes text in a document by removing punctuation, converting the words to lowercase, and counting the token frequencies.
 #     * Numeric values indicate that a particular feature is found in a document that number of times.
 #     * A 0 indicates that the feature is _not_ found in that document. 
-# 
-# ![dtm](img/dtm.png)
-# 
-# [modified from "The Effects of Feature Scaling: From Bag-of-Words to Tf-Idf"](https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/ch04.html)
-
+#     
 # * **TF-IDF:** Term frequency–inverse document frequency; a weighted numerical statistic that indicates the uniqueness of a word is in a given document or corpus.
 # 
 # For TF-IDF sparse matrices:
@@ -552,11 +560,11 @@ corpus
 # 
 # [towardsdatascience](https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558)
 
-# ### Bag of words model with `CountVectorizer`
+# ## Bag of words model with `CountVectorizer`
 # 
-# The bag of words models represents text as a bag of its word, ignoring syntactical elements like grammar and word order while only preserving the multiplicy/frequency of unique tokens. Typically, a bag of words model removes punctuation and casefolds the text to lowercase before counting the words (i.e. 'Apple' and 'apple' will both count toward instances of the word, 'apple'). 
+# The bag of words model represents text ignoring syntactical elements like grammar and word order while only preserving the multiplicy/frequency of unique tokens. Typically, a bag of words model removes punctuation and casefolds the text to lowercase before counting the words (i.e. 'Apple' and 'apple' will both count toward instances of the word, 'apple'). 
 
-# In[39]:
+# In[40]:
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -571,7 +579,7 @@ vectorizer.fit(corpus)
 vectorizer.vocabulary_
 
 
-# In[40]:
+# In[41]:
 
 
 # The `.transform` method will help us here!
@@ -584,7 +592,7 @@ print(vector)
 
 # ### Present the sparse matrix
 
-# In[41]:
+# In[42]:
 
 
 # each row is a document, each column is a word from the vocabulary! 
@@ -592,24 +600,24 @@ print(vector)
 print(vector.toarray())
 
 
-# In[42]:
+# In[43]:
 
 
 # get the column names (alphabetical sort)
 vectorizer.get_feature_names()
 
 
-# In[43]:
-
-
-# What does this tell us? 
-vectorizer.transform(['document']).toarray() 
-
-
 # In[44]:
 
 
-# 'document' is present in our bag of words, and in the sparse matrix, occupies the second column!
+# What does this tell us? 
+vectorizer.transform(['text']).toarray() 
+
+
+# In[45]:
+
+
+# 'text' is present in our bag of words, and in the sparse matrix, occupies the twelfth column!
 
 # What if we try to transform a token that isn't in our bag of words? 
 vectorizer.transform(['abracadabra']).toarray()
@@ -624,7 +632,7 @@ vectorizer.transform(['abracadabra']).toarray()
 # * trigrams   `ngram_range = (1, 3)`
 # * etc.
 
-# In[45]:
+# In[46]:
 
 
 # token pattern is written using regular expressions (regex for short): 
@@ -640,7 +648,7 @@ bigram_vectorizer
 
 # Since we specify bigrams, both unigrams _and_ bigrams are returned!
 
-# In[46]:
+# In[47]:
 
 
 from sklearn.feature_extraction import DictVectorizer
@@ -650,13 +658,13 @@ bigram_analyzer('Welcome to Stanford Libraries!')
 
 # ### Apply n-grams to our above corpus
 
-# In[47]:
+# In[48]:
 
 
 corpus
 
 
-# In[48]:
+# In[49]:
 
 
 # perform the transformation
@@ -664,7 +672,7 @@ x = bigram_vectorizer.fit_transform(corpus).toarray()
 print(x)
 
 
-# In[49]:
+# In[50]:
 
 
 # get the feature (column) names
@@ -672,7 +680,7 @@ print(x)
 bigram_vectorizer.get_feature_names()
 
 
-# In[50]:
+# In[51]:
 
 
 # search for vocabulary words across the documents
@@ -682,9 +690,9 @@ x[:, feature_index]
 
 # ### Data frame vocabulary across documents
 # 
-# Our vocabulary consists of 29 unigrams and bigrams across the four documents.
+# Our vocabulary for the `corpus` variable consists of 30 unigram and bigram **features** across the four documents.
 
-# In[51]:
+# In[52]:
 
 
 # redefine x as sparse matrix (not array)
@@ -692,7 +700,7 @@ x = bigram_vectorizer.fit_transform(corpus)
 print(x)
 
 
-# In[52]:
+# In[53]:
 
 
 import scipy.sparse
@@ -700,17 +708,11 @@ corpus_df = pd.DataFrame(x.todense(), columns = bigram_vectorizer.get_feature_na
 corpus_df
 
 
-# In[53]:
+# In[54]:
 
 
 # The features (columns) are the vocabulary from the bigram version of our corpus variable above! 
 corpus_df.columns
-
-
-# In[54]:
-
-
-penguins['species'].value_counts()
 
 
 # ## Exercises
@@ -722,8 +724,8 @@ penguins['species'].value_counts()
 #     * y_hat = y_hat = B0 + B1 * data.x
 # 
 # 2. What if you have more than two classes? Rewrite the data preprocessing steps in a new notebook to predict penguin species (Adelie, Gentoo, or Chinstrap). You could use something like this for multi-class classification: 
-# `lr = LogisticRegression(multi_class='multinomial', solver='lbfgs')`
+# `lr = LogisticRegression(multi_class='multinomial', solver='lbfgs')`. How does classification accuracy compare to another, perhaps more appropriate metric?
 
 # ## What does this mean for predicting text?
 # 
-# Read on in Chapter 7 "English text preprocessing basics" to learn about predicting text. 
+# Read on in Chapter 7 "English text preprocessing basics" to learn about using this type of approach for predicting text. 

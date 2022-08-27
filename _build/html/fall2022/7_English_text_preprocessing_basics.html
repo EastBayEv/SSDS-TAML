@@ -410,6 +410,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-dracula-txt">
+   Import dracula.txt
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#standardize-text">
    Standardize Text
   </a>
@@ -662,6 +667,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-dracula-txt">
+   Import dracula.txt
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#standardize-text">
    Standardize Text
   </a>
@@ -906,22 +916,22 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-7-english-text-preprocessing-basics">
 <h1>Chapter 7 - English text preprocessing basics<a class="headerlink" href="#chapter-7-english-text-preprocessing-basics" title="Permalink to this headline">#</a></h1>
-<p>2022 January 19</p>
+<p>2022 August 26</p>
 <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/6_English_text_preprocessing_basics.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a><p><img alt="text" src="../_images/text.png" /></p>
-<p>Unstructured text - text you find in the wild in books and websites - is generally not amenable to analysis. Before it can be analyzed, the text needs to be standardized to a format so that Python can recognize each unit of meaning (called a “token”) as unique, no matter how many times it occurs and how it is stylized.</p>
+<p>Unstructured text - text you find in the wild in books and websites - is generally not amenable to analysis. Before it can be analyzed, the text needs to be standardized to a format so that Python can recognize each unit of meaning <strong>(called a “token”)</strong> as unique, no matter how many times it occurs and how it is stylized.</p>
 <p>Although not an exhaustive list, some key steps in preprocessing text include:</p>
 <ul class="simple">
-<li><p>Standardizing text casing and spacing</p></li>
+<li><p>Standardize text casing and spacing</p></li>
 <li><p>Remove punctuation and special characters/symbols</p></li>
 <li><p>Remove stop words</p></li>
 <li><p>Stem or lemmatize: convert all non-base words to their base form</p></li>
 </ul>
-<p>Stemming/lemmatization and stop words (and some punctuation) are language-specific. NLTK works for English out-of-the-box, but you’ll need different code to work with other languages. Some languages (e.g. Chinese) also require <em>segmentation</em>: artificially inserting spaces between words. If you want to do text pre-processing for other languages, please let us know and we can help!</p>
+<p>Stemming/lemmatization and stop words (and some punctuation) are language-specific. The Natural Language ToolKit (NLTK) works for English out-of-the-box, but you’ll need different code to work with other languages. Some languages (e.g. Chinese) also require <em>segmentation</em>: artificially inserting spaces between words. If you want to do text pre-processing for other languages, please let us know and we can help!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ensure you have the proper nltk modules</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ensure you have the proper nltk modules</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;words&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
@@ -1003,6 +1013,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<section id="import-dracula-txt">
+<h2>Import dracula.txt<a class="headerlink" href="#import-dracula-txt" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/dracula.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -1020,6 +1032,7 @@ This eBook is for the use of anyone anywhere
 </div>
 </div>
 </div>
+</section>
 <section id="standardize-text">
 <h2>Standardize Text<a class="headerlink" href="#standardize-text" title="Permalink to this headline">#</a></h2>
 <section id="casing-and-spacing">
@@ -1077,7 +1090,9 @@ Hello! Welcome to TAML!
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> sequoioideae popularly known as redwoods is a subfamily of coniferous trees within the family cupre
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the project gutenberg ebook of dracula by bram stoker
+
+this ebook is for the use of anyone anywhere 
 </pre></div>
 </div>
 </div>
@@ -1096,12 +1111,13 @@ Hello! Welcome to TAML!
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># View the first 20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sequoioideae&#39;, &#39;popularly&#39;, &#39;known&#39;, &#39;as&#39;, &#39;redwoods&#39;, &#39;is&#39;, &#39;a&#39;, &#39;subfamily&#39;, &#39;of&#39;, &#39;coniferous&#39;, &#39;trees&#39;, &#39;within&#39;, &#39;the&#39;, &#39;family&#39;, &#39;cupressaceae&#39;, &#39;it&#39;, &#39;includes&#39;, &#39;the&#39;, &#39;largest&#39;, &#39;and&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;the&#39;, &#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;of&#39;, &#39;dracula&#39;, &#39;by&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;this&#39;, &#39;ebook&#39;, &#39;is&#39;, &#39;for&#39;, &#39;the&#39;, &#39;use&#39;, &#39;of&#39;, &#39;anyone&#39;, &#39;anywhere&#39;, &#39;in&#39;, &#39;the&#39;]
 </pre></div>
 </div>
 </div>
@@ -1109,7 +1125,7 @@ Hello! Welcome to TAML!
 </section>
 <section id="remove-stop-words">
 <h3>Remove stop words<a class="headerlink" href="#remove-stop-words" title="Permalink to this headline">#</a></h3>
-<p>Below is a list comprehension (a sort of shortcut for loop) that can accomplish this task for us.</p>
+<p>Below is a list comprehension (a sort of shortcut for loop, or chunk of repeating code) that can accomplish this task for us.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)]</span>
@@ -1164,15 +1180,15 @@ Hello! Welcome to TAML!
 
 <span class="n">token_lemma</span> <span class="o">=</span> <span class="p">[</span> <span class="n">lmtzr</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">filtered_text</span> <span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">token_stem</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">token_stem</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">token_lemma</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">token_lemma</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;dracula&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;ebook&#39;, &#39;use&#39;, &#39;anyon&#39;, &#39;anywher&#39;]
-[&#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;dracula&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;ebook&#39;, &#39;use&#39;, &#39;anyone&#39;, &#39;anywhere&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;dracula&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;ebook&#39;, &#39;use&#39;, &#39;anyon&#39;, &#39;anywher&#39;, &#39;unit&#39;, &#39;state&#39;, &#39;part&#39;, &#39;world&#39;, &#39;cost&#39;, &#39;almost&#39;, &#39;restrict&#39;, &#39;whatsoev&#39;, &#39;may&#39;, &#39;copi&#39;]
+[&#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;dracula&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;ebook&#39;, &#39;use&#39;, &#39;anyone&#39;, &#39;anywhere&#39;, &#39;united&#39;, &#39;state&#39;, &#39;part&#39;, &#39;world&#39;, &#39;cost&#39;, &#39;almost&#39;, &#39;restriction&#39;, &#39;whatsoever&#39;, &#39;may&#39;, &#39;copy&#39;]
 </pre></div>
 </div>
 </div>
@@ -1193,19 +1209,12 @@ Hello! Welcome to TAML!
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [21],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tagged</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">token_lemma</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Let&#39;s see a quick example: </span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ex_string</span> <span class="o">=</span> <span class="s1">&#39;They refuse to permit us to obtain the refuse permit.&#39;</span>
-
-<span class="ne">NameError</span>: name &#39;token_lemma&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;They&#39;, &#39;PRP&#39;), (&#39;refuse&#39;, &#39;VBP&#39;), (&#39;to&#39;, &#39;TO&#39;), (&#39;permit&#39;, &#39;VB&#39;), (&#39;us&#39;, &#39;PRP&#39;), (&#39;to&#39;, &#39;TO&#39;), (&#39;obtain&#39;, &#39;VB&#39;), (&#39;the&#39;, &#39;DT&#39;), (&#39;refuse&#39;, &#39;NN&#39;), (&#39;permit.&#39;, &#39;NN&#39;)]
 </pre></div>
 </div>
 </div>
 </div>
-<p>The output of .pos_tag is a list of tuples (pairs), where the first element is a text token and the second is a part of speech. Note that, in our example string, the token ‘refuse’ shows up twice - once as a verb, and once as a noun. In the output to .pos_tag, the first tuple with ‘refuse’ has the ‘VBP’ tag (present tense verb) and the second tuple has the ‘NN’ tag (noun). Nifty!</p>
+<p>The output of .pos_tag is a list of tuples (immutable pairs), where the first element is a text token and the second is a part of speech. Note that, in our example string, the token ‘refuse’ shows up twice - once as a verb, and once as a noun. In the output to .pos_tag, the first tuple with ‘refuse’ has the ‘VBP’ tag (present tense verb) and the second tuple has the ‘NN’ tag (noun). Nifty!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chunked</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">chunk</span><span class="o">.</span><span class="n">ne_chunk</span><span class="p">(</span><span class="n">tagged</span><span class="p">)</span>
@@ -1711,7 +1720,7 @@ Contents
 <p>Create a new column named “clean_text” to store the text as it is preprocessed.</p>
 <section id="what-are-some-of-the-things-we-can-do">
 <h3>What are some of the things we can do?<a class="headerlink" href="#what-are-some-of-the-things-we-can-do" title="Permalink to this headline">#</a></h3>
-<p>How else could you improve this process?</p>
+<p>These are just a few examples. How else could you improve this process?</p>
 <ul class="simple">
 <li><p>Remove non-alphanumeric characters/punctuation</p></li>
 <li><p>Remove digits</p></li>
@@ -1729,7 +1738,8 @@ Contents
 <h3>Remove non-alphanumeric characters/punctuation<a class="headerlink" href="#remove-non-alphanumeric-characters-punctuation" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;document_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">regex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new column &#39;clean_text&#39; to store the text we are standardizing</span>
+<span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;document_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">regex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2030,61 +2040,8 @@ Contents
 <h3>Lemmatize<a class="headerlink" href="#lemmatize" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m spacy download en_core_web_sm
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !python -m spacy download en_core_web_sm</span>
 <span class="c1"># !python -m spacy download en_core_web_lg</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-Collecting en-core-web-sm==3.3.0
-  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.3.0/en_core_web_sm-3.3.0-py3-none-any.whl (12.8 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">6.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>00:0100:01
-?25hRequirement already satisfied: spacy&lt;3.4.0,&gt;=3.3.0.dev0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from en-core-web-sm==3.3.0) (3.3.1)
-Requirement already satisfied: numpy&gt;=1.15.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (1.21.5)
-Requirement already satisfied: srsly&lt;3.0.0,&gt;=2.4.3 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (2.4.4)
-Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (4.64.0)
-Requirement already satisfied: typer&lt;0.5.0,&gt;=0.3.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (0.4.1)
-Requirement already satisfied: setuptools in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (61.2.0)
-Requirement already satisfied: jinja2 in /Users/evanmuzzall/.local/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (3.1.2)
-Requirement already satisfied: pathy&gt;=0.3.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (0.6.1)
-Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (2.28.1)
-Requirement already satisfied: pydantic!=1.8,!=1.8.1,&lt;1.9.0,&gt;=1.7.4 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (1.8.2)
-Requirement already satisfied: spacy-legacy&lt;3.1.0,&gt;=3.0.9 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (3.0.10)
-Requirement already satisfied: blis&lt;0.8.0,&gt;=0.4.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (0.7.7)
-Requirement already satisfied: cymem&lt;2.1.0,&gt;=2.0.2 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (2.0.6)
-Requirement already satisfied: catalogue&lt;2.1.0,&gt;=2.0.6 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (2.0.7)
-Requirement already satisfied: packaging&gt;=20.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (21.3)
-Requirement already satisfied: spacy-loggers&lt;2.0.0,&gt;=1.0.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (1.0.1)
-Requirement already satisfied: wasabi&lt;1.1.0,&gt;=0.9.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (0.10.1)
-Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (3.0.6)
-Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (1.0.7)
-Requirement already satisfied: thinc&lt;8.1.0,&gt;=8.0.14 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (8.0.17)
-Requirement already satisfied: langcodes&lt;4.0.0,&gt;=3.2.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (3.3.0)
-Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from packaging&gt;=20.0-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (3.0.4)
-Requirement already satisfied: smart-open&lt;6.0.0,&gt;=5.0.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pathy&gt;=0.3.5-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (5.2.1)
-Requirement already satisfied: typing-extensions&gt;=3.7.4.3 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pydantic!=1.8,!=1.8.1,&lt;1.9.0,&gt;=1.7.4-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (4.1.1)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (1.26.11)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (3.3)
-Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (2.0.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (2022.6.15)
-Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from typer&lt;0.5.0,&gt;=0.3.0-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (7.1.2)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from jinja2-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-sm==3.3.0) (2.0.1)
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-Installing collected packages: en-core-web-sm
-  Attempting uninstall: en-core-web-sm
-<span class=" -Color -Color-Yellow">    WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-    Found existing installation: en-core-web-sm 3.2.0
-    Uninstalling en-core-web-sm-3.2.0:
-      Successfully uninstalled en-core-web-sm-3.2.0
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-Successfully installed en-core-web-sm-3.3.0
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-<span class=" -Color -Color-C2">✔ Download and installation successful</span>
-You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
 </pre></div>
 </div>
 </div>
@@ -2104,7 +2061,7 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   united nations a hrc general assembly distr general december original english human rights council twenty eighth session agenda item universal periodic review report of the work group on the universal periodic review the annex to the present report be circulate as receive san marino content paragraph page introduction I summary of the proceeding of the review process a presentation by the state under review b interactive dialogue and response by the state under review ii conclusion and or recommendation annex composition of the delegation introduction the work group on the universal periodic review establish in accordance with human rights council resolution of june hold its twentieth session from october to november the review of san marino be hold at the th meeting on october the delegation of san marino be head by pasquale valentini minister for foreign affair at its th meet hold on october the working group adopt the report on san marino on january the human rights council select the follow group of rapporteur troika to facilitate the review of san marino burkina faso chile china in accordance with paragraph of the annex to resolution and paragraph of the annex to resolution the follow document be issue for the review of san marino a a national report submit write presentation prepare in accordance with paragraph a a hrc wg smr b a compilation prepare by the office of the united nations high commissioner for human right ohchr in accordance with paragraph b a hrc wg smr c a summary prepare by ohchr in accordance with paragraph c a hrc wg smr a list of question prepare in advance by liechtenstein mexico the netherlands slovenia spain and the united kingdom of great britain and northern ireland be transmit to san marino through the troika these question be available on the extranet of the universal periodic review upr I summary of the proceeding of the review process a presentation by the state under review the delegation of san marino present its report for the second cycle of the upr on the human right situation the delegation note that in july it have present the national report prepare by the ministry of foreign affair in collaboration with the ministry of internal affair health labour and education and other government office it state that the national report include the step take to implement the recommendation accept during the first review note that several provision adopt in recent year have be base on those recommendation the delegation explain the approach that san marino have always hold towards the protection of human right in the context of its declaration on the citizen right and fundamental principle of san marino constitutional order the delegation state that san marino be one of the few state that in the field of human right do not need internal implementation rule as international law be an integral part of national law and even supersede this in the event of any conflict the delegation highlight the human right convention that have be ratify or adopt on july san marino ratify the united nations convention against transnational organize crime the protocol to prevent suppress and punish trafficking in person especially woman and child and the protocol against the smuggling of migrant by land sea and air supplement it on july it ratify the optional protocol to the convention on the right of the child on the involvement of child in armed conflict op crc ac and the optional protocol to the convention on the right of the child on the sale of child child prostitution and child pornography op crc sc on october it accede to the convention on the prevention and punishment of the crime of genocide and on september approve law no on regulation on the prevention and punishment of the crime of genocide in recent year san marino have ratify the follow council of europe instrument the convention on the protection of child against sexual exploitation and sexual abuse the convention on action against traffic in human being protocol no amend the convention for the protection of human right and fundamental freedom and the european charter of local self government furthermore san marino sign the council of europe protocol no to the convention for the protection of human right and fundamental freedom and the council of europe convention on prevent and combat violence against woman and domestic violence the delegation state that the ratification procedure be ongoing for both instrument regard the question submit by liechtenstein the delegation announce that having ratify on july the amendment to article of the rome statute of the international criminal court the ratification process of the amendment to the statute on the crime of aggression be expect to be complete during the current session of parliament the delegation also address the question submit by the netherland on the intention of san marino to ratify the council of europe convention on cybercrime and its additional protocol it state that a study on compliance with the convention have be complete though owe to the necessary adjustment of domestic legislation the introduction of new technology and specific training of the personnel involve san marino be unable to predict a time frame for accession the delegation point out that progress have be make in the prevention of violence against woman and gender violence through the approval of law no of june on prevention and elimination of violence against woman and gender violence which introduce into the san marino legal system the offence of gang violence stalk and traffic in human being and modify the offence of enslavement the delegation also comment that the law establish the authority for equal opportunity as a mechanism for monitor its implementation the establishment of a dedicated authority allow legislation on the protection of equal opportunity to be complete the delegation go on to say that the authority operate alongside the commission for equal opportunity which deal with issue relate to awareness raising and the promotion of legislative and non legislative measure to guarantee the legal equality of citizen on may a decree be adopt to implement the above mention law the decree also establish an assistance centre for victim of violence the delegation report that coordination between the health authority and the authority for equal opportunity have be establish in order to collect datum on violence against woman and gender violence in san marino in addition the delegation state that a special study group have be establish in order to identify the amendment to be make and the requirement to be meet in view of the ratification of the council of europe convention on prevent and combat violence against woman the delegation say that the parliament of san marino have adopt a law that introduce amendment to the criminal code and the law aim at reform family law by introduce the prohibition of corporal punishment in the exercise of correction or discipline power the delegation state that law no of september entitle legislation relate to specific developmental disorder in school and training facility have be approve that law underline the importance of the role of education for the development of social integration as strongly reiterate at the council of europe standing conference of minister of education hold in helsinki on and april and aim at protect student with specific developmental disorder and special educational need in the national report the delegation cite the work carry out by the ministry of education and health for the development of a framework law on disability the propose framework law fully incorporate the principle definition and content of the convention on the right of person with disability crpd and include some instrument that be fundamental to its implementation the delegation state that the draft law provide for the establishment of a special commission task with monitor the implementation of the principle contain in the convention the delegation state that in response to the recommendation of the council of europe group of state against corruption greco law no of september introduce the code of conduct of public official in response to the question submit by the netherland the delegation state that the recommendation make by the european commission against racism and intolerance of the council of europe on the san marino commission for equal opportunity have be assess by the commission and that it have transmit its opinion in the light of this the government intend to work with the commission to develop the necessary measure for the implementation of the recommendation in reply to the question submit by slovenia concern the measure adopt to improve prison detention condition in san marino the delegation state that procedure have improve in recent year accord to the delegation san marino have accede in december to the european convention for the prevention of torture and inhuman or degrading treatment or punishment the delegation report that since then a delegation from the council of europe european committee for the prevention of torture have visit san marino four time in march june february and january with respect to the second question submit by slovenia on raise the minimum age for military recruitment to the delegation state that the age of for recruitment in the case of general mobilization have be establish in previous regulation which san marino have long plan to change the delegation explain that the delay in the amendment of that provision be due to the fact that the measure be part of a more complex ongoing reform concern the reorganization of the military corp and its regulation in response to the question from mexico on the freedom of expression in electronic format and the sanction for improper and legally actionable conduct in the field of publishing and freedom of the medium the delegation state that a new law seek to balance freedom of expression and protection of the dignity integrity and privacy of the individual the delegation explain that under that new law certain mode of expression of information have be regulate by introduce a code of ethic for operator and an authority that monitor any abuse or distortion moreover the new law establish and govern more flexible instrument for the protection of citizen and more accessible appeal procedure for individual the delegation report that the law also specifically regulate the field of newspaper and online publication by make they equal in all aspect and effect to paper publication with the obvious difference relate to the diversity of the mean of expression b interactive dialogue and response by the state under review during the interactive dialogue delegation make statement the recommendation make during the dialogue can be find in section ii of the present report kuwait commend the effort to promote and protect human right and welcome the ratification of a number of international convention and protocol since include op crc sc the united nations convention against transnational organized crime and two protocol supplement it and the convention on the prevention and punishment of the crime of genocide it note commendable effort that san marino have make for the promotion of the right of person with disability and the accession to relate convention kuwait make a recommendation malaysia note the transparent and consultative approach take by san marino with respect to the upr and the progress make in the field of human right through its commitment to implement the recommendation accept during the first cycle of the upr and the introduction of various legislative and institutional measure in particular malaysia commend san marino for ongoing and continuous step to protect woman right and promote the role of woman in the country and measure to far integrate person with disability into society in line with its obligation under crpd amongst other it note the adoption of important law and provision relate to violence against woman and the enforcement of measure for the protection of woman express appreciation for the strong belief of san marino in the value of the family for human development and its effort to protect the family institution and encourage they to continue in that regard malaysia make recommendation mexico welcome the adoption of international instrument since the first cycle of the upr in particular it note the ratification of op crc sc the united nations convention against transnational organized crime and two protocol supplement it it recognize the advance make in combat domestic violence notably through the implementation of prevention programme and the provision of medical and psychological support for victim it thank san marino for the response to its query regard freedom of expression mexico make recommendation monaco welcome the advance make regard the right of person with disability notably the step take to implement crpd as well as the extension of the advantage to adoptive and foster parent grant under law no monaco request further information on the functioning of the residential centre for person with disability it welcome the ratification of op crc ac and op crc sc monaco make a recommendation montenegro commend san marino for its commitment to the promotion and protection of human right express appreciation of its effort to abolish the death penalty and protect the right of woman and child while welcome the dedication of san marino to the upr process montenegro observe that report to several committee on the implementation of core human right instrument be still overdue and encourage the government of san marino to make additional effort to improve cooperation with the treaty body system it note the request make by the human rights committee concern the introduction of a juvenile criminal justice system and ask san marino to elaborate on the activity take in that regard montenegro make recommendation the netherlands commend san marino on its human right record and effort to ratify related instrument in particular it welcome the ratification of the op crc sc and op crc ac as well as the accession to the convention on the prevention and punishment of the crime of genocide however it note that the independent information and conclude observation of the treaty body be out of date as some country report be still outstanding the netherlands make recommendation the philippines recognize the strong commitment of the government of san marino to the overall development of the country and the fulfilment of the human right of its people and laud the accession of san marino to a number of international human right convention in the period under review particularly its ratification of the united nations convention against transnational organized crime and two protocol supplement it it ask how san marino as an advocate of woman right could contribute to the strengthening of regional and international cooperation or partnership in combat traffic in woman and girl it note the remarkable progress achieve by san marino in the realization of the right to an adequate standard of living and the provision of welfare programme and other social safety net for citizen who become vulnerable as a result of the recent global financial instability the philippines make recommendation portugal praise the commitment of san marino to the implementation of the recommendation accept during the first cycle and welcome the ratification of op crc sc and op crc ac it note that although san marino have accept a recommendation during the first cycle of the upr to improve timely reporting report to the treaty body be still overdue it welcome the creation of a work group to prepare a draft law to adapt san marinos legal terminology regard the concept of legitimate and natural child and encourage effort in that regard portugal make recommendation serbia congratulate san marino for its dedication to human right democracy and the rule of law and note san marinos effort to align domestic legislation with international standard as well as its pledge to comply with international treaty it applaud san marinos advocacy work to abolish the death penalty worldwide and commend effort to implement recommendation make by the european committee for the prevention of torture it note that constitutional and legislative norm and ratify international treaty on human right guarantee equality and freedom from discrimination and encourage san marino to continue its positive promotion of the principle of equality and non discrimination take into account all relevant recommendation of the european commission against racism and intolerance serbia make a recommendation sierra leone commend san marinos effort to promote and protect human right in spite of the international economic crisis which have affect the strategy and measure take to address the right to a fair trial as well as the death penalty violence against woman and domestic violence it be interested to note that san marino have be the third country to abolish the death penalty it appreciate effort to align domestic legislation with international human right instrument and commend measure to ensure freedom of religion or belief it acknowledge san marinos effort to sign ratify or accede to more human right instrument since the first cycle of the upr but note that further effort be require to address racism xenophobia and corruption it laud san marinos financial contribution to ohchr in and sierra leone make recommendation singapore commend the effort take by san marino to combat domestic violence note the role play by the authority for equal opportunity in enforce the law on the prevention and elimination of violence against woman and gender violence implement the relate decree to assist victim of violence and promote public awareness on service available include shelter for victim of domestic violence a technical institutional panel of expert be set up in to improve coordination among agency in address domestic violence singapore note effort to build an inclusive society for person with disability include the drafting of a framework law on disability to strengthen implementation of crpd and the preparation of decree on specific policy theme such the elimination of architectural barrier as well as job placement health and social inclusion singapore make recommendation slovenia note the implementation of the majority of recommendation accept under the first cycle of the upr include ratification of op crc ac and op crc sc it note progress make in the field of anti discrimination and thank san marino for respond to its question on step take to improve prison detention condition follow the request from the human rights committee slovenia request information on measure that could be take to modify legislation article of act no of january regard the exceptional circumstance in which all citizen age to could be conscript slovenia make a recommendation spain welcome the delegation of san marino and thank it for its presentation and the reply to its advanced question it congratulate the country on the adoption of the law on provision on maltreatment within the family and on child by the great and general council spain note the concern expres by the human rights committee regard the failure of san marino to approve a new code of criminal procedure spain make recommendation thailand commend the effort make by san marino since its first review particularly human right awareness raise initiative and the improvement of its normative framework in various area aim at well integration of foreigner and vulnerable group it express appreciation of progress in the protection of child right particularly regard ratification of op crc ac and op crc sc it express interest in the recent examination of a draft law on provision against child maltreatment in the family and look forwards to its adoption while note step already take to well protect the right of person with disability thailand consider that further effort could be make to promote independent living and well integration into society thailand make recommendation ukraine note the ratification since the last review of important international human right mechanism and the alignment of domestic legislation with relevant international standard it appreciate the progress make to protect and promote the right of its citizen particularly regard woman right and gender equality it recognize the increase representation of woman in the san marino parliament and encourage it to take further step in empow woman to end the underrepresentation of woman in the government particularly in ministerial position ukraine welcome effort regard freedom of expression particularly the initiation of procedure on a new draft law on publishing and the profession of medium operator and express hope that it would be swiftly adopt and compliant with correspond international standard the united kingdom of great britain and northern ireland welcome san marinos firm commitment to the promotion and protection of human right it commend san marino for its ongoing effort to reflect international human right standard in domestic legislation the united kingdom make recommendation the united states of america commend san marinos exemplary human right record longstanding commitment to democracy and the promotion and protection of human right while recognize that labour standard be generally well enforce it express concern that some employer do not consistently abide by safety regulation include limitation on work hour and the use of personal safety device particularly in the informal labour market it note that the ministry for territory and environment have not fully implement a law that mandate easy access to public building for person with disability and that many building remain inaccessible it make recommendation uruguay note san marinos ratification of op crc ac and op crc sc and its accession to regional human right instrument it note the draft law to prohibit the corporal punishment of child in all set include at home and in day care and hope that it would be discuss fruitfully by the parliament in order to meet san marinos commitment pursuant to the first cycle of the upr it note san marinos effort to comply with its international obligation in particular regular reporting to treaty body it encourage san marino to continue those effort and its cooperation with ohchr it welcome that san marino be consider accede to the optional protocol to the international covenant on economic social and cultural right op icescr uruguay make recommendation the bolivarian republic of venezuela emphasize san marinos political commitment to implement recommendation accept during the first cycle of the upr despite the serious international economic crisis it note san marinos adherence to international instrument include the united nations convention against transnational organized crime and two protocol supplement it the convention on the prevention and punishment of the crime of genocide op crc sc and op crc ac it commend progress make in the legal sphere to promote equality of all people before the law and protect the right and freedom of the population and acknowledge the policy to protect woman right and promote their participation in society through the adoption of important legal provision and measure relate to the protection of woman from violence it make a recommendation algeria congratulate san marino on the ratification of op crc ac and op crc sc as well as the adoption of legal provision relate to violence against woman and the promulgation of text to improve the effectiveness of the legal system particularly in the area of criminal law it welcome the measure take to consolidate the protection of the family and its solidarity algeria make recommendation argentina welcome the delegation of san marino it congratulate san marino for accede to the convention on the prevention and punishment of the crime of genocide argentina make recommendation australia commending san marinos exemplary human right record note that its human right framework value the integrity of the person afford a high degree of political participation and enforce civil liberty despite the fact that the declaration on the citizen right and fundamental principle of san marino constitutional order prohibit discrimination on all ground it be concerned that same sex couple still encounter discrimination in some basic right include residency and inheritance it commend effort to protect the right of person with disability in many area particularly employment education health care and other state service australia make recommendation brazil welcome the ratification of op crc ac op crc sc and the convention on the prevention and punishment of the crime of genocide and the enactment of legislation on maltreatment within the family and on child it maintain that it be important to increase awareness of the importance of combat racism racial discrimination and xenophobia through the effective implementation of law no on provision against racial ethnic and religious discrimination note that decree no establish various form of assistance to woman who be victim of violence brazil ask what specific measure have be take to prevent gender base and domestic violence brazil make recommendation burkina faso note san marinos commitment to cooperate with human right mechanism include its stand invitation to the special procedure of the human rights council it welcome effort to abolish the death penalty combat transnational organize crime legalize the residence status of foreign national and support worker who be victim of the economic crisis it commend the ratification of various human right instrument notably op crc ac and op crc sc and regional instrument by accede to instrument contain complaint mechanism and enable individual to seek reparation it welcome the adoption of legislation to protect female victim of violence include domestic violence and action in favour of child and person with disability it encourage the establishment of the national observatory on the family increase effort to promote human right in its educational system and improve report to treaty body canada ask san marino to provide up to date information regard step to establish an independent ombudsman for the protection and promotion of human right in accordance with the principle relate to the status of national institution paris principle it note that san marino have ratify op crc ac and op crc sc and have welcome the contribution that those instrument make to the protection of the right of child canada make recommendation costa rica thank san marino for the presentation of its national report and congratulate the progress make in the promotion and protection of human right it note that san marino have ratify several international instrument and have be the first state party to the rome statute of the international criminal court to ratify the amendment to article of that statute it welcome the adoption of measure to prohibit the corporal punishment of child and those that have raise the minimum age of criminal responsibility costa rica make recommendation c te divoire say that the national report indicate the constant commitment of the government of san marino to the promotion and protection of human right through the adoption of various measure and policy for the promotion of equality for all such as those aim at combat discrimination protect woman child elderly person and person with disability combat domestic violence and strengthen the judicial political and social system those measure demonstrate the importance that san marino place on international obligation and on the protection of fundamental freedom it encourage san marino to continue to cooperate with international human right mechanism c te divoire make recommendation estonia note san marinos accession to most core international human right instrument and its stand invitation to the special procedure of the human rights council however it raise concern at the lack of report to the treaty body and hope that san marino would make positive step in that regard it commend the ratification of the convention on the prevention and punishment of the crime of genocide the united nations convention on transnational organize crime the protocol to prevent suppress and punish trafficking in person especially woman and child supplement it op crc sc and op crc ac in that regard it call upon san marino to review the law on extraordinary military conscription and withdraw the relevant clause of that law to bring it into compliance with op crc ac the protection of woman right and their participation in society be a priority and should continue there be a need for a freedom of information law in accordance with international standard estonia make recommendation france welcome the delegation from san marino it welcome the commitment show by san marino in favour of human right and its accession to various international human right instrument since its review under the first cycle of the upr france make recommendation germany thank san marino for its national report and welcome the progress make by the country since the first cycle of the upr for example regard its human right legislation it commend san marinos cooperation with civil society ohchr the special procedure of the human rights council and united nations treaty body germany make recommendation ghana welcome the delegation of san marino and applaud the country dedication to the upr process ghana make recommendation the holy see welcome step take since the first cycle of the upr to promote and protect human right and strengthen legislation and on the administration of justice in line with international instrument it commend the continue protection of the institution of the family as a union base on a stable relationship between a man and a woman and the related legislation that extend the right of a parent to be absent from the workplace when his or her child be ill or to assist family member who require special assistance include owe to disability or serious age relate disease it make recommendation indonesia applaud the priority give to the protection of woman right in national policy and the adoption and effective implementation of law no on the prevention and elimination of violence against woman and gender violence the establishment of a national human right institution in line with the paris principle would far support san marinos effort to combat violence against woman as well as its effort in other area indonesia note that san marino have ratify several international human right instrument the international convention on the protection of the right of all migrant worker and member of their family icrmw would be particularly relevant as one third of san marinos population live abroad indonesia make recommendation ireland commend san marino for extend a stand invitation to the special procedure of the human rights council however it note that a significant number of report to the treaty body be overdue it welcome san marinos ratification of op crc ac and op crc sc ireland make recommendation italy commend san marino for its commitment to cooperate with international human right mechanism and for extend a stand invitation to the special procedure of the human rights council it note the difficulty face by san marino in fulfil its reporting obligation and the measure it have take to end the backlog it encourage san marino to consider good practice and expedite the drafting of report under the international covenant on civil and political right it ask for information about the function lesson learn and good practice of the panel create to coordinate measure to prevent and combat violence against woman it ask whether san marino would consider the establishment of a formal procedure for process asylum request italy make a recommendation san marino thank all the delegation for their interesting and valuable recommendation as regard the treatment of asylum application the minister for foreign affair inform the delegation that it be not foresee to introduce a relevant procedure give the very low number of application receive in recent year often submit by person from country that uphold high human right standard establish a procedure to determine refugee status would prove problematic owing to the lack of border control between italy and san marino in the case of foreigner who be unable to return to their home country he say that the government of san marino may issue an extraordinary stay permit for humanitarian and social protection reason issue on a case by case basis beneficiary would then be entitle to temporary medical and financial assistance provide by the social welfare institute with respect to question relate to discrimination include on the basis of sexual orientation and gender identity and on the need to protect single parent and non conventional family he say that all people be equal before the law and all form of discrimination be reject under the declaration of citizen right all sector of the public administration be also abide by that principle such prohibition be reinforce by law no which punish anyone who incite or commit any act of discrimination on the basis of sexual orientation the law consider it an aggravating circumstance despite the lack of a national plan against discrimination he say that san marino have participate in international campaign and have carry out national initiative to raise awareness in that field the minister say that great importance have be attach to the role play by the authority and the commission for equal opportunity which have jointly promote action to encourage the participation of all citizen in the political social and economic life accord to the principle of legal equality in that regard he say that school play a major role respect for diversity be discuss and promote in all school grade thus favour integration learn about different culture understanding and tolerance the fight against discrimination be a practical experience in school which contribute effectively to inclusion all child reside in san marino include on a temporary basis be provide with a free education all child with disability include those with severe disability have access to education include through the support of professional and personalize didactical tool regard the question of single parent and non conventional family he say that in san marino there have be a grow number of unmarried cohabit couple also that category of person be recognize and protect by san marino family law indeed child bear from those relationship enjoy the same right as those of child bear in wedlock in that regard attention be also bring to single parent family who on account of their inherent characteristic require strong protection due consideration have also be give to single parent family by allow single people to adopt child the minister say that a national debate encourage by civil society be ongoing about same sex union parliament have recently address the issue and have decide not to consider same sex union on an equal footing to traditional household cohabitation between person of the same sex be recognize if they be entitle to live in the territory but their right and duty be regulate by private law as for human right education he say that san marino be commit to the promotion of human right in education by implement relevant project include training for teacher and the involvement of family he say that education on human right and the protection and respect for difference follow an interdisciplinary approach and be aim at promote the integration of value in all contexts to combat racism and intolerance as regard the question on the facility for person with disability il colore del grano it be explain that the centre host person with various type of disability and contribute to their education rehabilitation and social inclusion by provide assistance care and treatment include in support of their family with reference to international instrument san marino recognize the importance of treaty that contain individual complaint mechanism and be commit to address reporting delay and to accede to op icescr the optional protocol to the convention on the right of the child on a communication procedure and to the united nations educational scientific and cultural organization unesco convention against discrimination in education the minister say that for the time be san marino do not intend to adhere to or ratify the international convention for the protection of all person from enforce disappearance icppe the optional protocol to the convention against torture and other cruel inhuman or degrading treatment or punishment icrmw nor the convention relate to the status of refugee as regard the establishment of a national institution on human right base on the paris principle san marino consider the exist complaint mechanism to be adequate anyone may file a petition to the head of state to complain about violation of human right and other relate issue on the question about juvenile crime law no raise the age of juvenile jurisdiction to with safeguard for child under and alternative measure to detention under the criminal code the reform of the criminal procedure code be a major priority government decision no entrust a technical working group with the drafting of a new code finally the minister commit to give due consideration to all recommendation to enhance human right in san marino ii conclusion and or recommendation the recommendation formulate during the interactive dialogue and list below have be examine by san marino and enjoy the support of san marino ratify the optional protocol to the international covenant on economic social and cultural right icescr montenegro spain accede to the optional protocol to the international covenant on economic social and cultural right uruguay ratify the optional protocol to icescr portugal ratify the optional protocol to the international covenant on economic social and cultural right and opt into the inquiry and inter state mechanism germany accede to the optional protocol to the convention on the right of the child on a communication procedure monaco ratify the optional protocol to the convention on the right of the child on a communication procedure montenegro ratify the third optional protocol to the convention on the right of the child which establish a complaint mechanism portugal sign and ratify the third optional protocol to the convention on the right of the child on a communication procedure without reservation ireland consider become a party to other relate human right instrument such as the optional protocol to the convention on the right of the child on a communication procedure thailand ratify without make any reservation the agreement on the privilege and immunity of the international criminal court germany fully align its national legislation with the rome statute of the international criminal court include by incorporate provision to cooperate promptly and fully with the international criminal court and investigate and prosecute genocide crime against humanity and war crime effectively before its national court and accede to the agreement on the privilege and immunity of the international criminal court netherland fully align its national legislation with the rome statute of the international criminal court to ratify the kampala amendment to the rome statute on the crime of aggression and to accede to the agreement on the privilege and immunity of the international criminal court estonia incorporate into the national legislation measure to implement the rome statute of the international criminal court include measure to cooperate with the court costa rica ratify the unesco convention against discrimination in education slovenia consider ratify the unesco convention against discrimination in education ghana intensify ongoing effort to adjust domestic legislation to international standard sierra leone pass the new criminal procedure code which be be study by the technical working group spain strengthen cooperation with civil society on promote non discrimination and tolerance in society and consider institute regular consultation with civil society organization on improve the human right protection system serbia engage with civil society in the follow up to the present review united kingdom of great britain and northern ireland submit as soon as possible country report to the committee on the elimination of racial discrimination the committee on economic social and cultural right the committee on the elimination of discrimination against woman the committee against torture and the committee on the right of the child netherlands submit its overdue report to the united nations treaty body portugal endeavour to submit its overdue report some of which have be overdue since to the treaty body on the application of the convention it have ratify ghana submit its outstanding report to the treaty body as soon as possible ireland submit its national report to the relevant united nations treaty body sierra leone accelerate effort to devise and implement anti discrimination public awareness programme include in the health service sector and intensify campaign to encourage tolerance and interreligious and intercultural dialogue philippines eliminate the legal concept of child bear outside wedlock as well as combat against all form of discrimination both legally and in practice portugal continue to ensure that woman be give equitable access to the labour market and that measure introduce to address the problem of unemployment would not result in curtailment of the right of migrant worker in san marino philippines strengthen effort to increase public awareness of the importance of tolerance and intercultural dialogue and pursue measure to promote and facilitate the integration of migrant brazil protect the right of all individual regardless of sexual orientation on an equal basis canada ensure respect for minority especially sexual minority france far strengthen exist mechanism aim at safeguard the right of woman especially with regard to protection against violence sierra leone continue its measure in the prevention and repression of violence against woman through effective implementation of the exist domestic legislation and awareness raise campaign and programme malaysia continue its effort to combat domestic violence and promote gender equality singapore promulgate law which expressly prohibit all form of corporal punishment of minor at home as well as in kindergarten school and other institution care for child mexico assign the necessary resource to complete the implementation of the law on the prevention of ill treatment in the heart of the family and of the child particularly in the field of the sensitize and educate people on counter violence against child spain continue the work already under way aim at improve the judicial system include the effort to establish a new code of criminal procedure holy see continue to defend the institution of the family base on the union of a man and a woman and to keep provide assistance to those most vulnerable to human right violation particularly woman child and the elderly holy see continue strengthen the social programme and plan which drive the fight against social exclusion and inequality with emphasis on the area of employment food and health and pay special attention to the most vulnerable sector venezuela bolivarian republic of adopt appropriate legislation to guarantee the right of disabled person and provide they with the good care without discrimination kuwait adopt the framework law on disability which will incorporate the convention on the right of person with disability costa rica continue effort in provide necessary care for person with disability in line with its obligation under crpd malaysia continue to enhance its domestic policy and law to far develop an inclusive living environment for person with disability singapore continue to ensure inclusive education for child and person with disability as education would allow they to fully participate in society and open the opportunity of employment thailand bring all public building up to code so that they be accessible by person with disability in line with its international obligation and commitment united states of america take step to improve access to building for people with a disability australia consider social policy that facilitate the integration of migrant and asylum seeker holy see the follow recommendation will be examine by san marino which will respond in due course but no later than the twenty eighth session of the human rights council in march the response will be include in the outcome report adopt by council at its twenty eighth session ratify the international convention for the protection of all person from enforce disappearance spain uruguay argentina france consider ratify the international convention for the protection of all person from enforce disappearance ghana ratify without make any reservation the international convention for the protection of all person from enforce disappearance implement it into national law and recognize the competence of the committee on enforce disappearance to receive and consider from or on behalf of victim or other state party germany consider ratify the icpped sierra leone adhere to the convention on the non applicability of statutory limitation to war crime and crime against humanity without make any reservation and implement the treaty into national law germany consider develop human right indicator accord to the ohchr framework as an instrument that would allow for a more precise and coherent evaluation of its national human right policy portugal strengthen measure to combat all form of discrimination focus on sensitization and monitor c te divoire formulate civil and administrative law which complement the provision of the criminal law and be direct towards combat discrimination on the basis of ethnicity nationality or language in the field of employment and the public service in particular mexico strengthen the institutional and legal framework to counter all form of discrimination base on consideration of race ethnic origin religion or colour algeria elaborate and adopt a plan which promote a great and wide understanding of discrimination and intolerance and its various manifestation and also adopt administrative measure which allow the combating of discrimination on the basis of ethnicity nationality or language argentina introduce appropriate administrative or legislative reform to ensure equal protection for same sex couple include on matter of residency and inheritance australia decriminalize defamation and place it under the civil code estonia adopt measure enable more woman political representation algeria ensure domestic institution protect promote and monitor the right of woman and girl and strengthen equality between man and woman by ensure the full participation of woman in policy and decision make process canada adopt measure to decriminalize defamation ghana adopt measure to ensure a fair representation of woman in ministerial position of the country ghana actively monitor compliance and enforce employment safety regulation especially in the construction and mechanical industry united states of america the recommendation list below have be note by san marino proceed with the ratification of relevant international instrument not yet ratify and monitor implementation of instrument already ratify c te divoire ratify the optional protocol to the convention against torture and other cruel inhuman or degrading treatment or punishment uruguay france portugal adhere to the principle of the international convention on the protection of the right of all migrant worker and member of their family and positively consider ratify it mexico ratify the international convention on the protection of the right of all migrant worker and member of their family uruguay consider ratify the international convention on the protection of the right of all migrant worker and member of their family ghana indonesia sierra leone continue to evaluate the possibility of future accession to other international human right convention that it be not yet party to such as the icrmw and the optional protocol to the convention against torture and other cruel inhuman or degrading treatment or punishment philippine take all necessary step to ratify the convention relate to the status of refugee and its protocol brazil ratify the convention relate to the status of refugee and its protocol italy establish a national human right institution in accordance with the paris principle spain consider the establishment of a national human right institution in accordance with the paris principle indonesia ensure equal right of lesbian gay bisexual and transgender people by legally recognize same sex marriage and civil partnership unite kingdom of great britain and northern ireland all conclusion and or recommendation contain in the present report reflect the position of the submit state s and or the state under review they should not be construe as endorse by the working group as a whole annex english only composition of the delegation the delegation of san marino be head by his excellency pasquale valentini minister of foreign affair and compose of the follow member ms federica bigi director of political and diplomatic affair of the department of foreign affairs ms ilaria salicioni first secretary of the directorate of political and diplomatic affair of the department of foreign affair mr eros gasperoni first secretary of the directorate of european affair of the department of foreign affairs mr stefano palmucci expert of the directorate of legal affair of the department of foreign affairs ms valentina bertozzi interpreter of the department of foreign affairs ms anita dedic administrative assistant of the permanent mission of the republic of san marino to the united nations in geneva and other international organization in switzerland
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  united nations a hrc general assembly distr general december original english human rights council twenty eighth session agenda item universal periodic review report of the work group on the universal periodic review the annex to the present report be circulate as receive san marino content paragraph page introduction I summary of the proceeding of the review process a presentation by the state under review b interactive dialogue and response by the state under review ii conclusion and or recommendation annex composition of the delegation introduction the work group on the universal periodic review establish in accordance with human rights council resolution of june hold its twentieth session from october to november the review of san marino be hold at the th meeting on october the delegation of san marino be head by pasquale valentini minister for foreign affair at its th meeting hold on october the working group adopt the report on san marino on january the human rights council select the follow group of rapporteur troika to facilitate the review of san marino burkina faso chile china in accordance with paragraph of the annex to resolution and paragraph of the annex to resolution the follow document be issue for the review of san marino a a national report submit write presentation prepare in accordance with paragraph a a hrc wg smr b a compilation prepare by the office of the united nations high commissioner for human right ohchr in accordance with paragraph b a hrc wg smr c a summary prepare by ohchr in accordance with paragraph c a hrc wg smr a list of question prepare in advance by liechtenstein mexico the netherlands slovenia spain and the united kingdom of great britain and northern ireland be transmit to san marino through the troika these question be available on the extranet of the universal periodic review upr I summary of the proceeding of the review process a presentation by the state under review the delegation of san marino present its report for the second cycle of the upr on the human right situation the delegation note that in july it have present the national report prepare by the ministry of foreign affair in collaboration with the ministry of internal affair health labour and education and other government office it state that the national report include the step take to implement the recommendation accept during the first review note that several provision adopt in recent year have be base on those recommendation the delegation explain the approach that san marino have always hold towards the protection of human right in the context of its declaration on the citizen right and fundamental principle of san marino constitutional order the delegation state that san marino be one of the few state that in the field of human right do not need internal implementation rule as international law be an integral part of national law and even supersede this in the event of any conflict the delegation highlight the human right convention that have be ratify or adopt on july san marino ratify the united nations convention against transnational organize crime the protocol to prevent suppress and punish trafficking in person especially woman and child and the protocol against the smuggling of migrant by land sea and air supplement it on july it ratify the optional protocol to the convention on the right of the child on the involvement of child in armed conflict op crc ac and the optional protocol to the convention on the right of the child on the sale of child child prostitution and child pornography op crc sc on october it accede to the convention on the prevention and punishment of the crime of genocide and on september approve law no on regulation on the prevention and punishment of the crime of genocide in recent year san marino have ratify the follow council of europe instrument the convention on the protection of child against sexual exploitation and sexual abuse the convention on action against traffic in human being protocol no amend the convention for the protection of human right and fundamental freedom and the european charter of local self government furthermore san marino sign the council of europe protocol no to the convention for the protection of human right and fundamental freedom and the council of europe convention on prevent and combat violence against woman and domestic violence the delegation state that the ratification procedure be ongoing for both instrument regard the question submit by liechtenstein the delegation announce that having ratify on july the amendment to article of the rome statute of the international criminal court the ratification process of the amendment to the statute on the crime of aggression be expect to be complete during the current session of parliament the delegation also address the question submit by the netherland on the intention of san marino to ratify the council of europe convention on cybercrime and its additional protocol it state that a study on compliance with the convention have be complete though owe to the necessary adjustment of domestic legislation the introduction of new technology and specific training of the personnel involve san marino be unable to predict a time frame for accession the delegation point out that progress have be make in the prevention of violence against woman and gender violence through the approval of law no of june on prevention and elimination of violence against woman and gender violence which introduce into the san marino legal system the offence of gang violence stalk and traffic in human being and modify the offence of enslavement the delegation also comment that the law establish the authority for equal opportunity as a mechanism for monitor its implementation the establishment of a dedicated authority allow legislation on the protection of equal opportunity to be complete the delegation go on to say that the authority operate alongside the commission for equal opportunity which deal with issue relate to awareness raising and the promotion of legislative and non legislative measure to guarantee the legal equality of citizen on may a decree be adopt to implement the above mention law the decree also establish an assistance centre for victim of violence the delegation report that coordination between the health authority and the authority for equal opportunity have be establish in order to collect datum on violence against woman and gender violence in san marino in addition the delegation state that a special study group have be establish in order to identify the amendment to be make and the requirement to be meet in view of the ratification of the council of europe convention on prevent and combat violence against woman the delegation say that the parliament of san marino have adopt a law that introduce amendment to the criminal code and the law aim at reform family law by introduce the prohibition of corporal punishment in the exercise of correction or discipline power the delegation state that law no of september entitle legislation relate to specific developmental disorder in school and training facility have be approve that law underline the importance of the role of education for the development of social integration as strongly reiterate at the council of europe standing conference of minister of education hold in helsinki on and april and aim at protect student with specific developmental disorder and special educational need in the national report the delegation cite the work carry out by the ministry of education and health for the development of a framework law on disability the propose framework law fully incorporate the principle definition and content of the convention on the right of person with disability crpd and include some instrument that be fundamental to its implementation the delegation state that the draft law provide for the establishment of a special commission task with monitor the implementation of the principle contain in the convention the delegation state that in response to the recommendation of the council of europe group of state against corruption greco law no of september introduce the code of conduct of public official in response to the question submit by the netherland the delegation state that the recommendation make by the european commission against racism and intolerance of the council of europe on the san marino commission for equal opportunity have be assess by the commission and that it have transmit its opinion in the light of this the government intend to work with the commission to develop the necessary measure for the implementation of the recommendation in reply to the question submit by slovenia concern the measure adopt to improve prison detention condition in san marino the delegation state that procedure have improve in recent year accord to the delegation san marino have accede in december to the european convention for the prevention of torture and inhuman or degrading treatment or punishment the delegation report that since then a delegation from the council of europe european committee for the prevention of torture have visit san marino four time in march june february and january with respect to the second question submit by slovenia on raise the minimum age for military recruitment to the delegation state that the age of for recruitment in the case of general mobilization have be establish in previous regulation which san marino have long plan to change the delegation explain that the delay in the amendment of that provision be due to the fact that the measure be part of a more complex ongoing reform concern the reorganization of the military corp and its regulation in response to the question from mexico on the freedom of expression in electronic format and the sanction for improper and legally actionable conduct in the field of publishing and freedom of the medium the delegation state that a new law seek to balance freedom of expression and protection of the dignity integrity and privacy of the individual the delegation explain that under that new law certain mode of expression of information have be regulate by introduce a code of ethic for operator and an authority that monitor any abuse or distortion moreover the new law establish and govern more flexible instrument for the protection of citizen and more accessible appeal procedure for individual the delegation report that the law also specifically regulate the field of newspaper and online publication by make they equal in all aspect and effect to paper publication with the obvious difference relate to the diversity of the mean of expression b interactive dialogue and response by the state under review during the interactive dialogue delegation make statement the recommendation make during the dialogue can be find in section ii of the present report kuwait commend the effort to promote and protect human right and welcome the ratification of a number of international convention and protocol since include op crc sc the united nations convention against transnational organized crime and two protocol supplement it and the convention on the prevention and punishment of the crime of genocide it note commendable effort that san marino have make for the promotion of the right of person with disability and the accession to related convention kuwait make a recommendation malaysia note the transparent and consultative approach take by san marino with respect to the upr and the progress make in the field of human right through its commitment to implement the recommendation accept during the first cycle of the upr and the introduction of various legislative and institutional measure in particular malaysia commend san marino for ongoing and continuous step to protect women right and promote the role of woman in the country and measure to far integrate person with disability into society in line with its obligation under crpd amongst other it note the adoption of important law and provision relate to violence against woman and the enforcement of measure for the protection of woman express appreciation for the strong belief of san marino in the value of the family for human development and its effort to protect the family institution and encourage they to continue in that regard malaysia make recommendation mexico welcome the adoption of international instrument since the first cycle of the upr in particular it note the ratification of op crc sc the united nations convention against transnational organized crime and two protocol supplement it it recognize the advance make in combat domestic violence notably through the implementation of prevention programme and the provision of medical and psychological support for victim it thank san marino for the response to its query regard freedom of expression mexico make recommendation monaco welcome the advance make regard the right of person with disability notably the step take to implement crpd as well as the extension of the advantage to adoptive and foster parent grant under law no monaco request further information on the functioning of the residential centre for person with disability it welcome the ratification of op crc ac and op crc sc monaco make a recommendation montenegro commend san marino for its commitment to the promotion and protection of human right express appreciation of its effort to abolish the death penalty and protect the right of woman and child while welcome the dedication of san marino to the upr process montenegro observe that report to several committee on the implementation of core human right instrument be still overdue and encourage the government of san marino to make additional effort to improve cooperation with the treaty body system it note the request make by the human rights committee concern the introduction of a juvenile criminal justice system and ask san marino to elaborate on the activity take in that regard montenegro make recommendation the netherlands commend san marino on its human right record and effort to ratify related instrument in particular it welcome the ratification of the op crc sc and op crc ac as well as the accession to the convention on the prevention and punishment of the crime of genocide however it note that the independent information and conclude observation of the treaty body be out of date as some country report be still outstanding the netherlands make recommendation the philippines recognize the strong commitment of the government of san marino to the overall development of the country and the fulfilment of the human right of its people and laud the accession of san marino to a number of international human right convention in the period under review particularly its ratification of the united nations convention against transnational organized crime and two protocol supplement it it ask how san marino as an advocate of women right could contribute to the strengthening of regional and international cooperation or partnership in combat traffic in woman and girl it note the remarkable progress achieve by san marino in the realization of the right to an adequate standard of living and the provision of welfare programme and other social safety net for citizen who become vulnerable as a result of the recent global financial instability the philippines make recommendation portugal praise the commitment of san marino to the implementation of the recommendation accept during the first cycle and welcome the ratification of op crc sc and op crc ac it note that although san marino have accept a recommendation during the first cycle of the upr to improve timely reporting report to the treaty body be still overdue it welcome the creation of a work group to prepare a draft law to adapt san marinos legal terminology regard the concept of legitimate and natural child and encourage effort in that regard portugal make recommendation serbia congratulate san marino for its dedication to human right democracy and the rule of law and note san marinos effort to align domestic legislation with international standard as well as its pledge to comply with international treaty it applaud san marinos advocacy work to abolish the death penalty worldwide and commend effort to implement recommendation make by the european committee for the prevention of torture it note that constitutional and legislative norm and ratify international treaty on human right guarantee equality and freedom from discrimination and encourage san marino to continue its positive promotion of the principle of equality and non discrimination take into account all relevant recommendation of the european commission against racism and intolerance serbia make a recommendation sierra leone commend san marinos effort to promote and protect human right in spite of the international economic crisis which have affect the strategy and measure take to address the right to a fair trial as well as the death penalty violence against woman and domestic violence it be interested to note that san marino have be the third country to abolish the death penalty it appreciate effort to align domestic legislation with international human right instrument and commend measure to ensure freedom of religion or belief it acknowledge san marinos effort to sign ratify or accede to more human right instrument since the first cycle of the upr but note that further effort be require to address racism xenophobia and corruption it laud san marinos financial contribution to ohchr in and sierra leone make recommendation singapore commend the effort take by san marino to combat domestic violence note the role play by the authority for equal opportunity in enforce the law on the prevention and elimination of violence against woman and gender violence implement the relate decree to assist victim of violence and promote public awareness on service available include shelter for victim of domestic violence a technical institutional panel of expert be set up in to improve coordination among agency in address domestic violence singapore note effort to build an inclusive society for person with disability include the drafting of a framework law on disability to strengthen implementation of crpd and the preparation of decree on specific policy theme such the elimination of architectural barrier as well as job placement health and social inclusion singapore make recommendation slovenia note the implementation of the majority of recommendation accept under the first cycle of the upr include ratification of op crc ac and op crc sc it note progress make in the field of anti discrimination and thank san marino for respond to its question on step take to improve prison detention condition follow the request from the human rights committee slovenia request information on measure that could be take to modify legislation article of act no of january regard the exceptional circumstance in which all citizen age to could be conscript slovenia make a recommendation spain welcome the delegation of san marino and thank it for its presentation and the reply to its advanced question it congratulate the country on the adoption of the law on provision on maltreatment within the family and on child by the great and general council spain note the concern express by the human rights committee regard the failure of san marino to approve a new code of criminal procedure spain make recommendation thailand commend the effort make by san marino since its first review particularly human right awareness raise initiative and the improvement of its normative framework in various area aim at well integration of foreigner and vulnerable group it express appreciation of progress in the protection of children right particularly regard ratification of op crc ac and op crc sc it express interest in the recent examination of a draft law on provision against child maltreatment in the family and look forwards to its adoption while note step already take to well protect the right of person with disability thailand consider that further effort could be make to promote independent living and well integration into society thailand make recommendation ukraine note the ratification since the last review of important international human right mechanism and the alignment of domestic legislation with relevant international standard it appreciate the progress make to protect and promote the right of its citizen particularly regard women right and gender equality it recognize the increase representation of woman in the san marino parliament and encourage it to take further step in empower woman to end the underrepresentation of woman in the government particularly in ministerial position ukraine welcome effort regard freedom of expression particularly the initiation of procedure on a new draft law on publishing and the profession of medium operator and express hope that it would be swiftly adopt and compliant with correspond international standard the united kingdom of great britain and northern ireland welcome san marinos firm commitment to the promotion and protection of human right it commend san marino for its ongoing effort to reflect international human right standard in domestic legislation the united kingdom make recommendation the united states of america commend san marinos exemplary human right record longstanding commitment to democracy and the promotion and protection of human right while recognize that labour standard be generally well enforce it express concern that some employer do not consistently abide by safety regulation include limitation on work hour and the use of personal safety device particularly in the informal labour market it note that the ministry for territory and environment have not fully implement a law that mandate easy access to public building for person with disability and that many building remain inaccessible it make recommendation uruguay note san marinos ratification of op crc ac and op crc sc and its accession to regional human right instrument it note the draft law to prohibit the corporal punishment of child in all setting include at home and in day care and hope that it would be discuss fruitfully by the parliament in order to meet san marinos commitment pursuant to the first cycle of the upr it note san marinos effort to comply with its international obligation in particular regular reporting to treaty body it encourage san marino to continue those effort and its cooperation with ohchr it welcome that san marino be consider accede to the optional protocol to the international covenant on economic social and cultural right op icescr uruguay make recommendation the bolivarian republic of venezuela emphasize san marinos political commitment to implement recommendation accept during the first cycle of the upr despite the serious international economic crisis it note san marinos adherence to international instrument include the united nations convention against transnational organized crime and two protocol supplement it the convention on the prevention and punishment of the crime of genocide op crc sc and op crc ac it commend progress make in the legal sphere to promote equality of all people before the law and protect the right and freedom of the population and acknowledge the policy to protect women right and promote their participation in society through the adoption of important legal provision and measure relate to the protection of woman from violence it make a recommendation algeria congratulate san marino on the ratification of op crc ac and op crc sc as well as the adoption of legal provision relate to violence against woman and the promulgation of text to improve the effectiveness of the legal system particularly in the area of criminal law it welcome the measure take to consolidate the protection of the family and its solidarity algeria make recommendation argentina welcome the delegation of san marino it congratulate san marino for accede to the convention on the prevention and punishment of the crime of genocide argentina make recommendation australia commending san marinos exemplary human right record note that its human right framework value the integrity of the person afford a high degree of political participation and enforce civil liberty despite the fact that the declaration on the citizen right and fundamental principle of san marino constitutional order prohibit discrimination on all ground it be concerned that same sex couple still encounter discrimination in some basic right include residency and inheritance it commend effort to protect the right of person with disability in many area particularly employment education health care and other state service australia make recommendation brazil welcome the ratification of op crc ac op crc sc and the convention on the prevention and punishment of the crime of genocide and the enactment of legislation on maltreatment within the family and on child it maintain that it be important to increase awareness of the importance of combat racism racial discrimination and xenophobia through the effective implementation of law no on provision against racial ethnic and religious discrimination note that decree no establish various form of assistance to woman who be victim of violence brazil ask what specific measure have be take to prevent gender base and domestic violence brazil make recommendation burkina faso note san marinos commitment to cooperate with human right mechanism include its stand invitation to the special procedure of the human rights council it welcome effort to abolish the death penalty combat transnational organize crime legalize the residence status of foreign national and support worker who be victim of the economic crisis it commend the ratification of various human right instrument notably op crc ac and op crc sc and regional instrument by accede to instrument contain complaint mechanism and enable individual to seek reparation it welcome the adoption of legislation to protect female victim of violence include domestic violence and action in favour of child and person with disability it encourage the establishment of the national observatory on the family increase effort to promote human right in its educational system and improve reporting to treaty body canada ask san marino to provide up to date information regard step to establish an independent ombudsman for the protection and promotion of human right in accordance with the principle relate to the status of national institution paris principle it note that san marino have ratify op crc ac and op crc sc and have welcome the contribution that those instrument make to the protection of the right of child canada make recommendation costa rica thank san marino for the presentation of its national report and congratulate the progress make in the promotion and protection of human right it note that san marino have ratify several international instrument and have be the first state party to the rome statute of the international criminal court to ratify the amendment to article of that statute it welcome the adoption of measure to prohibit the corporal punishment of child and those that have raise the minimum age of criminal responsibility costa rica make recommendation c te divoire say that the national report indicate the constant commitment of the government of san marino to the promotion and protection of human right through the adoption of various measure and policy for the promotion of equality for all such as those aim at combat discrimination protect woman child elderly person and person with disability combat domestic violence and strengthen the judicial political and social system those measure demonstrate the importance that san marino place on international obligation and on the protection of fundamental freedom it encourage san marino to continue to cooperate with international human right mechanism c te divoire make recommendation estonia note san marinos accession to most core international human right instrument and its stand invitation to the special procedure of the human rights council however it raise concern at the lack of report to the treaty body and hope that san marino would make positive step in that regard it commend the ratification of the convention on the prevention and punishment of the crime of genocide the united nations convention on transnational organize crime the protocol to prevent suppress and punish trafficking in person especially woman and child supplement it op crc sc and op crc ac in that regard it call upon san marino to review the law on extraordinary military conscription and withdraw the relevant clause of that law to bring it into compliance with op crc ac the protection of women right and their participation in society be a priority and should continue there be a need for a freedom of information law in accordance with international standard estonia make recommendation france welcome the delegation from san marino it welcome the commitment show by san marino in favour of human right and its accession to various international human right instrument since its review under the first cycle of the upr france make recommendation germany thank san marino for its national report and welcome the progress make by the country since the first cycle of the upr for example regard its human right legislation it commend san marinos cooperation with civil society ohchr the special procedure of the human rights council and united nations treaty body germany make recommendation ghana welcome the delegation of san marino and applaud the country dedication to the upr process ghana make recommendation the holy see welcome step take since the first cycle of the upr to promote and protect human right and strengthen legislation and on the administration of justice in line with international instrument it commend the continue protection of the institution of the family as a union base on a stable relationship between a man and a woman and the related legislation that extend the right of a parent to be absent from the workplace when his or her child be ill or to assist family member who require special assistance include owe to disability or serious age relate disease it make recommendation indonesia applaud the priority give to the protection of women right in national policy and the adoption and effective implementation of law no on the prevention and elimination of violence against woman and gender violence the establishment of a national human right institution in line with the paris principle would far support san marinos effort to combat violence against woman as well as its effort in other area indonesia note that san marino have ratify several international human right instrument the international convention on the protection of the right of all migrant worker and member of their family icrmw would be particularly relevant as one third of san marinos population live abroad indonesia make recommendation ireland commend san marino for extend a stand invitation to the special procedure of the human rights council however it note that a significant number of report to the treaty body be overdue it welcome san marinos ratification of op crc ac and op crc sc ireland make recommendation italy commend san marino for its commitment to cooperate with international human right mechanism and for extend a stand invitation to the special procedure of the human rights council it note the difficulty face by san marino in fulfil its reporting obligation and the measure it have take to end the backlog it encourage san marino to consider good practice and expedite the drafting of report under the international covenant on civil and political right it ask for information about the function lesson learn and good practice of the panel create to coordinate measure to prevent and combat violence against woman it ask whether san marino would consider the establishment of a formal procedure for process asylum request italy make a recommendation san marino thank all the delegation for their interesting and valuable recommendation as regard the treatment of asylum application the minister for foreign affair inform the delegation that it be not foresee to introduce a relevant procedure give the very low number of application receive in recent year often submit by person from country that uphold high human right standard establish a procedure to determine refugee status would prove problematic owing to the lack of border control between italy and san marino in the case of foreigner who be unable to return to their home country he say that the government of san marino may issue an extraordinary stay permit for humanitarian and social protection reason issue on a case by case basis beneficiary would then be entitle to temporary medical and financial assistance provide by the social welfare institute with respect to question relate to discrimination include on the basis of sexual orientation and gender identity and on the need to protect single parent and non conventional family he say that all people be equal before the law and all form of discrimination be reject under the declaration of citizen right all sector of the public administration be also abide by that principle such prohibition be reinforce by law no which punish anyone who incite or commit any act of discrimination on the basis of sexual orientation the law consider it an aggravating circumstance despite the lack of a national plan against discrimination he say that san marino have participate in international campaign and have carry out national initiative to raise awareness in that field the minister say that great importance have be attach to the role play by the authority and the commission for equal opportunity which have jointly promote action to encourage the participation of all citizen in the political social and economic life accord to the principle of legal equality in that regard he say that school play a major role respect for diversity be discuss and promote in all school grade thus favour integration learn about different culture understanding and tolerance the fight against discrimination be a practical experience in school which contribute effectively to inclusion all child reside in san marino include on a temporary basis be provide with a free education all child with disability include those with severe disability have access to education include through the support of professional and personalize didactical tool regard the question of single parent and non conventional family he say that in san marino there have be a grow number of unmarried cohabit couple also that category of person be recognize and protect by san marino family law indeed child bear from those relationship enjoy the same right as those of child bear in wedlock in that regard attention be also bring to single parent family who on account of their inherent characteristic require strong protection due consideration have also be give to single parent family by allow single people to adopt child the minister say that a national debate encourage by civil society be ongoing about same sex union parliament have recently address the issue and have decide not to consider same sex union on an equal footing to traditional household cohabitation between person of the same sex be recognize if they be entitle to live in the territory but their right and duty be regulate by private law as for human right education he say that san marino be commit to the promotion of human right in education by implement relevant project include training for teacher and the involvement of family he say that education on human right and the protection and respect for difference follow an interdisciplinary approach and be aim at promote the integration of value in all contexts to combat racism and intolerance as regard the question on the facility for person with disability il colore del grano it be explain that the centre host person with various type of disability and contribute to their education rehabilitation and social inclusion by provide assistance care and treatment include in support of their family with reference to international instrument san marino recognize the importance of treaty that contain individual complaint mechanism and be commit to address reporting delay and to accede to op icescr the optional protocol to the convention on the right of the child on a communication procedure and to the united nations educational scientific and cultural organization unesco convention against discrimination in education the minister say that for the time be san marino do not intend to adhere to or ratify the international convention for the protection of all person from enforce disappearance icppe the optional protocol to the convention against torture and other cruel inhuman or degrading treatment or punishment icrmw nor the convention relate to the status of refugee as regard the establishment of a national institution on human right base on the paris principle san marino consider the exist complaint mechanism to be adequate anyone may file a petition to the head of state to complain about violation of human right and other relate issue on the question about juvenile crime law no raise the age of juvenile jurisdiction to with safeguard for child under and alternative measure to detention under the criminal code the reform of the criminal procedure code be a major priority government decision no entrust a technical working group with the drafting of a new code finally the minister commit to give due consideration to all recommendation to enhance human right in san marino ii conclusion and or recommendation the recommendation formulate during the interactive dialogue and list below have be examine by san marino and enjoy the support of san marino ratify the optional protocol to the international covenant on economic social and cultural right icescr montenegro spain accede to the optional protocol to the international covenant on economic social and cultural right uruguay ratify the optional protocol to icescr portugal ratify the optional protocol to the international covenant on economic social and cultural right and opt into the inquiry and inter state mechanism germany accede to the optional protocol to the convention on the right of the child on a communication procedure monaco ratify the optional protocol to the convention on the right of the child on a communication procedure montenegro ratify the third optional protocol to the convention on the right of the child which establish a complaint mechanism portugal sign and ratify the third optional protocol to the convention on the right of the child on a communication procedure without reservation ireland consider become a party to other relate human right instrument such as the optional protocol to the convention on the right of the child on a communication procedure thailand ratify without make any reservation the agreement on the privilege and immunity of the international criminal court germany fully align its national legislation with the rome statute of the international criminal court include by incorporate provision to cooperate promptly and fully with the international criminal court and investigate and prosecute genocide crime against humanity and war crime effectively before its national court and accede to the agreement on the privilege and immunity of the international criminal court netherland fully align its national legislation with the rome statute of the international criminal court to ratify the kampala amendment to the rome statute on the crime of aggression and to accede to the agreement on the privilege and immunity of the international criminal court estonia incorporate into the national legislation measure to implement the rome statute of the international criminal court include measure to cooperate with the court costa rica ratify the unesco convention against discrimination in education slovenia consider ratify the unesco convention against discrimination in education ghana intensify ongoing effort to adjust domestic legislation to international standard sierra leone pass the new criminal procedure code which be be study by the technical working group spain strengthen cooperation with civil society on promote non discrimination and tolerance in society and consider institute regular consultation with civil society organization on improve the human right protection system serbia engage with civil society in the follow up to the present review united kingdom of great britain and northern ireland submit as soon as possible country report to the committee on the elimination of racial discrimination the committee on economic social and cultural right the committee on the elimination of discrimination against woman the committee against torture and the committee on the right of the child netherlands submit its overdue report to the united nations treaty body portugal endeavour to submit its overdue report some of which have be overdue since to the treaty body on the application of the convention it have ratify ghana submit its outstanding report to the treaty body as soon as possible ireland submit its national report to the relevant united nations treaty body sierra leone accelerate effort to devise and implement anti discrimination public awareness programme include in the health service sector and intensify campaign to encourage tolerance and interreligious and intercultural dialogue philippines eliminate the legal concept of child bear outside wedlock as well as combat against all form of discrimination both legally and in practice portugal continue to ensure that woman be give equitable access to the labour market and that measure introduce to address the problem of unemployment would not result in curtailment of the right of migrant worker in san marino philippines strengthen effort to increase public awareness of the importance of tolerance and intercultural dialogue and pursue measure to promote and facilitate the integration of migrant brazil protect the right of all individual regardless of sexual orientation on an equal basis canada ensure respect for minority especially sexual minority france far strengthen exist mechanism aim at safeguard the right of woman especially with regard to protection against violence sierra leone continue its measure in the prevention and repression of violence against woman through effective implementation of the exist domestic legislation and awareness raise campaign and programme malaysia continue its effort to combat domestic violence and promote gender equality singapore promulgate law which expressly prohibit all form of corporal punishment of minor at home as well as in kindergarten school and other institution care for children mexico assign the necessary resource to complete the implementation of the law on the prevention of ill treatment in the heart of the family and of the child particularly in the field of the sensitize and educate people on counter violence against child spain continue the work already under way aim at improve the judicial system include the effort to establish a new code of criminal procedure holy see continue to defend the institution of the family base on the union of a man and a woman and to keep provide assistance to those most vulnerable to human right violation particularly woman child and the elderly holy see continue strengthen the social programme and plan which drive the fight against social exclusion and inequality with emphasis on the area of employment food and health and pay special attention to the most vulnerable sector venezuela bolivarian republic of adopt appropriate legislation to guarantee the right of disabled person and provide they with the good care without discrimination kuwait adopt the framework law on disability which will incorporate the convention on the right of person with disability costa rica continue effort in provide necessary care for person with disability in line with its obligation under crpd malaysia continue to enhance its domestic policy and law to far develop an inclusive living environment for person with disability singapore continue to ensure inclusive education for child and person with disability as education would allow they to fully participate in society and open the opportunity of employment thailand bring all public building up to code so that they be accessible by person with disability in line with its international obligation and commitment united states of america take step to improve access to building for people with a disability australia consider social policy that facilitate the integration of migrant and asylum seeker holy see the follow recommendation will be examine by san marino which will respond in due course but no later than the twenty eighth session of the human rights council in march the response will be include in the outcome report adopt by council at its twenty eighth session ratify the international convention for the protection of all person from enforce disappearance spain uruguay argentina france consider ratify the international convention for the protection of all person from enforce disappearance ghana ratify without make any reservation the international convention for the protection of all person from enforce disappearance implement it into national law and recognize the competence of the committee on enforce disappearance to receive and consider from or on behalf of victim or other state party germany consider ratify the icpped sierra leone adhere to the convention on the non applicability of statutory limitation to war crime and crime against humanity without make any reservation and implement the treaty into national law germany consider develop human right indicator accord to the ohchr framework as an instrument that would allow for a more precise and coherent evaluation of its national human right policy portugal strengthen measure to combat all form of discrimination focus on sensitization and monitor c te divoire formulate civil and administrative law which complement the provision of the criminal law and be direct towards combat discrimination on the basis of ethnicity nationality or language in the field of employment and the public service in particular mexico strengthen the institutional and legal framework to counter all form of discrimination base on consideration of race ethnic origin religion or colour algeria elaborate and adopt a plan which promote a great and wide understanding of discrimination and intolerance and its various manifestation and also adopt administrative measure which allow the combating of discrimination on the basis of ethnicity nationality or language argentina introduce appropriate administrative or legislative reform to ensure equal protection for same sex couple include on matter of residency and inheritance australia decriminalize defamation and place it under the civil code estonia adopt measure enable more women political representation algeria ensure domestic institution protect promote and monitor the right of woman and girl and strengthen equality between man and woman by ensure the full participation of woman in policy and decision make process canada adopt measure to decriminalize defamation ghana adopt measure to ensure a fair representation of woman in ministerial position of the country ghana actively monitor compliance and enforce employment safety regulation especially in the construction and mechanical industry united states of america the recommendation list below have be note by san marino proceed with the ratification of relevant international instrument not yet ratify and monitor implementation of instrument already ratify c te divoire ratify the optional protocol to the convention against torture and other cruel inhuman or degrading treatment or punishment uruguay france portugal adhere to the principle of the international convention on the protection of the right of all migrant worker and member of their family and positively consider ratify it mexico ratify the international convention on the protection of the right of all migrant worker and member of their family uruguay consider ratify the international convention on the protection of the right of all migrant worker and member of their family ghana indonesia sierra leone continue to evaluate the possibility of future accession to other international human right convention that it be not yet party to such as the icrmw and the optional protocol to the convention against torture and other cruel inhuman or degrading treatment or punishment philippine take all necessary step to ratify the convention relate to the status of refugee and its protocol brazil ratify the convention relate to the status of refugee and its protocol italy establish a national human right institution in accordance with the paris principle spain consider the establishment of a national human right institution in accordance with the paris principle indonesia ensure equal right of lesbian gay bisexual and transgender people by legally recognize same sex marriage and civil partnership unite kingdom of great britain and northern ireland all conclusion and or recommendation contain in the present report reflect the position of the submit state s and or the state under review they should not be construe as endorse by the working group as a whole annex english only composition of the delegation the delegation of san marino be head by his excellency pasquale valentini minister of foreign affair and compose of the follow member ms federica bigi director of political and diplomatic affair of the department of foreign affairs ms ilaria salicioni first secretary of the directorate of political and diplomatic affair of the department of foreign affair mr eros gasperoni first secretary of the directorate of european affair of the department of foreign affairs mr stefano palmucci expert of the directorate of legal affair of the department of foreign affairs ms valentina bertozzi interpreter of the department of foreign affairs ms anita dedic administrative assistant of the permanent mission of the republic of san marino to the united nations in geneva and other international organization in switzerland
 </pre></div>
 </div>
 </div>
@@ -2147,67 +2104,67 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
       <th>0</th>
       <td>sanmarino2014.txt</td>
       <td>\n United Nations \n A/HRC/28/9 \n \n \n\n Ge...</td>
-      <td>united nations a hrc general assembly distr...</td>
+      <td>united nations a hrc general assembly distr ...</td>
     </tr>
     <tr>
       <th>1</th>
       <td>tuvalu2013.txt</td>
       <td>\n United Nations \n A/HRC/24/8  \n \n \n\n G...</td>
-      <td>united nations a hrc general assembly distr...</td>
+      <td>united nations a hrc general assembly distr ...</td>
     </tr>
     <tr>
       <th>2</th>
       <td>kazakhstan2014.txt</td>
       <td>\n United Nations \n A/HRC/28/10 \n \n \n\n G...</td>
-      <td>united nations a hrc general assembly distr...</td>
+      <td>united nations a hrc general assembly distr ...</td>
     </tr>
     <tr>
       <th>3</th>
       <td>cotedivoire2014.txt</td>
       <td>\nDistr.: General 7 July 2014 English Original...</td>
-      <td>distr general july english original english...</td>
+      <td>distr general july english original english ...</td>
     </tr>
     <tr>
       <th>4</th>
       <td>fiji2014.txt</td>
       <td>\n United Nations \n A/HRC/28/8 \n \n \n\n Ge...</td>
-      <td>united nations a hrc general assembly distr...</td>
+      <td>united nations a hrc general assembly distr ...</td>
     </tr>
     <tr>
       <th>5</th>
       <td>bangladesh2013.txt</td>
       <td>\n United Nations \n A/HRC/24/12  \n \n \n\n ...</td>
-      <td>united nations a hrc general assembly distr...</td>
+      <td>united nations a hrc general assembly distr ...</td>
     </tr>
     <tr>
       <th>6</th>
       <td>turkmenistan2013.txt</td>
       <td>\n United Nations \n A/HRC/24/3  \n \n \n\n G...</td>
-      <td>united nations a hrc general assembly distr...</td>
+      <td>united nations a hrc general assembly distr ...</td>
     </tr>
     <tr>
       <th>7</th>
       <td>jordan2013.txt</td>
       <td>\nDistr.: General 6 January 2014 \nOriginal: E...</td>
-      <td>distr general january original english gene...</td>
+      <td>distr general january original english gener...</td>
     </tr>
     <tr>
       <th>8</th>
       <td>monaco2013.txt</td>
       <td>\nDistr.: General 3 January 2014 English Origi...</td>
-      <td>distr general january english original engl...</td>
+      <td>distr general january english original engli...</td>
     </tr>
     <tr>
       <th>9</th>
       <td>afghanistan2014.txt</td>
       <td>\nDistr.: General 4 April 2014 \nOriginal: Eng...</td>
-      <td>distr general april original english genera...</td>
+      <td>distr general april original english general...</td>
     </tr>
     <tr>
       <th>10</th>
       <td>djibouti2013.txt</td>
       <td>\n\nDistr.: General 8 July 2013 English Origin...</td>
-      <td>distr general july english original english...</td>
+      <td>distr general july english original english ...</td>
     </tr>
   </tbody>
 </table>
@@ -2238,7 +2195,7 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11, 84090)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11, 84181)
 </pre></div>
 </div>
 </div>
@@ -2250,57 +2207,57 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (0, 39147)	0.004856854154650413
-  (0, 31546)	0.004856854154650413
-  (0, 50120)	0.004856854154650413
-  (0, 79673)	0.004856854154650413
-  (0, 46122)	0.004856854154650413
-  (0, 70498)	0.004856854154650413
-  (0, 66978)	0.004856854154650413
-  (0, 48349)	0.004856854154650413
-  (0, 55362)	0.004856854154650413
-  (0, 5651)	0.004856854154650413
-  (0, 2033)	0.004856854154650413
-  (0, 18484)	0.004856854154650413
-  (0, 4234)	0.004856854154650413
-  (0, 49298)	0.004856854154650413
-  (0, 2715)	0.004856854154650413
-  (0, 39296)	0.004856854154650413
-  (0, 7332)	0.004856854154650413
-  (0, 80311)	0.004856854154650413
-  (0, 49338)	0.004856854154650413
-  (0, 2719)	0.004856854154650413
-  (0, 43279)	0.004856854154650413
-  (0, 20366)	0.004856854154650413
-  (0, 27552)	0.004856854154650413
-  (0, 53748)	0.004856854154650413
-  (0, 74808)	0.004856854154650413
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (0, 39182)	0.004856846879037771
+  (0, 31574)	0.004856846879037771
+  (0, 50165)	0.004856846879037771
+  (0, 79743)	0.004856846879037771
+  (0, 46164)	0.004856846879037771
+  (0, 70574)	0.004856846879037771
+  (0, 67048)	0.004856846879037771
+  (0, 48393)	0.004856846879037771
+  (0, 55413)	0.004856846879037771
+  (0, 5657)	0.004856846879037771
+  (0, 2036)	0.004856846879037771
+  (0, 18508)	0.004856846879037771
+  (0, 4238)	0.004856846879037771
+  (0, 49342)	0.004856846879037771
+  (0, 2719)	0.004856846879037771
+  (0, 39331)	0.004856846879037771
+  (0, 7341)	0.004856846879037771
+  (0, 80381)	0.004856846879037771
+  (0, 49382)	0.004856846879037771
+  (0, 2723)	0.004856846879037771
+  (0, 43326)	0.004856846879037771
+  (0, 20394)	0.004856846879037771
+  (0, 27591)	0.004856846879037771
+  (0, 53796)	0.004856846879037771
+  (0, 74877)	0.004856846879037771
   :	:
-  (10, 23827)	0.004816878359646474
-  (10, 53820)	0.005389991268442062
-  (10, 61743)	0.005389991268442062
-  (10, 11711)	0.006128862315264393
-  (10, 52186)	0.006128862315264393
-  (10, 32008)	0.00869722203446857
-  (10, 38651)	0.00869722203446857
-  (10, 48403)	0.012257724630528787
-  (10, 64301)	0.00869722203446857
-  (10, 28767)	0.004816878359646474
-  (10, 66421)	0.03233994761065237
-  (10, 62496)	0.005389991268442062
-  (10, 30102)	0.004816878359646474
-  (10, 79270)	0.006128862315264393
-  (10, 4247)	0.004348611017234285
-  (10, 27068)	0.004348611017234285
-  (10, 57198)	0.02609166610340571
-  (10, 60780)	0.030440277120639996
-  (10, 70415)	0.02609166610340571
-  (10, 76093)	0.004348611017234285
-  (10, 72704)	0.005389991268442062
-  (10, 27574)	0.004348611017234285
-  (10, 28679)	0.010779982536884124
-  (10, 8143)	0.010779982536884124
-  (10, 18266)	0.00869722203446857
+  (10, 23861)	0.004813404453682774
+  (10, 53868)	0.005386104036626412
+  (10, 61809)	0.005386104036626412
+  (10, 11732)	0.006124442213746767
+  (10, 52233)	0.006124442213746767
+  (10, 32036)	0.00869094964616284
+  (10, 38685)	0.00869094964616284
+  (10, 48447)	0.012248884427493533
+  (10, 64367)	0.00869094964616284
+  (10, 28795)	0.004813404453682774
+  (10, 66492)	0.03231662421975847
+  (10, 62562)	0.005386104036626412
+  (10, 30131)	0.004813404453682774
+  (10, 79340)	0.006124442213746767
+  (10, 4251)	0.00434547482308142
+  (10, 27107)	0.00434547482308142
+  (10, 57250)	0.026072848938488522
+  (10, 60838)	0.030418323761569943
+  (10, 70491)	0.026072848938488522
+  (10, 76162)	0.00434547482308142
+  (10, 72779)	0.005386104036626412
+  (10, 27613)	0.00434547482308142
+  (10, 28707)	0.010772208073252824
+  (10, 8151)	0.010772208073252824
+  (10, 18289)	0.00869094964616284
 </pre></div>
 </div>
 </div>
@@ -2366,12 +2323,12 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -2381,21 +2338,21 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -2405,45 +2362,45 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.004510</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004509</td>
       <td>...</td>
-      <td>0.011477</td>
-      <td>0.006713</td>
-      <td>0.006713</td>
+      <td>0.011473</td>
+      <td>0.006711</td>
+      <td>0.006711</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.006713</td>
-      <td>0.006713</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.006711</td>
+      <td>0.006711</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -2453,21 +2410,21 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00625</td>
-      <td>0.00625</td>
-      <td>0.00625</td>
+      <td>0.006249</td>
+      <td>0.006249</td>
+      <td>0.006249</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -2477,22 +2434,22 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>5</th>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.011193</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.011198</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -2501,46 +2458,46 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>6</th>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
-      <td>0.006297</td>
+      <td>0.006296</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.007367</td>
-      <td>0.007367</td>
+      <td>0.007365</td>
+      <td>0.007365</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>7</th>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.004723</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004721</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -2549,21 +2506,21 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>8</th>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -2573,22 +2530,22 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>0.007609</td>
-      <td>0.007609</td>
-      <td>0.007609</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.005112</td>
+      <td>0.007608</td>
+      <td>0.007608</td>
+      <td>0.007608</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.005111</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -2597,21 +2554,21 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>10</th>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00717</td>
-      <td>0.00717</td>
-      <td>0.00717</td>
-      <td>0.00717</td>
-      <td>0.00717</td>
-      <td>0.00717</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -2621,13 +2578,13 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
   </tbody>
 </table>
-<p>11 rows × 84090 columns</p>
+<p>11 rows × 84181 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -2640,26 +2597,26 @@ You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>monaco                        0.720196
-tuvalu                        0.638993
-kazakhstan                    0.615670
-fiji                          0.582304
-turkmenistan                  0.579025
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>monaco                        0.720348
+tuvalu                        0.639251
+kazakhstan                    0.615483
+fiji                          0.582410
+turkmenistan                  0.578904
 san                           0.553681
-jordan                        0.491526
-marino                        0.456544
+jordan                        0.491254
 san marino                    0.456544
-te divoire                    0.340096
-divoire                       0.340096
-te                            0.307034
-elimination violence          0.253647
-elimination violence woman    0.253647
-djiboutis                     0.250958
-reconciliation                0.245747
-fgm                           0.196124
-afghan                        0.190221
-bangladeshs                   0.183275
-violence woman law            0.182613
+marino                        0.456544
+divoire                       0.340046
+te divoire                    0.340046
+te                            0.306989
+elimination violence          0.253620
+elimination violence woman    0.253620
+djiboutis                     0.250777
+reconciliation                0.245711
+fgm                           0.195982
+afghan                        0.190201
+bangladeshs                   0.183356
+violence woman law            0.182593
 dtype: float64
 </pre></div>
 </div>
@@ -2668,6 +2625,7 @@ dtype: float64
 </section>
 <section id="add-country-name-to-tfidf-df">
 <h3>Add country name to <code class="docutils literal notranslate"><span class="pre">tfidf_df</span></code><a class="headerlink" href="#add-country-name-to-tfidf-df" title="Permalink to this headline">#</a></h3>
+<p>This way, we will know which document is relative to which country.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wrangle the country names from the human_rights data frame</span>
@@ -2754,12 +2712,12 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -2768,9 +2726,9 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>sanmarino</td>
     </tr>
     <tr>
@@ -2778,12 +2736,12 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -2792,9 +2750,9 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>tuvalu</td>
     </tr>
     <tr>
@@ -2802,23 +2760,23 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.004510</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004509</td>
       <td>...</td>
-      <td>0.006713</td>
-      <td>0.006713</td>
+      <td>0.006711</td>
+      <td>0.006711</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.006713</td>
-      <td>0.006713</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.006711</td>
+      <td>0.006711</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>kazakhstan</td>
     </tr>
     <tr>
@@ -2826,12 +2784,12 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -2840,9 +2798,9 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00625</td>
-      <td>0.00625</td>
-      <td>0.00625</td>
+      <td>0.006249</td>
+      <td>0.006249</td>
+      <td>0.006249</td>
       <td>cotedivoire</td>
     </tr>
     <tr>
@@ -2850,12 +2808,12 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -2864,9 +2822,9 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>fiji</td>
     </tr>
     <tr>
@@ -2874,13 +2832,13 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.011193</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.011198</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -2888,9 +2846,9 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>bangladesh</td>
     </tr>
     <tr>
@@ -2898,23 +2856,23 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.007367</td>
-      <td>0.007367</td>
+      <td>0.007365</td>
+      <td>0.007365</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>turkmenistan</td>
     </tr>
     <tr>
@@ -2922,13 +2880,13 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.004723</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004721</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -2936,9 +2894,9 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>jordan</td>
     </tr>
     <tr>
@@ -2946,12 +2904,12 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -2960,23 +2918,23 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>monaco</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>0.007609</td>
-      <td>0.007609</td>
-      <td>0.007609</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.005112</td>
+      <td>0.007608</td>
+      <td>0.007608</td>
+      <td>0.007608</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.005111</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -2984,9 +2942,9 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>afghanistan</td>
     </tr>
     <tr>
@@ -2994,12 +2952,12 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00717</td>
-      <td>0.00717</td>
-      <td>0.00717</td>
-      <td>0.00717</td>
-      <td>0.00717</td>
-      <td>0.00717</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
@@ -3008,14 +2966,14 @@ dtype: float64
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>djibouti</td>
     </tr>
   </tbody>
 </table>
-<p>11 rows × 84091 columns</p>
+<p>11 rows × 84182 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -3030,26 +2988,26 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jordan                                0.491526
-jordanian                             0.140617
-press publication                     0.112494
-syrian                                0.105463
-reservation                           0.099188
-press publication law                 0.091401
-publication law                       0.091401
-constitutional amendment              0.089849
-syrian refugee                        0.084370
-publication                           0.081018
-reservation convention                0.078127
-website                               0.072117
-reservation convention elimination    0.072117
-commitment jordan                     0.063278
-news website                          0.056247
-al                                    0.054088
-news                                  0.054088
-personal status                       0.054088
-personal                              0.052852
-host                                  0.046905
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jordan                                0.491254
+jordanian                             0.140540
+press publication                     0.112432
+syrian                                0.105405
+reservation                           0.099133
+publication law                       0.091351
+press publication law                 0.091351
+constitutional amendment              0.089799
+syrian refugee                        0.084324
+publication                           0.080973
+reservation convention                0.078083
+reservation convention elimination    0.072077
+website                               0.072077
+commitment jordan                     0.063243
+news website                          0.056216
+news                                  0.054058
+al                                    0.054058
+personal status                       0.054058
+personal                              0.052823
+host                                  0.046879
 dtype: float64
 </pre></div>
 </div>
@@ -3346,9 +3304,7 @@ Top features for negative reviews:
 <section id="un-hrc-text-analysis-what-next">
 <h2>UN HRC text analysis - what next?<a class="headerlink" href="#un-hrc-text-analysis-what-next" title="Permalink to this headline">#</a></h2>
 <p>What next? Keep in mind that we have not even begun to consider named entities and parts of speech. What problems immediately jump out from the above examples, such as with the number and uniqueness of country names?</p>
-<p>The next two chapters introduce powerful text preprocessing and analysis techniques. Read ahead to see how we can handle roadblocks such as these.</p>
-<p><a class="reference external" href="https://eastbayev.github.io/SSDS-TAML/fall2022/9_spaCy_textaCy_intros.html">Chapter 9</a> provides introductions to the spaCy and textaCy Python libraries.</p>
-<p><a class="reference external" href="https://eastbayev.github.io/SSDS-TAML/fall2022/10_BERTopic.html">Chapter 10</a> provides an application of the BERTopic model.</p>
+<p>The next two chapters 8 and 9 introduce powerful text preprocessing and analysis techniques. Read ahead to see how we can handle roadblocks such as these.</p>
 </section>
 <section id="exercise-redwoods-webscraping">
 <h2>Exercise - redwoods webscraping<a class="headerlink" href="#exercise-redwoods-webscraping" title="Permalink to this headline">#</a></h2>
@@ -3457,7 +3413,7 @@ New World Species:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> sequoioideae popularly known as redwoods is a subfamily of coniferous trees within the family cupressaceae it includes the largest and tallest trees in the world the three redwood subfamily genera are sequoia from coastal california and oregon sequoiadendron from californias sierra nevada and metasequoia in china the redwood species contains the largest and tallest trees in the world these trees can live for thousands of years threats include logging fire suppression climate change illegal marijuana cultivation and burl poaching only two of the genera sequoia and sequoiadendron are known for massive trees trees of metasequoia from the single living species metasequoia glyptostroboides are much smaller multiple studies of both morphological and molecular characters have strongly supported the assertion that the sequoioideae are monophyletic most modern phylogenies place sequoia as sister to sequoiadendron and metasequoia as the outgroup however yang et al went on to investigate the origin of a peculiar genetic artifact of the sequoioideaethe polyploidy of sequoiaand generated a notable exception that calls into question the specifics of this relative consensus a paper based on nonmolecular evidence suggested the following relationship among extant species m glyptostroboides dawn redwood s sempervirens coast redwood s giganteum giant sequoia taxodioideae a study using molecular evidence found the same relationships among sequoioideae species but found sequoioideae to be the sister group to the athrotaxidoideae a superfamily presently known only from tasmania rather than to taxodioideae sequoioideae and athrotaxidoideae are thought to have diverged from each other during the jurassic reticulate evolution refers to the origination of a taxon through the merging of ancestor lineages polyploidy has come to be understood as quite common in plantswith estimates ranging from to of flowering plants and extant ferns having derived from ancient polyploidy within the gymnosperms however it is quite rare sequoia sempervirens is hexaploid n x to investigate the origins of this polyploidy yang et al used two single copy nuclear genes lfy and nly to generate phylogenetic trees other researchers have had success with these genes in similar studies on different taxa several hypotheses have been proposed to explain the origin of sequoias polyploidy allopolyploidy by hybridization between metasequoia and some probably extinct taxodiaceous plant metasequoia and sequoiadendron or ancestors of the two genera as the parental species of sequoia and autohexaploidy autoallohexaploidy or segmental allohexaploidy yang et al found that sequoia was clustered with metasequoia in the tree generated using the lfy gene but with sequoiadendron in the tree generated with the nly gene further analysis strongly supported the hypothesis that sequoia was the result of a hybridization event involving metasequoia and sequoiadendron thus yang et al hypothesize that the inconsistent relationships among metasequoia sequoia and sequoiadendron could be a sign of reticulate evolution by hybrid speciation in which two species hybridize and give rise to a third among the three genera however the long evolutionary history of the three genera the earliest fossil remains being from the jurassic make resolving the specifics of when and how sequoia originated once and for all a difficult matterespecially since it in part depends on an incomplete fossil record sequoioideae is an ancient taxon with the oldest described sequoioideae species sequoia jeholensis recovered from jurassic deposits a genus medulloprotaxodioxylon reported from the late triassic of china supports the idea of a norian origin the fossil record shows a massive expansion of range in the cretaceous and dominance of the arctotertiary geoflora especially in northern latitudes genera of sequoioideae were found in the arctic circle europe north america and throughout asia and japan a general cooling trend beginning in the late eocene and oligocene reduced the northern ranges of the sequoioideae as did subsequent ice ages evolutionary adaptations to ancient environments persist in all three species despite changing climate distribution and associated flora especially the specific demands of their reproduction ecology that ultimately forced each of the species into refugial ranges where they could survive the entire subfamily is endangered the iucn red list category criteria assesses sequoia sempervirens as endangered a acd sequoiadendron giganteum as endangered b ab and metasequoia glyptostroboides as endangered b ab the two california redwood species since the early th century and the chinese redwood species since have been cultivated horticulturally far beyond their native habitats they are found in botanical gardens public parks and private landscapes in many similar climates worldwide plantings outside their native ranges particularly are found in california the coastal northwestern and the eastern united states areas of china ireland germany the united kingdom australia and near rotorua new zealand they are also used in educational projects recreating the look of the megaflora of the pleistocene landscape new world species new world species 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> sequoioideae popularly known as redwoods is a subfamily of coniferous trees within the family cupressaceae it includes the largest and tallest trees in the world the three redwood subfamily genera are sequoia from coastal california and oregon sequoiadendron from californias sierra nevada and metasequoia in china the redwood species contains the largest and tallest trees in the world these trees can live for thousands of years threats include logging fire suppression climate change illegal marijuana cultivation and burl poaching only two of the genera sequoia and sequoiadendron are known for massive trees trees of metasequoia from the single living species metasequoia glyptostroboides are much smaller multiple studies of both morphological and molecular characters have strongly supported the assertion that the sequoioideae are monophyletic most modern phylogenies place sequoia as sister to sequoiadendron and metasequoia as the outgroup however yang et al went on to investigate the origin of a peculiar genetic artifact of the sequoioideaethe polyploidy of sequoiaand generated a notable exception that calls into question the specifics of this relative consensus a      paper based on nonmolecular evidence suggested the following relationship among extant species m glyptostroboides dawn redwood s sempervirens coast redwood s giganteum giant sequoia taxodioideae a      study using molecular evidence found the same relationships among sequoioideae species but found sequoioideae to be the sister group to the athrotaxidoideae a superfamily presently known only from tasmania rather than to taxodioideae sequoioideae and athrotaxidoideae are thought to have diverged from each other during the jurassic reticulate evolution refers to the origination of a taxon through the merging of ancestor lineages polyploidy has come to be understood as quite common in plantswith estimates ranging from    to     of flowering plants and extant ferns having derived from ancient polyploidy within the gymnosperms however it is quite rare sequoia sempervirens is hexaploid  n  x    to investigate the origins of this polyploidy yang et al used two single copy nuclear genes lfy and nly to generate phylogenetic trees other researchers have had success with these genes in similar studies on different taxa several hypotheses have been proposed to explain the origin of sequoias polyploidy allopolyploidy by hybridization between metasequoia and some probably extinct taxodiaceous plant metasequoia and sequoiadendron or ancestors of the two genera as the parental species of sequoia and autohexaploidy autoallohexaploidy or segmental allohexaploidy yang et al found that sequoia was clustered with metasequoia in the tree generated using the lfy gene but with sequoiadendron in the tree generated with the nly gene further analysis strongly supported the hypothesis that sequoia was the result of a hybridization event involving metasequoia and sequoiadendron thus yang et al hypothesize that the inconsistent relationships among metasequoia sequoia and sequoiadendron could be a sign of reticulate evolution by hybrid speciation in which two species hybridize and give rise to a third among the three genera however the long evolutionary history of the three genera the earliest fossil remains being from the jurassic make resolving the specifics of when and how sequoia originated once and for all a difficult matterespecially since it in part depends on an incomplete fossil record sequoioideae is an ancient taxon with the oldest described sequoioideae species sequoia jeholensis recovered from jurassic deposits a genus medulloprotaxodioxylon reported from the late triassic of china supports the idea of a norian origin the fossil record shows a massive expansion of range in the cretaceous and dominance of the arctotertiary geoflora especially in northern latitudes genera of sequoioideae were found in the arctic circle europe north america and throughout asia and japan a general cooling trend beginning in the late eocene and oligocene reduced the northern ranges of the sequoioideae as did subsequent ice ages evolutionary adaptations to ancient environments persist in all three species despite changing climate distribution and associated flora especially the specific demands of their reproduction ecology that ultimately forced each of the species into refugial ranges where they could survive the entire subfamily is endangered the iucn red list category  criteria assesses sequoia sempervirens as endangered a acd sequoiadendron giganteum as endangered b ab and metasequoia glyptostroboides as endangered b ab the two california redwood species since the early   th century and the chinese redwood species since      have been cultivated horticulturally far beyond their native habitats they are found in botanical gardens public parks and private landscapes in many similar climates worldwide plantings outside their native ranges particularly are found in california the coastal northwestern and the eastern united states areas of china ireland germany the united kingdom australia and near rotorua new zealand they are also used in educational projects recreating the look of the megaflora of the pleistocene landscape new world species new world species 
 </pre></div>
 </div>
 </div>
@@ -3469,12 +3425,12 @@ New World Species:
 <ol class="simple">
 <li><p><a class="reference external" href="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html">Read through this 20 newsgroups dataset example</a> to get familiar with newspaper data.</p></li>
 <li><p>Do you best to understand and explain what is happening at each step of the workflow.</p></li>
-<li><p>Investigate classic horror novel vocabulary. Create a single TF-IDF sparse matrix that contains the vocabulary for <em>Frankenstein</em> and <em>Dracula</em>. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. What are the 20 most unique words in each?</p></li>
+<li><p>Investigate classic horror novel vocabulary. Create a single TF-IDF sparse matrix that contains the vocabulary for <em>Frankenstein</em> and <em>Dracula</em>. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. What are the 20 most unique words in each? Make a dataframe or visualization to illustrate the differences.</p></li>
 </ol>
 </section>
 <section id="improving-preprocessing-accuracy-and-efficiency">
 <h2>Improving preprocessing accuracy and efficiency<a class="headerlink" href="#improving-preprocessing-accuracy-and-efficiency" title="Permalink to this headline">#</a></h2>
-<p>Remember these are just the basics. There are more efficient ways to preprocess your text that you will want to consider. Read Chapter 9 “spaCy and textaCy” to learn more!</p>
+<p>Remember these are just the basics. There are more efficient ways to preprocess your text that you will want to consider. Read Chapter 8 “spaCy and textaCy” to learn more!</p>
 </section>
 </section>
 

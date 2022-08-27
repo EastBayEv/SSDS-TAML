@@ -562,8 +562,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises-todo">
-   Exercises TODO
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -745,8 +745,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises-todo">
-   Exercises TODO
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -766,15 +766,16 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-4-numeric-data-wrangling">
 <h1>Chapter 4 - Numeric data wrangling<a class="headerlink" href="#chapter-4-numeric-data-wrangling" title="Permalink to this headline">#</a></h1>
+<p>2022 August 25</p>
 <blockquote>
-<div><p>For text preprocessing, see Chapter 6 “English text preprocessing basics”</p>
+<div><p>For text preprocessing, see Chapter 7 “English text preprocessing basics”</p>
 </div></blockquote>
 <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/4_Numeric_data_wrangling.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a><p><img alt="wrangle" src="../_images/wrangle.png" /></p>
 <section id="the-pandas-library">
 <h2>The pandas library<a class="headerlink" href="#the-pandas-library" title="Permalink to this headline">#</a></h2>
-<p>Import the pandas library with the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code></p>
+<p>Import the pandas library with the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>. This is just a shortcut to call its methods!</p>
 <p>Use “dot notation” to apply its methods to the gapminder dataset, which is stored in a tabular .csv file.</p>
 <p>To import the .csv file, use the <code class="docutils literal notranslate"><span class="pre">.read_csv()</span></code> pandas method. The only argument for now is the file path to a .csv file.</p>
 <p><a class="reference external" href="https://www.gapminder.org/data/">Learn more about the Gapminder data</a></p>
@@ -831,12 +832,175 @@ title="Print to PDF"
 </section>
 <section id="first-look-at-the-data">
 <h2>First, look at the data<a class="headerlink" href="#first-look-at-the-data" title="Permalink to this headline">#</a></h2>
-<p>Use pandas methods to learn about the data!</p>
+<p><code class="docutils literal notranslate"><span class="pre">print</span></code> or call the dataset to view its output. Use pandas methods to learn about the data!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">gap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          country  year         pop continent  lifeExp   gdpPercap
+0     Afghanistan  1952   8425333.0      Asia   28.801  779.445314
+1     Afghanistan  1957   9240934.0      Asia   30.332  820.853030
+2     Afghanistan  1962  10267083.0      Asia   31.997  853.100710
+3     Afghanistan  1967  11537966.0      Asia   34.020  836.197138
+4     Afghanistan  1972  13079460.0      Asia   36.088  739.981106
+...           ...   ...         ...       ...      ...         ...
+1699     Zimbabwe  1987   9216418.0    Africa   62.351  706.157306
+1700     Zimbabwe  1992  10704340.0    Africa   60.377  693.420786
+1701     Zimbabwe  1997  11404948.0    Africa   46.809  792.449960
+1702     Zimbabwe  2002  11926563.0    Africa   39.989  672.038623
+1703     Zimbabwe  2007  12311143.0    Africa   43.487  469.709298
+
+[1704 rows x 6 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>1952</td>
+      <td>8425333.0</td>
+      <td>Asia</td>
+      <td>28.801</td>
+      <td>779.445314</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>1957</td>
+      <td>9240934.0</td>
+      <td>Asia</td>
+      <td>30.332</td>
+      <td>820.853030</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>1962</td>
+      <td>10267083.0</td>
+      <td>Asia</td>
+      <td>31.997</td>
+      <td>853.100710</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Afghanistan</td>
+      <td>1967</td>
+      <td>11537966.0</td>
+      <td>Asia</td>
+      <td>34.020</td>
+      <td>836.197138</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Afghanistan</td>
+      <td>1972</td>
+      <td>13079460.0</td>
+      <td>Asia</td>
+      <td>36.088</td>
+      <td>739.981106</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1699</th>
+      <td>Zimbabwe</td>
+      <td>1987</td>
+      <td>9216418.0</td>
+      <td>Africa</td>
+      <td>62.351</td>
+      <td>706.157306</td>
+    </tr>
+    <tr>
+      <th>1700</th>
+      <td>Zimbabwe</td>
+      <td>1992</td>
+      <td>10704340.0</td>
+      <td>Africa</td>
+      <td>60.377</td>
+      <td>693.420786</td>
+    </tr>
+    <tr>
+      <th>1701</th>
+      <td>Zimbabwe</td>
+      <td>1997</td>
+      <td>11404948.0</td>
+      <td>Africa</td>
+      <td>46.809</td>
+      <td>792.449960</td>
+    </tr>
+    <tr>
+      <th>1702</th>
+      <td>Zimbabwe</td>
+      <td>2002</td>
+      <td>11926563.0</td>
+      <td>Africa</td>
+      <td>39.989</td>
+      <td>672.038623</td>
+    </tr>
+    <tr>
+      <th>1703</th>
+      <td>Zimbabwe</td>
+      <td>2007</td>
+      <td>12311143.0</td>
+      <td>Africa</td>
+      <td>43.487</td>
+      <td>469.709298</td>
+    </tr>
+  </tbody>
+</table>
+<p>1704 rows × 6 columns</p>
+</div></div></div>
+</div>
 <section id="head">
 <h3><code class="docutils literal notranslate"><span class="pre">.head()</span></code><a class="headerlink" href="#head" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># look at first five rows by default</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .head() shows the first five rows by default</span>
 <span class="n">gap</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -923,7 +1087,7 @@ title="Print to PDF"
 <h3><code class="docutils literal notranslate"><span class="pre">.columns</span></code><a class="headerlink" href="#columns" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># View column names</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .columns shows the column names</span>
 <span class="c1"># this is an attribute instead of a method - note the lack of parentheses ()</span>
 <span class="n">gap</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
@@ -940,8 +1104,7 @@ title="Print to PDF"
 <h3><code class="docutils literal notranslate"><span class="pre">.shape</span></code><a class="headerlink" href="#shape" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show number of rows by columns</span>
-<span class="c1"># this is an attribute instead of a method - note the lack of parentheses ()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .shape shows the number of rows by columns</span>
 <span class="n">gap</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -1082,7 +1245,7 @@ Life expectancy sd: 12.917107415241192
 <p>These two methods are useful for tabulating frequencies by a grouping variable!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count the number of countries grouped by each continent</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count the number of observations grouped by each continent</span>
 <span class="n">gap</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;continent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1105,7 +1268,7 @@ Name: country, dtype: int64
 <h2>Subset rows or columns<a class="headerlink" href="#subset-rows-or-columns" title="Permalink to this headline">#</a></h2>
 <p>Sampling data is necessary for many reasons, including quick sanity checks.</p>
 <p>Slice a data frame by using bracket notation to specify start and end points <code class="docutils literal notranslate"><span class="pre">[start</span> <span class="pre">:</span> <span class="pre">end]</span></code></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">[start</span> </code> index is <em>included</em> and the <code class="docutils literal notranslate"> <span class="pre">end]</span></code> index is <strong>excluded</strong>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">[start</span> </code> index is <strong>included</strong> and the <code class="docutils literal notranslate"> <span class="pre">end]</span></code> index is <strong>excluded</strong>.</p>
 <blockquote>
 <div><p>Remember that Python is a zero-indexed language, so starts counting from zero, not one.</p>
 </div></blockquote>
@@ -1514,7 +1677,8 @@ Name: lifeExp, Length: 1704, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pandas &quot;Series&quot; can be thought of like numpy arrays - but beware, they do not function the same!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A column in a pandas data frame Pandas &quot;Series&quot; can be thought of like numpy arrays</span>
+<span class="c1"># But, beware, they do not function exactly the same!</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">gap</span><span class="p">[</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1982,20 +2146,21 @@ Name: lifeExp, Length: 1704, dtype: float64
 </div>
 </section>
 </section>
-<section id="exercises-todo">
-<h2>Exercises TODO<a class="headerlink" href="#exercises-todo" title="Permalink to this headline">#</a></h2>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
-<li><p>Load csv</p></li>
-<li><p>Print col names</p></li>
-<li><p>Print mean for all columns</p></li>
-<li><p>Summary stats for all data</p></li>
-<li><p>mean for one col ie gap.groupby(‘continent’)[“lifeExp”].mean()</p></li>
-<li><p>multi columns ie le_table = gap.groupby(‘continent’)[[“lifeExp”, “gdpPercap”]].mean()</p></li>
+<li><p>Load the file “penguins.csv” and save it in a variable named <code class="docutils literal notranslate"><span class="pre">peng</span></code></p></li>
+<li><p>Print the column names</p></li>
+<li><p>Compute the mean one numeric columns</p></li>
+<li><p>Compute the mean for all numeric columns</p></li>
+<li><p>Tabulate frequencies for the columns species, island, and sex</p></li>
+<li><p>Compute body mass mean and standard deviation by species, island, and sex</p></li>
+<li><p>Create a subset of <code class="docutils literal notranslate"><span class="pre">peng</span></code> that contains only penguins with body mass less than 3000 and bill length greater than 38.</p></li>
 </ol>
 </section>
 <section id="data-visualization">
 <h2>Data visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">#</a></h2>
-<p>After importing, exploring, and potentially subsetting your data, visualization is a common technique to perform next. Read Chapter 5 “Data visualization essentials” to get started.</p>
+<p>After importing, exploring, and subsetting your data, visualization is a common technique to perform next. Read Chapter 5 “Data visualization essentials” to get started.</p>
 </section>
 </section>
 

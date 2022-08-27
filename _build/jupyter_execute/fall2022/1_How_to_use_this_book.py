@@ -2,6 +2,7 @@
 # coding: utf-8
 
 # # Chapter 1 - How to use this book
+# 2022 August 25
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/1_How_to_use_this_book.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>

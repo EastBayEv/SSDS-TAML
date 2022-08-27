@@ -2,6 +2,7 @@
 # coding: utf-8
 
 # # Chapter 5 - Data visualization essentials
+# 2022 August 26
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/5_Data_visualization_essentials.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -27,9 +28,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # 2. Compute summary statistics
 # 3. Produce visualizations to illustrate obvious - or not so obvious - trends in the data
 
-# ## Plotting with seaborn
-# 
-# ### First, a note about matplotlib
+# ## First, a note about matplotlib
 # There are many different ways to visualize data in Python but they virtually all rely on matplotlib. You should take some time to read through the tutorial: https://matplotlib.org/stable/tutorials/introductory/pyplot.html. 
 # 
 # Because many other libraries depend on matplotlib under the hood, you should familiarize yourself with the basics. For example: 
@@ -59,13 +58,17 @@ plt.show()
 
 # ![wilke12](img/wilke12.png)
 
-# ## Basic plots
+# ## Plotting with seaborn
+# 
+# ### Basic plots
 # 
 # 1. Histogram: visualize distribution of one (or more) continuous (i.e., integer or float) variable.
 # 
 # 2. Boxplot: visualize the distribution of one (or more) continuous variable.
 # 
 # 3. Scatterplot: visualize the relationship between two continuous variables. 
+# 
+# Study the seaborn tutorial for more examples and formatting options: https://seaborn.pydata.org/tutorial/function_overview.html
 
 # ## Histogram
 # 
@@ -76,6 +79,7 @@ plt.show()
 
 # load gapminder dataset
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
+gap.head()
 
 
 # In[4]:
@@ -118,10 +122,17 @@ sns.boxplot(data = gap,
 # In[8]:
 
 
-gap.groupby('continent').count()
+gap.groupby('continent').count()['country']
 
 
 # In[9]:
+
+
+# Sums to the total number of observations in the dataset
+sum(gap.groupby('continent').count()['country'])
+
+
+# In[10]:
 
 
 # by continent
@@ -130,21 +141,21 @@ sns.boxplot(data = gap,
             y = 'lifeExp').set_title('Boxplots');
 
 
-# In[10]:
+# In[11]:
 
 
 # custom colors
 sns.boxplot(data = gap, 
             x = 'continent', 
             y = 'lifeExp', 
-            palette = ['gray', '#8C1515', '#D2C295', '#00505C', 'white']).set_title('Boxplots');
+            palette = ['gray', '#8C1515', '#D2C295', '#00505C', 'white']).set_title('Boxplots example');
 
 
 # ## Scatterplot
 # 
 # Scatterplots are useful to illustrate the relationship between two continuous variables. Below are several options for you to try.
 
-# In[11]:
+# In[12]:
 
 
 ### change figure size
@@ -190,253 +201,55 @@ ex1.set_ylabel("GDP per cap (US$)", fontsize = 20);
 # 
 # ![penguins](img/penguins.png)
 # 
-# 1. Use seaborn to make one of each of the plots in the image below. Check out the seaborn tutorial for more examples and formatting options: https://seaborn.pydata.org/tutorial/function_overview.html
-# 2. What might you conclude about the species of penguins from this dataset? 
-# 
-# ![sns](img/sea.png)
-# 
-# ### Map of Antarctica
+# 1. Use seaborn to make a scatterplot of two continuous variables. Color each point by species. 
+# 2. Make the same scatterplot as #1 above. This time, color each point by sex. 
+# 3. Make the same scatterplot as #1 above again. This third color each point by island.
+# 4. Combine your three scatterplots into a single figure. 
+
+# ## Map of Antarctica
 # 
 # Below is a map of Antarctica past the southernmost tip of the South American continent. 
 # 
 # The distance from the Biscoe Islands (Renaud) to the Torgersen and Dream Islands is about 140 km. 
 # 
+# Might you suggest any similarities or differences between the penguins from these three locations? 
+# 
 # ![antarctica](img/antarctica.png)
 
-# In[12]:
+# In[13]:
 
 
 # get help with the question mark
 # sns.scatterplot?
 
 
-# In[13]:
+# In[14]:
 
 
 # load penguins data
 penguins = pd.read_csv('data/penguins.csv')
 
 
-# In[14]:
+# In[15]:
 
 
 # hint: 
 penguins.groupby('island').count()
 
 
-# In[15]:
+# In[16]:
 
 
 # hint:
 penguins.groupby('island').mean()
 
 
-# In[16]:
-
-
-# 1. relational - scatterplot
-# your answer here:
-
-
-
-# In[17]:
-
-
-# 2. relational - lineplot
-# your answer here:
-
-
-
-# In[18]:
-
-
-# 3. distributions - histplot
-# your answer here:
-
-
-
-# In[19]:
-
-
-# 4. distributions - kdeplot
-# your answer here:
-
-
-
-# In[20]:
-
-
-# 5. distributions - ecdfplot
-# your answer here:
-
-
-
-# In[21]:
-
-
-# 6. distributions - rugplot
-# your answer here:
-
-
-
-# In[22]:
-
-
-# 7. categorical - stripplot
-# your answer here:
-
-
-
-# In[23]:
-
-
-# 8. categorical - swarmplot
-# your answer here:
-
-
-
-# In[24]:
-
-
-# 9. categorical - boxplot
-# your answer here:
-
-
-
-# In[25]:
-
-
-# 10. categorical - violinplot
-# your answer here:
-
-
-
-# In[26]:
-
-
-# 11. categorical - pointplot
-# your answer here:
-
-
-
-# In[27]:
-
-
-# 12. categorical - barplot
-# your answer here:
-
-
-
-# ## Quiz - Gapminder dataset
+# ## Exercises - Gapminder dataset
 # 
-# Make the twelve plots using the Gapminder dataset.
+# 1. Make a line plot that shows gdpPercap through time. 
+# 2. Make a second line plot that shows lifeExp through time. 
+# 3. Combine these two plots into a single figure. 
+
+# ## What does this all mean for machine learning and text data?
 # 
-# What can you conclude about income and life expectancy?
-# 
-# Visit https://www.gapminder.org/ to learn more!
-# 
-# ### Things you are probably wrong about!
-# 
-# ![gapm](img/gapm.png)
-# 
-# See the survey and correct response rate of the [Sustainable Development Misconception Study 2020](https://www.gapminder.org/ignorance/studies/sdg2020/)
-
-# In[28]:
-
-
-# 1. relational - scatterplot
-# your answer here:
-
-
-
-# In[29]:
-
-
-# 2. relational - lineplot
-# your answer here:
-
-
-
-# In[30]:
-
-
-# 3. distributions - histplot
-# your answer here:
-
-
-
-# In[31]:
-
-
-# 4. distributions - kdeplot
-# your answer here:
-
-
-
-# In[32]:
-
-
-# 5. distributions - ecdfplot
-# your answer here:
-
-
-
-# In[33]:
-
-
-# 6. distributions - rugplot
-# your answer here:
-
-
-
-# In[34]:
-
-
-# 7. categorical - stripplot
-# your answer here:
-
-
-
-# In[35]:
-
-
-# 8. categorical - swarmplot
-# your answer here:
-
-
-
-# In[36]:
-
-
-# 9. categorical - boxplot
-# your answer here:
-
-
-
-# In[37]:
-
-
-# 10. categorical - violinplot
-# your answer here:
-
-
-
-# In[38]:
-
-
-# 11. categorical - pointplot
-# your answer here:
-
-
-
-# In[39]:
-
-
-# 12. categorical - barplot
-# your answer here:
-
-
-
-# ## What does this mean for text data?
-# 
-# You might be wondering what this means for text data! Oftentimes we are concerned with amounts of words (and their synonyms) being used, or with calculating scores between words. As you will see in the next chapters, we do not change text to numbers, but we do change the _representation_ of text to numbers. Read Chapter 6 "English text preprocessing basics" to learn more!
+# You might be wondering what this all means for machine learning and text data! Oftentimes we are concerned sorting data, predicting something, the amounts of words (and their synonyms) being used, or with calculating scores between words. As you will see in the next chapters, we do not change text to numbers, but we do change the _representation_ of text to numbers. Read Chapter 6 "Core machine learning concepts; building text vocabularies" and Chapter 7 "English text preprocessing basics" to learn more!

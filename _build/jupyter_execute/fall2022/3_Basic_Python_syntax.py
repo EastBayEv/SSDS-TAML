@@ -2,6 +2,7 @@
 # coding: utf-8
 
 # # Chapter 3 - Basic Python syntax
+# 2022 August 25
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/3_Boilerplate_code_review.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>

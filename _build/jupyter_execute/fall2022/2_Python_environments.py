@@ -2,6 +2,8 @@
 # coding: utf-8
 
 # # Chapter 2 - Python environments
+# 
+# 2022 August 25
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/2_Start_coding.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
