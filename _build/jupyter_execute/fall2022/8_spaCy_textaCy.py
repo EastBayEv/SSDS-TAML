@@ -658,6 +658,10 @@ for cluster_label, docs in clusters:
     print("\n\n")
 
 
+# ## Exercise - spacy101
+# 
+# 1. Read through the spacy101 guide and begin to apply its principles to your own corpus: https://spacy.io/usage/spacy-101
+
 # ## Topic modeling - going further
 # 
 # There are many different approaches to modeling abstract topics in text data, such as [top2vec](https://github.com/ddangelov/Top2Vec) and [lda2vec](https://github.com/cemoody/lda2vec). 

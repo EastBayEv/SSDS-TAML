@@ -638,8 +638,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -895,8 +895,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -2048,6 +2048,14 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># export clean_penguins</span>
+<span class="c1"># clean_penguins.to_csv(&quot;data/clean_penguins.csv&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -2170,9 +2178,6 @@ dtype: int64
  [ 9 47]]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -2190,7 +2195,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6_Core_concepts_vocabularies_76_0.png" src="../_images/6_Core_concepts_vocabularies_76_0.png" />
+<img alt="../_images/6_Core_concepts_vocabularies_77_0.png" src="../_images/6_Core_concepts_vocabularies_77_0.png" />
 </div>
 </div>
 </section>
@@ -2778,8 +2783,8 @@ dtype: int64
 </div>
 </section>
 </section>
-<section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Compare our “by hand” OLS results to those producd by sklearn’s <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> function. Are they the same?</p>
 <ul class="simple">
@@ -2789,8 +2794,6 @@ dtype: int64
 <li><p>y_hat = y_hat = B0 + B1 * data.x</p></li>
 </ul>
 </li>
-<li><p>What if you have more than two classes? Rewrite the data preprocessing steps in a new notebook to predict penguin species (Adelie, Gentoo, or Chinstrap). You could use something like this for multi-class classification:
-<code class="docutils literal notranslate"><span class="pre">lr</span> <span class="pre">=</span> <span class="pre">LogisticRegression(multi_class='multinomial',</span> <span class="pre">solver='lbfgs')</span></code>. How does classification accuracy compare to another, perhaps more appropriate metric?</p></li>
 </ol>
 </section>
 <section id="what-does-this-mean-for-predicting-text">

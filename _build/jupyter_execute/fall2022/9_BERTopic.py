@@ -208,3 +208,7 @@ model.visualize_heatmap()
 #     - other visualizations and deciding which ones are best for what kinds of documents. 
 # 
 # * Questions? Please reach out! Anthony Weng, SSDS consultant, is happy to help (contact: ad2weng@stanford.edu)
+
+# ## Exercise
+# 
+# 1. Repeat the steps in this notebook with your own data. However, real data does not come with a `fetch` function. What importation steps do you need to consider so your own corpus works?

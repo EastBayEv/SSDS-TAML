@@ -710,22 +710,22 @@ model.predict(my_features)
 # 
 # The next two chapters 8 and 9 introduce powerful text preprocessing and analysis techniques. Read ahead to see how we can handle roadblocks such as these. 
 
-# ## Exercise - redwoods webscraping
-# 
-# ![redwood](img/redwood.png)
+# ## Exercises - redwoods webscraping
 # 
 # This also works with data scraped from the web. Below is very brief BeautifulSoup example to save the contents of the Sequoioideae (redwood trees) Wikipedia page in a variable named `text`. 
 # 
 # 1. Read through the code below
 # 2. Practice by repeating for a webpage of your choice
+# 
+# ![redwood](img/redwood.png)
 
-# In[77]:
+# In[23]:
 
 
 # import necessary libraries
 from bs4 import BeautifulSoup
 import requests
-import regex
+import regex as re
 import nltk
 
 
@@ -735,7 +735,7 @@ import nltk
 # 2. `response` - perform the get request on the URL 
 # 3. `soup` - create the soup object so we can parse the html 
 
-# In[78]:
+# In[24]:
 
 
 url = "https://en.wikipedia.org/wiki/Sequoioideae"
@@ -749,7 +749,7 @@ soup = BeautifulSoup(response.text, 'html')
 # 
 # Below is a handy for loop that finds all everything within paragraph `<p>`, or paragraph tags. 
 
-# In[79]:
+# In[25]:
 
 
 # save in an empty string
@@ -759,7 +759,7 @@ for paragraph in soup.find_all('p'):
     text += paragraph.text
 
 
-# In[80]:
+# In[26]:
 
 
 print(text)
@@ -769,7 +769,7 @@ print(text)
 # 
 # Remember how we did some regular expression preprocessing above? You could even use a bunch of regular expressions in sequence or simultaneously. [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code.
 
-# In[81]:
+# In[27]:
 
 
 text = re.sub(r'\[[0-9]*\]',' ',text)
@@ -777,9 +777,10 @@ text = re.sub(r'\s+',' ',text)
 text = re.sub(r'\d',' ',text)
 text = re.sub(r'[^\w\s]','',text)
 text = text.lower()
+text = re.sub(r'\s+',' ',text)
 
 
-# In[82]:
+# In[28]:
 
 
 print(text)
@@ -787,12 +788,18 @@ print(text)
 
 # ## Exercises - text classification
 # 
-# "The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date."
+# The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date."
 # 
-# 1. [Read through this 20 newsgroups dataset example](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html) to get familiar with newspaper data. 
-# 2. Do you best to understand and explain what is happening at each step of the workflow. 
-# 3. Investigate classic horror novel vocabulary. Create a single TF-IDF sparse matrix that contains the vocabulary for _Frankenstein_ and _Dracula_. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. What are the 20 most unique words in each? Make a dataframe or visualization to illustrate the differences.
+# 1. Investigate classic horror novel vocabulary. Create a single TF-IDF sparse matrix that contains the vocabulary for _Frankenstein_ and _Dracula_. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. What are the 20 most unique words in each? Make a dataframe or visualization to illustrate the differences.
+# 2. [Read through this 20 newsgroups dataset example](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html) to get familiar with newspaper data. 
+# 3. Do you best to understand and explain what is happening at each step of the workflow. 
 
 # ## Improving preprocessing accuracy and efficiency
 # 
 # Remember these are just the basics. There are more efficient ways to preprocess your text that you will want to consider. Read Chapter 8 "spaCy and textaCy" to learn more!
+
+# In[ ]:
+
+
+
+

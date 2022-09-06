@@ -434,22 +434,29 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.3, rando
 # In[29]:
 
 
-x_train.shape
+# export clean_penguins
+# clean_penguins.to_csv("data/clean_penguins.csv")
 
 
 # In[30]:
 
 
-x_test.shape
+x_train.shape
 
 
 # In[31]:
 
 
-len(y_train)
+x_test.shape
 
 
 # In[32]:
+
+
+len(y_train)
+
+
+# In[33]:
 
 
 len(y_test)
@@ -459,13 +466,13 @@ len(y_test)
 # 
 # And view the classification accuracy
 
-# In[33]:
+# In[34]:
 
 
 lr.fit(x_train, y_train)
 
 
-# In[34]:
+# In[35]:
 
 
 lr.score(x_train, y_train)
@@ -473,7 +480,7 @@ lr.score(x_train, y_train)
 
 # ### Generate predicted values on the test data
 
-# In[35]:
+# In[36]:
 
 
 # Generate predicted y values based on the x test set data
@@ -483,14 +490,14 @@ predictions
 
 # ### Calculate test set accuracy
 
-# In[36]:
+# In[37]:
 
 
 test_score = lr.score(x_test, y_test)
 print(test_score)
 
 
-# In[37]:
+# In[38]:
 
 
 from sklearn import metrics
@@ -499,7 +506,7 @@ cm = metrics.confusion_matrix(y_test, predictions)
 print(cm)
 
 
-# In[38]:
+# In[39]:
 
 
 # Fancy it up! Use plt.savefig() to export
@@ -519,7 +526,7 @@ plt.title(all_sample_title, size = 15);
 
 # ### Define a corpus 
 
-# In[39]:
+# In[40]:
 
 
 corpus = [
@@ -556,7 +563,7 @@ corpus
 # 
 # The bag of words model represents text ignoring syntactical elements like grammar and word order while only preserving the multiplicy/frequency of unique tokens. Typically, a bag of words model removes punctuation and casefolds the text to lowercase before counting the words (i.e. 'Apple' and 'apple' will both count toward instances of the word, 'apple'). 
 
-# In[40]:
+# In[41]:
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -571,7 +578,7 @@ vectorizer.fit(corpus)
 vectorizer.vocabulary_
 
 
-# In[41]:
+# In[42]:
 
 
 # The `.transform` method will help us here!
@@ -584,7 +591,7 @@ print(vector)
 
 # ### Present the sparse matrix
 
-# In[42]:
+# In[43]:
 
 
 # each row is a document, each column is a word from the vocabulary! 
@@ -592,21 +599,21 @@ print(vector)
 print(vector.toarray())
 
 
-# In[43]:
+# In[44]:
 
 
 # get the column names (alphabetical sort)
 vectorizer.get_feature_names()
 
 
-# In[44]:
+# In[45]:
 
 
 # What does this tell us? 
 vectorizer.transform(['text']).toarray() 
 
 
-# In[45]:
+# In[46]:
 
 
 # 'text' is present in our bag of words, and in the sparse matrix, occupies the twelfth column!
@@ -624,7 +631,7 @@ vectorizer.transform(['abracadabra']).toarray()
 # * trigrams   `ngram_range = (1, 3)`
 # * etc.
 
-# In[46]:
+# In[47]:
 
 
 # token pattern is written using regular expressions (regex for short): 
@@ -640,7 +647,7 @@ bigram_vectorizer
 
 # Since we specify bigrams, both unigrams _and_ bigrams are returned!
 
-# In[47]:
+# In[48]:
 
 
 from sklearn.feature_extraction import DictVectorizer
@@ -650,13 +657,13 @@ bigram_analyzer('Welcome to Stanford Libraries!')
 
 # ### Apply n-grams to our above corpus
 
-# In[48]:
+# In[49]:
 
 
 corpus
 
 
-# In[49]:
+# In[50]:
 
 
 # perform the transformation
@@ -664,7 +671,7 @@ x = bigram_vectorizer.fit_transform(corpus).toarray()
 print(x)
 
 
-# In[50]:
+# In[51]:
 
 
 # get the feature (column) names
@@ -672,7 +679,7 @@ print(x)
 bigram_vectorizer.get_feature_names()
 
 
-# In[51]:
+# In[52]:
 
 
 # search for vocabulary words across the documents
@@ -684,7 +691,7 @@ x[:, feature_index]
 # 
 # Our vocabulary for the `corpus` variable consists of 30 unigram and bigram **features** across the four documents.
 
-# In[52]:
+# In[53]:
 
 
 # redefine x as sparse matrix (not array)
@@ -692,7 +699,7 @@ x = bigram_vectorizer.fit_transform(corpus)
 print(x)
 
 
-# In[53]:
+# In[54]:
 
 
 import scipy.sparse
@@ -700,23 +707,20 @@ corpus_df = pd.DataFrame(x.todense(), columns = bigram_vectorizer.get_feature_na
 corpus_df
 
 
-# In[54]:
+# In[55]:
 
 
 # The features (columns) are the vocabulary from the bigram version of our corpus variable above! 
 corpus_df.columns
 
 
-# ## Exercises
+# ## Exercise
 # 
 # 1. Compare our "by hand" OLS results to those producd by sklearn's `LinearRegression` function. Are they the same? 
 #     * Slope = 4
 #     * Intercept = -4
 #     * RMSE = 2.82843
 #     * y_hat = y_hat = B0 + B1 * data.x
-# 
-# 2. What if you have more than two classes? Rewrite the data preprocessing steps in a new notebook to predict penguin species (Adelie, Gentoo, or Chinstrap). You could use something like this for multi-class classification: 
-# `lr = LogisticRegression(multi_class='multinomial', solver='lbfgs')`. How does classification accuracy compare to another, perhaps more appropriate metric?
 
 # ## What does this mean for predicting text?
 # 

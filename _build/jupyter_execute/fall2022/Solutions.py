@@ -371,16 +371,8 @@ sns.lineplot(data = gap, x = "year", y = "lifeExp",
 # seaborn color palettes: https://www.reddit.com/r/visualization/comments/qc0b36/all_seaborn_color_palettes_together_so_you_dont/
 
 
-# # Chapter 6
-
-# In[ ]:
-
-
-
-
-
-# # Chapter 7
-
+# ## Chapter 6 - Exercise
+# 
 # 1. Compare our "by hand" OLS results to those producd by sklearn's `LinearRegression` function. Are they the same? 
 #     * Slope = 4
 #     * Intercept = -4
@@ -390,6 +382,14 @@ sns.lineplot(data = gap, x = "year", y = "lifeExp",
 # In[37]:
 
 
+#1 
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+
+
+# In[38]:
+
+
 # Recreate dataset
 import pandas as pd
 data = pd.DataFrame({"x": [1,2,3,4,5],
@@ -397,7 +397,7 @@ data = pd.DataFrame({"x": [1,2,3,4,5],
 data
 
 
-# In[38]:
+# In[39]:
 
 
 # Our "by hand" OLS regression information:
@@ -407,17 +407,15 @@ RMSE = 2.82843
 y_hat = B0 + B1 * data.x
 
 
-# In[39]:
+# In[40]:
 
 
 # use scikit-learn to compute R-squared value
-from sklearn.linear_model import LinearRegression
-
 lin_mod = LinearRegression().fit(data[['x']], data[['y']])
 print("R-squared: " + str(lin_mod.score(data[['x']], data[['y']])))
 
 
-# In[40]:
+# In[41]:
 
 
 # use scikit-learn to compute slope and intercept
@@ -425,7 +423,7 @@ print("scikit-learn slope: " + str(lin_mod.coef_))
 print("scikit-learn intercept: " + str(lin_mod.intercept_))
 
 
-# In[41]:
+# In[42]:
 
 
 # compare to our by "hand" versions. Both are the same!
@@ -433,81 +431,234 @@ print(int(lin_mod.coef_) == B1)
 print(int(lin_mod.intercept_) == B0)
 
 
-# In[42]:
+# In[43]:
 
 
 # use scikit-learn to compute RMSE
-from sklearn.metrics import mean_squared_error
-
 RMSE_scikit = round(mean_squared_error(data.y, y_hat, squared = False), 5)
 print(RMSE_scikit)
 
 
-# In[43]:
+# In[44]:
 
 
 # Does our hand-computed RMSE equal that of scikit-learn at 5 digits?? Yes!
 print(round(RMSE, 5) == round(RMSE_scikit, 5))
 
 
-# 2. 
+# ## Chapter 7 - Exercises - redwoods webscraping
+# 
+# This also works with data scraped from the web. Below is very brief BeautifulSoup example to save the contents of the Sequoioideae (redwood trees) Wikipedia page in a variable named `text`. 
+# 
+# 1. Read through the code below
+# 2. Practice by repeating for a webpage of your choice
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
+# In[45]:
 
 
+#1 
+# See 7_English_preprocessing_basics.ipynb
 
 
-# In[ ]:
+# In[46]:
 
 
+#2
+from bs4 import BeautifulSoup
+import requests
+import regex as re
+import nltk
 
 
-
-# 3.
-
-# In[ ]:
+# In[47]:
 
 
+url = "https://en.wikipedia.org/wiki/Observable_universe"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html')
 
 
-
-# In[ ]:
-
+# In[48]:
 
 
+text = ""
+
+for paragraph in soup.find_all('p'):
+    text += paragraph.text
 
 
-# In[ ]:
+# In[49]:
 
 
+text = re.sub(r'\[[0-9]*\]',' ',text)
+text = re.sub(r'\s+',' ',text)
+text = re.sub(r'\d',' ',text)
+text = re.sub(r'[^\w\s]','',text)
+text = text.lower()
+text = re.sub(r'\s+',' ',text)
 
 
-
-# # Chapter 8
-
-# In[ ]:
+# In[50]:
 
 
+print(text)
 
 
+# ## Chapter 7 - Exercise - _Dracula_ versus _Frankenstein_
+# 
+# 1. Investigate classic horror novel vocabulary. Create a single TF-IDF sparse matrix that contains the vocabulary for _Frankenstein_ and _Dracula_. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. What are the 20 most unique words in each? Make a dataframe or visualization to illustrate the differences.
 
-# # Chapter 9
-
-# In[ ]:
-
-
-
+# In[51]:
 
 
-# In[ ]:
+#1
+import spacy
+import regex as re
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+import os
+corpus = os.listdir('data/novels/')
+
+# View the contents of this directory
+corpus
 
 
+# In[361]:
 
 
+empty_dictionary = {}
+
+# Loop through the folder of documents to open and read each one
+for document in corpus:
+    with open('data/novels/' + document, 'r', encoding = 'utf-8') as to_open:
+         empty_dictionary[document] = to_open.read()
+
+# Populate the data frame with two columns: file name and document text
+novels = (pd.DataFrame.from_dict(empty_dictionary, 
+                                       orient = 'index')
+                .reset_index().rename(index = str, 
+                                      columns = {'index': 'file_name', 0: 'document_text'}))
+
+
+# In[362]:
+
+
+novels
+
+
+# In[363]:
+
+
+novels['clean_text'] = novels['document_text'].str.replace(r'[^\w\s]', ' ', regex = True)
+novels
+
+
+# In[364]:
+
+
+novels['clean_text'] = novels['clean_text'].str.replace(r'\d', ' ', regex = True)
+novels
+
+
+# In[366]:
+
+
+novels['clean_text'] = novels['clean_text'].str.encode('ascii', 'ignore').str.decode('ascii')
+novels
+
+
+# In[368]:
+
+
+novels['clean_text'] = novels['clean_text'].str.replace(r'\s+', ' ', regex = True)
+novels
+
+
+# In[370]:
+
+
+novels['clean_text'] = novels['clean_text'].str.lower()
+novels
+
+
+# In[373]:
+
+
+# !python -m spacy download en_core_web_sm
+
+
+# In[374]:
+
+
+nlp = spacy.load('en_core_web_sm')
+novels['clean_text'] = novels['clean_text'].apply(lambda row: ' '.join([w.lemma_ for w in nlp(row)]))
+novels
+
+
+# In[377]:
+
+
+tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3), 
+                                stop_words = 'english', 
+                                max_df = 0.50
+                                )
+tf_sparse = tf_vectorizer.fit_transform(novels['clean_text'])
+
+
+# In[378]:
+
+
+tf_sparse.shape
+
+
+# In[379]:
+
+
+tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names())
+tfidf_df
+
+
+# In[380]:
+
+
+tfidf_df.max().sort_values(ascending = False).head(n = 20)
+
+
+# In[383]:
+
+
+titles = novels['file_name'].str.slice(stop = -4)
+titles = list(titles)
+titles
+
+
+# In[385]:
+
+
+tfidf_df['TITLE'] = titles
+tfidf_df
+
+
+# In[386]:
+
+
+# dracula top 20 words
+title = tfidf_df[tfidf_df['TITLE'] == 'frankenstein']
+title.max(numeric_only = True).sort_values(ascending = False).head(20)
+
+
+# In[387]:
+
+
+# dracula top 20 words
+title = tfidf_df[tfidf_df['TITLE'] == 'dracula']
+title.max(numeric_only = True).sort_values(ascending = False).head(20)
+
+
+# ## Chapter 8 - Exercise
+# 
+# 1. Read through the spacy101 guide and begin to apply its principles to your own corpus: https://spacy.io/usage/spacy-101
+
+# ## Chapter 9 - Exercise
+# 
+# 1. Repeat the steps in this notebook with your own data. However, real data does not come with a `fetch` function. What importation steps do you need to consider so your own corpus works?
