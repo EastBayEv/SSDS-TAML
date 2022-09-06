@@ -2174,7 +2174,19 @@ Contents
 </section>
 <section id="unsupervised-learning-with-tfidfvectorizer">
 <h2>Unsupervised learning with <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer()</span></code><a class="headerlink" href="#unsupervised-learning-with-tfidfvectorizer" title="Permalink to this headline">#</a></h2>
-<p>Remember <code class="docutils literal notranslate"><span class="pre">CountVectorizer()</span></code> for creating Bag of Word models? We can extend this idea of counting words, to <em>counting unique words</em> within a document relative to the rest of the corpus with <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer()</span></code>. Each row will still be a document in the document term matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies.</p>
+<p>Remember <code class="docutils literal notranslate"><span class="pre">CountVectorizer()</span></code> for creating Bag of Word models? We can extend this idea of counting words, to <em>counting unique words</em> within a document relative to the rest of the corpus with <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer()</span></code>. Each row will still be a document in the document term matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies. Remember that:</p>
+<ul class="simple">
+<li><p>For TF-IDF sparse matrices:</p>
+<ul>
+<li><p>A value closer to 1 indicate that a feature is more relevant to a particular document.</p></li>
+<li><p>A value closer to 0 indicates that that feature is less/not relevant to that document.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="tf1" src="../_images/tf1.png" /></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">Wikipedia</a></p>
+<p><img alt="tf2" src="../_images/tf2.png" /></p>
+<p><a class="reference external" href="https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558">towardsdatascience</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>

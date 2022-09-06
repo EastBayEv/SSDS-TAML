@@ -546,19 +546,11 @@ corpus
 #     * Numeric values indicate that a particular feature is found in a document that number of times.
 #     * A 0 indicates that the feature is _not_ found in that document. 
 #     
-# * **TF-IDF:** Term frequency–inverse document frequency; a weighted numerical statistic that indicates the uniqueness of a word is in a given document or corpus.
+# * **TF-IDF:** Term frequency–inverse document frequency; a weighted numerical statistic that indicates the uniqueness of a word is in a given document or corpus (see Chapter 7).
 # 
-# For TF-IDF sparse matrices:
-# * A value closer to 1 indicate that a feature is more relevant to a particular document.
-# * A value closer to 0 indicates that that feature is less/not relevant to that document.
-# 
-# ![tf1](img/tf1.png)
-# 
-# [Wikipedia](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
-# 
-# ![tf2](img/tf2.png)
-# 
-# [towardsdatascience](https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558)
+#     * For TF-IDF sparse matrices:
+#         * A value closer to 1 indicate that a feature is more relevant to a particular document.
+#         * A value closer to 0 indicates that that feature is less/not relevant to that document.
 
 # ## Bag of words model with `CountVectorizer`
 # 

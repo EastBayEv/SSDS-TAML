@@ -457,7 +457,19 @@ human_rights
 
 # ## Unsupervised learning with `TfidfVectorizer()`
 # 
-# Remember `CountVectorizer()` for creating Bag of Word models? We can extend this idea of counting words, to _counting unique words_ within a document relative to the rest of the corpus with `TfidfVectorizer()`. Each row will still be a document in the document term matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies. 
+# Remember `CountVectorizer()` for creating Bag of Word models? We can extend this idea of counting words, to _counting unique words_ within a document relative to the rest of the corpus with `TfidfVectorizer()`. Each row will still be a document in the document term matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies. Remember that: 
+# 
+# * For TF-IDF sparse matrices:
+#     * A value closer to 1 indicate that a feature is more relevant to a particular document.
+#     * A value closer to 0 indicates that that feature is less/not relevant to that document.
+# 
+# ![tf1](img/tf1.png)
+# 
+# [Wikipedia](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
+# 
+# ![tf2](img/tf2.png)
+# 
+# [towardsdatascience](https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558)
 
 # In[52]:
 
