@@ -337,35 +337,17 @@ fruits['fruits'][1]['recipes'][0]
 # In[31]:
 
 
-# Step 1. Mount your google drive
-from google.colab import drive
-drive.mount('/content/gdrive')
-
-
-# In[1]:
-
-
-# Step 2. Change directory (folder) to gdrive/MyDrive
-get_ipython().system('cd gdrive/MyDrive/')
-
-
-# In[ ]:
-
-
-# Step 3. Make a directory here in your drive named "data" and check that it exists. 
-# NOTE: Make sure you do not already have a folder with the same name
+# Step 1. Create the directory
 get_ipython().system('mkdir data')
+
+# Step 2. “List” the contents of the current working directory
 get_ipython().system('ls')
 
-
-# In[ ]:
-
-
-# Step 4. Use wget to download the data file
-get_ipython().system('wget -P  gdrive/MyDrive/data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt')
+# Step 3. Download the data file
+get_ipython().system('wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt')
 
 
-# In[4]:
+# In[32]:
 
 
 frank = open('data/frankenstein.txt').read()
@@ -383,14 +365,14 @@ print(frank[:1000])
 # 
 # For this part, we will use the [pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html) Python library. Remember how to install user-defined libraries from Chapter 2? This is a two step process.
 
-# In[72]:
+# In[33]:
 
 
 # Step 1. Physically download and install the library's files (unhashtab the line below to run)
 # !pip install pandas
 
 
-# In[73]:
+# In[34]:
 
 
 # Step 2. link the pandas library to our current notebook
@@ -404,20 +386,20 @@ import pandas as pd
 # 
 # Save it in the variable named `gap`
 
-# In[74]:
+# In[35]:
 
 
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[75]:
+# In[36]:
 
 
 # View the data
 print(gap)
 
 
-# In[76]:
+# In[37]:
 
 
 gap
@@ -427,7 +409,7 @@ gap
 # 
 # The help pages in Python are generally quite useful and tell you everything you need to know - you just don't know it yet! Type a question mark `?` before a funciton to view its help pages.
 
-# In[34]:
+# In[38]:
 
 
 # ?pd.read_csv
@@ -459,7 +441,7 @@ gap
 # 
 # You have entered invalid syntax, or something python does not understand.
 
-# In[64]:
+# In[39]:
 
 
 # x 89 5
@@ -471,7 +453,7 @@ gap
 # 
 # Highlight the code in the cell below and press `command` and `/` (Mac) or `Ctrl` and `/` on Windows to block comment/uncomment multiple lines of code:
 
-# In[66]:
+# In[40]:
 
 
 # def example():
@@ -486,7 +468,7 @@ gap
 # 
 # You try to call a variable you have not yet assigned
 
-# In[68]:
+# In[41]:
 
 
 # p
@@ -494,7 +476,7 @@ gap
 
 # Or, you try to call a function from a library that you have not yet imported
 
-# In[70]:
+# In[42]:
 
 
 # example()
@@ -504,7 +486,7 @@ gap
 # 
 # You write code with incompatible types
 
-# In[76]:
+# In[43]:
 
 
 # "5" + 5
@@ -514,7 +496,7 @@ gap
 # 
 # You try to reference something that is out of range
 
-# In[77]:
+# In[44]:
 
 
 my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
@@ -527,7 +509,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # You try to import something that does not exist
 
-# In[81]:
+# In[45]:
 
 
 # document = open('fakedtextfile.txt').read()
