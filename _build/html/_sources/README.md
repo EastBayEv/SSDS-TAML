@@ -1,3 +1,7 @@
+# Welcome to TAML!
+
+This is the Jupyter Book for the Text Analysis and Machine Learning (TAML) Group at Stanford Libraries. **Open Chapter 1 "How to use this book"** from the left sidebar (or the menu button on mobile) to get started. 
+
 # Fall Quarter 2022 Text Analysis and Machine Learning (TAML) Bootcamp
 
 ![triviz](fall2022/img/triviz.png)
