@@ -333,7 +333,7 @@ get_ipython().system('wget data/ https://raw.githubusercontent.com/EastBayEv/SSD
 # In[32]:
 
 
-frank = open('frankenstein.txt').read()
+frank = open('data/frankenstein.txt').read()
 # print(frank)
 
 # print only the first 1000 characters

@@ -32,6 +32,12 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-topics, probs = model.fit_transform(documents)
+import bertopic
+from bertopic import BERTopic
+from sklearn.datasets import fetch_20newsgroups
+
+documents = fetch_20newsgroups(subset='all', remove=('headers', 'footers', 'quotes'))['data']
+
+print(documents[0]) # Any ice hockey fans? 
 -------------------
 

@@ -663,7 +663,7 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-3-basic-python-syntax">
 <h1>Chapter 3 - Basic Python syntax<a class="headerlink" href="#chapter-3-basic-python-syntax" title="Permalink to this headline">#</a></h1>
 <p>2022 August 25</p>
-<a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/3_Boilerplate_code_review.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/3_Basic_Python_syntax.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a><p><img alt="boiler" src="../_images/boiler.jpg" /></p>
 <p>This chapter explains foundational Python syntax that you can reuse to accomplish many basic data creation, importing, and exporting tasks.</p>
@@ -1172,33 +1172,38 @@ title="Print to PDF"
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 13:49:42--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 13:59:12--  http://data/
+Resolving data (data)... failed: nodename nor servname provided, or not known.
+wget: unable to resolve host address &#39;data&#39;
+--2022-09-06 13:59:12--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>185.199.110.133, 185.199.111.133, 185.199.109.133, ...
 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
+HTTP request sent, awaiting response... 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
-Length: 81887 (80K) [text/plain]
-Saving to: &#39;gapminder-FiveYearData.csv&#39;
+Length: 441075 (431K) [text/plain]
+Saving to: &#39;frankenstein.txt.3&#39;
 
 
-          gapminder   0%[                    ]       0  --.-KB/s               
+frankenstein.txt.3    0%[                    ]       0  --.-KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gapminder-FiveYearD 100%[===================&gt;]  79.97K  --.-KB/s    in 0.02s   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frankenstein.txt.3  100%[===================&gt;] 430.74K  --.-KB/s    in 0.05s   
 
-2022-09-06 13:49:43 (4.47 MB/s) - &#39;gapminder-FiveYearData.csv&#39; saved [81887/81887]
+2022-09-06 13:59:12 (8.60 MB/s) - &#39;frankenstein.txt.3&#39; saved [441075/441075]
+
+FINISHED --2022-09-06 13:59:12--
+Total wall clock time: 0.1s
+Downloaded: 1 files, 431K in 0.05s (8.60 MB/s)
 </pre></div>
 </div>
 </div>

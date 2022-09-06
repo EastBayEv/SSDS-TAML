@@ -69,7 +69,7 @@ print(documents[0]) # Any ice hockey fans?
 
 # ### *Example instantiation:*
 
-# In[3]:
+# In[20]:
 
 
 from sklearn.feature_extraction.text import CountVectorizer 
