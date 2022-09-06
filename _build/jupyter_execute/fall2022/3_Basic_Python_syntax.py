@@ -342,7 +342,7 @@ from google.colab import drive
 drive.mount('/content/gdrive')
 
 
-# In[3]:
+# In[1]:
 
 
 # Step 2. Change directory (folder) to gdrive/MyDrive
@@ -356,6 +356,13 @@ get_ipython().system('cd gdrive/MyDrive/')
 # NOTE: Make sure you do not already have a folder with the same name
 get_ipython().system('mkdir data')
 get_ipython().system('ls')
+
+
+# In[ ]:
+
+
+# Step 4. Use wget to download the data file
+get_ipython().system('wget -P  gdrive/MyDrive/data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt')
 
 
 # In[4]:
