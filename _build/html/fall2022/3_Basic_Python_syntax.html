@@ -1184,39 +1184,59 @@ title="Print to PDF"
 <section id="a-note-about-importing-data-into-google-colab">
 <h3>A note about importing data into Google Colab<a class="headerlink" href="#a-note-about-importing-data-into-google-colab" title="Permalink to this headline">#</a></h3>
 <p>Navigating Google Colab’s file system can be challenging since it is slightly different from working on your local machine. Therefore, you will want to unhashtag the below lines of code to import the dataset into a subfolder named “data” inside of the main Colab “/content” directory.</p>
-<p><strong>Unhashtag Steps 1-4 to directly import data into your Colab environment</strong></p>
+<p><strong>Unhashtag Steps 1-4 to save data in your Google Drive, which can then be importend to your Colab environment</strong></p>
 <blockquote>
 <div><p>NOTE: Colab is a temporary environment with an idle timeout of 90 minutes and an absolute timeout of 12 hours.</p>
 <p>There are other ways to use Colab’s file system, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1. Create the directory</span>
-<span class="c1"># !mkdir data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1. Mount your google drive</span>
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/gdrive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [31],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Step 1. Mount your google drive</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/gdrive&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;google.colab&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 2. Print working directory (our current location; should be same as above)</span>
-<span class="c1"># !pwd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 2. Change directory (folder) to gdrive/MyDrive</span>
+<span class="o">!</span><span class="nb">cd</span> gdrive/MyDrive/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkdir: gdrive/MyDrive/TAML_bootcamp: No such file or directory
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 3. &quot;List&quot; the contents of the current working directory</span>
-<span class="c1"># !ls</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 3. Make a directory here called &quot;TAML_bootcamp&quot; and check that it exists</span>
+<span class="o">!</span>mkdir TAML_bootcamp
+<span class="o">!</span>ls
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 4. Download the data file</span>
-<span class="c1"># !wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 4. Make a directory in &quot;TAML_bootcamp&quot; named &quot;data&quot; and check that it exists</span>
+<span class="o">!</span>mkdir TAML_bootcamp/data/
+<span class="o">!</span>ls TAML_bootcamp/
 </pre></div>
 </div>
 </div>

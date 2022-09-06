@@ -328,7 +328,7 @@ fruits['fruits'][1]['recipes'][0]
 # 
 # Navigating Google Colab's file system can be challenging since it is slightly different from working on your local machine. Therefore, you will want to unhashtag the below lines of code to import the dataset into a subfolder named "data" inside of the main Colab "/content" directory.
 # 
-# **Unhashtag Steps 1-4 to directly import data into your Colab environment**
+# **Unhashtag Steps 1-4 to save data in your Google Drive, which can then be importend to your Colab environment**
 # 
 # > NOTE: Colab is a temporary environment with an idle timeout of 90 minutes and an absolute timeout of 12 hours.
 # >
@@ -337,32 +337,35 @@ fruits['fruits'][1]['recipes'][0]
 # In[31]:
 
 
-# Step 1. Create the directory
-# !mkdir data
+# Step 1. Mount your google drive
+from google.colab import drive
+drive.mount('/content/gdrive')
 
 
-# In[32]:
+# In[3]:
 
 
-# Step 2. Print working directory (our current location; should be same as above)
-# !pwd
+# Step 2. Change directory (folder) to gdrive/MyDrive
+get_ipython().system('cd gdrive/MyDrive/')
 
 
-# In[33]:
+# In[ ]:
 
 
-# Step 3. "List" the contents of the current working directory
-# !ls
+# Step 3. Make a directory here called "TAML_bootcamp" and check that it exists
+get_ipython().system('mkdir TAML_bootcamp')
+get_ipython().system('ls')
 
 
-# In[34]:
+# In[ ]:
 
 
-# Step 4. Download the data file
-# !wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
+# Step 4. Make a directory in "TAML_bootcamp" named "data" and check that it exists
+get_ipython().system('mkdir TAML_bootcamp/data/')
+get_ipython().system('ls TAML_bootcamp/')
 
 
-# In[35]:
+# In[4]:
 
 
 frank = open('data/frankenstein.txt').read()
@@ -380,14 +383,14 @@ print(frank[:1000])
 # 
 # For this part, we will use the [pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html) Python library. Remember how to install user-defined libraries from Chapter 2? This is a two step process.
 
-# In[36]:
+# In[72]:
 
 
 # Step 1. Physically download and install the library's files (unhashtab the line below to run)
 # !pip install pandas
 
 
-# In[37]:
+# In[73]:
 
 
 # Step 2. link the pandas library to our current notebook
@@ -401,20 +404,20 @@ import pandas as pd
 # 
 # Save it in the variable named `gap`
 
-# In[38]:
+# In[74]:
 
 
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[39]:
+# In[75]:
 
 
 # View the data
 print(gap)
 
 
-# In[40]:
+# In[76]:
 
 
 gap
@@ -424,7 +427,7 @@ gap
 # 
 # The help pages in Python are generally quite useful and tell you everything you need to know - you just don't know it yet! Type a question mark `?` before a funciton to view its help pages.
 
-# In[41]:
+# In[34]:
 
 
 # ?pd.read_csv
@@ -456,7 +459,7 @@ gap
 # 
 # You have entered invalid syntax, or something python does not understand.
 
-# In[42]:
+# In[64]:
 
 
 # x 89 5
@@ -468,7 +471,7 @@ gap
 # 
 # Highlight the code in the cell below and press `command` and `/` (Mac) or `Ctrl` and `/` on Windows to block comment/uncomment multiple lines of code:
 
-# In[43]:
+# In[66]:
 
 
 # def example():
@@ -483,7 +486,7 @@ gap
 # 
 # You try to call a variable you have not yet assigned
 
-# In[44]:
+# In[68]:
 
 
 # p
@@ -491,7 +494,7 @@ gap
 
 # Or, you try to call a function from a library that you have not yet imported
 
-# In[45]:
+# In[70]:
 
 
 # example()
@@ -501,7 +504,7 @@ gap
 # 
 # You write code with incompatible types
 
-# In[46]:
+# In[76]:
 
 
 # "5" + 5
@@ -511,7 +514,7 @@ gap
 # 
 # You try to reference something that is out of range
 
-# In[47]:
+# In[77]:
 
 
 my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
@@ -524,7 +527,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # You try to import something that does not exist
 
-# In[48]:
+# In[81]:
 
 
 # document = open('fakedtextfile.txt').read()
