@@ -10,6 +10,8 @@
 # 1. You will find challenge exercises to work on at the end of each chapter. They will require you to write code such as that found in the cell at the top of this notebook. 
 # 
 # 2. Click the "Colab" badge at the top of this notebook to open it in the Colaboratory environment. Press `shift` and `enter` simultaneously on your keyboard to run the code and draw your lucky card!
+# 
+# > Remember: Press `shift` and `enter` on your keyboard to run a cell.
 
 # In[1]:
 

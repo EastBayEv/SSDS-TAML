@@ -327,6 +327,12 @@ fruits['fruits'][1]['recipes'][0]
 # In[31]:
 
 
+get_ipython().system('wget https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv')
+
+
+# In[32]:
+
+
 frank = open('data/frankenstein.txt').read()
 # print(frank)
 
@@ -342,14 +348,14 @@ print(frank[:1000])
 # 
 # For this part, we will use the [pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html) Python library. Remember how to install user-defined libraries from Chapter 2? This is a two step process.
 
-# In[32]:
+# In[33]:
 
 
 # Step 1. Physically download and install the library's files (unhashtab the line below to run)
 # !pip install pandas
 
 
-# In[33]:
+# In[34]:
 
 
 # Step 2. link the pandas library to our current notebook
@@ -363,20 +369,20 @@ import pandas as pd
 # 
 # Save it in the variable named `gap`
 
-# In[34]:
+# In[35]:
 
 
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[35]:
+# In[36]:
 
 
 # View the data
 print(gap)
 
 
-# In[36]:
+# In[37]:
 
 
 gap
@@ -386,7 +392,7 @@ gap
 # 
 # The help pages in Python are generally quite useful and tell you everything you need to know - you just don't know it yet! Type a question mark `?` before a funciton to view its help pages.
 
-# In[37]:
+# In[38]:
 
 
 # ?pd.read_csv
@@ -418,7 +424,7 @@ gap
 # 
 # You have entered invalid syntax, or something python does not understand.
 
-# In[38]:
+# In[39]:
 
 
 # x 89 5
@@ -430,7 +436,7 @@ gap
 # 
 # Highlight the code in the cell below and press `command` and `/` (Mac) or `Ctrl` and `/` on Windows to block comment/uncomment multiple lines of code:
 
-# In[39]:
+# In[40]:
 
 
 # def example():
@@ -445,7 +451,7 @@ gap
 # 
 # You try to call a variable you have not yet assigned
 
-# In[40]:
+# In[41]:
 
 
 # p
@@ -453,7 +459,7 @@ gap
 
 # Or, you try to call a function from a library that you have not yet imported
 
-# In[41]:
+# In[42]:
 
 
 # example()
@@ -463,7 +469,7 @@ gap
 # 
 # You write code with incompatible types
 
-# In[42]:
+# In[43]:
 
 
 # "5" + 5
@@ -473,7 +479,7 @@ gap
 # 
 # You try to reference something that is out of range
 
-# In[43]:
+# In[44]:
 
 
 my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
@@ -486,7 +492,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # You try to import something that does not exist
 
-# In[44]:
+# In[45]:
 
 
 # document = open('fakedtextfile.txt').read()
