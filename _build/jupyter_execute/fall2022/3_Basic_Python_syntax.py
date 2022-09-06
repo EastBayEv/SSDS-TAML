@@ -4,7 +4,7 @@
 # # Chapter 3 - Basic Python syntax
 # 2022 August 25
 
-# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/3_Boilerplate_code_review.ipynb">
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/3_Basic_Python_syntax.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 # </a>
 
@@ -327,13 +327,13 @@ fruits['fruits'][1]['recipes'][0]
 # In[31]:
 
 
-get_ipython().system('wget https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv')
+get_ipython().system('wget data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt')
 
 
 # In[32]:
 
 
-frank = open('data/frankenstein.txt').read()
+frank = open('frankenstein.txt').read()
 # print(frank)
 
 # print only the first 1000 characters
