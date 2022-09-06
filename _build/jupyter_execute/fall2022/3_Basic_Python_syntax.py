@@ -324,10 +324,23 @@ fruits['fruits'][1]['recipes'][0]
 # 3. `'data/frankenstein.txt'` is the argument that we provide to the `open` function. This matches the `file` path argument and needs to contain the location for the Frankenstein book.
 # 4. `.read()` reads the file as text. 
 
+# ## A note about importing data into Google Colab
+# 
+# Navigating Google Colab's file system can be challenging since it is slightly different from working on your local machine. Therefore, you will want to unhashtag the below lines of code to import the dataset into a subfolder named "data" inside of the main Colab "/content" directory.
+# 
+# > NOTE: There are other ways to use Colab's file system, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp. 
+
 # In[31]:
 
 
-get_ipython().system('wget data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt')
+# First create the directory
+get_ipython().system('mkdir data')
+
+# Change your working directory to the "data" folder
+get_ipython().system('cd data')
+
+# Download the data file
+get_ipython().system('wget /content/data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt')
 
 
 # In[32]:

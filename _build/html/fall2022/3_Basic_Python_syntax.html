@@ -470,6 +470,13 @@ title="Print to PDF"
      Import text data as a character string
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-note-about-importing-data-into-google-colab">
+   A note about importing data into Google Colab
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#import-data-frames-with-the-pandas-library">
      Import data frames with the pandas library
@@ -601,6 +608,13 @@ title="Print to PDF"
      Import text data as a character string
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-note-about-importing-data-into-google-colab">
+   A note about importing data into Google Colab
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#import-data-frames-with-the-pandas-library">
      Import data frames with the pandas library
@@ -1170,40 +1184,56 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">'data/frankenstein.txt'</span></code> is the argument that we provide to the <code class="docutils literal notranslate"><span class="pre">open</span></code> function. This matches the <code class="docutils literal notranslate"><span class="pre">file</span></code> path argument and needs to contain the location for the Frankenstein book.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.read()</span></code> reads the file as text.</p></li>
 </ol>
+</section>
+</section>
+<section id="a-note-about-importing-data-into-google-colab">
+<h2>A note about importing data into Google Colab<a class="headerlink" href="#a-note-about-importing-data-into-google-colab" title="Permalink to this headline">#</a></h2>
+<p>Navigating Google Colab’s file system can be challenging since it is slightly different from working on your local machine. Therefore, you will want to unhashtag the below lines of code to import the dataset into a subfolder named “data” inside of the main Colab “/content” directory.</p>
+<blockquote>
+<div><p>NOTE: There are other ways to use Colab’s file system, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp.</p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First create the directory</span>
+<span class="o">!</span>mkdir data
+
+<span class="c1"># Change your working directory to the &quot;data&quot; folder</span>
+<span class="o">!</span><span class="nb">cd</span> data
+
+<span class="c1"># Download the data file</span>
+<span class="o">!</span>wget /content/data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 13:59:12--  http://data/
-Resolving data (data)... failed: nodename nor servname provided, or not known.
-wget: unable to resolve host address &#39;data&#39;
---2022-09-06 13:59:12--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkdir: data: File exists
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>185.199.110.133, 185.199.111.133, 185.199.109.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/data/: Scheme missing.
+--2022-09-06 14:11:53--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.109.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connected.
 HTTP request sent, awaiting response... 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
 Length: 441075 (431K) [text/plain]
-Saving to: &#39;frankenstein.txt.3&#39;
+Saving to: &#39;frankenstein.txt.5&#39;
 
 
-frankenstein.txt.3    0%[                    ]       0  --.-KB/s               
+frankenstein.txt.5    0%[                    ]       0  --.-KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frankenstein.txt.3  100%[===================&gt;] 430.74K  --.-KB/s    in 0.05s   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frankenstein.txt.5  100%[===================&gt;] 430.74K  --.-KB/s    in 0.05s   
 
-2022-09-06 13:59:12 (8.60 MB/s) - &#39;frankenstein.txt.3&#39; saved [441075/441075]
+2022-09-06 14:11:53 (7.80 MB/s) - &#39;frankenstein.txt.5&#39; saved [441075/441075]
 
-FINISHED --2022-09-06 13:59:12--
-Total wall clock time: 0.1s
-Downloaded: 1 files, 431K in 0.05s (8.60 MB/s)
+FINISHED --2022-09-06 14:11:53--
+Total wall clock time: 0.3s
+Downloaded: 1 files, 431K in 0.05s (7.80 MB/s)
 </pre></div>
 </div>
 </div>
@@ -1256,7 +1286,6 @@ or, the Modern Prom
 </div>
 </div>
 </div>
-</section>
 <section id="import-data-frames-with-the-pandas-library">
 <h3>Import data frames with the pandas library<a class="headerlink" href="#import-data-frames-with-the-pandas-library" title="Permalink to this headline">#</a></h3>
 <p>Data frames are programming speak for tabular spreadsheets organized into rows and columns and often stored in useful formats such as .csv (i.e., a spreadsheet)</p>
