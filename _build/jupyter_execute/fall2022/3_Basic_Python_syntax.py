@@ -352,17 +352,10 @@ get_ipython().system('cd gdrive/MyDrive/')
 # In[ ]:
 
 
-# Step 3. Make a directory here called "TAML_bootcamp" and check that it exists
-get_ipython().system('mkdir TAML_bootcamp')
+# Step 3. Make a directory here in your drive named "data" and check that it exists. 
+# NOTE: Make sure you do not already have a folder with the same name
+get_ipython().system('mkdir data')
 get_ipython().system('ls')
-
-
-# In[ ]:
-
-
-# Step 4. Make a directory in "TAML_bootcamp" named "data" and check that it exists
-get_ipython().system('mkdir TAML_bootcamp/data/')
-get_ipython().system('ls TAML_bootcamp/')
 
 
 # In[4]:
