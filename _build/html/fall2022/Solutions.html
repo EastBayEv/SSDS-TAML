@@ -410,31 +410,38 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#">
    Solutions
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-1">
-   Chapter 1
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-2">
-   Chapter 2
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-3">
-   Chapter 3
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-4">
-   Chapter 4
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-5">
-   Chapter 5
-  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chapter-1-exercises">
+     Chapter 1 - Exercises
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chapter-2-exercises">
+     Chapter 2 - Exercises
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chapter-3-exercises">
+     Chapter 3 - Exercises
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chapter-4-exercises">
+     Chapter 4 - Exercises
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chapter-5-penguins-exercises">
+     Chapter 5 - Penguins Exercises
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chapter-5-gapminder-exercises">
+     Chapter 5 - Gapminder Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chapter-6">
@@ -479,31 +486,38 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#">
    Solutions
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-1">
-   Chapter 1
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-2">
-   Chapter 2
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-3">
-   Chapter 3
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-4">
-   Chapter 4
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-5">
-   Chapter 5
-  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chapter-1-exercises">
+     Chapter 1 - Exercises
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chapter-2-exercises">
+     Chapter 2 - Exercises
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chapter-3-exercises">
+     Chapter 3 - Exercises
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chapter-4-exercises">
+     Chapter 4 - Exercises
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chapter-5-penguins-exercises">
+     Chapter 5 - Penguins Exercises
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chapter-5-gapminder-exercises">
+     Chapter 5 - Gapminder Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chapter-6">
@@ -538,21 +552,1145 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="solutions">
 <h1>Solutions<a class="headerlink" href="#solutions" title="Permalink to this headline">#</a></h1>
 <p>Example solutions for challenge exercises from each chapter in this book.</p>
+<section id="chapter-1-exercises">
+<h2>Chapter 1 - Exercises<a class="headerlink" href="#chapter-1-exercises" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>You will find challenge exercises to work on at the end of each chapter. They will require you to write code such as that found in the cell at the top of this notebook.</p></li>
+<li><p>Click the “Colab” badge at the top of this notebook to open it in the Colaboratory environment. Press <code class="docutils literal notranslate"><span class="pre">shift</span></code> and <code class="docutils literal notranslate"><span class="pre">enter</span></code> simultaneously on your keyboard to run the code and draw your lucky card!</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary librarys to make the code work</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">calendar</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the deck and suits as character strings and split them on the spaces</span>
+<span class="n">deck</span> <span class="o">=</span> <span class="s1">&#39;ace two three four five six seven eight nine ten jack queen king&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">suit</span> <span class="o">=</span> <span class="s1">&#39;spades clubs hearts diamonds&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">deck</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">suit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ace&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;five&#39;, &#39;six&#39;, &#39;seven&#39;, &#39;eight&#39;, &#39;nine&#39;, &#39;ten&#39;, &#39;jack&#39;, &#39;queen&#39;, &#39;king&#39;]
+[&#39;spades&#39;, &#39;clubs&#39;, &#39;hearts&#39;, &#39;diamonds&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define today&#39;s day and date</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="n">day_name</span><span class="p">[</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">weekday</span><span class="p">()]</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Monday
+2022-09-05
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># randomly sample the card value and suit</span>
+<span class="n">select_value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">select_suit</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">suit</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">select_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">select_suit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>three
+spades
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># combine the character strings and variables into the final statement</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Welcome to TAML at SSDS!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Your lucky card for &quot;</span> <span class="o">+</span> <span class="n">today</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">date</span> <span class="o">+</span> <span class="s2">&quot; is: &quot;</span> <span class="o">+</span> <span class="n">select_value</span> <span class="o">+</span> <span class="s2">&quot; of &quot;</span> <span class="o">+</span> <span class="n">select_suit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Welcome to TAML at SSDS!
+
+Your lucky card for Monday 2022-09-05 is: three of spades
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="chapter-1">
-<h1>Chapter 1<a class="headerlink" href="#chapter-1" title="Permalink to this headline">#</a></h1>
+<section id="chapter-2-exercises">
+<h2>Chapter 2 - Exercises<a class="headerlink" href="#chapter-2-exercises" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>(Required) Set up your Google Colaboratory (Colab) environment following the instructions in #1 listed above.</p></li>
+<li><p>(Optional) Check that you can correctly open these notebooks in Jupyter Lab.</p></li>
+<li><p>(Optional) Install Python Anaconda distribution on your machine.</p></li>
+</ol>
+<blockquote>
+<div><p>See 2_Python_environments.ipynb for instructions.</p>
+</div></blockquote>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="chapter-2">
-<h1>Chapter 2<a class="headerlink" href="#chapter-2" title="Permalink to this headline">#</a></h1>
+<section id="chapter-3-exercises">
+<h2>Chapter 3 - Exercises<a class="headerlink" href="#chapter-3-exercises" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Define one variablez for each of the four data types introduced above: 1) string, 2) boolean, 3) float, and 4) integer.</p></li>
+<li><p>Define two lists that contain four elements each.</p></li>
+<li><p>Define a dictionary that containts the two lists from #2 above.</p></li>
+<li><p>Import the file “dracula.txt”. Save it in a variable named <code class="docutils literal notranslate"><span class="pre">drac</span></code></p></li>
+<li><p>Import the file “penguins.csv”. Save it in a variable named <code class="docutils literal notranslate"><span class="pre">pen</span></code></p></li>
+<li><p>Figure out how to find help to export just the first 1000 characters of <code class="docutils literal notranslate"><span class="pre">drac</span></code> as a .txt file named “dracula_short.txt”</p></li>
+<li><p>Figure out how to export the <code class="docutils literal notranslate"><span class="pre">pen</span></code> dataframe as a file named “penguins_saved.csv”</p></li>
+</ol>
+<p>If you encounter error messages, which ones?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1 </span>
+<span class="n">string1</span> <span class="o">=</span> <span class="s2">&quot;Hello!&quot;</span>
+<span class="n">string2</span> <span class="o">=</span> <span class="s2">&quot;This is a sentence.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello!
+This is a sentence.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bool1</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">bool2</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bool1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bool2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">float1</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="n">float2</span> <span class="o">=</span> <span class="mf">12.345</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">float1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">float2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14
+12.345
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integer1</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">integer2</span> <span class="o">=</span> <span class="mi">4356</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">integer1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">integer2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+4356
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#2</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="n">integer2</span><span class="p">,</span> <span class="n">string2</span><span class="p">,</span> <span class="n">float1</span><span class="p">,</span> <span class="s2">&quot;My name is:&quot;</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;What?&quot;</span><span class="p">,</span> <span class="n">string1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4356, &#39;This is a sentence.&#39;, 3.14, &#39;My name is:&#39;]
+[3, True, &#39;What?&#39;, &#39;Hello!&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#3</span>
+<span class="n">dict_one</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+           <span class="s2">&quot;first_list&quot;</span><span class="p">:</span> <span class="n">list1</span><span class="p">,</span>
+           <span class="s2">&quot;second_list&quot;</span><span class="p">:</span> <span class="n">list2</span><span class="p">}</span>
+<span class="n">dict_one</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;direction&#39;: &#39;up&#39;,
+ &#39;code&#39;: 1234,
+ &#39;first_list&#39;: [4356, &#39;This is a sentence.&#39;, 3.14, &#39;My name is:&#39;],
+ &#39;second_list&#39;: [3, True, &#39;What?&#39;, &#39;Hello!&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#4</span>
+<span class="n">drac</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/dracula.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">drac</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data/dracula_short.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#5</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pen</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/penguins.csv&quot;</span><span class="p">)</span>
+<span class="n">pen</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>MALE</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>339</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>340</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>46.8</td>
+      <td>14.3</td>
+      <td>215.0</td>
+      <td>4850.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>341</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>50.4</td>
+      <td>15.7</td>
+      <td>222.0</td>
+      <td>5750.0</td>
+      <td>MALE</td>
+    </tr>
+    <tr>
+      <th>342</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>45.2</td>
+      <td>14.8</td>
+      <td>212.0</td>
+      <td>5200.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>343</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>49.9</td>
+      <td>16.1</td>
+      <td>213.0</td>
+      <td>5400.0</td>
+      <td>MALE</td>
+    </tr>
+  </tbody>
+</table>
+<p>344 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#6</span>
+<span class="c1"># first slice the string you want to save</span>
+<span class="n">drac_short</span> <span class="o">=</span> <span class="n">drac</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
+
+<span class="c1"># second, open in write mode and write the file to the data directory!</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/dracula_short.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">drac_short</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#7</span>
+<span class="n">pen</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data/penguins_saved.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="chapter-3">
-<h1>Chapter 3<a class="headerlink" href="#chapter-3" title="Permalink to this headline">#</a></h1>
+<section id="chapter-4-exercises">
+<h2>Chapter 4 - Exercises<a class="headerlink" href="#chapter-4-exercises" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Load the file “gapminder-FiveYearData.csv” and save it in a variable named <code class="docutils literal notranslate"><span class="pre">gap</span></code></p></li>
+<li><p>Print the column names</p></li>
+<li><p>Compute the mean for one numeric column</p></li>
+<li><p>Compute the mean for all numeric columns</p></li>
+<li><p>Tabulate frequencies for the “continent” column</p></li>
+<li><p>Compute mean lifeExp and dgpPercap by continent</p></li>
+<li><p>Create a subset of <code class="docutils literal notranslate"><span class="pre">gap</span></code> that contains only countries with lifeExp greater than 75 and gdpPercap less than 5000.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">gap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/gapminder-FiveYearData.csv&quot;</span><span class="p">)</span>
+<span class="n">gap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>1952</td>
+      <td>8425333.0</td>
+      <td>Asia</td>
+      <td>28.801</td>
+      <td>779.445314</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>1957</td>
+      <td>9240934.0</td>
+      <td>Asia</td>
+      <td>30.332</td>
+      <td>820.853030</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>1962</td>
+      <td>10267083.0</td>
+      <td>Asia</td>
+      <td>31.997</td>
+      <td>853.100710</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Afghanistan</td>
+      <td>1967</td>
+      <td>11537966.0</td>
+      <td>Asia</td>
+      <td>34.020</td>
+      <td>836.197138</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Afghanistan</td>
+      <td>1972</td>
+      <td>13079460.0</td>
+      <td>Asia</td>
+      <td>36.088</td>
+      <td>739.981106</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1699</th>
+      <td>Zimbabwe</td>
+      <td>1987</td>
+      <td>9216418.0</td>
+      <td>Africa</td>
+      <td>62.351</td>
+      <td>706.157306</td>
+    </tr>
+    <tr>
+      <th>1700</th>
+      <td>Zimbabwe</td>
+      <td>1992</td>
+      <td>10704340.0</td>
+      <td>Africa</td>
+      <td>60.377</td>
+      <td>693.420786</td>
+    </tr>
+    <tr>
+      <th>1701</th>
+      <td>Zimbabwe</td>
+      <td>1997</td>
+      <td>11404948.0</td>
+      <td>Africa</td>
+      <td>46.809</td>
+      <td>792.449960</td>
+    </tr>
+    <tr>
+      <th>1702</th>
+      <td>Zimbabwe</td>
+      <td>2002</td>
+      <td>11926563.0</td>
+      <td>Africa</td>
+      <td>39.989</td>
+      <td>672.038623</td>
+    </tr>
+    <tr>
+      <th>1703</th>
+      <td>Zimbabwe</td>
+      <td>2007</td>
+      <td>12311143.0</td>
+      <td>Africa</td>
+      <td>43.487</td>
+      <td>469.709298</td>
+    </tr>
+  </tbody>
+</table>
+<p>1704 rows × 6 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#2</span>
+<span class="n">gap</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;country&#39;, &#39;year&#39;, &#39;pop&#39;, &#39;continent&#39;, &#39;lifeExp&#39;, &#39;gdpPercap&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#3</span>
+<span class="n">gap</span><span class="p">[</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>59.474439366197174
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># or</span>
+<span class="n">gap</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>pop</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1704.00000</td>
+      <td>1.704000e+03</td>
+      <td>1704.000000</td>
+      <td>1704.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1979.50000</td>
+      <td>2.960121e+07</td>
+      <td>59.474439</td>
+      <td>7215.327081</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>17.26533</td>
+      <td>1.061579e+08</td>
+      <td>12.917107</td>
+      <td>9857.454543</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1952.00000</td>
+      <td>6.001100e+04</td>
+      <td>23.599000</td>
+      <td>241.165876</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1965.75000</td>
+      <td>2.793664e+06</td>
+      <td>48.198000</td>
+      <td>1202.060309</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1979.50000</td>
+      <td>7.023596e+06</td>
+      <td>60.712500</td>
+      <td>3531.846988</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1993.25000</td>
+      <td>1.958522e+07</td>
+      <td>70.845500</td>
+      <td>9325.462346</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2007.00000</td>
+      <td>1.318683e+09</td>
+      <td>82.603000</td>
+      <td>113523.132900</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gap</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year         1.979500e+03
+pop          2.960121e+07
+lifeExp      5.947444e+01
+gdpPercap    7.215327e+03
+dtype: float64
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_96683/1146573181.py:2: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
+  print(gap.mean())
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#5</span>
+<span class="n">gap</span><span class="p">[</span><span class="s2">&quot;continent&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Africa      624
+Asia        396
+Europe      360
+Americas    300
+Oceania      24
+Name: continent, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#6</span>
+<span class="n">le_gdp_by_continent</span> <span class="o">=</span> <span class="n">gap</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;continent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">mean_le</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">),</span> 
+                                                  <span class="n">mean_gdp</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">))</span>
+<span class="n">le_gdp_by_continent</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean_le</th>
+      <th>mean_gdp</th>
+    </tr>
+    <tr>
+      <th>continent</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>48.865330</td>
+      <td>2193.754578</td>
+    </tr>
+    <tr>
+      <th>Americas</th>
+      <td>64.658737</td>
+      <td>7136.110356</td>
+    </tr>
+    <tr>
+      <th>Asia</th>
+      <td>60.064903</td>
+      <td>7902.150428</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>71.903686</td>
+      <td>14469.475533</td>
+    </tr>
+    <tr>
+      <th>Oceania</th>
+      <td>74.326208</td>
+      <td>18621.609223</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#7 </span>
+<span class="n">gap_75_1000</span> <span class="o">=</span> <span class="n">gap</span><span class="p">[(</span><span class="n">gap</span><span class="p">[</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">75</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">gap</span><span class="p">[</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5000</span><span class="p">)]</span>
+<span class="n">gap_75_1000</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>22</th>
+      <td>Albania</td>
+      <td>2002</td>
+      <td>3508512.0</td>
+      <td>Europe</td>
+      <td>75.651</td>
+      <td>4604.211737</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="chapter-4">
-<h1>Chapter 4<a class="headerlink" href="#chapter-4" title="Permalink to this headline">#</a></h1>
+<section id="chapter-5-penguins-exercises">
+<h2>Chapter 5 - Penguins Exercises<a class="headerlink" href="#chapter-5-penguins-exercises" title="Permalink to this headline">#</a></h2>
+<p>Learn more about the biological and spatial characteristics of penguins!</p>
+<ol class="simple">
+<li><p>Use seaborn to make a scatterplot of two continuous variables. Color each point by species.</p></li>
+<li><p>Make the same scatterplot as #1 above. This time, color each point by sex.</p></li>
+<li><p>Make the same scatterplot as #1 above again. This time color each point by island.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid</span></code> method to make faceted plots to examine “flipper_length_mm” on the x-axis, and “body_mass_g” on the y-axis.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">peng</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/penguins.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set seaborn figure size, background theme, and axis and tick label size</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">)})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;ticks&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peng</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>MALE</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>339</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>340</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>46.8</td>
+      <td>14.3</td>
+      <td>215.0</td>
+      <td>4850.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>341</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>50.4</td>
+      <td>15.7</td>
+      <td>222.0</td>
+      <td>5750.0</td>
+      <td>MALE</td>
+    </tr>
+    <tr>
+      <th>342</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>45.2</td>
+      <td>14.8</td>
+      <td>212.0</td>
+      <td>5200.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>343</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>49.9</td>
+      <td>16.1</td>
+      <td>213.0</td>
+      <td>5400.0</td>
+      <td>MALE</td>
+    </tr>
+  </tbody>
+</table>
+<p>344 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">peng</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;body_mass_g&quot;</span><span class="p">,</span> 
+                <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span><span class="p">,</span>
+               <span class="n">s</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Solutions_32_0.png" src="../_images/Solutions_32_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#2</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">peng</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;body_mass_g&quot;</span><span class="p">,</span> 
+                <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;sex&quot;</span><span class="p">,</span>
+               <span class="n">s</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span> 
+                
+               <span class="n">palette</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Species&quot;</span><span class="p">,</span>
+                                                  <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> 
+                                                  <span class="n">title_fontsize</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+                                                 <span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;best&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Solutions_33_0.png" src="../_images/Solutions_33_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#3</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">peng</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;body_mass_g&quot;</span><span class="p">,</span> 
+                <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;island&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;lower right&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Solutions_34_0.png" src="../_images/Solutions_34_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#4</span>
+<span class="n">facet_plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">peng</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s2">&quot;island&quot;</span><span class="p">,</span>  <span class="n">row</span> <span class="o">=</span> <span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+<span class="n">facet_plot</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="s2">&quot;body_mass_g&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Solutions_35_0.png" src="../_images/Solutions_35_0.png" />
+</div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="chapter-5">
-<h1>Chapter 5<a class="headerlink" href="#chapter-5" title="Permalink to this headline">#</a></h1>
+<section id="chapter-5-gapminder-exercises">
+<h2>Chapter 5 - Gapminder Exercises<a class="headerlink" href="#chapter-5-gapminder-exercises" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Figure out how to make a line plot that shows gdpPercap through time.</p></li>
+<li><p>Figure out how to make a second line plot that shows lifeExp through time.</p></li>
+<li><p>How can you plot gdpPercap with a different colored line for each continent?</p></li>
+<li><p>Plot lifeExp with a different colored line for each continent.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">gap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/gapminder-FiveYearData.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gap</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> <span class="n">ci</span> <span class="o">=</span> <span class="mi">95</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Solutions_38_0.png" src="../_images/Solutions_38_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#2</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gap</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span> <span class="n">ci</span> <span class="o">=</span> <span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Solutions_39_0.png" src="../_images/Solutions_39_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#3</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gap</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="n">ci</span> <span class="o">=</span> <span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Solutions_40_0.png" src="../_images/Solutions_40_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#4</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gap</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span> 
+             <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="n">ci</span> <span class="o">=</span> <span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Solutions_41_0.png" src="../_images/Solutions_41_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#4 with custom colors</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gap</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span> 
+             <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;continent&quot;</span><span class="p">,</span> 
+             <span class="n">ci</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> 
+            <span class="n">palette</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#00FFFF&quot;</span><span class="p">,</span> <span class="s2">&quot;#458B74&quot;</span><span class="p">,</span> <span class="s2">&quot;#E3CF57&quot;</span><span class="p">,</span> <span class="s2">&quot;#8A2BE2&quot;</span><span class="p">,</span> <span class="s2">&quot;#CD3333&quot;</span><span class="p">]);</span>
+
+<span class="c1"># color hex codes: https://www.webucator.com/article/python-color-constants-module/</span>
+<span class="c1"># seaborn color palettes: https://www.reddit.com/r/visualization/comments/qc0b36/all_seaborn_color_palettes_together_so_you_dont/</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Solutions_42_0.png" src="../_images/Solutions_42_0.png" />
+</div>
+</div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="chapter-6">
 <h1>Chapter 6<a class="headerlink" href="#chapter-6" title="Permalink to this headline">#</a></h1>

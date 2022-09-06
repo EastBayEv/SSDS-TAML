@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Text Analysis and Machine Learning (TAML) Group
-author: 
+author: "Software and Services for Data Science (SSDS), Stanford University"
 copyright: "2021-2022"
 logo: logo.png
 

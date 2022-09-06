@@ -249,13 +249,13 @@ ireland82
 
 # ## Exercises
 # 
-# 1. Load the file "penguins.csv" and save it in a variable named `peng`
+# 1. Load the file "gapminder-FiveYearData.csv" and save it in a variable named `gap`
 # 2. Print the column names
-# 3. Compute the mean one numeric columns
+# 3. Compute the mean for one numeric column
 # 4. Compute the mean for all numeric columns
-# 5. Tabulate frequencies for the columns species, island, and sex
-# 6. Compute body mass mean and standard deviation by species, island, and sex
-# 7. Create a subset of `peng` that contains only penguins with body mass less than 3000 and bill length greater than 38.
+# 5. Tabulate frequencies for the "continent" column
+# 6. Compute mean lifeExp and dgpPercap by continent
+# 7. Create a subset of `gap` that contains only countries with lifeExp greater than 75 and gdpPercap less than 5000.
 
 # ## Data visualization
 # 

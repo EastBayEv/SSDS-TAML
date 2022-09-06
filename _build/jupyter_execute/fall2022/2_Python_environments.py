@@ -205,6 +205,12 @@
 # 
 # You might find that Jupyter environments are too limiting for your task. Using a text editor to write your scripts and run them via the command line is another common option. Contact SSDS if you want to learn more!
 
+# ## Exercises
+# 
+# 1. (Required) Set up your Google Colaboratory (Colab) environment following the instructions in #1 listed above. 
+# 2. (Optional) Check that you can correctly open these notebooks in Jupyter Lab. 
+# 3. (Optional) Install Python Anaconda distribution on your machine.
+
 # ## Basic Python syntax
 # 
 # Open Chapter 3 "Basic Python syntax" to start coding!

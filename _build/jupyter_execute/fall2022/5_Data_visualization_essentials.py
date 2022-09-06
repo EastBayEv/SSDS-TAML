@@ -199,14 +199,14 @@ ex1.set_ylabel("GDP per cap (US$)", fontsize = 20);
 # 
 # Learn more about the biological and spatial characteristics of penguins! 
 # 
-# ![penguins](img/penguins.png)
-# 
 # 1. Use seaborn to make a scatterplot of two continuous variables. Color each point by species. 
 # 2. Make the same scatterplot as #1 above. This time, color each point by sex. 
-# 3. Make the same scatterplot as #1 above again. This third color each point by island.
-# 4. Combine your three scatterplots into a single figure. 
+# 3. Make the same scatterplot as #1 above again. This time color each point by island.
+# 4. Use the `sns.FacetGrid` method to make faceted plots to examine "flipper_length_mm" on the x-axis, and "body_mass_g" on the y-axis. 
+# 
+# ![penguins](img/penguins.png)
 
-# ## Map of Antarctica
+# ## Visualizations as an inferential tool
 # 
 # Below is a map of Antarctica past the southernmost tip of the South American continent. 
 # 
@@ -216,39 +216,12 @@ ex1.set_ylabel("GDP per cap (US$)", fontsize = 20);
 # 
 # ![antarctica](img/antarctica.png)
 
-# In[13]:
-
-
-# get help with the question mark
-# sns.scatterplot?
-
-
-# In[14]:
-
-
-# load penguins data
-penguins = pd.read_csv('data/penguins.csv')
-
-
-# In[15]:
-
-
-# hint: 
-penguins.groupby('island').count()
-
-
-# In[16]:
-
-
-# hint:
-penguins.groupby('island').mean()
-
-
 # ## Exercises - Gapminder dataset
 # 
-# 1. Make a line plot that shows gdpPercap through time. 
-# 2. Make a second line plot that shows lifeExp through time. 
-# 3. Combine these two plots into a single figure. 
+# 1. Figure out how to make a line plot that shows gdpPercap through time. 
+# 2. Figure out how to make a second line plot that shows lifeExp through time. 
+# 3. How can you plot gdpPercap with a different colored line for each continent? 
+# 4. Plot lifeExp with a different colored line for each continent. 
 
 # ## What does this all mean for machine learning and text data?
 # 

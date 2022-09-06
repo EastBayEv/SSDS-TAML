@@ -494,7 +494,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 
 # ## Exercises
 # 
-# 1. Define one variable for each of the four data types introduced above: 1) string, 2) boolean, 3) float, and 4) integer. 
+# 1. Define one variablez for each of the four data types introduced above: 1) string, 2) boolean, 3) float, and 4) integer. 
 # 2. Define two lists that contain four elements each. 
 # 3. Define a dictionary that containts the two lists from #2 above.
 # 4. Import the file "dracula.txt". Save it in a variable named `drac`

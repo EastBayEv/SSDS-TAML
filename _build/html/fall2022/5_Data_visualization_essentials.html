@@ -450,8 +450,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#map-of-antarctica">
-   Map of Antarctica
+  <a class="reference internal nav-link" href="#visualizations-as-an-inferential-tool">
+   Visualizations as an inferential tool
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -526,8 +526,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#map-of-antarctica">
-   Map of Antarctica
+  <a class="reference internal nav-link" href="#visualizations-as-an-inferential-tool">
+   Visualizations as an inferential tool
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -950,183 +950,28 @@ Name: country, dtype: int64
 <section id="exercises-penguins-dataset">
 <h2>Exercises - Penguins dataset<a class="headerlink" href="#exercises-penguins-dataset" title="Permalink to this headline">#</a></h2>
 <p>Learn more about the biological and spatial characteristics of penguins!</p>
-<p><img alt="penguins" src="../_images/penguins.png" /></p>
 <ol class="simple">
 <li><p>Use seaborn to make a scatterplot of two continuous variables. Color each point by species.</p></li>
 <li><p>Make the same scatterplot as #1 above. This time, color each point by sex.</p></li>
-<li><p>Make the same scatterplot as #1 above again. This third color each point by island.</p></li>
-<li><p>Combine your three scatterplots into a single figure.</p></li>
+<li><p>Make the same scatterplot as #1 above again. This time color each point by island.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid</span></code> method to make faceted plots to examine “flipper_length_mm” on the x-axis, and “body_mass_g” on the y-axis.</p></li>
 </ol>
+<p><img alt="penguins" src="../_images/penguins.png" /></p>
 </section>
-<section id="map-of-antarctica">
-<h2>Map of Antarctica<a class="headerlink" href="#map-of-antarctica" title="Permalink to this headline">#</a></h2>
+<section id="visualizations-as-an-inferential-tool">
+<h2>Visualizations as an inferential tool<a class="headerlink" href="#visualizations-as-an-inferential-tool" title="Permalink to this headline">#</a></h2>
 <p>Below is a map of Antarctica past the southernmost tip of the South American continent.</p>
 <p>The distance from the Biscoe Islands (Renaud) to the Torgersen and Dream Islands is about 140 km.</p>
 <p>Might you suggest any similarities or differences between the penguins from these three locations?</p>
 <p><img alt="antarctica" src="../_images/antarctica.png" /></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get help with the question mark</span>
-<span class="c1"># sns.scatterplot?</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load penguins data</span>
-<span class="n">penguins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/penguins.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hint: </span>
-<span class="n">penguins</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;island&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>species</th>
-      <th>bill_length_mm</th>
-      <th>bill_depth_mm</th>
-      <th>flipper_length_mm</th>
-      <th>body_mass_g</th>
-      <th>sex</th>
-    </tr>
-    <tr>
-      <th>island</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Biscoe</th>
-      <td>168</td>
-      <td>167</td>
-      <td>167</td>
-      <td>167</td>
-      <td>167</td>
-      <td>163</td>
-    </tr>
-    <tr>
-      <th>Dream</th>
-      <td>124</td>
-      <td>124</td>
-      <td>124</td>
-      <td>124</td>
-      <td>124</td>
-      <td>123</td>
-    </tr>
-    <tr>
-      <th>Torgersen</th>
-      <td>52</td>
-      <td>51</td>
-      <td>51</td>
-      <td>51</td>
-      <td>51</td>
-      <td>47</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hint:</span>
-<span class="n">penguins</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;island&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>bill_length_mm</th>
-      <th>bill_depth_mm</th>
-      <th>flipper_length_mm</th>
-      <th>body_mass_g</th>
-    </tr>
-    <tr>
-      <th>island</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Biscoe</th>
-      <td>45.257485</td>
-      <td>15.874850</td>
-      <td>209.706587</td>
-      <td>4716.017964</td>
-    </tr>
-    <tr>
-      <th>Dream</th>
-      <td>44.167742</td>
-      <td>18.344355</td>
-      <td>193.072581</td>
-      <td>3712.903226</td>
-    </tr>
-    <tr>
-      <th>Torgersen</th>
-      <td>38.950980</td>
-      <td>18.429412</td>
-      <td>191.196078</td>
-      <td>3706.372549</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
 </section>
 <section id="exercises-gapminder-dataset">
 <h2>Exercises - Gapminder dataset<a class="headerlink" href="#exercises-gapminder-dataset" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
-<li><p>Make a line plot that shows gdpPercap through time.</p></li>
-<li><p>Make a second line plot that shows lifeExp through time.</p></li>
-<li><p>Combine these two plots into a single figure.</p></li>
+<li><p>Figure out how to make a line plot that shows gdpPercap through time.</p></li>
+<li><p>Figure out how to make a second line plot that shows lifeExp through time.</p></li>
+<li><p>How can you plot gdpPercap with a different colored line for each continent?</p></li>
+<li><p>Plot lifeExp with a different colored line for each continent.</p></li>
 </ol>
 </section>
 <section id="what-does-this-all-mean-for-machine-learning-and-text-data">
