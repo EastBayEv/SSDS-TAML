@@ -470,13 +470,11 @@ title="Print to PDF"
      Import text data as a character string
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-note-about-importing-data-into-google-colab">
-   A note about importing data into Google Colab
-  </a>
-  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-note-about-importing-data-into-google-colab">
+     A note about importing data into Google Colab
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#import-data-frames-with-the-pandas-library">
      Import data frames with the pandas library
@@ -608,13 +606,11 @@ title="Print to PDF"
      Import text data as a character string
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-note-about-importing-data-into-google-colab">
-   A note about importing data into Google Colab
-  </a>
-  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-note-about-importing-data-into-google-colab">
+     A note about importing data into Google Colab
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#import-data-frames-with-the-pandas-library">
      Import data frames with the pandas library
@@ -1185,55 +1181,42 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">.read()</span></code> reads the file as text.</p></li>
 </ol>
 </section>
-</section>
 <section id="a-note-about-importing-data-into-google-colab">
-<h2>A note about importing data into Google Colab<a class="headerlink" href="#a-note-about-importing-data-into-google-colab" title="Permalink to this headline">#</a></h2>
+<h3>A note about importing data into Google Colab<a class="headerlink" href="#a-note-about-importing-data-into-google-colab" title="Permalink to this headline">#</a></h3>
 <p>Navigating Google Colab’s file system can be challenging since it is slightly different from working on your local machine. Therefore, you will want to unhashtag the below lines of code to import the dataset into a subfolder named “data” inside of the main Colab “/content” directory.</p>
+<p><strong>Unhashtag Steps 1-4 to directly import data into your Colab environment</strong></p>
 <blockquote>
-<div><p>NOTE: There are other ways to use Colab’s file system, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp.</p>
+<div><p>NOTE: Colab is a temporary environment with an idle timeout of 90 minutes and an absolute timeout of 12 hours.</p>
+<p>There are other ways to use Colab’s file system, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First create the directory</span>
-<span class="o">!</span>mkdir data
-
-<span class="c1"># Change your working directory to the &quot;data&quot; folder</span>
-<span class="o">!</span><span class="nb">cd</span> data
-
-<span class="c1"># Download the data file</span>
-<span class="o">!</span>wget /content/data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1. Create the directory</span>
+<span class="c1"># !mkdir data</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkdir: data: File exists
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 2. Print working directory (our current location; should be same as above)</span>
+<span class="c1"># !pwd</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/data/: Scheme missing.
---2022-09-06 14:11:53--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.109.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... 
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 3. &quot;List&quot; the contents of the current working directory</span>
+<span class="c1"># !ls</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connected.
-HTTP request sent, awaiting response... 
-</pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
-Length: 441075 (431K) [text/plain]
-Saving to: &#39;frankenstein.txt.5&#39;
-
-
-frankenstein.txt.5    0%[                    ]       0  --.-KB/s               
-</pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frankenstein.txt.5  100%[===================&gt;] 430.74K  --.-KB/s    in 0.05s   
-
-2022-09-06 14:11:53 (7.80 MB/s) - &#39;frankenstein.txt.5&#39; saved [441075/441075]
-
-FINISHED --2022-09-06 14:11:53--
-Total wall clock time: 0.3s
-Downloaded: 1 files, 431K in 0.05s (7.80 MB/s)
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 4. Download the data file</span>
+<span class="c1"># !wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt</span>
 </pre></div>
 </div>
 </div>
@@ -1286,6 +1269,7 @@ or, the Modern Prom
 </div>
 </div>
 </div>
+</section>
 <section id="import-data-frames-with-the-pandas-library">
 <h3>Import data frames with the pandas library<a class="headerlink" href="#import-data-frames-with-the-pandas-library" title="Permalink to this headline">#</a></h3>
 <p>Data frames are programming speak for tabular spreadsheets organized into rows and columns and often stored in useful formats such as .csv (i.e., a spreadsheet)</p>

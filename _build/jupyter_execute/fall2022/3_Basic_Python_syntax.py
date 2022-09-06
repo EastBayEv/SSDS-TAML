@@ -324,26 +324,45 @@ fruits['fruits'][1]['recipes'][0]
 # 3. `'data/frankenstein.txt'` is the argument that we provide to the `open` function. This matches the `file` path argument and needs to contain the location for the Frankenstein book.
 # 4. `.read()` reads the file as text. 
 
-# ## A note about importing data into Google Colab
+# ### A note about importing data into Google Colab
 # 
 # Navigating Google Colab's file system can be challenging since it is slightly different from working on your local machine. Therefore, you will want to unhashtag the below lines of code to import the dataset into a subfolder named "data" inside of the main Colab "/content" directory.
 # 
-# > NOTE: There are other ways to use Colab's file system, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp. 
+# **Unhashtag Steps 1-4 to directly import data into your Colab environment**
+# 
+# > NOTE: Colab is a temporary environment with an idle timeout of 90 minutes and an absolute timeout of 12 hours.
+# >
+# >There are other ways to use Colab's file system, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp. 
 
 # In[31]:
 
 
-# First create the directory
-get_ipython().system('mkdir data')
-
-# Change your working directory to the "data" folder
-get_ipython().system('cd data')
-
-# Download the data file
-get_ipython().system('wget /content/data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt')
+# Step 1. Create the directory
+# !mkdir data
 
 
 # In[32]:
+
+
+# Step 2. Print working directory (our current location; should be same as above)
+# !pwd
+
+
+# In[33]:
+
+
+# Step 3. "List" the contents of the current working directory
+# !ls
+
+
+# In[34]:
+
+
+# Step 4. Download the data file
+# !wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
+
+
+# In[35]:
 
 
 frank = open('data/frankenstein.txt').read()
@@ -361,14 +380,14 @@ print(frank[:1000])
 # 
 # For this part, we will use the [pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html) Python library. Remember how to install user-defined libraries from Chapter 2? This is a two step process.
 
-# In[33]:
+# In[36]:
 
 
 # Step 1. Physically download and install the library's files (unhashtab the line below to run)
 # !pip install pandas
 
 
-# In[34]:
+# In[37]:
 
 
 # Step 2. link the pandas library to our current notebook
@@ -382,20 +401,20 @@ import pandas as pd
 # 
 # Save it in the variable named `gap`
 
-# In[35]:
+# In[38]:
 
 
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[36]:
+# In[39]:
 
 
 # View the data
 print(gap)
 
 
-# In[37]:
+# In[40]:
 
 
 gap
@@ -405,7 +424,7 @@ gap
 # 
 # The help pages in Python are generally quite useful and tell you everything you need to know - you just don't know it yet! Type a question mark `?` before a funciton to view its help pages.
 
-# In[38]:
+# In[41]:
 
 
 # ?pd.read_csv
@@ -437,7 +456,7 @@ gap
 # 
 # You have entered invalid syntax, or something python does not understand.
 
-# In[39]:
+# In[42]:
 
 
 # x 89 5
@@ -449,7 +468,7 @@ gap
 # 
 # Highlight the code in the cell below and press `command` and `/` (Mac) or `Ctrl` and `/` on Windows to block comment/uncomment multiple lines of code:
 
-# In[40]:
+# In[43]:
 
 
 # def example():
@@ -464,7 +483,7 @@ gap
 # 
 # You try to call a variable you have not yet assigned
 
-# In[41]:
+# In[44]:
 
 
 # p
@@ -472,7 +491,7 @@ gap
 
 # Or, you try to call a function from a library that you have not yet imported
 
-# In[42]:
+# In[45]:
 
 
 # example()
@@ -482,7 +501,7 @@ gap
 # 
 # You write code with incompatible types
 
-# In[43]:
+# In[46]:
 
 
 # "5" + 5
@@ -492,7 +511,7 @@ gap
 # 
 # You try to reference something that is out of range
 
-# In[44]:
+# In[47]:
 
 
 my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
@@ -505,7 +524,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # You try to import something that does not exist
 
-# In[45]:
+# In[48]:
 
 
 # document = open('fakedtextfile.txt').read()
