@@ -917,7 +917,7 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-6-core-machine-learning-concepts-building-text-vocabularies">
 <h1>Chapter 6 - Core machine learning concepts; building text vocabularies<a class="headerlink" href="#chapter-6-core-machine-learning-concepts-building-text-vocabularies" title="Permalink to this headline">#</a></h1>
 <p>2022 August 24</p>
-<a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/7_Core_concepts_vocabularies.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/6_Core_concepts_vocabularies.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a><p><img alt="ml" src="../_images/ml.png" /></p>
 <p><a class="reference external" href="https://towardsdatascience.com/artificial-intelligence-vs-machine-learning-vs-deep-learning-2210ba8cc4ac">towardsdatascience.com</a></p>
@@ -1398,7 +1398,29 @@ Name: y, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load data</span>
+<span class="o">!</span>wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv
 <span class="n">penguins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/penguins.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 19:51:37--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.111.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
+Length: 13478 (13K) [text/plain]
+Saving to: &#39;data/penguins.csv.1&#39;
+
+
+penguins.csv.1        0%[                    ]       0  --.-KB/s               
+penguins.csv.1      100%[===================&gt;]  13.16K  --.-KB/s    in 0s      
+
+2022-09-06 19:51:38 (33.8 MB/s) - &#39;data/penguins.csv.1&#39; saved [13478/13478]
 </pre></div>
 </div>
 </div>
@@ -1495,7 +1517,7 @@ Name: y, dtype: float64
 </section>
 <section id="balanced-versus-imbalanced-samples">
 <h2>Balanced versus imbalanced samples<a class="headerlink" href="#balanced-versus-imbalanced-samples" title="Permalink to this headline">#</a></h2>
-<p>Keep in mind that classification accuracy is a poor performance measure for imbalanced classes. Refer to the confusion matrix derivations for other metrics that are more appropriate to use for imbalanced samples.</p>
+<p>Keep in mind that classification accuracy is a poor performance measure for imbalanced classes. Refer to the confusion matrix derivations for other metrics that are more appropriate to use for imbalanced samples. Rarely is accuracy the preferred method. Our use of it here can help you understand the other metrics.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You could say our penguins sample is balanced</span>

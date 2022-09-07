@@ -4,7 +4,7 @@
 # # Chapter 7 - English text preprocessing basics
 # 2022 August 26
 
-# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/6_English_text_preprocessing_basics.ipynb">
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/7_English_text_preprocessing_basics.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 # </a>
 
@@ -67,6 +67,7 @@ warnings.filterwarnings("ignore", category = DeprecationWarning)
 # In[3]:
 
 
+get_ipython().system('wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt')
 text = open("data/dracula.txt").read()
 
 # print just the first 100 characters
@@ -278,6 +279,38 @@ top_plot.set_xticklabels(top_plot.get_xticklabels(),rotation = 40);
 # ### Define the corpus directory
 # 
 # Set the directory's file path and print the files it contains.
+
+# In[ ]:
+
+
+# Make the directory "human_rights" inside of data
+get_ipython().system('mkdir data')
+get_ipython().system('mkdir data/human_rights')
+
+
+# In[ ]:
+
+
+# Download elevent UN HRC files
+get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/afghanistan2014.txt')
+get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/bangladesh2013.txt')
+get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/cotedivoire2014.txt')
+get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/djibouti2013.txt')
+get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/fiji2014.txt')
+get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/jordan2013.txt')
+get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/kazakhstan2014.txt')
+get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/monaco2013.txt')
+get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/sanmarino2014.txt')
+get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/turkmenistan2013.txt')
+get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/tuvalu2013.txt')
+
+
+# In[2]:
+
+
+# Check that we have eleven files, one for each country
+get_ipython().system('ls data/human_rights/')
+
 
 # In[28]:
 

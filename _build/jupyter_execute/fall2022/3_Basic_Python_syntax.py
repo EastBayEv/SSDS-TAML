@@ -330,11 +330,11 @@ fruits['fruits'][1]['recipes'][0]
 # 
 # Run the code below to import the dataset into a temporary subfolder named "data" inside of the main Colab "/content" directory.
 # 
-# **Unhashtag Steps 1-3 to save data in your Google Drive, which can then be importend to your Colab environment**
+# **Run Steps 1-3 below to save a data file in your Google Drive, which can then be importend to your Colab environment**
 # 
 # > NOTE: Colab is a temporary environment with an idle timeout of 90 minutes and an absolute timeout of 12 hours.
 # >
-# >There are other ways to use Colab's file system, such as mounting your Google Drive, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp. 
+# >There are other ways to use Colab's file system, such as mounting your Google Drive, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp. Contact SSDS if you want to learn more. 
 
 # In[31]:
 
@@ -345,7 +345,8 @@ get_ipython().system('mkdir data')
 # Step 2. “List” the contents of the current working directory
 get_ipython().system('ls')
 
-# Step 3. Download the data file
+# Step 3. Use wget to download the data file
+# wget: https://www.gnu.org/software/wget/?
 get_ipython().system('wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt')
 
 
@@ -391,17 +392,23 @@ import pandas as pd
 # In[35]:
 
 
-gap = pd.read_csv("data/gapminder-FiveYearData.csv")
+get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv')
 
 
 # In[36]:
+
+
+gap = pd.read_csv("data/gapminder-FiveYearData.csv")
+
+
+# In[37]:
 
 
 # View the data
 print(gap)
 
 
-# In[37]:
+# In[38]:
 
 
 gap
@@ -411,7 +418,7 @@ gap
 # 
 # The help pages in Python are generally quite useful and tell you everything you need to know - you just don't know it yet! Type a question mark `?` before a funciton to view its help pages.
 
-# In[38]:
+# In[39]:
 
 
 # ?pd.read_csv
@@ -443,7 +450,7 @@ gap
 # 
 # You have entered invalid syntax, or something python does not understand.
 
-# In[39]:
+# In[40]:
 
 
 # x 89 5
@@ -455,7 +462,7 @@ gap
 # 
 # Highlight the code in the cell below and press `command` and `/` (Mac) or `Ctrl` and `/` on Windows to block comment/uncomment multiple lines of code:
 
-# In[40]:
+# In[41]:
 
 
 # def example():
@@ -470,7 +477,7 @@ gap
 # 
 # You try to call a variable you have not yet assigned
 
-# In[41]:
+# In[42]:
 
 
 # p
@@ -478,7 +485,7 @@ gap
 
 # Or, you try to call a function from a library that you have not yet imported
 
-# In[42]:
+# In[43]:
 
 
 # example()
@@ -488,7 +495,7 @@ gap
 # 
 # You write code with incompatible types
 
-# In[43]:
+# In[44]:
 
 
 # "5" + 5
@@ -498,7 +505,7 @@ gap
 # 
 # You try to reference something that is out of range
 
-# In[44]:
+# In[45]:
 
 
 my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
@@ -511,7 +518,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # You try to import something that does not exist
 
-# In[45]:
+# In[46]:
 
 
 # document = open('fakedtextfile.txt').read()
@@ -528,6 +535,8 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 7. Figure out how to export the `pen` dataframe as a file named "penguins_saved.csv"
 # 
 # If you encounter error messages, which ones? 
+# 
+# > Pro tip: See the Solutions chapter for code to copy files from your Colab environment to your Google Drive! 
 
 # ## Numeric data wrangling
 # 

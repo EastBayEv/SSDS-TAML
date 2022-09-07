@@ -4,7 +4,7 @@
 # # Chapter 6 - Core machine learning concepts; building text vocabularies
 # 2022 August 24
 
-# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/7_Core_concepts_vocabularies.ipynb">
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/6_Core_concepts_vocabularies.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 # </a>
 
@@ -306,6 +306,7 @@ print(round(RMSE, 5))
 
 
 # load data
+get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv')
 penguins = pd.read_csv("data/penguins.csv")
 
 
@@ -317,7 +318,7 @@ penguins.head()
 
 # ## Balanced versus imbalanced samples
 # 
-# Keep in mind that classification accuracy is a poor performance measure for imbalanced classes. Refer to the confusion matrix derivations for other metrics that are more appropriate to use for imbalanced samples. 
+# Keep in mind that classification accuracy is a poor performance measure for imbalanced classes. Refer to the confusion matrix derivations for other metrics that are more appropriate to use for imbalanced samples. Rarely is accuracy the preferred method. Our use of it here can help you understand the other metrics. 
 
 # In[17]:
 

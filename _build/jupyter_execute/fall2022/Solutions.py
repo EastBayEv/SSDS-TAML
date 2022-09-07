@@ -3,6 +3,10 @@
 
 # # Solutions
 # 
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/Solutions.ipynb">
+#   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+# </a>
+# 
 # Example solutions for challenge exercises from each chapter in this book.
 
 # ## Chapter 1 - Exercises
@@ -142,8 +146,9 @@ dict_one
 
 
 #4
+get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt')
 drac = open("data/dracula.txt").read()
-print(drac)
+# print(drac)
 
 
 # In[13]:
@@ -151,6 +156,7 @@ print(drac)
 
 #5
 import pandas as pd
+get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv')
 pen = pd.read_csv("data/penguins.csv")
 pen
 
@@ -170,8 +176,22 @@ with open('data/dracula_short.txt', 'w', encoding='utf-8') as f:
 # In[15]:
 
 
+# You can also copy files from Colab to your Google Drive
+# Mount your GDrive
+from google.colab import drive
+drive.mount('/content/drive')
+
+# Copy a file from Colab to GDrive
+get_ipython().system('cp dracula_short.txt /content/drive/MyDrive')
+
+
+# In[47]:
+
+
 #7
 pen.to_csv("data/penguins_saved.csv")
+
+get_ipython().system('cp data/penguins_saved.csv /content/drive/MyDrive')
 
 
 # ## Chapter 4 - Exercises
@@ -184,51 +204,52 @@ pen.to_csv("data/penguins_saved.csv")
 # 6. Compute mean lifeExp and dgpPercap by continent
 # 7. Create a subset of `gap` that contains only countries with lifeExp greater than 75 and gdpPercap less than 5000.
 
-# In[16]:
+# In[50]:
 
 
 #1
 import pandas as pd
+get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv')
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 gap
 
 
-# In[17]:
+# In[51]:
 
 
 #2
 gap.columns
 
 
-# In[18]:
+# In[53]:
 
 
 #3
 gap["lifeExp"].mean()
 
 
-# In[19]:
+# In[69]:
 
 
 # or
 gap.describe()
 
 
-# In[20]:
+# In[55]:
 
 
 #4
 print(gap.mean())
 
 
-# In[21]:
+# In[56]:
 
 
 #5
 gap["continent"].value_counts()
 
 
-# In[22]:
+# In[68]:
 
 
 #6
@@ -237,7 +258,7 @@ le_gdp_by_continent = gap.groupby("continent").agg(mean_le = ("lifeExp", "mean")
 le_gdp_by_continent
 
 
-# In[23]:
+# In[78]:
 
 
 #7 
@@ -254,15 +275,16 @@ gap_75_1000
 # 3. Make the same scatterplot as #1 above again. This time color each point by island.
 # 4. Use the `sns.FacetGrid` method to make faceted plots to examine "flipper_length_mm" on the x-axis, and "body_mass_g" on the y-axis. 
 
-# In[24]:
+# In[1]:
 
 
 import pandas as pd
 import seaborn as sns
+get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv')
 peng = pd.read_csv("data/penguins.csv")
 
 
-# In[25]:
+# In[2]:
 
 
 # set seaborn figure size, background theme, and axis and tick label size
@@ -271,13 +293,13 @@ sns.set(font_scale = 2)
 sns.set_theme(style='ticks')
 
 
-# In[26]:
+# In[3]:
 
 
 peng
 
 
-# In[27]:
+# In[4]:
 
 
 #1
@@ -286,7 +308,7 @@ sns.scatterplot(data = peng, x = "flipper_length_mm", y = "body_mass_g",
                s = 250, alpha = 0.75);
 
 
-# In[28]:
+# In[5]:
 
 
 #2
@@ -300,7 +322,7 @@ sns.scatterplot(data = peng, x = "flipper_length_mm", y = "body_mass_g",
                                                  loc = "best");
 
 
-# In[29]:
+# In[6]:
 
 
 #3
@@ -308,7 +330,7 @@ sns.scatterplot(data = peng, x = "flipper_length_mm", y = "body_mass_g",
                 hue = "island").legend(loc = "lower right");
 
 
-# In[30]:
+# In[7]:
 
 
 #4
@@ -323,36 +345,37 @@ facet_plot.map(sns.scatterplot, "flipper_length_mm", "body_mass_g");
 # 3. How can you plot gdpPercap with a different colored line for each continent? 
 # 4. Plot lifeExp with a different colored line for each continent. 
 
-# In[31]:
+# In[8]:
 
 
 import pandas as pd
 import seaborn as sns
+get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv')
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[32]:
+# In[9]:
 
 
 #1
 sns.lineplot(data = gap, x = "year", y = "gdpPercap", ci = 95);
 
 
-# In[33]:
+# In[10]:
 
 
 #2
 sns.lineplot(data = gap, x = "year", y = "lifeExp", ci = False);
 
 
-# In[34]:
+# In[11]:
 
 
 #3
 sns.lineplot(data = gap, x = "year", y = "gdpPercap", hue = "continent", ci = False);
 
 
-# In[35]:
+# In[12]:
 
 
 #4
@@ -360,7 +383,7 @@ sns.lineplot(data = gap, x = "year", y = "lifeExp",
              hue = "continent", ci = False);
 
 
-# In[36]:
+# In[245]:
 
 
 #4 with custom colors
@@ -381,7 +404,7 @@ sns.lineplot(data = gap, x = "year", y = "lifeExp",
 #     * RMSE = 2.82843
 #     * y_hat = y_hat = B0 + B1 * data.x
 
-# In[37]:
+# In[266]:
 
 
 #1 
@@ -389,7 +412,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
 
-# In[38]:
+# In[267]:
 
 
 # Recreate dataset
@@ -399,7 +422,7 @@ data = pd.DataFrame({"x": [1,2,3,4,5],
 data
 
 
-# In[39]:
+# In[268]:
 
 
 # Our "by hand" OLS regression information:
@@ -409,7 +432,7 @@ RMSE = 2.82843
 y_hat = B0 + B1 * data.x
 
 
-# In[40]:
+# In[269]:
 
 
 # use scikit-learn to compute R-squared value
@@ -417,7 +440,7 @@ lin_mod = LinearRegression().fit(data[['x']], data[['y']])
 print("R-squared: " + str(lin_mod.score(data[['x']], data[['y']])))
 
 
-# In[41]:
+# In[270]:
 
 
 # use scikit-learn to compute slope and intercept
@@ -425,7 +448,7 @@ print("scikit-learn slope: " + str(lin_mod.coef_))
 print("scikit-learn intercept: " + str(lin_mod.intercept_))
 
 
-# In[42]:
+# In[271]:
 
 
 # compare to our by "hand" versions. Both are the same!
@@ -433,7 +456,7 @@ print(int(lin_mod.coef_) == B1)
 print(int(lin_mod.intercept_) == B0)
 
 
-# In[43]:
+# In[272]:
 
 
 # use scikit-learn to compute RMSE
@@ -441,7 +464,7 @@ RMSE_scikit = round(mean_squared_error(data.y, y_hat, squared = False), 5)
 print(RMSE_scikit)
 
 
-# In[44]:
+# In[273]:
 
 
 # Does our hand-computed RMSE equal that of scikit-learn at 5 digits?? Yes!
@@ -455,14 +478,14 @@ print(round(RMSE, 5) == round(RMSE_scikit, 5))
 # 1. Read through the code below
 # 2. Practice by repeating for a webpage of your choice
 
-# In[45]:
+# In[324]:
 
 
 #1 
 # See 7_English_preprocessing_basics.ipynb
 
 
-# In[46]:
+# In[344]:
 
 
 #2
@@ -472,7 +495,7 @@ import regex as re
 import nltk
 
 
-# In[47]:
+# In[345]:
 
 
 url = "https://en.wikipedia.org/wiki/Observable_universe"
@@ -480,7 +503,7 @@ response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html')
 
 
-# In[48]:
+# In[346]:
 
 
 text = ""
@@ -489,7 +512,7 @@ for paragraph in soup.find_all('p'):
     text += paragraph.text
 
 
-# In[49]:
+# In[347]:
 
 
 text = re.sub(r'\[[0-9]*\]',' ',text)
@@ -500,7 +523,7 @@ text = text.lower()
 text = re.sub(r'\s+',' ',text)
 
 
-# In[50]:
+# In[348]:
 
 
 print(text)
@@ -510,13 +533,35 @@ print(text)
 # 
 # 1. Investigate classic horror novel vocabulary. Create a single TF-IDF sparse matrix that contains the vocabulary for _Frankenstein_ and _Dracula_. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. What are the 20 most unique words in each? Make a dataframe or visualization to illustrate the differences.
 
-# In[51]:
+# In[ ]:
 
 
 #1
 import spacy
 import regex as re
 from sklearn.feature_extraction.text import TfidfVectorizer
+
+
+# In[ ]:
+
+
+# Create a new directory to house the two novels
+get_ipython().system('mkdir data/novels/')
+
+# Download the two novels
+get_ipython().system('wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt')
+get_ipython().system('wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt')
+
+
+# In[ ]:
+
+
+# See that they are there!
+get_ipython().system('ls data/novels')
+
+
+# In[375]:
+
 
 import os
 corpus = os.listdir('data/novels/')

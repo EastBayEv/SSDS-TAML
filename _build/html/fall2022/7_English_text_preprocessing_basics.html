@@ -917,7 +917,7 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-7-english-text-preprocessing-basics">
 <h1>Chapter 7 - English text preprocessing basics<a class="headerlink" href="#chapter-7-english-text-preprocessing-basics" title="Permalink to this headline">#</a></h1>
 <p>2022 August 26</p>
-<a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/6_English_text_preprocessing_basics.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/7_English_text_preprocessing_basics.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a><p><img alt="text" src="../_images/text.png" /></p>
 <p>Unstructured text - text you find in the wild in books and websites - is generally not amenable to analysis. Before it can be analyzed, the text needs to be standardized to a format so that Python can recognize each unit of meaning <strong>(called a “token”)</strong> as unique, no matter how many times it occurs and how it is stylized.</p>
@@ -1017,7 +1017,8 @@ title="Print to PDF"
 <h2>Import dracula.txt<a class="headerlink" href="#import-dracula-txt" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/dracula.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt
+<span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/dracula.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="c1"># print just the first 100 characters</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
@@ -1528,6 +1529,49 @@ this ebook is for the use of anyone anywhere
 <section id="define-the-corpus-directory">
 <h3>Define the corpus directory<a class="headerlink" href="#define-the-corpus-directory" title="Permalink to this headline">#</a></h3>
 <p>Set the directory’s file path and print the files it contains.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the directory &quot;human_rights&quot; inside of data</span>
+<span class="o">!</span>mkdir data
+<span class="o">!</span>mkdir data/human_rights
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download elevent UN HRC files</span>
+<span class="o">!</span>wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/afghanistan2014.txt
+<span class="o">!</span>wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/bangladesh2013.txt
+<span class="o">!</span>wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/cotedivoire2014.txt
+<span class="o">!</span>wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/djibouti2013.txt
+<span class="o">!</span>wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/fiji2014.txt
+<span class="o">!</span>wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/jordan2013.txt
+<span class="o">!</span>wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/kazakhstan2014.txt
+<span class="o">!</span>wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/monaco2013.txt
+<span class="o">!</span>wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/sanmarino2014.txt
+<span class="o">!</span>wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/turkmenistan2013.txt
+<span class="o">!</span>wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/tuvalu2013.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check that we have eleven files, one for each country</span>
+<span class="o">!</span>ls data/human_rights/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>afghanistan2014.txt  fiji2014.txt         sanmarino2014.txt
+bangladesh2013.txt   jordan2013.txt       turkmenistan2013.txt
+cotedivoire2014.txt  kazakhstan2014.txt   tuvalu2013.txt
+djibouti2013.txt     monaco2013.txt
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>

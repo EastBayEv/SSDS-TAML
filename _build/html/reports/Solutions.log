@@ -17,26 +17,24 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-#1
-import spacy
-import regex as re
-from sklearn.feature_extraction.text import TfidfVectorizer
+# You can also copy files from Colab to your Google Drive
+# Mount your GDrive
+from google.colab import drive
+drive.mount('/content/drive')
 
-import os
-corpus = os.listdir('data/novels/')
-
-# View the contents of this directory
-corpus
+# Copy a file from Colab to GDrive
+!cp dracula_short.txt /content/drive/MyDrive
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Input [0;32mIn [51][0m, in [0;36m<cell line: 2>[0;34m()[0m
-[1;32m      1[0m [38;5;66;03m#1[39;00m
-[0;32m----> 2[0m [38;5;28;01mimport[39;00m [38;5;21;01mspacy[39;00m
-[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mregex[39;00m [38;5;28;01mas[39;00m [38;5;21;01mre[39;00m
-[1;32m      4[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfeature_extraction[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtext[39;00m [38;5;28;01mimport[39;00m TfidfVectorizer
+Input [0;32mIn [15][0m, in [0;36m<cell line: 3>[0;34m()[0m
+[1;32m      1[0m [38;5;66;03m# You can also copy files from Colab to your Google Drive[39;00m
+[1;32m      2[0m [38;5;66;03m# Mount your GDrive[39;00m
+[0;32m----> 3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mgoogle[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcolab[39;00m [38;5;28;01mimport[39;00m drive
+[1;32m      4[0m drive[38;5;241m.[39mmount([38;5;124m'[39m[38;5;124m/content/drive[39m[38;5;124m'[39m)
+[1;32m      6[0m [38;5;66;03m# Copy a file from Colab to GDrive[39;00m
 
-[0;31mModuleNotFoundError[0m: No module named 'spacy'
-ModuleNotFoundError: No module named 'spacy'
+[0;31mModuleNotFoundError[0m: No module named 'google.colab'
+ModuleNotFoundError: No module named 'google.colab'
 

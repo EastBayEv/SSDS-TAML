@@ -1185,10 +1185,10 @@ title="Print to PDF"
 <h3>A note about importing data into Google Colab<a class="headerlink" href="#a-note-about-importing-data-into-google-colab" title="Permalink to this headline">#</a></h3>
 <p>Navigating Google Colab’s file system can be challenging since it is slightly different from working on your local machine.</p>
 <p>Run the code below to import the dataset into a temporary subfolder named “data” inside of the main Colab “/content” directory.</p>
-<p><strong>Unhashtag Steps 1-3 to save data in your Google Drive, which can then be importend to your Colab environment</strong></p>
+<p><strong>Run Steps 1-3 below to save a data file in your Google Drive, which can then be importend to your Colab environment</strong></p>
 <blockquote>
 <div><p>NOTE: Colab is a temporary environment with an idle timeout of 90 minutes and an absolute timeout of 12 hours.</p>
-<p>There are other ways to use Colab’s file system, such as mounting your Google Drive, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp.</p>
+<p>There are other ways to use Colab’s file system, such as mounting your Google Drive, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp. Contact SSDS if you want to learn more.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1198,7 +1198,8 @@ title="Print to PDF"
 <span class="c1"># Step 2. “List” the contents of the current working directory</span>
 <span class="o">!</span>ls
 
-<span class="c1"># Step 3. Download the data file</span>
+<span class="c1"># Step 3. Use wget to download the data file</span>
+<span class="c1"># wget: https://www.gnu.org/software/wget/?</span>
 <span class="o">!</span>wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
 </pre></div>
 </div>
@@ -1222,22 +1223,26 @@ Solutions.ipynb
 <span class=" -Color -Color-Blue">img</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 16:29:44--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 19:51:24--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 200 OK
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>185.199.111.133, 185.199.108.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+HTTP request sent, awaiting response... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
 Length: 441075 (431K) [text/plain]
-Saving to: &#39;data/frankenstein.txt.2&#39;
+Saving to: &#39;data/frankenstein.txt.1&#39;
 
 
-frankenstein.txt.2    0%[                    ]       0  --.-KB/s               
+frankenstein.txt.1    0%[                    ]       0  --.-KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frankenstein.txt.2  100%[===================&gt;] 430.74K  --.-KB/s    in 0.05s   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frankenstein.txt.1  100%[===================&gt;] 430.74K  --.-KB/s    in 0.08s   
 
-2022-09-06 16:29:44 (8.69 MB/s) - &#39;data/frankenstein.txt.2&#39; saved [441075/441075]
+2022-09-06 19:51:25 (5.33 MB/s) - &#39;data/frankenstein.txt.1&#39; saved [441075/441075]
 </pre></div>
 </div>
 </div>
@@ -1316,6 +1321,36 @@ or, the Modern Prom
 <p>Now, you can use dot notation (type <code class="docutils literal notranslate"><span class="pre">pd.</span></code>)to access the functions within the pandas library.</p>
 <p>We want the <code class="docutils literal notranslate"><span class="pre">read.csv</span></code> method. Like the .txt file import above, we must provide the file path of the location of the .csv file we want to import.</p>
 <p>Save it in the variable named <code class="docutils literal notranslate"><span class="pre">gap</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 19:51:25--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.110.133, 185.199.109.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
+Length: 81887 (80K) [text/plain]
+Saving to: &#39;data/gapminder-FiveYearData.csv.1&#39;
+
+
+          gapminder   0%[                    ]       0  --.-KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gapminder-FiveYearD 100%[===================&gt;]  79.97K  --.-KB/s    in 0.03s   
+
+2022-09-06 19:51:26 (2.86 MB/s) - &#39;data/gapminder-FiveYearData.csv.1&#39; saved [81887/81887]
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/gapminder-FiveYearData.csv&quot;</span><span class="p">)</span>
@@ -1610,6 +1645,9 @@ or, the Modern Prom
 <li><p>Figure out how to export the <code class="docutils literal notranslate"><span class="pre">pen</span></code> dataframe as a file named “penguins_saved.csv”</p></li>
 </ol>
 <p>If you encounter error messages, which ones?</p>
+<blockquote>
+<div><p>Pro tip: See the Solutions chapter for code to copy files from your Colab environment to your Google Drive!</p>
+</div></blockquote>
 </section>
 <section id="numeric-data-wrangling">
 <h2>Numeric data wrangling<a class="headerlink" href="#numeric-data-wrangling" title="Permalink to this headline">#</a></h2>
