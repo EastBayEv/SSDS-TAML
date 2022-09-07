@@ -326,13 +326,15 @@ fruits['fruits'][1]['recipes'][0]
 
 # ### A note about importing data into Google Colab
 # 
-# Navigating Google Colab's file system can be challenging since it is slightly different from working on your local machine. Therefore, you will want to unhashtag the below lines of code to import the dataset into a subfolder named "data" inside of the main Colab "/content" directory.
+# Navigating Google Colab's file system can be challenging since it is slightly different from working on your local machine. 
 # 
-# **Unhashtag Steps 1-4 to save data in your Google Drive, which can then be importend to your Colab environment**
+# Run the code below to import the dataset into a temporary subfolder named "data" inside of the main Colab "/content" directory.
+# 
+# **Unhashtag Steps 1-3 to save data in your Google Drive, which can then be importend to your Colab environment**
 # 
 # > NOTE: Colab is a temporary environment with an idle timeout of 90 minutes and an absolute timeout of 12 hours.
 # >
-# >There are other ways to use Colab's file system, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp. 
+# >There are other ways to use Colab's file system, such as mounting your Google Drive, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp. 
 
 # In[31]:
 
