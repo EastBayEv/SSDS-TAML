@@ -629,8 +629,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eight
-clubs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nine
+diamonds
 </pre></div>
 </div>
 </div>
@@ -646,7 +646,7 @@ clubs
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Welcome to TAML at SSDS!
 
-Your lucky card for Tuesday 2022-09-06 is: eight of clubs
+Your lucky card for Tuesday 2022-09-06 is: nine of diamonds
 </pre></div>
 </div>
 </div>
@@ -780,32 +780,9 @@ False
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#4</span>
-<span class="o">!</span>wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt
+<span class="c1"># !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt</span>
 <span class="n">drac</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/dracula.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="c1"># print(drac)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 19:52:39--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.110.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
-Length: 865360 (845K) [text/plain]
-Saving to: &#39;data/dracula.txt.1&#39;
-
-
-dracula.txt.1         0%[                    ]       0  --.-KB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dracula.txt.1       100%[===================&gt;] 845.08K  --.-KB/s    in 0.1s    
-
-2022-09-06 19:52:40 (5.88 MB/s) - &#39;data/dracula.txt.1&#39; saved [865360/865360]
 </pre></div>
 </div>
 </div>
@@ -814,29 +791,13 @@ dracula.txt.1         0%[                    ]       0  --.-KB/s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#5</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="o">!</span>wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv
+<span class="c1"># !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv</span>
 <span class="n">pen</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/penguins.csv&quot;</span><span class="p">)</span>
 <span class="n">pen</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 19:52:40--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.110.133, 185.199.109.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 200 OK
-Length: 13478 (13K) [text/plain]
-Saving to: &#39;data/penguins.csv.2&#39;
-
-
-penguins.csv.2        0%[                    ]       0  --.-KB/s               
-penguins.csv.2      100%[===================&gt;]  13.16K  --.-KB/s    in 0s      
-
-2022-09-06 19:52:40 (33.0 MB/s) - &#39;data/penguins.csv.2&#39; saved [13478/13478]
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -997,25 +958,11 @@ penguins.csv.2      100%[===================&gt;]  13.16K  --.-KB/s    in 0s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can also copy files from Colab to your Google Drive</span>
 <span class="c1"># Mount your GDrive</span>
-<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+<span class="c1"># from google.colab import drive</span>
+<span class="c1"># drive.mount(&#39;/content/drive&#39;)</span>
 
 <span class="c1"># Copy a file from Colab to GDrive</span>
-<span class="o">!</span>cp dracula_short.txt /content/drive/MyDrive
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [15],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># You can also copy files from Colab to your Google Drive</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Mount your GDrive</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Copy a file from Colab to GDrive</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;google.colab&#39;
+<span class="c1"># !cp data/dracula_short.txt /content/drive/MyDrive</span>
 </pre></div>
 </div>
 </div>
@@ -1025,7 +972,7 @@ penguins.csv.2      100%[===================&gt;]  13.16K  --.-KB/s    in 0s
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#7</span>
 <span class="n">pen</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data/penguins_saved.csv&quot;</span><span class="p">)</span>
 
-<span class="o">!</span>cp data/penguins_saved.csv /content/drive/MyDrive
+<span class="c1"># !cp data/penguins_saved.csv /content/drive/MyDrive</span>
 </pre></div>
 </div>
 </div>
@@ -1046,7 +993,7 @@ penguins.csv.2      100%[===================&gt;]  13.16K  --.-KB/s    in 0s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="o">!</span>wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
+<span class="c1"># !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv</span>
 <span class="n">gap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/gapminder-FiveYearData.csv&quot;</span><span class="p">)</span>
 <span class="n">gap</span>
 </pre></div>
@@ -1205,7 +1152,7 @@ penguins.csv.2      100%[===================&gt;]  13.16K  --.-KB/s    in 0s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>59.47443936619714
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>59.474439366197174
 </pre></div>
 </div>
 </div>
@@ -1318,7 +1265,7 @@ gdpPercap    7.215327e+03
 dtype: float64
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_88390/1146573181.py:2: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_26599/1146573181.py:2: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
   print(gap.mean())
 </pre></div>
 </div>
@@ -1472,22 +1419,8 @@ Name: continent, dtype: int64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="o">!</span>wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv
+<span class="c1"># !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv</span>
 <span class="n">peng</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/penguins.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 19:05:16--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.111.133, 185.199.110.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 13478 (13K) [text/plain]
-Saving to: &#39;data/penguins.csv.1&#39;
-
-penguins.csv.1      100%[===================&gt;]  13.16K  --.-KB/s    in 0.002s  
-
-2022-09-06 19:05:16 (5.44 MB/s) - &#39;data/penguins.csv.1&#39; saved [13478/13478]
 </pre></div>
 </div>
 </div>
@@ -1720,22 +1653,8 @@ penguins.csv.1      100%[===================&gt;]  13.16K  --.-KB/s    in 0.002s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="o">!</span>wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
+<span class="c1"># !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv</span>
 <span class="n">gap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/gapminder-FiveYearData.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 19:05:57--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.111.133, 185.199.110.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 81887 (80K) [text/plain]
-Saving to: &#39;data/gapminder-FiveYearData.csv.1&#39;
-
-gapminder-FiveYearD 100%[===================&gt;]  79.97K  --.-KB/s    in 0.02s   
-
-2022-09-06 19:05:57 (3.96 MB/s) - &#39;data/gapminder-FiveYearData.csv.1&#39; saved [81887/81887]
 </pre></div>
 </div>
 </div>
@@ -1907,7 +1826,7 @@ gapminder-FiveYearD 100%[===================&gt;]  79.97K  --.-KB/s    in 0.02s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R-squared: 0.7999999999999999
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R-squared: 0.8
 </pre></div>
 </div>
 </div>
@@ -2029,12 +1948,7 @@ True
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the observable universe is a ballshaped region of the universe comprising all matter that can be observed from earth or its spacebased telescopes and exploratory probes at the present time because the electromagnetic radiation from these objects has had time to reach the solar system and earth since the beginning of the cosmological expansion there may be trillion galaxies in the observable universe although that number was reduced in to only several hundred billion based on data from new horizons assuming the universe is isotropic the distance to the edge of the observable universe is roughly the same in every direction that is the observable universe is a spherical region centered on the observer every location in the universe has its own observable universe which may or may not overlap with the one centered on earth the word observable in this sense does not refer to the capability of modern technology to detect light or other information from an object or whether there is anything to be detected it refers to the physical limit created by the speed of light itself no signal can travel faster than light hence there is a maximum distance called the particle horizon beyond which nothing can be detected as the signals could not have reached us yet sometimes astrophysicists distinguish between the visible universe which includes only signals emitted since recombination when hydrogen atoms were formed from protons and electrons and photons were emittedand the observable universe which includes signals since the beginning of the cosmological expansion the big bang in traditional physical cosmology the end of the inflationary epoch in modern cosmology according to calculations the current comoving distanceproper distance which takes into account that the universe has expanded since the light was emittedto particles from which the cosmic microwave background radiation cmbr was emitted which represents the radius of the visible universe is about billion parsecs about billion lightyears while the comoving distance to the edge of the observable universe is about billion parsecs about billion lightyears about larger the radius of the observable universe is therefore estimated to be about billion lightyears and its diameter about gigaparsecs billion lightyears or metres or feet which equals yottametres using the critical density and the diameter of the observable universe the total mass of ordinary matter in the universe can be calculated to be about kg in november astronomers reported that the extragalactic background light ebl amounted to photons as the universes expansion is accelerating all currently observable objects outside our local supercluster will eventually appear to freeze in time while emitting progressively redder and fainter light for instance objects with the current redshift z from to will remain observable for no more than billion years in addition light emitted by objects currently situated beyond a certain comoving distance currently about billion parsecs will never reach earth the size of the whole universe is unknown and it might be infinite in extent some parts of the universe are too far away for the light emitted since the big bang to have had enough time to reach earth or spacebased instruments and therefore lie outside the observable universe in the future light from distant galaxies will have had more time to travel so one might expect that additional regions will become observable however owing to hubbles law regions sufficiently distant from the earth are expanding away from it faster than the speed of lightnote and furthermore the expansion rate appears to be accelerating owing to dark energy assuming dark energy remains constant an unchanging cosmological constant so that the expansion rate of the universe continues to accelerate there is a future visibility limit beyond which objects will never enter our observable universe at any time in the infinite future because light emitted by objects outside that limit could never reach the earth a subtlety is that because the hubble parameter is decreasing with time there can be cases where a galaxy that is receding from the earth just a bit faster than light does emit a signal that reaches the earth eventually this future visibility limit is calculated at a comoving distance of billion parsecs billion lightyears assuming the universe will keep expanding forever which implies the number of galaxies that we can ever theoretically observe in the infinite future leaving aside the issue that some may be impossible to observe in practice due to redshift as discussed in the following paragraph is only larger than the number currently observable by a factor of note though in principle more galaxies will become observable in the future in practice an increasing number of galaxies will become extremely redshifted due to ongoing expansion so much so that they will seem to disappear from view and become invisible an additional subtlety is that a galaxy at a given comoving distance is defined to lie within the observable universe if we can receive signals emitted by the galaxy at any age in its past history say a signal sent from the galaxy only million years after the big bang but because of the universes expansion there may be some later age at which a signal sent from the same galaxy can never reach the earth at any point in the infinite future so for example we might never see what the galaxy looked like billion years after the big bang even though it remains at the same comoving distance comoving distance is defined to be constant with timeunlike proper distance which is used to define recession velocity due to the expansion of space which is less than the comoving radius of the observable universeclarification needed this fact can be used to define a type of cosmic event horizon whose distance from the earth changes over time for example the current distance to this horizon is about billion lightyears meaning that a signal from an event happening at present can eventually reach the earth in the future if the event is less than billion lightyears away but the signal will never reach the earth if the event is more than billion lightyears away both popular and professional research articles in cosmology often use the term universe to mean observable universecitation needed this can be justified on the grounds that we can never know anything by direct experimentation about any part of the universe that is causally disconnected from the earth although many credible theories require a total universe much larger than the observable universecitation needed no evidence exists to suggest that the boundary of the observable universe constitutes a boundary on the universe as a whole nor do any of the mainstream cosmological models propose that the universe has any physical boundary in the first place though some models propose it could be finite but unboundednote like a higherdimensional analogue of the d surface of a sphere that is finite in area but has no edge it is plausible that the galaxies within our observable universe represent only a minuscule fraction of the galaxies in the universe according to the theory of cosmic inflation initially introduced by its founders alan guth and d kazanas if it is assumed that inflation began about seconds after the big bang then with the plausible assumption that the size of the universe before the inflation occurred was approximately equal to the speed of light times its age that would suggest that at present the entire universes size is at least lightyearsat least times the radius of the observable universe if the universe is finite but unbounded it is also possible that the universe is smaller than the observable universe in this case what we take to be very distant galaxies may actually be duplicate images of nearby galaxies formed by light that has circumnavigated the universe it is difficult to test this hypothesis experimentally because different images of a galaxy would show different eras in its history and consequently might appear quite different bielewicz et al claim to establish a lower bound of gigaparsecs billion lightyears on the diameter of the last scattering surface since this is only a lower bound since the whole universe is possibly much larger even infinite this value is based on matchingcircle analysis of the wmap year data this approach has been disputed the comoving distance from earth to the edge of the observable universe is about gigaparsecs billion lightyears or m in any direction the observable universe is thus a sphere with a diameter of about gigaparsecs billion lightyears or m assuming that space is roughly flat in the sense of being a euclidean space this size corresponds to a comoving volume of about gpc gly or m the figures quoted above are distances now in cosmological time not distances at the time the light was emitted for example the cosmic microwave background radiation that we see right now was emitted at the time of photon decoupling estimated to have occurred about years after the big bang which occurred around billion years ago this radiation was emitted by matter that has in the intervening time mostly condensed into galaxies and those galaxies are now calculated to be about billion lightyears from us to estimate the distance to that matter at the time the light was emitted we may first note that according to the friedmannlemaîtrerobertsonwalker metric which is used to model the expanding universe if at the present time we receive light with a redshift of z then the scale factor at the time the light was originally emitted is given by a t z displaystyle atfrac z wmap nineyear results combined with other measurements give the redshift of photon decoupling as z which implies that the scale factor at the time of photon decoupling would be so if the matter that originally emitted the oldest cosmic microwave background cmbr photons has a present distance of billion lightyears then at the time of decoupling when the photons were originally emitted the distance would have been only about million lightyearscitation needed the lighttravel distance to the edge of the observable universe is the age of the universe times the speed of light billion light years this is the distance that a photon emitted shortly after the big bang such as one from the cosmic microwave background has travelled to reach observers on earth because spacetime is curved corresponding to the expansion of space this distance does not correspond to the true distance at any moment in time sky surveys and mappings of the various wavelength bands of electromagnetic radiation in particular cm emission have yielded much information on the content and character of the universes structure the organization of structure appears to follow a hierarchical model with organization up to the scale of superclusters and filaments larger than this at scales between and megaparsecs there seems to be no continued structure a phenomenon that has been referred to as the end of greatness the organization of structure arguably begins at the stellar level though most cosmologists rarely address astrophysics on that scale stars are organized into galaxies which in turn form galaxy groups galaxy clusters superclusters sheets walls and filaments which are separated by immense voids creating a vast foamlike structure sometimes called the cosmic web prior to it was commonly assumed that virialized galaxy clusters were the largest structures in existence and that they were distributed more or less uniformly throughout the universe in every direction however since the early s more and more structures have been discovered in adrian webster identified the webster lqg a large quasar group consisting of quasars the discovery was the first identification of a largescale structure and has expanded the information about the known grouping of matter in the universe in robert brent tully identified the piscescetus supercluster complex the galaxy filament in which the milky way resides it is about billion lightyears across that same year an unusually large region with a much lower than average distribution of galaxies was discovered the giant void which measures billion lightyears across based on redshift survey data in margaret geller and john huchra discovered the great wall a sheet of galaxies more than million lightyears long and million lightyears wide but only million lightyears thick the existence of this structure escaped notice for so long because it requires locating the position of galaxies in three dimensions which involves combining location information about the galaxies with distance information from redshifts two years later astronomers roger g clowes and luis e campusano discovered the clowescampusano lqg a large quasar group measuring two billion lightyears at its widest point which was the largest known structure in the universe at the time of its announcement in april another largescale structure was discovered the sloan great wall in august a possible supervoid was detected in the constellation eridanus it coincides with the cmb cold spot a cold region in the microwave sky that is highly improbable under the currently favored cosmological model this supervoid could cause the cold spot but to do so it would have to be improbably big possibly a billion lightyears across almost as big as the giant void mentioned above the largest structures in the universe are larger than expected are these actual structures or random density fluctuationsanother largescale structure is the ssa protocluster a collection of galaxies and enormous gas bubbles that measures about million lightyears across in a large quasar group was discovered u measuring about billion lightyears across on january another large quasar group the hugelqg was discovered which was measured to be four billion lightyears across the largest known structure in the universe at that time in november astronomers discovered the herculescorona borealis great wall an even bigger structure twice as large as the former it was defined by the mapping of gammaray bursts in the american astronomical society announced the detection of the giant arc a crescentshaped string of galaxies that span billion light years in length located billion light years from earth in the constellation boötes from observations captured by the sloan digital sky survey the end of greatness is an observational scale discovered at roughly mpc roughly million lightyears where the lumpiness seen in the largescale structure of the universe is homogenized and isotropized in accordance with the cosmological principle at this scale no pseudorandom fractalness is apparent the superclusters and filaments seen in smaller surveys are randomized to the extent that the smooth distribution of the universe is visually apparent it was not until the redshift surveys of the s were completed that this scale could accurately be observed another indicator of largescale structure is the lymanalpha forest this is a collection of absorption lines that appear in the spectra of light from quasars which are interpreted as indicating the existence of huge thin sheets of intergalactic mostly hydrogen gas these sheets appear to collapse into filaments which can feed galaxies as they grow where filaments either cross or are overdense an early direct evidence for this cosmic web of gas was the detection by astronomers from the riken cluster for pioneering research in japan and durham university in the uk of light from the very brightest part of this web surrounding and illuminated by a cluster of forming galaxies acting as cosmic flashlights for intercluster medium hydrogen fluorescence via lymanalpha emissions in an international team headed by roland bacon from the centre de recherche astrophysique de lyon reported the first observation of diffuse extended lymanalpha emission from redshift to that traced several cosmic web filaments on scales of cmpc in filamentary environments outside massive structures typical of web nodes some caution is required in describing structures on a cosmic scale because things are often different from how they appear gravitational lensing bending of light by gravitation can make an image appear to originate in a different direction from its real source this is caused when foreground objects such as galaxies curve surrounding spacetime as predicted by general relativity and deflect passing light rays rather usefully strong gravitational lensing can sometimes magnify distant galaxies making them easier to detect weak lensing gravitational shear by the intervening universe in general also subtly changes the observed largescale structure the largescale structure of the universe also looks different if one only uses redshift to measure distances to galaxies for example galaxies behind a galaxy cluster are attracted to it and so fall towards it and so are slightly blueshifted compared to how they would be if there were no cluster on the near side things are slightly redshifted thus the environment of the cluster looks somewhat squashed if using redshifts to measure distance an opposite effect works on the galaxies already within a cluster the galaxies have some random motion around the cluster center and when these random motions are converted to redshifts the cluster appears elongated this creates a finger of godthe illusion of a long chain of galaxies pointed at the earth at the centre of the hydracentaurus supercluster a gravitational anomaly called the great attractor affects the motion of galaxies over a region hundreds of millions of lightyears across these galaxies are all redshifted in accordance with hubbles law this indicates that they are receding from us and from each other but the variations in their redshift are sufficient to reveal the existence of a concentration of mass equivalent to tens of thousands of galaxies the great attractor discovered in lies at a distance of between million and million lightyears million is the most recent estimate in the direction of the hydra and centaurus constellations in its vicinity there is a preponderance of large old galaxies many of which are colliding with their neighbours or radiating large amounts of radio waves in astronomer r brent tully of the university of hawaiis institute of astronomy identified what he called the piscescetus supercluster complex a structure one billion lightyears long and million lightyears across in which he claimed the local supercluster was embedded the mass of the observable universe is often quoted as tons or kg in this context mass refers to ordinary matter and includes the interstellar medium ism and the intergalactic medium igm however it excludes dark matter and dark energy this quoted value for the mass of ordinary matter in the universe can be estimated based on critical density the calculations are for the observable universe only as the volume of the whole is unknown and may be infinite critical density is the energy density for which the universe is flat if there is no dark energy it is also the density for which the expansion of the universe is poised between continued expansion and collapse from the friedmann equations the value for ρ c displaystyle rho _c critical density is where g is the gravitational constant and h h is the present value of the hubble constant the value for h due to the european space agencys planck telescope is h kilometres per second per megaparsec this gives a critical density of kgm commonly quoted as about hydrogen atoms per cubic metre this density includes four significant types of energymass ordinary matter neutrinos cold dark matter and dark energy although neutrinos are standard model particles they are listed separately because they are ultrarelativistic and hence behave like radiation rather than like matter the density of ordinary matter as measured by planck is of the total critical density or kgm to convert this density to mass we must multiply by volume a value based on the radius of the observable universe since the universe has been expanding for billion years the comoving distance radius is now about billion lightyears thus volume πr equals m and the mass of ordinary matter equals density kgm times volume m or kg assuming the mass of ordinary matter is about kg as discussed above and assuming all atoms are hydrogen atoms which are about of all atoms in our galaxy by mass see abundance of the chemical elements the estimated total number of atoms in the observable universe is obtained by dividing the mass of ordinary matter by the mass of a hydrogen atom kg divided by kg the result is approximately hydrogen atoms also known as the eddington number the most distant astronomical object identified as of is a galaxy classified as hd with a redshift of corresponding to a distance of about billion light years in a gamma ray burst grb was found to have a redshift of which indicates that the collapsing star that caused it exploded when the universe was only million years old the burst happened approximately billion years ago so a distance of about billion lightyears was widely quoted in the media or sometimes a more precise figure of billion lightyears though this would be the light travel distance see distance measures cosmology rather than the proper distance used in both hubbles law and in defining the size of the observable universe cosmologist ned wright argues against the common use of light travel distance in astronomical press releases on this page and at the bottom of the page offers online calculators that can be used to calculate the current proper distance to a distant object in a flat universe based on either the redshift z or the light travel time the proper distance for a redshift of would be about gpc or about billion lightyears the limit of observability in our universe is set by a set of cosmological horizons which limitbased on various physical constraintsthe extent to which we can obtain information about various events in the universe the most famous horizon is the particle horizon which sets a limit on the precise distance that can be seen due to the finite age of the universe additional horizons are associated with the possible future extent of observations larger than the particle horizon owing to the expansion of space an optical horizon at the surface of last scattering and associated horizons with the surface of last scattering for neutrinos and gravitational waves 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(text)</span>
 </pre></div>
 </div>
 </div>
@@ -2054,6 +1968,19 @@ True
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [52],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#1</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">spacy</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">regex</span> <span class="k">as</span> <span class="nn">re</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;spacy&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2061,8 +1988,13 @@ True
 <span class="o">!</span>mkdir data/novels/
 
 <span class="c1"># Download the two novels</span>
-<span class="o">!</span>wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt
-<span class="o">!</span>wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
+<span class="c1"># !wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt</span>
+<span class="c1"># !wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkdir: data/novels/: File exists
 </pre></div>
 </div>
 </div>
@@ -2071,6 +2003,11 @@ True
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># See that they are there!</span>
 <span class="o">!</span>ls data/novels
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dracula.txt      frankenstein.txt
 </pre></div>
 </div>
 </div>

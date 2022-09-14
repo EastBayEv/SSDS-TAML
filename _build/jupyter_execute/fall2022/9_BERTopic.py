@@ -5,7 +5,7 @@
 # 
 # 2022 July 30
 
-# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/10_BERTopic.ipynb">
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/9_BERTopic.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 # </a>
 
@@ -103,7 +103,7 @@ topics, probs = model.fit_transform(documents)
 # 
 # * The BERTopic module has many built-in methods to view and analyze your fitted model topics. Here are some basics:
 
-# In[18]:
+# In[5]:
 
 
 # view your topics: 
@@ -117,21 +117,21 @@ print(topics_info.head(5))
 # 
 # * Forcing documents into a topic could decrease the quality of the topics generated, so it's usually a good idea to allow the model to discard inputs into this 'Topic -1' bin. 
 
-# In[17]:
+# In[6]:
 
 
 # access a single topic: 
 print(model.get_topic(topic=0)) # .get_topics() accesses all topics
 
 
-# In[16]:
+# In[7]:
 
 
 # get representative documents for a specific topic: 
 print(model.get_representative_docs(topic=0)) # omit the 'topic' parameter to get docs for all topics 
 
 
-# In[15]:
+# In[8]:
 
 
 # find topics similar to a key term/phrase: 

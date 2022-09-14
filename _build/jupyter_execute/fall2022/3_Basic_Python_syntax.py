@@ -346,8 +346,8 @@ get_ipython().system('mkdir data')
 get_ipython().system('ls')
 
 # Step 3. Use wget to download the data file
-# wget: https://www.gnu.org/software/wget/?
-get_ipython().system('wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt')
+# learn more about wget: https://www.gnu.org/software/wget/?
+# !wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
 
 
 # In[32]:
@@ -392,7 +392,8 @@ import pandas as pd
 # In[35]:
 
 
-get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv')
+# Colab users: grab the data! Unhashtag the line below
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
 
 
 # In[36]:

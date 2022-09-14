@@ -1199,8 +1199,8 @@ title="Print to PDF"
 <span class="o">!</span>ls
 
 <span class="c1"># Step 3. Use wget to download the data file</span>
-<span class="c1"># wget: https://www.gnu.org/software/wget/?</span>
-<span class="o">!</span>wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
+<span class="c1"># learn more about wget: https://www.gnu.org/software/wget/?</span>
+<span class="c1"># !wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt</span>
 </pre></div>
 </div>
 </div>
@@ -1221,28 +1221,6 @@ Appendix.ipynb
 Solutions.ipynb
 <span class=" -Color -Color-Blue">data</span>
 <span class=" -Color -Color-Blue">img</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 19:51:24--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>185.199.111.133, 185.199.108.133, 185.199.110.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
-HTTP request sent, awaiting response... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
-Length: 441075 (431K) [text/plain]
-Saving to: &#39;data/frankenstein.txt.1&#39;
-
-
-frankenstein.txt.1    0%[                    ]       0  --.-KB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frankenstein.txt.1  100%[===================&gt;] 430.74K  --.-KB/s    in 0.08s   
-
-2022-09-06 19:51:25 (5.33 MB/s) - &#39;data/frankenstein.txt.1&#39; saved [441075/441075]
 </pre></div>
 </div>
 </div>
@@ -1323,30 +1301,8 @@ or, the Modern Prom
 <p>Save it in the variable named <code class="docutils literal notranslate"><span class="pre">gap</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-09-06 19:51:25--  https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.110.133, 185.199.109.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
-Length: 81887 (80K) [text/plain]
-Saving to: &#39;data/gapminder-FiveYearData.csv.1&#39;
-
-
-          gapminder   0%[                    ]       0  --.-KB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gapminder-FiveYearD 100%[===================&gt;]  79.97K  --.-KB/s    in 0.03s   
-
-2022-09-06 19:51:26 (2.86 MB/s) - &#39;data/gapminder-FiveYearData.csv.1&#39; saved [81887/81887]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Colab users: grab the data! Unhashtag the line below</span>
+<span class="c1"># !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv</span>
 </pre></div>
 </div>
 </div>

@@ -78,7 +78,7 @@ plt.show()
 
 
 # load gapminder dataset
-get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv')
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 gap.head()
 

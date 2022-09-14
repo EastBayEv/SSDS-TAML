@@ -306,7 +306,7 @@ print(round(RMSE, 5))
 
 
 # load data
-get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv')
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv
 penguins = pd.read_csv("data/penguins.csv")
 
 

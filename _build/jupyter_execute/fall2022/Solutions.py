@@ -146,7 +146,7 @@ dict_one
 
 
 #4
-get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt')
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt
 drac = open("data/dracula.txt").read()
 # print(drac)
 
@@ -156,7 +156,7 @@ drac = open("data/dracula.txt").read()
 
 #5
 import pandas as pd
-get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv')
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv
 pen = pd.read_csv("data/penguins.csv")
 pen
 
@@ -178,20 +178,20 @@ with open('data/dracula_short.txt', 'w', encoding='utf-8') as f:
 
 # You can also copy files from Colab to your Google Drive
 # Mount your GDrive
-from google.colab import drive
-drive.mount('/content/drive')
+# from google.colab import drive
+# drive.mount('/content/drive')
 
 # Copy a file from Colab to GDrive
-get_ipython().system('cp dracula_short.txt /content/drive/MyDrive')
+# !cp data/dracula_short.txt /content/drive/MyDrive
 
 
-# In[47]:
+# In[16]:
 
 
 #7
 pen.to_csv("data/penguins_saved.csv")
 
-get_ipython().system('cp data/penguins_saved.csv /content/drive/MyDrive')
+# !cp data/penguins_saved.csv /content/drive/MyDrive
 
 
 # ## Chapter 4 - Exercises
@@ -204,52 +204,52 @@ get_ipython().system('cp data/penguins_saved.csv /content/drive/MyDrive')
 # 6. Compute mean lifeExp and dgpPercap by continent
 # 7. Create a subset of `gap` that contains only countries with lifeExp greater than 75 and gdpPercap less than 5000.
 
-# In[50]:
+# In[17]:
 
 
 #1
 import pandas as pd
-get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv')
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 gap
 
 
-# In[51]:
+# In[18]:
 
 
 #2
 gap.columns
 
 
-# In[53]:
+# In[19]:
 
 
 #3
 gap["lifeExp"].mean()
 
 
-# In[69]:
+# In[20]:
 
 
 # or
 gap.describe()
 
 
-# In[55]:
+# In[21]:
 
 
 #4
 print(gap.mean())
 
 
-# In[56]:
+# In[22]:
 
 
 #5
 gap["continent"].value_counts()
 
 
-# In[68]:
+# In[23]:
 
 
 #6
@@ -258,7 +258,7 @@ le_gdp_by_continent = gap.groupby("continent").agg(mean_le = ("lifeExp", "mean")
 le_gdp_by_continent
 
 
-# In[78]:
+# In[24]:
 
 
 #7 
@@ -275,16 +275,16 @@ gap_75_1000
 # 3. Make the same scatterplot as #1 above again. This time color each point by island.
 # 4. Use the `sns.FacetGrid` method to make faceted plots to examine "flipper_length_mm" on the x-axis, and "body_mass_g" on the y-axis. 
 
-# In[1]:
+# In[25]:
 
 
 import pandas as pd
 import seaborn as sns
-get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv')
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv
 peng = pd.read_csv("data/penguins.csv")
 
 
-# In[2]:
+# In[26]:
 
 
 # set seaborn figure size, background theme, and axis and tick label size
@@ -293,13 +293,13 @@ sns.set(font_scale = 2)
 sns.set_theme(style='ticks')
 
 
-# In[3]:
+# In[27]:
 
 
 peng
 
 
-# In[4]:
+# In[28]:
 
 
 #1
@@ -308,7 +308,7 @@ sns.scatterplot(data = peng, x = "flipper_length_mm", y = "body_mass_g",
                s = 250, alpha = 0.75);
 
 
-# In[5]:
+# In[29]:
 
 
 #2
@@ -322,7 +322,7 @@ sns.scatterplot(data = peng, x = "flipper_length_mm", y = "body_mass_g",
                                                  loc = "best");
 
 
-# In[6]:
+# In[30]:
 
 
 #3
@@ -330,7 +330,7 @@ sns.scatterplot(data = peng, x = "flipper_length_mm", y = "body_mass_g",
                 hue = "island").legend(loc = "lower right");
 
 
-# In[7]:
+# In[31]:
 
 
 #4
@@ -345,37 +345,37 @@ facet_plot.map(sns.scatterplot, "flipper_length_mm", "body_mass_g");
 # 3. How can you plot gdpPercap with a different colored line for each continent? 
 # 4. Plot lifeExp with a different colored line for each continent. 
 
-# In[8]:
+# In[32]:
 
 
 import pandas as pd
 import seaborn as sns
-get_ipython().system('wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv')
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[9]:
+# In[33]:
 
 
 #1
 sns.lineplot(data = gap, x = "year", y = "gdpPercap", ci = 95);
 
 
-# In[10]:
+# In[34]:
 
 
 #2
 sns.lineplot(data = gap, x = "year", y = "lifeExp", ci = False);
 
 
-# In[11]:
+# In[35]:
 
 
 #3
 sns.lineplot(data = gap, x = "year", y = "gdpPercap", hue = "continent", ci = False);
 
 
-# In[12]:
+# In[36]:
 
 
 #4
@@ -383,7 +383,7 @@ sns.lineplot(data = gap, x = "year", y = "lifeExp",
              hue = "continent", ci = False);
 
 
-# In[245]:
+# In[37]:
 
 
 #4 with custom colors
@@ -404,7 +404,7 @@ sns.lineplot(data = gap, x = "year", y = "lifeExp",
 #     * RMSE = 2.82843
 #     * y_hat = y_hat = B0 + B1 * data.x
 
-# In[266]:
+# In[38]:
 
 
 #1 
@@ -412,7 +412,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
 
-# In[267]:
+# In[39]:
 
 
 # Recreate dataset
@@ -422,7 +422,7 @@ data = pd.DataFrame({"x": [1,2,3,4,5],
 data
 
 
-# In[268]:
+# In[40]:
 
 
 # Our "by hand" OLS regression information:
@@ -432,7 +432,7 @@ RMSE = 2.82843
 y_hat = B0 + B1 * data.x
 
 
-# In[269]:
+# In[41]:
 
 
 # use scikit-learn to compute R-squared value
@@ -440,7 +440,7 @@ lin_mod = LinearRegression().fit(data[['x']], data[['y']])
 print("R-squared: " + str(lin_mod.score(data[['x']], data[['y']])))
 
 
-# In[270]:
+# In[42]:
 
 
 # use scikit-learn to compute slope and intercept
@@ -448,7 +448,7 @@ print("scikit-learn slope: " + str(lin_mod.coef_))
 print("scikit-learn intercept: " + str(lin_mod.intercept_))
 
 
-# In[271]:
+# In[43]:
 
 
 # compare to our by "hand" versions. Both are the same!
@@ -456,7 +456,7 @@ print(int(lin_mod.coef_) == B1)
 print(int(lin_mod.intercept_) == B0)
 
 
-# In[272]:
+# In[44]:
 
 
 # use scikit-learn to compute RMSE
@@ -464,7 +464,7 @@ RMSE_scikit = round(mean_squared_error(data.y, y_hat, squared = False), 5)
 print(RMSE_scikit)
 
 
-# In[273]:
+# In[45]:
 
 
 # Does our hand-computed RMSE equal that of scikit-learn at 5 digits?? Yes!
@@ -478,14 +478,14 @@ print(round(RMSE, 5) == round(RMSE_scikit, 5))
 # 1. Read through the code below
 # 2. Practice by repeating for a webpage of your choice
 
-# In[324]:
+# In[46]:
 
 
 #1 
 # See 7_English_preprocessing_basics.ipynb
 
 
-# In[344]:
+# In[47]:
 
 
 #2
@@ -495,7 +495,7 @@ import regex as re
 import nltk
 
 
-# In[345]:
+# In[48]:
 
 
 url = "https://en.wikipedia.org/wiki/Observable_universe"
@@ -503,7 +503,7 @@ response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html')
 
 
-# In[346]:
+# In[49]:
 
 
 text = ""
@@ -512,7 +512,7 @@ for paragraph in soup.find_all('p'):
     text += paragraph.text
 
 
-# In[347]:
+# In[50]:
 
 
 text = re.sub(r'\[[0-9]*\]',' ',text)
@@ -523,17 +523,17 @@ text = text.lower()
 text = re.sub(r'\s+',' ',text)
 
 
-# In[348]:
+# In[51]:
 
 
-print(text)
+# print(text)
 
 
 # ## Chapter 7 - Exercise - _Dracula_ versus _Frankenstein_
 # 
 # 1. Investigate classic horror novel vocabulary. Create a single TF-IDF sparse matrix that contains the vocabulary for _Frankenstein_ and _Dracula_. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. What are the 20 most unique words in each? Make a dataframe or visualization to illustrate the differences.
 
-# In[ ]:
+# In[52]:
 
 
 #1
@@ -542,25 +542,25 @@ import regex as re
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-# In[ ]:
+# In[53]:
 
 
 # Create a new directory to house the two novels
 get_ipython().system('mkdir data/novels/')
 
 # Download the two novels
-get_ipython().system('wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt')
-get_ipython().system('wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt')
+# !wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt
+# !wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
 
 
-# In[ ]:
+# In[54]:
 
 
 # See that they are there!
 get_ipython().system('ls data/novels')
 
 
-# In[375]:
+# In[55]:
 
 
 import os
@@ -570,7 +570,7 @@ corpus = os.listdir('data/novels/')
 corpus
 
 
-# In[361]:
+# In[56]:
 
 
 empty_dictionary = {}
@@ -587,54 +587,54 @@ novels = (pd.DataFrame.from_dict(empty_dictionary,
                                       columns = {'index': 'file_name', 0: 'document_text'}))
 
 
-# In[362]:
+# In[57]:
 
 
 novels
 
 
-# In[363]:
+# In[58]:
 
 
 novels['clean_text'] = novels['document_text'].str.replace(r'[^\w\s]', ' ', regex = True)
 novels
 
 
-# In[364]:
+# In[59]:
 
 
 novels['clean_text'] = novels['clean_text'].str.replace(r'\d', ' ', regex = True)
 novels
 
 
-# In[366]:
+# In[60]:
 
 
 novels['clean_text'] = novels['clean_text'].str.encode('ascii', 'ignore').str.decode('ascii')
 novels
 
 
-# In[368]:
+# In[61]:
 
 
 novels['clean_text'] = novels['clean_text'].str.replace(r'\s+', ' ', regex = True)
 novels
 
 
-# In[370]:
+# In[62]:
 
 
 novels['clean_text'] = novels['clean_text'].str.lower()
 novels
 
 
-# In[373]:
+# In[63]:
 
 
 # !python -m spacy download en_core_web_sm
 
 
-# In[374]:
+# In[64]:
 
 
 nlp = spacy.load('en_core_web_sm')
@@ -642,7 +642,7 @@ novels['clean_text'] = novels['clean_text'].apply(lambda row: ' '.join([w.lemma_
 novels
 
 
-# In[377]:
+# In[65]:
 
 
 tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3), 
@@ -652,26 +652,26 @@ tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3),
 tf_sparse = tf_vectorizer.fit_transform(novels['clean_text'])
 
 
-# In[378]:
+# In[66]:
 
 
 tf_sparse.shape
 
 
-# In[379]:
+# In[67]:
 
 
 tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names())
 tfidf_df
 
 
-# In[380]:
+# In[68]:
 
 
 tfidf_df.max().sort_values(ascending = False).head(n = 20)
 
 
-# In[383]:
+# In[69]:
 
 
 titles = novels['file_name'].str.slice(stop = -4)
@@ -679,14 +679,14 @@ titles = list(titles)
 titles
 
 
-# In[385]:
+# In[70]:
 
 
 tfidf_df['TITLE'] = titles
 tfidf_df
 
 
-# In[386]:
+# In[71]:
 
 
 # dracula top 20 words
@@ -694,7 +694,7 @@ title = tfidf_df[tfidf_df['TITLE'] == 'frankenstein']
 title.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 
-# In[387]:
+# In[72]:
 
 
 # dracula top 20 words

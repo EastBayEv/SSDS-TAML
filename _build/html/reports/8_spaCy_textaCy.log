@@ -17,15 +17,17 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+# !pip install textacy
 import spacy
 import textacy
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Input [0;32mIn [1][0m, in [0;36m<cell line: 1>[0;34m()[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mspacy[39;00m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mtextacy[39;00m
+Input [0;32mIn [1][0m, in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m [38;5;66;03m# !pip install textacy[39;00m
+[0;32m----> 2[0m [38;5;28;01mimport[39;00m [38;5;21;01mspacy[39;00m
+[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mtextacy[39;00m
 
 [0;31mModuleNotFoundError[0m: No module named 'spacy'
 ModuleNotFoundError: No module named 'spacy'

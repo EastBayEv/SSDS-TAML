@@ -6,7 +6,7 @@
 # 2022 August 22 
 # > These abridged materials are borrowed from the CIDR Workshop [Text Analysis with Python](https://github.com/sul-cidr/Workshops/tree/master/Text_Analysis_with_Python)
 
-# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/9_spaCy_textaCy.ipynb">
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/8_spaCy_textaCy.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 # </a>
 
@@ -41,6 +41,7 @@
 # In[1]:
 
 
+# !pip install textacy
 import spacy
 import textacy
 
@@ -397,10 +398,10 @@ data.download()
 
 # The documentation indicates the metadata that is available with each text.
 
-# In[32]:
+# In[55]:
 
 
-help(textacy.datasets.supreme_court)
+# help(textacy.datasets.supreme_court)
 
 
 # textacy is based on the concept of a corpus, whereas spaCy focuses on single documents. A textacy corpus is instantiated with a spaCy language model (we're using the one from the first half of this workshop) that is used to apply its analytical pipeline to each text in the corpus, and also given a set of records consisting of texts with metadata (if metadata is available).
@@ -429,7 +430,7 @@ for i, record in enumerate(recent_decisions):
 #corpus = textacy.Corpus.load(nlp, "scotus_2010.bin.gz")
 
 
-# In[35]:
+# In[34]:
 
 
 print(len(corpus))
@@ -440,13 +441,13 @@ print(len(corpus))
 
 # We can filter this corpus based on metadata attributes.
 
-# In[36]:
+# In[35]:
 
 
 corpus[0]._.meta
 
 
-# In[37]:
+# In[36]:
 
 
 # Here we'll find all the cases where the number of justices voting in the majority was greater than 6. 
@@ -454,7 +455,7 @@ supermajorities = [doc for doc in corpus.get(lambda doc: doc._.meta["n_maj_votes
 len(supermajorities)
 
 
-# In[38]:
+# In[37]:
 
 
 supermajorities[0]._.preview
@@ -462,7 +463,7 @@ supermajorities[0]._.preview
 
 # ## Finding important words in the corpus
 
-# In[39]:
+# In[38]:
 
 
 print("number of documents: ", corpus.n_docs)
@@ -470,13 +471,13 @@ print("number of sentences: ", corpus.n_sents)
 print("number of tokens: ", corpus.n_tokens)
 
 
-# In[40]:
+# In[39]:
 
 
 corpus.word_counts(by="orth_", filter_stops=False, filter_punct=False, filter_nums=False)
 
 
-# In[41]:
+# In[40]:
 
 
 def show_doc_counts(input_corpus, weighting, limit=20):
@@ -486,7 +487,7 @@ def show_doc_counts(input_corpus, weighting, limit=20):
 
 # `word_doc_counts` provides a few ways of quantifying the prevalence of individual words across the corpus: whether a word appears many times in most documents, just a few times in a few documents, many times in a few documents, or just a few times in most documents.
 
-# In[42]:
+# In[41]:
 
 
 print("# DOCS APPEARING IN / TOTAL # DOCS", "\n", "-----------", sep="")
@@ -497,19 +498,19 @@ show_doc_counts(corpus, "idf")
 
 # textacy provides implementations of algorithms for identifying words and phrases that are representative of a document (aka **keyterm extraction**).
 
-# In[43]:
+# In[42]:
 
 
 from textacy.extract import keyterms as ke
 
 
+# In[56]:
+
+
+# corpus[0].text
+
+
 # In[44]:
-
-
-corpus[0].text
-
-
-# In[47]:
 
 
 # Run the Yake algorithim (Campos et al., 2018) on a given document
@@ -521,7 +522,7 @@ key_terms_yake
 # 
 # Sometimes researchers find it helpful just to see a particular keyword in context.
 
-# In[48]:
+# In[45]:
 
 
 for doc in corpus[:5]:
@@ -536,7 +537,7 @@ for doc in corpus[:5]:
 # 
 # We'll create a vectorizer, sticking with the normal term frequency defaults but discarding words that appear in fewer than 3 documents or more than 95% of documents. We'll also limit our features to the top 500 words according to document frequency. This means our feature set, or columns, will have a higher degree of representation across the corpus. We could further scale these counts according to document frequency (or inverse document frequency) weights, or normalize the weights so that they add up to 1 for each document row (L1 norm), and so on.
 
-# In[49]:
+# In[46]:
 
 
 import textacy.representations
@@ -551,7 +552,7 @@ dtm
 
 # We have now have a matrix representation of our corpus, where rows are documents, and columns (or features) are words from the corpus. The value at any given point is the number of times that the word appears in that document. Once we have a document-term matrix, we could do several things with it just within textacy, though we also can pass it into different algorithms within `scikit-learn` or other libraries. 
 
-# In[50]:
+# In[47]:
 
 
 # Let's look at some of the terms
@@ -564,7 +565,7 @@ vectorizer.terms_list[:20]
 # 
 # 1. Read through the below code to quickly look at one example of what we can do with a vectorized corpus. Topic modeling is very popular for semantic exploration of texts, and there are numerous implementations of it. Textacy uses implementations from scikit-learn. Our corpus is rather small for topic modeling, but just to see how it's done here, we'll go ahead. First, though, topic modeling works best when the texts are divided into approximately equal-sized "chunks." A quick word-count of the corpus will show that the decisions are of quite variable lengths, which will skew the topic model.
 
-# In[51]:
+# In[48]:
 
 
 for doc in corpus:
@@ -573,7 +574,7 @@ for doc in corpus:
 
 # We'll re-chunk the texts into documents of not more than 500 words and then recompute the document-term matrix.
 
-# In[52]:
+# In[49]:
 
 
 chunked_corpus_unflattened = [
@@ -584,7 +585,7 @@ chunked_dtm = vectorizer.fit_transform(chunked_corpus)
 chunked_dtm
 
 
-# In[53]:
+# In[50]:
 
 
 import textacy.tm
@@ -594,7 +595,7 @@ model.fit(chunked_dtm)
 doc_topic_matrix = model.transform(chunked_dtm)
 
 
-# In[54]:
+# In[51]:
 
 
 for topic_idx, top_terms in model.top_topic_terms(vectorizer.id_to_term, top_n=10):
@@ -607,7 +608,7 @@ for topic_idx, top_terms in model.top_topic_terms(vectorizer.id_to_term, top_n=1
 # 
 # To evaluate this similarity comparison, we'll compute the similarity of each pair of docs in the corpus, and then branch out into `scikit-learn` a bit to look for clusters based on these similarity measurements.
 
-# In[55]:
+# In[52]:
 
 
 import numpy as np
@@ -629,7 +630,7 @@ distance_matrix
 
 # The [OPTICS](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.OPTICS.html) hierarchical density-based clustering algorithm only finds one cluster with its default settings, but an examination of the legal issue types coded to each decision indicates that the `word2vec`-based clustering has indeed produced a group of semantically related documents.
 
-# In[56]:
+# In[53]:
 
 
 from sklearn.cluster import OPTICS
@@ -638,7 +639,7 @@ clustering = OPTICS(metric='precomputed').fit(distance_matrix)
 print(clustering.labels_)
 
 
-# In[57]:
+# In[54]:
 
 
 from itertools import groupby

@@ -67,7 +67,7 @@ warnings.filterwarnings("ignore", category = DeprecationWarning)
 # In[3]:
 
 
-get_ipython().system('wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt')
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt
 text = open("data/dracula.txt").read()
 
 # print just the first 100 characters
@@ -180,7 +180,7 @@ stmer = nltk.PorterStemmer()
 lmtzr = nltk.WordNetLemmatizer()
 
 
-# In[14]:
+# In[13]:
 
 
 # do you see any differences?
@@ -197,7 +197,7 @@ print(token_lemma[:20])
 # 
 # Part of speech tags are labels given to each word in a text such as verbs, adverbs, nouns, pronouns, adjectives, conjunctions, and their various derivations and subcategories. 
 
-# In[15]:
+# In[14]:
 
 
 tagged = nltk.pos_tag(token_lemma)
@@ -209,7 +209,7 @@ print(nltk.pos_tag(ex_string.split()))
 
 # The output of .pos_tag is a list of tuples (immutable pairs), where the first element is a text token and the second is a part of speech. Note that, in our example string, the token 'refuse' shows up twice - once as a verb, and once as a noun. In the output to .pos_tag, the first tuple with 'refuse' has the 'VBP' tag (present tense verb) and the second tuple has the 'NN' tag (noun). Nifty!
 
-# In[20]:
+# In[15]:
 
 
 chunked = nltk.chunk.ne_chunk(tagged)
@@ -217,19 +217,19 @@ chunked = nltk.chunk.ne_chunk(tagged)
 
 # ## Convert to dataframe
 
-# In[21]:
+# In[16]:
 
 
 df = pd.DataFrame(chunked, columns=['word', 'pos'])
 
 
-# In[22]:
+# In[17]:
 
 
 df.head(n = 10)
 
 
-# In[23]:
+# In[18]:
 
 
 df.shape
@@ -237,7 +237,7 @@ df.shape
 
 # ## Visualize the 20 most frequent words
 
-# In[24]:
+# In[19]:
 
 
 top = df.copy()
@@ -246,19 +246,19 @@ count_words = Counter(top['word'])
 count_words.most_common()[:20]
 
 
-# In[25]:
+# In[20]:
 
 
 words_df = pd.DataFrame(count_words.items(), columns=['word', 'count']).sort_values(by = 'count', ascending=False)
 
 
-# In[26]:
+# In[21]:
 
 
 words_df[:20]
 
 
-# In[27]:
+# In[22]:
 
 
 # What would you need to do to improve an approach to word visualization such as this one?
@@ -280,7 +280,7 @@ top_plot.set_xticklabels(top_plot.get_xticklabels(),rotation = 40);
 # 
 # Set the directory's file path and print the files it contains.
 
-# In[ ]:
+# In[23]:
 
 
 # Make the directory "human_rights" inside of data
@@ -288,31 +288,41 @@ get_ipython().system('mkdir data')
 get_ipython().system('mkdir data/human_rights')
 
 
-# In[ ]:
+# In[24]:
+
+
+# If your "data" folder already exists in Colab and you want to delete it, type:
+# !rm -r data
+
+# If the "human_rights" folder already exists in Colab and you want to delete it, type:
+# !rm -r data/human_rights
+
+
+# In[25]:
 
 
 # Download elevent UN HRC files
-get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/afghanistan2014.txt')
-get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/bangladesh2013.txt')
-get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/cotedivoire2014.txt')
-get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/djibouti2013.txt')
-get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/fiji2014.txt')
-get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/jordan2013.txt')
-get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/kazakhstan2014.txt')
-get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/monaco2013.txt')
-get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/sanmarino2014.txt')
-get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/turkmenistan2013.txt')
-get_ipython().system('wget -P data/human_rights/ https://github.com/EastBayEv/SSDS-TAML/blob/main/fall2022/data/human_rights/tuvalu2013.txt')
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/afghanistan2014.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/bangladesh2013.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/cotedivoire2014.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/djibouti2013.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/fiji2014.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/jordan2013.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/kazakhstan2014.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/monaco2013.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/sanmarino2014.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/turkmenistan2013.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/tuvalu2013.txt
 
 
-# In[2]:
+# In[26]:
 
 
 # Check that we have eleven files, one for each country
 get_ipython().system('ls data/human_rights/')
 
 
-# In[28]:
+# In[27]:
 
 
 import os
@@ -324,7 +334,7 @@ corpus
 
 # ### Store these documents in a data frame
 
-# In[29]:
+# In[28]:
 
 
 # Store in an empty dictionary for conversion to data frame
@@ -344,7 +354,7 @@ human_rights = (pd.DataFrame.from_dict(empty_dictionary,
 
 # ### View the data frame
 
-# In[30]:
+# In[29]:
 
 
 human_rights
@@ -352,7 +362,7 @@ human_rights
 
 # ### View the text of the first document
 
-# In[31]:
+# In[30]:
 
 
 # first thousand characters
@@ -380,20 +390,20 @@ print(human_rights['document_text'][0][:1000])
 
 # ### Remove non-alphanumeric characters/punctuation
 
-# In[37]:
+# In[31]:
 
 
 # Create a new column 'clean_text' to store the text we are standardizing
 human_rights['clean_text'] = human_rights['document_text'].str.replace(r'[^\w\s]', ' ', regex = True)
 
 
-# In[38]:
+# In[32]:
 
 
 print(human_rights['clean_text'][0][:1000])
 
 
-# In[39]:
+# In[33]:
 
 
 # view third column
@@ -402,10 +412,54 @@ human_rights
 
 # ### Remove digits
 
-# In[40]:
+# In[34]:
 
 
 human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\d', ' ', regex = True)
+
+
+# In[35]:
+
+
+print(human_rights['clean_text'][0][:1000])
+
+
+# ### Remove unicode characters such as Ð and ð
+
+# In[36]:
+
+
+# for more on text encodings: https://www.w3.org/International/questions/qa-what-is-encoding
+human_rights['clean_text'] = human_rights['clean_text'].str.encode('ascii', 'ignore').str.decode('ascii')
+
+
+# In[37]:
+
+
+print(human_rights['clean_text'][0][:1000])
+
+
+# ### Remove extra spaces
+
+# In[38]:
+
+
+import regex as re
+human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\s+', ' ', regex = True)
+
+
+# In[39]:
+
+
+print(human_rights['clean_text'][0][:1000])
+
+
+# ### Convert to lowercase
+
+# In[40]:
+
+
+human_rights['clean_text'] = human_rights['clean_text'].str.lower()
 
 
 # In[41]:
@@ -414,75 +468,31 @@ human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\d', ' ', 
 print(human_rights['clean_text'][0][:1000])
 
 
-# ### Remove unicode characters such as Ð and ð
-
-# In[42]:
-
-
-# for more on text encodings: https://www.w3.org/International/questions/qa-what-is-encoding
-human_rights['clean_text'] = human_rights['clean_text'].str.encode('ascii', 'ignore').str.decode('ascii')
-
-
-# In[43]:
-
-
-print(human_rights['clean_text'][0][:1000])
-
-
-# ### Remove extra spaces
-
-# In[44]:
-
-
-import regex as re
-human_rights['clean_text'] = human_rights['clean_text'].str.replace(r'\s+', ' ', regex = True)
-
-
-# In[45]:
-
-
-print(human_rights['clean_text'][0][:1000])
-
-
-# ### Convert to lowercase
-
-# In[46]:
-
-
-human_rights['clean_text'] = human_rights['clean_text'].str.lower()
-
-
-# In[47]:
-
-
-print(human_rights['clean_text'][0][:1000])
-
-
 # ### Lemmatize
 
-# In[48]:
+# In[42]:
 
 
 # !python -m spacy download en_core_web_sm
 # !python -m spacy download en_core_web_lg
 
 
-# In[49]:
+# In[43]:
 
 
 nlp = spacy.load('en_core_web_sm')
 human_rights['clean_text'] = human_rights['clean_text'].apply(lambda row: ' '.join([w.lemma_ for w in nlp(row)]))
 
 
-# In[50]:
+# In[44]:
 
 
-print(human_rights['clean_text'][0])
+# print(human_rights['clean_text'][0])
 
 
 # ### View the updated data frame
 
-# In[51]:
+# In[45]:
 
 
 human_rights
@@ -504,7 +514,7 @@ human_rights
 # 
 # [towardsdatascience](https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558)
 
-# In[52]:
+# In[46]:
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -516,13 +526,13 @@ tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3),
 tf_sparse = tf_vectorizer.fit_transform(human_rights['clean_text'])
 
 
-# In[53]:
+# In[47]:
 
 
 tf_sparse.shape
 
 
-# In[54]:
+# In[48]:
 
 
 print(tf_sparse)
@@ -530,7 +540,7 @@ print(tf_sparse)
 
 # ### Convert the tfidf sparse matrix to data frame
 
-# In[55]:
+# In[49]:
 
 
 tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names())
@@ -539,7 +549,7 @@ tfidf_df
 
 # ### View 20 highest weighted words
 
-# In[56]:
+# In[50]:
 
 
 tfidf_df.max().sort_values(ascending = False).head(n = 20)
@@ -549,7 +559,7 @@ tfidf_df.max().sort_values(ascending = False).head(n = 20)
 # 
 # This way, we will know which document is relative to which country.
 
-# In[60]:
+# In[51]:
 
 
 # wrangle the country names from the human_rights data frame
@@ -558,13 +568,13 @@ countries = list(countries)
 countries
 
 
-# In[61]:
+# In[52]:
 
 
 tfidf_df['COUNTRY'] = countries
 
 
-# In[62]:
+# In[53]:
 
 
 tfidf_df
@@ -574,7 +584,7 @@ tfidf_df
 # 
 # Change the country names to view their highest rated terms.
 
-# In[63]:
+# In[54]:
 
 
 country = tfidf_df[tfidf_df['COUNTRY'] == 'jordan']
@@ -591,7 +601,7 @@ country.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 # ### Download the nltk built movie reviews dataset
 
-# In[64]:
+# In[55]:
 
 
 import nltk
@@ -601,7 +611,7 @@ nltk.download("movie_reviews")
 
 # ### Define x (reviews) and y (judgements) variables
 
-# In[65]:
+# In[56]:
 
 
 # Extract our x (reviews) and y (judgements) variables
@@ -609,7 +619,7 @@ reviews = [movie_reviews.raw(fileid) for fileid in movie_reviews.fileids()]
 judgements = [movie_reviews.categories(fileid)[0] for fileid in movie_reviews.fileids()]
 
 
-# In[66]:
+# In[57]:
 
 
 # Save in a dataframe
@@ -618,7 +628,7 @@ movies = pd.DataFrame({"Reviews" : reviews,
 movies.head()
 
 
-# In[67]:
+# In[58]:
 
 
 movies.shape
@@ -626,7 +636,7 @@ movies.shape
 
 # ### Shuffle the reviews
 
-# In[68]:
+# In[59]:
 
 
 import numpy as np
@@ -634,7 +644,7 @@ from sklearn.utils import shuffle
 x, y = shuffle(np.array(movies.Reviews), np.array(movies.Judgements), random_state = 1)
 
 
-# In[69]:
+# In[60]:
 
 
 # change x[0] and y[0] to see different reviews
@@ -645,7 +655,7 @@ x[0], print("Human review was:", y[0])
 # 
 # scikit-learn offers hand ways to build machine learning pipelines: https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
 
-# In[70]:
+# In[61]:
 
 
 # standard training/test split (no cross validation)
@@ -665,7 +675,7 @@ logit_class = LogisticRegression(solver = 'liblinear',
 model = logit_class.fit(x_train, y_train)
 
 
-# In[71]:
+# In[62]:
 
 
 # test set accuracy
@@ -674,7 +684,7 @@ model.score(x_test, y_test)
 
 # ### $k$-fold cross-validated model
 
-# In[72]:
+# In[63]:
 
 
 # Cross-validated model!
@@ -695,7 +705,7 @@ print(scores, np.mean(scores))
 
 # ### Top 25 features for positive and negative reviews
 
-# In[73]:
+# In[64]:
 
 
 feature_names = tfidf.get_feature_names()
@@ -708,7 +718,7 @@ top25neg = np.argsort(model.coef_[0])[:25]
 print(list(feature_names[j] for j in top25neg))
 
 
-# In[74]:
+# In[65]:
 
 
 new_bad_review = "This was the most awful worst super bad movie ever!"
@@ -718,7 +728,7 @@ features = tfidf.transform([new_bad_review])
 model.predict(features)
 
 
-# In[75]:
+# In[66]:
 
 
 new_good_review = 'WHAT A WONDERFUL, FANTASTIC MOVIE!!!'
@@ -728,7 +738,7 @@ features = tfidf.transform([new_good_review])
 model.predict(features)
 
 
-# In[76]:
+# In[67]:
 
 
 # try a more complex statement
@@ -752,7 +762,7 @@ model.predict(my_features)
 # 
 # ![redwood](img/redwood.png)
 
-# In[23]:
+# In[68]:
 
 
 # import necessary libraries
@@ -768,7 +778,7 @@ import nltk
 # 2. `response` - perform the get request on the URL 
 # 3. `soup` - create the soup object so we can parse the html 
 
-# In[24]:
+# In[69]:
 
 
 url = "https://en.wikipedia.org/wiki/Sequoioideae"
@@ -782,7 +792,7 @@ soup = BeautifulSoup(response.text, 'html')
 # 
 # Below is a handy for loop that finds all everything within paragraph `<p>`, or paragraph tags. 
 
-# In[25]:
+# In[70]:
 
 
 # save in an empty string
@@ -792,7 +802,7 @@ for paragraph in soup.find_all('p'):
     text += paragraph.text
 
 
-# In[26]:
+# In[71]:
 
 
 print(text)
@@ -802,7 +812,7 @@ print(text)
 # 
 # Remember how we did some regular expression preprocessing above? You could even use a bunch of regular expressions in sequence or simultaneously. [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code.
 
-# In[27]:
+# In[72]:
 
 
 text = re.sub(r'\[[0-9]*\]',' ',text)
@@ -813,10 +823,10 @@ text = text.lower()
 text = re.sub(r'\s+',' ',text)
 
 
-# In[28]:
+# In[74]:
 
 
-print(text)
+# print(text)
 
 
 # ## Exercises - text classification
