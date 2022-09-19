@@ -389,6 +389,10 @@ import pandas as pd
 # 
 # Save it in the variable named `gap`
 
+# ## What is Gross Domestic Product? (GDP)
+# 
+# GDP is a general estimate of global societal well-being. Learn more about GDP "per capita" (per person) here: https://www.gapminder.org/tag/gdp/. 
+
 # In[35]:
 
 
