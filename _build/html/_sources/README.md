@@ -13,14 +13,14 @@ This is relaxed, low-stakes environments for beginners who have little or no exp
 ## [Click here to view details and register. Please register for each session separately.](https://library.stanford.edu/research/cidr/workshops)
 
 * **Monday, September 19 -** _Learn_ the software needed to program Python on September 19 along with its basic syntax for importing, wrangling, and visualizing data.
-    * AM session: 10AM-12PM
-    * PM session: 1PM-3PM
+    * AM session: 10AM-12PM (overview and chapters 1-3)
+    * PM session: 1PM-3PM (chapters 4 and 5)
 * **Wednesday, September 21 -** - _Understand_ basic principles for working with text data and machine learning. 
-    * AM session: 10AM-12PM
-    * PM session: 1PM-3PM
-* **Friday September 23 -** _Deep dive_ into the BERTopic algorithm for topic modeling text.
-    * AM session: 10AM-12PM
-    * PM session: 1PM-3PM
+    * AM session: 10AM-12PM (chapter 6)
+    * PM session: 1PM-3PM (chapter 7)
+* **Friday September 23 -** _Deep dive_ into the spaCy and BERTopic libraries for supercharged text preprocessing and topic modeling.
+    * AM session: 10AM-12PM (chapter 8)
+    * PM session: 1PM-3PM (chapter 9)
 
 # Software and Services for Data Science (SSDS)
 Hosted by the Text Analysis and Machine Learning Working Group (TAML) at Software and Serivces for Data Science (SSDS) at the Stanford University Cecil H. Green Library. Visit us at https://ssds.stanford.edu
