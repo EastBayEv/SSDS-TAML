@@ -14,7 +14,7 @@ parts:
 - caption: Text analysis and machine learning
   chapters:
   - file: fall2022/6_Core_concepts_vocabularies
-  - file: fall2022/7_English_text_preprocessing_basics
+  - file: fall2022/7_English_text_preprocessing_basics_applications
   - file: fall2022/8_spaCy_textaCy
   - file: fall2022/9_BERTopic
   - file: fall2022/Appendix

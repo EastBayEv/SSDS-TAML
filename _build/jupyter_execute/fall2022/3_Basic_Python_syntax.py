@@ -391,7 +391,9 @@ import pandas as pd
 
 # ## What is Gross Domestic Product? (GDP)
 # 
-# GDP is a general estimate of global societal well-being. Learn more about GDP "per capita" (per person) here: https://www.gapminder.org/tag/gdp/. 
+# GDP is a general estimate of global societal well-being. Learn more about GDP here: https://en.wikipedia.org/wiki/Gross_domestic_product. 
+# 
+# Learn more about GDP "per capita" (per person): https://databank.worldbank.org/metadataglossary/statistical-capacity-indicators/series/5.51.01.10.gdp
 
 # In[35]:
 
