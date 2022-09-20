@@ -351,7 +351,7 @@ print(text)
 
 # ## Regular expressions
 # 
-# Remember how we did some regular expression preprocessing above? You could even use a bunch of regular expressions in sequence or simultaneously. [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code.
+# You could even use a bunch of regular expressions in sequence or simultaneously. [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code. Better yet you could write a pattern to do them simultaneously in some cases!
 
 # In[72]:
 
