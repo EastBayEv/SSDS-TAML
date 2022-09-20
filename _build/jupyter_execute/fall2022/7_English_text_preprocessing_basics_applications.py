@@ -351,7 +351,9 @@ print(text)
 
 # ## Regular expressions
 # 
-# [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code. Better yet you could write a pattern to do them simultaneously in some cases!
+# Regular expressions are sequences of characters and symbols that represent search patterns in text - and are generally quite useful. 
+# 
+# [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code. Better yet you could write a pattern to do them simultaneously in one line/less lines of code in some cases!
 
 # In[72]:
 
