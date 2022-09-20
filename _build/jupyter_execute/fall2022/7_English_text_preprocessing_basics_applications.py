@@ -294,6 +294,82 @@ human_rights['clean_text'] = human_rights['clean_text'].apply(lambda row: ' '.jo
 human_rights
 
 
+# ## Exercises - redwoods webscraping
+# 
+# This also works with data scraped from the web. Below is very brief BeautifulSoup example to save the contents of the Sequoioideae (redwood trees) Wikipedia page in a variable named `text`. 
+# 
+# 1. Read through the code below
+# 2. Practice by repeating for a webpage of your choice
+# 
+# ![redwood](img/redwood.png)
+
+# In[68]:
+
+
+# import necessary libraries
+from bs4 import BeautifulSoup
+import requests
+import regex as re
+import nltk
+
+
+# ## Three variables will get you started
+# 
+# 1. `url` - define the URL to be scraped 
+# 2. `response` - perform the get request on the URL 
+# 3. `soup` - create the soup object so we can parse the html 
+
+# In[69]:
+
+
+url = "https://en.wikipedia.org/wiki/Sequoioideae"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html')
+
+
+# ## Get the text
+# 
+# HTML (hypertext markup language) is used to structure a webpage and the content it contains, including text.
+# 
+# Below is a handy for loop that finds all everything within paragraph `<p>`, or paragraph tags. 
+
+# In[70]:
+
+
+# save in an empty string
+text = ""
+
+for paragraph in soup.find_all('p'):
+    text += paragraph.text
+
+
+# In[71]:
+
+
+print(text)
+
+
+# ## Regular expressions
+# 
+# Remember how we did some regular expression preprocessing above? You could even use a bunch of regular expressions in sequence or simultaneously. [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code.
+
+# In[72]:
+
+
+text = re.sub(r'\[[0-9]*\]',' ',text)
+text = re.sub(r'\s+',' ',text)
+text = re.sub(r'\d',' ',text)
+text = re.sub(r'[^\w\s]','',text)
+text = text.lower()
+text = re.sub(r'\s+',' ',text)
+
+
+# In[74]:
+
+
+# print(text)
+
+
 # ## Unsupervised learning with `TfidfVectorizer()`
 # 
 # Remember `CountVectorizer()` for creating Bag of Word models? We can extend this idea of counting words, to _counting unique words_ within a document relative to the rest of the corpus with `TfidfVectorizer()`. Each row will still be a document in the document term matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies. Remember that: 
@@ -392,82 +468,6 @@ country.max(numeric_only = True).sort_values(ascending = False).head(20)
 # What next? Keep in mind that we have not even begun to consider named entities and parts of speech. What problems immediately jump out from the above examples, such as with the number and uniqueness of country names?
 # 
 # The next two chapters 8 and 9 introduce powerful text preprocessing and analysis techniques. Read ahead to see how we can handle roadblocks such as these. 
-
-# ## Exercises - redwoods webscraping
-# 
-# This also works with data scraped from the web. Below is very brief BeautifulSoup example to save the contents of the Sequoioideae (redwood trees) Wikipedia page in a variable named `text`. 
-# 
-# 1. Read through the code below
-# 2. Practice by repeating for a webpage of your choice
-# 
-# ![redwood](img/redwood.png)
-
-# In[68]:
-
-
-# import necessary libraries
-from bs4 import BeautifulSoup
-import requests
-import regex as re
-import nltk
-
-
-# ## Three variables will get you started
-# 
-# 1. `url` - define the URL to be scraped 
-# 2. `response` - perform the get request on the URL 
-# 3. `soup` - create the soup object so we can parse the html 
-
-# In[69]:
-
-
-url = "https://en.wikipedia.org/wiki/Sequoioideae"
-response = requests.get(url)
-soup = BeautifulSoup(response.text, 'html')
-
-
-# ## Get the text
-# 
-# HTML (hypertext markup language) is used to structure a webpage and the content it contains, including text.
-# 
-# Below is a handy for loop that finds all everything within paragraph `<p>`, or paragraph tags. 
-
-# In[70]:
-
-
-# save in an empty string
-text = ""
-
-for paragraph in soup.find_all('p'):
-    text += paragraph.text
-
-
-# In[71]:
-
-
-print(text)
-
-
-# ## Regular expressions
-# 
-# Remember how we did some regular expression preprocessing above? You could even use a bunch of regular expressions in sequence or simultaneously. [Check out the tutorial](https://docs.python.org/3/library/re.html) and [cheatsheet](https://www.dataquest.io/blog/regex-cheatsheet/) to find out what the below symbols mean and write your own code.
-
-# In[72]:
-
-
-text = re.sub(r'\[[0-9]*\]',' ',text)
-text = re.sub(r'\s+',' ',text)
-text = re.sub(r'\d',' ',text)
-text = re.sub(r'[^\w\s]','',text)
-text = text.lower()
-text = re.sub(r'\s+',' ',text)
-
-
-# In[74]:
-
-
-# print(text)
-
 
 # ## Sentiment analysis
 # 
