@@ -156,8 +156,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="7_English_text_preprocessing_basics.html">
-   Chapter 7 - English text preprocessing basics
+  <a class="reference internal" href="7_English_text_preprocessing_basics_applications.html">
+   Chapter 7 - English text preprocessing basics - and applications
   </a>
  </li>
  <li class="toctree-l1">
@@ -457,6 +457,58 @@ title="Print to PDF"
     Frankenstein
    </em>
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-dracula-txt">
+     Import dracula.txt
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standardize-text">
+     Standardize Text
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#casing-and-spacing">
+     Casing and spacing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-punctuation">
+     Remove punctuation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tokenize-the-text">
+     Tokenize the text
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-stop-words">
+     Remove stop words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lemmatizing-stemming-tokens">
+     Lemmatizing/Stemming tokens
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-of-speech-tags">
+     Part of speech tags
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convert-to-dataframe">
+   Convert to dataframe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualize-the-20-most-frequent-words">
+   Visualize the 20 most frequent words
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chapter-8-exercise">
@@ -538,6 +590,58 @@ title="Print to PDF"
     Frankenstein
    </em>
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-dracula-txt">
+     Import dracula.txt
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standardize-text">
+     Standardize Text
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#casing-and-spacing">
+     Casing and spacing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-punctuation">
+     Remove punctuation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tokenize-the-text">
+     Tokenize the text
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-stop-words">
+     Remove stop words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lemmatizing-stemming-tokens">
+     Lemmatizing/Stemming tokens
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-of-speech-tags">
+     Part of speech tags
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convert-to-dataframe">
+   Convert to dataframe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualize-the-20-most-frequent-words">
+   Visualize the 20 most frequent words
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chapter-8-exercise">
@@ -612,8 +716,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Monday
-2022-09-19
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tuesday
+2022-09-20
 </pre></div>
 </div>
 </div>
@@ -629,8 +733,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jack
-spades
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ten
+diamonds
 </pre></div>
 </div>
 </div>
@@ -646,7 +750,7 @@ spades
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Welcome to TAML at SSDS!
 
-Your lucky card for Monday 2022-09-19 is: jack of spades
+Your lucky card for Tuesday 2022-09-20 is: ten of diamonds
 </pre></div>
 </div>
 </div>
@@ -1265,7 +1369,7 @@ gdpPercap    7.215327e+03
 dtype: float64
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_71343/1146573181.py:2: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_29690/1146573181.py:2: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
   print(gap.mean())
 </pre></div>
 </div>
@@ -1956,12 +2060,541 @@ True
 </section>
 <section id="chapter-7-exercise-dracula-versus-frankenstein">
 <h2>Chapter 7 - Exercise - <em>Dracula</em> versus <em>Frankenstein</em><a class="headerlink" href="#chapter-7-exercise-dracula-versus-frankenstein" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
+<ol>
+<li><p>Practice your text pre-processing skills on the classic novel Dracula! Here you’ll just be performing the standardization operations on a text string instead of a DataFrame, so be sure to adapt the practices you saw with the UN HRC corpus processing appropriately.</p>
+<p>Can you:</p>
+<ul class="simple">
+<li><p>Remove non-alphanumeric characters &amp; punctuation?</p></li>
+<li><p>Remove digits?</p></li>
+<li><p>Remove unicode characters?</p></li>
+<li><p>Remove extraneous spaces?</p></li>
+<li><p>Standardize casing?</p></li>
+<li><p>Lemmatize tokens?</p></li>
+</ul>
+</li>
 <li><p>Investigate classic horror novel vocabulary. Create a single TF-IDF sparse matrix that contains the vocabulary for <em>Frankenstein</em> and <em>Dracula</em>. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. What are the 20 most unique words in each? Make a dataframe or visualization to illustrate the differences.</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html">Read through this 20 newsgroups dataset example</a> to get familiar with newspaper data. Do you best to understand and explain what is happening at each step of the workflow. “The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date.”</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1</span>
+<span class="kn">import</span> <span class="nn">regex</span> <span class="k">as</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">punctuation</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+</div>
+</div>
+<section id="import-dracula-txt">
+<h3>Import dracula.txt<a class="headerlink" href="#import-dracula-txt" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt</span>
+<span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/dracula.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># print just the first 100 characters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Project Gutenberg eBook of Dracula, by Bram Stoker
+
+This eBook is for the use of anyone anywhere
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="standardize-text">
+<h3>Standardize Text<a class="headerlink" href="#standardize-text" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="casing-and-spacing">
+<h3>Casing and spacing<a class="headerlink" href="#casing-and-spacing" title="Permalink to this headline">#</a></h3>
+<p>Oftentimes in text analysis, identifying occurences of key word(s) is a necessary step. To do so, we may want “apple,” “ApPLe,” and “apple      ” to be treated the same; i.e., as an occurence of the token, ‘apple.’ To achieve this, we can standardize text casing and spacing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Converting all charazcters in a string to lowercase only requires one method: </span>
+<span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello! Welcome      to        TAML!&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+<span class="c1"># To replace instances of multiple spaces with one, we can use the regex module&#39;s &#39;sub&#39; function:</span>
+<span class="c1"># Documentation on regex can be found at: https://docs.python.org/3/library/re.html</span>
+<span class="n">single_spaces_msg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">single_spaces_msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello! welcome      to        taml!
+Hello! Welcome to TAML!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="remove-punctuation">
+<h3>Remove punctuation<a class="headerlink" href="#remove-punctuation" title="Permalink to this headline">#</a></h3>
+<p>Remember that Python methods can be chained together.</p>
+<p>Below, a standard for loop loops through the <code class="docutils literal notranslate"><span class="pre">punctuation</span></code> module to replace any of these characters with nothing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">punctuation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>!&quot;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">punctuation</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the project gutenberg ebook of dracula by bram stoker
+
+this ebook is for the use of anyone anywhere 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tokenize-the-text">
+<h3>Tokenize the text<a class="headerlink" href="#tokenize-the-text" title="Permalink to this headline">#</a></h3>
+<p>Split each word on spaces.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .split() returns a list of the tokens in a string, separated by the specified delimiter (default: &quot; &quot;)</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># View the first 20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;the&#39;, &#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;of&#39;, &#39;dracula&#39;, &#39;by&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;this&#39;, &#39;ebook&#39;, &#39;is&#39;, &#39;for&#39;, &#39;the&#39;, &#39;use&#39;, &#39;of&#39;, &#39;anyone&#39;, &#39;anywhere&#39;, &#39;in&#39;, &#39;the&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="remove-stop-words">
+<h3>Remove stop words<a class="headerlink" href="#remove-stop-words" title="Permalink to this headline">#</a></h3>
+<p>Below is a list comprehension (a sort of shortcut for loop, or chunk of repeating code) that can accomplish this task for us.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show only the first 100 words</span>
+<span class="c1"># do you see any stopwords?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered_text</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;dracula&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;ebook&#39;, &#39;use&#39;, &#39;anyone&#39;, &#39;anywhere&#39;, &#39;united&#39;, &#39;states&#39;, &#39;parts&#39;, &#39;world&#39;, &#39;cost&#39;, &#39;almost&#39;, &#39;restrictions&#39;, &#39;whatsoever&#39;, &#39;may&#39;, &#39;copy&#39;, &#39;give&#39;, &#39;away&#39;, &#39;reuse&#39;, &#39;terms&#39;, &#39;project&#39;, &#39;gutenberg&#39;, &#39;license&#39;, &#39;included&#39;, &#39;ebook&#39;, &#39;online&#39;, &#39;wwwgutenbergorg&#39;, &#39;located&#39;, &#39;united&#39;, &#39;states&#39;, &#39;check&#39;, &#39;laws&#39;, &#39;country&#39;, &#39;located&#39;, &#39;using&#39;, &#39;ebook&#39;, &#39;title&#39;, &#39;dracula&#39;, &#39;author&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;release&#39;, &#39;date&#39;, &#39;october&#39;, &#39;1995&#39;, &#39;ebook&#39;, &#39;345&#39;, &#39;recently&#39;, &#39;updated&#39;, &#39;september&#39;, &#39;5&#39;, &#39;2022&#39;, &#39;language&#39;, &#39;english&#39;, &#39;produced&#39;, &#39;chuck&#39;, &#39;greif&#39;, &#39;online&#39;, &#39;distributed&#39;, &#39;proofreading&#39;, &#39;team&#39;, &#39;start&#39;, &#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;dracula&#39;, &#39;dracula&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;illustration&#39;, &#39;colophon&#39;, &#39;new&#39;, &#39;york&#39;, &#39;grosset&#39;, &#39;dunlap&#39;, &#39;publishers&#39;, &#39;copyright&#39;, &#39;1897&#39;, &#39;united&#39;, &#39;states&#39;, &#39;america&#39;, &#39;according&#39;, &#39;act&#39;, &#39;congress&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;rights&#39;, &#39;reserved&#39;, &#39;printed&#39;, &#39;united&#39;, &#39;states&#39;, &#39;country&#39;, &#39;life&#39;, &#39;press&#39;, &#39;garden&#39;, &#39;city&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lemmatizing-stemming-tokens">
+<h3>Lemmatizing/Stemming tokens<a class="headerlink" href="#lemmatizing-stemming-tokens" title="Permalink to this headline">#</a></h3>
+<p>Lemmatizating and stemming are related, but are different practices. Both aim to reduce the inflectional forms of a token to a common base/root. However, how they go about doing so is the key differentiating factor.</p>
+<p>Stemming operates by removes the prefixs and/or suffixes of a word. Examples include:</p>
+<ul class="simple">
+<li><p>flooding to flood</p></li>
+<li><p>studies to studi</p></li>
+<li><p>risky to risk</p></li>
+</ul>
+<p>Lemmatization attempts to contextualize a word, arriving at it’s base meaning. Lemmatization reductions can occur across various dimensions of speech. Examples include:</p>
+<ul class="simple">
+<li><p>Plural to singular (corpora to corpus)</p></li>
+<li><p>Condition (better to good)</p></li>
+<li><p>Gerund (running to run)</p></li>
+</ul>
+<p>One technique is not strictly better than the other - it’s a matter of project needs and proper application.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stmer</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">PorterStemmer</span><span class="p">()</span>
+
+<span class="n">lmtzr</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">WordNetLemmatizer</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># do you see any differences?</span>
+<span class="n">token_stem</span>  <span class="o">=</span> <span class="p">[</span> <span class="n">stmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">filtered_text</span><span class="p">]</span>
+
+<span class="n">token_lemma</span> <span class="o">=</span> <span class="p">[</span> <span class="n">lmtzr</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">filtered_text</span> <span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">token_stem</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">token_lemma</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;dracula&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;ebook&#39;, &#39;use&#39;, &#39;anyon&#39;, &#39;anywher&#39;, &#39;unit&#39;, &#39;state&#39;, &#39;part&#39;, &#39;world&#39;, &#39;cost&#39;, &#39;almost&#39;, &#39;restrict&#39;, &#39;whatsoev&#39;, &#39;may&#39;, &#39;copi&#39;]
+[&#39;project&#39;, &#39;gutenberg&#39;, &#39;ebook&#39;, &#39;dracula&#39;, &#39;bram&#39;, &#39;stoker&#39;, &#39;ebook&#39;, &#39;use&#39;, &#39;anyone&#39;, &#39;anywhere&#39;, &#39;united&#39;, &#39;state&#39;, &#39;part&#39;, &#39;world&#39;, &#39;cost&#39;, &#39;almost&#39;, &#39;restriction&#39;, &#39;whatsoever&#39;, &#39;may&#39;, &#39;copy&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="part-of-speech-tags">
+<h3>Part of speech tags<a class="headerlink" href="#part-of-speech-tags" title="Permalink to this headline">#</a></h3>
+<p>Part of speech tags are labels given to each word in a text such as verbs, adverbs, nouns, pronouns, adjectives, conjunctions, and their various derivations and subcategories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tagged</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">token_lemma</span><span class="p">)</span>
+
+<span class="c1"># Let&#39;s see a quick example: </span>
+<span class="n">ex_string</span> <span class="o">=</span> <span class="s1">&#39;They refuse to permit us to obtain the refuse permit.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">ex_string</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;They&#39;, &#39;PRP&#39;), (&#39;refuse&#39;, &#39;VBP&#39;), (&#39;to&#39;, &#39;TO&#39;), (&#39;permit&#39;, &#39;VB&#39;), (&#39;us&#39;, &#39;PRP&#39;), (&#39;to&#39;, &#39;TO&#39;), (&#39;obtain&#39;, &#39;VB&#39;), (&#39;the&#39;, &#39;DT&#39;), (&#39;refuse&#39;, &#39;NN&#39;), (&#39;permit.&#39;, &#39;NN&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output of .pos_tag is a list of tuples (immutable pairs), where the first element is a text token and the second is a part of speech. Note that, in our example string, the token ‘refuse’ shows up twice - once as a verb, and once as a noun. In the output to .pos_tag, the first tuple with ‘refuse’ has the ‘VBP’ tag (present tense verb) and the second tuple has the ‘NN’ tag (noun). Nifty!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chunked</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">chunk</span><span class="o">.</span><span class="n">ne_chunk</span><span class="p">(</span><span class="n">tagged</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="convert-to-dataframe">
+<h2>Convert to dataframe<a class="headerlink" href="#convert-to-dataframe" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">chunked</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>word</th>
+      <th>pos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>project</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>gutenberg</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ebook</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>dracula</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>bram</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>stoker</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>ebook</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>use</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>anyone</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>anywhere</td>
+      <td>RB</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(73541, 2)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualize-the-20-most-frequent-words">
+<h2>Visualize the 20 most frequent words<a class="headerlink" href="#visualize-the-20-most-frequent-words" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">count_words</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">top</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">])</span>
+<span class="n">count_words</span><span class="o">.</span><span class="n">most_common</span><span class="p">()[:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;said&#39;, 569),
+ (&#39;one&#39;, 509),
+ (&#39;could&#39;, 493),
+ (&#39;u&#39;, 463),
+ (&#39;must&#39;, 451),
+ (&#39;would&#39;, 428),
+ (&#39;shall&#39;, 427),
+ (&#39;time&#39;, 425),
+ (&#39;know&#39;, 420),
+ (&#39;may&#39;, 416),
+ (&#39;see&#39;, 398),
+ (&#39;come&#39;, 377),
+ (&#39;van&#39;, 322),
+ (&#39;hand&#39;, 310),
+ (&#39;came&#39;, 307),
+ (&#39;helsing&#39;, 300),
+ (&#39;went&#39;, 298),
+ (&#39;lucy&#39;, 296),
+ (&#39;go&#39;, 296),
+ (&#39;like&#39;, 278)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">count_words</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">words_df</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>word</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>205</th>
+      <td>said</td>
+      <td>569</td>
+    </tr>
+    <tr>
+      <th>252</th>
+      <td>one</td>
+      <td>509</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>could</td>
+      <td>493</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>u</td>
+      <td>463</td>
+    </tr>
+    <tr>
+      <th>315</th>
+      <td>must</td>
+      <td>451</td>
+    </tr>
+    <tr>
+      <th>158</th>
+      <td>would</td>
+      <td>428</td>
+    </tr>
+    <tr>
+      <th>274</th>
+      <td>shall</td>
+      <td>427</td>
+    </tr>
+    <tr>
+      <th>161</th>
+      <td>time</td>
+      <td>425</td>
+    </tr>
+    <tr>
+      <th>220</th>
+      <td>know</td>
+      <td>420</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>may</td>
+      <td>416</td>
+    </tr>
+    <tr>
+      <th>378</th>
+      <td>see</td>
+      <td>398</td>
+    </tr>
+    <tr>
+      <th>680</th>
+      <td>come</td>
+      <td>377</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>van</td>
+      <td>322</td>
+    </tr>
+    <tr>
+      <th>1165</th>
+      <td>hand</td>
+      <td>310</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>came</td>
+      <td>307</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>helsing</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <th>542</th>
+      <td>went</td>
+      <td>298</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>go</td>
+      <td>296</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>lucy</td>
+      <td>296</td>
+    </tr>
+    <tr>
+      <th>403</th>
+      <td>like</td>
+      <td>278</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What would you need to do to improve an approach to word visualization such as this one?</span>
+<span class="n">top_plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;word&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">top_plot</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">top_plot</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">40</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Solutions_89_0.png" src="../_images/Solutions_89_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#2</span>
 <span class="kn">import</span> <span class="nn">spacy</span>
 <span class="kn">import</span> <span class="nn">regex</span> <span class="k">as</span> <span class="nn">re</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
@@ -1971,8 +2604,8 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [52],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#1</span>
+<span class="nn">Input In [71],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#2</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">spacy</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">regex</span> <span class="k">as</span> <span class="nn">re</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>

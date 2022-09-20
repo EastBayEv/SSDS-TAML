@@ -531,18 +531,236 @@ text = re.sub(r'\s+',' ',text)
 
 # ## Chapter 7 - Exercise - _Dracula_ versus _Frankenstein_
 # 
-# 1. Investigate classic horror novel vocabulary. Create a single TF-IDF sparse matrix that contains the vocabulary for _Frankenstein_ and _Dracula_. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. What are the 20 most unique words in each? Make a dataframe or visualization to illustrate the differences.
+# 1. Practice your text pre-processing skills on the classic novel Dracula! Here you'll just be performing the standardization operations on a text string instead of a DataFrame, so be sure to adapt the practices you saw with the UN HRC corpus processing appropriately. 
+# 
+#     Can you:
+#     * Remove non-alphanumeric characters & punctuation?
+#     * Remove digits?
+#     * Remove unicode characters?
+#     * Remove extraneous spaces?
+#     * Standardize casing?
+#     * Lemmatize tokens?
+# 
+# 2. Investigate classic horror novel vocabulary. Create a single TF-IDF sparse matrix that contains the vocabulary for _Frankenstein_ and _Dracula_. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. What are the 20 most unique words in each? Make a dataframe or visualization to illustrate the differences.
+# 
+# 3. [Read through this 20 newsgroups dataset example](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html) to get familiar with newspaper data. Do you best to understand and explain what is happening at each step of the workflow. "The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date."
 
 # In[52]:
 
 
-#1
+# 1
+import regex as re
+from string import punctuation
+import nltk
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+import pandas as pd
+from collections import Counter
+import seaborn as sns
+
+
+# ### Import dracula.txt
+
+# In[53]:
+
+
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt
+text = open("data/dracula.txt").read()
+
+# print just the first 100 characters
+print(text[:100])
+
+
+# ### Standardize Text 
+# 
+# ### Casing and spacing
+# 
+# Oftentimes in text analysis, identifying occurences of key word(s) is a necessary step. To do so, we may want "apple," "ApPLe," and "apple      " to be treated the same; i.e., as an occurence of the token, 'apple.' To achieve this, we can standardize text casing and spacing: 
+
+# In[54]:
+
+
+# Converting all charazcters in a string to lowercase only requires one method: 
+message = "Hello! Welcome      to        TAML!"
+print(message.lower())
+
+# To replace instances of multiple spaces with one, we can use the regex module's 'sub' function:
+# Documentation on regex can be found at: https://docs.python.org/3/library/re.html
+single_spaces_msg = re.sub('\s+', ' ', message)
+print(single_spaces_msg)
+
+
+# ### Remove punctuation
+# 
+# Remember that Python methods can be chained together. 
+# 
+# Below, a standard for loop loops through the `punctuation` module to replace any of these characters with nothing.
+
+# In[55]:
+
+
+print(punctuation)
+
+
+# In[56]:
+
+
+for char in punctuation:
+    text = text.lower().replace(char, "")
+
+
+# In[57]:
+
+
+print(text[:100])
+
+
+# ### Tokenize the text
+# 
+# Split each word on spaces.
+
+# In[58]:
+
+
+# .split() returns a list of the tokens in a string, separated by the specified delimiter (default: " ")
+tokens = text.split()
+
+
+# In[59]:
+
+
+# View the first 20
+print(tokens[:20])
+
+
+# ### Remove stop words
+# 
+# Below is a list comprehension (a sort of shortcut for loop, or chunk of repeating code) that can accomplish this task for us.
+
+# In[60]:
+
+
+filtered_text = [word for word in tokens if word not in stopwords.words('english')]
+
+
+# In[61]:
+
+
+# show only the first 100 words
+# do you see any stopwords?
+print(filtered_text[:100])
+
+
+# ### Lemmatizing/Stemming tokens
+# 
+# Lemmatizating and stemming are related, but are different practices. Both aim to reduce the inflectional forms of a token to a common base/root. However, how they go about doing so is the key differentiating factor.  
+# 
+# Stemming operates by removes the prefixs and/or suffixes of a word. Examples include: 
+# * flooding to flood 
+# * studies to studi
+# * risky to risk 
+# 
+# Lemmatization attempts to contextualize a word, arriving at it's base meaning. Lemmatization reductions can occur across various dimensions of speech. Examples include: 
+# * Plural to singular (corpora to corpus)
+# * Condition (better to good)
+# * Gerund (running to run)
+# 
+# One technique is not strictly better than the other - it's a matter of project needs and proper application. 
+
+# In[62]:
+
+
+stmer = nltk.PorterStemmer()
+
+lmtzr = nltk.WordNetLemmatizer()
+
+
+# In[63]:
+
+
+# do you see any differences?
+token_stem  = [ stmer.stem(token) for token in filtered_text]
+
+token_lemma = [ lmtzr.lemmatize(token) for token in filtered_text ]
+
+print(token_stem[:20])
+
+print(token_lemma[:20])
+
+
+# ### Part of speech tags
+# 
+# Part of speech tags are labels given to each word in a text such as verbs, adverbs, nouns, pronouns, adjectives, conjunctions, and their various derivations and subcategories. 
+
+# In[64]:
+
+
+tagged = nltk.pos_tag(token_lemma)
+
+# Let's see a quick example: 
+ex_string = 'They refuse to permit us to obtain the refuse permit.'
+print(nltk.pos_tag(ex_string.split())) 
+
+
+# The output of .pos_tag is a list of tuples (immutable pairs), where the first element is a text token and the second is a part of speech. Note that, in our example string, the token 'refuse' shows up twice - once as a verb, and once as a noun. In the output to .pos_tag, the first tuple with 'refuse' has the 'VBP' tag (present tense verb) and the second tuple has the 'NN' tag (noun). Nifty!
+
+# In[65]:
+
+
+chunked = nltk.chunk.ne_chunk(tagged)
+
+
+# ## Convert to dataframe
+
+# In[66]:
+
+
+df = pd.DataFrame(chunked, columns=['word', 'pos'])
+df.head(n = 10)
+
+
+# In[67]:
+
+
+df.shape
+
+
+# ## Visualize the 20 most frequent words
+
+# In[68]:
+
+
+top = df.copy()
+
+count_words = Counter(top['word'])
+count_words.most_common()[:20]
+
+
+# In[69]:
+
+
+words_df = pd.DataFrame(count_words.items(), columns=['word', 'count']).sort_values(by = 'count', ascending=False)
+words_df[:20]
+
+
+# In[70]:
+
+
+# What would you need to do to improve an approach to word visualization such as this one?
+top_plot = sns.barplot(x = 'word', y = 'count', data = words_df[:20])
+top_plot.set_xticklabels(top_plot.get_xticklabels(),rotation = 40);
+
+
+# In[71]:
+
+
+#2
 import spacy
 import regex as re
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-# In[53]:
+# In[55]:
 
 
 # Create a new directory to house the two novels
