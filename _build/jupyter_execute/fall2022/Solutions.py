@@ -396,7 +396,7 @@ sns.lineplot(data = gap, x = "year", y = "lifeExp",
 # seaborn color palettes: https://www.reddit.com/r/visualization/comments/qc0b36/all_seaborn_color_palettes_together_so_you_dont/
 
 
-# ## Chapter 6 - Exercise
+# ## Exercise - scikit learn's `LinearRegression()` function
 # 
 # 1. Compare our "by hand" OLS results to those producd by sklearn's `LinearRegression` function. Are they the same? 
 #     * Slope = 4

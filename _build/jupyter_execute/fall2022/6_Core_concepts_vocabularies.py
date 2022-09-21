@@ -521,6 +521,14 @@ all_sample_title = 'Accuracy Score: {0}'.format(test_score)
 plt.title(all_sample_title, size = 15);
 
 
+# ## Exercise - scikit learn's `LinearRegression()` function
+# 
+# 1. Compare our "by hand" OLS results to those producd by sklearn's `LinearRegression` function. Are they the same? 
+#     * Slope = 4
+#     * Intercept = -4
+#     * RMSE = 2.82843
+#     * y_hat = y_hat = B0 + B1 * data.x
+
 # ## Building text vocabularies
 # 
 # What about how text is predicted? If we have text as data, we also need to convert the _representation_ of text into a format that machine learning algorithms can understand. 
@@ -715,13 +723,9 @@ corpus_df
 corpus_df.columns
 
 
-# ## Exercise
+# ## Exercise - document term matrices
 # 
-# 1. Compare our "by hand" OLS results to those producd by sklearn's `LinearRegression` function. Are they the same? 
-#     * Slope = 4
-#     * Intercept = -4
-#     * RMSE = 2.82843
-#     * y_hat = y_hat = B0 + B1 * data.x
+# 1. Identify a document or corpus of your own to apply these steps to. 
 
 # ## What does this mean for predicting text?
 # 
