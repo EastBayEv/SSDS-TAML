@@ -1,0 +1,1696 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Chapter 3 - Basic Python syntax &#8212; Text Analysis and Machine Learning (TAML) Group</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 4 - Numeric data wrangling" href="4_Numeric_data_wrangling.html" />
+    <link rel="prev" title="Chapter 2 - Python environments" href="2_Python_environments.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Text Analysis and Machine Learning (TAML) Group</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to TAML!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_How_to_use_this_book.html">
+   Chapter 1 - How to use this book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Python_environments.html">
+   Chapter 2 - Python environments
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 3 - Basic Python syntax
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Numeric_data_wrangling.html">
+   Chapter 4 - Numeric data wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Data_visualization_essentials.html">
+   Chapter 5 - Data visualization essentials
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Text analysis and machine learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Core_concepts_vocabularies.html">
+   Chapter 6 - Core machine learning concepts; building text vocabularies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_English_text_preprocessing_basics_applications.html">
+   Chapter 7 - English text preprocessing basics - and applications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_spaCy_textaCy.html">
+   Chapter 8 - spaCy and textaCy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_BERTopic.html">
+   Chapter 9 - New Developments: Topic Modeling with BERTopic!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix.html">
+   <strong>
+    Appendix
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions.html">
+   Solutions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/fall2022/3_Basic_Python_syntax.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/EastBayEv/SSDS-TAML"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Ffall2022/3_Basic_Python_syntax.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/fall2022/3_Basic_Python_syntax.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-assignment">
+   Variable assignment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-print-to-show-it-on-the-screen">
+   Use
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     print()
+    </span>
+   </code>
+   to show it on the screen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions-arguments-and-methods">
+   Functions, arguments, and methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-types">
+   Data types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-addition-versus-integer-addition">
+   String addition versus integer addition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-structures">
+   Data structures
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-is-zero-indexed">
+     Python is zero-indexed!
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list">
+   1. List
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dictionary">
+   2. Dictionary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-import">
+   Data import
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-text-data-as-a-character-string">
+     Import text data as a character string
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-note-about-importing-data-into-google-colab">
+     A note about importing data into Google Colab
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-data-frames-with-the-pandas-library">
+     Import data frames with the pandas library
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-gross-domestic-product-gdp">
+   What is Gross Domestic Product? (GDP)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-help">
+   Getting help
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#error-messages">
+   Error messages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#syntax-errors">
+     Syntax errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#runtime-errors">
+     Runtime errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#file-errors">
+     File errors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numeric-data-wrangling">
+   Numeric data wrangling
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Chapter 3 - Basic Python syntax</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-assignment">
+   Variable assignment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-print-to-show-it-on-the-screen">
+   Use
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     print()
+    </span>
+   </code>
+   to show it on the screen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions-arguments-and-methods">
+   Functions, arguments, and methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-types">
+   Data types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-addition-versus-integer-addition">
+   String addition versus integer addition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-structures">
+   Data structures
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-is-zero-indexed">
+     Python is zero-indexed!
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list">
+   1. List
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dictionary">
+   2. Dictionary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-import">
+   Data import
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-text-data-as-a-character-string">
+     Import text data as a character string
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-note-about-importing-data-into-google-colab">
+     A note about importing data into Google Colab
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-data-frames-with-the-pandas-library">
+     Import data frames with the pandas library
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-gross-domestic-product-gdp">
+   What is Gross Domestic Product? (GDP)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-help">
+   Getting help
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#error-messages">
+   Error messages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#syntax-errors">
+     Syntax errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#runtime-errors">
+     Runtime errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#file-errors">
+     File errors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numeric-data-wrangling">
+   Numeric data wrangling
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-3-basic-python-syntax">
+<h1>Chapter 3 - Basic Python syntax<a class="headerlink" href="#chapter-3-basic-python-syntax" title="Permalink to this headline">#</a></h1>
+<p>2022 August 25</p>
+<a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/3_Basic_Python_syntax.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a><p><img alt="boiler" src="../_images/boiler.jpg" /></p>
+<p>This chapter explains foundational Python syntax that you can reuse to accomplish many basic data creation, importing, and exporting tasks.</p>
+<section id="variable-assignment">
+<h2>Variable assignment<a class="headerlink" href="#variable-assignment" title="Permalink to this headline">#</a></h2>
+<p>In Python, data are saved in <strong>variables.</strong> Variable names should be simple and descriptive.</p>
+<p>The process is saving something in a variable is called <strong>variable assignment.</strong></p>
+<p>Assign a variable by typing its name to the <strong>left</strong> of the equals sign. Whatever is written to the <strong>right</strong> of the equals sign will be saved in the variable.</p>
+<p>Save a single number inside of a variable named with a single letter. You could read the below lines as “x is defined as one”, “two is assigned to y”, or most simply put, “z is three”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define one variable</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># assign multiple variables in a single code cell</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="use-print-to-show-it-on-the-screen">
+<h2>Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to show it on the screen<a class="headerlink" href="#use-print-to-show-it-on-the-screen" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;call&quot; the variables directly!</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span> <span class="o">*</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="functions-arguments-and-methods">
+<h2>Functions, arguments, and methods<a class="headerlink" href="#functions-arguments-and-methods" title="Permalink to this headline">#</a></h2>
+<p>Functions, arguments, and methods form the core user framework for Python programming.</p>
+<ol class="simple">
+<li><p><strong>Functions:</strong> Perform self-contained actions on a thing.</p></li>
+<li><p><strong>Argument(s):</strong> The “things” (text, values, expressions, datasets, etc.)</p></li>
+</ol>
+<blockquote>
+<div><p>Note <strong>“parameters”</strong> are the variables as notated during function definition. Arguments are the values we pass into these placeholders while calling the function.<br />
+<img alt="params" src="../_images/params_vs_args.png" /></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example custom function</span>
+<span class="k">def</span> <span class="nf">print_name</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="s2">&quot;My name is: &quot;</span> <span class="o">+</span> <span class="n">first</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">last</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_name</span><span class="p">(</span><span class="s2">&quot;Nerd&quot;</span><span class="p">,</span> <span class="s2">&quot;Squirrel&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;My name is: Nerd Squirrel&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p><strong>Methods:</strong> Type-specific functions (i.e., can only use a specific type of data and not other types). Use “dot” notation to utilize methods on a variable or other object.</p></li>
+</ol>
+<blockquote>
+<div><p>For example, you will type <code class="docutils literal notranslate"><span class="pre">gap</span> <span class="pre">=</span> <span class="pre">pd.read_csv('data/gapminder-FiveYearData.csv')</span></code> to use the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> method from the pandas library (imported as the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>) to load the Gapminder data.</p>
+</div></blockquote>
+</section>
+<section id="data-types">
+<h2>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">#</a></h2>
+<p>Everything in Python has a type which determines how we can use and manipulate it. Data are no exception! Be careful, it is easy to get confused when trying to complete multiple tasks that use lots of different variables!</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">type</span></code> function to get the type of any variable if you’re unsure. Below are four core data types:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: Character string; text. Always wrapped in quotations (single or double are fine)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>: Boolean <code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is stored under the hood as 1, <code class="docutils literal notranslate"><span class="pre">False</span></code> is stored as 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code>: Decimals (floating-point)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: Whole numbers (positive and negative, including zero)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. String data</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="s2">&quot;This is string data&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is string data
+&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. Boolean data</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+&lt;class &#39;bool&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. float (decimals)</span>
+<span class="c1"># use a decimal to create floats</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14
+&lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4. integer (whole numbers)</span>
+<span class="c1"># do not use a decimal for integers</span>
+<span class="n">amount</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">amount</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+&lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-addition-versus-integer-addition">
+<h2>String addition versus integer addition<a class="headerlink" href="#string-addition-versus-integer-addition" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># character strings</span>
+<span class="s1">&#39;1&#39;</span> <span class="o">+</span> <span class="s1">&#39;1&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;11&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># integers</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-structures">
+<h2>Data structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">#</a></h2>
+<p>Data can be stored in a variety of ways. Regardless, we can <strong>index</strong> (positionally reference) a portion of a larger data structure or collection.</p>
+<section id="python-is-zero-indexed">
+<h3>Python is zero-indexed!<a class="headerlink" href="#python-is-zero-indexed" title="Permalink to this headline">#</a></h3>
+<p>Python is a zero-indexed programming language and means that you start counting from zero. Thus, the first element in a collection is referenced by 0 instead of 1.</p>
+<p>Four structures are discussed below:</p>
+<ol class="simple">
+<li><p><strong>Lists</strong> are ordered groups of data that are both created and indexed with square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code></p></li>
+<li><p><strong>Dictionaries</strong> are <em>unordered</em> groups of “key:value” pairs. Use the key to access the value. Curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> are used to create and index dictionaries</p></li>
+<li><p><strong>Character strings</strong> can contain text of virtually any length</p></li>
+<li><p><strong>Data Frames</strong> are tabular data organized into rows and columns. Think of an MS Excel spreadsheet!</p></li>
+</ol>
+</section>
+</section>
+<section id="list">
+<h2>1. List<a class="headerlink" href="#list" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a list with with square brackets. This list contains two character strings &#39;shark&#39; and &#39;dolphin&#39;</span>
+<span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;shark&#39;</span><span class="p">,</span> <span class="s1">&#39;dolphin&#39;</span><span class="p">]</span>
+<span class="n">animals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;shark&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call the second thing (remember Python is zero-indexed)</span>
+<span class="n">animals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;dolphin&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lists can contain elements of almost any data type, including other lists!</p>
+<p>When this is the case, we can use multi-indices to extract just the piece of data we want. For example, to return only the element “tree”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lists can contain other structures, such as other lists</span>
+<span class="c1"># To get an element from a list within a list, double-index the original list!</span>
+<span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;shark&#39;</span><span class="p">,</span> <span class="s1">&#39;dolphin&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="s1">&#39;cactus&#39;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tree
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or, to just return the element “cat”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print this &#39;animals&#39; list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;shark&#39;, &#39;dolphin&#39;, [&#39;dog&#39;, &#39;cat&#39;], [&#39;tree&#39;, &#39;cactus&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print just the 3rd thing - the sublist containing &#39;dog&#39; and &#39;cat&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dog&#39;, &#39;cat&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print only &#39;cat&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cat
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lists can also contain elements of different types:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a heterogeneous list</span>
+<span class="n">chimera</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lion&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;griffin&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">chimera</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">chimera</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dictionary">
+<h2>2. Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define two dictionaries - apple and orange</span>
+<span class="n">apple</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">],</span> <span class="s1">&#39;recipes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span> <span class="s1">&#39;salad&#39;</span><span class="p">,</span> <span class="s1">&#39;sauce&#39;</span><span class="p">]}</span>
+<span class="n">orange</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;recipes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;juice&#39;</span><span class="p">,</span> <span class="s1">&#39;marmalade&#39;</span><span class="p">,</span> <span class="s1">&#39;gratin&#39;</span><span class="p">]}</span>
+<span class="n">apple</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;apple&#39;,
+ &#39;color&#39;: [&#39;red&#39;, &#39;green&#39;],
+ &#39;recipes&#39;: [&#39;pie&#39;, &#39;salad&#39;, &#39;sauce&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orange</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;orange&#39;,
+ &#39;color&#39;: &#39;orange&#39;,
+ &#39;recipes&#39;: [&#39;juice&#39;, &#39;marmalade&#39;, &#39;gratin&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Combine two dictionaries into one by placing them in a list value <code class="docutils literal notranslate"><span class="pre">[apple,</span> <span class="pre">orange]</span></code>, with a key named <code class="docutils literal notranslate"><span class="pre">fruits</span></code>. Call the key to see the value(s)!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fruits&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">apple</span><span class="p">,</span> <span class="n">orange</span><span class="p">]}</span>
+
+<span class="n">fruits</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fruits&#39;: [{&#39;name&#39;: &#39;apple&#39;,
+   &#39;color&#39;: [&#39;red&#39;, &#39;green&#39;],
+   &#39;recipes&#39;: [&#39;pie&#39;, &#39;salad&#39;, &#39;sauce&#39;]},
+  {&#39;name&#39;: &#39;orange&#39;,
+   &#39;color&#39;: &#39;orange&#39;,
+   &#39;recipes&#39;: [&#39;juice&#39;, &#39;marmalade&#39;, &#39;gratin&#39;]}]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>To index just “juice” - under the ‘recipes’ key for the <code class="docutils literal notranslate"><span class="pre">orange</span></code> dictionary, combine dictionary key and list techniques to tunnel into the hierarchical structure of the dictionary and extract just what you want:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call the newly combined dictionary</span>
+<span class="n">fruits</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fruits&#39;: [{&#39;name&#39;: &#39;apple&#39;,
+   &#39;color&#39;: [&#39;red&#39;, &#39;green&#39;],
+   &#39;recipes&#39;: [&#39;pie&#39;, &#39;salad&#39;, &#39;sauce&#39;]},
+  {&#39;name&#39;: &#39;orange&#39;,
+   &#39;color&#39;: &#39;orange&#39;,
+   &#39;recipes&#39;: [&#39;juice&#39;, &#39;marmalade&#39;, &#39;gratin&#39;]}]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reference the &#39;fruits&#39; key</span>
+<span class="n">fruits</span><span class="p">[</span><span class="s1">&#39;fruits&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;name&#39;: &#39;apple&#39;,
+  &#39;color&#39;: [&#39;red&#39;, &#39;green&#39;],
+  &#39;recipes&#39;: [&#39;pie&#39;, &#39;salad&#39;, &#39;sauce&#39;]},
+ {&#39;name&#39;: &#39;orange&#39;,
+  &#39;color&#39;: &#39;orange&#39;,
+  &#39;recipes&#39;: [&#39;juice&#39;, &#39;marmalade&#39;, &#39;gratin&#39;]}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Index the second thing (orange)</span>
+<span class="n">fruits</span><span class="p">[</span><span class="s1">&#39;fruits&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;orange&#39;,
+ &#39;color&#39;: &#39;orange&#39;,
+ &#39;recipes&#39;: [&#39;juice&#39;, &#39;marmalade&#39;, &#39;gratin&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call the &#39;recipes&#39; key from &#39;orange&#39; to see the items list</span>
+<span class="n">fruits</span><span class="p">[</span><span class="s1">&#39;fruits&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;recipes&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;juice&#39;, &#39;marmalade&#39;, &#39;gratin&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return the first thing from the &#39;recipes&#39; key of the &#39;orange&#39; dictionary inside of &#39;fruits&#39;!</span>
+<span class="n">fruits</span><span class="p">[</span><span class="s1">&#39;fruits&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;recipes&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;juice&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-import">
+<h2>Data import<a class="headerlink" href="#data-import" title="Permalink to this headline">#</a></h2>
+<p>Python offers a variety of methods for importing data. Thankfully, it is quite straightforward to import data from .csv and .txt files. Other formats, such as .xml and .json, are also supported.</p>
+<p>Below, let’s import:</p>
+<ol class="simple">
+<li><p>Text from a .txt file</p></li>
+<li><p>A dataframe from a .csv file</p></li>
+</ol>
+<section id="import-text-data-as-a-character-string">
+<h3>Import text data as a character string<a class="headerlink" href="#import-text-data-as-a-character-string" title="Permalink to this headline">#</a></h3>
+<p>Import text as a single string using the <code class="docutils literal notranslate"><span class="pre">open().read()</span></code> Python convention.</p>
+<p>Review your basic building blocks from above:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">frank</span></code> is the name of the variable we will save the text inside of</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">open</span></code> is the function we will use to open the text file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'data/frankenstein.txt'</span></code> is the argument that we provide to the <code class="docutils literal notranslate"><span class="pre">open</span></code> function. This matches the <code class="docutils literal notranslate"><span class="pre">file</span></code> path argument and needs to contain the location for the Frankenstein book.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.read()</span></code> reads the file as text.</p></li>
+</ol>
+</section>
+<section id="a-note-about-importing-data-into-google-colab">
+<h3>A note about importing data into Google Colab<a class="headerlink" href="#a-note-about-importing-data-into-google-colab" title="Permalink to this headline">#</a></h3>
+<p>Navigating Google Colab’s file system can be challenging since it is slightly different from working on your local machine.</p>
+<p>Run the code below to import the dataset into a temporary subfolder named “data” inside of the main Colab “/content” directory.</p>
+<p><strong>Run Steps 1-3 below to save a data file in your Google Drive, which can then be importend to your Colab environment</strong></p>
+<blockquote>
+<div><p>NOTE: Colab is a temporary environment with an idle timeout of 90 minutes and an absolute timeout of 12 hours.</p>
+<p>There are other ways to use Colab’s file system, such as mounting your Google Drive, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp. Contact SSDS if you want to learn more.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1. Create the directory</span>
+<span class="o">!</span>mkdir data
+
+<span class="c1"># Step 2. “List” the contents of the current working directory</span>
+<span class="o">!</span>ls
+
+<span class="c1"># Step 3. Use wget to download the data file</span>
+<span class="c1"># learn more about wget: https://www.gnu.org/software/wget/?</span>
+<span class="c1"># !wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkdir: data: File exists
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1_How_to_use_this_book.ipynb
+2_Python_environments.ipynb
+3_Basic_Python_syntax.ipynb
+4_Numeric_data_wrangling.ipynb
+5_Data_visualization_essentials.ipynb
+6_Core_concepts_vocabularies.ipynb
+7_English_text_preprocessing_basics_applications.ipynb
+8_spaCy_textaCy.ipynb
+9_BERTopic.ipynb
+Appendix.ipynb
+Solutions.ipynb
+<span class=" -Color -Color-Blue">data</span>
+<span class=" -Color -Color-Blue">img</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frank</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/frankenstein.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="c1"># print(frank)</span>
+
+<span class="c1"># print only the first 1000 characters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">frank</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Project Gutenberg eBook of Frankenstein, by Mary Wollstonecraft (Godwin) Shelley
+
+This eBook is for the use of anyone anywhere in the United States and
+most other parts of the world at no cost and with almost no restrictions
+whatsoever. You may copy it, give it away or re-use it under the terms
+of the Project Gutenberg License included with this eBook or online at
+www.gutenberg.org. If you are not located in the United States, you
+will have to check the laws of the country where you are located before
+using this eBook.
+
+Title: Frankenstein
+       or, The Modern Prometheus
+
+Author: Mary Wollstonecraft (Godwin) Shelley
+
+Release Date: 31, 1993 [eBook #84]
+[Most recently updated: November 13, 2020]
+
+Language: English
+
+Character set encoding: UTF-8
+
+Produced by: Judith Boss, Christy Phillips, Lynn Hanninen, and David Meltzer. HTML version by Al Haines.
+Further corrections by Menno de Leeuw.
+
+*** START OF THE PROJECT GUTENBERG EBOOK FRANKENSTEIN ***
+
+
+
+
+Frankenstein;
+
+or, the Modern Prom
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-data-frames-with-the-pandas-library">
+<h3>Import data frames with the pandas library<a class="headerlink" href="#import-data-frames-with-the-pandas-library" title="Permalink to this headline">#</a></h3>
+<p>Data frames are programming speak for tabular spreadsheets organized into rows and columns and often stored in useful formats such as .csv (i.e., a spreadsheet)</p>
+<p>.csv stands for “comma-separated values” and means that these data are stored as text files with a comma used to delineate column breaks.</p>
+<p>For this part, we will use the <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html">pandas</a> Python library. Remember how to install user-defined libraries from Chapter 2? This is a two step process.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1. Physically download and install the library&#39;s files (unhashtab the line below to run)</span>
+<span class="c1"># !pip install pandas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 2. link the pandas library to our current notebook</span>
+<span class="c1"># pd is the alias, or shorthand, way to reference the pandas library</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, you can use dot notation (type <code class="docutils literal notranslate"><span class="pre">pd.</span></code>)to access the functions within the pandas library.</p>
+<p>We want the <code class="docutils literal notranslate"><span class="pre">read.csv</span></code> method. Like the .txt file import above, we must provide the file path of the location of the .csv file we want to import.</p>
+<p>Save it in the variable named <code class="docutils literal notranslate"><span class="pre">gap</span></code></p>
+</section>
+</section>
+<section id="what-is-gross-domestic-product-gdp">
+<h2>What is Gross Domestic Product? (GDP)<a class="headerlink" href="#what-is-gross-domestic-product-gdp" title="Permalink to this headline">#</a></h2>
+<p>GDP is a general estimate of global societal well-being. Learn more about GDP here: <a class="reference external" href="https://en.wikipedia.org/wiki/Gross_domestic_product">https://en.wikipedia.org/wiki/Gross_domestic_product</a>.</p>
+<p>Learn more about GDP “per capita” (per person): <a class="reference external" href="https://databank.worldbank.org/metadataglossary/statistical-capacity-indicators/series/5.51.01.10.gdp">https://databank.worldbank.org/metadataglossary/statistical-capacity-indicators/series/5.51.01.10.gdp</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Colab users: grab the data! Unhashtag the line below</span>
+<span class="c1"># !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/gapminder-FiveYearData.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># View the data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          country  year         pop continent  lifeExp   gdpPercap
+0     Afghanistan  1952   8425333.0      Asia   28.801  779.445314
+1     Afghanistan  1957   9240934.0      Asia   30.332  820.853030
+2     Afghanistan  1962  10267083.0      Asia   31.997  853.100710
+3     Afghanistan  1967  11537966.0      Asia   34.020  836.197138
+4     Afghanistan  1972  13079460.0      Asia   36.088  739.981106
+...           ...   ...         ...       ...      ...         ...
+1699     Zimbabwe  1987   9216418.0    Africa   62.351  706.157306
+1700     Zimbabwe  1992  10704340.0    Africa   60.377  693.420786
+1701     Zimbabwe  1997  11404948.0    Africa   46.809  792.449960
+1702     Zimbabwe  2002  11926563.0    Africa   39.989  672.038623
+1703     Zimbabwe  2007  12311143.0    Africa   43.487  469.709298
+
+[1704 rows x 6 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>1952</td>
+      <td>8425333.0</td>
+      <td>Asia</td>
+      <td>28.801</td>
+      <td>779.445314</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>1957</td>
+      <td>9240934.0</td>
+      <td>Asia</td>
+      <td>30.332</td>
+      <td>820.853030</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>1962</td>
+      <td>10267083.0</td>
+      <td>Asia</td>
+      <td>31.997</td>
+      <td>853.100710</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Afghanistan</td>
+      <td>1967</td>
+      <td>11537966.0</td>
+      <td>Asia</td>
+      <td>34.020</td>
+      <td>836.197138</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Afghanistan</td>
+      <td>1972</td>
+      <td>13079460.0</td>
+      <td>Asia</td>
+      <td>36.088</td>
+      <td>739.981106</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1699</th>
+      <td>Zimbabwe</td>
+      <td>1987</td>
+      <td>9216418.0</td>
+      <td>Africa</td>
+      <td>62.351</td>
+      <td>706.157306</td>
+    </tr>
+    <tr>
+      <th>1700</th>
+      <td>Zimbabwe</td>
+      <td>1992</td>
+      <td>10704340.0</td>
+      <td>Africa</td>
+      <td>60.377</td>
+      <td>693.420786</td>
+    </tr>
+    <tr>
+      <th>1701</th>
+      <td>Zimbabwe</td>
+      <td>1997</td>
+      <td>11404948.0</td>
+      <td>Africa</td>
+      <td>46.809</td>
+      <td>792.449960</td>
+    </tr>
+    <tr>
+      <th>1702</th>
+      <td>Zimbabwe</td>
+      <td>2002</td>
+      <td>11926563.0</td>
+      <td>Africa</td>
+      <td>39.989</td>
+      <td>672.038623</td>
+    </tr>
+    <tr>
+      <th>1703</th>
+      <td>Zimbabwe</td>
+      <td>2007</td>
+      <td>12311143.0</td>
+      <td>Africa</td>
+      <td>43.487</td>
+      <td>469.709298</td>
+    </tr>
+  </tbody>
+</table>
+<p>1704 rows × 6 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="getting-help">
+<h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">#</a></h2>
+<p>The help pages in Python are generally quite useful and tell you everything you need to know - you just don’t know it yet! Type a question mark <code class="docutils literal notranslate"><span class="pre">?</span></code> before a funciton to view its help pages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ?pd.read_csv</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="error-messages">
+<h2>Error messages<a class="headerlink" href="#error-messages" title="Permalink to this headline">#</a></h2>
+<p>Python’s learning curve can feel creative and beyond frustrating at the same time. Just remember that everyone encounters errors - lots of them. When you do, start debugging by investigating the type of error message you receive.</p>
+<p>Scroll to the end of the error message and read the last line to find the type of error.</p>
+<p><em>Helpful debugging tools/strategies:</em></p>
+<ol class="simple">
+<li><p>Googling the error text, and referring to a forum like StackOverflow</p></li>
+<li><p>(IDE-dependent) Placing breakpoints in your program and using the debugger tool to step through the program</p></li>
+<li><p>Strategically place print() statements to know where your program is reaching/failing to reach</p></li>
+<li><p>Ask a friend! A fresh set of eyes goes a long way when you’re working on code.</p></li>
+<li><p>Restart your IDE and/or your machine.</p></li>
+<li><p><a class="reference external" href="https://library.stanford.edu/research/software-and-services-data-science/schedule-consulting-appointment-contact-us">Schedule an SSDS consultation</a></p></li>
+</ol>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Unhashtag the line of code for each error message below</p></li>
+<li><p>Run each cell</p></li>
+<li><p>Inspect the error messages. Are they helpful?</p></li>
+</ol>
+<section id="syntax-errors">
+<h3>Syntax errors<a class="headerlink" href="#syntax-errors" title="Permalink to this headline">#</a></h3>
+<p><strong>Invalid syntax error</strong></p>
+<p>You have entered invalid syntax, or something python does not understand.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># x 89 5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Indentation error</strong></p>
+<p>Your indentation does not conform to the rules.</p>
+<p>Highlight the code in the cell below and press <code class="docutils literal notranslate"><span class="pre">command</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> (Mac) or <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> on Windows to block comment/uncomment multiple lines of code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># def example():</span>
+<span class="c1">#     test = &quot;this is an example function&quot;</span>
+<span class="c1">#     print(test)</span>
+<span class="c1">#      return example</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="runtime-errors">
+<h3>Runtime errors<a class="headerlink" href="#runtime-errors" title="Permalink to this headline">#</a></h3>
+<p><strong>Name error</strong></p>
+<p>You try to call a variable you have not yet assigned</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># p</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or, you try to call a function from a library that you have not yet imported</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Type error</strong></p>
+<p>You write code with incompatible types</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;5&quot; + 5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Index error</strong></p>
+<p>You try to reference something that is out of range</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;pig&#39;</span><span class="p">]]</span>
+<span class="c1"># my_list[5]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="file-errors">
+<h3>File errors<a class="headerlink" href="#file-errors" title="Permalink to this headline">#</a></h3>
+<p><strong>File not found</strong></p>
+<p>You try to import something that does not exist</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># document = open(&#39;fakedtextfile.txt&#39;).read()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id1">
+<h2>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Define one variablez for each of the four data types introduced above: 1) string, 2) boolean, 3) float, and 4) integer.</p></li>
+<li><p>Define two lists that contain four elements each.</p></li>
+<li><p>Define a dictionary that containts the two lists from #2 above.</p></li>
+<li><p>Import the file “dracula.txt”. Save it in a variable named <code class="docutils literal notranslate"><span class="pre">drac</span></code></p></li>
+<li><p>Import the file “penguins.csv”. Save it in a variable named <code class="docutils literal notranslate"><span class="pre">pen</span></code></p></li>
+<li><p>Figure out how to find help to export just the first 1000 characters of <code class="docutils literal notranslate"><span class="pre">drac</span></code> as a .txt file named “dracula_short.txt”</p></li>
+<li><p>Figure out how to export the <code class="docutils literal notranslate"><span class="pre">pen</span></code> dataframe as a file named “penguins_saved.csv”</p></li>
+</ol>
+<p>If you encounter error messages, which ones?</p>
+<blockquote>
+<div><p>Pro tip: See the Solutions chapter for code to copy files from your Colab environment to your Google Drive!</p>
+</div></blockquote>
+</section>
+<section id="numeric-data-wrangling">
+<h2>Numeric data wrangling<a class="headerlink" href="#numeric-data-wrangling" title="Permalink to this headline">#</a></h2>
+<p>Importing numeric data from a .csv file is one thing, but wrangling it into a format that suits your needs is another. Read Chapter 4 “Numeric data wrangling” to learn how to use the pandas library to subset numeric data!</p>
+<p>Chapter 7 contains information about preprocessing text data.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "EastBayEv/SSDS-TAML",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./fall2022"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="2_Python_environments.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chapter 2 - Python environments</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="4_Numeric_data_wrangling.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 4 - Numeric data wrangling</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Software and Services for Data Science (SSDS), Stanford University<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

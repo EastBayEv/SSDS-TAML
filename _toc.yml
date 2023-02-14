@@ -1,0 +1,21 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: Python Basics
+  chapters:
+  - file: spring2023/1_How_to_use_this_book
+  - file: spring2023/2_Python_environments
+  - file: spring2023/3_Basic_Python_syntax
+  - file: spring2023/4_Numeric_data_wrangling
+  - file: spring2023/5_Data_visualization_essentials
+- caption: Text analysis and machine learning
+  chapters:
+  - file: spring2023/6_Core_concepts_vocabularies
+  - file: spring2023/7_English_text_preprocessing_basics_applications
+  - file: spring2023/8_spaCy_textaCy
+  - file: spring2023/9_BERTopic
+  - file: spring2023/Appendix
+  - file: spring2023/Solutions
