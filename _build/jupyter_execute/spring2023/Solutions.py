@@ -860,7 +860,7 @@ novels['clean_text'] = novels['clean_text'].apply(lambda row: ' '.join([w.lemma_
 novels
 
 
-# In[65]:
+# In[84]:
 
 
 tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3), 
@@ -870,26 +870,26 @@ tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3),
 tf_sparse = tf_vectorizer.fit_transform(novels['clean_text'])
 
 
-# In[66]:
+# In[85]:
 
 
 tf_sparse.shape
 
 
-# In[67]:
+# In[86]:
 
 
 tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names())
 tfidf_df
 
 
-# In[68]:
+# In[87]:
 
 
 tfidf_df.max().sort_values(ascending = False).head(n = 20)
 
 
-# In[69]:
+# In[88]:
 
 
 titles = novels['file_name'].str.slice(stop = -4)
@@ -897,14 +897,14 @@ titles = list(titles)
 titles
 
 
-# In[70]:
+# In[89]:
 
 
 tfidf_df['TITLE'] = titles
 tfidf_df
 
 
-# In[71]:
+# In[90]:
 
 
 # dracula top 20 words
@@ -912,7 +912,7 @@ title = tfidf_df[tfidf_df['TITLE'] == 'frankenstein']
 title.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 
-# In[72]:
+# In[91]:
 
 
 # dracula top 20 words

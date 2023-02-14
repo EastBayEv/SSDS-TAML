@@ -4,7 +4,7 @@
 # # Chapter 6 - Core machine learning concepts; building text vocabularies
 # 2022 August 24
 
-# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/6_Core_concepts_vocabularies.ipynb">
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/6_Core_concepts_vocabularies.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 # </a>
 

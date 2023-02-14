@@ -7,10 +7,16 @@ This is relaxed, low-stakes environments for beginners who have little or no exp
 ## Click here to register
 
 * **Every Friday in April! 1-4PM in 120F Green Library (Velma Denning Room)** 
-    * **April 7**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chapters 1-3&nbsp;&nbsp; _Gain confidence_ coding with Python to import, wrangle, visualize, and understand data
-    * **April 14**&nbsp;&nbsp;&nbsp;Chapters 4-5&nbsp;&nbsp; _Develop strategies_ to internalize basic principles for working with text and machine learning
-    * **April 21**&nbsp;&nbsp;&nbsp;Chapters 6-7&nbsp;&nbsp; _Learn best practices_ for performing text analysis within and across documents
-    * **April 27**&nbsp;&nbsp;&nbsp;Chapters 8-9&nbsp;&nbsp; _Explore new research possibilities_ with large language models
+
+Click the links below to register for each date separately: 
+
+**April 7: Chapters 1-3** _Gain confidence_ coding with Python to import, wrangle, visualize, and understand data [click to register](https://appointments.library.stanford.edu/event/10385304)
+
+**April 14: Chapters 4-5**] _Develop strategies_ to internalize basic principles for working with text and machine learning [click to register](https://appointments.library.stanford.edu/event/10385307)
+
+**April 21: Chapters 6-7** _Learn best practices_ for performing text analysis within and across documents [click to register](https://appointments.library.stanford.edu/event/10385314)
+
+**April 28: Chapter 8-9** _Explore new research possibilities_ with large language models [click to register](https://appointments.library.stanford.edu/event/10385321)
 
 ![triviz](spring2023/img/triviz.png)
 
