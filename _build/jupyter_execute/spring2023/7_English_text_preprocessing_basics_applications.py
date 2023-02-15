@@ -98,17 +98,17 @@ get_ipython().system('mkdir data/human_rights')
 
 
 # Download elevent UN HRC files
-# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/afghanistan2014.txt
-# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/bangladesh2013.txt
-# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/cotedivoire2014.txt
-# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/djibouti2013.txt
-# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/fiji2014.txt
-# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/jordan2013.txt
-# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/kazakhstan2014.txt
-# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/monaco2013.txt
-# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/sanmarino2014.txt
-# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/turkmenistan2013.txt
-# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/human_rights/tuvalu2013.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/afghanistan2014.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/bangladesh2013.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/cotedivoire2014.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/djibouti2013.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/fiji2014.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/jordan2013.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/kazakhstan2014.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/monaco2013.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/sanmarino2014.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/turkmenistan2013.txt
+# !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/tuvalu2013.txt
 
 
 # In[6]:
