@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Chapter 4 - Numeric data wrangling
-# 2022 August 25
+# 2023 February 14
 # 
 # > For text preprocessing, see Chapter 7 "English text preprocessing basics"
 
@@ -32,7 +32,7 @@ import pandas as pd
 
 
 # import the gapminder dataset
-# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/gapminder-FiveYearData.csv
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 

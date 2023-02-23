@@ -146,7 +146,7 @@ dict_one
 
 
 #4
-# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/dracula.txt
 drac = open("data/dracula.txt").read()
 # print(drac)
 
@@ -156,7 +156,7 @@ drac = open("data/dracula.txt").read()
 
 #5
 import pandas as pd
-# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/penguins.csv
 pen = pd.read_csv("data/penguins.csv")
 pen
 
@@ -209,7 +209,7 @@ pen.to_csv("data/penguins_saved.csv")
 
 #1
 import pandas as pd
-# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/gapminder-FiveYearData.csv
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 gap
 
@@ -280,7 +280,7 @@ gap_75_1000
 
 import pandas as pd
 import seaborn as sns
-# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/penguins.csv
 peng = pd.read_csv("data/penguins.csv")
 
 
@@ -350,7 +350,7 @@ facet_plot.map(sns.scatterplot, "flipper_length_mm", "body_mass_g");
 
 import pandas as pd
 import seaborn as sns
-# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/gapminder-FiveYearData.csv
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
@@ -564,7 +564,7 @@ import seaborn as sns
 # In[53]:
 
 
-# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/dracula.txt
 text = open("data/dracula.txt").read()
 
 # print just the first 100 characters
@@ -767,8 +767,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 get_ipython().system('mkdir data/novels/')
 
 # Download the two novels
-# !wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/dracula.txt
-# !wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
+# !wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/dracula.txt
+# !wget -P data/novels/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/frankenstein.txt
 
 
 # In[73]:
@@ -860,7 +860,7 @@ novels['clean_text'] = novels['clean_text'].apply(lambda row: ' '.join([w.lemma_
 novels
 
 
-# In[84]:
+# In[65]:
 
 
 tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3), 
@@ -870,26 +870,26 @@ tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3),
 tf_sparse = tf_vectorizer.fit_transform(novels['clean_text'])
 
 
-# In[85]:
+# In[66]:
 
 
 tf_sparse.shape
 
 
-# In[86]:
+# In[67]:
 
 
 tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names())
 tfidf_df
 
 
-# In[87]:
+# In[68]:
 
 
 tfidf_df.max().sort_values(ascending = False).head(n = 20)
 
 
-# In[88]:
+# In[69]:
 
 
 titles = novels['file_name'].str.slice(stop = -4)
@@ -897,14 +897,14 @@ titles = list(titles)
 titles
 
 
-# In[89]:
+# In[70]:
 
 
 tfidf_df['TITLE'] = titles
 tfidf_df
 
 
-# In[90]:
+# In[71]:
 
 
 # dracula top 20 words
@@ -912,7 +912,7 @@ title = tfidf_df[tfidf_df['TITLE'] == 'frankenstein']
 title.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 
-# In[91]:
+# In[72]:
 
 
 # dracula top 20 words

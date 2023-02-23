@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Chapter 5 - Data visualization essentials
-# 2022 August 26
+# 2023 February 14
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/5_Data_visualization_essentials.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -78,7 +78,7 @@ plt.show()
 
 
 # load gapminder dataset
-# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/gapminder-FiveYearData.csv
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 gap.head()
 

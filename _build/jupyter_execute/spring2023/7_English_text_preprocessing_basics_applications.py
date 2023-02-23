@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Chapter 7 - English text preprocessing basics - and applications
-# 2022 August 26
+# 2023 February 14
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/7_English_text_preprocessing_basics_applications.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>

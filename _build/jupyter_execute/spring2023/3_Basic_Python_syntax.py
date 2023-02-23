@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Chapter 3 - Basic Python syntax
-# 2022 August 25
+# 2023 February 14
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/3_Basic_Python_syntax.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -347,7 +347,7 @@ get_ipython().system('ls')
 
 # Step 3. Use wget to download the data file
 # learn more about wget: https://www.gnu.org/software/wget/?
-# !wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/frankenstein.txt
+# !wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/frankenstein.txt
 
 
 # In[32]:
@@ -399,7 +399,7 @@ import pandas as pd
 
 
 # Colab users: grab the data! Unhashtag the line below
-# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/gapminder-FiveYearData.csv
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/gapminder-FiveYearData.csv
 
 
 # In[36]:

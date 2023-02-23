@@ -3,7 +3,7 @@
 
 # # Chapter 2 - Python environments
 # 
-# 2022 August 25
+# 2023 February 14
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/2_Python_environments.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>

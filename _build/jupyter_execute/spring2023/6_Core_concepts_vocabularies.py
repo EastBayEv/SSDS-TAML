@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Chapter 6 - Core machine learning concepts; building text vocabularies
-# 2022 August 24
+# 
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/6_Core_concepts_vocabularies.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -306,7 +306,7 @@ print(round(RMSE, 5))
 
 
 # load data
-# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/fall2022/data/penguins.csv
+# !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/penguins.csv
 penguins = pd.read_csv("data/penguins.csv")
 
 
