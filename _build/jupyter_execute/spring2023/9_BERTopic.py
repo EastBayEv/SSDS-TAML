@@ -31,13 +31,13 @@
 
 
 # Installs the base bertopic module:
-get_ipython().system('pip install bertopic')
+# !pip install bertopic 
 
 # If you want to use other transformers/language backends, it may require additional installs: 
-get_ipython().system("pip install bertopic[flair] # can substitute 'flair' with 'gensim', 'spacy', 'use'")
+# !pip install bertopic[flair] # can substitute 'flair' with 'gensim', 'spacy', 'use'
 
 # bertopic also comes with its own handy visualization suite: 
-get_ipython().system('pip install bertopic[visualization]')
+# !pip install bertopic[visualization]
 
 
 # ### Data sourcing 

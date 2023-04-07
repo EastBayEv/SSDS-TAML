@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Chapter 3 - Basic Python syntax
-# 2023 February 14
+# 2023 April 6
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/3_Basic_Python_syntax.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -16,7 +16,7 @@
 # 
 # In Python, data are saved in **variables.** Variable names should be simple and descriptive. 
 # 
-# The process is saving something in a variable is called **variable assignment.**
+# The process is saving something in a variable is called **variable assignment.** These variables with our saved data are **objects** that, like everything in Python, can be manipulated. 
 # 
 # Assign a variable by typing its name to the **left** of the equals sign. Whatever is written to the **right** of the equals sign will be saved in the variable. 
 # 
@@ -101,7 +101,7 @@ print_name("Nerd", "Squirrel")
 
 # ## Data types
 # 
-# Everything in Python has a type which determines how we can use and manipulate it. Data are no exception! Be careful, it is easy to get confused when trying to complete multiple tasks that use lots of different variables!
+# Everything in Python has a type which determines how we can use it. Data are no exception! Be careful, it is easy to get confused when trying to complete multiple tasks that use lots of different variables!
 # 
 # Use the `type` function to get the type of any variable if you're unsure. Below are four core data types: 
 # 
@@ -174,7 +174,7 @@ print(type(amount))
 # 
 # Four structures are discussed below:
 # 1. **Lists** are ordered groups of data that are both created and indexed with square brackets `[]`
-# 2. **Dictionaries** are _unordered_ groups of "key:value" pairs. Use the key to access the value. Curly braces `{}` are used to create and index dictionaries
+# 2. **Dictionaries** are _unordered_ groups of "key`:`value" pairs. Use the key to access the value. Curly braces `{}` are used to create and index dictionaries, while a colon `:` separates a key from its corresponding value. 
 # 3. **Character strings** can contain text of virtually any length
 # 4. **Data Frames** are tabular data organized into rows and columns. Think of an MS Excel spreadsheet!
 
@@ -185,6 +185,8 @@ print(type(amount))
 
 # Define a list with with square brackets. This list contains two character strings 'shark' and 'dolphin'
 animals = ['shark', 'dolphin']
+
+# Print the first list item to the screen
 animals[0]
 
 
@@ -314,16 +316,6 @@ fruits['fruits'][1]['recipes'][0]
 # 1. Text from a .txt file
 # 2. A dataframe from a .csv file
 
-# ### Import text data as a character string
-# 
-# Import text as a single string using the `open().read()` Python convention.
-# 
-# Review your basic building blocks from above: 
-# 1. `frank` is the name of the variable we will save the text inside of
-# 2. `open` is the function we will use to open the text file
-# 3. `'data/frankenstein.txt'` is the argument that we provide to the `open` function. This matches the `file` path argument and needs to contain the location for the Frankenstein book.
-# 4. `.read()` reads the file as text. 
-
 # ### A note about importing data into Google Colab
 # 
 # Navigating Google Colab's file system can be challenging since it is slightly different from working on your local machine. 
@@ -349,6 +341,16 @@ get_ipython().system('ls')
 # learn more about wget: https://www.gnu.org/software/wget/?
 # !wget -P  data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/frankenstein.txt
 
+
+# ### Import text data as a character string
+# 
+# Import text as a single string using the `open().read()` Python convention.
+# 
+# Review your basic building blocks from above: 
+# 1. `frank` is the name of the variable we will save the text inside of
+# 2. `open` is the function we will use to open the text file
+# 3. `'data/frankenstein.txt'` is the argument that we provide to the `open` function. This matches the `file` path argument and needs to contain the location for the Frankenstein book.
+# 4. `.read()` reads the file as text. 
 
 # In[32]:
 
@@ -533,7 +535,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 
 # ## Exercises
 # 
-# 1. Define one variablez for each of the four data types introduced above: 1) string, 2) boolean, 3) float, and 4) integer. 
+# 1. Define one variable for each of the four data types introduced above: 1) string, 2) boolean, 3) float, and 4) integer. 
 # 2. Define two lists that contain four elements each. 
 # 3. Define a dictionary that containts the two lists from #2 above.
 # 4. Import the file "dracula.txt". Save it in a variable named `drac`
@@ -543,7 +545,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # If you encounter error messages, which ones? 
 # 
-# > Pro tip: See the Solutions chapter for code to copy files from your Colab environment to your Google Drive! 
+# > Note: See the Solutions chapter for code to copy files from your Colab environment to your Google Drive! 
 
 # ## Numeric data wrangling
 # 

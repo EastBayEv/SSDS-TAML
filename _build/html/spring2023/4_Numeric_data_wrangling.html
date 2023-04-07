@@ -447,6 +447,15 @@ title="Print to PDF"
      </code>
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#info">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       .info()
+      </span>
+     </code>
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -630,6 +639,15 @@ title="Print to PDF"
      </code>
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#info">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       .info()
+      </span>
+     </code>
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -764,7 +782,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-4-numeric-data-wrangling">
 <h1>Chapter 4 - Numeric data wrangling<a class="headerlink" href="#chapter-4-numeric-data-wrangling" title="Permalink to this heading">#</a></h1>
-<p>2023 February 14</p>
+<p>2023 April 7</p>
 <blockquote>
 <div><p>For text preprocessing, see Chapter 7 “English text preprocessing basics”</p>
 </div></blockquote>
@@ -773,7 +791,7 @@ title="Print to PDF"
 </a><p><img alt="wrangle" src="../_images/wrangle.png" /></p>
 <section id="the-pandas-library">
 <h2>The pandas library<a class="headerlink" href="#the-pandas-library" title="Permalink to this heading">#</a></h2>
-<p>Import the pandas library with the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>. This is just a shortcut to call its methods!</p>
+<p>Import the pandas library with the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>. This can be a useful shortcut to call its methods!</p>
 <p>Use “dot notation” to apply its methods to the gapminder dataset, which is stored in a tabular .csv file.</p>
 <p>To import the .csv file, use the <code class="docutils literal notranslate"><span class="pre">.read_csv()</span></code> pandas method. The only argument for now is the file path to a .csv file.</p>
 <p><a class="reference external" href="https://www.gapminder.org/data/">Learn more about the Gapminder data</a></p>
@@ -1110,6 +1128,35 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1704, 6)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="info">
+<h3><code class="docutils literal notranslate"><span class="pre">.info()</span></code><a class="headerlink" href="#info" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .info() shows the compact structure of the dataset, including:</span>
+<span class="c1"># class, dimensions, column names, number of missing values, and types</span>
+<span class="n">gap</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1704 entries, 0 to 1703
+Data columns (total 6 columns):
+ #   Column     Non-Null Count  Dtype  
+---  ------     --------------  -----  
+ 0   country    1704 non-null   object 
+ 1   year       1704 non-null   int64  
+ 2   pop        1704 non-null   float64
+ 3   continent  1704 non-null   object 
+ 4   lifeExp    1704 non-null   float64
+ 5   gdpPercap  1704 non-null   float64
+dtypes: float64(3), int64(1), object(2)
+memory usage: 80.0+ KB
 </pre></div>
 </div>
 </div>
@@ -1693,8 +1740,8 @@ Name: lifeExp, Length: 1704, dtype: float64
 <h3>Subset by logical condition(s)<a class="headerlink" href="#subset-by-logical-condition-s" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lifeExp is greater than 80</span>
-<span class="n">le2</span> <span class="o">=</span> <span class="n">gap</span><span class="p">[</span><span class="n">gap</span><span class="p">[</span><span class="s1">&#39;lifeExp&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lifeExp is greater than 81</span>
+<span class="n">le2</span> <span class="o">=</span> <span class="n">gap</span><span class="p">[</span><span class="n">gap</span><span class="p">[</span><span class="s1">&#39;lifeExp&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">81</span><span class="p">]</span>
 <span class="n">le2</span>
 </pre></div>
 </div>
@@ -1728,15 +1775,6 @@ Name: lifeExp, Length: 1704, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>70</th>
-      <td>Australia</td>
-      <td>2002</td>
-      <td>19546792.0</td>
-      <td>Oceania</td>
-      <td>80.370</td>
-      <td>30687.75473</td>
-    </tr>
-    <tr>
       <th>71</th>
       <td>Australia</td>
       <td>2007</td>
@@ -1744,24 +1782,6 @@ Name: lifeExp, Length: 1704, dtype: float64
       <td>Oceania</td>
       <td>81.235</td>
       <td>34435.36744</td>
-    </tr>
-    <tr>
-      <th>251</th>
-      <td>Canada</td>
-      <td>2007</td>
-      <td>33390141.0</td>
-      <td>Americas</td>
-      <td>80.653</td>
-      <td>36319.23501</td>
-    </tr>
-    <tr>
-      <th>539</th>
-      <td>France</td>
-      <td>2007</td>
-      <td>61083916.0</td>
-      <td>Europe</td>
-      <td>80.657</td>
-      <td>30470.01670</td>
     </tr>
     <tr>
       <th>670</th>
@@ -1782,15 +1802,6 @@ Name: lifeExp, Length: 1704, dtype: float64
       <td>39724.97867</td>
     </tr>
     <tr>
-      <th>694</th>
-      <td>Iceland</td>
-      <td>2002</td>
-      <td>288030.0</td>
-      <td>Europe</td>
-      <td>80.500</td>
-      <td>31163.20196</td>
-    </tr>
-    <tr>
       <th>695</th>
       <td>Iceland</td>
       <td>2007</td>
@@ -1798,42 +1809,6 @@ Name: lifeExp, Length: 1704, dtype: float64
       <td>Europe</td>
       <td>81.757</td>
       <td>36180.78919</td>
-    </tr>
-    <tr>
-      <th>767</th>
-      <td>Israel</td>
-      <td>2007</td>
-      <td>6426679.0</td>
-      <td>Asia</td>
-      <td>80.745</td>
-      <td>25523.27710</td>
-    </tr>
-    <tr>
-      <th>778</th>
-      <td>Italy</td>
-      <td>2002</td>
-      <td>57926999.0</td>
-      <td>Europe</td>
-      <td>80.240</td>
-      <td>27968.09817</td>
-    </tr>
-    <tr>
-      <th>779</th>
-      <td>Italy</td>
-      <td>2007</td>
-      <td>58147733.0</td>
-      <td>Europe</td>
-      <td>80.546</td>
-      <td>28569.71970</td>
-    </tr>
-    <tr>
-      <th>801</th>
-      <td>Japan</td>
-      <td>1997</td>
-      <td>125956499.0</td>
-      <td>Asia</td>
-      <td>80.690</td>
-      <td>28816.58499</td>
     </tr>
     <tr>
       <th>802</th>
@@ -1852,60 +1827,6 @@ Name: lifeExp, Length: 1704, dtype: float64
       <td>Asia</td>
       <td>82.603</td>
       <td>31656.06806</td>
-    </tr>
-    <tr>
-      <th>1103</th>
-      <td>New Zealand</td>
-      <td>2007</td>
-      <td>4115771.0</td>
-      <td>Oceania</td>
-      <td>80.204</td>
-      <td>25185.00911</td>
-    </tr>
-    <tr>
-      <th>1151</th>
-      <td>Norway</td>
-      <td>2007</td>
-      <td>4627926.0</td>
-      <td>Europe</td>
-      <td>80.196</td>
-      <td>49357.19017</td>
-    </tr>
-    <tr>
-      <th>1427</th>
-      <td>Spain</td>
-      <td>2007</td>
-      <td>40448191.0</td>
-      <td>Europe</td>
-      <td>80.941</td>
-      <td>28821.06370</td>
-    </tr>
-    <tr>
-      <th>1474</th>
-      <td>Sweden</td>
-      <td>2002</td>
-      <td>8954175.0</td>
-      <td>Europe</td>
-      <td>80.040</td>
-      <td>29341.63093</td>
-    </tr>
-    <tr>
-      <th>1475</th>
-      <td>Sweden</td>
-      <td>2007</td>
-      <td>9031088.0</td>
-      <td>Europe</td>
-      <td>80.884</td>
-      <td>33859.74835</td>
-    </tr>
-    <tr>
-      <th>1486</th>
-      <td>Switzerland</td>
-      <td>2002</td>
-      <td>7361757.0</td>
-      <td>Europe</td>
-      <td>80.620</td>
-      <td>34480.95771</td>
     </tr>
     <tr>
       <th>1487</th>

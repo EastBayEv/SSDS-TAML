@@ -2,6 +2,7 @@
 # coding: utf-8
 
 # # Solutions
+# 2023 April 7
 # 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/Solutions.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -860,7 +861,7 @@ novels['clean_text'] = novels['clean_text'].apply(lambda row: ' '.join([w.lemma_
 novels
 
 
-# In[65]:
+# In[84]:
 
 
 tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3), 
@@ -870,26 +871,26 @@ tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3),
 tf_sparse = tf_vectorizer.fit_transform(novels['clean_text'])
 
 
-# In[66]:
+# In[85]:
 
 
 tf_sparse.shape
 
 
-# In[67]:
+# In[86]:
 
 
 tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names())
 tfidf_df
 
 
-# In[68]:
+# In[87]:
 
 
 tfidf_df.max().sort_values(ascending = False).head(n = 20)
 
 
-# In[69]:
+# In[88]:
 
 
 titles = novels['file_name'].str.slice(stop = -4)
@@ -897,14 +898,14 @@ titles = list(titles)
 titles
 
 
-# In[70]:
+# In[89]:
 
 
 tfidf_df['TITLE'] = titles
 tfidf_df
 
 
-# In[71]:
+# In[90]:
 
 
 # dracula top 20 words
@@ -912,7 +913,7 @@ title = tfidf_df[tfidf_df['TITLE'] == 'frankenstein']
 title.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 
-# In[72]:
+# In[91]:
 
 
 # dracula top 20 words
@@ -920,9 +921,91 @@ title = tfidf_df[tfidf_df['TITLE'] == 'dracula']
 title.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 
-# ## Chapter 8 - Exercise
+# ## Exercises
 # 
-# 1. Read through the spacy101 guide and begin to apply its principles to your own corpus: https://spacy.io/usage/spacy-101
+# 1. Filter the tokens from the HG Well's `text` variable to 1) lowercase all text, 2) remove punctuation, 3) remove spaces and line breaks, 4) remove numbers, and 5) remove stopwords - all in one line! 
+
+# In[92]:
+
+
+# From H.G. Wells's A Short History of the World, Project Gutenberg 
+text = """Even under the Assyrian monarchs and especially under
+Sardanapalus, Babylon had been a scene of great intellectual
+activity.  {111} Sardanapalus, though an Assyrian, had been quite
+Babylon-ized.  He made a library, a library not of paper but of
+the clay tablets that were used for writing in Mesopotamia since
+early Sumerian days.  His collection has been unearthed and is
+perhaps the most precious store of historical material in the
+world.  The last of the Chaldean line of Babylonian monarchs,
+Nabonidus, had even keener literary tastes.  He patronized
+antiquarian researches, and when a date was worked out by his
+investigators for the accession of Sargon I he commemorated the
+fact by inscriptions.  But there were many signs of disunion in
+his empire, and he sought to centralize it by bringing a number of
+the various local gods to Babylon and setting up temples to them
+there.  This device was to be practised quite successfully by the
+Romans in later times, but in Babylon it roused the jealousy of
+the powerful priesthood of Bel Marduk, the dominant god of the
+Babylonians.  They cast about for a possible alternative to
+Nabonidus and found it in Cyrus the Persian, the ruler of the
+adjacent Median Empire.  Cyrus had already distinguished himself
+by conquering Croesus, the rich king of Lydia in Eastern Asia
+Minor.  {112} He came up against Babylon, there was a battle
+outside the walls, and the gates of the city were opened to him
+(538 B.C.).  His soldiers entered the city without fighting.  The
+crown prince Belshazzar, the son of Nabonidus, was feasting, the
+Bible relates, when a hand appeared and wrote in letters of fire
+upon the wall these mystical words: _"Mene, Mene, Tekel,
+Upharsin,"_ which was interpreted by the prophet Daniel, whom he
+summoned to read the riddle, as "God has numbered thy kingdom and
+finished it; thou art weighed in the balance and found wanting and
+thy kingdom is given to the Medes and Persians."  Possibly the
+priests of Bel Marduk knew something about that writing on the
+wall.  Belshazzar was killed that night, says the Bible.
+Nabonidus was taken prisoner, and the occupation of the city was
+so peaceful that the services of Bel Marduk continued without
+intermission."""
+
+
+# In[93]:
+
+
+# Once we've installed the model, we can import it like any other Python library
+import en_core_web_md
+
+# This instantiates a spaCy text processor based on the installed model
+nlp = en_core_web_md.load()
+
+
+# In[94]:
+
+
+# Apply the pipeline
+doc = nlp(text)
+
+
+# In[95]:
+
+
+# lowercase all text
+clean = [token.lower_ for token in doc if \
+# remove punctuation
+token.is_punct == False and \
+# remove spaces and line breaks
+token.is_space == False and \
+# remove numbers
+token.is_alpha == True and \
+# remove (english) stopwords
+token.is_stop == False]
+
+
+# In[96]:
+
+
+print(clean)
+
+
+# 2. Read through the spacy101 guide and begin to apply its principles to your own corpus: https://spacy.io/usage/spacy-101
 
 # ## Chapter 9 - Exercise
 # 

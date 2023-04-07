@@ -515,8 +515,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-8-exercise">
-   Chapter 8 - Exercise
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -654,8 +654,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chapter-8-exercise">
-   Chapter 8 - Exercise
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -675,6 +675,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="solutions">
 <h1>Solutions<a class="headerlink" href="#solutions" title="Permalink to this heading">#</a></h1>
+<p>2023 April 7</p>
 <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/Solutions.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
@@ -726,8 +727,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thursday
-2023-02-23
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Friday
+2023-04-07
 </pre></div>
 </div>
 </div>
@@ -743,8 +744,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>three
-hearts
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nine
+diamonds
 </pre></div>
 </div>
 </div>
@@ -760,7 +761,7 @@ hearts
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Welcome to TAML at SSDS!
 
-Your lucky card for Thursday 2023-02-23 is: three of hearts
+Your lucky card for Friday 2023-04-07 is: nine of diamonds
 </pre></div>
 </div>
 </div>
@@ -1379,7 +1380,7 @@ gdpPercap    7.215327e+03
 dtype: float64
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_2183/1146573181.py:2: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_27601/1146573181.py:2: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
   print(gap.mean())
 </pre></div>
 </div>
@@ -2618,7 +2619,7 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-23 16:05:11.100985: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-04-07 08:41:40.993548: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -2988,214 +2989,45 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">83</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_sm&#39;</span><span class="p">)</span>
-<span class="nn">----&gt; 2 novels[&#39;clean_text&#39;] = novels[&#39;clean_text&#39;].apply(lambda row: &#39; &#39;.join([w.lemma_ for w</span> in <span class="ni">nlp</span><span class="nt">(row)]))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">novels</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/core/series.py:4433,</span> in <span class="ni">Series.apply</span><span class="nt">(self, func, convert_dtype, args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4323</span> <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">4324</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4325</span>     <span class="n">func</span><span class="p">:</span> <span class="n">AggFuncType</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4328</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4329</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span> <span class="o">|</span> <span class="n">Series</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4330</span>     <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">4331</span><span class="sd">     Invoke function on values of Series.</span>
-<span class="g g-Whitespace">   </span><span class="mi">4332</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4431</span><span class="sd">     dtype: float64</span>
-<span class="g g-Whitespace">   </span><span class="mi">4432</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">4433</span>     <span class="k">return</span> <span class="n">SeriesApply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">convert_dtype</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/core/apply.py:1088,</span> in <span class="ni">SeriesApply.apply</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1084</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1085</span>     <span class="c1"># if we are a string, try to dispatch</span>
-<span class="g g-Whitespace">   </span><span class="mi">1086</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_str</span><span class="p">()</span>
-<span class="ne">-&gt; </span><span class="mi">1088</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_standard</span><span class="p">()</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/core/apply.py:1143,</span> in <span class="ni">SeriesApply.apply_standard</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1137</span>         <span class="n">values</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">_values</span>
-<span class="g g-Whitespace">   </span><span class="mi">1138</span>         <span class="c1"># error: Argument 2 to &quot;map_infer&quot; has incompatible type</span>
-<span class="g g-Whitespace">   </span><span class="mi">1139</span>         <span class="c1"># &quot;Union[Callable[..., Any], str, List[Union[Callable[..., Any], str]],</span>
-<span class="g g-Whitespace">   </span><span class="mi">1140</span>         <span class="c1"># Dict[Hashable, Union[Union[Callable[..., Any], str],</span>
-<span class="g g-Whitespace">   </span><span class="mi">1141</span>         <span class="c1"># List[Union[Callable[..., Any], str]]]]]&quot;; expected</span>
-<span class="g g-Whitespace">   </span><span class="mi">1142</span>         <span class="c1"># &quot;Callable[[Any], Any]&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1143</span>         <span class="n">mapped</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">map_infer</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1144</span>             <span class="n">values</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1145</span>             <span class="n">f</span><span class="p">,</span>  <span class="c1"># type: ignore[arg-type]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1146</span>             <span class="n">convert</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_dtype</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1147</span>         <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1149</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mapped</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mapped</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ABCSeries</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1150</span>     <span class="c1"># GH#43986 Need to do list(mapped) in order to get treated as nested</span>
-<span class="g g-Whitespace">   </span><span class="mi">1151</span>     <span class="c1">#  See also GH#25959 regarding EA support</span>
-<span class="g g-Whitespace">   </span><span class="mi">1152</span>     <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">_constructor_expanddim</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">mapped</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/_libs/lib.pyx:2870,</span> in <span class="ni">pandas._libs.lib.map_infer</span><span class="nt">()</span>
-
-<span class="nn">Cell In[83], line 2,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(row)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_sm&#39;</span><span class="p">)</span>
-<span class="nn">----&gt; 2 novels[&#39;clean_text&#39;] = novels[&#39;clean_text&#39;].apply(lambda row: &#39; &#39;.join([w.lemma_ for w</span> in <span class="ni">nlp</span><span class="nt">(row)]))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">novels</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/language.py:1020,</span> in <span class="ni">Language.__call__</span><span class="nt">(self, text, disable, component_cfg)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1018</span>     <span class="n">error_handler</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">get_error_handler</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1019</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1020</span>     <span class="n">doc</span> <span class="o">=</span> <span class="n">proc</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="o">**</span><span class="n">component_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">{}))</span>  <span class="c1"># type: ignore[call-arg]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1021</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1022</span>     <span class="c1"># This typically happens if a component is not initialized</span>
-<span class="g g-Whitespace">   </span><span class="mi">1023</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">Errors</span><span class="o">.</span><span class="n">E109</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">e</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/pipeline/trainable_pipe.pyx:52,</span> in <span class="ni">spacy.pipeline.trainable_pipe.TrainablePipe.__call__</span><span class="nt">()</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/pipeline/transition_parser.pyx:250,</span> in <span class="ni">spacy.pipeline.transition_parser.Parser.predict</span><span class="nt">()</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/pipeline/transition_parser.pyx:265,</span> in <span class="ni">spacy.pipeline.transition_parser.Parser.greedy_parse</span><span class="nt">()</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:315,</span> in <span class="ni">Model.predict</span><span class="nt">(self, X)</span>
-<span class="g g-Whitespace">    </span><span class="mi">311</span> <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OutT</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function with `is_train=False`, and return</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span><span class="sd">     only the output, instead of the `(output, callback)` tuple.</span>
-<span class="g g-Whitespace">    </span><span class="mi">314</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">315</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/ml/tb_framework.py:33,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">33</span>     <span class="n">step_model</span> <span class="o">=</span> <span class="n">ParserStepModel</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>         <span class="n">X</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>         <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>         <span class="n">unseen_classes</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;unseen_classes&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span>         <span class="n">train</span><span class="o">=</span><span class="n">is_train</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>         <span class="n">has_upper</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;has_upper&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="k">return</span> <span class="n">step_model</span><span class="p">,</span> <span class="n">step_model</span><span class="o">.</span><span class="n">finish_steps</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/ml/parser_model.pyx:217,</span> in <span class="ni">spacy.ml.parser_model.ParserStepModel.__init__</span><span class="nt">()</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/chain.py:54,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">Y</span><span class="p">,</span> <span class="n">inc_layer_grad</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inc_layer_grad</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/chain.py:54,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">Y</span><span class="p">,</span> <span class="n">inc_layer_grad</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inc_layer_grad</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/with_array.py:40,</span> in <span class="ni">forward</span><span class="nt">(model, Xseq, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">Xseq</span><span class="p">,</span> <span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">40</span>     <span class="k">return</span> <span class="n">_list_forward</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="n">Model</span><span class="p">[</span><span class="n">List2d</span><span class="p">,</span> <span class="n">List2d</span><span class="p">],</span> <span class="n">model</span><span class="p">),</span> <span class="n">Xseq</span><span class="p">,</span> <span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/with_array.py:76,</span> in <span class="ni">_list_forward</span><span class="nt">(model, Xs, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="n">lengths</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">asarray1i</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span> <span class="n">Xf</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="n">pad</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
-<span class="ne">---&gt; </span><span class="mi">76</span> <span class="n">Yf</span><span class="p">,</span> <span class="n">get_dXf</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">Xf</span><span class="p">,</span> <span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span> <span class="k">def</span> <span class="nf">backprop</span><span class="p">(</span><span class="n">dYs</span><span class="p">:</span> <span class="n">List2d</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List2d</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span>     <span class="n">dYf</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">dYs</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="n">pad</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/chain.py:54,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">Y</span><span class="p">,</span> <span class="n">inc_layer_grad</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inc_layer_grad</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/residual.py:40,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>         <span class="k">return</span> <span class="n">d_output</span> <span class="o">+</span> <span class="n">dX</span>
-<span class="ne">---&gt; </span><span class="mi">40</span> <span class="n">Y</span><span class="p">,</span> <span class="n">backprop_layer</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="k">return</span> <span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))],</span> <span class="n">backprop</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/chain.py:54,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">Y</span><span class="p">,</span> <span class="n">inc_layer_grad</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inc_layer_grad</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/chain.py:54,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">Y</span><span class="p">,</span> <span class="n">inc_layer_grad</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inc_layer_grad</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span>
-
-    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">similar</span> <span class="n">frames</span><span class="p">:</span> <span class="n">Model</span><span class="o">.</span><span class="fm">__call__</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">291</span> <span class="p">(</span><span class="mi">1</span> <span class="n">times</span><span class="p">)]</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/chain.py:54,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">Y</span><span class="p">,</span> <span class="n">inc_layer_grad</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inc_layer_grad</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/maxout.py:52,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="n">Y</span> <span class="o">+=</span> <span class="n">model</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">reshape1f</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">nO</span> <span class="o">*</span> <span class="n">nP</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">reshape3f</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">nO</span><span class="p">,</span> <span class="n">nP</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">52</span> <span class="n">best</span><span class="p">,</span> <span class="n">which</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">maxout</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="k">def</span> <span class="nf">backprop</span><span class="p">(</span><span class="n">d_best</span><span class="p">:</span> <span class="n">OutT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">InT</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">dZ</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">backprop_maxout</span><span class="p">(</span><span class="n">d_best</span><span class="p">,</span> <span class="n">which</span><span class="p">,</span> <span class="n">nP</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>file_name</th>
+      <th>document_text</th>
+      <th>clean_text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>frankenstein.txt</td>
+      <td>The Project Gutenberg eBook of Frankenstein, b...</td>
+      <td>the project gutenberg ebook of frankenstein by...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>dracula.txt</td>
+      <td>The Project Gutenberg eBook of Dracula, by Bra...</td>
+      <td>the project gutenberg ebook of dracula by bram...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3545,8 +3377,101 @@ dtype: float64
 </div>
 </div>
 </section>
-<section id="chapter-8-exercise">
-<h2>Chapter 8 - Exercise<a class="headerlink" href="#chapter-8-exercise" title="Permalink to this heading">#</a></h2>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<ol class="simple">
+<li><p>Filter the tokens from the HG Well’s <code class="docutils literal notranslate"><span class="pre">text</span></code> variable to 1) lowercase all text, 2) remove punctuation, 3) remove spaces and line breaks, 4) remove numbers, and 5) remove stopwords - all in one line!</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># From H.G. Wells&#39;s A Short History of the World, Project Gutenberg </span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Even under the Assyrian monarchs and especially under</span>
+<span class="s2">Sardanapalus, Babylon had been a scene of great intellectual</span>
+<span class="s2">activity.  </span><span class="si">{111}</span><span class="s2"> Sardanapalus, though an Assyrian, had been quite</span>
+<span class="s2">Babylon-ized.  He made a library, a library not of paper but of</span>
+<span class="s2">the clay tablets that were used for writing in Mesopotamia since</span>
+<span class="s2">early Sumerian days.  His collection has been unearthed and is</span>
+<span class="s2">perhaps the most precious store of historical material in the</span>
+<span class="s2">world.  The last of the Chaldean line of Babylonian monarchs,</span>
+<span class="s2">Nabonidus, had even keener literary tastes.  He patronized</span>
+<span class="s2">antiquarian researches, and when a date was worked out by his</span>
+<span class="s2">investigators for the accession of Sargon I he commemorated the</span>
+<span class="s2">fact by inscriptions.  But there were many signs of disunion in</span>
+<span class="s2">his empire, and he sought to centralize it by bringing a number of</span>
+<span class="s2">the various local gods to Babylon and setting up temples to them</span>
+<span class="s2">there.  This device was to be practised quite successfully by the</span>
+<span class="s2">Romans in later times, but in Babylon it roused the jealousy of</span>
+<span class="s2">the powerful priesthood of Bel Marduk, the dominant god of the</span>
+<span class="s2">Babylonians.  They cast about for a possible alternative to</span>
+<span class="s2">Nabonidus and found it in Cyrus the Persian, the ruler of the</span>
+<span class="s2">adjacent Median Empire.  Cyrus had already distinguished himself</span>
+<span class="s2">by conquering Croesus, the rich king of Lydia in Eastern Asia</span>
+<span class="s2">Minor.  </span><span class="si">{112}</span><span class="s2"> He came up against Babylon, there was a battle</span>
+<span class="s2">outside the walls, and the gates of the city were opened to him</span>
+<span class="s2">(538 B.C.).  His soldiers entered the city without fighting.  The</span>
+<span class="s2">crown prince Belshazzar, the son of Nabonidus, was feasting, the</span>
+<span class="s2">Bible relates, when a hand appeared and wrote in letters of fire</span>
+<span class="s2">upon the wall these mystical words: _&quot;Mene, Mene, Tekel,</span>
+<span class="s2">Upharsin,&quot;_ which was interpreted by the prophet Daniel, whom he</span>
+<span class="s2">summoned to read the riddle, as &quot;God has numbered thy kingdom and</span>
+<span class="s2">finished it; thou art weighed in the balance and found wanting and</span>
+<span class="s2">thy kingdom is given to the Medes and Persians.&quot;  Possibly the</span>
+<span class="s2">priests of Bel Marduk knew something about that writing on the</span>
+<span class="s2">wall.  Belshazzar was killed that night, says the Bible.</span>
+<span class="s2">Nabonidus was taken prisoner, and the occupation of the city was</span>
+<span class="s2">so peaceful that the services of Bel Marduk continued without</span>
+<span class="s2">intermission.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Once we&#39;ve installed the model, we can import it like any other Python library</span>
+<span class="kn">import</span> <span class="nn">en_core_web_md</span>
+
+<span class="c1"># This instantiates a spaCy text processor based on the installed model</span>
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">en_core_web_md</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the pipeline</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># lowercase all text</span>
+<span class="n">clean</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lower_</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span> <span class="k">if</span> \
+        <span class="c1"># remove punctuation</span>
+        <span class="n">token</span><span class="o">.</span><span class="n">is_punct</span> <span class="o">==</span> <span class="kc">False</span> <span class="ow">and</span> \
+        <span class="c1"># remove spaces and line breaks</span>
+        <span class="n">token</span><span class="o">.</span><span class="n">is_space</span> <span class="o">==</span> <span class="kc">False</span> <span class="ow">and</span> \
+        <span class="c1"># remove numbers</span>
+        <span class="n">token</span><span class="o">.</span><span class="n">is_alpha</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">and</span> \
+        <span class="c1"># remove (english) stopwords</span>
+        <span class="n">token</span><span class="o">.</span><span class="n">is_stop</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;assyrian&#39;, &#39;monarchs&#39;, &#39;especially&#39;, &#39;sardanapalus&#39;, &#39;babylon&#39;, &#39;scene&#39;, &#39;great&#39;, &#39;intellectual&#39;, &#39;activity&#39;, &#39;sardanapalus&#39;, &#39;assyrian&#39;, &#39;babylon&#39;, &#39;ized&#39;, &#39;library&#39;, &#39;library&#39;, &#39;paper&#39;, &#39;clay&#39;, &#39;tablets&#39;, &#39;writing&#39;, &#39;mesopotamia&#39;, &#39;early&#39;, &#39;sumerian&#39;, &#39;days&#39;, &#39;collection&#39;, &#39;unearthed&#39;, &#39;precious&#39;, &#39;store&#39;, &#39;historical&#39;, &#39;material&#39;, &#39;world&#39;, &#39;chaldean&#39;, &#39;line&#39;, &#39;babylonian&#39;, &#39;monarchs&#39;, &#39;nabonidus&#39;, &#39;keener&#39;, &#39;literary&#39;, &#39;tastes&#39;, &#39;patronized&#39;, &#39;antiquarian&#39;, &#39;researches&#39;, &#39;date&#39;, &#39;worked&#39;, &#39;investigators&#39;, &#39;accession&#39;, &#39;sargon&#39;, &#39;commemorated&#39;, &#39;fact&#39;, &#39;inscriptions&#39;, &#39;signs&#39;, &#39;disunion&#39;, &#39;empire&#39;, &#39;sought&#39;, &#39;centralize&#39;, &#39;bringing&#39;, &#39;number&#39;, &#39;local&#39;, &#39;gods&#39;, &#39;babylon&#39;, &#39;setting&#39;, &#39;temples&#39;, &#39;device&#39;, &#39;practised&#39;, &#39;successfully&#39;, &#39;romans&#39;, &#39;later&#39;, &#39;times&#39;, &#39;babylon&#39;, &#39;roused&#39;, &#39;jealousy&#39;, &#39;powerful&#39;, &#39;priesthood&#39;, &#39;bel&#39;, &#39;marduk&#39;, &#39;dominant&#39;, &#39;god&#39;, &#39;babylonians&#39;, &#39;cast&#39;, &#39;possible&#39;, &#39;alternative&#39;, &#39;nabonidus&#39;, &#39;found&#39;, &#39;cyrus&#39;, &#39;persian&#39;, &#39;ruler&#39;, &#39;adjacent&#39;, &#39;median&#39;, &#39;empire&#39;, &#39;cyrus&#39;, &#39;distinguished&#39;, &#39;conquering&#39;, &#39;croesus&#39;, &#39;rich&#39;, &#39;king&#39;, &#39;lydia&#39;, &#39;eastern&#39;, &#39;asia&#39;, &#39;minor&#39;, &#39;came&#39;, &#39;babylon&#39;, &#39;battle&#39;, &#39;outside&#39;, &#39;walls&#39;, &#39;gates&#39;, &#39;city&#39;, &#39;opened&#39;, &#39;soldiers&#39;, &#39;entered&#39;, &#39;city&#39;, &#39;fighting&#39;, &#39;crown&#39;, &#39;prince&#39;, &#39;belshazzar&#39;, &#39;son&#39;, &#39;nabonidus&#39;, &#39;feasting&#39;, &#39;bible&#39;, &#39;relates&#39;, &#39;hand&#39;, &#39;appeared&#39;, &#39;wrote&#39;, &#39;letters&#39;, &#39;fire&#39;, &#39;wall&#39;, &#39;mystical&#39;, &#39;words&#39;, &#39;mene&#39;, &#39;mene&#39;, &#39;tekel&#39;, &#39;upharsin&#39;, &#39;interpreted&#39;, &#39;prophet&#39;, &#39;daniel&#39;, &#39;summoned&#39;, &#39;read&#39;, &#39;riddle&#39;, &#39;god&#39;, &#39;numbered&#39;, &#39;thy&#39;, &#39;kingdom&#39;, &#39;finished&#39;, &#39;thou&#39;, &#39;art&#39;, &#39;weighed&#39;, &#39;balance&#39;, &#39;found&#39;, &#39;wanting&#39;, &#39;thy&#39;, &#39;kingdom&#39;, &#39;given&#39;, &#39;medes&#39;, &#39;persians&#39;, &#39;possibly&#39;, &#39;priests&#39;, &#39;bel&#39;, &#39;marduk&#39;, &#39;knew&#39;, &#39;writing&#39;, &#39;wall&#39;, &#39;belshazzar&#39;, &#39;killed&#39;, &#39;night&#39;, &#39;says&#39;, &#39;bible&#39;, &#39;nabonidus&#39;, &#39;taken&#39;, &#39;prisoner&#39;, &#39;occupation&#39;, &#39;city&#39;, &#39;peaceful&#39;, &#39;services&#39;, &#39;bel&#39;, &#39;marduk&#39;, &#39;continued&#39;, &#39;intermission&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="simple">
 <li><p>Read through the spacy101 guide and begin to apply its principles to your own corpus: <a class="reference external" href="https://spacy.io/usage/spacy-101">https://spacy.io/usage/spacy-101</a></p></li>
 </ol>

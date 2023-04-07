@@ -523,8 +523,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-spacy101">
-     Exercise - spacy101
+    <a class="reference internal nav-link" href="#exercises">
+     Exercises
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -671,8 +671,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-spacy101">
-     Exercise - spacy101
+    <a class="reference internal nav-link" href="#exercises">
+     Exercises
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -694,7 +694,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-8-spacy-and-textacy">
 <h1>Chapter 8 - spaCy and textaCy<a class="headerlink" href="#chapter-8-spacy-and-textacy" title="Permalink to this heading">#</a></h1>
-<p>2022 August 22</p>
+<p>2023 April 7</p>
 <blockquote>
 <div><p>These abridged materials are borrowed from the CIDR Workshop <a class="reference external" href="https://github.com/sul-cidr/Workshops/tree/master/Text_Analysis_with_Python">Text Analysis with Python</a></p>
 </div></blockquote>
@@ -732,7 +732,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-23 16:02:08.205211: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-04-07 08:39:04.290109: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -756,7 +756,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-23 16:02:14.300322: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-04-07 08:39:10.350965: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -767,299 +767,85 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -lotly (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 <span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 <span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -lotly (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
+<span class=" -Color -Color-Yellow">WARNING: Ignoring invalid distribution -ensorflow (/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages)</span>
 Collecting en-core-web-md==3.3.0
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.3.0/en_core_web_md-3.3.0-py3-none-any.whl (33.5 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/33.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.7/33.5 MB</span> <span class=" -Color -Color-Red">21.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/33.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/33.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.8/33.5 MB</span> <span class=" -Color -Color-Red">53.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/33.5 MB</span> <span class=" -Color -Color-Red">449.9 kB/s</span> eta <span class=" -Color -Color-Cyan">0:01:15</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.9/33.5 MB</span> <span class=" -Color -Color-Red">75.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/33.5 MB</span> <span class=" -Color -Color-Red">449.9 kB/s</span> eta <span class=" -Color -Color-Cyan">0:01:15</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.1/33.5 MB</span> <span class=" -Color -Color-Red">564.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:01:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.9/33.5 MB</span> <span class=" -Color -Color-Red">70.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.9/33.5 MB</span> <span class=" -Color -Color-Red">91.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.1/33.5 MB</span> <span class=" -Color -Color-Red">564.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:01:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">15.3/33.5 MB</span> <span class=" -Color -Color-Red">82.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.2/33.5 MB</span> <span class=" -Color -Color-Red">759.9 kB/s</span> eta <span class=" -Color -Color-Cyan">0:00:44</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">18.1/33.5 MB</span> <span class=" -Color -Color-Red">71.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">20.5/33.5 MB</span> <span class=" -Color -Color-Red">73.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.2/33.5 MB</span> <span class=" -Color -Color-Red">759.9 kB/s</span> eta <span class=" -Color -Color-Cyan">0:00:44</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.3/33.5 MB</span> <span class=" -Color -Color-Red">924.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:00:36</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━ <span class=" -Color -Color-Green">23.3/33.5 MB</span> <span class=" -Color -Color-Red">71.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.3/33.5 MB</span> <span class=" -Color -Color-Red">924.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:00:36</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ <span class=" -Color -Color-Green">26.1/33.5 MB</span> <span class=" -Color -Color-Red">71.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.4/33.5 MB</span> <span class=" -Color -Color-Red">1.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:30</span>
-     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.4/33.5 MB</span> <span class=" -Color -Color-Red">1.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:30</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ <span class=" -Color -Color-Green">28.9/33.5 MB</span> <span class=" -Color -Color-Red">71.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━ <span class=" -Color -Color-Green">31.4/33.5 MB</span> <span class=" -Color -Color-Red">71.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.6/33.5 MB</span> <span class=" -Color -Color-Red">1.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:24</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">33.4/33.5 MB</span> <span class=" -Color -Color-Red">71.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.6/33.5 MB</span> <span class=" -Color -Color-Red">1.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:24</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">33.4/33.5 MB</span> <span class=" -Color -Color-Red">71.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.9/33.5 MB</span> <span class=" -Color -Color-Red">1.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:20</span>
-     ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.9/33.5 MB</span> <span class=" -Color -Color-Red">1.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:20</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.3/33.5 MB</span> <span class=" -Color -Color-Red">2.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:16</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.3/33.5 MB</span> <span class=" -Color -Color-Red">2.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:16</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.8/33.5 MB</span> <span class=" -Color -Color-Red">2.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:13</span>
-     ━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.8/33.5 MB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:13</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.5/33.5 MB</span> <span class=" -Color -Color-Red">3.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:10</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.5/33.5 MB</span> <span class=" -Color -Color-Red">3.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:10</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.2/33.5 MB</span> <span class=" -Color -Color-Red">3.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:09</span>
-     ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.3/33.5 MB</span> <span class=" -Color -Color-Red">3.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:08</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.7/33.5 MB</span> <span class=" -Color -Color-Red">4.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:08</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.9/33.5 MB</span> <span class=" -Color -Color-Red">4.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:08</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.9/33.5 MB</span> <span class=" -Color -Color-Red">4.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:08</span>
-     ━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.9/33.5 MB</span> <span class=" -Color -Color-Red">4.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:08</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.9/33.5 MB</span> <span class=" -Color -Color-Red">4.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:08</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.7/33.5 MB</span> <span class=" -Color -Color-Red">4.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:07</span>
-     ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.0/33.5 MB</span> <span class=" -Color -Color-Red">5.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:06</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.6/33.5 MB</span> <span class=" -Color -Color-Red">5.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:05</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.8/33.5 MB</span> <span class=" -Color -Color-Red">5.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:05</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.8/33.5 MB</span> <span class=" -Color -Color-Red">5.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:05</span>
-     ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.5/33.5 MB</span> <span class=" -Color -Color-Red">5.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:05</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.1/33.5 MB</span> <span class=" -Color -Color-Red">6.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:04</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.5/33.5 MB</span> <span class=" -Color -Color-Red">7.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:04</span>
-     ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.5/33.5 MB</span> <span class=" -Color -Color-Red">7.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:04</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11.2/33.5 MB</span> <span class=" -Color -Color-Red">11.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11.9/33.5 MB</span> <span class=" -Color -Color-Red">12.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.3/33.5 MB</span> <span class=" -Color -Color-Red">13.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-     ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">13.2/33.5 MB</span> <span class=" -Color -Color-Red">13.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">13.5/33.5 MB</span> <span class=" -Color -Color-Red">13.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.3/33.5 MB</span> <span class=" -Color -Color-Red">18.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.7/33.5 MB</span> <span class=" -Color -Color-Red">17.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-     ━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">15.3/33.5 MB</span> <span class=" -Color -Color-Red">16.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">15.7/33.5 MB</span> <span class=" -Color -Color-Red">15.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">16.1/33.5 MB</span> <span class=" -Color -Color-Red">15.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-     ━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">16.4/33.5 MB</span> <span class=" -Color -Color-Red">15.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">16.9/33.5 MB</span> <span class=" -Color -Color-Red">15.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">17.4/33.5 MB</span> <span class=" -Color -Color-Red">16.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">17.9/33.5 MB</span> <span class=" -Color -Color-Red">16.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">18.2/33.5 MB</span> <span class=" -Color -Color-Red">15.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">18.8/33.5 MB</span> <span class=" -Color -Color-Red">14.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">19.3/33.5 MB</span> <span class=" -Color -Color-Red">14.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">19.8/33.5 MB</span> <span class=" -Color -Color-Red">13.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">20.3/33.5 MB</span> <span class=" -Color -Color-Red">14.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">20.6/33.5 MB</span> <span class=" -Color -Color-Red">13.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">21.1/33.5 MB</span> <span class=" -Color -Color-Red">13.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">21.4/33.5 MB</span> <span class=" -Color -Color-Red">13.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ <span class=" -Color -Color-Green">21.9/33.5 MB</span> <span class=" -Color -Color-Red">12.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━ <span class=" -Color -Color-Green">22.2/33.5 MB</span> <span class=" -Color -Color-Red">12.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━ <span class=" -Color -Color-Green">22.8/33.5 MB</span> <span class=" -Color -Color-Red">12.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━ <span class=" -Color -Color-Green">23.2/33.5 MB</span> <span class=" -Color -Color-Red">12.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━ <span class=" -Color -Color-Green">23.7/33.5 MB</span> <span class=" -Color -Color-Red">11.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━ <span class=" -Color -Color-Green">24.2/33.5 MB</span> <span class=" -Color -Color-Red">11.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green">24.7/33.5 MB</span> <span class=" -Color -Color-Red">11.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━ <span class=" -Color -Color-Green">25.1/33.5 MB</span> <span class=" -Color -Color-Red">11.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">25.5/33.5 MB</span> <span class=" -Color -Color-Red">11.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━ <span class=" -Color -Color-Green">25.8/33.5 MB</span> <span class=" -Color -Color-Red">11.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ <span class=" -Color -Color-Green">26.0/33.5 MB</span> <span class=" -Color -Color-Red">11.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ <span class=" -Color -Color-Green">26.2/33.5 MB</span> <span class=" -Color -Color-Red">11.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━ <span class=" -Color -Color-Green">26.6/33.5 MB</span> <span class=" -Color -Color-Red">10.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">26.9/33.5 MB</span> <span class=" -Color -Color-Red">10.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">27.2/33.5 MB</span> <span class=" -Color -Color-Red">10.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">27.5/33.5 MB</span> <span class=" -Color -Color-Red">10.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━ <span class=" -Color -Color-Green">27.7/33.5 MB</span> <span class=" -Color -Color-Red">10.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━ <span class=" -Color -Color-Green">28.0/33.5 MB</span> <span class=" -Color -Color-Red">10.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━ <span class=" -Color -Color-Green">28.2/33.5 MB</span> <span class=" -Color -Color-Red">9.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ <span class=" -Color -Color-Green">28.5/33.5 MB</span> <span class=" -Color -Color-Red">9.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ <span class=" -Color -Color-Green">28.8/33.5 MB</span> <span class=" -Color -Color-Red">9.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ <span class=" -Color -Color-Green">29.0/33.5 MB</span> <span class=" -Color -Color-Red">9.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ <span class=" -Color -Color-Green">29.4/33.5 MB</span> <span class=" -Color -Color-Red">9.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ <span class=" -Color -Color-Green">29.7/33.5 MB</span> <span class=" -Color -Color-Red">9.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━ <span class=" -Color -Color-Green">30.0/33.5 MB</span> <span class=" -Color -Color-Red">9.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ <span class=" -Color -Color-Green">30.3/33.5 MB</span> <span class=" -Color -Color-Red">9.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━ <span class=" -Color -Color-Green">30.5/33.5 MB</span> <span class=" -Color -Color-Red">9.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━ <span class=" -Color -Color-Green">30.8/33.5 MB</span> <span class=" -Color -Color-Red">8.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ <span class=" -Color -Color-Green">31.1/33.5 MB</span> <span class=" -Color -Color-Red">8.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ <span class=" -Color -Color-Green">31.3/33.5 MB</span> <span class=" -Color -Color-Red">8.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━ <span class=" -Color -Color-Green">31.7/33.5 MB</span> <span class=" -Color -Color-Red">8.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━ <span class=" -Color -Color-Green">31.9/33.5 MB</span> <span class=" -Color -Color-Red">8.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━ <span class=" -Color -Color-Green">31.9/33.5 MB</span> <span class=" -Color -Color-Red">8.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━ <span class=" -Color -Color-Green">32.1/33.5 MB</span> <span class=" -Color -Color-Red">8.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ <span class=" -Color -Color-Green">32.3/33.5 MB</span> <span class=" -Color -Color-Red">8.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ <span class=" -Color -Color-Green">32.4/33.5 MB</span> <span class=" -Color -Color-Red">8.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">32.6/33.5 MB</span> <span class=" -Color -Color-Red">7.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">32.8/33.5 MB</span> <span class=" -Color -Color-Red">7.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">33.0/33.5 MB</span> <span class=" -Color -Color-Red">7.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">33.2/33.5 MB</span> <span class=" -Color -Color-Red">7.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">33.4/33.5 MB</span> <span class=" -Color -Color-Red">7.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">33.4/33.5 MB</span> <span class=" -Color -Color-Red">7.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">33.5/33.5 MB</span> <span class=" -Color -Color-Red">6.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">33.5/33.5 MB</span> <span class=" -Color -Color-Red">43.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: spacy&lt;3.4.0,&gt;=3.3.0.dev0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from en-core-web-md==3.3.0) (3.3.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pydantic!=1.8,!=1.8.1,&lt;1.9.0,&gt;=1.7.4 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (1.8.2)
-Requirement already satisfied: langcodes&lt;4.0.0,&gt;=3.2.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (3.3.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: spacy-legacy&lt;3.1.0,&gt;=3.0.9 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (3.0.10)
+Requirement already satisfied: thinc&lt;8.1.0,&gt;=8.0.14 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (8.0.17)
+Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (1.0.7)
+Requirement already satisfied: blis&lt;0.8.0,&gt;=0.4.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (0.7.7)
+Requirement already satisfied: pathy&gt;=0.3.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (0.10.1)
+Requirement already satisfied: setuptools in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (66.1.1)
+Requirement already satisfied: spacy-loggers&lt;2.0.0,&gt;=1.0.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (1.0.1)
+Requirement already satisfied: pydantic!=1.8,!=1.8.1,&lt;1.9.0,&gt;=1.7.4 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (1.8.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jinja2 in /Users/evanmuzzall/.local/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (3.1.2)
 Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (2.28.2)
 Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (3.0.6)
-Requirement already satisfied: jinja2 in /Users/evanmuzzall/.local/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (3.1.2)
+Requirement already satisfied: srsly&lt;3.0.0,&gt;=2.4.3 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (2.4.4)
+Requirement already satisfied: packaging&gt;=20.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (23.0)
+Requirement already satisfied: catalogue&lt;2.1.0,&gt;=2.0.6 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (2.0.7)
 Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (4.64.1)
+Requirement already satisfied: typer&lt;0.5.0,&gt;=0.3.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (0.4.1)
+Requirement already satisfied: langcodes&lt;4.0.0,&gt;=3.2.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (3.3.0)
 Requirement already satisfied: wasabi&lt;1.1.0,&gt;=0.9.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (0.10.1)
 Requirement already satisfied: cymem&lt;2.1.0,&gt;=2.0.2 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (2.0.6)
-Requirement already satisfied: packaging&gt;=20.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (23.0)
 Requirement already satisfied: numpy&gt;=1.15.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (1.23.5)
-Requirement already satisfied: spacy-legacy&lt;3.1.0,&gt;=3.0.9 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (3.0.10)
-Requirement already satisfied: catalogue&lt;2.1.0,&gt;=2.0.6 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (2.0.7)
-Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (1.0.7)
-Requirement already satisfied: spacy-loggers&lt;2.0.0,&gt;=1.0.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (1.0.1)
-Requirement already satisfied: typer&lt;0.5.0,&gt;=0.3.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (0.4.1)
-Requirement already satisfied: blis&lt;0.8.0,&gt;=0.4.0 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (0.7.7)
-Requirement already satisfied: srsly&lt;3.0.0,&gt;=2.4.3 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (2.4.4)
-Requirement already satisfied: setuptools in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (66.1.1)
-Requirement already satisfied: thinc&lt;8.1.0,&gt;=8.0.14 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (8.0.17)
-Requirement already satisfied: pathy&gt;=0.3.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (0.10.1)
 Requirement already satisfied: smart-open&lt;7.0.0,&gt;=5.2.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pathy&gt;=0.3.5-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (5.2.1)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: typing-extensions&gt;=3.7.4.3 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from pydantic!=1.8,!=1.8.1,&lt;1.9.0,&gt;=1.7.4-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (4.4.0)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (1.26.14)
 Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (3.0.1)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (2022.12.7)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (3.4)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (1.26.14)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages (from typer&lt;0.5.0,&gt;=0.3.0-&gt;spacy&lt;3.4.0,&gt;=3.3.0.dev0-&gt;en-core-web-md==3.3.0) (8.1.3)
@@ -2842,12 +2628,9 @@ Bel Marduk           PERSON          People, including fictional
 
 <span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/pipeline/trainable_pipe.pyx:52,</span> in <span class="ni">spacy.pipeline.trainable_pipe.TrainablePipe.__call__</span><span class="nt">()</span>
 
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/pipeline/tok2vec.py:125,</span> in <span class="ni">Tok2Vec.predict</span><span class="nt">(self, docs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_dim</span><span class="p">(</span><span class="s2">&quot;nO&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">alloc</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">))</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">125</span> <span class="n">tokvecs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="n">batch_id</span> <span class="o">=</span> <span class="n">Tok2VecListener</span><span class="o">.</span><span class="n">get_batch_id</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">127</span> <span class="k">for</span> <span class="n">listener</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">listeners</span><span class="p">:</span>
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/pipeline/transition_parser.pyx:250,</span> in <span class="ni">spacy.pipeline.transition_parser.Parser.predict</span><span class="nt">()</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/pipeline/transition_parser.pyx:265,</span> in <span class="ni">spacy.pipeline.transition_parser.Parser.greedy_parse</span><span class="nt">()</span>
 
 <span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:315,</span> in <span class="ni">Model.predict</span><span class="nt">(self, X)</span>
 <span class="g g-Whitespace">    </span><span class="mi">311</span> <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OutT</span><span class="p">:</span>
@@ -2856,12 +2639,20 @@ Bel Marduk           PERSON          People, including fictional
 <span class="g g-Whitespace">    </span><span class="mi">314</span><span class="sd">     &quot;&quot;&quot;</span>
 <span class="ne">--&gt; </span><span class="mi">315</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/chain.py:54,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">Y</span><span class="p">,</span> <span class="n">inc_layer_grad</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inc_layer_grad</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span>
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/ml/tb_framework.py:33,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">33</span>     <span class="n">step_model</span> <span class="o">=</span> <span class="n">ParserStepModel</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>         <span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span>         <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>         <span class="n">unseen_classes</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;unseen_classes&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span>         <span class="n">train</span><span class="o">=</span><span class="n">is_train</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span>         <span class="n">has_upper</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;has_upper&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="k">return</span> <span class="n">step_model</span><span class="p">,</span> <span class="n">step_model</span><span class="o">.</span><span class="n">finish_steps</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/ml/parser_model.pyx:224,</span> in <span class="ni">spacy.ml.parser_model.ParserStepModel.__init__</span><span class="nt">()</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/ml/parser_model.pyx:363,</span> in <span class="ni">spacy.ml.parser_model.precompute_hiddens.__init__</span><span class="nt">()</span>
 
 <span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
 <span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
@@ -2869,118 +2660,26 @@ Bel Marduk           PERSON          People, including fictional
 <span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
 <span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/chain.py:54,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">Y</span><span class="p">,</span> <span class="n">inc_layer_grad</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inc_layer_grad</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span>
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/ml/_precomputable_affine.py:27,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">Yf</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">gemm</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">W</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">nF</span> <span class="o">*</span> <span class="n">nO</span> <span class="o">*</span> <span class="n">nP</span><span class="p">,</span> <span class="n">nI</span><span class="p">)),</span> <span class="n">trans2</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">Yf</span> <span class="o">=</span> <span class="n">Yf</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">Yf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">nF</span><span class="p">,</span> <span class="n">nO</span><span class="p">,</span> <span class="n">nP</span><span class="p">))</span>
+<span class="ne">---&gt; </span><span class="mi">27</span> <span class="n">Yf</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">xp</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">model</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">&quot;pad&quot;</span><span class="p">),</span> <span class="n">Yf</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">dY_ids</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="c1"># This backprop is particularly tricky, because we get back a different</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="c1"># thing from what we put out. We put out an array of shape:</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="c1"># However, we avoid building that array for efficiency -- and just pass</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="c1"># in the indices.</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="n">dY</span><span class="p">,</span> <span class="n">ids</span> <span class="o">=</span> <span class="n">dY_ids</span>
 
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
+<span class="nn">File &lt;__array_function__ internals&gt;:180,</span> in <span class="ni">vstack</span><span class="nt">(*args, **kwargs)</span>
 
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/concatenate.py:44,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">[</span><span class="n">InT</span><span class="p">,</span> <span class="n">OutT</span><span class="p">],</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="ne">---&gt; </span><span class="mi">44</span>     <span class="n">Ys</span><span class="p">,</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Ys</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>         <span class="k">return</span> <span class="n">_list_forward</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Ys</span><span class="p">,</span> <span class="n">callbacks</span><span class="p">,</span> <span class="n">is_train</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/numpy/core/shape_base.py:282,</span> in <span class="ni">vstack</span><span class="nt">(tup)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span>     <span class="n">arrs</span> <span class="o">=</span> <span class="p">[</span><span class="n">arrs</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">282</span> <span class="k">return</span> <span class="n">_nx</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/concatenate.py:44,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">[</span><span class="n">InT</span><span class="p">,</span> <span class="n">OutT</span><span class="p">],</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="ne">---&gt; </span><span class="mi">44</span>     <span class="n">Ys</span><span class="p">,</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Ys</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>         <span class="k">return</span> <span class="n">_list_forward</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Ys</span><span class="p">,</span> <span class="n">callbacks</span><span class="p">,</span> <span class="n">is_train</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/chain.py:54,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">Y</span><span class="p">,</span> <span class="n">inc_layer_grad</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inc_layer_grad</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/with_array.py:30,</span> in <span class="ni">forward</span><span class="nt">(model, Xseq, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">[</span><span class="n">SeqT</span><span class="p">,</span> <span class="n">SeqT</span><span class="p">],</span> <span class="n">Xseq</span><span class="p">:</span> <span class="n">SeqT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Xseq</span><span class="p">,</span> <span class="n">Ragged</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">30</span>         <span class="k">return</span> <span class="n">_ragged_forward</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>             <span class="n">cast</span><span class="p">(</span><span class="n">Model</span><span class="p">[</span><span class="n">Ragged</span><span class="p">,</span> <span class="n">Ragged</span><span class="p">],</span> <span class="n">model</span><span class="p">),</span> <span class="n">cast</span><span class="p">(</span><span class="n">Ragged</span><span class="p">,</span> <span class="n">Xseq</span><span class="p">),</span> <span class="n">is_train</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span>         <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span>     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Xseq</span><span class="p">,</span> <span class="n">Padded</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>         <span class="k">return</span> <span class="n">_padded_forward</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>             <span class="n">cast</span><span class="p">(</span><span class="n">Model</span><span class="p">[</span><span class="n">Padded</span><span class="p">,</span> <span class="n">Padded</span><span class="p">],</span> <span class="n">model</span><span class="p">),</span> <span class="n">cast</span><span class="p">(</span><span class="n">Padded</span><span class="p">,</span> <span class="n">Xseq</span><span class="p">),</span> <span class="n">is_train</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>         <span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/with_array.py:90,</span> in <span class="ni">_ragged_forward</span><span class="nt">(model, Xr, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span> <span class="k">def</span> <span class="nf">_ragged_forward</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span>     <span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">[</span><span class="n">Ragged</span><span class="p">,</span> <span class="n">Ragged</span><span class="p">],</span> <span class="n">Xr</span><span class="p">:</span> <span class="n">Ragged</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Ragged</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span>     <span class="n">layer</span><span class="p">:</span> <span class="n">Model</span><span class="p">[</span><span class="n">ArrayXd</span><span class="p">,</span> <span class="n">ArrayXd</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">90</span>     <span class="n">Y</span><span class="p">,</span> <span class="n">get_dX</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">Xr</span><span class="o">.</span><span class="n">dataXd</span><span class="p">,</span> <span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span>     <span class="k">def</span> <span class="nf">backprop</span><span class="p">(</span><span class="n">dYr</span><span class="p">:</span> <span class="n">Ragged</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Ragged</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span>         <span class="k">return</span> <span class="n">Ragged</span><span class="p">(</span><span class="n">get_dX</span><span class="p">(</span><span class="n">dYr</span><span class="o">.</span><span class="n">dataXd</span><span class="p">),</span> <span class="n">dYr</span><span class="o">.</span><span class="n">lengths</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/concatenate.py:44,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">[</span><span class="n">InT</span><span class="p">,</span> <span class="n">OutT</span><span class="p">],</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="ne">---&gt; </span><span class="mi">44</span>     <span class="n">Ys</span><span class="p">,</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Ys</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>         <span class="k">return</span> <span class="n">_list_forward</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Ys</span><span class="p">,</span> <span class="n">callbacks</span><span class="p">,</span> <span class="n">is_train</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/concatenate.py:44,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">[</span><span class="n">InT</span><span class="p">,</span> <span class="n">OutT</span><span class="p">],</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="ne">---&gt; </span><span class="mi">44</span>     <span class="n">Ys</span><span class="p">,</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Ys</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>         <span class="k">return</span> <span class="n">_list_forward</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Ys</span><span class="p">,</span> <span class="n">callbacks</span><span class="p">,</span> <span class="n">is_train</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/chain.py:54,</span> in <span class="ni">forward</span><span class="nt">(model, X, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">Y</span><span class="p">,</span> <span class="n">inc_layer_grad</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inc_layer_grad</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/model.py:291,</span> in <span class="ni">Model.__call__</span><span class="nt">(self, X, is_train)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">InT</span><span class="p">,</span> <span class="n">is_train</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutT</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="sd">&quot;&quot;&quot;Call the model&#39;s `forward` function, returning the output and a</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span><span class="sd">     callback to compute the gradients via backpropagation.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/thinc/layers/hashembed.py:71,</span> in <span class="ni">forward</span><span class="nt">(model, ids, is_train)</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;seed&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">hash</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span> <span class="o">%</span> <span class="n">nV</span>
-<span class="ne">---&gt; </span><span class="mi">71</span> <span class="n">output</span> <span class="o">=</span> <span class="n">vectors</span><span class="p">[</span><span class="n">keys</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="n">drop_mask</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">if</span> <span class="n">is_train</span><span class="p">:</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/numpy/core/_methods.py:48,</span> in <span class="ni">_sum</span><span class="nt">(a, axis, dtype, out, keepdims, initial, where)</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="k">def</span> <span class="nf">_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>          <span class="n">initial</span><span class="o">=</span><span class="n">_NoValue</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">48</span>     <span class="k">return</span> <span class="n">umr_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
+<span class="nn">File &lt;__array_function__ internals&gt;:180,</span> in <span class="ni">concatenate</span><span class="nt">(*args, **kwargs)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -4566,18 +4265,18 @@ t of 1996 (AEDPA) to the &quot;Georgia Supreme Court&#39;s  judgment  as to the 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.00428384, 0.00913349, ..., 0.0036864 , 0.05862846,
-        0.00781646],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.00428384, 0.00913359, ..., 0.0036863 , 0.05862846,
+        0.00781636],
        [0.00428384, 0.        , 0.00910768, ..., 0.00630599, 0.05399509,
         0.0058778 ],
-       [0.00913349, 0.00910768, 0.        , ..., 0.00614726, 0.04253501,
-        0.00566699],
+       [0.00913359, 0.00910768, 0.        , ..., 0.00614726, 0.04253501,
+        0.00566709],
        ...,
-       [0.0036864 , 0.00630599, 0.00614726, ..., 0.        , 0.05483739,
+       [0.0036863 , 0.00630599, 0.00614726, ..., 0.        , 0.05483739,
         0.00724887],
        [0.05862846, 0.05399509, 0.04253501, ..., 0.05483739, 0.        ,
         0.04504147],
-       [0.00781646, 0.0058778 , 0.00566699, ..., 0.00724887, 0.04504147,
+       [0.00781636, 0.0058778 , 0.00566709, ..., 0.00724887, 0.04504147,
         0.        ]])
 </pre></div>
 </div>
@@ -4653,10 +4352,197 @@ Cluster 1
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;assyrian&#39;,
+ &#39;monarchs&#39;,
+ &#39;especially&#39;,
+ &#39;sardanapalus&#39;,
+ &#39;babylon&#39;,
+ &#39;scene&#39;,
+ &#39;great&#39;,
+ &#39;intellectual&#39;,
+ &#39;activity&#39;,
+ &#39;sardanapalus&#39;,
+ &#39;assyrian&#39;,
+ &#39;babylon&#39;,
+ &#39;ized&#39;,
+ &#39;library&#39;,
+ &#39;library&#39;,
+ &#39;paper&#39;,
+ &#39;clay&#39;,
+ &#39;tablets&#39;,
+ &#39;writing&#39;,
+ &#39;mesopotamia&#39;,
+ &#39;early&#39;,
+ &#39;sumerian&#39;,
+ &#39;days&#39;,
+ &#39;collection&#39;,
+ &#39;unearthed&#39;,
+ &#39;precious&#39;,
+ &#39;store&#39;,
+ &#39;historical&#39;,
+ &#39;material&#39;,
+ &#39;world&#39;,
+ &#39;chaldean&#39;,
+ &#39;line&#39;,
+ &#39;babylonian&#39;,
+ &#39;monarchs&#39;,
+ &#39;nabonidus&#39;,
+ &#39;keener&#39;,
+ &#39;literary&#39;,
+ &#39;tastes&#39;,
+ &#39;patronized&#39;,
+ &#39;antiquarian&#39;,
+ &#39;researches&#39;,
+ &#39;date&#39;,
+ &#39;worked&#39;,
+ &#39;investigators&#39;,
+ &#39;accession&#39;,
+ &#39;sargon&#39;,
+ &#39;commemorated&#39;,
+ &#39;fact&#39;,
+ &#39;inscriptions&#39;,
+ &#39;signs&#39;,
+ &#39;disunion&#39;,
+ &#39;empire&#39;,
+ &#39;sought&#39;,
+ &#39;centralize&#39;,
+ &#39;bringing&#39;,
+ &#39;number&#39;,
+ &#39;local&#39;,
+ &#39;gods&#39;,
+ &#39;babylon&#39;,
+ &#39;setting&#39;,
+ &#39;temples&#39;,
+ &#39;device&#39;,
+ &#39;practised&#39;,
+ &#39;successfully&#39;,
+ &#39;romans&#39;,
+ &#39;later&#39;,
+ &#39;times&#39;,
+ &#39;babylon&#39;,
+ &#39;roused&#39;,
+ &#39;jealousy&#39;,
+ &#39;powerful&#39;,
+ &#39;priesthood&#39;,
+ &#39;bel&#39;,
+ &#39;marduk&#39;,
+ &#39;dominant&#39;,
+ &#39;god&#39;,
+ &#39;babylonians&#39;,
+ &#39;cast&#39;,
+ &#39;possible&#39;,
+ &#39;alternative&#39;,
+ &#39;nabonidus&#39;,
+ &#39;found&#39;,
+ &#39;cyrus&#39;,
+ &#39;persian&#39;,
+ &#39;ruler&#39;,
+ &#39;adjacent&#39;,
+ &#39;median&#39;,
+ &#39;empire&#39;,
+ &#39;cyrus&#39;,
+ &#39;distinguished&#39;,
+ &#39;conquering&#39;,
+ &#39;croesus&#39;,
+ &#39;rich&#39;,
+ &#39;king&#39;,
+ &#39;lydia&#39;,
+ &#39;eastern&#39;,
+ &#39;asia&#39;,
+ &#39;minor&#39;,
+ &#39;came&#39;,
+ &#39;babylon&#39;,
+ &#39;battle&#39;,
+ &#39;outside&#39;,
+ &#39;walls&#39;,
+ &#39;gates&#39;,
+ &#39;city&#39;,
+ &#39;opened&#39;,
+ &#39;soldiers&#39;,
+ &#39;entered&#39;,
+ &#39;city&#39;,
+ &#39;fighting&#39;,
+ &#39;crown&#39;,
+ &#39;prince&#39;,
+ &#39;belshazzar&#39;,
+ &#39;son&#39;,
+ &#39;nabonidus&#39;,
+ &#39;feasting&#39;,
+ &#39;bible&#39;,
+ &#39;relates&#39;,
+ &#39;hand&#39;,
+ &#39;appeared&#39;,
+ &#39;wrote&#39;,
+ &#39;letters&#39;,
+ &#39;fire&#39;,
+ &#39;wall&#39;,
+ &#39;mystical&#39;,
+ &#39;words&#39;,
+ &#39;mene&#39;,
+ &#39;mene&#39;,
+ &#39;tekel&#39;,
+ &#39;upharsin&#39;,
+ &#39;interpreted&#39;,
+ &#39;prophet&#39;,
+ &#39;daniel&#39;,
+ &#39;summoned&#39;,
+ &#39;read&#39;,
+ &#39;riddle&#39;,
+ &#39;god&#39;,
+ &#39;numbered&#39;,
+ &#39;thy&#39;,
+ &#39;kingdom&#39;,
+ &#39;finished&#39;,
+ &#39;thou&#39;,
+ &#39;art&#39;,
+ &#39;weighed&#39;,
+ &#39;balance&#39;,
+ &#39;found&#39;,
+ &#39;wanting&#39;,
+ &#39;thy&#39;,
+ &#39;kingdom&#39;,
+ &#39;given&#39;,
+ &#39;medes&#39;,
+ &#39;persians&#39;,
+ &#39;possibly&#39;,
+ &#39;priests&#39;,
+ &#39;bel&#39;,
+ &#39;marduk&#39;,
+ &#39;knew&#39;,
+ &#39;writing&#39;,
+ &#39;wall&#39;,
+ &#39;belshazzar&#39;,
+ &#39;killed&#39;,
+ &#39;night&#39;,
+ &#39;says&#39;,
+ &#39;bible&#39;,
+ &#39;nabonidus&#39;,
+ &#39;taken&#39;,
+ &#39;prisoner&#39;,
+ &#39;occupation&#39;,
+ &#39;city&#39;,
+ &#39;peaceful&#39;,
+ &#39;services&#39;,
+ &#39;bel&#39;,
+ &#39;marduk&#39;,
+ &#39;continued&#39;,
+ &#39;intermission&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="exercise-spacy101">
-<h2>Exercise - spacy101<a class="headerlink" href="#exercise-spacy101" title="Permalink to this heading">#</a></h2>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <ol class="simple">
+<li><p>Filter the tokens from the HG Well’s <code class="docutils literal notranslate"><span class="pre">text</span></code> variable to 1) lowercase all text, 2) remove punctuation, 3) remove spaces and line breaks, 4) remove numbers, and 5) remove stopwords - all in one line!</p></li>
 <li><p>Read through the spacy101 guide and begin to apply its principles to your own corpus: <a class="reference external" href="https://spacy.io/usage/spacy-101">https://spacy.io/usage/spacy-101</a></p></li>
 </ol>
 </section>

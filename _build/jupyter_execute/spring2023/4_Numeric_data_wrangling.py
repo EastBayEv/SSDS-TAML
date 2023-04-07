@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Chapter 4 - Numeric data wrangling
-# 2023 February 14
+# 2023 April 7
 # 
 # > For text preprocessing, see Chapter 7 "English text preprocessing basics"
 
@@ -14,7 +14,7 @@
 
 # ## The pandas library
 # 
-# Import the pandas library with the alias `pd`. This is just a shortcut to call its methods!
+# Import the pandas library with the alias `pd`. This can be a useful shortcut to call its methods!
 # 
 # Use "dot notation" to apply its methods to the gapminder dataset, which is stored in a tabular .csv file. 
 # 
@@ -102,6 +102,16 @@ gap.columns
 gap.shape
 
 
+# ### `.info()`
+
+# In[9]:
+
+
+# .info() shows the compact structure of the dataset, including:
+# class, dimensions, column names, number of missing values, and types
+gap.info()
+
+
 # ## Summary statistics
 # 
 # Produce summary statistics, including: 
@@ -110,7 +120,7 @@ gap.shape
 
 # ### `.describe()`
 
-# In[9]:
+# In[10]:
 
 
 # produce summary statistics for numeric data
@@ -119,7 +129,7 @@ gap.describe()
 
 # ### `.mean()` and `.std()`
 
-# In[10]:
+# In[11]:
 
 
 # calculate mean and standard deviation of lifeExp
@@ -133,7 +143,7 @@ print("Life expectancy sd:", lifeExp_sd)
 # 
 # These two methods are useful for tabulating frequencies by a grouping variable!
 
-# In[11]:
+# In[12]:
 
 
 # count the number of observations grouped by each continent
@@ -154,7 +164,7 @@ gap.groupby("continent").count()["country"]
 
 # ### Row subset: slice just the first row
 
-# In[12]:
+# In[13]:
 
 
 gap[:1]
@@ -162,7 +172,7 @@ gap[:1]
 
 # ### Row subset: slice first three rows
 
-# In[13]:
+# In[14]:
 
 
 gap[:3]
@@ -170,7 +180,7 @@ gap[:3]
 
 # ### Row subset: slice rows 10 thru 14
 
-# In[14]:
+# In[15]:
 
 
 subset1 = gap[10:15]
@@ -179,7 +189,7 @@ subset1
 
 # ### Column subset: one column
 
-# In[15]:
+# In[16]:
 
 
 # type the column name as a string in square brackets
@@ -188,7 +198,7 @@ gap['lifeExp']
 
 # ### Column subset: multiple columns
 
-# In[16]:
+# In[17]:
 
 
 # note the double sets of brackets
@@ -198,7 +208,7 @@ subset2
 
 # ### Row and column subset
 
-# In[17]:
+# In[18]:
 
 
 # subset more than one column and rows 855 thru 858
@@ -206,7 +216,7 @@ subset3 = gap[['continent', 'lifeExp', 'gdpPercap']][855:859]
 subset3
 
 
-# In[18]:
+# In[19]:
 
 
 # A column in a pandas data frame Pandas "Series" can be thought of like numpy arrays
@@ -216,11 +226,11 @@ type(gap["lifeExp"])
 
 # ### Subset by logical condition(s)
 
-# In[19]:
+# In[20]:
 
 
-# lifeExp is greater than 80
-le2 = gap[gap['lifeExp'] > 80]
+# lifeExp is greater than 81
+le2 = gap[gap['lifeExp'] > 81]
 le2
 
 
@@ -228,7 +238,7 @@ le2
 # 
 # All conditions must be satisfied to be included in the subset
 
-# In[20]:
+# In[21]:
 
 
 # create subset that includes life expectancy greater than 81 AND pop < 500,000.
@@ -240,7 +250,7 @@ year2002
 # 
 # Just one of multiple conditions must be satisfied to be included in the subset
 
-# In[21]:
+# In[22]:
 
 
 # create a subset that includes country equals Ireland OR life expectancy greater than 82. 

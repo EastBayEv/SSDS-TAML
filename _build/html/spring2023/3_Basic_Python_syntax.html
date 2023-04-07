@@ -464,13 +464,13 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-text-data-as-a-character-string">
-     Import text data as a character string
+    <a class="reference internal nav-link" href="#a-note-about-importing-data-into-google-colab">
+     A note about importing data into Google Colab
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-note-about-importing-data-into-google-colab">
-     A note about importing data into Google Colab
+    <a class="reference internal nav-link" href="#import-text-data-as-a-character-string">
+     Import text data as a character string
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -605,13 +605,13 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-text-data-as-a-character-string">
-     Import text data as a character string
+    <a class="reference internal nav-link" href="#a-note-about-importing-data-into-google-colab">
+     A note about importing data into Google Colab
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-note-about-importing-data-into-google-colab">
-     A note about importing data into Google Colab
+    <a class="reference internal nav-link" href="#import-text-data-as-a-character-string">
+     Import text data as a character string
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -680,7 +680,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-3-basic-python-syntax">
 <h1>Chapter 3 - Basic Python syntax<a class="headerlink" href="#chapter-3-basic-python-syntax" title="Permalink to this heading">#</a></h1>
-<p>2023 February 14</p>
+<p>2023 April 6</p>
 <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/3_Basic_Python_syntax.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a><p><img alt="boiler" src="../_images/boiler.jpg" /></p>
@@ -688,7 +688,7 @@ title="Print to PDF"
 <section id="variable-assignment">
 <h2>Variable assignment<a class="headerlink" href="#variable-assignment" title="Permalink to this heading">#</a></h2>
 <p>In Python, data are saved in <strong>variables.</strong> Variable names should be simple and descriptive.</p>
-<p>The process is saving something in a variable is called <strong>variable assignment.</strong></p>
+<p>The process is saving something in a variable is called <strong>variable assignment.</strong> These variables with our saved data are <strong>objects</strong> that, like everything in Python, can be manipulated.</p>
 <p>Assign a variable by typing its name to the <strong>left</strong> of the equals sign. Whatever is written to the <strong>right</strong> of the equals sign will be saved in the variable.</p>
 <p>Save a single number inside of a variable named with a single letter. You could read the below lines as “x is defined as one”, “two is assigned to y”, or most simply put, “z is three”:</p>
 <div class="cell docutils container">
@@ -815,7 +815,7 @@ title="Print to PDF"
 </section>
 <section id="data-types">
 <h2>Data types<a class="headerlink" href="#data-types" title="Permalink to this heading">#</a></h2>
-<p>Everything in Python has a type which determines how we can use and manipulate it. Data are no exception! Be careful, it is easy to get confused when trying to complete multiple tasks that use lots of different variables!</p>
+<p>Everything in Python has a type which determines how we can use it. Data are no exception! Be careful, it is easy to get confused when trying to complete multiple tasks that use lots of different variables!</p>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">type</span></code> function to get the type of any variable if you’re unsure. Below are four core data types:</p>
 <ol class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: Character string; text. Always wrapped in quotations (single or double are fine)</p></li>
@@ -928,7 +928,7 @@ title="Print to PDF"
 <p>Four structures are discussed below:</p>
 <ol class="simple">
 <li><p><strong>Lists</strong> are ordered groups of data that are both created and indexed with square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code></p></li>
-<li><p><strong>Dictionaries</strong> are <em>unordered</em> groups of “key:value” pairs. Use the key to access the value. Curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> are used to create and index dictionaries</p></li>
+<li><p><strong>Dictionaries</strong> are <em>unordered</em> groups of “key<code class="docutils literal notranslate"><span class="pre">:</span></code>value” pairs. Use the key to access the value. Curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> are used to create and index dictionaries, while a colon <code class="docutils literal notranslate"><span class="pre">:</span></code> separates a key from its corresponding value.</p></li>
 <li><p><strong>Character strings</strong> can contain text of virtually any length</p></li>
 <li><p><strong>Data Frames</strong> are tabular data organized into rows and columns. Think of an MS Excel spreadsheet!</p></li>
 </ol>
@@ -940,6 +940,8 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a list with with square brackets. This list contains two character strings &#39;shark&#39; and &#39;dolphin&#39;</span>
 <span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;shark&#39;</span><span class="p">,</span> <span class="s1">&#39;dolphin&#39;</span><span class="p">]</span>
+
+<span class="c1"># Print the first list item to the screen</span>
 <span class="n">animals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1178,17 +1180,6 @@ title="Print to PDF"
 <li><p>Text from a .txt file</p></li>
 <li><p>A dataframe from a .csv file</p></li>
 </ol>
-<section id="import-text-data-as-a-character-string">
-<h3>Import text data as a character string<a class="headerlink" href="#import-text-data-as-a-character-string" title="Permalink to this heading">#</a></h3>
-<p>Import text as a single string using the <code class="docutils literal notranslate"><span class="pre">open().read()</span></code> Python convention.</p>
-<p>Review your basic building blocks from above:</p>
-<ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">frank</span></code> is the name of the variable we will save the text inside of</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">open</span></code> is the function we will use to open the text file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'data/frankenstein.txt'</span></code> is the argument that we provide to the <code class="docutils literal notranslate"><span class="pre">open</span></code> function. This matches the <code class="docutils literal notranslate"><span class="pre">file</span></code> path argument and needs to contain the location for the Frankenstein book.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.read()</span></code> reads the file as text.</p></li>
-</ol>
-</section>
 <section id="a-note-about-importing-data-into-google-colab">
 <h3>A note about importing data into Google Colab<a class="headerlink" href="#a-note-about-importing-data-into-google-colab" title="Permalink to this heading">#</a></h3>
 <p>Navigating Google Colab’s file system can be challenging since it is slightly different from working on your local machine.</p>
@@ -1233,6 +1224,17 @@ Solutions.ipynb
 </div>
 </div>
 </div>
+</section>
+<section id="import-text-data-as-a-character-string">
+<h3>Import text data as a character string<a class="headerlink" href="#import-text-data-as-a-character-string" title="Permalink to this heading">#</a></h3>
+<p>Import text as a single string using the <code class="docutils literal notranslate"><span class="pre">open().read()</span></code> Python convention.</p>
+<p>Review your basic building blocks from above:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">frank</span></code> is the name of the variable we will save the text inside of</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">open</span></code> is the function we will use to open the text file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'data/frankenstein.txt'</span></code> is the argument that we provide to the <code class="docutils literal notranslate"><span class="pre">open</span></code> function. This matches the <code class="docutils literal notranslate"><span class="pre">file</span></code> path argument and needs to contain the location for the Frankenstein book.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.read()</span></code> reads the file as text.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frank</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/frankenstein.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -1605,7 +1607,7 @@ or, the Modern Prom
 <section id="id1">
 <h2>Exercises<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <ol class="simple">
-<li><p>Define one variablez for each of the four data types introduced above: 1) string, 2) boolean, 3) float, and 4) integer.</p></li>
+<li><p>Define one variable for each of the four data types introduced above: 1) string, 2) boolean, 3) float, and 4) integer.</p></li>
 <li><p>Define two lists that contain four elements each.</p></li>
 <li><p>Define a dictionary that containts the two lists from #2 above.</p></li>
 <li><p>Import the file “dracula.txt”. Save it in a variable named <code class="docutils literal notranslate"><span class="pre">drac</span></code></p></li>
@@ -1615,7 +1617,7 @@ or, the Modern Prom
 </ol>
 <p>If you encounter error messages, which ones?</p>
 <blockquote>
-<div><p>Pro tip: See the Solutions chapter for code to copy files from your Colab environment to your Google Drive!</p>
+<div><p>Note: See the Solutions chapter for code to copy files from your Colab environment to your Google Drive!</p>
 </div></blockquote>
 </section>
 <section id="numeric-data-wrangling">

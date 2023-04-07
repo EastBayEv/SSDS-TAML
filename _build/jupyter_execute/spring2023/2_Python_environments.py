@@ -3,7 +3,7 @@
 
 # # Chapter 2 - Python environments
 # 
-# 2023 February 14
+# 2023 April 6
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/2_Python_environments.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -11,30 +11,28 @@
 
 # ## What is a programming language?
 # 
-# For all intents and purposes, a programming language is a means to give instructions to a computer. [Read Python's executive summary here.](https://www.python.org/doc/essays/blurb/)
+# For all intents and purposes, a programming language is a means to give instructions to a computer. [Read Python's executive summary here.](https://www.python.org/doc/essays/blurb/). You can write your Python code in different environments: 
 # 
-# You can write your python code in the below environments (and more!), but no matter which option you choose the content is virtually identical:
+# 1. Google Colab Notebook
+# 2. Local Anaconda Jupyter Notebook environment
+# 3. Jupyter Lab notebook via Binder
+# 4. Text editor and running scripts
 # 
-# 1. Google Colab
-# 2. Jupyter Lab via Binder
-# 3. Local Anaconda environment
-# 4. Text editor
+# > Note that options 3 and 4 might not work for you right now, but know that they exist!
 # 
-# Furthermore, it is hard to say which is "better" or "best", since this is dependent on the task at hand. Remember that TAML sessions use Google Colab:
+# It is hard to say which is "better" or "best", since this is dependent on the task at hand. In TAML sessions we will use Google Colab, which functions similar to a local Anaconda Jupyter Notebook. 
 # 
 # ## Run the code
 # 
-# If you are using Google Colab, Jupyter Lab, or a local Python Anaconda installation, press `shift` and `enter` simultaneously on your keyboard to:
-# * Run a code cell
-# * Render a text/markdown cell
+# Recall that `shift` and `enter` will run a code cell or render a markdown/text cell. It will also advance the cursor to the next cell. 
+# 
+# `control` and `enter` will run a cell, but will keep the cursor in the current cell. 
 
 # ## 1. Google Colaboratory
 # 
 # ## REQUIRED: Set up your Colab environment before the bootcamp! 
 # 
-# Google Colab is the easiest way to run the TAML materials, and is what we will use to teach you. Instructions for Jupyter Lab or a local Python installation are also below. While they function similarly, keep in mind that there are some slight differences between the environments. 
-# 
-# Start by installing the extension to your Stanford Google Drive account. 
+# Google Colab is the easiest way to run the TAML materials. Start by installing the extension to your Stanford Google Drive account. 
 # 
 # 1. [Click here to visit the Google Colab sign in page](https://accounts.google.com/ServiceLogin/signinchooser?service=wise&passive=true&continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&utm_medium=button&utm_campaign=web&utm_content=gotodrive&usp=gtd&ltmpl=drive&flowName=GlifWebSignIn&flowEntry=ServiceLogin)
 # 2. Enter your SUNet email address on the “Choose an account” screen
@@ -85,76 +83,6 @@
 # 
 # Check out [Google Colab Tips for Power Users ](https://amitness.com/2020/06/google-colaboratory-tips/) for shortcuts. 
 
-# ## 2. Jupyter Lab 
-# 
-# JupyterLab is another way to access these materials. It is a web-based interactive development environment (IDE) which allows you to write and run code in your browser. 
-# 
-# Cick the "Launch Binder" button below and open it in a new browser tab. 
-# 
-# [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/HEAD)
-
-# ### Click "Python 3 (ipykernel)" 
-# 
-# * Click "Python 3 (ipykernel) under the "Notebook" header to **open a blank notebook.**
-# * Otherwise, navigate the file structure in the top left corner to **open an existing notebook.**
-# ![setkernel](img/kernel.png)
-
-# ### Cells are code by default
-# 
-# Open a blank notebook and in the first cell, type:
-#     
-# > print("Your Name Here") 
-
-# ### Insert new cells
-# 
-# Click the "plus" button to insert a new cell. It can be found between the "save disk" and "scissors" icons. 
-# ![addcell](img/addcell.png)  
-# 
-# Alternatively, click on an area outside of any cells in the notebook, and press the `a` or `b` key to create a new cell above or below your current one. 
-
-# ### Switch between code and text cells
-# 
-# Switch between code and text cells by clicking the dropdown menu. 
-# ![switch](img/switch.png)
-
-# ### Edit a markdown cell
-# 
-# Double-click a markdown cell to edit it. Press `shift + enter` to render the text. 
-# 
-# Go through the cells on this page and check out [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) (direct links to different sections below) to explore formatting rules and shortcuts. 
-# 
-# **Table of Contents**  
-# [Headers](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#headers)  
-# [Emphasis](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis)  
-# [Lists](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lists)  
-# [Links](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)  
-# [Images](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#images)  
-# [Code and Syntax Highlighting](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)  
-# [Footnotes](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#footnotes)  
-# [Tables](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables)  
-# [Blockquotes](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes)  
-# [Inline HTML](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#html)  
-# [Horizontal Rule](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#hr)  
-# [Line Breaks](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lines)  
-# [YouTube Videos](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#videos)
-
-# ### Save your work
-# 
-# Click the "disk" icon to save your work. Right-click the tab and click "Rename Notebook" to give your notebook a name:
-# 
-# ![rename](img/rename.png)
-
-# * Click "File" --> "Download" to save your Jupyter Notebook (extension `.ipynb`) before exiting a Jupyter Lab session. 
-# * There are many other options, take some time to explore the top menu and buttons.  
-# 
-# ![download](img/dl.png)
-
-# ### Close and halt
-# 
-# Safely close the notebook by clicking "File" --> "Close and Halt" before closing your browser.
-
-# ![closehalt](img/close.png)
-
 # ## 3. Local Python installation
 # 
 # Despite the increasing number of cloud-based solutions, it is always good to have a local installation on your own computer. Point your web browswer here to install Python Anaconda distribution 3.9 (as of August 2022): https://www.anaconda.com/products/individual
@@ -201,16 +129,85 @@
 # 
 # Check your operating system's Recycle Bin!
 
+# ## 3. Jupyter Lab 
+# 
+# JupyterLab is another way to access these materials. It is a web-based interactive development environment (IDE) which allows you to write and run code in your browser. 
+# 
+# Cick the "Launch Binder" button below and open it in a new browser tab. 
+# 
+# [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/HEAD)
+# 
+# ### Click "Python 3 (ipykernel)" 
+# 
+# * Click "Python 3 (ipykernel) under the "Notebook" header to **open a blank notebook.**
+# * Otherwise, navigate the file structure in the top left corner to **open an existing notebook.**
+# ![setkernel](img/kernel.png)
+# 
+# ### Cells are code by default
+# 
+# Open a blank notebook and in the first cell, type:
+#     
+# > print("Your Name Here") 
+# 
+# ### Insert new cells
+# 
+# Click the "plus" button to insert a new cell. It can be found between the "save disk" and "scissors" icons. 
+# ![addcell](img/addcell.png)  
+# 
+# Alternatively, click on an area outside of any cells in the notebook, and press the `a` or `b` key to create a new cell above or below your current one. 
+# 
+# ### Switch between code and text cells
+# 
+# Switch between code and text cells by clicking the dropdown menu. 
+# ![switch](img/switch.png)
+# 
+# ### Edit a markdown cell
+# 
+# Double-click a markdown cell to edit it. Press `shift + enter` to render the text. 
+# 
+# Go through the cells on this page and check out [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) (direct links to different sections below) to explore formatting rules and shortcuts. 
+# 
+# **Table of Contents**  
+# [Headers](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#headers)  
+# [Emphasis](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis)  
+# [Lists](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lists)  
+# [Links](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)  
+# [Images](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#images)  
+# [Code and Syntax Highlighting](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)  
+# [Footnotes](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#footnotes)  
+# [Tables](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables)  
+# [Blockquotes](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes)  
+# [Inline HTML](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#html)  
+# [Horizontal Rule](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#hr)  
+# [Line Breaks](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lines)  
+# [YouTube Videos](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#videos)
+# 
+# ### Save your work
+# 
+# Click the "disk" icon to save your work. Right-click the tab and click "Rename Notebook" to give your notebook a name:
+# 
+# ![rename](img/rename.png)
+# 
+# * Click "File" --> "Download" to save your Jupyter Notebook (extension `.ipynb`) before exiting a Jupyter Lab session. 
+# * There are many other options, take some time to explore the top menu and buttons.  
+# 
+# ![download](img/dl.png)
+# 
+# ### Close and halt
+# 
+# Safely close the notebook by clicking "File" --> "Close and Halt" before closing your browser.
+# 
+# ![closehalt](img/close.png)
+
 # ## 4. Text editors
 # 
-# You might find that Jupyter environments are too limiting for your task. Using a text editor to write your scripts and run them via the command line is another common option. Contact SSDS if you want to learn more!
+# You might find that Jupyter environments are too limiting for your task. Using a text editor to write your scripts and run them via the command line is another common option. Other options exist, such as Sublime, Atom, Spyder, and more! 
 
 # ## Exercises
 # 
-# 1. (Required) Set up your Google Colaboratory (Colab) environment following the instructions in #1 listed above. 
-# 2. (Optional) Check that you can correctly open these notebooks in Jupyter Lab. 
-# 3. (Optional) Install Python Anaconda distribution on your machine.
+# 1. Ensure you have set up the Google Colaboratory (Colab) environment following the instructions in #1 listed above. 
+# 2. Download and check that you can correctly open these notebooks in a Jupyter Notebook on your local machine. 
 
 # ## Basic Python syntax
 # 
-# Open Chapter 3 "Basic Python syntax" to start coding!
+# Now that you understand a little about the environments in which we can program Python, open Chapter 3 "Basic Python syntax" to start coding!

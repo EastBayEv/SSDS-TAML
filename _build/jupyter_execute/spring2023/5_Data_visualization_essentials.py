@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Chapter 5 - Data visualization essentials
-# 2023 February 14
+# 2023 April 7
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/5_Data_visualization_essentials.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
