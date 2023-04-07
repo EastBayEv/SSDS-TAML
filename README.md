@@ -2,7 +2,7 @@
 
 Do you want to **learn Python** but don't know how to get started? Attend the Spring 2023 SSDS Text Analysis and Machine Learning Bootcamp and learn the content of this book. 
 
-This is relaxed, low-stakes environments for beginners who have little or no experience programming in Python and want to learn it for purposes of computational text analysis and machine learning. 
+This is a relaxed, low-stakes environments for beginners who have little or no experience programming in Python and want to learn it and get started with computational text analysis and machine learning. 
 
 ## Click here to register
 
