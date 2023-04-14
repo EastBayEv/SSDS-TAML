@@ -6,7 +6,7 @@ This is a relaxed, low-stakes environments for beginners who have little or no e
 
 ## Click here to register
 
-* **Every Friday in April! 1-4PM in 120F Green Library (Velma Denning Room)** 
+* **Every Friday in April! 1-4PM in 121A Green Library (Tierney Room)** 
 
 Click the links below to register for each date separately: 
 

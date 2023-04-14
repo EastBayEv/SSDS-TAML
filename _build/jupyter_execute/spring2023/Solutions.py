@@ -861,7 +861,7 @@ novels['clean_text'] = novels['clean_text'].apply(lambda row: ' '.join([w.lemma_
 novels
 
 
-# In[84]:
+# In[65]:
 
 
 tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3), 
@@ -871,26 +871,26 @@ tf_vectorizer = TfidfVectorizer(ngram_range = (1, 3),
 tf_sparse = tf_vectorizer.fit_transform(novels['clean_text'])
 
 
-# In[85]:
+# In[66]:
 
 
 tf_sparse.shape
 
 
-# In[86]:
+# In[67]:
 
 
 tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names())
 tfidf_df
 
 
-# In[87]:
+# In[68]:
 
 
 tfidf_df.max().sort_values(ascending = False).head(n = 20)
 
 
-# In[88]:
+# In[69]:
 
 
 titles = novels['file_name'].str.slice(stop = -4)
@@ -898,14 +898,14 @@ titles = list(titles)
 titles
 
 
-# In[89]:
+# In[70]:
 
 
 tfidf_df['TITLE'] = titles
 tfidf_df
 
 
-# In[90]:
+# In[71]:
 
 
 # dracula top 20 words
@@ -913,7 +913,7 @@ title = tfidf_df[tfidf_df['TITLE'] == 'frankenstein']
 title.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 
-# In[91]:
+# In[72]:
 
 
 # dracula top 20 words
@@ -925,7 +925,7 @@ title.max(numeric_only = True).sort_values(ascending = False).head(20)
 # 
 # 1. Filter the tokens from the HG Well's `text` variable to 1) lowercase all text, 2) remove punctuation, 3) remove spaces and line breaks, 4) remove numbers, and 5) remove stopwords - all in one line! 
 
-# In[92]:
+# In[1]:
 
 
 # From H.G. Wells's A Short History of the World, Project Gutenberg 
@@ -967,7 +967,7 @@ so peaceful that the services of Bel Marduk continued without
 intermission."""
 
 
-# In[93]:
+# In[3]:
 
 
 # Once we've installed the model, we can import it like any other Python library
@@ -977,14 +977,14 @@ import en_core_web_md
 nlp = en_core_web_md.load()
 
 
-# In[94]:
+# In[4]:
 
 
 # Apply the pipeline
 doc = nlp(text)
 
 
-# In[95]:
+# In[5]:
 
 
 # lowercase all text
@@ -999,7 +999,7 @@ token.is_alpha == True and \
 token.is_stop == False]
 
 
-# In[96]:
+# In[6]:
 
 
 print(clean)
