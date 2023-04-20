@@ -523,6 +523,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-variables-do-you-have-saved">
+   What variables do you have saved?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#numeric-data-wrangling">
    Numeric data wrangling
   </a>
@@ -664,6 +669,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-variables-do-you-have-saved">
+   What variables do you have saved?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#numeric-data-wrangling">
    Numeric data wrangling
   </a>
@@ -769,6 +779,28 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">pd</span><span class="o">.</span>
+       <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -1205,9 +1237,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkdir: data: File exists
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1_How_to_use_this_book.ipynb
+1_How_to_use_this_book.ipynb
 2_Python_environments.ipynb
 3_Basic_Python_syntax.ipynb
 4_Numeric_data_wrangling.ipynb
@@ -1619,6 +1649,53 @@ or, the Modern Prom
 <blockquote>
 <div><p>Note: See the Solutions chapter for code to copy files from your Colab environment to your Google Drive!</p>
 </div></blockquote>
+</section>
+<section id="what-variables-do-you-have-saved">
+<h2>What variables do you have saved?<a class="headerlink" href="#what-variables-do-you-have-saved" title="Permalink to this heading">#</a></h2>
+<p>It’s easy to lose track of what variables you have saved. <code class="docutils literal notranslate"><span class="pre">%whos</span></code> will provide you with details about variables you have saved in memory. <code class="docutils literal notranslate"><span class="pre">%who</span></code> will simply list the variable names.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">whos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable     Type         Data/Info
+-----------------------------------
+amount       int          4
+animals      list         n=4
+apple        dict         n=3
+chimera      list         n=4
+frank        str          The Project Gutenberg eBo&lt;...&gt;r about new eBooks.\n\n\n
+fruits       dict         n=1
+gap          DataFrame              country  year  &lt;...&gt;\n[1704 rows x 6 columns]
+my_list      list         n=5
+orange       dict         n=3
+pd           module       &lt;module &#39;pandas&#39; from &#39;/U&lt;...&gt;ages/pandas/__init__.py&#39;&gt;
+pi           float        3.14
+print_name   function     &lt;function print_name at 0x7fb186226e50&gt;
+x            int          1
+x1           str          This is string data
+x2           bool         True
+y            int          2
+z            int          3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">who</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>amount	 animals	 apple	 chimera	 frank	 fruits	 gap	 my_list	 orange	 
+pd	 pi	 print_name	 x	 x1	 x2	 y	 z	 
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="numeric-data-wrangling">
 <h2>Numeric data wrangling<a class="headerlink" href="#numeric-data-wrangling" title="Permalink to this heading">#</a></h2>

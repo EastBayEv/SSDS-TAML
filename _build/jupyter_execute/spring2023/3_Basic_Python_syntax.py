@@ -71,6 +71,18 @@ print(x / y * z)
 x / y * z
 
 
+# In[8]:
+
+
+import pandas as pd
+
+
+# In[9]:
+
+
+pd.
+
+
 # ## Functions, arguments, and methods
 # 
 # Functions, arguments, and methods form the core user framework for Python programming. 
@@ -81,7 +93,7 @@ x / y * z
 # > Note **"parameters"** are the variables as notated during function definition. Arguments are the values we pass into these placeholders while calling the function.  
 # ![params](img/params_vs_args.png)
 
-# In[8]:
+# In[14]:
 
 
 # Example custom function
@@ -89,7 +101,7 @@ def print_name(first, last):
     return("My name is: " + first + " " + last)
 
 
-# In[9]:
+# In[15]:
 
 
 print_name("Nerd", "Squirrel")
@@ -110,7 +122,7 @@ print_name("Nerd", "Squirrel")
 # 3. `float`: Decimals (floating-point)
 # 4. `int`: Whole numbers (positive and negative, including zero)
 
-# In[10]:
+# In[16]:
 
 
 # 1. String data
@@ -119,7 +131,7 @@ print(x1)
 print(type(x1))
 
 
-# In[11]:
+# In[17]:
 
 
 # 2. Boolean data
@@ -128,7 +140,7 @@ print(x2)
 print(type(x2))
 
 
-# In[12]:
+# In[18]:
 
 
 # 3. float (decimals)
@@ -138,7 +150,7 @@ print(pi)
 print(type(pi))
 
 
-# In[13]:
+# In[19]:
 
 
 # 4. integer (whole numbers)
@@ -150,14 +162,14 @@ print(type(amount))
 
 # ## String addition versus integer addition
 
-# In[14]:
+# In[20]:
 
 
 # character strings
 '1' + '1'
 
 
-# In[15]:
+# In[21]:
 
 
 # integers
@@ -180,7 +192,7 @@ print(type(amount))
 
 # ## 1. List
 
-# In[16]:
+# In[22]:
 
 
 # Define a list with with square brackets. This list contains two character strings 'shark' and 'dolphin'
@@ -190,7 +202,7 @@ animals = ['shark', 'dolphin']
 animals[0]
 
 
-# In[17]:
+# In[23]:
 
 
 # Call the second thing (remember Python is zero-indexed)
@@ -201,7 +213,7 @@ animals[1]
 # 
 # When this is the case, we can use multi-indices to extract just the piece of data we want. For example, to return only the element "tree":
 
-# In[18]:
+# In[24]:
 
 
 # Lists can contain other structures, such as other lists
@@ -212,21 +224,21 @@ print(animals[3][0])
 
 # Or, to just return the element "cat":
 
-# In[19]:
+# In[25]:
 
 
 # print this 'animals' list
 print(animals)
 
 
-# In[20]:
+# In[26]:
 
 
 # print just the 3rd thing - the sublist containing 'dog' and 'cat'
 print(animals[2])
 
 
-# In[21]:
+# In[27]:
 
 
 # print only 'cat'
@@ -235,7 +247,7 @@ print(animals[2][1])
 
 # Lists can also contain elements of different types:
 
-# In[22]:
+# In[28]:
 
 
 # Define a heterogeneous list
@@ -246,7 +258,7 @@ print(type(chimera[1]))
 
 # ## 2. Dictionary
 
-# In[23]:
+# In[29]:
 
 
 # Define two dictionaries - apple and orange
@@ -255,7 +267,7 @@ orange = {'name': 'orange', 'color': 'orange', 'recipes': ['juice', 'marmalade',
 apple
 
 
-# In[24]:
+# In[30]:
 
 
 orange
@@ -263,7 +275,7 @@ orange
 
 # Combine two dictionaries into one by placing them in a list value `[apple, orange]`, with a key named `fruits`. Call the key to see the value(s)!
 
-# In[25]:
+# In[31]:
 
 
 fruits = {'fruits': [apple, orange]}
@@ -273,35 +285,35 @@ fruits
 
 # To index just "juice" - under the 'recipes' key for the `orange` dictionary, combine dictionary key and list techniques to tunnel into the hierarchical structure of the dictionary and extract just what you want:
 
-# In[26]:
+# In[32]:
 
 
 # Call the newly combined dictionary
 fruits
 
 
-# In[27]:
+# In[33]:
 
 
 # Reference the 'fruits' key
 fruits['fruits']
 
 
-# In[28]:
+# In[34]:
 
 
 # Index the second thing (orange)
 fruits['fruits'][1]
 
 
-# In[29]:
+# In[35]:
 
 
 # Call the 'recipes' key from 'orange' to see the items list
 fruits['fruits'][1]['recipes']
 
 
-# In[30]:
+# In[36]:
 
 
 # Return the first thing from the 'recipes' key of the 'orange' dictionary inside of 'fruits'!
@@ -328,7 +340,7 @@ fruits['fruits'][1]['recipes'][0]
 # >
 # >There are other ways to use Colab's file system, such as mounting your Google Drive, but if you are having trouble in Colab refer back to these steps to import data used in this bootcamp. Contact SSDS if you want to learn more. 
 
-# In[31]:
+# In[37]:
 
 
 # Step 1. Create the directory
@@ -352,7 +364,7 @@ get_ipython().system('ls')
 # 3. `'data/frankenstein.txt'` is the argument that we provide to the `open` function. This matches the `file` path argument and needs to contain the location for the Frankenstein book.
 # 4. `.read()` reads the file as text. 
 
-# In[32]:
+# In[38]:
 
 
 frank = open('data/frankenstein.txt').read()
@@ -370,14 +382,14 @@ print(frank[:1000])
 # 
 # For this part, we will use the [pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html) Python library. Remember how to install user-defined libraries from Chapter 2? This is a two step process.
 
-# In[33]:
+# In[39]:
 
 
 # Step 1. Physically download and install the library's files (unhashtab the line below to run)
 # !pip install pandas
 
 
-# In[34]:
+# In[40]:
 
 
 # Step 2. link the pandas library to our current notebook
@@ -397,27 +409,27 @@ import pandas as pd
 # 
 # Learn more about GDP "per capita" (per person): https://databank.worldbank.org/metadataglossary/statistical-capacity-indicators/series/5.51.01.10.gdp
 
-# In[35]:
+# In[41]:
 
 
 # Colab users: grab the data! Unhashtag the line below
 # !wget -P data/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/gapminder-FiveYearData.csv
 
 
-# In[36]:
+# In[42]:
 
 
 gap = pd.read_csv("data/gapminder-FiveYearData.csv")
 
 
-# In[37]:
+# In[43]:
 
 
 # View the data
 print(gap)
 
 
-# In[38]:
+# In[44]:
 
 
 gap
@@ -427,7 +439,7 @@ gap
 # 
 # The help pages in Python are generally quite useful and tell you everything you need to know - you just don't know it yet! Type a question mark `?` before a funciton to view its help pages.
 
-# In[39]:
+# In[45]:
 
 
 # ?pd.read_csv
@@ -459,7 +471,7 @@ gap
 # 
 # You have entered invalid syntax, or something python does not understand.
 
-# In[40]:
+# In[46]:
 
 
 # x 89 5
@@ -471,7 +483,7 @@ gap
 # 
 # Highlight the code in the cell below and press `command` and `/` (Mac) or `Ctrl` and `/` on Windows to block comment/uncomment multiple lines of code:
 
-# In[41]:
+# In[47]:
 
 
 # def example():
@@ -486,7 +498,7 @@ gap
 # 
 # You try to call a variable you have not yet assigned
 
-# In[42]:
+# In[48]:
 
 
 # p
@@ -494,7 +506,7 @@ gap
 
 # Or, you try to call a function from a library that you have not yet imported
 
-# In[43]:
+# In[49]:
 
 
 # example()
@@ -504,7 +516,7 @@ gap
 # 
 # You write code with incompatible types
 
-# In[44]:
+# In[50]:
 
 
 # "5" + 5
@@ -514,7 +526,7 @@ gap
 # 
 # You try to reference something that is out of range
 
-# In[45]:
+# In[51]:
 
 
 my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
@@ -527,7 +539,7 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # You try to import something that does not exist
 
-# In[46]:
+# In[52]:
 
 
 # document = open('fakedtextfile.txt').read()
@@ -546,6 +558,22 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # If you encounter error messages, which ones? 
 # 
 # > Note: See the Solutions chapter for code to copy files from your Colab environment to your Google Drive! 
+
+# ## What variables do you have saved? 
+# 
+# It's easy to lose track of what variables you have saved. `%whos` will provide you with details about variables you have saved in memory. `%who` will simply list the variable names. 
+
+# In[53]:
+
+
+get_ipython().run_line_magic('whos', '')
+
+
+# In[54]:
+
+
+get_ipython().run_line_magic('who', '')
+
 
 # ## Numeric data wrangling
 # 
