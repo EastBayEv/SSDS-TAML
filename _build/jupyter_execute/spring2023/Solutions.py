@@ -4,10 +4,9 @@
 # # Solutions
 # 2023 April 7
 # 
-# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/fall2022/Solutions.ipynb">
+# <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/Solutions.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 # </a>
-# 
 # Example solutions for challenge exercises from each chapter in this book.
 
 # ## Chapter 1 - Exercises

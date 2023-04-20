@@ -17,13 +17,23 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-pd.
+import seaborn as sns
+penguins2 = sns.load_dataset("data/penguins.csv")
 ------------------
 
-[0;36m  Cell [0;32mIn[9], line 1[0;36m[0m
-[0;31m    pd.[0m
-[0m       ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[2], line 2[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mseaborn[39;00m [38;5;28;01mas[39;00m [38;5;21;01msns[39;00m
+[0;32m----> 2[0m penguins2 [38;5;241m=[39m [43msns[49m[38;5;241;43m.[39;49m[43mload_dataset[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mdata/penguins.csv[39;49m[38;5;124;43m"[39;49m[43m)[49m
 
-SyntaxError: invalid syntax (3133375982.py, line 1)
+File [0;32m~/opt/anaconda3/lib/python3.8/site-packages/seaborn/utils.py:595[0m, in [0;36mload_dataset[0;34m(name, cache, data_home, **kws)[0m
+[1;32m    593[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m os[38;5;241m.[39mpath[38;5;241m.[39mexists(cache_path):
+[1;32m    594[0m     [38;5;28;01mif[39;00m name [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m get_dataset_names():
+[0;32m--> 595[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124m'[39m[38;5;132;01m{[39;00mname[38;5;132;01m}[39;00m[38;5;124m'[39m[38;5;124m is not one of the example datasets.[39m[38;5;124m"[39m)
+[1;32m    596[0m     urlretrieve(url, cache_path)
+[1;32m    597[0m full_path [38;5;241m=[39m cache_path
+
+[0;31mValueError[0m: 'data/penguins.csv' is not one of the example datasets.
+ValueError: 'data/penguins.csv' is not one of the example datasets.
 
