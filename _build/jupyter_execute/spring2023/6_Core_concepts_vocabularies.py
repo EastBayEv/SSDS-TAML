@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Chapter 6 - Core machine learning concepts; building text vocabularies
-# 2023 April 7
+# 2023 April 21
 
 # <a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/6_Core_concepts_vocabularies.ipynb">
 #   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -11,6 +11,8 @@
 # ![ml](img/ml.png)
 # 
 # [towardsdatascience.com](https://towardsdatascience.com/artificial-intelligence-vs-machine-learning-vs-deep-learning-2210ba8cc4ac) 
+# 
+# [Click this text to see the Wiki Timeline of Machine Learning](https://en.wikipedia.org/wiki/Timeline_of_machine_learning)
 
 # In[1]:
 
@@ -75,9 +77,7 @@ import scipy.sparse
 #         * Clustering: hierarchical agglomerative, k-means, centroid, density-based, DBSCAN, GLRM  
 #         * Dimension reduction: PCA, t-SNE, UMAP
 # * **Reinforcement:** algorithims are used to make real-time decisions and skill acquisition in fields such as game-theory and robotics. 
-# * **Deep Learning:**
-# * **Targeted Learning:**
-# * **Other:** semi-supervised, etc.
+# * **Other:** semi-supervised, targeted, etc.
 
 # ## Data splitting: Training and test performance
 # 
@@ -128,6 +128,8 @@ import scipy.sparse
 #     * Regressions: ordinary least squares, generalized linear model, lasso
 #     * Tree-based methods: decision tree, random forest, boosted trees
 #     * Kernel-based methods: various; transform non-linear to linear space
+# * **Unsupervised algorithms** include: 
+#     * Clustering methods, dimension reduction methods, ordination techniques, PCA, tSNE, UMAP, etc.
 
 # View scikit-learn's interactive documentation for estimator (algorithm) selection: https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
 # 
