@@ -614,7 +614,7 @@ print(vector.toarray())
 
 
 # get the column names (alphabetical sort)
-vectorizer.get_feature_names()
+vectorizer.get_feature_names_out()
 
 
 # In[45]:
@@ -687,7 +687,7 @@ print(x)
 
 # get the feature (column) names
 # remember the rows are our four documents!
-bigram_vectorizer.get_feature_names()
+bigram_vectorizer.get_feature_names_out()
 
 
 # In[52]:
@@ -714,7 +714,7 @@ print(x)
 
 
 import scipy.sparse
-corpus_df = pd.DataFrame(x.todense(), columns = bigram_vectorizer.get_feature_names())
+corpus_df = pd.DataFrame(x.todense(), columns = bigram_vectorizer.get_feature_names_out())
 corpus_df
 
 
