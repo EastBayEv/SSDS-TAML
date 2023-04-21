@@ -742,7 +742,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ace
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nine
 diamonds
 </pre></div>
 </div>
@@ -759,7 +759,7 @@ diamonds
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Welcome to TAML at SSDS!
 
-Your lucky card for Friday 2023-04-21 is: ace of diamonds
+Your lucky card for Friday 2023-04-21 is: nine of diamonds
 </pre></div>
 </div>
 </div>
@@ -1378,7 +1378,7 @@ gdpPercap    7.215327e+03
 dtype: float64
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_26361/1146573181.py:2: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9g/fhnd1v790cj5ccxlv4rcvsy40000gq/T/ipykernel_26925/1146573181.py:2: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
   print(gap.mean())
 </pre></div>
 </div>
@@ -2617,7 +2617,7 @@ this ebook is for the use of anyone anywhere
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-04-21 10:40:08.346302: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-04-21 10:52:21.488552: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -2987,45 +2987,93 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">83</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_sm&#39;</span><span class="p">)</span>
+<span class="nn">----&gt; 2 novels[&#39;clean_text&#39;] = novels[&#39;clean_text&#39;].apply(lambda row: &#39; &#39;.join([w.lemma_ for w</span> in <span class="ni">nlp</span><span class="nt">(row)]))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">novels</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/core/series.py:4433,</span> in <span class="ni">Series.apply</span><span class="nt">(self, func, convert_dtype, args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4323</span> <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4324</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4325</span>     <span class="n">func</span><span class="p">:</span> <span class="n">AggFuncType</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4328</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4329</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span> <span class="o">|</span> <span class="n">Series</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4330</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4331</span><span class="sd">     Invoke function on values of Series.</span>
+<span class="g g-Whitespace">   </span><span class="mi">4332</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4431</span><span class="sd">     dtype: float64</span>
+<span class="g g-Whitespace">   </span><span class="mi">4432</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">4433</span>     <span class="k">return</span> <span class="n">SeriesApply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">convert_dtype</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>file_name</th>
-      <th>document_text</th>
-      <th>clean_text</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>frankenstein.txt</td>
-      <td>The Project Gutenberg eBook of Frankenstein, b...</td>
-      <td>the project gutenberg ebook of frankenstein by...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>dracula.txt</td>
-      <td>The Project Gutenberg eBook of Dracula, by Bra...</td>
-      <td>the project gutenberg ebook of dracula by bram...</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/core/apply.py:1088,</span> in <span class="ni">SeriesApply.apply</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1084</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1085</span>     <span class="c1"># if we are a string, try to dispatch</span>
+<span class="g g-Whitespace">   </span><span class="mi">1086</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_str</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1088</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_standard</span><span class="p">()</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/core/apply.py:1143,</span> in <span class="ni">SeriesApply.apply_standard</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1137</span>         <span class="n">values</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">_values</span>
+<span class="g g-Whitespace">   </span><span class="mi">1138</span>         <span class="c1"># error: Argument 2 to &quot;map_infer&quot; has incompatible type</span>
+<span class="g g-Whitespace">   </span><span class="mi">1139</span>         <span class="c1"># &quot;Union[Callable[..., Any], str, List[Union[Callable[..., Any], str]],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1140</span>         <span class="c1"># Dict[Hashable, Union[Union[Callable[..., Any], str],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1141</span>         <span class="c1"># List[Union[Callable[..., Any], str]]]]]&quot;; expected</span>
+<span class="g g-Whitespace">   </span><span class="mi">1142</span>         <span class="c1"># &quot;Callable[[Any], Any]&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1143</span>         <span class="n">mapped</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">map_infer</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1144</span>             <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1145</span>             <span class="n">f</span><span class="p">,</span>  <span class="c1"># type: ignore[arg-type]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1146</span>             <span class="n">convert</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_dtype</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1147</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1149</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mapped</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mapped</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ABCSeries</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1150</span>     <span class="c1"># GH#43986 Need to do list(mapped) in order to get treated as nested</span>
+<span class="g g-Whitespace">   </span><span class="mi">1151</span>     <span class="c1">#  See also GH#25959 regarding EA support</span>
+<span class="g g-Whitespace">   </span><span class="mi">1152</span>     <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">_constructor_expanddim</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">mapped</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/_libs/lib.pyx:2870,</span> in <span class="ni">pandas._libs.lib.map_infer</span><span class="nt">()</span>
+
+<span class="nn">Cell In[83], line 2,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(row)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_sm&#39;</span><span class="p">)</span>
+<span class="nn">----&gt; 2 novels[&#39;clean_text&#39;] = novels[&#39;clean_text&#39;].apply(lambda row: &#39; &#39;.join([w.lemma_ for w</span> in <span class="ni">nlp</span><span class="nt">(row)]))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">novels</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/language.py:1020,</span> in <span class="ni">Language.__call__</span><span class="nt">(self, text, disable, component_cfg)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1018</span>     <span class="n">error_handler</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">get_error_handler</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1019</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1020</span>     <span class="n">doc</span> <span class="o">=</span> <span class="n">proc</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="o">**</span><span class="n">component_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">{}))</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1021</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1022</span>     <span class="c1"># This typically happens if a component is not initialized</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">Errors</span><span class="o">.</span><span class="n">E109</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">e</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/pipeline/trainable_pipe.pyx:53,</span> in <span class="ni">spacy.pipeline.trainable_pipe.TrainablePipe.__call__</span><span class="nt">()</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/pipeline/transition_parser.pyx:326,</span> in <span class="ni">spacy.pipeline.transition_parser.Parser.set_annotations</span><span class="nt">()</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/pipeline/_parser_internals/ner.pyx:271,</span> in <span class="ni">spacy.pipeline._parser_internals.ner.BiluoPushDown.set_annotations</span><span class="nt">()</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/tokens/doc.pyx:777,</span> in <span class="ni">spacy.tokens.doc.Doc.set_ents</span><span class="nt">()</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/spacy/tokens/doc.pyx:105,</span> in <span class="ni">spacy.tokens.doc.SetEntsDefault.values</span><span class="nt">()</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/enum.py:398,</span> in <span class="ni">EnumMeta.__members__</span><span class="nt">(cls)</span>
+<span class="g g-Whitespace">    </span><span class="mi">395</span> <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span>     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_member_names_</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">398</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="k">def</span> <span class="nf">__members__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span><span class="sd">     Returns a mapping of member name-&gt;value.</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span><span class="sd">     This mapping lists all enum members, including aliases. Note that this</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span><span class="sd">     is a read-only view of the internal mapping.</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span>     <span class="k">return</span> <span class="n">MappingProxyType</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_member_map_</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3430,6 +3478,14 @@ dtype: float64
 
 <span class="c1"># This instantiates a spaCy text processor based on the installed model</span>
 <span class="n">nlp</span> <span class="o">=</span> <span class="n">en_core_web_md</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-04-07 07:25:16.875006: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/scipy/__init__.py:146: UserWarning: A NumPy version &gt;=1.16.5 and &lt;1.23.0 is required for this version of SciPy (detected version 1.23.5
+  warnings.warn(f&quot;A NumPy version &gt;={np_minversion} and &lt;{np_maxversion}&quot;
 </pre></div>
 </div>
 </div>
