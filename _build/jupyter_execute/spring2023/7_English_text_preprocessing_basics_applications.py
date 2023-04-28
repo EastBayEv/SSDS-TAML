@@ -417,7 +417,7 @@ print(tf_sparse)
 # In[35]:
 
 
-tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names())
+tfidf_df = pd.DataFrame(tf_sparse.todense(), columns = tf_vectorizer.get_feature_names_out())
 tfidf_df
 
 
@@ -588,7 +588,7 @@ print(scores, np.mean(scores))
 # In[50]:
 
 
-feature_names = tfidf.get_feature_names()
+feature_names = tfidf.get_feature_names_out()
 top25pos = np.argsort(model.coef_[0])[-25:]
 print("Top features for positive reviews:")
 print(list(feature_names[j] for j in top25pos))

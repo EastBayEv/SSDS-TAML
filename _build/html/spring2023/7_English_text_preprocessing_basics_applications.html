@@ -897,7 +897,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-04-21 12:37:15.499891: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-04-21 12:48:35.546226: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -1828,16 +1828,12 @@ New World Species:
 <h3>Convert the tfidf sparse matrix to data frame<a class="headerlink" href="#convert-the-tfidf-sparse-matrix-to-data-frame" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tf_sparse</span><span class="o">.</span><span class="n">todense</span><span class="p">(),</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">tf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tf_sparse</span><span class="o">.</span><span class="n">todense</span><span class="p">(),</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">tf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
 <span class="n">tfidf_df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
-  warnings.warn(msg, category=FutureWarning)
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2600,9 +2596,7 @@ dtype: float64
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package movie_reviews to
 [nltk_data]     /Users/evanmuzzall/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]   Package movie_reviews is already up-to-date!
+[nltk_data]   Package movie_reviews is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -2796,7 +2790,7 @@ dtype: float64
 <h3>Top 25 features for positive and negative reviews<a class="headerlink" href="#top-25-features-for-positive-and-negative-reviews" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_names</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_names</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
 <span class="n">top25pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="o">-</span><span class="mi">25</span><span class="p">:]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top features for positive reviews:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">feature_names</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">top25pos</span><span class="p">))</span>
@@ -2813,10 +2807,6 @@ dtype: float64
 
 Top features for negative reviews:
 [&#39;bad&#39;, &#39;only&#39;, &#39;plot&#39;, &#39;worst&#39;, &#39;there&#39;, &#39;boring&#39;, &#39;script&#39;, &#39;why&#39;, &#39;have&#39;, &#39;unfortunately&#39;, &#39;dull&#39;, &#39;poor&#39;, &#39;any&#39;, &#39;waste&#39;, &#39;nothing&#39;, &#39;looks&#39;, &#39;ridiculous&#39;, &#39;supposed&#39;, &#39;no&#39;, &#39;even&#39;, &#39;harry&#39;, &#39;awful&#39;, &#39;then&#39;, &#39;reason&#39;, &#39;wasted&#39;]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
-  warnings.warn(msg, category=FutureWarning)
 </pre></div>
 </div>
 </div>
