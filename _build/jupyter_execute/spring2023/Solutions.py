@@ -923,7 +923,7 @@ title.max(numeric_only = True).sort_values(ascending = False).head(20)
 # 
 # 1. Filter the tokens from the HG Well's `text` variable to 1) lowercase all text, 2) remove punctuation, 3) remove spaces and line breaks, 4) remove numbers, and 5) remove stopwords - all in one line! 
 
-# In[92]:
+# In[1]:
 
 
 # From H.G. Wells's A Short History of the World, Project Gutenberg 
@@ -965,7 +965,7 @@ so peaceful that the services of Bel Marduk continued without
 intermission."""
 
 
-# In[93]:
+# In[3]:
 
 
 # Once we've installed the model, we can import it like any other Python library
@@ -975,14 +975,14 @@ import en_core_web_md
 nlp = en_core_web_md.load()
 
 
-# In[94]:
+# In[4]:
 
 
 # Apply the pipeline
 doc = nlp(text)
 
 
-# In[95]:
+# In[5]:
 
 
 # lowercase all text
@@ -997,7 +997,7 @@ token.is_alpha == True and \
 token.is_stop == False]
 
 
-# In[96]:
+# In[6]:
 
 
 print(clean)
