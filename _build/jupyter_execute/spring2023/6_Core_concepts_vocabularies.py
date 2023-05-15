@@ -143,12 +143,19 @@ import scipy.sparse
 
 # ## Ethical considerations
 # 
-# Begin to familiarize yourself with the many ethnical points to consider along with their real-world implications:
-#     
-# * [Howard et al, 2017. Addressing bias in machine learning algorithms: A pilot study on emotion recognition for intelligent systems](https://ieeexplore.ieee.org/abstract/document/8025197?casa_token=xyJcglvpeyUAAAAA:_tpPmFLycMFQuTd4UC52Y2C5yxXignXv7OE1rgv01YwzOs2o9j_bMvIQPwD8IW2NT5awRJcl4g)
-# * [Noble, 2018. Algorithms of oppression: How search engines reinforce racism](https://nyupress.org/9781479837243/algorithms-of-oppression/)
-# * [Yapo and Weiss, 2018. Ethical implications of bias in machine learning](https://aisel.aisnet.org/hicss-51/os/topics_in_os/6/)
-# * [Mehrabi et al, 2021. A survey on bias and fairness in machine learning](https://dl.acm.org/doi/abs/10.1145/3457607?casa_token=HkkFHCUfRh0AAAAA%3Az5PprDD4p2VDEyZD7KeJzl67tlpTTA48RsIlqcqDYLROEfyJMTzHRjdYYN8SheqDRkvt_H1XXojANQ)
+# Begin to familiarize yourself with the many ethnical points to consider along with their real-world implications: 
+# 
+# * [Satz, D. 2023. Ethics and Data Science](https://datascience.stanford.edu/research/research-areas/ethics-and-data-science)
+# * [Stanford MSE234 Data Privacy and Ethics](https://web.stanford.edu/group/msande234/cgi-bin/wordpress/)
+# * [Danielak D. 2022. Designing a socially-critical data sciencen course](https://www.rstudio.com/conference/2022/talks/designing-socially-critical-data-science/)
+# * [RStudio, Data science ethics checklist](https://rpubs.com/njss/data_ethics)
+# * [SDS100 Lab10: Ethics](https://smithcollege-sds.github.io/sds100/lab_10_ethics.html)
+# * [EGAP Learning Days Module 10: Ethical Considerations](https://egap.github.io/theory_and_practice_of_field_experiments/ethical-considerations.html)]
+# * [UC Berkeley INFO88 Data and Ethics](http://www.data8.org/ethics-connector/)
+# * [Howard A, et al. 2017. Addressing bias in machine learning algorithms: A pilot study on emotion recognition for intelligent systems](https://ieeexplore.ieee.org/abstract/document/8025197?casa_token=xyJcglvpeyUAAAAA:_tpPmFLycMFQuTd4UC52Y2C5yxXignXv7OE1rgv01YwzOs2o9j_bMvIQPwD8IW2NT5awRJcl4g)
+# * [Noble S. 2018. Algorithms of oppression: How search engines reinforce racism](https://nyupress.org/9781479837243/algorithms-of-oppression/)
+# * [Yapo A and Weiss J. 2018. Ethical implications of bias in machine learning](https://aisel.aisnet.org/hicss-51/os/topics_in_os/6/)
+# * [Mehrabi N, et al. 2021. A survey on bias and fairness in machine learning](https://dl.acm.org/doi/abs/10.1145/3457607?casa_token=HkkFHCUfRh0AAAAA%3Az5PprDD4p2VDEyZD7KeJzl67tlpTTA48RsIlqcqDYLROEfyJMTzHRjdYYN8SheqDRkvt_H1XXojANQ)
 
 # ## OLS example - by "hand"
 # 

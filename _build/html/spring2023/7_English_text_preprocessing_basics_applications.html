@@ -897,7 +897,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-04-28 11:43:19.258846: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-05-01 15:12:58.225353: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -1716,7 +1716,12 @@ New World Species:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(text)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> sequoioideae popularly known as redwoods is a subfamily of coniferous trees within the family cupressaceae it includes the largest and tallest trees in the world the three redwood subfamily genera are sequoia from coastal california and oregon sequoiadendron from californias sierra nevada and metasequoia in china the redwood species contains the largest and tallest trees in the world these trees can live for thousands of years threats include logging fire suppression climate change illegal marijuana cultivation and burl poaching only two of the genera sequoia and sequoiadendron are known for massive trees trees of metasequoia from the single living species metasequoia glyptostroboides are deciduous grow much smaller although are still large compared to most other trees and can live in colder climatescitation needed multiple studies of both morphological and molecular characters have strongly supported the assertion that the sequoioideae are monophyletic most modern phylogenies place sequoia as sister to sequoiadendron and metasequoia as the outgroup however yang et al went on to investigate the origin of a peculiar genetic artifact of the sequoioideaethe polyploidy of sequoiaand generated a notable exception that calls into question the specifics of this relative consensus a paper based on nonmolecular evidence suggested the following relationship among extant species m glyptostroboides dawn redwood s sempervirens coast redwood s giganteum giant sequoia taxodioideae a study using molecular evidence found the same relationships among sequoioideae species but found sequoioideae to be the sister group to the athrotaxidoideae a superfamily presently known only from tasmania rather than to taxodioideae sequoioideae and athrotaxidoideae are thought to have diverged from each other during the jurassic reticulate evolution refers to the origination of a taxon through the merging of ancestor lineages polyploidy has come to be understood as quite common in plantswith estimates ranging from to of flowering plants and extant ferns having derived from ancient polyploidy within the gymnosperms however it is quite rare sequoia sempervirens is hexaploid n x to investigate the origins of this polyploidy yang et al used two single copy nuclear genes lfy and nly to generate phylogenetic trees other researchers have had success with these genes in similar studies on different taxa several hypotheses have been proposed to explain the origin of sequoias polyploidy allopolyploidy by hybridization between metasequoia and some probably extinct taxodiaceous plant metasequoia and sequoiadendron or ancestors of the two genera as the parental species of sequoia and autohexaploidy autoallohexaploidy or segmental allohexaploidycitation needed yang et al found that sequoia was clustered with metasequoia in the tree generated using the lfy gene but with sequoiadendron in the tree generated with the nly gene further analysis strongly supported the hypothesis that sequoia was the result of a hybridization event involving metasequoia and sequoiadendron thus yang et al hypothesize that the inconsistent relationships among metasequoia sequoia and sequoiadendron could be a sign of reticulate evolution by hybrid speciation in which two species hybridize and give rise to a third among the three genera however the long evolutionary history of the three genera the earliest fossil remains being from the jurassic make resolving the specifics of when and how sequoia originated once and for all a difficult matterespecially since it in part depends on an incomplete fossil record sequoioideae is an ancient taxon with the oldest described sequoioideae species sequoia jeholensis recovered from jurassic deposits a genus medulloprotaxodioxylon reported from the late triassic of china supports the idea of a norian origin the fossil record shows a massive expansion of range in the cretaceous and dominance of the arctotertiary geoflora especially in northern latitudes genera of sequoioideae were found in the arctic circle europe north america and throughout asia and japan a general cooling trend beginning in the late eocene and oligocene reduced the northern ranges of the sequoioideae as did subsequent ice ages evolutionary adaptations to ancient environments persist in all three species despite changing climate distribution and associated flora especially the specific demands of their reproduction ecology that ultimately forced each of the species into refugial ranges where they could survivecitation neededthe entire subfamily is endangered the iucn red list category criteria assesses sequoia sempervirens as endangered a acd sequoiadendron giganteum as endangered b ab and metasequoia glyptostroboides as endangered b ab new world species new world species 
 </pre></div>
 </div>
 </div>
@@ -2540,32 +2545,32 @@ dtype: float64
 <p>Change the country names to view their highest rated terms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="p">[</span><span class="n">tfidf_df</span><span class="p">[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;jordan&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="p">[</span><span class="n">tfidf_df</span><span class="p">[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;tuvalu&#39;</span><span class="p">]</span>
 <span class="n">country</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numeric_only</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jordan                                0.491254
-jordanian                             0.140540
-press publication                     0.112432
-syrian                                0.105405
-reservation                           0.099133
-publication law                       0.091351
-press publication law                 0.091351
-constitutional amendment              0.089799
-syrian refugee                        0.084324
-publication                           0.080973
-reservation convention                0.078083
-reservation convention elimination    0.072077
-website                               0.072077
-commitment jordan                     0.063243
-news website                          0.056216
-news                                  0.054058
-al                                    0.054058
-personal status                       0.054058
-personal                              0.052823
-host                                  0.046879
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tuvalu                            0.639251
+safe drinking water               0.094018
+safe drinking                     0.094018
+water sanitation                  0.093357
+sanitation                        0.092709
+rapporteur human right            0.090329
+human right safe                  0.090329
+drinking                          0.088689
+drinking water                    0.088689
+drinking water sanitation         0.078348
+special rapporteur human          0.077210
+rapporteur human                  0.077210
+island                            0.077210
+climate change                    0.073125
+right safe                        0.073125
+right safe drinking               0.073125
+national strategic development    0.069484
+constraint                        0.065350
+national strategic                0.065331
+strategic development plan        0.059392
 dtype: float64
 </pre></div>
 </div>
@@ -2705,15 +2710,15 @@ dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># change x[0] and y[0] to see different reviews</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human review was:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human review was:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Human review was: neg
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Human review was: pos
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;steve martin is one of the funniest men alive . \nif you can take that as a true statement , then your disappointment at this film will equal mine . \nmartin can be hilarious , creating some of the best laugh-out-loud experiences that have ever taken place in movie theaters . \nyou won\&#39;t find any of them here . \nthe old television series that this is based on has its moments of humor and wit . \nbilko ( and the name isn\&#39;t an accident ) is the head of an army motor pool group , but his passion is his schemes . \nevery episode involves the sergeant and his men in one or another hair-brained plan to get rich quick while outwitting the officers of the base . \n &quot; mchale\&#39;s navy &quot; \&#39;s granddaddy . \nthat\&#39;s the idea behind this movie too , but the difference is that , as far-fetched and usually goofy as the television series was , it was funny . \nthere is not one laugh in the film . \nthe re-make retains the goofiness , but not the entertainment . \neverything is just too clean . \nit was obviously made on a hollywood back lot and looks every bit like it . \nit all looks brand new , even the old beat-up stuff . \nmartin is remarkably small in what should have been a bigger than life role . \nin the original , phil silvers played the huckster with a heart of gold and more than a touch of sleaziness . \nmartin\&#39;s bilko is a pale imitation . \nthe only semi-bright spot is phil hartman as bilko\&#39;s arch-enemy . \nit\&#39;s not saying much , considering martin\&#39;s lackluster character , but hartman leaves him in the dust . \n&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;confession time : i have never , ever seen gone with the wind . \ni don\&#39;t know why , really . \nhaven\&#39;t wanted to check it out on video , haven\&#39;t been at home the nights it was on network tv , and it was too far to drive the last time it was on the big-screen . \nso right up front , i\&#39;ll admit that i don\&#39;t know what the heck i\&#39;m talking about , but here goes . . . \nis titanic the gone with the wind of the 1990\&#39;s ? \nmaybe that\&#39;s going a little bit too far . \nas good a job as leonardo dicaprio and kate winslet do in this movie , they\&#39;re no clark gable and vivien leigh . \nbut . . . \nthe parallels are there . \ngwtw was the first movie to take real advantage of the most revolutionary technology available -- technicolor . \ntitanic takes revolutionary steps forward in seamlessly integrating computer graphic design with actors . \ngwtw places america\&#39;s greatest tragedy in the background of a classic love story , titanic does the same with the atlantic\&#39;s most legendary tragedy . \nthey both have strong-willed redheaded heroines , they both exploit the class differences between the aristocracy and the slaves/steerage bums , they were both incredibly expensive and popular . . . \nok , maybe that\&#39;s not enough parallels . \nso titanic\&#39;s not in gwtw\&#39;s league . \nno matter . \ntitanic is a great movie in its own right , complete with spills , thrills and ( especially ) chills . \nmuch has been made of the humongous cost of the production , and all of the care than went into making the huge luxury liner come alive again . \nthe money was obviously well-spent . \nthe costumes look great , the sets look great , the cgi graphics look great . \ni especially liked the expensive little touches , like spending tons of money on authentic titanic china only to break it all on the floor as the ship sinks . \nbut writer/director/producer james cameron\&#39;s real challenge in writing/directing/ producing titanic wasn\&#39;t just costuming and set design and special effects . \ncameron\&#39;s major headache was keeping the audience interested in a tale where everybody knows the ending going in . \nhe succeeds masterfully . \ncameron does two things that work incredibly well . \nfirst , he shows us modern-day salvage operations on titanic ( that\&#39;s just &quot; titanic &quot; , not &quot; the titanic &quot; , mind you ) . \nthe first glimpse we get of titanic is the ship in its present state , corroding slowly away under the hammering pressure of the north atlantic , from the window of a minisub piloted by treasure hunter brock lovett ( bill paxton ) . \ntelevision coverage of the exploration of titanic intrigues 101-year-old rose calvert ( gloria stuart ) , who survived the wreck in 1912 . \nstuart does a phenomenal job in a brief role , narrating the story of her experience to a stunned paxton and his roughneck crew . \nsecondly , cameron keeps the storyline focused almost exclusively on the rose character , and the romantic triangle between rose ( winslet ) , her bastard millionaire fiancee cal hockley ( billy zane ) and the irrepressible young artist jack daswon ( dicaprio ) . \nthe way that big-budget disaster movies usually go wrong is to have an all-star cast , so we see the impact of the disaster on a wide group of people . \ncameron wisely chooses to stick with rose and jack , while paying scant heed to the celebrities on board . \nthe supporting cast is professional , but mostly anonymous -- other than kathy bates as the unsinkable molly brown , there\&#39;s no moment when you stop and say , oh , yeah , i know him , what\&#39;s he been in . \n ( although i would like to have seen colm meaney in a white star uniform , or even as the ill-fated engineer . ) \nthe love story itself is rather conventional . \ni think some reviewers found it weak , and that may be a fair criticism . \nthe performances are the key here . \nzane has the meatiest part in the movie , and he plays the arrogant , condescending steel millionaire to the hilt . \nhe\&#39;s smooth , he looks great in a tuxedo , and he\&#39;s a convincing enough jerk that the winslet-dicaprio relationship looks plausible . \nat the moment when he sees a little girl too frightened to get aboard a lifeboat , you can hear the wheels in his mind turning , saying not &quot; can i save this little girl ? &quot; , \nbut &quot; can she help me get on a lifeboat ? &quot; \ndicaprio is a revelation . \ni hadn\&#39;t seen him before in anything , and didn\&#39;t know what the heck to expect , really . \n ( honestly , i expected a bad irish accent , but cameron evidently decided that was a bad idea , so dicaprio plays a poor american artist who wins a ticket in a poker game . ) \ndicaprio exhibits an infectious joy at being alive , and being on the titanic , that it\&#39;s hard not to like him . \nfrom the moment that the ship leaves port until it hits the iceberg , dicaprio has to carry the movie and keep our interest , and he never falters . \nwinslet\&#39;s character grows up a lot during the movie , and so does her performance . \nat first , she\&#39;s not required to do anything but wear period clothing and look drop-dead gorgeous . \nwe know from the narration that she\&#39;s monstrously unhappy with her arranged marriage to zane , but there isn\&#39;t any expression of these feelings until she encounters dicaprio . \nwinslet and dicaprio develop a chemistry that manages to propel the movie along until the ship hits the iceberg . \nit\&#39;s at that moment where winslet\&#39;s character really comes alive . \nfaced with real danger , she drops her spoiled-rich-girl mannerisms and does a splendid job . \nas rose and jack race around the doomed ship , looking for shelter from the freezing water and cal\&#39;s fiery temper , winslet turns in a superb acting performance , mixing courage and compassion and anger with sheer shrieking terror . \nof course , the most interesting character is the ship itself . \ncameron has clearly fallen in love with titanic , and shows her in every mood -- as a deserted wreck , down in the boiler room , up on the bridge , down in the hold , at the captain\&#39;s table , down in steerage -- and manages to bring the great ship back from the dead . \ncameron\&#39;s greatest gift is that he allows us to fall in love with titanic as well . \n&#39;,
  None)
 </pre></div>
 </div>
@@ -2723,6 +2728,18 @@ dtype: float64
 <section id="pipelines-one-example">
 <h3>Pipelines - one example<a class="headerlink" href="#pipelines-one-example" title="Permalink to this heading">#</a></h3>
 <p>scikit-learn offers hand ways to build machine learning pipelines: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>tfidf.transform
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Object `tfidf.transform` not found.
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># standard training/test split (no cross validation)</span>
@@ -2746,6 +2763,13 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>LogisticRegression
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test set accuracy</span>
 <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
@@ -2762,6 +2786,20 @@ dtype: float64
 <h3><span class="math notranslate nohighlight">\(k\)</span>-fold cross-validated model<a class="headerlink" href="#k-fold-cross-validated-model" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>Pipeline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>cross_val_score
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cross-validated model!</span>
 <span class="n">text_clf</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;vect&#39;</span><span class="p">,</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))),</span>
                     <span class="p">(</span><span class="s1">&#39;tfidf&#39;</span><span class="p">,</span> <span class="n">TfidfTransformer</span><span class="p">()),</span>
@@ -2773,14 +2811,199 @@ dtype: float64
 
 <span class="c1"># for your own research, thesis, or publication</span>
 <span class="c1"># you would select cv equal to 10 or 20</span>
-<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">text_clf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">text_clf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.8155922  0.79910045 0.80630631] 0.8069996533264899
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">53</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">text_clf</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;vect&#39;</span><span class="p">,</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))),</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                     <span class="p">(</span><span class="s1">&#39;tfidf&#39;</span><span class="p">,</span> <span class="n">TfidfTransformer</span><span class="p">()),</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                     <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span> <span class="o">=</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>                                                <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>                      <span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># for your own research, thesis, or publication</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># you would select cv equal to 10 or 20</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">text_clf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/model_selection/_validation.py:509,</span> in <span class="ni">cross_val_score</span><span class="nt">(estimator, X, y, groups, scoring, cv, n_jobs, verbose, fit_params, pre_dispatch, error_score)</span>
+<span class="g g-Whitespace">    </span><span class="mi">506</span> <span class="c1"># To ensure multimetric format is not supported</span>
+<span class="g g-Whitespace">    </span><span class="mi">507</span> <span class="n">scorer</span> <span class="o">=</span> <span class="n">check_scoring</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">509</span> <span class="n">cv_results</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">510</span>     <span class="n">estimator</span><span class="o">=</span><span class="n">estimator</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">511</span>     <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">512</span>     <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">513</span>     <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">514</span>     <span class="n">scoring</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="n">scorer</span><span class="p">},</span>
+<span class="g g-Whitespace">    </span><span class="mi">515</span>     <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">516</span>     <span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">517</span>     <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">518</span>     <span class="n">fit_params</span><span class="o">=</span><span class="n">fit_params</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">519</span>     <span class="n">pre_dispatch</span><span class="o">=</span><span class="n">pre_dispatch</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">520</span>     <span class="n">error_score</span><span class="o">=</span><span class="n">error_score</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">521</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">522</span> <span class="k">return</span> <span class="n">cv_results</span><span class="p">[</span><span class="s2">&quot;test_score&quot;</span><span class="p">]</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/model_selection/_validation.py:267,</span> in <span class="ni">cross_validate</span><span class="nt">(estimator, X, y, groups, scoring, cv, n_jobs, verbose, fit_params, pre_dispatch, return_train_score, return_estimator, error_score)</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span> <span class="c1"># We clone the estimator to make sure that all the folds are</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span> <span class="c1"># independent, and that it is pickle-able.</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span> <span class="n">parallel</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">pre_dispatch</span><span class="o">=</span><span class="n">pre_dispatch</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">267</span> <span class="n">results</span> <span class="o">=</span> <span class="n">parallel</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="n">delayed</span><span class="p">(</span><span class="n">_fit_and_score</span><span class="p">)(</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span>         <span class="n">clone</span><span class="p">(</span><span class="n">estimator</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span>         <span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span>         <span class="n">y</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span>         <span class="n">scorers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span>         <span class="n">train</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">274</span>         <span class="n">test</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">275</span>         <span class="n">verbose</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span>         <span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span>         <span class="n">fit_params</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span>         <span class="n">return_train_score</span><span class="o">=</span><span class="n">return_train_score</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span>         <span class="n">return_times</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span>         <span class="n">return_estimator</span><span class="o">=</span><span class="n">return_estimator</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span>         <span class="n">error_score</span><span class="o">=</span><span class="n">error_score</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span>     <span class="p">)</span>
+<span class="nn">    283     for train, test</span> in <span class="ni">cv.split</span><span class="nt">(X, y, groups)</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">286</span> <span class="n">_warn_about_fit_failures</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">error_score</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="c1"># For callabe scoring, the return type is only know after calling. If the</span>
+<span class="g g-Whitespace">    </span><span class="mi">289</span> <span class="c1"># return type is a dictionary, the error scores can now be inserted with</span>
+<span class="g g-Whitespace">    </span><span class="mi">290</span> <span class="c1"># the correct key.</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/parallel.py:1051,</span> in <span class="ni">Parallel.__call__</span><span class="nt">(self, iterable)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_one_batch</span><span class="p">(</span><span class="n">iterator</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_iterating</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_original_iterator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1051</span> <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_one_batch</span><span class="p">(</span><span class="n">iterator</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1052</span>     <span class="k">pass</span>
+<span class="g g-Whitespace">   </span><span class="mi">1054</span> <span class="k">if</span> <span class="n">pre_dispatch</span> <span class="o">==</span> <span class="s2">&quot;all&quot;</span> <span class="ow">or</span> <span class="n">n_jobs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1055</span>     <span class="c1"># The iterable was consumed all at once by the above for loop.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1056</span>     <span class="c1"># No need to wait for async callbacks to trigger to</span>
+<span class="g g-Whitespace">   </span><span class="mi">1057</span>     <span class="c1"># consumption.</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/parallel.py:864,</span> in <span class="ni">Parallel.dispatch_one_batch</span><span class="nt">(self, iterator)</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>     <span class="k">return</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">864</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_dispatch</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">865</span>     <span class="k">return</span> <span class="kc">True</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/parallel.py:782,</span> in <span class="ni">Parallel._dispatch</span><span class="nt">(self, batch)</span>
+<span class="g g-Whitespace">    </span><span class="mi">780</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">781</span>     <span class="n">job_idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_jobs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">782</span>     <span class="n">job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">783</span>     <span class="c1"># A job can complete so quickly than its callback is</span>
+<span class="g g-Whitespace">    </span><span class="mi">784</span>     <span class="c1"># called before we get here, causing self._jobs to</span>
+<span class="g g-Whitespace">    </span><span class="mi">785</span>     <span class="c1"># grow. To ensure correct results ordering, .insert is</span>
+<span class="g g-Whitespace">    </span><span class="mi">786</span>     <span class="c1"># used (rather than .append) in the following line</span>
+<span class="g g-Whitespace">    </span><span class="mi">787</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_jobs</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">job_idx</span><span class="p">,</span> <span class="n">job</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/_parallel_backends.py:208,</span> in <span class="ni">SequentialBackend.apply_async</span><span class="nt">(self, func, callback)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="k">def</span> <span class="nf">apply_async</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span>     <span class="sd">&quot;&quot;&quot;Schedule a func to be run&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">208</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">ImmediateResult</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="k">if</span> <span class="n">callback</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>         <span class="n">callback</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/_parallel_backends.py:572,</span> in <span class="ni">ImmediateResult.__init__</span><span class="nt">(self, batch)</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span>     <span class="c1"># Don&#39;t delay the application, to avoid keeping the input</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span>     <span class="c1"># arguments in memory</span>
+<span class="ne">--&gt; </span><span class="mi">572</span>     <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">batch</span><span class="p">()</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/parallel.py:263,</span> in <span class="ni">BatchedCalls.__call__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>     <span class="c1"># Set the default nested backend to self._backend but do not set the</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>     <span class="c1"># change the default number of processes to -1</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>     <span class="k">with</span> <span class="n">parallel_backend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">263</span>         <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span>                 <span class="k">for</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">]</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/parallel.py:263,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>     <span class="c1"># Set the default nested backend to self._backend but do not set the</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>     <span class="c1"># change the default number of processes to -1</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>     <span class="k">with</span> <span class="n">parallel_backend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">263</span>         <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span>                 <span class="k">for</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">]</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/fixes.py:216,</span> in <span class="ni">_FuncWrapper.__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="k">with</span> <span class="n">config_context</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">216</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/model_selection/_validation.py:702,</span> in <span class="ni">_fit_and_score</span><span class="nt">(estimator, X, y, scorer, train, test, verbose, parameters, fit_params, return_train_score, return_parameters, return_n_test_samples, return_times, return_estimator, split_progress, candidate_progress, error_score)</span>
+<span class="g g-Whitespace">    </span><span class="mi">699</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;fit_error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span> <span class="n">fit_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="ne">--&gt; </span><span class="mi">702</span> <span class="n">test_scores</span> <span class="o">=</span> <span class="n">_score</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">scorer</span><span class="p">,</span> <span class="n">error_score</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span> <span class="n">score_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span> <span class="o">-</span> <span class="n">fit_time</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span> <span class="k">if</span> <span class="n">return_train_score</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/model_selection/_validation.py:761,</span> in <span class="ni">_score</span><span class="nt">(estimator, X_test, y_test, scorer, error_score)</span>
+<span class="g g-Whitespace">    </span><span class="mi">759</span>         <span class="n">scores</span> <span class="o">=</span> <span class="n">scorer</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X_test</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">760</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">761</span>         <span class="n">scores</span> <span class="o">=</span> <span class="n">scorer</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">762</span> <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">763</span>     <span class="k">if</span> <span class="n">error_score</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/metrics/_scorer.py:105,</span> in <span class="ni">_MultimetricScorer.__call__</span><span class="nt">(self, estimator, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>         <span class="n">score</span> <span class="o">=</span> <span class="n">scorer</span><span class="o">.</span><span class="n">_score</span><span class="p">(</span><span class="n">cached_call</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">105</span>         <span class="n">score</span> <span class="o">=</span> <span class="n">scorer</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>     <span class="n">scores</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">score</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span> <span class="k">return</span> <span class="n">scores</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/metrics/_scorer.py:418,</span> in <span class="ni">_passthrough_scorer</span><span class="nt">(estimator, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="k">def</span> <span class="nf">_passthrough_scorer</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">417</span>     <span class="sd">&quot;&quot;&quot;Function that wraps estimator.score&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">418</span>     <span class="k">return</span> <span class="n">estimator</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/metaestimators.py:113,</span> in <span class="ni">_AvailableIfDescriptor.__get__.&lt;locals&gt;.&lt;lambda&gt;</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>         <span class="k">raise</span> <span class="n">attr_err</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span>     <span class="c1"># lambda, but not partial, allows help() to work with update_wrapper</span>
+<span class="ne">--&gt; </span><span class="mi">113</span>     <span class="n">out</span> <span class="o">=</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">fn</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># noqa</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>     <span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/pipeline.py:707,</span> in <span class="ni">Pipeline.score</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span> <span class="n">Xt</span> <span class="o">=</span> <span class="n">X</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">transform</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter</span><span class="p">(</span><span class="n">with_final</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">707</span>     <span class="n">Xt</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span> <span class="n">score_params</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span> <span class="k">if</span> <span class="n">sample_weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/feature_extraction/text.py:1379,</span> in <span class="ni">CountVectorizer.transform</span><span class="nt">(self, raw_documents)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1376</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_vocabulary</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1378</span> <span class="c1"># use the same matrix-building strategy as fit_transform</span>
+<span class="ne">-&gt; </span><span class="mi">1379</span> <span class="n">_</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_count_vocab</span><span class="p">(</span><span class="n">raw_documents</span><span class="p">,</span> <span class="n">fixed_vocab</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1380</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1381</span>     <span class="n">X</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/feature_extraction/text.py:1201,</span> in <span class="ni">CountVectorizer._count_vocab</span><span class="nt">(self, raw_documents, fixed_vocab)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1199</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">raw_documents</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1200</span>     <span class="n">feature_counter</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="ne">-&gt; </span><span class="mi">1201</span>     <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">analyze</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1202</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1203</span>             <span class="n">feature_idx</span> <span class="o">=</span> <span class="n">vocabulary</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/feature_extraction/text.py:120,</span> in <span class="ni">_analyze</span><span class="nt">(doc, analyzer, tokenizer, ngrams, preprocessor, decoder, stop_words)</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span>             <span class="n">doc</span> <span class="o">=</span> <span class="n">ngrams</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">stop_words</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">120</span>             <span class="n">doc</span> <span class="o">=</span> <span class="n">ngrams</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="k">return</span> <span class="n">doc</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/feature_extraction/text.py:258,</span> in <span class="ni">_VectorizerMixin._word_ngrams</span><span class="nt">(self, tokens, stop_words)</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span>     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">min_n</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_original_tokens</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span>         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_original_tokens</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">258</span>             <span class="n">tokens_append</span><span class="p">(</span><span class="n">space_join</span><span class="p">(</span><span class="n">original_tokens</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">]))</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span> <span class="k">return</span> <span class="n">tokens</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -2846,7 +3069,7 @@ Top features for negative reviews:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try a more complex statement</span>
-<span class="n">my_review</span> <span class="o">=</span> <span class="s1">&#39;I hated this movie, even though my friend loved it&#39;</span>
+<span class="n">my_review</span> <span class="o">=</span> <span class="s2">&quot;Newspapers are not food.&quot;</span>
 <span class="n">my_features</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">my_review</span><span class="p">])</span>
 <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">my_features</span><span class="p">)</span>
 </pre></div>
@@ -2881,6 +3104,86 @@ Top features for negative reviews:
 <section id="improving-preprocessing-accuracy-and-efficiency">
 <h2>Improving preprocessing accuracy and efficiency<a class="headerlink" href="#improving-preprocessing-accuracy-and-efficiency" title="Permalink to this heading">#</a></h2>
 <p>Remember these are just the basics. There are more efficient ways to preprocess your text that you will want to consider. Read Chapter 8 “spaCy and textaCy” to learn more!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">whos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable                Type                                Data/Info
+---------------------------------------------------------------------
+BeautifulSoup           type                                &lt;class &#39;bs4.BeautifulSoup&#39;&gt;
+CountVectorizer         type                                &lt;class &#39;sklearn.feature_e&lt;...&gt;on.text.CountVectorizer&#39;&gt;
+Counter                 type                                &lt;class &#39;collections.Counter&#39;&gt;
+LogisticRegression      type                                &lt;class &#39;sklearn.linear_mo&lt;...&gt;stic.LogisticRegression&#39;&gt;
+Pipeline                ABCMeta                             &lt;class &#39;sklearn.pipeline.Pipeline&#39;&gt;
+PorterStemmer           ABCMeta                             &lt;class &#39;nltk.stem.porter.PorterStemmer&#39;&gt;
+TfidfTransformer        type                                &lt;class &#39;sklearn.feature_e&lt;...&gt;n.text.TfidfTransformer&#39;&gt;
+TfidfVectorizer         type                                &lt;class &#39;sklearn.feature_e&lt;...&gt;on.text.TfidfVectorizer&#39;&gt;
+WordNetLemmatizer       type                                &lt;class &#39;nltk.stem.wordnet.WordNetLemmatizer&#39;&gt;
+accuracy_score          function                            &lt;function accuracy_score at 0x7fa6296c9040&gt;
+classification_report   function                            &lt;function classification_&lt;...&gt;report at 0x7fa6296c9940&gt;
+confusion_matrix        function                            &lt;function confusion_matrix at 0x7fa6296c90d0&gt;
+corpus                  list                                n=11
+countries               list                                n=11
+country                 DataFrame                              abasi  abasi desk  aba&lt;...&gt;n[1 rows x 84182 columns]
+cross_val_score         function                            &lt;function cross_val_score at 0x7fa6297159d0&gt;
+document                str                                 djibouti2013.txt
+empty_dictionary        dict                                n=11
+feature_names           ndarray                             39659: 39659 elems, type `object`, 317272 bytes (309.8359375 kb)
+features                csr_matrix                            (0, 39086)	0.5889877844&lt;...&gt;12776)	0.7435961012857455
+human_rights            DataFrame                                          file_name &lt;...&gt;sh original english ...  
+judgements              list                                n=2000
+logit_class             LogisticRegression                  LogisticRegression(C=1000&lt;...&gt;te=1, solver=&#39;liblinear&#39;)
+model                   LogisticRegression                  LogisticRegression(C=1000&lt;...&gt;te=1, solver=&#39;liblinear&#39;)
+movie_reviews           CategorizedPlaintextCorpusReader    &lt;CategorizedPlaintextCorp&lt;...&gt;a/corpora/movie_reviews&#39;&gt;
+movies                  DataFrame                                                    &lt;...&gt;\n[2000 rows x 2 columns]
+my_features             csr_matrix                            (0, 24044)	0.1411492820&lt;...&gt; 2217)	0.1341357443684459
+my_review               str                                 Newspapers are not food.
+new_bad_review          str                                 This was the most awful w&lt;...&gt;rst super bad movie ever!
+new_good_review         str                                 WHAT A WONDERFUL, FANTASTIC MOVIE!!!
+nlp                     English                             &lt;spacy.lang.en.English object at 0x7fa616022940&gt;
+nltk                    module                              &lt;module &#39;nltk&#39; from &#39;/Use&lt;...&gt;ckages/nltk/__init__.py&#39;&gt;
+np                      module                              &lt;module &#39;numpy&#39; from &#39;/Us&lt;...&gt;kages/numpy/__init__.py&#39;&gt;
+os                      module                              &lt;module &#39;os&#39; from &#39;/Users&lt;...&gt;da3/lib/python3.8/os.py&#39;&gt;
+paragraph               Tag                                 &lt;p&gt;&lt;b&gt;New World Species&lt;/b&gt;:\n&lt;/p&gt;
+pd                      module                              &lt;module &#39;pandas&#39; from &#39;/U&lt;...&gt;ages/pandas/__init__.py&#39;&gt;
+punctuation             str                                 !&quot;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+re                      module                              &lt;module &#39;regex&#39; from &#39;/Us&lt;...&gt;kages/regex/__init__.py&#39;&gt;
+requests                module                              &lt;module &#39;requests&#39; from &#39;&lt;...&gt;es/requests/__init__.py&#39;&gt;
+response                Response                            &lt;Response [200]&gt;
+reviews                 list                                n=2000
+roc_auc_score           function                            &lt;function roc_auc_score at 0x7fa6296add30&gt;
+roc_curve               function                            &lt;function roc_curve at 0x7fa6296adf70&gt;
+scores                  ndarray                             10: 10 elems, type `float64`, 80 bytes
+shuffle                 function                            &lt;function shuffle at 0x7fa62939c4c0&gt;
+sns                     module                              &lt;module &#39;seaborn&#39; from &#39;/&lt;...&gt;ges/seaborn/__init__.py&#39;&gt;
+soup                    BeautifulSoup                       &lt;!DOCTYPE html&gt;\n&lt;html cl&lt;...&gt;script&gt;\n&lt;/body&gt;\n&lt;/html&gt;
+spacy                   module                              &lt;module &#39;spacy&#39; from &#39;/Us&lt;...&gt;kages/spacy/__init__.py&#39;&gt;
+stopwords               LazyCorpusLoader                    &lt;WordListCorpusReader in &lt;...&gt;pwords&#39; (not loaded yet)&gt;
+text                    str                                  sequoioideae popularly k&lt;...&gt;pecies new world species 
+text_clf                Pipeline                            Pipeline(steps=[(&#39;vect&#39;, &lt;...&gt;   solver=&#39;liblinear&#39;))])
+tf_sparse               csr_matrix                            (0, 39182)	0.0048568468&lt;...&gt;8289)	0.00869094964616284
+tf_vectorizer           TfidfVectorizer                     TfidfVectorizer(max_df=0.&lt;...&gt;3), stop_words=&#39;english&#39;)
+tfidf                   TfidfVectorizer                     TfidfVectorizer()
+tfidf_df                DataFrame                                  abasi  abasi desk &lt;...&gt;[11 rows x 84182 columns]
+to_open                 TextIOWrapper                       &lt;_io.TextIOWrapper name=&#39;&lt;...&gt;ode=&#39;r&#39; encoding=&#39;utf-8&#39;&gt;
+top25neg                ndarray                             25: 25 elems, type `int64`, 200 bytes
+top25pos                ndarray                             25: 25 elems, type `int64`, 200 bytes
+train_test_split        function                            &lt;function train_test_split at 0x7fa6296a7c10&gt;
+url                     str                                 https://en.wikipedia.org/wiki/Sequoioideae
+warnings                module                              &lt;module &#39;warnings&#39; from &#39;&lt;...&gt;b/python3.8/warnings.py&#39;&gt;
+x                       ndarray                             2000: 2000 elems, type `object`, 16000 bytes
+x_test                  csr_matrix                            (0, 39482)	0.0556930153&lt;...&gt;750)	0.018569075100128132
+x_train                 csr_matrix                            (0, 39028)	0.0233503390&lt;...&gt;, 338)	0.1198810191867183
+y                       ndarray                             2000: 2000 elems, type `object`, 16000 bytes
+y_test                  ndarray                             600: 600 elems, type `object`, 4800 bytes
+y_train                 ndarray                             1400: 1400 elems, type `object`, 11200 bytes
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 

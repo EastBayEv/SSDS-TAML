@@ -369,7 +369,7 @@ text = re.sub(r'\s+',' ',text)
 # In[31]:
 
 
-# print(text)
+print(text)
 
 
 # ## Unsupervised learning with `TfidfVectorizer()`
@@ -461,7 +461,7 @@ tfidf_df
 # In[40]:
 
 
-country = tfidf_df[tfidf_df['COUNTRY'] == 'jordan']
+country = tfidf_df[tfidf_df['COUNTRY'] == 'tuvalu']
 country.max(numeric_only = True).sort_values(ascending = False).head(20)
 
 
@@ -528,7 +528,7 @@ x, y = shuffle(np.array(movies.Reviews), np.array(movies.Judgements), random_sta
 
 
 # change x[0] and y[0] to see different reviews
-x[0], print("Human review was:", y[0])
+x[3], print("Human review was:", y[3])
 
 
 # ### Pipelines - one example
@@ -536,6 +536,12 @@ x[0], print("Human review was:", y[0])
 # scikit-learn offers hand ways to build machine learning pipelines: https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
 
 # In[47]:
+
+
+get_ipython().run_line_magic('pinfo', 'tfidf.transform')
+
+
+# In[48]:
 
 
 # standard training/test split (no cross validation)
@@ -555,7 +561,13 @@ logit_class = LogisticRegression(solver = 'liblinear',
 model = logit_class.fit(x_train, y_train)
 
 
-# In[48]:
+# In[49]:
+
+
+get_ipython().run_line_magic('pinfo', 'LogisticRegression')
+
+
+# In[50]:
 
 
 # test set accuracy
@@ -564,7 +576,19 @@ model.score(x_test, y_test)
 
 # ### $k$-fold cross-validated model
 
-# In[49]:
+# In[51]:
+
+
+get_ipython().run_line_magic('pinfo', 'Pipeline')
+
+
+# In[52]:
+
+
+get_ipython().run_line_magic('pinfo', 'cross_val_score')
+
+
+# In[53]:
 
 
 # Cross-validated model!
@@ -578,14 +602,14 @@ text_clf = Pipeline([('vect', CountVectorizer(ngram_range=(1, 3))),
 
 # for your own research, thesis, or publication
 # you would select cv equal to 10 or 20
-scores = cross_val_score(text_clf, x, y, cv = 3)
+scores = cross_val_score(text_clf, x, y, cv = 10)
 
 print(scores, np.mean(scores))
 
 
 # ### Top 25 features for positive and negative reviews
 
-# In[50]:
+# In[80]:
 
 
 feature_names = tfidf.get_feature_names_out()
@@ -598,7 +622,7 @@ top25neg = np.argsort(model.coef_[0])[:25]
 print(list(feature_names[j] for j in top25neg))
 
 
-# In[51]:
+# In[81]:
 
 
 new_bad_review = "This was the most awful worst super bad movie ever!"
@@ -608,7 +632,7 @@ features = tfidf.transform([new_bad_review])
 model.predict(features)
 
 
-# In[52]:
+# In[82]:
 
 
 new_good_review = 'WHAT A WONDERFUL, FANTASTIC MOVIE!!!'
@@ -618,11 +642,11 @@ features = tfidf.transform([new_good_review])
 model.predict(features)
 
 
-# In[53]:
+# In[105]:
 
 
 # try a more complex statement
-my_review = 'I hated this movie, even though my friend loved it'
+my_review = "Newspapers are not food."
 my_features = tfidf.transform([my_review])
 model.predict(my_features)
 
@@ -646,3 +670,15 @@ model.predict(my_features)
 # ## Improving preprocessing accuracy and efficiency
 # 
 # Remember these are just the basics. There are more efficient ways to preprocess your text that you will want to consider. Read Chapter 8 "spaCy and textaCy" to learn more!
+
+# In[106]:
+
+
+get_ipython().run_line_magic('whos', '')
+
+
+# In[ ]:
+
+
+
+

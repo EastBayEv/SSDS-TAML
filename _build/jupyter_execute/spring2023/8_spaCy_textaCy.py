@@ -168,11 +168,17 @@ for sent in itertools.islice(doc.sents, 10):
 # In[10]:
 
 
+doc.sents
+
+
+# In[11]:
+
+
 sentences = [sent.text for sent in doc.sents]
 sentences
 
 
-# In[11]:
+# In[12]:
 
 
 words = [token.text for token in doc]
@@ -183,7 +189,7 @@ words
 # 
 # After extracting the tokens, we can use some attributes and methods provided by spaCy, along with some vanilla Python methods, to filter the tokens to just the types we're interested in analyzing.
 
-# In[12]:
+# In[13]:
 
 
 # If we're only interested in analyzing word tokens, we can remove punctuation:
@@ -194,7 +200,7 @@ no_punct = [token for token in doc if token.is_punct == False]
 no_punct[:20]
 
 
-# In[13]:
+# In[14]:
 
 
 # There are still some space tokens; here's how to remove spaces and newlines:
@@ -203,7 +209,7 @@ for token in no_punct_or_space[:30]:
     print(token.text)
 
 
-# In[14]:
+# In[15]:
 
 
 # Let's say we also want to remove numbers and lowercase everything that remains
@@ -213,7 +219,7 @@ lower_alpha[:30]
 
 # One additional common filtering step is to remove stopwords. In theory, stopwords can be any words we're not interested in analyzing, but in practice, they are often the most common words in a language that do not carry much semantic information (e.g., articles, conjunctions).
 
-# In[15]:
+# In[16]:
 
 
 clean = [token.lower_ for token in no_punct_or_space if token.is_alpha == True and token.is_stop == False]
@@ -222,7 +228,7 @@ clean[:30]
 
 # We've used spaCy's built-in stopword list; membership in this list determines the property `is_stop` for each token. It's good practice to be wary of any built-in stopword list, however -- there's a good chance you will want to remove some words that aren't on the list and to include some that are, especially if you're working with specialized texts.
 
-# In[16]:
+# In[17]:
 
 
 # We'll just pick a couple of words we know are in the example
@@ -238,7 +244,7 @@ custom_clean
 # 
 # Now that we've used spaCy to tokenize and clean our text, we can begin one of the most fundamental text analysis tasks: counting words!
 
-# In[17]:
+# In[18]:
 
 
 print("Number of tokens in document: ", len(doc))
@@ -246,7 +252,14 @@ print("Number of tokens in cleaned document: ", len(clean))
 print("Number of unique tokens in cleaned document: ", len(set(clean)))
 
 
-# In[18]:
+# In[19]:
+
+
+from collections import Counter
+get_ipython().run_line_magic('pinfo', 'Counter')
+
+
+# In[20]:
 
 
 from collections import Counter
@@ -255,7 +268,7 @@ full_counter = Counter([token.lower_ for token in doc])
 full_counter.most_common(20)
 
 
-# In[19]:
+# In[21]:
 
 
 cleaned_counter = Counter(clean)
@@ -266,7 +279,7 @@ cleaned_counter.most_common(20)
 # 
 # Let's consider some other aspects of the text that spaCy exposes for us. One of the most noteworthy features is part-of-speech tagging.
 
-# In[20]:
+# In[22]:
 
 
 # spaCy provides two levels of POS tagging. Here's the more general level.
@@ -274,7 +287,7 @@ for token in doc[:30]:
     print(token.text, token.pos_)
 
 
-# In[21]:
+# In[23]:
 
 
 # spaCy also provides the more specific Penn Treenbank tags.
@@ -285,7 +298,7 @@ for token in doc[:30]:
 
 # We can count the occurrences of each part of speech in the text, which may be useful for document classification (fiction may have different proportions of parts of speech relative to nonfiction, for example) or stylistic analysis (more on that later).
 
-# In[22]:
+# In[24]:
 
 
 nouns = [token for token in doc if token.pos_ == "NOUN"]
@@ -295,7 +308,7 @@ adjectives = [token for token in doc if token.pos_ == "ADJ"]
 adverbs = [token for token in doc if token.pos_ == "ADV"]
 
 
-# In[23]:
+# In[25]:
 
 
 pos_counts = {
@@ -311,7 +324,7 @@ pos_counts
 
 # spaCy performs morphosyntactic analysis of individual tokens, including lemmatizing inflected or conjugated forms to their base (dictionary) forms. Reducing words to their lemmatized forms can help to make a large corpus more manageable and is generally more effective than just stemming words (trimming the inflected/conjugated endings of words until just the base portion remains), but should only be done if the inflections are not relevant to your analysis.
 
-# In[24]:
+# In[26]:
 
 
 for token in doc:
@@ -325,7 +338,7 @@ for token in doc:
 # 
 # We won't spend much time exploring this feature, but it's useful to see how it enables the extraction of multi-word "noun chunks" from the text. Note also that textacy (discussed below) has a built-in function to extract subject-verb-object triples from sentences.
 
-# In[25]:
+# In[27]:
 
 
 for chunk in itertools.islice(doc.noun_chunks, 20):
@@ -338,7 +351,7 @@ for chunk in itertools.islice(doc.noun_chunks, 20):
 # 
 # It is also fairly easy to customize and fine-tune these models by providing additional training data (e.g., texts with entities labeled according to the desired scheme), but that's out of the scope of this workshop.
 
-# In[26]:
+# In[28]:
 
 
 for ent in doc.ents:
@@ -347,7 +360,7 @@ for ent in doc.ents:
 
 # What if we only care about geo-political entities or locations?
 
-# In[27]:
+# In[29]:
 
 
 ent_filtered = [(ent.text, ent.label_) for ent in doc.ents if ent.label_ in ["GPE", "LOC"]]
@@ -358,11 +371,17 @@ ent_filtered
 # 
 # The built-in displaCy visualizer can render the results of the named-entity recognition, as well as the dependency parser.
 
-# In[28]:
+# In[30]:
+
+
+get_ipython().run_line_magic('pinfo', 'displacy.render')
+
+
+# In[31]:
 
 
 from spacy import displacy
-displacy.render(doc, style="ent", jupyter=True)
+displacy.render(doc, style="dep", jupyter=True)
 
 
 # # Corpus-level analysis with `textacy`
@@ -375,13 +394,13 @@ displacy.render(doc, style="ent", jupyter=True)
 # 
 # We'll use some of the data that is included in textacy as our corpus. It is certainly possible to build your own corpus by importing data from files in plain text, XML, JSON, CSV or other formats, but working with one of textacy's "pre-cooked" datasets simplifies things a bit.
 
-# In[29]:
+# In[32]:
 
 
 import textacy.datasets
 
 
-# In[30]:
+# In[33]:
 
 
 # We'll work with a dataset of ~8,400 ("almost all") U.S. Supreme Court
@@ -390,7 +409,7 @@ import textacy.datasets
 data = textacy.datasets.SupremeCourt()
 
 
-# In[31]:
+# In[34]:
 
 
 data.download()
@@ -398,7 +417,7 @@ data.download()
 
 # The documentation indicates the metadata that is available with each text.
 
-# In[32]:
+# In[35]:
 
 
 # help(textacy.datasets.supreme_court)
@@ -408,7 +427,7 @@ data.download()
 # 
 # Let's go ahead and define a set of records (texts with metadata) that we'll then add to our corpus. To keep the processing time of the data set a bit more manageable, we'll just look at a set of court decisions from a short span of time.
 
-# In[33]:
+# In[36]:
 
 
 from IPython.display import display, HTML, clear_output
@@ -430,7 +449,7 @@ for i, record in enumerate(recent_decisions):
 #corpus = textacy.Corpus.load(nlp, "scotus_2010.bin.gz")
 
 
-# In[34]:
+# In[43]:
 
 
 print(len(corpus))
@@ -441,13 +460,13 @@ print(len(corpus))
 
 # We can filter this corpus based on metadata attributes.
 
-# In[35]:
+# In[50]:
 
 
-corpus[0]._.meta
+corpus[9]._.meta
 
 
-# In[36]:
+# In[45]:
 
 
 # Here we'll find all the cases where the number of justices voting in the majority was greater than 6. 
@@ -455,20 +474,32 @@ supermajorities = [doc for doc in corpus.get(lambda doc: doc._.meta["n_maj_votes
 len(supermajorities)
 
 
-# In[37]:
+# In[46]:
 
 
 supermajorities[0]._.preview
 
 
+# In[ ]:
+
+
+
+
+
 # ## Finding important words in the corpus
 
-# In[38]:
+# In[47]:
 
 
 print("number of documents: ", corpus.n_docs)
 print("number of sentences: ", corpus.n_sents)
 print("number of tokens: ", corpus.n_tokens)
+
+
+# In[48]:
+
+
+get_ipython().run_line_magic('pinfo', 'corpus.word_counts')
 
 
 # In[39]:
@@ -477,7 +508,7 @@ print("number of tokens: ", corpus.n_tokens)
 corpus.word_counts(by="orth_", filter_stops=False, filter_punct=False, filter_nums=False)
 
 
-# In[40]:
+# In[51]:
 
 
 def show_doc_counts(input_corpus, weighting, limit=20):
@@ -487,7 +518,7 @@ def show_doc_counts(input_corpus, weighting, limit=20):
 
 # `word_doc_counts` provides a few ways of quantifying the prevalence of individual words across the corpus: whether a word appears many times in most documents, just a few times in a few documents, many times in a few documents, or just a few times in most documents.
 
-# In[41]:
+# In[52]:
 
 
 print("# DOCS APPEARING IN / TOTAL # DOCS", "\n", "-----------", sep="")
@@ -498,19 +529,19 @@ show_doc_counts(corpus, "idf")
 
 # textacy provides implementations of algorithms for identifying words and phrases that are representative of a document (aka **keyterm extraction**).
 
-# In[42]:
+# In[53]:
 
 
 from textacy.extract import keyterms as ke
 
 
-# In[43]:
+# In[54]:
 
 
 # corpus[0].text
 
 
-# In[44]:
+# In[55]:
 
 
 # Run the Yake algorithim (Campos et al., 2018) on a given document
@@ -522,7 +553,7 @@ key_terms_yake
 # 
 # Sometimes researchers find it helpful just to see a particular keyword in context.
 
-# In[45]:
+# In[62]:
 
 
 for doc in corpus[:5]:
@@ -537,7 +568,7 @@ for doc in corpus[:5]:
 # 
 # We'll create a vectorizer, sticking with the normal term frequency defaults but discarding words that appear in fewer than 3 documents or more than 95% of documents. We'll also limit our features to the top 500 words according to document frequency. This means our feature set, or columns, will have a higher degree of representation across the corpus. We could further scale these counts according to document frequency (or inverse document frequency) weights, or normalize the weights so that they add up to 1 for each document row (L1 norm), and so on.
 
-# In[46]:
+# In[63]:
 
 
 import textacy.representations
@@ -552,7 +583,7 @@ dtm
 
 # We have now have a matrix representation of our corpus, where rows are documents, and columns (or features) are words from the corpus. The value at any given point is the number of times that the word appears in that document. Once we have a document-term matrix, we could do several things with it just within textacy, though we also can pass it into different algorithms within `scikit-learn` or other libraries. 
 
-# In[47]:
+# In[64]:
 
 
 # Let's look at some of the terms
@@ -565,7 +596,7 @@ vectorizer.terms_list[:20]
 # 
 # 1. Read through the below code to quickly look at one example of what we can do with a vectorized corpus. Topic modeling is very popular for semantic exploration of texts, and there are numerous implementations of it. Textacy uses implementations from scikit-learn. Our corpus is rather small for topic modeling, but just to see how it's done here, we'll go ahead. First, though, topic modeling works best when the texts are divided into approximately equal-sized "chunks." A quick word-count of the corpus will show that the decisions are of quite variable lengths, which will skew the topic model.
 
-# In[48]:
+# In[65]:
 
 
 for doc in corpus:
@@ -574,7 +605,7 @@ for doc in corpus:
 
 # We'll re-chunk the texts into documents of not more than 500 words and then recompute the document-term matrix.
 
-# In[49]:
+# In[66]:
 
 
 chunked_corpus_unflattened = [
@@ -585,7 +616,7 @@ chunked_dtm = vectorizer.fit_transform(chunked_corpus)
 chunked_dtm
 
 
-# In[50]:
+# In[68]:
 
 
 import textacy.tm
@@ -595,12 +626,14 @@ model.fit(chunked_dtm)
 doc_topic_matrix = model.transform(chunked_dtm)
 
 
-# In[51]:
+# In[69]:
 
 
 for topic_idx, top_terms in model.top_topic_terms(vectorizer.id_to_term, top_n=10):
   print(f"{topic_idx: >2} {model.topic_weights(doc_topic_matrix)[topic_idx]: >3.0%}", "|", ", ".join(top_terms))
 
+
+# [(terrible, -0.8), (awful, -0.78), (fantastic, 0.9), (bicycle, 0.01), (pizza, 0.02), (super, 0.85)]
 
 # ## Document similarity with word2vec and clustering
 # 
@@ -608,7 +641,7 @@ for topic_idx, top_terms in model.top_topic_terms(vectorizer.id_to_term, top_n=1
 # 
 # To evaluate this similarity comparison, we'll compute the similarity of each pair of docs in the corpus, and then branch out into `scikit-learn` a bit to look for clusters based on these similarity measurements.
 
-# In[52]:
+# In[70]:
 
 
 import numpy as np
@@ -630,7 +663,7 @@ distance_matrix
 
 # The [OPTICS](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.OPTICS.html) hierarchical density-based clustering algorithm only finds one cluster with its default settings, but an examination of the legal issue types coded to each decision indicates that the `word2vec`-based clustering has indeed produced a group of semantically related documents.
 
-# In[53]:
+# In[72]:
 
 
 from sklearn.cluster import OPTICS
@@ -639,7 +672,7 @@ clustering = OPTICS(metric='precomputed').fit(distance_matrix)
 print(clustering.labels_)
 
 
-# In[54]:
+# In[73]:
 
 
 from itertools import groupby
