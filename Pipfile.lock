@@ -1080,7 +1080,7 @@
                 "sha256:98080fc0bc34c4f2bcf0846a096a9429acbd9d5d8e67ed34026c03c61c464389"
             ],
             "markers": "python_version ~= '3.6'",
-            "version": "==1.1.0"
+            "version": "==2.2.0"
         },
         "markupsafe": {
             "hashes": [
