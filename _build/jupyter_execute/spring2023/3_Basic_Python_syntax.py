@@ -1,56 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-drac = open("data/dracula.txt").read()
-print(drac[:100])
-
-
-# In[2]:
-
-
-import seaborn as sns
-penguins2 = sns.load_dataset("data/penguins.csv")
-
-
-# In[ ]:
-
-
-
-
-
-# In[5]:
-
-
-import pandas as pd
-
-
-# In[6]:
-
-
-penguins = pd.read_csv("data/penguins.csv")
-
-
-# In[4]:
-
-
-penguins = pandas.read_csv("data/penguins.csv")
-
-
-# In[8]:
-
-
-penguins
-
-
-# In[ ]:
-
-
-# gap = pd.read_csv("data/gapminder-FiveYearData.csv")
-
-
 # # Chapter 3 - Basic Python syntax
 # 2023 April 6
 
@@ -72,14 +22,14 @@ penguins
 # 
 # Save a single number inside of a variable named with a single letter. You could read the below lines as "x is defined as one", "two is assigned to y", or most simply put, "z is three":
 
-# In[5]:
+# In[1]:
 
 
 # define one variable
 x = 1
 
 
-# In[6]:
+# In[2]:
 
 
 # assign multiple variables in a single code cell
@@ -90,44 +40,44 @@ z = 3
 
 # ## Use `print()` to show it on the screen
 
-# In[7]:
+# In[3]:
 
 
 print(x)
 
 
-# In[8]:
+# In[4]:
 
 
 # "call" the variables directly!
 x
 
 
-# In[9]:
+# In[5]:
 
 
 y
 
 
-# In[10]:
+# In[6]:
 
 
 print(x / y * z)
 
 
-# In[11]:
+# In[7]:
 
 
 x / y * z
 
 
-# In[12]:
+# In[8]:
 
 
 import pandas as pd
 
 
-# In[13]:
+# In[9]:
 
 
 pd.

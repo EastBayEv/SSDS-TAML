@@ -1,25 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-import pandas as pd
-
-
-# In[2]:
-
-
-pd.options(max.print=1000000)
-
-
-# In[8]:
-
-
-gap = pd.read_csv("/Users/evanmuzzall/Desktop/SSDS-TAML/spring2023/data/gapminder-FiveYearData.csv")
-gap
-
-
 # # Chapter 4 - Numeric data wrangling
 # 2023 April 7
 # 
