@@ -364,14 +364,14 @@ get_ipython().system('ls')
 # 3. `'data/frankenstein.txt'` is the argument that we provide to the `open` function. This matches the `file` path argument and needs to contain the location for the Frankenstein book.
 # 4. `.read()` reads the file as text. 
 
-# In[38]:
+# In[11]:
 
 
 frank = open('data/frankenstein.txt').read()
 # print(frank)
 
 # print only the first 1000 characters
-print(frank[:1000])
+print(frank[0:1002])
 
 
 # ### Import data frames with the pandas library
@@ -382,19 +382,25 @@ print(frank[:1000])
 # 
 # For this part, we will use the [pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html) Python library. Remember how to install user-defined libraries from Chapter 2? This is a two step process.
 
-# In[39]:
+# In[12]:
 
 
 # Step 1. Physically download and install the library's files (unhashtab the line below to run)
-# !pip install pandas
+get_ipython().system('pip install pandas')
 
 
-# In[40]:
+# In[14]:
 
 
 # Step 2. link the pandas library to our current notebook
 # pd is the alias, or shorthand, way to reference the pandas library
-import pandas as pd 
+import pandas as pd
+
+
+# In[ ]:
+
+
+pd.
 
 
 # Now, you can use dot notation (type `pd.`)to access the functions within the pandas library. 
@@ -559,6 +565,31 @@ my_list = ['green', True, 0.5, 4, ['cat', 'dog', 'pig']]
 # 
 # > Note: See the Solutions chapter for code to copy files from your Colab environment to your Google Drive! 
 
+# In[2]:
+
+
+drac = open("data/").read()
+print(drac)
+
+
+# In[4]:
+
+
+import pandas as pd
+
+
+# In[5]:
+
+
+pen = pd.read_csv("data/penguins.csv")
+
+
+# In[6]:
+
+
+pen.head()
+
+
 # ## What variables do you have saved? 
 # 
 # It's easy to lose track of what variables you have saved. `%whos` will provide you with details about variables you have saved in memory. `%who` will simply list the variable names. 
@@ -580,3 +611,21 @@ get_ipython().run_line_magic('who', '')
 # Importing numeric data from a .csv file is one thing, but wrangling it into a format that suits your needs is another. Read Chapter 4 "Numeric data wrangling" to learn how to use the pandas library to subset numeric data! 
 # 
 # Chapter 7 contains information about preprocessing text data. 
+
+# In[7]:
+
+
+gap = pd.read_csv("data/gapminder-FiveYearData.csv")
+
+
+# In[8]:
+
+
+gap
+
+
+# In[ ]:
+
+
+
+

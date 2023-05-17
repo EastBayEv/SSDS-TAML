@@ -146,8 +146,21 @@ print("Life expectancy sd:", lifeExp_sd)
 # In[12]:
 
 
+import pandas as pd
+gap = pd.read_csv("data/gapminder-FiveYearData.csv")
+
+
+# In[13]:
+
+
+pd.set_option('display.float_format', lambda x: '%.6f' % x)
+
+
+# In[14]:
+
+
 # count the number of observations grouped by each continent
-gap.groupby("continent").count()["country"]
+gap.groupby("continent").mean()["pop"]
 
 
 # ## Subset rows or columns
@@ -164,7 +177,7 @@ gap.groupby("continent").count()["country"]
 
 # ### Row subset: slice just the first row
 
-# In[13]:
+# In[15]:
 
 
 gap[:1]
@@ -172,7 +185,7 @@ gap[:1]
 
 # ### Row subset: slice first three rows
 
-# In[14]:
+# In[16]:
 
 
 gap[:3]
@@ -180,7 +193,7 @@ gap[:3]
 
 # ### Row subset: slice rows 10 thru 14
 
-# In[15]:
+# In[17]:
 
 
 subset1 = gap[10:15]
@@ -189,7 +202,7 @@ subset1
 
 # ### Column subset: one column
 
-# In[16]:
+# In[18]:
 
 
 # type the column name as a string in square brackets
@@ -198,7 +211,7 @@ gap['lifeExp']
 
 # ### Column subset: multiple columns
 
-# In[17]:
+# In[19]:
 
 
 # note the double sets of brackets
@@ -208,7 +221,7 @@ subset2
 
 # ### Row and column subset
 
-# In[18]:
+# In[20]:
 
 
 # subset more than one column and rows 855 thru 858
@@ -216,7 +229,7 @@ subset3 = gap[['continent', 'lifeExp', 'gdpPercap']][855:859]
 subset3
 
 
-# In[19]:
+# In[21]:
 
 
 # A column in a pandas data frame Pandas "Series" can be thought of like numpy arrays
@@ -226,7 +239,7 @@ type(gap["lifeExp"])
 
 # ### Subset by logical condition(s)
 
-# In[20]:
+# In[22]:
 
 
 # lifeExp is greater than 81
@@ -238,7 +251,7 @@ le2
 # 
 # All conditions must be satisfied to be included in the subset
 
-# In[21]:
+# In[23]:
 
 
 # create subset that includes life expectancy greater than 81 AND pop < 500,000.
@@ -250,7 +263,7 @@ year2002
 # 
 # Just one of multiple conditions must be satisfied to be included in the subset
 
-# In[22]:
+# In[24]:
 
 
 # create a subset that includes country equals Ireland OR life expectancy greater than 82. 
@@ -267,6 +280,106 @@ ireland82
 # 5. Tabulate frequencies for the "continent" column
 # 6. Compute mean lifeExp and dgpPercap by continent
 # 7. Create a subset of `gap` that contains only countries with lifeExp greater than 75 and gdpPercap less than 5000.
+
+# In[25]:
+
+
+# 1.
+gap = pd.read_csv("data/gapminder-FiveYearData.csv")
+gap
+
+
+# In[26]:
+
+
+# 2. 
+gap.columnsns
+
+
+# In[13]:
+
+
+# 3. compute mean for one numeric column
+gap["pop"].mean()
+
+
+# In[16]:
+
+
+gap.info()
+
+
+# In[15]:
+
+
+# 4. compute mean for ALL numeric columns
+# gap.describe()
+gap.mean()
+
+
+# In[19]:
+
+
+sum(gap.groupby("continent").count()["country"] / 12)
+
+
+# In[21]:
+
+
+gap.shape
+
+
+# In[22]:
+
+
+142 * 12
+
+
+# In[31]:
+
+
+# 6.
+gap.groupby("continent")[["lifeExp", "gdpPercap"]].mean()
+
+
+# In[34]:
+
+
+# Create a subset of gap that contains only countries with lifeExp greater 
+# than 75 and gdpPercap less than 5000.
+healthy_poor = gap[(gap["lifeExp"] > 75) & (gap["gdpPercap"] < 5000)]
+healthy_poor
+
+
+# In[41]:
+
+
+gap.iloc[1501]
+
+
+# In[ ]:
+
+
+
+
+
+# In[44]:
+
+
+gap.columns
+
+
+# In[48]:
+
+
+gap[gap.columns[[2, 3]]]
+
+
+# In[45]:
+
+
+gap.ix[2]
+
 
 # ## Data visualization
 # 
