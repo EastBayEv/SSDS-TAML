@@ -1,0 +1,42 @@
+Traceback (most recent call last):
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# 2. 
+gap.columnsns
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[26], line 2[0m
+[1;32m      1[0m [38;5;66;03m# 2. [39;00m
+[0;32m----> 2[0m [43mgap[49m[38;5;241;43m.[39;49m[43mcolumnsns[49m
+
+File [0;32m~/opt/anaconda3/lib/python3.8/site-packages/pandas/core/generic.py:5575[0m, in [0;36mNDFrame.__getattr__[0;34m(self, name)[0m
+[1;32m   5568[0m [38;5;28;01mif[39;00m (
+[1;32m   5569[0m     name [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39m_internal_names_set
+[1;32m   5570[0m     [38;5;129;01mand[39;00m name [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39m_metadata
+[1;32m   5571[0m     [38;5;129;01mand[39;00m name [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39m_accessors
+[1;32m   5572[0m     [38;5;129;01mand[39;00m [38;5;28mself[39m[38;5;241m.[39m_info_axis[38;5;241m.[39m_can_hold_identifiers_and_holds_name(name)
+[1;32m   5573[0m ):
+[1;32m   5574[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[name]
+[0;32m-> 5575[0m [38;5;28;01mreturn[39;00m [38;5;28;43mobject[39;49m[38;5;241;43m.[39;49m[38;5;21;43m__getattribute__[39;49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mname[49m[43m)[49m
+
+[0;31mAttributeError[0m: 'DataFrame' object has no attribute 'columnsns'
+AttributeError: 'DataFrame' object has no attribute 'columnsns'
+

@@ -1,0 +1,3258 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Chapter 7 - English text preprocessing basics - and applications &#8212; Text Analysis and Machine Learning (TAML) Group</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 8 - spaCy and textaCy" href="8_spaCy_textaCy.html" />
+    <link rel="prev" title="Chapter 6 - Core machine learning concepts; building text vocabularies" href="6_Core_concepts_vocabularies.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Text Analysis and Machine Learning (TAML) Group</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to TAML!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_How_to_use_this_book.html">
+   Chapter 1 - How to use this book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Python_environments.html">
+   Chapter 2 - Python environments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Basic_Python_syntax.html">
+   Chapter 3 - Basic Python syntax
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Numeric_data_wrangling.html">
+   Chapter 4 - Numeric data wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Data_visualization_essentials.html">
+   Chapter 5 - Data visualization essentials
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Text analysis and machine learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Core_concepts_vocabularies.html">
+   Chapter 6 - Core machine learning concepts; building text vocabularies
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 7 - English text preprocessing basics - and applications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_spaCy_textaCy.html">
+   Chapter 8 - spaCy and textaCy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_BERTopic.html">
+   Chapter 9 - New Developments: Topic Modeling with BERTopic!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix.html">
+   <strong>
+    Appendix
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions.html">
+   Solutions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/spring2023/7_English_text_preprocessing_basics_applications.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/EastBayEv/SSDS-TAML"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2Fspring2023/7_English_text_preprocessing_basics_applications.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/spring2023/7_English_text_preprocessing_basics_applications.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#corpus-definition-united-nations-human-rights-council-documentation">
+   Corpus definition: United Nations Human Rights Council Documentation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-the-corpus-directory">
+     Define the corpus directory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#store-these-documents-in-a-data-frame">
+     Store these documents in a data frame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-data-frame">
+     View the data frame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-text-of-the-first-document">
+     View the text of the first document
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#english-text-preprocessing">
+   English text preprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-some-of-the-things-we-can-do">
+     What are some of the things we can do?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-non-alphanumeric-characters-punctuation">
+     Remove non-alphanumeric characters/punctuation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-digits">
+     Remove digits
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-unicode-characters-such-as-and">
+     Remove unicode characters such as Ð and ð
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-extra-spaces">
+     Remove extra spaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-to-lowercase">
+     Convert to lowercase
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lemmatize">
+     Lemmatize
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-updated-data-frame">
+     View the updated data frame
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises-redwoods-webscraping">
+   Exercises - redwoods webscraping
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#three-variables-will-get-you-started">
+   Three variables will get you started
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-the-text">
+   Get the text
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regular-expressions">
+   Regular expressions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning-with-tfidfvectorizer">
+   Unsupervised learning with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     TfidfVectorizer()
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-the-tfidf-sparse-matrix-to-data-frame">
+     Convert the tfidf sparse matrix to data frame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-20-highest-weighted-words">
+     View 20 highest weighted words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-country-name-to-tfidf-df">
+     Add country name to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       tfidf_df
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examine-unique-words-by-each-document-country">
+     Examine unique words by each document/country
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-hrc-text-analysis-what-next">
+   UN HRC text analysis - what next?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentiment-analysis">
+   Sentiment analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-the-nltk-built-movie-reviews-dataset">
+     Download the nltk built movie reviews dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-x-reviews-and-y-judgements-variables">
+     Define x (reviews) and y (judgements) variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shuffle-the-reviews">
+     Shuffle the reviews
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pipelines-one-example">
+     Pipelines - one example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-fold-cross-validated-model">
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     -fold cross-validated model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#top-25-features-for-positive-and-negative-reviews">
+     Top 25 features for positive and negative reviews
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises-text-classification">
+   Exercises - text classification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#improving-preprocessing-accuracy-and-efficiency">
+   Improving preprocessing accuracy and efficiency
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Chapter 7 - English text preprocessing basics - and applications</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#corpus-definition-united-nations-human-rights-council-documentation">
+   Corpus definition: United Nations Human Rights Council Documentation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-the-corpus-directory">
+     Define the corpus directory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#store-these-documents-in-a-data-frame">
+     Store these documents in a data frame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-data-frame">
+     View the data frame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-text-of-the-first-document">
+     View the text of the first document
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#english-text-preprocessing">
+   English text preprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-some-of-the-things-we-can-do">
+     What are some of the things we can do?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-non-alphanumeric-characters-punctuation">
+     Remove non-alphanumeric characters/punctuation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-digits">
+     Remove digits
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-unicode-characters-such-as-and">
+     Remove unicode characters such as Ð and ð
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-extra-spaces">
+     Remove extra spaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-to-lowercase">
+     Convert to lowercase
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lemmatize">
+     Lemmatize
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-updated-data-frame">
+     View the updated data frame
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises-redwoods-webscraping">
+   Exercises - redwoods webscraping
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#three-variables-will-get-you-started">
+   Three variables will get you started
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-the-text">
+   Get the text
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regular-expressions">
+   Regular expressions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning-with-tfidfvectorizer">
+   Unsupervised learning with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     TfidfVectorizer()
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-the-tfidf-sparse-matrix-to-data-frame">
+     Convert the tfidf sparse matrix to data frame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-20-highest-weighted-words">
+     View 20 highest weighted words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-country-name-to-tfidf-df">
+     Add country name to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       tfidf_df
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examine-unique-words-by-each-document-country">
+     Examine unique words by each document/country
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-hrc-text-analysis-what-next">
+   UN HRC text analysis - what next?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentiment-analysis">
+   Sentiment analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-the-nltk-built-movie-reviews-dataset">
+     Download the nltk built movie reviews dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-x-reviews-and-y-judgements-variables">
+     Define x (reviews) and y (judgements) variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shuffle-the-reviews">
+     Shuffle the reviews
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pipelines-one-example">
+     Pipelines - one example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-fold-cross-validated-model">
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     -fold cross-validated model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#top-25-features-for-positive-and-negative-reviews">
+     Top 25 features for positive and negative reviews
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises-text-classification">
+   Exercises - text classification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#improving-preprocessing-accuracy-and-efficiency">
+   Improving preprocessing accuracy and efficiency
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-7-english-text-preprocessing-basics-and-applications">
+<h1>Chapter 7 - English text preprocessing basics - and applications<a class="headerlink" href="#chapter-7-english-text-preprocessing-basics-and-applications" title="Permalink to this heading">#</a></h1>
+<p>2023 April 21</p>
+<a target="_blank" href="https://colab.research.google.com/github/EastBayEv/SSDS-TAML/blob/main/spring2023/7_English_text_preprocessing_basics_applications.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a><p><img alt="text" src="../_images/text.png" /></p>
+<p>Unstructured text - text you find in the wild in books and websites - is generally not amenable to analysis. Before it can be analyzed, the text needs to be standardized to a format so that Python can recognize each unit of meaning <strong>(called a “token”)</strong> as unique, no matter how many times it occurs and how it is stylized.</p>
+<p>Although not an exhaustive list, some key steps in preprocessing text include:</p>
+<ul class="simple">
+<li><p>Standardize text casing and spacing</p></li>
+<li><p>Remove punctuation and special characters/symbols</p></li>
+<li><p>Remove stop words</p></li>
+<li><p>Stem or lemmatize: convert all non-base words to their base form</p></li>
+</ul>
+<p>Stemming/lemmatization and stop words (and some punctuation) are language-specific. The Natural Language ToolKit (NLTK) works for English out-of-the-box, but you’ll need different code to work with other languages. Some languages (e.g. Chinese) also require <em>segmentation</em>: artificially inserting spaces between words. If you want to do text pre-processing for other languages, please let us know and we can help!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ensure you have the proper nltk modules</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;words&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;wordnet&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;averaged_perceptron_tagger&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;maxent_ne_chunker&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;omw-1.4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/evanmuzzall/opt/anaconda3/lib/python3.8/site-packages/scipy/__init__.py:146: UserWarning: A NumPy version &gt;=1.16.5 and &lt;1.23.0 is required for this version of SciPy (detected version 1.23.5
+  warnings.warn(f&quot;A NumPy version &gt;={np_minversion} and &lt;{np_maxversion}&quot;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package words to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package words is already up-to-date!
+[nltk_data] Downloading package stopwords to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger is already up-to-
+[nltk_data]       date!
+[nltk_data] Downloading package maxent_ne_chunker to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package maxent_ne_chunker is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+<span class="kn">from</span> <span class="nn">nltk.stem.porter</span> <span class="kn">import</span> <span class="n">PorterStemmer</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">punctuation</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span> <span class="nn">regex</span> <span class="k">as</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">TfidfVectorizer</span><span class="p">,</span> <span class="n">TfidfTransformer</span>
+<span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">movie_reviews</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">confusion_matrix</span> 
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span> <span class="o">=</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-05-20 14:48:11.604894: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+</pre></div>
+</div>
+</div>
+</div>
+<section id="corpus-definition-united-nations-human-rights-council-documentation">
+<h2>Corpus definition: United Nations Human Rights Council Documentation<a class="headerlink" href="#corpus-definition-united-nations-human-rights-council-documentation" title="Permalink to this heading">#</a></h2>
+<p><img alt="unhrc" src="../_images/unhrc.jpg" /></p>
+<p>We will select eleven .txt files from the UN HRC as our corpus, stored within the subfolder “human_rights” folder inside the main “data” directory.</p>
+<p>These documents contain information about human rights recommendations made by member nations towards countries deemed to be in violation of the HRC.</p>
+<p><a class="reference external" href="https://www.ohchr.org/en/hrbodies/hrc/pages/home.aspx">Learn more about the UN HRC by clicking here.</a></p>
+<section id="define-the-corpus-directory">
+<h3>Define the corpus directory<a class="headerlink" href="#define-the-corpus-directory" title="Permalink to this heading">#</a></h3>
+<p>Set the directory’s file path and print the files it contains.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the directory &quot;human_rights&quot; inside of data</span>
+<span class="o">!</span>mkdir data
+<span class="o">!</span>mkdir data/human_rights
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkdir: data: File exists
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkdir: data/human_rights: File exists
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If your &quot;data&quot; folder already exists in Colab and you want to delete it, type:</span>
+<span class="c1"># !rm -r data</span>
+
+<span class="c1"># If the &quot;human_rights&quot; folder already exists in Colab and you want to delete it, type:</span>
+<span class="c1"># !rm -r data/human_rights</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download elevent UN HRC files</span>
+<span class="c1"># !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/afghanistan2014.txt</span>
+<span class="c1"># !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/bangladesh2013.txt</span>
+<span class="c1"># !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/cotedivoire2014.txt</span>
+<span class="c1"># !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/djibouti2013.txt</span>
+<span class="c1"># !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/fiji2014.txt</span>
+<span class="c1"># !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/jordan2013.txt</span>
+<span class="c1"># !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/kazakhstan2014.txt</span>
+<span class="c1"># !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/monaco2013.txt</span>
+<span class="c1"># !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/sanmarino2014.txt</span>
+<span class="c1"># !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/turkmenistan2013.txt</span>
+<span class="c1"># !wget -P data/human_rights/ https://raw.githubusercontent.com/EastBayEv/SSDS-TAML/main/spring2023/data/human_rights/tuvalu2013.txt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check that we have eleven files, one for each country</span>
+<span class="o">!</span>ls data/human_rights/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>afghanistan2014.txt  fiji2014.txt         sanmarino2014.txt
+bangladesh2013.txt   jordan2013.txt       turkmenistan2013.txt
+cotedivoire2014.txt  kazakhstan2014.txt   tuvalu2013.txt
+djibouti2013.txt     monaco2013.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;data/human_rights/&#39;</span><span class="p">)</span>
+
+<span class="c1"># View the contents of this directory</span>
+<span class="n">corpus</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sanmarino2014.txt&#39;,
+ &#39;tuvalu2013.txt&#39;,
+ &#39;kazakhstan2014.txt&#39;,
+ &#39;cotedivoire2014.txt&#39;,
+ &#39;fiji2014.txt&#39;,
+ &#39;bangladesh2013.txt&#39;,
+ &#39;turkmenistan2013.txt&#39;,
+ &#39;jordan2013.txt&#39;,
+ &#39;monaco2013.txt&#39;,
+ &#39;afghanistan2014.txt&#39;,
+ &#39;djibouti2013.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="store-these-documents-in-a-data-frame">
+<h3>Store these documents in a data frame<a class="headerlink" href="#store-these-documents-in-a-data-frame" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Store in an empty dictionary for conversion to data frame</span>
+<span class="n">empty_dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># Loop through the folder of documents to open and read each one</span>
+<span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/human_rights/&#39;</span> <span class="o">+</span> <span class="n">document</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">to_open</span><span class="p">:</span>
+         <span class="n">empty_dictionary</span><span class="p">[</span><span class="n">document</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_open</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Populate the data frame with two columns: file name and document text</span>
+<span class="n">human_rights</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">empty_dictionary</span><span class="p">,</span> 
+                                       <span class="n">orient</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">)</span>
+                <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="nb">str</span><span class="p">,</span> 
+                                      <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;file_name&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;document_text&#39;</span><span class="p">}))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="view-the-data-frame">
+<h3>View the data frame<a class="headerlink" href="#view-the-data-frame" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">human_rights</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>file_name</th>
+      <th>document_text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sanmarino2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/9 \n \n \n\n Ge...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tuvalu2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/8  \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kazakhstan2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/10 \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>cotedivoire2014.txt</td>
+      <td>\nDistr.: General 7 July 2014 English Original...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>fiji2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/8 \n \n \n\n Ge...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>bangladesh2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/12  \n \n \n\n ...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>turkmenistan2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/3  \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>jordan2013.txt</td>
+      <td>\nDistr.: General 6 January 2014 \nOriginal: E...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>monaco2013.txt</td>
+      <td>\nDistr.: General 3 January 2014 English Origi...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>afghanistan2014.txt</td>
+      <td>\nDistr.: General 4 April 2014 \nOriginal: Eng...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>djibouti2013.txt</td>
+      <td>\n\nDistr.: General 8 July 2013 English Origin...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="view-the-text-of-the-first-document">
+<h3>View the text of the first document<a class="headerlink" href="#view-the-text-of-the-first-document" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first thousand characters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;document_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ United Nations 
+ A/HRC/28/9 
+ 
+ 
+
+ General Assembly 
+ Distr.: General 
+24 December 2014 
+ 
+Original: English 
+ 
+
+Human Rights Council 
+
+Twenty-eighth session 
+Agenda item 6 
+Universal Periodic Review 
+  Report of the Working Group on the Universal Periodic Review* 
+ * The annex to the present report is circulated as received. 
+  San Marino 
+Contents 
+ Paragraphs Page 
+  Introduction .............................................................................................................  1Ð4 3 
+ I. Summary of the proceedings of the review process ................................................  5Ð77 3 
+  A. Presentation by the State under review ...........................................................  5Ð23 3 
+  B. Interactive dialogue and responses by the State under review ........................  24Ð77 6 
+ II. Conclusions and/or recommendations .....................................................................  78Ð81 13 
+ Annex 
+  Composition of the delegation .......
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="english-text-preprocessing">
+<h2>English text preprocessing<a class="headerlink" href="#english-text-preprocessing" title="Permalink to this heading">#</a></h2>
+<p>Create a new column named “clean_text” to store the text as it is preprocessed.</p>
+<section id="what-are-some-of-the-things-we-can-do">
+<h3>What are some of the things we can do?<a class="headerlink" href="#what-are-some-of-the-things-we-can-do" title="Permalink to this heading">#</a></h3>
+<p>These are just a few examples. How else could you improve this process?</p>
+<ul class="simple">
+<li><p>Remove non-alphanumeric characters/punctuation</p></li>
+<li><p>Remove digits</p></li>
+<li><p>Remove <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Unicode_characters">unicode characters</a></p></li>
+<li><p>Remove extra spaces</p></li>
+<li><p>Convert to lowercase</p></li>
+<li><p>Lemmatize (optional for now)</p></li>
+</ul>
+<p>Take a look at the first document after each step to see if you can notice what changed.</p>
+<blockquote>
+<div><p>Remember: the process will likely be different for many other natural languages, which frequently require special considerations.</p>
+</div></blockquote>
+</section>
+<section id="remove-non-alphanumeric-characters-punctuation">
+<h3>Remove non-alphanumeric characters/punctuation<a class="headerlink" href="#remove-non-alphanumeric-characters-punctuation" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new column &#39;clean_text&#39; to store the text we are standardizing</span>
+<span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;document_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">regex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ United Nations 
+ A HRC 28 9 
+ 
+ 
+
+ General Assembly 
+ Distr   General 
+24 December 2014 
+ 
+Original  English 
+ 
+
+Human Rights Council 
+
+Twenty eighth session 
+Agenda item 6 
+Universal Periodic Review 
+  Report of the Working Group on the Universal Periodic Review  
+   The annex to the present report is circulated as received  
+  San Marino 
+Contents 
+ Paragraphs Page 
+  Introduction                                                                                                                1Ð4 3 
+ I  Summary of the proceedings of the review process                                                   5Ð77 3 
+  A  Presentation by the State under review                                                              5Ð23 3 
+  B  Interactive dialogue and responses by the State under review                           24Ð77 6 
+ II  Conclusions and or recommendations                                                                        78Ð81 13 
+ Annex 
+  Composition of the delegation        
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view third column</span>
+<span class="n">human_rights</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>file_name</th>
+      <th>document_text</th>
+      <th>clean_text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sanmarino2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/9 \n \n \n\n Ge...</td>
+      <td>\n United Nations \n A HRC 28 9 \n \n \n\n Ge...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tuvalu2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/8  \n \n \n\n G...</td>
+      <td>\n United Nations \n A HRC 24 8  \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kazakhstan2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/10 \n \n \n\n G...</td>
+      <td>\n United Nations \n A HRC 28 10 \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>cotedivoire2014.txt</td>
+      <td>\nDistr.: General 7 July 2014 English Original...</td>
+      <td>\nDistr   General 7 July 2014 English Original...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>fiji2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/8 \n \n \n\n Ge...</td>
+      <td>\n United Nations \n A HRC 28 8 \n \n \n\n Ge...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>bangladesh2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/12  \n \n \n\n ...</td>
+      <td>\n United Nations \n A HRC 24 12  \n \n \n\n ...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>turkmenistan2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/3  \n \n \n\n G...</td>
+      <td>\n United Nations \n A HRC 24 3  \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>jordan2013.txt</td>
+      <td>\nDistr.: General 6 January 2014 \nOriginal: E...</td>
+      <td>\nDistr   General 6 January 2014 \nOriginal  E...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>monaco2013.txt</td>
+      <td>\nDistr.: General 3 January 2014 English Origi...</td>
+      <td>\nDistr   General 3 January 2014 English Origi...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>afghanistan2014.txt</td>
+      <td>\nDistr.: General 4 April 2014 \nOriginal: Eng...</td>
+      <td>\nDistr   General 4 April 2014 \nOriginal  Eng...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>djibouti2013.txt</td>
+      <td>\n\nDistr.: General 8 July 2013 English Origin...</td>
+      <td>\n\nDistr   General 8 July 2013 English Origin...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="remove-digits">
+<h3>Remove digits<a class="headerlink" href="#remove-digits" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">regex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ United Nations 
+ A HRC      
+ 
+ 
+
+ General Assembly 
+ Distr   General 
+   December      
+ 
+Original  English 
+ 
+
+Human Rights Council 
+
+Twenty eighth session 
+Agenda item   
+Universal Periodic Review 
+  Report of the Working Group on the Universal Periodic Review  
+   The annex to the present report is circulated as received  
+  San Marino 
+Contents 
+ Paragraphs Page 
+  Introduction                                                                                                                 Ð    
+ I  Summary of the proceedings of the review process                                                    Ð     
+  A  Presentation by the State under review                                                               Ð     
+  B  Interactive dialogue and responses by the State under review                             Ð     
+ II  Conclusions and or recommendations                                                                          Ð      
+ Annex 
+  Composition of the delegation        
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="remove-unicode-characters-such-as-and">
+<h3>Remove unicode characters such as Ð and ð<a class="headerlink" href="#remove-unicode-characters-such-as-and" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for more on text encodings: https://www.w3.org/International/questions/qa-what-is-encoding</span>
+<span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="s1">&#39;ignore&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ United Nations 
+ A HRC      
+ 
+ 
+
+ General Assembly 
+ Distr   General 
+   December      
+ 
+Original  English 
+ 
+
+Human Rights Council 
+
+Twenty eighth session 
+Agenda item   
+Universal Periodic Review 
+  Report of the Working Group on the Universal Periodic Review  
+   The annex to the present report is circulated as received  
+  San Marino 
+Contents 
+ Paragraphs Page 
+  Introduction                                                                                                                     
+ I  Summary of the proceedings of the review process                                                         
+  A  Presentation by the State under review                                                                    
+  B  Interactive dialogue and responses by the State under review                                  
+ II  Conclusions and or recommendations                                                                                
+ Annex 
+  Composition of the delegation             
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="remove-extra-spaces">
+<h3>Remove extra spaces<a class="headerlink" href="#remove-extra-spaces" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">regex</span> <span class="k">as</span> <span class="nn">re</span>
+<span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">regex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> United Nations A HRC General Assembly Distr General December Original English Human Rights Council Twenty eighth session Agenda item Universal Periodic Review Report of the Working Group on the Universal Periodic Review The annex to the present report is circulated as received San Marino Contents Paragraphs Page Introduction I Summary of the proceedings of the review process A Presentation by the State under review B Interactive dialogue and responses by the State under review II Conclusions and or recommendations Annex Composition of the delegation Introduction The Working Group on the Universal Periodic Review established in accordance with Human Rights Council resolution of June held its twentieth session from October to November The review of San Marino was held at the th meeting on October The delegation of San Marino was headed by Pasquale Valentini Minister for Foreign Affairs At its th meeting held on October the Working Group adopted the report on San Marino On January the Hu
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convert-to-lowercase">
+<h3>Convert to lowercase<a class="headerlink" href="#convert-to-lowercase" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> united nations a hrc general assembly distr general december original english human rights council twenty eighth session agenda item universal periodic review report of the working group on the universal periodic review the annex to the present report is circulated as received san marino contents paragraphs page introduction i summary of the proceedings of the review process a presentation by the state under review b interactive dialogue and responses by the state under review ii conclusions and or recommendations annex composition of the delegation introduction the working group on the universal periodic review established in accordance with human rights council resolution of june held its twentieth session from october to november the review of san marino was held at the th meeting on october the delegation of san marino was headed by pasquale valentini minister for foreign affairs at its th meeting held on october the working group adopted the report on san marino on january the hu
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lemmatize">
+<h3>Lemmatize<a class="headerlink" href="#lemmatize" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !python -m spacy download en_core_web_sm</span>
+<span class="c1"># !python -m spacy download en_core_web_lg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_sm&#39;</span><span class="p">)</span>
+<span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">w</span><span class="o">.</span><span class="n">lemma_</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">nlp</span><span class="p">(</span><span class="n">row</span><span class="p">)]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(human_rights[&#39;clean_text&#39;][0])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="view-the-updated-data-frame">
+<h3>View the updated data frame<a class="headerlink" href="#view-the-updated-data-frame" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">human_rights</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>file_name</th>
+      <th>document_text</th>
+      <th>clean_text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sanmarino2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/9 \n \n \n\n Ge...</td>
+      <td>united nations a hrc general assembly distr ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tuvalu2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/8  \n \n \n\n G...</td>
+      <td>united nations a hrc general assembly distr ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kazakhstan2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/10 \n \n \n\n G...</td>
+      <td>united nations a hrc general assembly distr ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>cotedivoire2014.txt</td>
+      <td>\nDistr.: General 7 July 2014 English Original...</td>
+      <td>distr general july english original english ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>fiji2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/8 \n \n \n\n Ge...</td>
+      <td>united nations a hrc general assembly distr ...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>bangladesh2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/12  \n \n \n\n ...</td>
+      <td>united nations a hrc general assembly distr ...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>turkmenistan2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/3  \n \n \n\n G...</td>
+      <td>united nations a hrc general assembly distr ...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>jordan2013.txt</td>
+      <td>\nDistr.: General 6 January 2014 \nOriginal: E...</td>
+      <td>distr general january original english gener...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>monaco2013.txt</td>
+      <td>\nDistr.: General 3 January 2014 English Origi...</td>
+      <td>distr general january english original engli...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>afghanistan2014.txt</td>
+      <td>\nDistr.: General 4 April 2014 \nOriginal: Eng...</td>
+      <td>distr general april original english general...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>djibouti2013.txt</td>
+      <td>\n\nDistr.: General 8 July 2013 English Origin...</td>
+      <td>distr general july english original english ...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="exercises-redwoods-webscraping">
+<h2>Exercises - redwoods webscraping<a class="headerlink" href="#exercises-redwoods-webscraping" title="Permalink to this heading">#</a></h2>
+<p>This also works with data scraped from the web. Below is very brief BeautifulSoup example to save the contents of the Sequoioideae (redwood trees) Wikipedia page in a variable named <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
+<ol class="simple">
+<li><p>Read through the code below</p></li>
+<li><p>Practice by repeating for a webpage of your choice</p></li>
+</ol>
+<p><img alt="redwood" src="../_images/redwood.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary libraries</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">regex</span> <span class="k">as</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="three-variables-will-get-you-started">
+<h2>Three variables will get you started<a class="headerlink" href="#three-variables-will-get-you-started" title="Permalink to this heading">#</a></h2>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code> - define the URL to be scraped</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response</span></code> - perform the get request on the URL</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">soup</span></code> - create the soup object so we can parse the html</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://en.wikipedia.org/wiki/Sequoioideae&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-the-text">
+<h2>Get the text<a class="headerlink" href="#get-the-text" title="Permalink to this heading">#</a></h2>
+<p>HTML (hypertext markup language) is used to structure a webpage and the content it contains, including text.</p>
+<p>Below is a handy for loop that finds all everything within paragraph <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>, or paragraph tags.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save in an empty string</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">+=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sequoioideae, popularly known as redwoods, is a subfamily of coniferous trees within the family Cupressaceae. It includes the largest and tallest trees in the world. The subfamily achieved its maximum diversity during the Jurassic and Cretaceous periods.
+The three redwood subfamily genera are Sequoia from coastal California and Oregon, Sequoiadendron from California&#39;s Sierra Nevada, and Metasequoia in China. The redwood species contains the largest and tallest trees in the world. These trees can live for thousands of years. Threats include logging, fire suppression,[2] climate change, illegal marijuana cultivation, and burl poaching.[3][4][5]
+Only two of the genera, Sequoia and Sequoiadendron, are known for massive trees. Trees of Metasequoia, from the single living species Metasequoia glyptostroboides, are deciduous, grow much smaller (although are still large compared to most other trees) and can live in colder climates.[citation needed]
+Multiple studies of both morphological and molecular characters have strongly supported the assertion that the Sequoioideae are monophyletic.[6][7][8][9]
+Most modern phylogenies place Sequoia as sister to Sequoiadendron and Metasequoia as the out-group.[7][9][10] However, Yang et al. went on to investigate the origin of a peculiar genetic artifact of the Sequoioideae—the polyploidy of Sequoia—and generated a notable exception that calls into question the specifics of this relative consensus.[9]
+A 2006 paper based on non-molecular evidence suggested the following relationship among extant species:[11]
+
+M. glyptostroboides (dawn redwood)
+S. sempervirens (coast redwood)
+S. giganteum (giant sequoia)
+Taxodioideae
+A 2021 study using molecular evidence found the same relationships among Sequoioideae species, but found Sequoioideae to be the sister group to the Athrotaxidoideae (a superfamily presently known only from Tasmania) rather than to Taxodioideae. Sequoioideae and Athrotaxidoideae are thought to have diverged from each other during the Jurassic.[12]
+Reticulate evolution refers to the origination of a taxon through the merging of ancestor lineages.
+Polyploidy has come to be understood as quite common in plants—with estimates ranging from 47% to 100% of flowering plants and extant ferns having derived from ancient polyploidy.[13] Within the gymnosperms however it is quite rare. Sequoia sempervirens is hexaploid (2n= 6x= 66). To investigate the origins of this polyploidy Yang et al. used two single copy nuclear genes, LFY and NLY, to generate phylogenetic trees. Other researchers have had success with these genes in similar studies on different taxa.[9]
+Several hypotheses have been proposed to explain the origin of Sequoia&#39;s polyploidy: allopolyploidy by hybridization between Metasequoia and some probably extinct taxodiaceous plant; Metasequoia and Sequoiadendron, or ancestors of the two genera, as the parental species of Sequoia; and autohexaploidy, autoallohexaploidy, or segmental allohexaploidy.[citation needed]
+Yang et al. found that Sequoia was clustered with Metasequoia in the tree generated using the LFY gene but with Sequoiadendron in the tree generated with the NLY gene. Further analysis strongly supported the hypothesis that Sequoia was the result of a hybridization event involving Metasequoia and Sequoiadendron. Thus, Yang et al. hypothesize that the inconsistent relationships among Metasequoia, Sequoia, and Sequoiadendron could be a sign of reticulate evolution by hybrid speciation (in which two species hybridize and give rise to a third) among the three genera. However, the long evolutionary history of the three genera (the earliest fossil remains being from the Jurassic) make resolving the specifics of when and how Sequoia originated once and for all a difficult matter—especially since it in part depends on an incomplete fossil record.[10]
+Sequoioideae is an ancient taxon, with the oldest described Sequoioideae species, Sequoia jeholensis, recovered from Jurassic deposits.[14] A genus Medulloprotaxodioxylon, reported from the late Triassic of China supports the idea of a Norian origin.[1]
+
+The fossil record shows a massive expansion of range in the Cretaceous and dominance of the Arcto-Tertiary Geoflora, especially in northern latitudes. Genera of Sequoioideae were found in the Arctic Circle, Europe, North America, and throughout Asia and Japan.[15] A general cooling trend beginning in the late Eocene and Oligocene reduced the northern ranges of the Sequoioideae, as did subsequent ice ages.[16] Evolutionary adaptations to ancient environments persist in all three species despite changing climate, distribution, and associated flora, especially the specific demands of their reproduction ecology that ultimately forced each of the species into refugial ranges where they could survive.[citation needed]The entire subfamily is endangered. The IUCN Red List Category &amp; Criteria assesses Sequoia sempervirens as Endangered (A2acd), Sequoiadendron giganteum as Endangered (B2ab) and Metasequoia glyptostroboides as Endangered (B1ab).
+New World Species:
+New World Species:
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="regular-expressions">
+<h2>Regular expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this heading">#</a></h2>
+<p>Regular expressions are sequences of characters and symbols that represent search patterns in text - and are generally quite useful.</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/re.html">Check out the tutorial</a> and <a class="reference external" href="https://www.dataquest.io/blog/regex-cheatsheet/">cheatsheet</a> to find out what the below symbols mean and write your own code. Better yet you could write a pattern to do them simultaneously in one line/less lines of code in some cases!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\[[0-9]*\]&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> sequoioideae popularly known as redwoods is a subfamily of coniferous trees within the family cupressaceae it includes the largest and tallest trees in the world the subfamily achieved its maximum diversity during the jurassic and cretaceous periods the three redwood subfamily genera are sequoia from coastal california and oregon sequoiadendron from californias sierra nevada and metasequoia in china the redwood species contains the largest and tallest trees in the world these trees can live for thousands of years threats include logging fire suppression climate change illegal marijuana cultivation and burl poaching only two of the genera sequoia and sequoiadendron are known for massive trees trees of metasequoia from the single living species metasequoia glyptostroboides are deciduous grow much smaller although are still large compared to most other trees and can live in colder climatescitation needed multiple studies of both morphological and molecular characters have strongly supported the assertion that the sequoioideae are monophyletic most modern phylogenies place sequoia as sister to sequoiadendron and metasequoia as the outgroup however yang et al went on to investigate the origin of a peculiar genetic artifact of the sequoioideaethe polyploidy of sequoiaand generated a notable exception that calls into question the specifics of this relative consensus a paper based on nonmolecular evidence suggested the following relationship among extant species m glyptostroboides dawn redwood s sempervirens coast redwood s giganteum giant sequoia taxodioideae a study using molecular evidence found the same relationships among sequoioideae species but found sequoioideae to be the sister group to the athrotaxidoideae a superfamily presently known only from tasmania rather than to taxodioideae sequoioideae and athrotaxidoideae are thought to have diverged from each other during the jurassic reticulate evolution refers to the origination of a taxon through the merging of ancestor lineages polyploidy has come to be understood as quite common in plantswith estimates ranging from to of flowering plants and extant ferns having derived from ancient polyploidy within the gymnosperms however it is quite rare sequoia sempervirens is hexaploid n x to investigate the origins of this polyploidy yang et al used two single copy nuclear genes lfy and nly to generate phylogenetic trees other researchers have had success with these genes in similar studies on different taxa several hypotheses have been proposed to explain the origin of sequoias polyploidy allopolyploidy by hybridization between metasequoia and some probably extinct taxodiaceous plant metasequoia and sequoiadendron or ancestors of the two genera as the parental species of sequoia and autohexaploidy autoallohexaploidy or segmental allohexaploidycitation needed yang et al found that sequoia was clustered with metasequoia in the tree generated using the lfy gene but with sequoiadendron in the tree generated with the nly gene further analysis strongly supported the hypothesis that sequoia was the result of a hybridization event involving metasequoia and sequoiadendron thus yang et al hypothesize that the inconsistent relationships among metasequoia sequoia and sequoiadendron could be a sign of reticulate evolution by hybrid speciation in which two species hybridize and give rise to a third among the three genera however the long evolutionary history of the three genera the earliest fossil remains being from the jurassic make resolving the specifics of when and how sequoia originated once and for all a difficult matterespecially since it in part depends on an incomplete fossil record sequoioideae is an ancient taxon with the oldest described sequoioideae species sequoia jeholensis recovered from jurassic deposits a genus medulloprotaxodioxylon reported from the late triassic of china supports the idea of a norian origin the fossil record shows a massive expansion of range in the cretaceous and dominance of the arctotertiary geoflora especially in northern latitudes genera of sequoioideae were found in the arctic circle europe north america and throughout asia and japan a general cooling trend beginning in the late eocene and oligocene reduced the northern ranges of the sequoioideae as did subsequent ice ages evolutionary adaptations to ancient environments persist in all three species despite changing climate distribution and associated flora especially the specific demands of their reproduction ecology that ultimately forced each of the species into refugial ranges where they could survivecitation neededthe entire subfamily is endangered the iucn red list category criteria assesses sequoia sempervirens as endangered a acd sequoiadendron giganteum as endangered b ab and metasequoia glyptostroboides as endangered b ab new world species new world species 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="unsupervised-learning-with-tfidfvectorizer">
+<h2>Unsupervised learning with <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer()</span></code><a class="headerlink" href="#unsupervised-learning-with-tfidfvectorizer" title="Permalink to this heading">#</a></h2>
+<p>Remember <code class="docutils literal notranslate"><span class="pre">CountVectorizer()</span></code> for creating Bag of Word models? We can extend this idea of counting words, to <em>counting unique words</em> within a document relative to the rest of the corpus with <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer()</span></code>. Each row will still be a document in the document term matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies. Remember that:</p>
+<ul class="simple">
+<li><p>For TF-IDF sparse matrices:</p>
+<ul>
+<li><p>A value closer to 1 indicate that a feature is more relevant to a particular document.</p></li>
+<li><p>A value closer to 0 indicates that that feature is less/not relevant to that document.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="tf1" src="../_images/tf1.png" /></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">Wikipedia</a></p>
+<p><img alt="tf2" src="../_images/tf2.png" /></p>
+<p><a class="reference external" href="https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558">towardsdatascience</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+
+<span class="n">tf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">ngram_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> 
+                                <span class="n">stop_words</span> <span class="o">=</span> <span class="s1">&#39;english&#39;</span><span class="p">,</span> 
+                                <span class="n">max_df</span> <span class="o">=</span> <span class="mf">0.50</span>
+                                <span class="p">)</span>
+<span class="n">tf_sparse</span> <span class="o">=</span> <span class="n">tf_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf_sparse</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11, 84181)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tf_sparse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (0, 39182)	0.004856846879037771
+  (0, 31574)	0.004856846879037771
+  (0, 50165)	0.004856846879037771
+  (0, 79743)	0.004856846879037771
+  (0, 46164)	0.004856846879037771
+  (0, 70574)	0.004856846879037771
+  (0, 67048)	0.004856846879037771
+  (0, 48393)	0.004856846879037771
+  (0, 55413)	0.004856846879037771
+  (0, 5657)	0.004856846879037771
+  (0, 2036)	0.004856846879037771
+  (0, 18508)	0.004856846879037771
+  (0, 4238)	0.004856846879037771
+  (0, 49342)	0.004856846879037771
+  (0, 2719)	0.004856846879037771
+  (0, 39331)	0.004856846879037771
+  (0, 7341)	0.004856846879037771
+  (0, 80381)	0.004856846879037771
+  (0, 49382)	0.004856846879037771
+  (0, 2723)	0.004856846879037771
+  (0, 43326)	0.004856846879037771
+  (0, 20394)	0.004856846879037771
+  (0, 27591)	0.004856846879037771
+  (0, 53796)	0.004856846879037771
+  (0, 74877)	0.004856846879037771
+  :	:
+  (10, 23861)	0.004813404453682774
+  (10, 53868)	0.005386104036626412
+  (10, 61809)	0.005386104036626412
+  (10, 11732)	0.006124442213746767
+  (10, 52233)	0.006124442213746767
+  (10, 32036)	0.00869094964616284
+  (10, 38685)	0.00869094964616284
+  (10, 48447)	0.012248884427493533
+  (10, 64367)	0.00869094964616284
+  (10, 28795)	0.004813404453682774
+  (10, 66492)	0.03231662421975847
+  (10, 62562)	0.005386104036626412
+  (10, 30131)	0.004813404453682774
+  (10, 79340)	0.006124442213746767
+  (10, 4251)	0.00434547482308142
+  (10, 27107)	0.00434547482308142
+  (10, 57250)	0.026072848938488522
+  (10, 60838)	0.030418323761569943
+  (10, 70491)	0.026072848938488522
+  (10, 76162)	0.00434547482308142
+  (10, 72779)	0.005386104036626412
+  (10, 27613)	0.00434547482308142
+  (10, 28707)	0.010772208073252824
+  (10, 8151)	0.010772208073252824
+  (10, 18289)	0.00869094964616284
+</pre></div>
+</div>
+</div>
+</div>
+<section id="convert-the-tfidf-sparse-matrix-to-data-frame">
+<h3>Convert the tfidf sparse matrix to data frame<a class="headerlink" href="#convert-the-tfidf-sparse-matrix-to-data-frame" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tf_sparse</span><span class="o">.</span><span class="n">todense</span><span class="p">(),</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">tf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+<span class="n">tfidf_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>abasi</th>
+      <th>abasi desk</th>
+      <th>abasi desk officer</th>
+      <th>abdi</th>
+      <th>abdi ismael</th>
+      <th>abdi ismael hersi</th>
+      <th>abdou</th>
+      <th>abdou prsident</th>
+      <th>abdou prsident la</th>
+      <th>abduction</th>
+      <th>...</th>
+      <th>zone</th>
+      <th>zone inclusive</th>
+      <th>zone inclusive education</th>
+      <th>zone senegal</th>
+      <th>zone senegal make</th>
+      <th>zone social</th>
+      <th>zone social benefit</th>
+      <th>zouon</th>
+      <th>zouon bi</th>
+      <th>zouon bi tidou</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004509</td>
+      <td>...</td>
+      <td>0.011473</td>
+      <td>0.006711</td>
+      <td>0.006711</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.006711</td>
+      <td>0.006711</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.006249</td>
+      <td>0.006249</td>
+      <td>0.006249</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.011198</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.006296</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.007365</td>
+      <td>0.007365</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004721</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.007608</td>
+      <td>0.007608</td>
+      <td>0.007608</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.005111</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>11 rows × 84181 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="view-20-highest-weighted-words">
+<h3>View 20 highest weighted words<a class="headerlink" href="#view-20-highest-weighted-words" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>monaco                        0.720348
+tuvalu                        0.639251
+kazakhstan                    0.615483
+fiji                          0.582410
+turkmenistan                  0.578904
+san                           0.553681
+jordan                        0.491254
+san marino                    0.456544
+marino                        0.456544
+divoire                       0.340046
+te divoire                    0.340046
+te                            0.306989
+elimination violence          0.253620
+elimination violence woman    0.253620
+djiboutis                     0.250777
+reconciliation                0.245711
+fgm                           0.195982
+afghan                        0.190201
+bangladeshs                   0.183356
+violence woman law            0.182593
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-country-name-to-tfidf-df">
+<h3>Add country name to <code class="docutils literal notranslate"><span class="pre">tfidf_df</span></code><a class="headerlink" href="#add-country-name-to-tfidf-df" title="Permalink to this heading">#</a></h3>
+<p>This way, we will know which document is relative to which country.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wrangle the country names from the human_rights data frame</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">stop</span> <span class="o">=</span> <span class="o">-</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span>
+<span class="n">countries</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sanmarino&#39;,
+ &#39;tuvalu&#39;,
+ &#39;kazakhstan&#39;,
+ &#39;cotedivoire&#39;,
+ &#39;fiji&#39;,
+ &#39;bangladesh&#39;,
+ &#39;turkmenistan&#39;,
+ &#39;jordan&#39;,
+ &#39;monaco&#39;,
+ &#39;afghanistan&#39;,
+ &#39;djibouti&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span><span class="p">[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">countries</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>abasi</th>
+      <th>abasi desk</th>
+      <th>abasi desk officer</th>
+      <th>abdi</th>
+      <th>abdi ismael</th>
+      <th>abdi ismael hersi</th>
+      <th>abdou</th>
+      <th>abdou prsident</th>
+      <th>abdou prsident la</th>
+      <th>abduction</th>
+      <th>...</th>
+      <th>zone inclusive</th>
+      <th>zone inclusive education</th>
+      <th>zone senegal</th>
+      <th>zone senegal make</th>
+      <th>zone social</th>
+      <th>zone social benefit</th>
+      <th>zouon</th>
+      <th>zouon bi</th>
+      <th>zouon bi tidou</th>
+      <th>COUNTRY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>sanmarino</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>tuvalu</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004509</td>
+      <td>...</td>
+      <td>0.006711</td>
+      <td>0.006711</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.006711</td>
+      <td>0.006711</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>kazakhstan</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.006249</td>
+      <td>0.006249</td>
+      <td>0.006249</td>
+      <td>cotedivoire</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>fiji</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.011198</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>bangladesh</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.007365</td>
+      <td>0.007365</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>turkmenistan</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004721</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>jordan</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>monaco</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.007608</td>
+      <td>0.007608</td>
+      <td>0.007608</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.005111</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>afghanistan</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.007165</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>djibouti</td>
+    </tr>
+  </tbody>
+</table>
+<p>11 rows × 84182 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="examine-unique-words-by-each-document-country">
+<h3>Examine unique words by each document/country<a class="headerlink" href="#examine-unique-words-by-each-document-country" title="Permalink to this heading">#</a></h3>
+<p>Change the country names to view their highest rated terms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="p">[</span><span class="n">tfidf_df</span><span class="p">[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;tuvalu&#39;</span><span class="p">]</span>
+<span class="n">country</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numeric_only</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tuvalu                            0.639251
+safe drinking water               0.094018
+safe drinking                     0.094018
+water sanitation                  0.093357
+sanitation                        0.092709
+rapporteur human right            0.090329
+human right safe                  0.090329
+drinking                          0.088689
+drinking water                    0.088689
+drinking water sanitation         0.078348
+special rapporteur human          0.077210
+rapporteur human                  0.077210
+island                            0.077210
+climate change                    0.073125
+right safe                        0.073125
+right safe drinking               0.073125
+national strategic development    0.069484
+constraint                        0.065350
+national strategic                0.065331
+strategic development plan        0.059392
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="un-hrc-text-analysis-what-next">
+<h2>UN HRC text analysis - what next?<a class="headerlink" href="#un-hrc-text-analysis-what-next" title="Permalink to this heading">#</a></h2>
+<p>What next? Keep in mind that we have not even begun to consider named entities and parts of speech. What problems immediately jump out from the above examples, such as with the number and uniqueness of country names?</p>
+<p>The next two chapters 8 and 9 introduce powerful text preprocessing and analysis techniques. Read ahead to see how we can handle roadblocks such as these.</p>
+</section>
+<section id="sentiment-analysis">
+<h2>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this heading">#</a></h2>
+<p>Sentiment analysis is the contextual mining of text data that elicits abstract information in source materials to determine if data are positive, negative, or neutral.</p>
+<p><img alt="sa" src="../_images/sa.jpg" /></p>
+<p><a class="reference external" href="https://www.repustate.com/blog/sentiment-analysis-challenges-with-solutions/">Repustate</a></p>
+<section id="download-the-nltk-built-movie-reviews-dataset">
+<h3>Download the nltk built movie reviews dataset<a class="headerlink" href="#download-the-nltk-built-movie-reviews-dataset" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">movie_reviews</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;movie_reviews&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package movie_reviews to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package movie_reviews is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-x-reviews-and-y-judgements-variables">
+<h3>Define x (reviews) and y (judgements) variables<a class="headerlink" href="#define-x-reviews-and-y-judgements-variables" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract our x (reviews) and y (judgements) variables</span>
+<span class="n">reviews</span> <span class="o">=</span> <span class="p">[</span><span class="n">movie_reviews</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">fileid</span><span class="p">)</span> <span class="k">for</span> <span class="n">fileid</span> <span class="ow">in</span> <span class="n">movie_reviews</span><span class="o">.</span><span class="n">fileids</span><span class="p">()]</span>
+<span class="n">judgements</span> <span class="o">=</span> <span class="p">[</span><span class="n">movie_reviews</span><span class="o">.</span><span class="n">categories</span><span class="p">(</span><span class="n">fileid</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">fileid</span> <span class="ow">in</span> <span class="n">movie_reviews</span><span class="o">.</span><span class="n">fileids</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save in a dataframe</span>
+<span class="n">movies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;Reviews&quot;</span> <span class="p">:</span> <span class="n">reviews</span><span class="p">,</span> 
+                      <span class="s2">&quot;Judgements&quot;</span> <span class="p">:</span> <span class="n">judgements</span><span class="p">})</span>
+<span class="n">movies</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Reviews</th>
+      <th>Judgements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>plot : two teen couples go to a church party ,...</td>
+      <td>neg</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>the happy bastard's quick movie review \ndamn ...</td>
+      <td>neg</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>it is movies like these that make a jaded movi...</td>
+      <td>neg</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>" quest for camelot " is warner bros . ' firs...</td>
+      <td>neg</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>synopsis : a mentally unstable man undergoing ...</td>
+      <td>neg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2000, 2)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="shuffle-the-reviews">
+<h3>Shuffle the reviews<a class="headerlink" href="#shuffle-the-reviews" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">movies</span><span class="o">.</span><span class="n">Reviews</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">movies</span><span class="o">.</span><span class="n">Judgements</span><span class="p">),</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># change x[0] and y[0] to see different reviews</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human review was:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Human review was: pos
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;confession time : i have never , ever seen gone with the wind . \ni don\&#39;t know why , really . \nhaven\&#39;t wanted to check it out on video , haven\&#39;t been at home the nights it was on network tv , and it was too far to drive the last time it was on the big-screen . \nso right up front , i\&#39;ll admit that i don\&#39;t know what the heck i\&#39;m talking about , but here goes . . . \nis titanic the gone with the wind of the 1990\&#39;s ? \nmaybe that\&#39;s going a little bit too far . \nas good a job as leonardo dicaprio and kate winslet do in this movie , they\&#39;re no clark gable and vivien leigh . \nbut . . . \nthe parallels are there . \ngwtw was the first movie to take real advantage of the most revolutionary technology available -- technicolor . \ntitanic takes revolutionary steps forward in seamlessly integrating computer graphic design with actors . \ngwtw places america\&#39;s greatest tragedy in the background of a classic love story , titanic does the same with the atlantic\&#39;s most legendary tragedy . \nthey both have strong-willed redheaded heroines , they both exploit the class differences between the aristocracy and the slaves/steerage bums , they were both incredibly expensive and popular . . . \nok , maybe that\&#39;s not enough parallels . \nso titanic\&#39;s not in gwtw\&#39;s league . \nno matter . \ntitanic is a great movie in its own right , complete with spills , thrills and ( especially ) chills . \nmuch has been made of the humongous cost of the production , and all of the care than went into making the huge luxury liner come alive again . \nthe money was obviously well-spent . \nthe costumes look great , the sets look great , the cgi graphics look great . \ni especially liked the expensive little touches , like spending tons of money on authentic titanic china only to break it all on the floor as the ship sinks . \nbut writer/director/producer james cameron\&#39;s real challenge in writing/directing/ producing titanic wasn\&#39;t just costuming and set design and special effects . \ncameron\&#39;s major headache was keeping the audience interested in a tale where everybody knows the ending going in . \nhe succeeds masterfully . \ncameron does two things that work incredibly well . \nfirst , he shows us modern-day salvage operations on titanic ( that\&#39;s just &quot; titanic &quot; , not &quot; the titanic &quot; , mind you ) . \nthe first glimpse we get of titanic is the ship in its present state , corroding slowly away under the hammering pressure of the north atlantic , from the window of a minisub piloted by treasure hunter brock lovett ( bill paxton ) . \ntelevision coverage of the exploration of titanic intrigues 101-year-old rose calvert ( gloria stuart ) , who survived the wreck in 1912 . \nstuart does a phenomenal job in a brief role , narrating the story of her experience to a stunned paxton and his roughneck crew . \nsecondly , cameron keeps the storyline focused almost exclusively on the rose character , and the romantic triangle between rose ( winslet ) , her bastard millionaire fiancee cal hockley ( billy zane ) and the irrepressible young artist jack daswon ( dicaprio ) . \nthe way that big-budget disaster movies usually go wrong is to have an all-star cast , so we see the impact of the disaster on a wide group of people . \ncameron wisely chooses to stick with rose and jack , while paying scant heed to the celebrities on board . \nthe supporting cast is professional , but mostly anonymous -- other than kathy bates as the unsinkable molly brown , there\&#39;s no moment when you stop and say , oh , yeah , i know him , what\&#39;s he been in . \n ( although i would like to have seen colm meaney in a white star uniform , or even as the ill-fated engineer . ) \nthe love story itself is rather conventional . \ni think some reviewers found it weak , and that may be a fair criticism . \nthe performances are the key here . \nzane has the meatiest part in the movie , and he plays the arrogant , condescending steel millionaire to the hilt . \nhe\&#39;s smooth , he looks great in a tuxedo , and he\&#39;s a convincing enough jerk that the winslet-dicaprio relationship looks plausible . \nat the moment when he sees a little girl too frightened to get aboard a lifeboat , you can hear the wheels in his mind turning , saying not &quot; can i save this little girl ? &quot; , \nbut &quot; can she help me get on a lifeboat ? &quot; \ndicaprio is a revelation . \ni hadn\&#39;t seen him before in anything , and didn\&#39;t know what the heck to expect , really . \n ( honestly , i expected a bad irish accent , but cameron evidently decided that was a bad idea , so dicaprio plays a poor american artist who wins a ticket in a poker game . ) \ndicaprio exhibits an infectious joy at being alive , and being on the titanic , that it\&#39;s hard not to like him . \nfrom the moment that the ship leaves port until it hits the iceberg , dicaprio has to carry the movie and keep our interest , and he never falters . \nwinslet\&#39;s character grows up a lot during the movie , and so does her performance . \nat first , she\&#39;s not required to do anything but wear period clothing and look drop-dead gorgeous . \nwe know from the narration that she\&#39;s monstrously unhappy with her arranged marriage to zane , but there isn\&#39;t any expression of these feelings until she encounters dicaprio . \nwinslet and dicaprio develop a chemistry that manages to propel the movie along until the ship hits the iceberg . \nit\&#39;s at that moment where winslet\&#39;s character really comes alive . \nfaced with real danger , she drops her spoiled-rich-girl mannerisms and does a splendid job . \nas rose and jack race around the doomed ship , looking for shelter from the freezing water and cal\&#39;s fiery temper , winslet turns in a superb acting performance , mixing courage and compassion and anger with sheer shrieking terror . \nof course , the most interesting character is the ship itself . \ncameron has clearly fallen in love with titanic , and shows her in every mood -- as a deserted wreck , down in the boiler room , up on the bridge , down in the hold , at the captain\&#39;s table , down in steerage -- and manages to bring the great ship back from the dead . \ncameron\&#39;s greatest gift is that he allows us to fall in love with titanic as well . \n&#39;,
+ None)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pipelines-one-example">
+<h3>Pipelines - one example<a class="headerlink" href="#pipelines-one-example" title="Permalink to this heading">#</a></h3>
+<p>scikit-learn offers hand ways to build machine learning pipelines: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>tfidf.transform
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Object `tfidf.transform` not found.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># standard training/test split (no cross validation)</span>
+<span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.30</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># get tfidf values</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+<span class="n">tfidf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+
+<span class="c1"># instantiate, train, and test an logistic regression model</span>
+<span class="n">logit_class</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span> <span class="o">=</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">,</span>
+                                 <span class="n">penalty</span> <span class="o">=</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> 
+                                 <span class="n">C</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> 
+                                 <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">logit_class</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>LogisticRegression
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test set accuracy</span>
+<span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8216666666666667
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="k-fold-cross-validated-model">
+<h3><span class="math notranslate nohighlight">\(k\)</span>-fold cross-validated model<a class="headerlink" href="#k-fold-cross-validated-model" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>Pipeline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>cross_val_score
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cross-validated model!</span>
+<span class="n">text_clf</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;vect&#39;</span><span class="p">,</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))),</span>
+                    <span class="p">(</span><span class="s1">&#39;tfidf&#39;</span><span class="p">,</span> <span class="n">TfidfTransformer</span><span class="p">()),</span>
+                    <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span> <span class="o">=</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">,</span>
+                                               <span class="n">penalty</span> <span class="o">=</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> 
+                                               <span class="n">C</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> 
+                                               <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+                     <span class="p">])</span>
+
+<span class="c1"># for your own research, thesis, or publication</span>
+<span class="c1"># you would select cv equal to 10 or 20</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">text_clf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">53</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">text_clf</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;vect&#39;</span><span class="p">,</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))),</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                     <span class="p">(</span><span class="s1">&#39;tfidf&#39;</span><span class="p">,</span> <span class="n">TfidfTransformer</span><span class="p">()),</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                     <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span> <span class="o">=</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>                                                <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>                      <span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># for your own research, thesis, or publication</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># you would select cv equal to 10 or 20</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">text_clf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/model_selection/_validation.py:509,</span> in <span class="ni">cross_val_score</span><span class="nt">(estimator, X, y, groups, scoring, cv, n_jobs, verbose, fit_params, pre_dispatch, error_score)</span>
+<span class="g g-Whitespace">    </span><span class="mi">506</span> <span class="c1"># To ensure multimetric format is not supported</span>
+<span class="g g-Whitespace">    </span><span class="mi">507</span> <span class="n">scorer</span> <span class="o">=</span> <span class="n">check_scoring</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">509</span> <span class="n">cv_results</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">510</span>     <span class="n">estimator</span><span class="o">=</span><span class="n">estimator</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">511</span>     <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">512</span>     <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">513</span>     <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">514</span>     <span class="n">scoring</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="n">scorer</span><span class="p">},</span>
+<span class="g g-Whitespace">    </span><span class="mi">515</span>     <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">516</span>     <span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">517</span>     <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">518</span>     <span class="n">fit_params</span><span class="o">=</span><span class="n">fit_params</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">519</span>     <span class="n">pre_dispatch</span><span class="o">=</span><span class="n">pre_dispatch</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">520</span>     <span class="n">error_score</span><span class="o">=</span><span class="n">error_score</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">521</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">522</span> <span class="k">return</span> <span class="n">cv_results</span><span class="p">[</span><span class="s2">&quot;test_score&quot;</span><span class="p">]</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/model_selection/_validation.py:267,</span> in <span class="ni">cross_validate</span><span class="nt">(estimator, X, y, groups, scoring, cv, n_jobs, verbose, fit_params, pre_dispatch, return_train_score, return_estimator, error_score)</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span> <span class="c1"># We clone the estimator to make sure that all the folds are</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span> <span class="c1"># independent, and that it is pickle-able.</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span> <span class="n">parallel</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">pre_dispatch</span><span class="o">=</span><span class="n">pre_dispatch</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">267</span> <span class="n">results</span> <span class="o">=</span> <span class="n">parallel</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="n">delayed</span><span class="p">(</span><span class="n">_fit_and_score</span><span class="p">)(</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span>         <span class="n">clone</span><span class="p">(</span><span class="n">estimator</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span>         <span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span>         <span class="n">y</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span>         <span class="n">scorers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span>         <span class="n">train</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">274</span>         <span class="n">test</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">275</span>         <span class="n">verbose</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span>         <span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span>         <span class="n">fit_params</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span>         <span class="n">return_train_score</span><span class="o">=</span><span class="n">return_train_score</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span>         <span class="n">return_times</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span>         <span class="n">return_estimator</span><span class="o">=</span><span class="n">return_estimator</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span>         <span class="n">error_score</span><span class="o">=</span><span class="n">error_score</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span>     <span class="p">)</span>
+<span class="nn">    283     for train, test</span> in <span class="ni">cv.split</span><span class="nt">(X, y, groups)</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">286</span> <span class="n">_warn_about_fit_failures</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">error_score</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="c1"># For callabe scoring, the return type is only know after calling. If the</span>
+<span class="g g-Whitespace">    </span><span class="mi">289</span> <span class="c1"># return type is a dictionary, the error scores can now be inserted with</span>
+<span class="g g-Whitespace">    </span><span class="mi">290</span> <span class="c1"># the correct key.</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/parallel.py:1051,</span> in <span class="ni">Parallel.__call__</span><span class="nt">(self, iterable)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_one_batch</span><span class="p">(</span><span class="n">iterator</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_iterating</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_original_iterator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1051</span> <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_one_batch</span><span class="p">(</span><span class="n">iterator</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1052</span>     <span class="k">pass</span>
+<span class="g g-Whitespace">   </span><span class="mi">1054</span> <span class="k">if</span> <span class="n">pre_dispatch</span> <span class="o">==</span> <span class="s2">&quot;all&quot;</span> <span class="ow">or</span> <span class="n">n_jobs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1055</span>     <span class="c1"># The iterable was consumed all at once by the above for loop.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1056</span>     <span class="c1"># No need to wait for async callbacks to trigger to</span>
+<span class="g g-Whitespace">   </span><span class="mi">1057</span>     <span class="c1"># consumption.</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/parallel.py:864,</span> in <span class="ni">Parallel.dispatch_one_batch</span><span class="nt">(self, iterator)</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>     <span class="k">return</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">864</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_dispatch</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">865</span>     <span class="k">return</span> <span class="kc">True</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/parallel.py:782,</span> in <span class="ni">Parallel._dispatch</span><span class="nt">(self, batch)</span>
+<span class="g g-Whitespace">    </span><span class="mi">780</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">781</span>     <span class="n">job_idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_jobs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">782</span>     <span class="n">job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">783</span>     <span class="c1"># A job can complete so quickly than its callback is</span>
+<span class="g g-Whitespace">    </span><span class="mi">784</span>     <span class="c1"># called before we get here, causing self._jobs to</span>
+<span class="g g-Whitespace">    </span><span class="mi">785</span>     <span class="c1"># grow. To ensure correct results ordering, .insert is</span>
+<span class="g g-Whitespace">    </span><span class="mi">786</span>     <span class="c1"># used (rather than .append) in the following line</span>
+<span class="g g-Whitespace">    </span><span class="mi">787</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_jobs</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">job_idx</span><span class="p">,</span> <span class="n">job</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/_parallel_backends.py:208,</span> in <span class="ni">SequentialBackend.apply_async</span><span class="nt">(self, func, callback)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="k">def</span> <span class="nf">apply_async</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span>     <span class="sd">&quot;&quot;&quot;Schedule a func to be run&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">208</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">ImmediateResult</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="k">if</span> <span class="n">callback</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>         <span class="n">callback</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/_parallel_backends.py:572,</span> in <span class="ni">ImmediateResult.__init__</span><span class="nt">(self, batch)</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span>     <span class="c1"># Don&#39;t delay the application, to avoid keeping the input</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span>     <span class="c1"># arguments in memory</span>
+<span class="ne">--&gt; </span><span class="mi">572</span>     <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">batch</span><span class="p">()</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/parallel.py:263,</span> in <span class="ni">BatchedCalls.__call__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>     <span class="c1"># Set the default nested backend to self._backend but do not set the</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>     <span class="c1"># change the default number of processes to -1</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>     <span class="k">with</span> <span class="n">parallel_backend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">263</span>         <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span>                 <span class="k">for</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">]</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/parallel.py:263,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>     <span class="c1"># Set the default nested backend to self._backend but do not set the</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>     <span class="c1"># change the default number of processes to -1</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>     <span class="k">with</span> <span class="n">parallel_backend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">263</span>         <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span>                 <span class="k">for</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">]</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/fixes.py:216,</span> in <span class="ni">_FuncWrapper.__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="k">with</span> <span class="n">config_context</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">216</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/model_selection/_validation.py:680,</span> in <span class="ni">_fit_and_score</span><span class="nt">(estimator, X, y, scorer, train, test, verbose, parameters, fit_params, return_train_score, return_parameters, return_n_test_samples, return_times, return_estimator, split_progress, candidate_progress, error_score)</span>
+<span class="g g-Whitespace">    </span><span class="mi">678</span>         <span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">679</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">680</span>         <span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span> <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span>     <span class="c1"># Note fit time as time until error</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span>     <span class="n">fit_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/pipeline.py:390,</span> in <span class="ni">Pipeline.fit</span><span class="nt">(self, X, y, **fit_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">364</span> <span class="sd">&quot;&quot;&quot;Fit the model.</span>
+<span class="g g-Whitespace">    </span><span class="mi">365</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">366</span><span class="sd"> Fit all the transformers one after the other and transform the</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span><span class="sd">     Pipeline with fitted steps.</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span> <span class="n">fit_params_steps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_fit_params</span><span class="p">(</span><span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">390</span> <span class="n">Xt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params_steps</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span> <span class="k">with</span> <span class="n">_print_elapsed_time</span><span class="p">(</span><span class="s2">&quot;Pipeline&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log_message</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">392</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_final_estimator</span> <span class="o">!=</span> <span class="s2">&quot;passthrough&quot;</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/pipeline.py:348,</span> in <span class="ni">Pipeline._fit</span><span class="nt">(self, X, y, **fit_params_steps)</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span>     <span class="n">cloned_transformer</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">transformer</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span> <span class="c1"># Fit or load from cache the current transformer</span>
+<span class="ne">--&gt; </span><span class="mi">348</span> <span class="n">X</span><span class="p">,</span> <span class="n">fitted_transformer</span> <span class="o">=</span> <span class="n">fit_transform_one_cached</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">349</span>     <span class="n">cloned_transformer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">350</span>     <span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">351</span>     <span class="n">y</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">352</span>     <span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">353</span>     <span class="n">message_clsname</span><span class="o">=</span><span class="s2">&quot;Pipeline&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">354</span>     <span class="n">message</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_message</span><span class="p">(</span><span class="n">step_idx</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">355</span>     <span class="o">**</span><span class="n">fit_params_steps</span><span class="p">[</span><span class="n">name</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">356</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">357</span> <span class="c1"># Replace the transformer of the step with the fitted</span>
+<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="c1"># transformer. This is necessary when loading the transformer</span>
+<span class="g g-Whitespace">    </span><span class="mi">359</span> <span class="c1"># from the cache.</span>
+<span class="g g-Whitespace">    </span><span class="mi">360</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">[</span><span class="n">step_idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fitted_transformer</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/joblib/memory.py:349,</span> in <span class="ni">NotMemorizedFunc.__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">348</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">349</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/pipeline.py:893,</span> in <span class="ni">_fit_transform_one</span><span class="nt">(transformer, X, y, weight, message_clsname, message, **fit_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">891</span> <span class="k">with</span> <span class="n">_print_elapsed_time</span><span class="p">(</span><span class="n">message_clsname</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">892</span>     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">transformer</span><span class="p">,</span> <span class="s2">&quot;fit_transform&quot;</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">893</span>         <span class="n">res</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">894</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">895</span>         <span class="n">res</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/feature_extraction/text.py:1330,</span> in <span class="ni">CountVectorizer.fit_transform</span><span class="nt">(self, raw_documents, y)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1322</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1323</span>                 <span class="s2">&quot;Upper case characters found in&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1324</span>                 <span class="s2">&quot; vocabulary while &#39;lowercase&#39;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1325</span>                 <span class="s2">&quot; is True. These entries will not&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1326</span>                 <span class="s2">&quot; be matched with any documents&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1327</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1328</span>             <span class="k">break</span>
+<span class="ne">-&gt; </span><span class="mi">1330</span> <span class="n">vocabulary</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_count_vocab</span><span class="p">(</span><span class="n">raw_documents</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fixed_vocabulary_</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1332</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1333</span>     <span class="n">X</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.8/site-packages/sklearn/feature_extraction/text.py:1212,</span> in <span class="ni">CountVectorizer._count_vocab</span><span class="nt">(self, raw_documents, fixed_vocab)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1208</span>     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1209</span>         <span class="c1"># Ignore out-of-vocabulary items for fixed_vocab=True</span>
+<span class="g g-Whitespace">   </span><span class="mi">1210</span>         <span class="k">continue</span>
+<span class="ne">-&gt; </span><span class="mi">1212</span> <span class="n">j_indices</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">feature_counter</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="g g-Whitespace">   </span><span class="mi">1213</span> <span class="n">values</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">feature_counter</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="g g-Whitespace">   </span><span class="mi">1214</span> <span class="n">indptr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">j_indices</span><span class="p">))</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="top-25-features-for-positive-and-negative-reviews">
+<h3>Top 25 features for positive and negative reviews<a class="headerlink" href="#top-25-features-for-positive-and-negative-reviews" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_names</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+<span class="n">top25pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="o">-</span><span class="mi">25</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top features for positive reviews:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">feature_names</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">top25pos</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top features for negative reviews:&quot;</span><span class="p">)</span>
+<span class="n">top25neg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">])[:</span><span class="mi">25</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">feature_names</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">top25neg</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top features for positive reviews:
+[&#39;gas&#39;, &#39;perfectly&#39;, &#39;family&#39;, &#39;political&#39;, &#39;will&#39;, &#39;seen&#39;, &#39;rocky&#39;, &#39;always&#39;, &#39;different&#39;, &#39;excellent&#39;, &#39;also&#39;, &#39;many&#39;, &#39;is&#39;, &#39;matrix&#39;, &#39;trek&#39;, &#39;well&#39;, &#39;definitely&#39;, &#39;truman&#39;, &#39;very&#39;, &#39;great&#39;, &#39;quite&#39;, &#39;fun&#39;, &#39;jackie&#39;, &#39;as&#39;, &#39;and&#39;]
+
+Top features for negative reviews:
+[&#39;bad&#39;, &#39;only&#39;, &#39;plot&#39;, &#39;worst&#39;, &#39;there&#39;, &#39;boring&#39;, &#39;script&#39;, &#39;why&#39;, &#39;have&#39;, &#39;unfortunately&#39;, &#39;dull&#39;, &#39;poor&#39;, &#39;any&#39;, &#39;waste&#39;, &#39;nothing&#39;, &#39;looks&#39;, &#39;ridiculous&#39;, &#39;supposed&#39;, &#39;no&#39;, &#39;even&#39;, &#39;harry&#39;, &#39;awful&#39;, &#39;then&#39;, &#39;reason&#39;, &#39;wasted&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_bad_review</span> <span class="o">=</span> <span class="s2">&quot;This was the most awful worst super bad movie ever!&quot;</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">new_bad_review</span><span class="p">])</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;neg&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_good_review</span> <span class="o">=</span> <span class="s1">&#39;WHAT A WONDERFUL, FANTASTIC MOVIE!!!&#39;</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">new_good_review</span><span class="p">])</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;pos&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try a more complex statement</span>
+<span class="n">my_review</span> <span class="o">=</span> <span class="s2">&quot;Newspapers are not food.&quot;</span>
+<span class="n">my_features</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">my_review</span><span class="p">])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">my_features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;neg&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercises-text-classification">
+<h2>Exercises - text classification<a class="headerlink" href="#exercises-text-classification" title="Permalink to this heading">#</a></h2>
+<ol>
+<li><p>Practice your text pre-processing skills on the classic novel Dracula! Here you’ll just be performing the standardization operations on a text string instead of a DataFrame, so be sure to adapt the practices you saw with the UN HRC corpus processing appropriately.</p>
+<p>Can you:</p>
+<ul class="simple">
+<li><p>Remove non-alphanumeric characters &amp; punctuation?</p></li>
+<li><p>Remove digits?</p></li>
+<li><p>Remove unicode characters?</p></li>
+<li><p>Remove extraneous spaces?</p></li>
+<li><p>Standardize casing?</p></li>
+<li><p>Lemmatize tokens?</p></li>
+</ul>
+</li>
+<li><p>Investigate classic horror novel vocabulary. Create a single TF-IDF sparse matrix that contains the vocabulary for <em>Frankenstein</em> and <em>Dracula</em>. You should only have two rows (one for each of these novels), but potentially thousands of columns to represent the vocabulary across the two texts. What are the 20 most unique words in each? Make a dataframe or visualization to illustrate the differences.</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html">Read through this 20 newsgroups dataset example</a> to get familiar with newspaper data. Do you best to understand and explain what is happening at each step of the workflow. “The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date.”</p></li>
+</ol>
+</section>
+<section id="improving-preprocessing-accuracy-and-efficiency">
+<h2>Improving preprocessing accuracy and efficiency<a class="headerlink" href="#improving-preprocessing-accuracy-and-efficiency" title="Permalink to this heading">#</a></h2>
+<p>Remember these are just the basics. There are more efficient ways to preprocess your text that you will want to consider. Read Chapter 8 “spaCy and textaCy” to learn more!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">whos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable                Type                                Data/Info
+---------------------------------------------------------------------
+BeautifulSoup           type                                &lt;class &#39;bs4.BeautifulSoup&#39;&gt;
+CountVectorizer         type                                &lt;class &#39;sklearn.feature_e&lt;...&gt;on.text.CountVectorizer&#39;&gt;
+Counter                 type                                &lt;class &#39;collections.Counter&#39;&gt;
+LogisticRegression      type                                &lt;class &#39;sklearn.linear_mo&lt;...&gt;stic.LogisticRegression&#39;&gt;
+Pipeline                ABCMeta                             &lt;class &#39;sklearn.pipeline.Pipeline&#39;&gt;
+PorterStemmer           ABCMeta                             &lt;class &#39;nltk.stem.porter.PorterStemmer&#39;&gt;
+TfidfTransformer        type                                &lt;class &#39;sklearn.feature_e&lt;...&gt;n.text.TfidfTransformer&#39;&gt;
+TfidfVectorizer         type                                &lt;class &#39;sklearn.feature_e&lt;...&gt;on.text.TfidfVectorizer&#39;&gt;
+WordNetLemmatizer       type                                &lt;class &#39;nltk.stem.wordnet.WordNetLemmatizer&#39;&gt;
+accuracy_score          function                            &lt;function accuracy_score at 0x7fa6296c9040&gt;
+classification_report   function                            &lt;function classification_&lt;...&gt;report at 0x7fa6296c9940&gt;
+confusion_matrix        function                            &lt;function confusion_matrix at 0x7fa6296c90d0&gt;
+corpus                  list                                n=11
+countries               list                                n=11
+country                 DataFrame                              abasi  abasi desk  aba&lt;...&gt;n[1 rows x 84182 columns]
+cross_val_score         function                            &lt;function cross_val_score at 0x7fa6297159d0&gt;
+document                str                                 djibouti2013.txt
+empty_dictionary        dict                                n=11
+feature_names           ndarray                             39659: 39659 elems, type `object`, 317272 bytes (309.8359375 kb)
+features                csr_matrix                            (0, 39086)	0.5889877844&lt;...&gt;12776)	0.7435961012857455
+human_rights            DataFrame                                          file_name &lt;...&gt;sh original english ...  
+judgements              list                                n=2000
+logit_class             LogisticRegression                  LogisticRegression(C=1000&lt;...&gt;te=1, solver=&#39;liblinear&#39;)
+model                   LogisticRegression                  LogisticRegression(C=1000&lt;...&gt;te=1, solver=&#39;liblinear&#39;)
+movie_reviews           CategorizedPlaintextCorpusReader    &lt;CategorizedPlaintextCorp&lt;...&gt;a/corpora/movie_reviews&#39;&gt;
+movies                  DataFrame                                                    &lt;...&gt;\n[2000 rows x 2 columns]
+my_features             csr_matrix                            (0, 24044)	0.1411492820&lt;...&gt; 2217)	0.1341357443684459
+my_review               str                                 Newspapers are not food.
+new_bad_review          str                                 This was the most awful w&lt;...&gt;rst super bad movie ever!
+new_good_review         str                                 WHAT A WONDERFUL, FANTASTIC MOVIE!!!
+nlp                     English                             &lt;spacy.lang.en.English object at 0x7fa616022940&gt;
+nltk                    module                              &lt;module &#39;nltk&#39; from &#39;/Use&lt;...&gt;ckages/nltk/__init__.py&#39;&gt;
+np                      module                              &lt;module &#39;numpy&#39; from &#39;/Us&lt;...&gt;kages/numpy/__init__.py&#39;&gt;
+os                      module                              &lt;module &#39;os&#39; from &#39;/Users&lt;...&gt;da3/lib/python3.8/os.py&#39;&gt;
+paragraph               Tag                                 &lt;p&gt;&lt;b&gt;New World Species&lt;/b&gt;:\n&lt;/p&gt;
+pd                      module                              &lt;module &#39;pandas&#39; from &#39;/U&lt;...&gt;ages/pandas/__init__.py&#39;&gt;
+punctuation             str                                 !&quot;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+re                      module                              &lt;module &#39;regex&#39; from &#39;/Us&lt;...&gt;kages/regex/__init__.py&#39;&gt;
+requests                module                              &lt;module &#39;requests&#39; from &#39;&lt;...&gt;es/requests/__init__.py&#39;&gt;
+response                Response                            &lt;Response [200]&gt;
+reviews                 list                                n=2000
+roc_auc_score           function                            &lt;function roc_auc_score at 0x7fa6296add30&gt;
+roc_curve               function                            &lt;function roc_curve at 0x7fa6296adf70&gt;
+scores                  ndarray                             10: 10 elems, type `float64`, 80 bytes
+shuffle                 function                            &lt;function shuffle at 0x7fa62939c4c0&gt;
+sns                     module                              &lt;module &#39;seaborn&#39; from &#39;/&lt;...&gt;ges/seaborn/__init__.py&#39;&gt;
+soup                    BeautifulSoup                       &lt;!DOCTYPE html&gt;\n&lt;html cl&lt;...&gt;script&gt;\n&lt;/body&gt;\n&lt;/html&gt;
+spacy                   module                              &lt;module &#39;spacy&#39; from &#39;/Us&lt;...&gt;kages/spacy/__init__.py&#39;&gt;
+stopwords               LazyCorpusLoader                    &lt;WordListCorpusReader in &lt;...&gt;pwords&#39; (not loaded yet)&gt;
+text                    str                                  sequoioideae popularly k&lt;...&gt;pecies new world species 
+text_clf                Pipeline                            Pipeline(steps=[(&#39;vect&#39;, &lt;...&gt;   solver=&#39;liblinear&#39;))])
+tf_sparse               csr_matrix                            (0, 39182)	0.0048568468&lt;...&gt;8289)	0.00869094964616284
+tf_vectorizer           TfidfVectorizer                     TfidfVectorizer(max_df=0.&lt;...&gt;3), stop_words=&#39;english&#39;)
+tfidf                   TfidfVectorizer                     TfidfVectorizer()
+tfidf_df                DataFrame                                  abasi  abasi desk &lt;...&gt;[11 rows x 84182 columns]
+to_open                 TextIOWrapper                       &lt;_io.TextIOWrapper name=&#39;&lt;...&gt;ode=&#39;r&#39; encoding=&#39;utf-8&#39;&gt;
+top25neg                ndarray                             25: 25 elems, type `int64`, 200 bytes
+top25pos                ndarray                             25: 25 elems, type `int64`, 200 bytes
+train_test_split        function                            &lt;function train_test_split at 0x7fa6296a7c10&gt;
+url                     str                                 https://en.wikipedia.org/wiki/Sequoioideae
+warnings                module                              &lt;module &#39;warnings&#39; from &#39;&lt;...&gt;b/python3.8/warnings.py&#39;&gt;
+x                       ndarray                             2000: 2000 elems, type `object`, 16000 bytes
+x_test                  csr_matrix                            (0, 39482)	0.0556930153&lt;...&gt;750)	0.018569075100128132
+x_train                 csr_matrix                            (0, 39028)	0.0233503390&lt;...&gt;, 338)	0.1198810191867183
+y                       ndarray                             2000: 2000 elems, type `object`, 16000 bytes
+y_test                  ndarray                             600: 600 elems, type `object`, 4800 bytes
+y_train                 ndarray                             1400: 1400 elems, type `object`, 11200 bytes
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "EastBayEv/SSDS-TAML",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./spring2023"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="6_Core_concepts_vocabularies.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chapter 6 - Core machine learning concepts; building text vocabularies</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="8_spaCy_textaCy.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 8 - spaCy and textaCy</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Software and Services for Data Science (SSDS), Stanford University<br/>
+  
+      &copy; Copyright 2021-2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,2533 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers &#8212; Text Analysis and Machine Learning (TAML) Group</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 4 - The BERT algorithm" href="Chapter%204.html" />
+    <link rel="prev" title="Chapter 2 - Core machine learning concepts; building text vocabularies" href="Chapter%202.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Text Analysis and Machine Learning (TAML) Group</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to TAML!
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="how_to.html">
+   i. How to use this book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start.html">
+   ii. Start coding!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boiler.html">
+   iii. Boilerplate code review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="wrangle.html">
+   iv. Numeric data wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="viz.html">
+   v. Visualization essentials
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Winter Quarter 2022
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%201.html">
+   Chapter 1 - English text preprocessing basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%202.html">
+   Chapter 2 - Core machine learning concepts; building text vocabularies
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%204.html">
+   Chapter 4 - The BERT algorithm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%205.html">
+   Chapter 5 - Ensemble machine learning, deep learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%206.html">
+   Chapter 6 - Writing about numeric data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter%207.html">
+   Chapter 7 - Combine the basics in powerful ways!
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Launch JupyterLab in Binder
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Guest_Speakers.html">
+   Guest Speakers
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Chapter 3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/EastBayEv/SSDS-TAML"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/EastBayEv/SSDS-TAML/issues/new?title=Issue%20on%20page%20%2FChapter 3.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/EastBayEv/SSDS-TAML/master?urlpath=tree/Chapter 3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#document-encoding-for-machine-learning">
+   Document encoding for machine learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-terms">
+   Key terms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#corpus-definition-united-nations-human-rights-council-documentation">
+   Corpus definition: United Nations Human Rights Council Documentation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-the-corpus-directory">
+     Define the corpus directory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#store-these-documents-in-a-data-frame">
+     Store these documents in a data frame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-data-frame">
+     View the data frame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-text-of-the-first-document">
+     View the text of the first document
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#english-text-preprocessing">
+   English text preprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-non-alphanumeric-characters-punctuation">
+     Remove non-alphanumeric characters/punctuation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-digits">
+     Remove digits
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-unicode-characters-such-as-and">
+     Remove unicode characters such as Ð and ð
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-extra-spaces">
+     Remove extra spaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-to-lowercase">
+     Convert to lowercase
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lemmatize">
+     Lemmatize
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-updated-data-frame">
+     View the updated data frame
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning-with-tfidfvectorizer">
+   Unsupervised learning with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     TfidfVectorizer()
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-the-tfidf-sparse-matrix-to-data-frame">
+     Convert the tfidf sparse matrix to data frame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-20-highest-weighted-words">
+     View 20 highest weighted words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-country-name-to-tfidf-df">
+     Add country name to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       tfidf_df
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examine-unique-words-by-each-document-country">
+   Examine unique words by each document/country
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topic-modeling">
+   Topic modeling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-hrc-text-analysis-what-next">
+     UN HRC text analysis - what next?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentiment-analysis">
+   Sentiment analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-the-nltk-built-in-movie-reviews-dataset">
+     Download the nltk built-in movie reviews dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-x-reviews-and-y-judgements-variables">
+     Define x (reviews) and y (judgements) variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shuffle-the-reviews">
+     Shuffle the reviews
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pipelines">
+     Pipelines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-standard-way">
+     The “standard” way
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-fold-cross-validated-model">
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     -fold cross-validated model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#top-25-features-for-positive-and-negative-reviews">
+     Top 25 features for positive and negative reviews
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quiz-20-newsgroups-dataset">
+   Quiz - 20 newsgroups dataset
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-3-document-encoding-tf-idf-topic-modeling-sentiment-analysis-building-text-classifiers">
+<h1>Chapter 3 - Document encoding (TF-IDF), topic modeling, sentiment analysis, building text classifiers<a class="headerlink" href="#chapter-3-document-encoding-tf-idf-topic-modeling-sentiment-analysis-building-text-classifiers" title="Permalink to this headline">¶</a></h1>
+<p>2022 February 2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">TfidfVectorizer</span><span class="p">,</span> <span class="n">TfidfTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">movie_reviews</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">confusion_matrix</span> 
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span> <span class="o">=</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="document-encoding-for-machine-learning">
+<h2>Document encoding for machine learning<a class="headerlink" href="#document-encoding-for-machine-learning" title="Permalink to this headline">¶</a></h2>
+<p>In the last chapter you saw that we do not change text to numbers, but instead changed the <em>representation</em> of the text to the numbers in sparse matrix format.</p>
+<p>In this format, each row represents a document and each column represents a token from the shared text vocabulary called a <strong>feature</strong>.</p>
+</div>
+<div class="section" id="key-terms">
+<h2>Key terms<a class="headerlink" href="#key-terms" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Document term matrix:</strong> contains the frequencies (or TF-IDF scores) of vocabulary terms in a collection of documents in sparse format.</p>
+<ul>
+<li><p>Each row is a document in the corpus.</p></li>
+<li><p>Each column represents a term (uni-gram, bi-gram, etc.) called a feature.</p></li>
+</ul>
+</li>
+<li><p><strong>Bag of words:</strong> The simplest text analysis model that standardizes text in a document by removing punctuation, converting the words to lowercase, and counting the token frequencies.</p>
+<ul>
+<li><p>Numeric values indicate that a particular feature is found in a document that number of times.</p></li>
+<li><p>A 0 indicates that the feature is <em>not</em> found in that document.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="dtm" src="_images/dtm.png" /></p>
+<p><a class="reference external" href="https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/ch04.html">modified from “The Effects of Feature Scaling: From Bag-of-Words to Tf-Idf”</a></p>
+<ul class="simple">
+<li><p><strong>TF-IDF:</strong> Term frequency–inverse document frequency; a weighted numerical statistic that indicates the uniqueness of a word is in a given document or corpus.</p></li>
+</ul>
+<p>For TF-IDF sparse matrices:</p>
+<ul class="simple">
+<li><p>A value closer to 1 indicate that a feature is more relevant to a particular document.</p></li>
+<li><p>A value closer to 0 indicates that that feature is less/not relevant to that document.</p></li>
+</ul>
+<p><img alt="tf1" src="_images/tf1.png" /></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">Wikipedia</a></p>
+<p><img alt="tf2" src="_images/tf2.png" /></p>
+<p><a class="reference external" href="https://towardsdatascience.com/tf-term-frequency-idf-inverse-document-frequency-from-scratch-in-python-6c2b61b78558">towardsdatascience</a></p>
+<ul class="simple">
+<li><p><strong>Topic modeling:</strong></p></li>
+</ul>
+<p><img alt="topic" src="_images/topic.png" /></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Topic_model">Wikipedia</a></p>
+<p><img alt="unhrc" src="_images/unhrc.jpg" /></p>
+</div>
+<div class="section" id="corpus-definition-united-nations-human-rights-council-documentation">
+<h2>Corpus definition: United Nations Human Rights Council Documentation<a class="headerlink" href="#corpus-definition-united-nations-human-rights-council-documentation" title="Permalink to this headline">¶</a></h2>
+<p>We will select eleven .txt files from the UN HRC as our corpus, stored within the subfolder “human_rights” folder inside the main “data” directory.</p>
+<p>These documents contain information about human rights recommendations made by member nations towards countries deemed to be in violation of the HRC.</p>
+<p><a class="reference external" href="https://www.ohchr.org/en/hrbodies/hrc/pages/home.aspx">Learn more about the UN HRC by clicking here.</a></p>
+<div class="section" id="define-the-corpus-directory">
+<h3>Define the corpus directory<a class="headerlink" href="#define-the-corpus-directory" title="Permalink to this headline">¶</a></h3>
+<p>Set the directory’s file path and print the files it contains.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;data/human_rights/&#39;</span><span class="p">)</span>
+
+<span class="c1"># View the contents of this directory</span>
+<span class="n">corpus</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sanmarino2014.txt&#39;,
+ &#39;tuvalu2013.txt&#39;,
+ &#39;kazakhstan2014.txt&#39;,
+ &#39;cotedivoire2014.txt&#39;,
+ &#39;fiji2014.txt&#39;,
+ &#39;bangladesh2013.txt&#39;,
+ &#39;turkmenistan2013.txt&#39;,
+ &#39;jordan2013.txt&#39;,
+ &#39;monaco2013.txt&#39;,
+ &#39;afghanistan2014.txt&#39;,
+ &#39;djibouti2013.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="store-these-documents-in-a-data-frame">
+<h3>Store these documents in a data frame<a class="headerlink" href="#store-these-documents-in-a-data-frame" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Store in an empty dictionary for conversion to data frame</span>
+<span class="n">empty_dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># Loop through the folder of documents to open and read each one</span>
+<span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/human_rights/&#39;</span> <span class="o">+</span> <span class="n">document</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">to_open</span><span class="p">:</span>
+         <span class="n">empty_dictionary</span><span class="p">[</span><span class="n">document</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_open</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Populate the data frame with two columns: file name and document text</span>
+<span class="n">human_rights</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">empty_dictionary</span><span class="p">,</span> 
+                                       <span class="n">orient</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">)</span>
+                <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="nb">str</span><span class="p">,</span> 
+                                      <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;file_name&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;document_text&#39;</span><span class="p">}))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="view-the-data-frame">
+<h3>View the data frame<a class="headerlink" href="#view-the-data-frame" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">human_rights</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>file_name</th>
+      <th>document_text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sanmarino2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/9 \n \n \n\n Ge...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tuvalu2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/8  \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kazakhstan2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/10 \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>cotedivoire2014.txt</td>
+      <td>\nDistr.: General 7 July 2014 English Original...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>fiji2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/8 \n \n \n\n Ge...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>bangladesh2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/12  \n \n \n\n ...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>turkmenistan2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/3  \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>jordan2013.txt</td>
+      <td>\nDistr.: General 6 January 2014 \nOriginal: E...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>monaco2013.txt</td>
+      <td>\nDistr.: General 3 January 2014 English Origi...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>afghanistan2014.txt</td>
+      <td>\nDistr.: General 4 April 2014 \nOriginal: Eng...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>djibouti2013.txt</td>
+      <td>\n\nDistr.: General 8 July 2013 English Origin...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="view-the-text-of-the-first-document">
+<h3>View the text of the first document<a class="headerlink" href="#view-the-text-of-the-first-document" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first thousand characters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;document_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ United Nations 
+ A/HRC/28/9 
+ 
+ 
+
+ General Assembly 
+ Distr.: General 
+24 December 2014 
+ 
+Original: English 
+ 
+
+Human Rights Council 
+
+Twenty-eighth session 
+Agenda item 6 
+Universal Periodic Review 
+  Report of the Working Group on the Universal Periodic Review* 
+ * The annex to the present report is circulated as received. 
+  San Marino 
+Contents 
+ Paragraphs Page 
+  Introduction .............................................................................................................  1Ð4 3 
+ I. Summary of the proceedings of the review process ................................................  5Ð77 3 
+  A. Presentation by the State under review ...........................................................  5Ð23 3 
+  B. Interactive dialogue and responses by the State under review ........................  24Ð77 6 
+ II. Conclusions and/or recommendations .....................................................................  78Ð81 13 
+ Annex 
+  Composition of the delegation .......
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="english-text-preprocessing">
+<h2>English text preprocessing<a class="headerlink" href="#english-text-preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>Create a new column named “clean_text” to store the text as it is preprocessed.</p>
+<ul class="simple">
+<li><p>Remove non-alphanumeric characters/punctuation</p></li>
+<li><p>Remove digits</p></li>
+<li><p>Remove <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Unicode_characters">unicode characters</a></p></li>
+<li><p>Remove extra spaces</p></li>
+<li><p>Convert to lowercase</p></li>
+<li><p>Lemmatize (optional for now)</p></li>
+</ul>
+<p>Take a look at the first document after each step to see if you can notice what changed.</p>
+<p>How else could you improve this process?</p>
+<blockquote>
+<div><p>NOTE: Remember, this is just a bare bones, basic process. Furthermore, it will not likely work for many other languages.</p>
+</div></blockquote>
+<div class="section" id="remove-non-alphanumeric-characters-punctuation">
+<h3>Remove non-alphanumeric characters/punctuation<a class="headerlink" href="#remove-non-alphanumeric-characters-punctuation" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;document_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">regex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ United Nations 
+ A HRC 28 9 
+ 
+ 
+
+ General Assembly 
+ Distr   General 
+24 December 2014 
+ 
+Original  English 
+ 
+
+Human Rights Council 
+
+Twenty eighth session 
+Agenda item 6 
+Universal Periodic Review 
+  Report of the Working Group on the Universal Periodic Review  
+   The annex to the present report is circulated as received  
+  San Marino 
+Contents 
+ Paragraphs Page 
+  Introduction                                                                                                                1Ð4 3 
+ I  Summary of the proceedings of the review process                                                   5Ð77 3 
+  A  Presentation by the State under review                                                              5Ð23 3 
+  B  Interactive dialogue and responses by the State under review                           24Ð77 6 
+ II  Conclusions and or recommendations                                                                        78Ð81 13 
+ Annex 
+  Composition of the delegation        
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view third column</span>
+<span class="n">human_rights</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>file_name</th>
+      <th>document_text</th>
+      <th>clean_text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sanmarino2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/9 \n \n \n\n Ge...</td>
+      <td>\n United Nations \n A HRC 28 9 \n \n \n\n Ge...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tuvalu2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/8  \n \n \n\n G...</td>
+      <td>\n United Nations \n A HRC 24 8  \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kazakhstan2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/10 \n \n \n\n G...</td>
+      <td>\n United Nations \n A HRC 28 10 \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>cotedivoire2014.txt</td>
+      <td>\nDistr.: General 7 July 2014 English Original...</td>
+      <td>\nDistr   General 7 July 2014 English Original...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>fiji2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/8 \n \n \n\n Ge...</td>
+      <td>\n United Nations \n A HRC 28 8 \n \n \n\n Ge...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>bangladesh2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/12  \n \n \n\n ...</td>
+      <td>\n United Nations \n A HRC 24 12  \n \n \n\n ...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>turkmenistan2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/3  \n \n \n\n G...</td>
+      <td>\n United Nations \n A HRC 24 3  \n \n \n\n G...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>jordan2013.txt</td>
+      <td>\nDistr.: General 6 January 2014 \nOriginal: E...</td>
+      <td>\nDistr   General 6 January 2014 \nOriginal  E...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>monaco2013.txt</td>
+      <td>\nDistr.: General 3 January 2014 English Origi...</td>
+      <td>\nDistr   General 3 January 2014 English Origi...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>afghanistan2014.txt</td>
+      <td>\nDistr.: General 4 April 2014 \nOriginal: Eng...</td>
+      <td>\nDistr   General 4 April 2014 \nOriginal  Eng...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>djibouti2013.txt</td>
+      <td>\n\nDistr.: General 8 July 2013 English Origin...</td>
+      <td>\n\nDistr   General 8 July 2013 English Origin...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="remove-digits">
+<h3>Remove digits<a class="headerlink" href="#remove-digits" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">regex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ United Nations 
+ A HRC      
+ 
+ 
+
+ General Assembly 
+ Distr   General 
+   December      
+ 
+Original  English 
+ 
+
+Human Rights Council 
+
+Twenty eighth session 
+Agenda item   
+Universal Periodic Review 
+  Report of the Working Group on the Universal Periodic Review  
+   The annex to the present report is circulated as received  
+  San Marino 
+Contents 
+ Paragraphs Page 
+  Introduction                                                                                                                 Ð    
+ I  Summary of the proceedings of the review process                                                    Ð     
+  A  Presentation by the State under review                                                               Ð     
+  B  Interactive dialogue and responses by the State under review                             Ð     
+ II  Conclusions and or recommendations                                                                          Ð      
+ Annex 
+  Composition of the delegation        
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="remove-unicode-characters-such-as-and">
+<h3>Remove unicode characters such as Ð and ð<a class="headerlink" href="#remove-unicode-characters-such-as-and" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="s1">&#39;ignore&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ United Nations 
+ A HRC      
+ 
+ 
+
+ General Assembly 
+ Distr   General 
+   December      
+ 
+Original  English 
+ 
+
+Human Rights Council 
+
+Twenty eighth session 
+Agenda item   
+Universal Periodic Review 
+  Report of the Working Group on the Universal Periodic Review  
+   The annex to the present report is circulated as received  
+  San Marino 
+Contents 
+ Paragraphs Page 
+  Introduction                                                                                                                     
+ I  Summary of the proceedings of the review process                                                         
+  A  Presentation by the State under review                                                                    
+  B  Interactive dialogue and responses by the State under review                                  
+ II  Conclusions and or recommendations                                                                                
+ Annex 
+  Composition of the delegation             
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="remove-extra-spaces">
+<h3>Remove extra spaces<a class="headerlink" href="#remove-extra-spaces" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">regex</span> <span class="k">as</span> <span class="nn">re</span>
+<span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">regex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> United Nations A HRC General Assembly Distr General December Original English Human Rights Council Twenty eighth session Agenda item Universal Periodic Review Report of the Working Group on the Universal Periodic Review The annex to the present report is circulated as received San Marino Contents Paragraphs Page Introduction I Summary of the proceedings of the review process A Presentation by the State under review B Interactive dialogue and responses by the State under review II Conclusions and or recommendations Annex Composition of the delegation Introduction The Working Group on the Universal Periodic Review established in accordance with Human Rights Council resolution of June held its twentieth session from October to November The review of San Marino was held at the th meeting on October The delegation of San Marino was headed by Pasquale Valentini Minister for Foreign Affairs At its th meeting held on October the Working Group adopted the report on San Marino On January the Hu
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="convert-to-lowercase">
+<h3>Convert to lowercase<a class="headerlink" href="#convert-to-lowercase" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> united nations a hrc general assembly distr general december original english human rights council twenty eighth session agenda item universal periodic review report of the working group on the universal periodic review the annex to the present report is circulated as received san marino contents paragraphs page introduction i summary of the proceedings of the review process a presentation by the state under review b interactive dialogue and responses by the state under review ii conclusions and or recommendations annex composition of the delegation introduction the working group on the universal periodic review established in accordance with human rights council resolution of june held its twentieth session from october to november the review of san marino was held at the th meeting on october the delegation of san marino was headed by pasquale valentini minister for foreign affairs at its th meeting held on october the working group adopted the report on san marino on january the hu
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lemmatize">
+<h3>Lemmatize<a class="headerlink" href="#lemmatize" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import spacy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !python -m spacy download en_core_web_sm</span>
+<span class="c1"># !python -m spacy download en_core_web_lg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nlp = spacy.load(&#39;en_core_web_lg&#39;)</span>
+<span class="c1"># human_rights[&#39;clean_text&#39;] = human_rights[&#39;clean_text&#39;].apply(lambda row: &#39; &#39;.join([w.lemma_ for w in nlp(row)]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(human_rights[&#39;clean_text&#39;][0])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="view-the-updated-data-frame">
+<h3>View the updated data frame<a class="headerlink" href="#view-the-updated-data-frame" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">human_rights</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>file_name</th>
+      <th>document_text</th>
+      <th>clean_text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sanmarino2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/9 \n \n \n\n Ge...</td>
+      <td>united nations a hrc general assembly distr g...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tuvalu2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/8  \n \n \n\n G...</td>
+      <td>united nations a hrc general assembly distr g...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kazakhstan2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/10 \n \n \n\n G...</td>
+      <td>united nations a hrc general assembly distr g...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>cotedivoire2014.txt</td>
+      <td>\nDistr.: General 7 July 2014 English Original...</td>
+      <td>distr general july english original english f...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>fiji2014.txt</td>
+      <td>\n United Nations \n A/HRC/28/8 \n \n \n\n Ge...</td>
+      <td>united nations a hrc general assembly distr g...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>bangladesh2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/12  \n \n \n\n ...</td>
+      <td>united nations a hrc general assembly distr g...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>turkmenistan2013.txt</td>
+      <td>\n United Nations \n A/HRC/24/3  \n \n \n\n G...</td>
+      <td>united nations a hrc general assembly distr g...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>jordan2013.txt</td>
+      <td>\nDistr.: General 6 January 2014 \nOriginal: E...</td>
+      <td>distr general january original english genera...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>monaco2013.txt</td>
+      <td>\nDistr.: General 3 January 2014 English Origi...</td>
+      <td>distr general january english original englis...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>afghanistan2014.txt</td>
+      <td>\nDistr.: General 4 April 2014 \nOriginal: Eng...</td>
+      <td>distr general april original english general ...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>djibouti2013.txt</td>
+      <td>\n\nDistr.: General 8 July 2013 English Origin...</td>
+      <td>distr general july english original english f...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="unsupervised-learning-with-tfidfvectorizer">
+<h2>Unsupervised learning with <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer()</span></code><a class="headerlink" href="#unsupervised-learning-with-tfidfvectorizer" title="Permalink to this headline">¶</a></h2>
+<p>Remember <code class="docutils literal notranslate"><span class="pre">CountVectorizer()</span></code> for creating Bag of Word models? Bag of Words models are inputs for <a class="reference external" href="https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">Latent Dirichlet allocation</a>.</p>
+<p>However, let’s extend this idea to <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer()</span></code>. Each row will still be a colunm in our matrix and each column will still be a linguistic feature, but the cells will now be populated by the word uniqueness weights instead of frequencies.</p>
+<p>This will be the input for <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">Truncated Singular Value Decomposition</a> instead of LDA.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+
+<span class="n">tf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">ngram_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> 
+                                <span class="n">stop_words</span> <span class="o">=</span> <span class="s1">&#39;english&#39;</span><span class="p">,</span> 
+                                <span class="n">max_df</span> <span class="o">=</span> <span class="mf">0.50</span>
+                                <span class="p">)</span>
+<span class="n">tf_sparse</span> <span class="o">=</span> <span class="n">tf_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf_sparse</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11, 88194)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tf_sparse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (0, 41201)	0.004841792538927591
+  (0, 33118)	0.004841792538927591
+  (0, 52297)	0.004841792538927591
+  (0, 83563)	0.004841792538927591
+  (0, 48098)	0.004841792538927591
+  (0, 73938)	0.004841792538927591
+  (0, 70099)	0.004841792538927591
+  (0, 50457)	0.004841792538927591
+  (0, 57730)	0.004841792538927591
+  (0, 5933)	0.004841792538927591
+  (0, 2131)	0.004841792538927591
+  (0, 19496)	0.004841792538927591
+  (0, 4456)	0.004841792538927591
+  (0, 51455)	0.004841792538927591
+  (0, 2831)	0.004841792538927591
+  (0, 41350)	0.004841792538927591
+  (0, 7670)	0.004841792538927591
+  (0, 84240)	0.004841792538927591
+  (0, 51495)	0.004841792538927591
+  (0, 2835)	0.004841792538927591
+  (0, 45547)	0.004138587998252598
+  (0, 21498)	0.004841792538927591
+  (0, 29085)	0.004841792538927591
+  (0, 56075)	0.004841792538927591
+  (0, 78289)	0.004841792538927591
+  :	:
+  (10, 56156)	0.005334258825700086
+  (10, 64482)	0.005334258825700086
+  (10, 12086)	0.006065489955079169
+  (10, 54457)	0.006065489955079169
+  (10, 24386)	0.004303646433350054
+  (10, 40670)	0.008607292866700108
+  (10, 50511)	0.006065489955079169
+  (10, 67275)	0.008607292866700108
+  (10, 30214)	0.00476707189726019
+  (10, 65265)	0.005334258825700086
+  (10, 21793)	0.00476707189726019
+  (10, 67704)	0.004303646433350054
+  (10, 31604)	0.005334258825700086
+  (10, 83182)	0.006065489955079169
+  (10, 80749)	0.006065489955079169
+  (10, 79281)	0.014301215691780571
+  (10, 28564)	0.004303646433350054
+  (10, 59645)	0.025821878600100327
+  (10, 63422)	0.03012552503345038
+  (10, 73852)	0.025821878600100327
+  (10, 76145)	0.005334258825700086
+  (10, 50217)	0.008607292866700108
+  (10, 30122)	0.010668517651400172
+  (10, 8598)	0.010668517651400172
+  (10, 19266)	0.008607292866700108
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="convert-the-tfidf-sparse-matrix-to-data-frame">
+<h3>Convert the tfidf sparse matrix to data frame<a class="headerlink" href="#convert-the-tfidf-sparse-matrix-to-data-frame" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tf_sparse</span><span class="o">.</span><span class="n">todense</span><span class="p">(),</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">tf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+<span class="n">tfidf_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>abasi</th>
+      <th>abasi desk</th>
+      <th>abasi desk officer</th>
+      <th>abdi</th>
+      <th>abdi ismael</th>
+      <th>abdi ismael hersi</th>
+      <th>abdou</th>
+      <th>abdou prsident</th>
+      <th>abdou prsident la</th>
+      <th>abduction</th>
+      <th>...</th>
+      <th>zone social</th>
+      <th>zone social benefits</th>
+      <th>zones</th>
+      <th>zones inclusive</th>
+      <th>zones inclusive education</th>
+      <th>zones senegal</th>
+      <th>zones senegal recommendations</th>
+      <th>zouon</th>
+      <th>zouon bi</th>
+      <th>zouon bi tidou</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004775</td>
+      <td>...</td>
+      <td>0.007108</td>
+      <td>0.007108</td>
+      <td>0.006076</td>
+      <td>0.007108</td>
+      <td>0.007108</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.006234</td>
+      <td>0.006234</td>
+      <td>0.006234</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.010880</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.006219</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.007276</td>
+      <td>0.007276</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004741</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.007519</td>
+      <td>0.007519</td>
+      <td>0.007519</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.005051</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>11 rows × 88194 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="view-20-highest-weighted-words">
+<h3>View 20 highest weighted words<a class="headerlink" href="#view-20-highest-weighted-words" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>monaco                        0.718573
+tuvalu                        0.638645
+fiji                          0.566999
+turkmenistan                  0.566983
+san                           0.551964
+jordan                        0.482716
+marino                        0.455128
+san marino                    0.455128
+kazakhstan                    0.448850
+divoire                       0.330871
+te divoire                    0.330871
+te                            0.306268
+kazakhstans                   0.284333
+bangladeshs                   0.251033
+elimination violence women    0.250640
+elimination violence          0.250640
+djiboutis                     0.248364
+reconciliation                0.245134
+fgm                           0.194096
+afghan                        0.180447
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="add-country-name-to-tfidf-df">
+<h3>Add country name to <code class="docutils literal notranslate"><span class="pre">tfidf_df</span></code><a class="headerlink" href="#add-country-name-to-tfidf-df" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wrangle the country names from the human_rights data frame</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="n">human_rights</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">stop</span> <span class="o">=</span> <span class="o">-</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span>
+<span class="n">countries</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sanmarino&#39;,
+ &#39;tuvalu&#39;,
+ &#39;kazakhstan&#39;,
+ &#39;cotedivoire&#39;,
+ &#39;fiji&#39;,
+ &#39;bangladesh&#39;,
+ &#39;turkmenistan&#39;,
+ &#39;jordan&#39;,
+ &#39;monaco&#39;,
+ &#39;afghanistan&#39;,
+ &#39;djibouti&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span><span class="p">[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">countries</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>abasi</th>
+      <th>abasi desk</th>
+      <th>abasi desk officer</th>
+      <th>abdi</th>
+      <th>abdi ismael</th>
+      <th>abdi ismael hersi</th>
+      <th>abdou</th>
+      <th>abdou prsident</th>
+      <th>abdou prsident la</th>
+      <th>abduction</th>
+      <th>...</th>
+      <th>zone social benefits</th>
+      <th>zones</th>
+      <th>zones inclusive</th>
+      <th>zones inclusive education</th>
+      <th>zones senegal</th>
+      <th>zones senegal recommendations</th>
+      <th>zouon</th>
+      <th>zouon bi</th>
+      <th>zouon bi tidou</th>
+      <th>COUNTRY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>sanmarino</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>tuvalu</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004775</td>
+      <td>...</td>
+      <td>0.007108</td>
+      <td>0.006076</td>
+      <td>0.007108</td>
+      <td>0.007108</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>kazakhstan</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.006234</td>
+      <td>0.006234</td>
+      <td>0.006234</td>
+      <td>cotedivoire</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>fiji</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.010880</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>bangladesh</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.006219</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.007276</td>
+      <td>0.007276</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>turkmenistan</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.004741</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>jordan</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>monaco</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.007519</td>
+      <td>0.007519</td>
+      <td>0.007519</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.005051</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>afghanistan</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.007096</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>djibouti</td>
+    </tr>
+  </tbody>
+</table>
+<p>11 rows × 88195 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="examine-unique-words-by-each-document-country">
+<h2>Examine unique words by each document/country<a class="headerlink" href="#examine-unique-words-by-each-document-country" title="Permalink to this headline">¶</a></h2>
+<p>Change the country names to view their highest rated terms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="p">[</span><span class="n">tfidf_df</span><span class="p">[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;jordan&#39;</span><span class="p">]</span>
+<span class="n">country</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numeric_only</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jordan                                 0.482716
+jordanian                              0.127019
+press publications                     0.112906
+publications                           0.108571
+syrian                                 0.098792
+constitutional amendments              0.096508
+publications law                       0.091736
+press publications law                 0.091736
+syrian refugees                        0.084679
+websites                               0.072381
+reservations                           0.071108
+commitment jordan                      0.063509
+reservations convention                0.060317
+news websites                          0.056453
+al                                     0.054286
+personal status                        0.054286
+news                                   0.054286
+personal                               0.053046
+reservations convention elimination    0.048254
+hosting                                0.042437
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="p">[</span><span class="n">tfidf_df</span><span class="p">[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;jordan&#39;</span><span class="p">]</span>
+<span class="n">country</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numeric_only</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jordan                                 0.482716
+jordanian                              0.127019
+press publications                     0.112906
+publications                           0.108571
+syrian                                 0.098792
+constitutional amendments              0.096508
+publications law                       0.091736
+press publications law                 0.091736
+syrian refugees                        0.084679
+websites                               0.072381
+reservations                           0.071108
+commitment jordan                      0.063509
+reservations convention                0.060317
+news websites                          0.056453
+al                                     0.054286
+personal status                        0.054286
+news                                   0.054286
+personal                               0.053046
+reservations convention elimination    0.048254
+hosting                                0.042437
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="topic-modeling">
+<h2>Topic modeling<a class="headerlink" href="#topic-modeling" title="Permalink to this headline">¶</a></h2>
+<p><img alt="tsvd" src="_images/tsvd.png" /></p>
+<p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2021/06/part-16-step-by-step-guide-to-master-nlp-topic-modelling-using-lsa/">Analytics Vidhya</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+
+<span class="n">tsvd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> 
+                   <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> 
+                   <span class="n">algorithm</span> <span class="o">=</span> <span class="s1">&#39;arpack&#39;</span><span class="p">)</span>
+<span class="n">tsvd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tf_sparse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TruncatedSVD(algorithm=&#39;arpack&#39;, n_components=5, random_state=1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tsvd</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.00816051 0.10375827 0.10320114 0.09968319 0.10115778]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tsvd</span><span class="o">.</span><span class="n">singular_values_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.13997839 1.01408739 1.00306128 0.99825596 0.99320396]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">topics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">,</span> <span class="n">n_top_words</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">topic_idx</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">components_</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Topic #</span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">topic_idx</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">topic</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[:</span><span class="o">-</span><span class="n">n_top_words</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf_features</span> <span class="o">=</span> <span class="n">tf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+<span class="n">topics</span><span class="p">(</span><span class="n">tsvd</span><span class="p">,</span> <span class="n">tf_features</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic #0:
+turkmenistan kazakhstan jordan fiji tuvalu divoire te divoire monaco te reconciliation bangladeshs san elimination violence elimination violence women kazakhstans fgm djiboutis marino san marino violence women law
+
+Topic #1:
+monaco san marino san marino te divoire divoire te reconciliation fgm djiboutis op crc fiji san marinos marinos monegasque national reconciliation elimination forms racial forms racial discrimination forms racial international convention elimination
+
+Topic #2:
+tuvalu fiji djiboutis national strategic climate change strategic water sanitation sanitation fgm safe drinking safe drinking water rapporteur human right rapporteur human special rapporteur human human right safe climate national gender policy national gender fijian drinking water sanitation
+
+Topic #3:
+te divoire divoire te reconciliation fgm national reconciliation jordan djiboutis ivorian national development plan elimination violence elimination violence women truth genital mutilation genital female genital female genital mutilation dialogue truth reconciliation truth reconciliation dialogue truth
+
+Topic #4:
+monaco jordan tuvalu jordanian press publications publications monegasque syrian constitutional amendments bangladeshs publications law press publications law principality nationality commended monaco syrian refugees reservations des sanitation websites
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="un-hrc-text-analysis-what-next">
+<h3>UN HRC text analysis - what next?<a class="headerlink" href="#un-hrc-text-analysis-what-next" title="Permalink to this headline">¶</a></h3>
+<p>Keep in mind that we have not even begun to consider named entities and parts of speech. How might country names be swamping the five topics produced?</p>
+<p><a class="reference external" href="https://stats.stackexchange.com/questions/302965/some-topics-with-all-equal-weights-when-using-latentdirichletallocation-from-sci">Read this stack overflow post to learn about the possibility of having too few documents in your corpus</a></p>
+<p><a class="reference external" href="https://www.machinelearningplus.com/nlp/topic-modeling-python-sklearn-examples/">Also, read this post about how to grid search for the best topic models</a></p>
+<p>TODO: visualize, named entity recognition, part of speech tagging, hyphenated words, contractions, context, importance of stopwords, etc.</p>
+</div>
+</div>
+<div class="section" id="sentiment-analysis">
+<h2>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Sentiment analysis is the contextual mining of text data that elicits abstract information in source materials to determine if data are positive, negative, or neutral.</p>
+<p><img alt="sa" src="_images/sa.jpg" /></p>
+<p><a class="reference external" href="https://www.repustate.com/blog/sentiment-analysis-challenges-with-solutions/">Repustate</a></p>
+<div class="section" id="download-the-nltk-built-in-movie-reviews-dataset">
+<h3>Download the nltk built-in movie reviews dataset<a class="headerlink" href="#download-the-nltk-built-in-movie-reviews-dataset" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">movie_reviews</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;movie_reviews&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package movie_reviews to
+[nltk_data]     /Users/evanmuzzall/nltk_data...
+[nltk_data]   Package movie_reviews is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="define-x-reviews-and-y-judgements-variables">
+<h3>Define x (reviews) and y (judgements) variables<a class="headerlink" href="#define-x-reviews-and-y-judgements-variables" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract our x (reviews) and y (judgements) variables</span>
+<span class="n">reviews</span> <span class="o">=</span> <span class="p">[</span><span class="n">movie_reviews</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">fileid</span><span class="p">)</span> <span class="k">for</span> <span class="n">fileid</span> <span class="ow">in</span> <span class="n">movie_reviews</span><span class="o">.</span><span class="n">fileids</span><span class="p">()]</span>
+<span class="n">judgements</span> <span class="o">=</span> <span class="p">[</span><span class="n">movie_reviews</span><span class="o">.</span><span class="n">categories</span><span class="p">(</span><span class="n">fileid</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">fileid</span> <span class="ow">in</span> <span class="n">movie_reviews</span><span class="o">.</span><span class="n">fileids</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save in a dataframe</span>
+<span class="n">movies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;Reviews&quot;</span> <span class="p">:</span> <span class="n">reviews</span><span class="p">,</span> 
+                      <span class="s2">&quot;Judgements&quot;</span> <span class="p">:</span> <span class="n">judgements</span><span class="p">})</span>
+<span class="n">movies</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Reviews</th>
+      <th>Judgements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>plot : two teen couples go to a church party ,...</td>
+      <td>neg</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>the happy bastard's quick movie review \ndamn ...</td>
+      <td>neg</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>it is movies like these that make a jaded movi...</td>
+      <td>neg</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>" quest for camelot " is warner bros . ' firs...</td>
+      <td>neg</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>synopsis : a mentally unstable man undergoing ...</td>
+      <td>neg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2000, 2)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="shuffle-the-reviews">
+<h3>Shuffle the reviews<a class="headerlink" href="#shuffle-the-reviews" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">movies</span><span class="o">.</span><span class="n">Reviews</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">movies</span><span class="o">.</span><span class="n">Judgements</span><span class="p">),</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># change x[0] and y[0] to see different reviews</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human review was:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Human review was: neg
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;steve martin is one of the funniest men alive . \nif you can take that as a true statement , then your disappointment at this film will equal mine . \nmartin can be hilarious , creating some of the best laugh-out-loud experiences that have ever taken place in movie theaters . \nyou won\&#39;t find any of them here . \nthe old television series that this is based on has its moments of humor and wit . \nbilko ( and the name isn\&#39;t an accident ) is the head of an army motor pool group , but his passion is his schemes . \nevery episode involves the sergeant and his men in one or another hair-brained plan to get rich quick while outwitting the officers of the base . \n &quot; mchale\&#39;s navy &quot; \&#39;s granddaddy . \nthat\&#39;s the idea behind this movie too , but the difference is that , as far-fetched and usually goofy as the television series was , it was funny . \nthere is not one laugh in the film . \nthe re-make retains the goofiness , but not the entertainment . \neverything is just too clean . \nit was obviously made on a hollywood back lot and looks every bit like it . \nit all looks brand new , even the old beat-up stuff . \nmartin is remarkably small in what should have been a bigger than life role . \nin the original , phil silvers played the huckster with a heart of gold and more than a touch of sleaziness . \nmartin\&#39;s bilko is a pale imitation . \nthe only semi-bright spot is phil hartman as bilko\&#39;s arch-enemy . \nit\&#39;s not saying much , considering martin\&#39;s lackluster character , but hartman leaves him in the dust . \n&#39;,
+ None)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pipelines">
+<h3>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this headline">¶</a></h3>
+<p>scikit-learn offers hand ways to build machine learning pipelines: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html</a></p>
+</div>
+<div class="section" id="the-standard-way">
+<h3>The “standard” way<a class="headerlink" href="#the-standard-way" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># standard training/test split (no cross validation)</span>
+<span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.30</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># get tfidf values</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+<span class="n">tfidf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+
+<span class="c1"># instantiate, train, and test an logistic regression model</span>
+<span class="n">logit_class</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span> <span class="o">=</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">,</span>
+                                 <span class="n">penalty</span> <span class="o">=</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> 
+                                 <span class="n">C</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> 
+                                 <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">logit_class</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test set accuracy</span>
+<span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8216666666666667
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="k-fold-cross-validated-model">
+<h3><span class="math notranslate nohighlight">\(k\)</span>-fold cross-validated model<a class="headerlink" href="#k-fold-cross-validated-model" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cross-validated model!</span>
+<span class="n">text_clf</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;vect&#39;</span><span class="p">,</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))),</span>
+                    <span class="p">(</span><span class="s1">&#39;tfidf&#39;</span><span class="p">,</span> <span class="n">TfidfTransformer</span><span class="p">()),</span>
+                    <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span> <span class="o">=</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">,</span>
+                                               <span class="n">penalty</span> <span class="o">=</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> 
+                                               <span class="n">C</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> 
+                                               <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+                     <span class="p">])</span>
+
+<span class="c1"># for your own research, thesis, or publication</span>
+<span class="c1"># you would select cv equal to 10 or 20</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">text_clf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.8155922  0.79910045 0.80630631] 0.8069996533264899
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="top-25-features-for-positive-and-negative-reviews">
+<h3>Top 25 features for positive and negative reviews<a class="headerlink" href="#top-25-features-for-positive-and-negative-reviews" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_names</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+<span class="n">top25pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="o">-</span><span class="mi">25</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top features for positive reviews:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">feature_names</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">top25pos</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top features for negative reviews:&quot;</span><span class="p">)</span>
+<span class="n">top25neg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">])[:</span><span class="mi">25</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">feature_names</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">top25neg</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top features for positive reviews:
+[&#39;gas&#39;, &#39;perfectly&#39;, &#39;family&#39;, &#39;political&#39;, &#39;will&#39;, &#39;seen&#39;, &#39;rocky&#39;, &#39;always&#39;, &#39;different&#39;, &#39;excellent&#39;, &#39;also&#39;, &#39;many&#39;, &#39;is&#39;, &#39;matrix&#39;, &#39;trek&#39;, &#39;well&#39;, &#39;definitely&#39;, &#39;truman&#39;, &#39;very&#39;, &#39;great&#39;, &#39;quite&#39;, &#39;fun&#39;, &#39;jackie&#39;, &#39;as&#39;, &#39;and&#39;]
+
+Top features for negative reviews:
+[&#39;bad&#39;, &#39;only&#39;, &#39;plot&#39;, &#39;worst&#39;, &#39;there&#39;, &#39;boring&#39;, &#39;script&#39;, &#39;why&#39;, &#39;have&#39;, &#39;unfortunately&#39;, &#39;dull&#39;, &#39;poor&#39;, &#39;any&#39;, &#39;waste&#39;, &#39;nothing&#39;, &#39;looks&#39;, &#39;ridiculous&#39;, &#39;supposed&#39;, &#39;no&#39;, &#39;even&#39;, &#39;harry&#39;, &#39;awful&#39;, &#39;then&#39;, &#39;reason&#39;, &#39;wasted&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_bad_review</span> <span class="o">=</span> <span class="s2">&quot;This was the most awful worst super bad movie ever!&quot;</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">new_bad_review</span><span class="p">])</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;neg&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_good_review</span> <span class="o">=</span> <span class="s1">&#39;WHAT A WONDERFUL, FANTASTIC MOVIE!!!&#39;</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">new_good_review</span><span class="p">])</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;pos&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># type another review here</span>
+<span class="n">my_review</span> <span class="o">=</span> <span class="s1">&#39;I hated this movie, even though my friend loved it&#39;</span>
+<span class="n">my_features</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">my_review</span><span class="p">])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">my_features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;neg&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="quiz-20-newsgroups-dataset">
+<h2>Quiz - 20 newsgroups dataset<a class="headerlink" href="#quiz-20-newsgroups-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Go through the 20 newsgroups text dataset to get familiar with newspaper data: <a class="reference external" href="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html">https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html</a></p>
+<p>“The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date.”</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "EastBayEv/SSDS-TAML",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="Chapter%202.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Chapter 2 - Core machine learning concepts; building text vocabularies</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="Chapter%204.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Chapter 4 - The BERT algorithm</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Stanford Libraries Software and Services for Data Science<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
